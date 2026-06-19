@@ -37,11 +37,21 @@ import type { DiseaseKey, Outbreak } from "@/types/domain";
 import { DISEASE_PROFILES } from "@/data/disease-profiles";
 
 export default function Home() {
-  // Wrap in Suspense because useSearchParams() needs Suspense boundary for static export
   return (
-    <Suspense fallback={<div className="min-h-screen flex items-center justify-center"><Activity className="h-6 w-6 animate-pulse" /></div>}>
+    <Suspense fallback={<HomeLoading />}>
       <HomeContent />
     </Suspense>
+  );
+}
+
+function HomeLoading() {
+  return (
+    <main className="min-h-screen flex items-center justify-center">
+      <div className="text-center space-y-2">
+        <Stethoscope className="h-8 w-8 mx-auto animate-pulse text-primary" />
+        <div className="text-sm text-muted-foreground">ВетКарта загружается…</div>
+      </div>
+    </main>
   );
 }
 

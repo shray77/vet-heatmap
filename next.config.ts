@@ -17,7 +17,9 @@ const nextConfig: NextConfig = {
   transpilePackages: ["maplibre-gl"],
   // Type-check is done via `tsc --noEmit` separately; faster iteration here
   typescript: { ignoreBuildErrors: true },
-  reactStrictMode: true,
+  // Strict mode causes double-mount of effects in dev, which breaks MapLibre
+  // init in some edge cases. Disable for stable production behavior.
+  reactStrictMode: false,
 };
 
 export default nextConfig;
