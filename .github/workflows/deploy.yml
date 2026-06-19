@@ -1,0 +1,73 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main, master]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Allow only one concurrent deployment
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - name: Install dependencies
+        run: bun install --frozen-lockfile
+
+      - name: Lint
+        run: bun run lint
+
+      - name: Build static export
+        env:
+          NODE_ENV: production
+          # CI=true ensures basePath /vet-heatmap is used
+          CI: "true"
+        run: bun run build
+
+      - name: Add .nojekyll (bypass Jekyll for _next/ paths)
+        run: touch out/.nojekyll
+
+      - name: Verify build output
+        run: |
+          ls -la out/
+          ls -la out/data/
+          test -f out/index.html || (echo "MISSING index.html" && exit 1)
+          test -f out/data/outbreaks.json || (echo "MISSING outbreaks.json" && exit 1)
+          test -f out/data/russia_regions.geojson || (echo "MISSING regions.geojson" && exit 1)
+          test -f out/sw.js || (echo "MISSING sw.js" && exit 1)
+          test -f out/manifest.webmanifest || (echo "MISSING manifest" && exit 1)
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./out
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
