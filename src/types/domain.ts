@@ -29,6 +29,11 @@ export type DiseaseKey =
   | "lepto" // Leptospirosis
   | "eia" // Equine Infectious Anemia
   | "leukosis" // Enzootic Bovine Leukosis
+  | "varroosis" // Varroa mite (bees)
+  | "nosemosis" // Nosema (bees)
+  | "trichinellosis" // Trichinella
+  | "svc" // Spring Viraemia of Carp
+  | "avian_salmonellosis" // Avian salmonellosis
   | "other";
 
 export type DiseaseGroup =

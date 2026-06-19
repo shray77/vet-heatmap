@@ -32,6 +32,11 @@ export const DISEASE_COLORS: Partial<Record<DiseaseKey, string>> = {
   lepto: "#6D4C41",      // Lepto — brown
   eia: "#880E4F",        // EIA — dark magenta
   leukosis: "#37474F",   // Leukosis — blue-grey
+  varroosis: "#F9A825",  // Varroosis — amber (bees)
+  nosemosis: "#FBC02D",  // Nosemosis — yellow (bees)
+  trichinellosis: "#5D4037", // Trichinellosis — brown
+  svc: "#00897B",        // SVC — teal (fish)
+  avian_salmonellosis: "#E65100", // Salmonellosis — dark orange
   other: "#757575",
 };
 

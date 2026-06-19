@@ -90,7 +90,32 @@ const DISEASE_ALIASES: Record<string, DiseaseKey> = {
   // Leukosis
   "лейкоз крупного рогатого скота": "leukosis",
   "энзоотический лейкоз крс": "leukosis",
+  "лейкоз крс": "leukosis",
   "enzootic bovine leukosis": "leukosis",
+  // Varroosis (bees)
+  "варроатоз пчёл": "varroosis",
+  "варроатоз пчел": "varroosis",
+  "варроатоз": "varroosis",
+  "varroosis": "varroosis",
+  // Nosemosis (bees)
+  "нозематоз пчёл": "nosemosis",
+  "нозематоз пчел": "nosemosis",
+  "нозематоз": "nosemosis",
+  "nosemosis": "nosemosis",
+  // Trichinellosis
+  "трихинеллёз": "trichinellosis",
+  "трихинеллез": "trichinellosis",
+  "trichinellosis": "trichinellosis",
+  // Spring Viraemia of Carp
+  "весенняя виремия карпов": "svc",
+  "весенняя виремия карпов": "svc",
+  "svc": "svc",
+  // Avian salmonellosis
+  "сальмонеллёз птицы": "avian_salmonellosis",
+  "сальмонеллез птицы": "avian_salmonellosis",
+  "сальмонеллёз": "avian_salmonellosis",
+  "сальмонеллез": "avian_salmonellosis",
+  "avian salmonellosis": "avian_salmonellosis",
 };
 
 /** Default human-readable labels (RU + EN) per canonical key. */
@@ -111,6 +136,11 @@ export const DISEASE_LABELS: Record<DiseaseKey, { ru: string; en: string; short_
   lepto: { ru: "Лептоспироз", en: "Leptospirosis", short_ru: "Лепто", group: "Multi-species" },
   eia: { ru: "Инфекционная анемия лошадей", en: "Equine Infectious Anemia", short_ru: "ИАЛ", group: "Equine/Wildlife" },
   leukosis: { ru: "Лейкоз КРС", en: "Enzootic Bovine Leukosis", short_ru: "Лейкоз", group: "Ruminant" },
+  varroosis: { ru: "Варроатоз пчёл", en: "Varroosis", short_ru: "Варроатоз", group: "Multi-species" },
+  nosemosis: { ru: "Нозематоз пчёл", en: "Nosemosis", short_ru: "Нозематоз", group: "Multi-species" },
+  trichinellosis: { ru: "Трихинеллёз", en: "Trichinellosis", short_ru: "Трихин.", group: "Wildlife" },
+  svc: { ru: "Весенняя виремия карпов", en: "Spring Viraemia of Carp", short_ru: "ВВК", group: "Wildlife" },
+  avian_salmonellosis: { ru: "Сальмонеллёз птицы", en: "Avian Salmonellosis", short_ru: "Сальм.", group: "Avian" },
   other: { ru: "Прочее", en: "Other", short_ru: "Прочее", group: "Multi-species" },
 };
 
