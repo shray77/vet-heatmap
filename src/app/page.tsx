@@ -1,7 +1,6 @@
 "use client";
 
-import { useState, useEffect, useMemo, useCallback, Suspense } from "react";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useState, useEffect, useMemo, useCallback } from "react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import {
@@ -37,42 +36,28 @@ import type { DiseaseKey, Outbreak } from "@/types/domain";
 import { DISEASE_PROFILES } from "@/data/disease-profiles";
 
 export default function Home() {
-  return (
-    <Suspense fallback={<HomeLoading />}>
-      <HomeContent />
-    </Suspense>
-  );
-}
-
-function HomeLoading() {
-  return (
-    <main className="min-h-screen flex items-center justify-center">
-      <div className="text-center space-y-2">
-        <Stethoscope className="h-8 w-8 mx-auto animate-pulse text-primary" />
-        <div className="text-sm text-muted-foreground">ВетКарта загружается…</div>
-      </div>
-    </main>
-  );
+  return <HomeContent />;
 }
 
 function HomeContent() {
-  const router = useRouter();
-  const searchParams = useSearchParams();
-
   const { data, loading, error } = useOutbreaks();
   const { geo, loading: geoLoading } = useRegionsGeoJSON();
 
-  // Filters from URL
-  const [filters, setFilters] = useState<FilterState>(() =>
-    paramsToFilters(searchParams),
-  );
+  // Read URL search params directly (avoids useSearchParams() which requires
+  // Suspense boundary and was breaking production static export hydration).
+  const [filters, setFilters] = useState<FilterState>(() => {
+    if (typeof window === "undefined") return DEFAULT_FILTERS;
+    const params = new URLSearchParams(window.location.search);
+    return paramsToFilters(params);
+  });
 
   // Sync filters to URL
   useEffect(() => {
     const params = filtersToParams(filters);
-    const url = params.toString() ? `/?${params.toString()}` : "/";
-    router.replace(url, { scroll: false });
-  }, [filters, router]);
+    const url = params.toString() ? `?${params.toString()}` : "/";
+    // Use history.replaceState to avoid Next.js router issues in static export
+    window.history.replaceState(null, "", url);
+  }, [filters]);
 
   // Layer toggles
   const [showRiskZones, setShowRiskZones] = useState(true);
