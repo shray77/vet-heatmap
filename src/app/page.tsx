@@ -13,6 +13,7 @@ import {
   AlertTriangle,
   Info,
   LocateFixed,
+  Beaker,
 } from "lucide-react";
 
 import { OutbreakMap } from "@/components/outbreak-map";
@@ -23,6 +24,7 @@ import { OutbreaksTable } from "@/components/outbreaks-table";
 import { DiseaseProfileDrawer } from "@/components/disease-profile-drawer";
 import { QuarantineCalculator } from "@/components/quarantine-calculator";
 import { NearbyOutbreaks } from "@/components/nearby-outbreaks";
+import { SIRSimulator } from "@/components/sir-simulator";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { PwaBanners } from "@/components/pwa-banners";
 import { AboutDialog } from "@/components/about-dialog";
@@ -80,6 +82,7 @@ function HomeContent() {
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
   const [aboutOpen, setAboutOpen] = useState(false);
   const [nearbyOpen, setNearbyOpen] = useState(false);
+  const [sirOpen, setSirOpen] = useState(false);
 
   // Region centroids for "nearby" calculation (computed once geo is loaded)
   const regionCentroids = useMemo(() => {
@@ -138,6 +141,7 @@ function HomeContent() {
     onOpenCalculator: () => openCalculator(),
     onOpenAbout: () => setAboutOpen(true),
     onOpenNearby: () => setNearbyOpen(true),
+    onOpenSIR: () => setSirOpen(true),
     onResetFilters: resetFilters,
     onToggleTheme: () => {
       // Cycle: light -> dark -> system
@@ -205,7 +209,15 @@ function HomeContent() {
               onClick={() => setNearbyOpen(true)}
             >
               <LocateFixed className="h-4 w-4 mr-1" />
-              Рядом со мной
+              Рядом
+            </Button>
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={() => setSirOpen(true)}
+            >
+              <Beaker className="h-4 w-4 mr-1" />
+              SIR
             </Button>
             <Button
               variant="outline"
@@ -213,7 +225,7 @@ function HomeContent() {
               onClick={() => openCalculator()}
             >
               <Calculator className="h-4 w-4 mr-1" />
-              Калькулятор
+              Карантин
             </Button>
             <Button
               variant="ghost"
@@ -249,6 +261,14 @@ function HomeContent() {
               aria-label="Рядом со мной"
             >
               <LocateFixed className="h-4 w-4" />
+            </Button>
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={() => setSirOpen(true)}
+              aria-label="SIR-симулятор"
+            >
+              <Beaker className="h-4 w-4" />
             </Button>
             <Button
               variant="ghost"
@@ -405,6 +425,7 @@ function HomeContent() {
           setDrawerOpen(true);
         }}
       />
+      <SIRSimulator open={sirOpen} onOpenChange={setSirOpen} />
       <AboutDialog open={aboutOpen} onOpenChange={setAboutOpen} />
     </main>
   );

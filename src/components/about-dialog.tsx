@@ -128,6 +128,7 @@ export function AboutDialog({ open, onOpenChange }: AboutDialogProps) {
                 { k: "f", d: "Фильтры" },
                 { k: "c", d: "Калькулятор" },
                 { k: "n", d: "Рядом со мной" },
+                { k: "s", d: "SIR-симулятор" },
                 { k: "r", d: "Сбросить фильтры" },
                 { k: "t", d: "Сменить тему" },
                 { k: "/", d: "Поиск" },

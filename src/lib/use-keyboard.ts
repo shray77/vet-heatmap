@@ -7,6 +7,7 @@ interface KeyboardShortcutsProps {
   onOpenCalculator?: () => void;
   onOpenAbout?: () => void;
   onOpenNearby?: () => void;
+  onOpenSIR?: () => void;
   onResetFilters?: () => void;
   onToggleTheme?: () => void;
 }
@@ -19,6 +20,7 @@ interface KeyboardShortcutsProps {
  *   f        — toggle mobile filters panel
  *   c        — open quarantine calculator
  *   n        — open "nearby outbreaks" dialog (geolocation)
+ *   s        — open SIR simulator
  *   r        — reset all filters
  *   t        — toggle theme (light/dark/system)
  *   /        — focus search box in filter panel
@@ -33,6 +35,7 @@ export function useKeyboardShortcuts({
   onOpenCalculator,
   onOpenAbout,
   onOpenNearby,
+  onOpenSIR,
   onResetFilters,
   onToggleTheme,
 }: KeyboardShortcutsProps) {
@@ -71,6 +74,10 @@ export function useKeyboardShortcuts({
           e.preventDefault();
           onOpenNearby?.();
           break;
+        case "s":
+          e.preventDefault();
+          onOpenSIR?.();
+          break;
         case "r":
           e.preventDefault();
           onResetFilters?.();
@@ -92,5 +99,5 @@ export function useKeyboardShortcuts({
 
     window.addEventListener("keydown", handler);
     return () => window.removeEventListener("keydown", handler);
-  }, [onOpenFilters, onOpenCalculator, onOpenAbout, onOpenNearby, onResetFilters, onToggleTheme]);
+  }, [onOpenFilters, onOpenCalculator, onOpenAbout, onOpenNearby, onOpenSIR, onResetFilters, onToggleTheme]);
 }
