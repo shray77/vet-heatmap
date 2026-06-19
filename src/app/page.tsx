@@ -26,6 +26,8 @@ import { PwaBanners } from "@/components/pwa-banners";
 import { AboutDialog } from "@/components/about-dialog";
 
 import { useOutbreaks, useRegionsGeoJSON } from "@/lib/use-data";
+import { useKeyboardShortcuts } from "@/lib/use-keyboard";
+import { useTheme } from "next-themes";
 import {
   DEFAULT_FILTERS,
   FilterState,
@@ -95,6 +97,20 @@ function HomeContent() {
   };
 
   const resetFilters = () => setFilters(DEFAULT_FILTERS);
+  const { setTheme, theme } = useTheme();
+
+  // Keyboard shortcuts
+  useKeyboardShortcuts({
+    onOpenFilters: () => setMobileFiltersOpen(true),
+    onOpenCalculator: () => openCalculator(),
+    onOpenAbout: () => setAboutOpen(true),
+    onResetFilters: resetFilters,
+    onToggleTheme: () => {
+      // Cycle: light -> dark -> system
+      const next = theme === "light" ? "dark" : theme === "dark" ? "system" : "light";
+      setTheme(next);
+    },
+  });
 
   if (loading || geoLoading) {
     return (

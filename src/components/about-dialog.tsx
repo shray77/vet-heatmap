@@ -116,6 +116,33 @@ export function AboutDialog({ open, onOpenChange }: AboutDialogProps) {
 
           <Separator />
 
+          {/* Keyboard shortcuts */}
+          <section className="space-y-2">
+            <h3 className="font-semibold flex items-center gap-1.5">
+              <kbd className="px-1.5 py-0.5 text-[10px] font-mono bg-muted border rounded">⌨</kbd>
+              Горячие клавиши
+            </h3>
+            <div className="grid grid-cols-2 gap-1.5 text-xs">
+              {[
+                { k: "?", d: "Это окно" },
+                { k: "f", d: "Фильтры" },
+                { k: "c", d: "Калькулятор" },
+                { k: "r", d: "Сбросить фильтры" },
+                { k: "t", d: "Сменить тему" },
+                { k: "/", d: "Поиск" },
+              ].map(({ k, d }) => (
+                <div key={k} className="flex items-center gap-2">
+                  <kbd className="px-1.5 py-0.5 text-[10px] font-mono bg-muted border rounded min-w-[20px] text-center">
+                    {k}
+                  </kbd>
+                  <span className="text-muted-foreground">{d}</span>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          <Separator />
+
           {/* Tech */}
           <section className="space-y-2">
             <h3 className="font-semibold">Технологии</h3>
