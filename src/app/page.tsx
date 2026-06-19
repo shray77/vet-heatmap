@@ -18,6 +18,7 @@ import { OutbreakMap } from "@/components/outbreak-map";
 import { StatsBar } from "@/components/stats-bar";
 import { FilterPanel } from "@/components/filter-panel";
 import { EpiCurve } from "@/components/epi-curve";
+import { OutbreaksTable } from "@/components/outbreaks-table";
 import { DiseaseProfileDrawer } from "@/components/disease-profile-drawer";
 import { QuarantineCalculator } from "@/components/quarantine-calculator";
 import { ThemeToggle } from "@/components/theme-toggle";
@@ -292,13 +293,15 @@ function HomeContent() {
               onShowChoroplethChange={setShowChoropleth}
             />
             <EpiCurve outbreaks={filtered} />
+            <OutbreaksTable outbreaks={filtered} onSelectOutbreak={(o) => onSelectOutbreak(o)} />
           </div>
         </aside>
       </div>
 
-      {/* ─── Mobile: Epi curve below map ──────────────────────────── */}
-      <div className="lg:hidden p-3">
+      {/* ─── Mobile: Epi curve + table below map ─────────────────── */}
+      <div className="lg:hidden p-3 space-y-3">
         <EpiCurve outbreaks={filtered} />
+        <OutbreaksTable outbreaks={filtered} onSelectOutbreak={(o) => onSelectOutbreak(o)} />
       </div>
 
       {/* ─── Drawers/Dialogs ─────────────────────────────────────── */}
