@@ -58,7 +58,7 @@ async function main() {
 
   // Run external scrapers; if any fail, log warning and continue
   const results = await Promise.allSettled([
-    scrapeFsvps({ lookbackDays: 365 }),
+    scrapeFsvps({ lookbackDays: 30, maxReports: 10 }),
     scrapeWahis(),
     scrapeEfsa(),
   ]);

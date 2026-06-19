@@ -5,21 +5,31 @@
  *   1. Fetch /jepizooticheskaja-situacija/rossija/operativnye-informacionnye-soobshhenija/
  *      — this page links daily PDF situation reports (one per working day).
  *   2. Extract PDF URLs + their publication dates.
- *   3. (v1) Save the PDF index to /scripts/scrape/.cache/fsvps-pdfs.json
- *      so the merge step can include "last-fetched" metadata.
- *   4. (v2 TODO) Download + parse each PDF with pdfjs to extract outbreak records.
+ *   3. For each report within the lookback window:
+ *      a. Download the PDF
+ *      b. Extract text with pdfjs-dist
+ *      c. Parse disease sections + items via fsvps-pdf-parser.ts
+ *      d. Build RawArticle per outbreak entry
+ *   4. Return list of outbreaks.
  *
- * For v1, this scraper produces a "source manifest" of available reports
- * and returns an empty outbreak list. The curated dataset is the actual
- * source of truth for v1, while the manifest proves the pipeline can
- * reach fsvps and is ready to consume real data once PDF parsing lands.
+ * The PDF parsing is real (not stub) — it extracts:
+ *   - disease (from section header: "Бешенство животных", "Лейкоз КРС", etc.)
+ *   - region (from item: "Иркутская область", "Алтайский край", etc.)
+ *   - status (Ongoing if "установлены", Resolved if "снятие"/"отменены")
+ *   - species (inferred from disease label + parenthetical "(вид)")
+ *   - cases/deaths (when present in text, often absent in legal-style reports)
  */
 
 import { mkdir, writeFile } from "node:fs/promises";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
-import type { Outbreak, RawArticle, SourceKey } from "../../../src/types/domain";
+import * as pdfjs from "pdfjs-dist/legacy/build/pdf.mjs";
+
+import type { Outbreak, RawArticle, SourceKey, DiseaseKey, DiseaseGroup, OutbreakStatus } from "../../../src/types/domain";
+import { normalizeDisease, getDiseaseLabels } from "../../../src/data/diseases-normalize";
+import { normalizeRegion } from "../../../src/data/regions";
+import { parseFsvpsReport } from "./fsvps-pdf-parser";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -118,14 +128,14 @@ function extractPdfReports(html: string): FsvpPdfReport[] {
 /**
  * Main scrape entrypoint.
  *
- * v1 behavior: fetch the page, extract PDF report index, save to cache,
- * return [] outbreaks (since PDF parsing is not yet implemented).
+ * For each recent report PDF:
+ *   1. Download
+ *   2. Extract text with pdfjs-dist
+ *   3. Parse with parseFsvpsReport() to get RawArticle[]
  *
- * v2 TODO: for each report PDF, download, extract text with pdfjs,
- * regex-extract {disease, region, species, cases, deaths, date} rows,
- * return as RawArticle[]. Stub shows the target shape.
+ * Returns the union of all articles + outbreaks.
  */
-export async function scrapeFsvps(opts: { lookbackDays?: number } = {}): Promise<{
+export async function scrapeFsvps(opts: { lookbackDays?: number; maxReports?: number } = {}): Promise<{
   source: SourceKey;
   reports: FsvpPdfReport[];
   raw: RawArticle[];
@@ -139,7 +149,7 @@ export async function scrapeFsvps(opts: { lookbackDays?: number } = {}): Promise
   const reports = extractPdfReports(html);
   console.log(`[fsvps] Found ${reports.length} PDF reports`);
 
-  // Save manifest for v2 PDF-parsing pipeline + for the frontend "last fetched" indicator
+  // Save manifest for the frontend "last fetched" indicator
   await mkdir(CACHE_DIR, { recursive: true });
   await writeFile(
     resolve(CACHE_DIR, "fsvps-pdfs.json"),
@@ -147,29 +157,110 @@ export async function scrapeFsvps(opts: { lookbackDays?: number } = {}): Promise
     "utf-8",
   );
 
-  // Apply lookback window (default: last 365 days)
+  // Apply lookback window (default: last 30 days — recent reports are most relevant)
+  const lookback = opts.lookbackDays ?? 30;
   const cutoff = new Date();
-  cutoff.setDate(cutoff.getDate() - (opts.lookbackDays ?? 365));
+  cutoff.setDate(cutoff.getDate() - lookback);
   const recent = reports.filter((r) => new Date(r.date) >= cutoff);
-  console.log(`[fsvps] ${recent.length} reports within last ${opts.lookbackDays ?? 365} days`);
+  console.log(`[fsvps] ${recent.length} reports within last ${lookback} days`);
 
-  // ─── v2 placeholder ────────────────────────────────────────────────────
-  // For each recent report, we would:
-  //   1. Download the PDF
-  //   2. Extract text with pdfjs-dist
-  //   3. Regex-match outbreak rows (e.g. "АЧС, Тверская обл., свиньи, пало 12")
-  //   4. Build RawArticle per row
-  //
-  // See /scripts/scrape/TODO-pdf-parsing.md for the planned approach.
-  // ──────────────────────────────────────────────────────────────────────
+  // Cap number of PDFs to parse (default: 14 — ~2 weeks of working days)
+  const maxReports = opts.maxReports ?? 14;
+  const toParse = recent.slice(0, maxReports);
+  console.log(`[fsvps] Will parse ${toParse.length} PDFs (cap: ${maxReports})`);
+
+  const allRaw: RawArticle[] = [];
+  let parsed = 0;
+  let failed = 0;
+
+  for (const report of toParse) {
+    try {
+      console.log(`[fsvps] Parsing ${report.date} — ${report.url.split("/").pop()}`);
+      const pdfBuffer = await downloadPdf(report.url);
+      const text = await extractPdfText(pdfBuffer);
+      const articles = parseFsvpsReport(text, report.date, report.url);
+      allRaw.push(...articles);
+      parsed++;
+      // Brief delay to be polite to fsvps server
+      await new Promise((r) => setTimeout(r, 200));
+    } catch (e) {
+      console.warn(`[fsvps] Failed to parse ${report.url}:`, e instanceof Error ? e.message : e);
+      failed++;
+    }
+  }
+
+  console.log(`[fsvps] Parsed ${parsed} PDFs successfully, ${failed} failed`);
+  console.log(`[fsvps] Total raw articles extracted: ${allRaw.length}`);
+
+  // Convert RawArticle → Outbreak (basic conversion, real merge/dedupe happens in merge.ts)
+  const outbreaks: Outbreak[] = allRaw.map((raw, i) => {
+    // Re-use rawToOutbreak from the parser module
+    // (imported lazily to avoid circular deps in CLI)
+    return convertRawToOutbreak(raw, i + 1);
+  });
 
   return {
     source: "fsvps",
     reports,
-    raw: [],
-    outbreaks: [],
-    warning:
-      "v1 stub: PDF parsing not yet implemented. Pipeline reaches fsvps.gov.ru and indexes daily reports, but outbreak extraction from PDFs is pending (see TODO-pdf-parsing.md). Curated dataset is used as fallback.",
+    raw: allRaw,
+    outbreaks,
+    warning: failed > 0 ? `${failed} PDF(s) failed to parse` : undefined,
+  };
+}
+
+/** Download a PDF and return it as a Buffer. */
+async function downloadPdf(url: string): Promise<Buffer> {
+  const res = await fetch(url, {
+    headers: {
+      "User-Agent": "Mozilla/5.0 (X11; Linux x86_64; rv:120.0) Gecko/20100101 Firefox/120.0",
+      "Accept": "application/pdf,*/*;q=0.8",
+    },
+  });
+  if (!res.ok) {
+    throw new Error(`HTTP ${res.status} fetching ${url}`);
+  }
+  const ab = await res.arrayBuffer();
+  return Buffer.from(ab);
+}
+
+/** Extract plain text from a PDF buffer. */
+async function extractPdfText(pdfBuffer: Buffer): Promise<string> {
+  const data = new Uint8Array(pdfBuffer.buffer, pdfBuffer.byteOffset, pdfBuffer.byteLength);
+  const doc = await pdfjs.getDocument({ data }).promise;
+  let text = "";
+  for (let i = 1; i <= doc.numPages; i++) {
+    const page = await doc.getPage(i);
+    const content = await page.getTextContent();
+    text += content.items
+      .map((it: unknown) => (it as { str?: string }).str || "")
+      .join(" ") + "\n";
+  }
+  return text;
+}
+
+/** Convert a RawArticle to an Outbreak (basic; merge.ts will dedupe + assign final IDs). */
+function convertRawToOutbreak(raw: RawArticle, id: number): Outbreak {
+  const disease_key: DiseaseKey = normalizeDisease(raw.detected_disease ?? "");
+  const labels = getDiseaseLabels(disease_key);
+  const region_geo = normalizeRegion(raw.detected_region ?? "") ?? "";
+  const status: OutbreakStatus =
+    raw.body_text && /(снятие|отмен)/i.test(raw.body_text) ? "Resolved" : "Ongoing";
+
+  return {
+    id,
+    disease_key,
+    disease: labels.ru,
+    disease_group: labels.group as DiseaseGroup,
+    region: raw.detected_region ?? "",
+    region_geo,
+    date: raw.published_at,
+    species: raw.detected_species ?? "Other",
+    cases: raw.detected_cases ?? 0,
+    deaths: raw.detected_deaths ?? 0,
+    status,
+    source: "fsvps" as SourceKey,
+    source_url: raw.url,
+    notes: raw.title,
   };
 }
 
