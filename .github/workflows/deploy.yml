@@ -47,10 +47,11 @@ jobs:
         run: |
           ls -la out/
           ls -la out/data/
+          ls -la out/icons/
           test -f out/index.html || (echo "MISSING index.html" && exit 1)
           test -f out/data/outbreaks.json || (echo "MISSING outbreaks.json" && exit 1)
           test -f out/data/russia_regions.geojson || (echo "MISSING regions.geojson" && exit 1)
-          test -f out/sw.js || (echo "MISSING sw.js" && exit 1)
+          test -f out/vetkart-sw.js || (echo "MISSING vetkart-sw.js" && exit 1)
           test -f out/manifest.webmanifest || (echo "MISSING manifest" && exit 1)
 
       - name: Setup Pages

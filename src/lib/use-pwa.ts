@@ -26,7 +26,7 @@ export function usePWA() {
   useEffect(() => {
     // Service worker registration — only in production (basePath /vet-heatmap)
     if ("serviceWorker" in navigator && process.env.NODE_ENV === "production") {
-      const swUrl = "/vet-heatmap/sw.js";
+      const swUrl = "/vet-heatmap/vetkart-sw.js";
       navigator.serviceWorker
         .register(swUrl, { scope: "/vet-heatmap/" })
         .then((reg) => {
