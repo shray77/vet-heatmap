@@ -12,6 +12,7 @@ import {
   Stethoscope,
   AlertTriangle,
   Info,
+  LocateFixed,
 } from "lucide-react";
 
 import { OutbreakMap } from "@/components/outbreak-map";
@@ -21,6 +22,7 @@ import { EpiCurve } from "@/components/epi-curve";
 import { OutbreaksTable } from "@/components/outbreaks-table";
 import { DiseaseProfileDrawer } from "@/components/disease-profile-drawer";
 import { QuarantineCalculator } from "@/components/quarantine-calculator";
+import { NearbyOutbreaks } from "@/components/nearby-outbreaks";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { PwaBanners } from "@/components/pwa-banners";
 import { AboutDialog } from "@/components/about-dialog";
@@ -74,6 +76,33 @@ function HomeContent() {
   const [calcPreselect, setCalcPreselect] = useState<DiseaseKey | null>(null);
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
   const [aboutOpen, setAboutOpen] = useState(false);
+  const [nearbyOpen, setNearbyOpen] = useState(false);
+
+  // Region centroids for "nearby" calculation (computed once geo is loaded)
+  const regionCentroids = useMemo(() => {
+    const m = new Map<string, [number, number]>();
+    if (!geo) return m;
+    for (const f of geo.features) {
+      const name = (f.properties as { shapeName?: string }).shapeName;
+      if (!name) continue;
+      // Compute centroid as bounding-box center (rough, fine for distance calc)
+      let minX = Infinity, minY = Infinity, maxX = -Infinity, maxY = -Infinity;
+      const visit = (coords: unknown) => {
+        if (typeof (coords as number[])[0] === "number") {
+          const [x, y] = coords as number[];
+          minX = Math.min(minX, x);
+          minY = Math.min(minY, y);
+          maxX = Math.max(maxX, x);
+          maxY = Math.max(maxY, y);
+        } else if (Array.isArray(coords)) {
+          for (const c of coords) visit(c);
+        }
+      };
+      visit((f.geometry as { coordinates: unknown }).coordinates);
+      if (minX !== Infinity) m.set(name, [(minX + maxX) / 2, (minY + maxY) / 2]);
+    }
+    return m;
+  }, [geo]);
 
   // Filtered outbreaks
   const filtered = useMemo(() => {
@@ -105,6 +134,7 @@ function HomeContent() {
     onOpenFilters: () => setMobileFiltersOpen(true),
     onOpenCalculator: () => openCalculator(),
     onOpenAbout: () => setAboutOpen(true),
+    onOpenNearby: () => setNearbyOpen(true),
     onResetFilters: resetFilters,
     onToggleTheme: () => {
       // Cycle: light -> dark -> system
@@ -169,10 +199,18 @@ function HomeContent() {
             <Button
               variant="outline"
               size="sm"
+              onClick={() => setNearbyOpen(true)}
+            >
+              <LocateFixed className="h-4 w-4 mr-1" />
+              Рядом со мной
+            </Button>
+            <Button
+              variant="outline"
+              size="sm"
               onClick={() => openCalculator()}
             >
               <Calculator className="h-4 w-4 mr-1" />
-              Калькулятор карантина
+              Калькулятор
             </Button>
             <Button
               variant="ghost"
@@ -200,6 +238,14 @@ function HomeContent() {
               aria-label="О проекте"
             >
               <Info className="h-4 w-4" />
+            </Button>
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={() => setNearbyOpen(true)}
+              aria-label="Рядом со мной"
+            >
+              <LocateFixed className="h-4 w-4" />
             </Button>
             <Button
               variant="ghost"
@@ -345,6 +391,16 @@ function HomeContent() {
         open={calcOpen}
         onOpenChange={setCalcOpen}
         preselectDisease={calcPreselect}
+      />
+      <NearbyOutbreaks
+        open={nearbyOpen}
+        onOpenChange={setNearbyOpen}
+        outbreaks={data?.outbreaks ?? []}
+        regionCentroids={regionCentroids}
+        onFocusOutbreak={(o) => {
+          setDrawerDisease(o.disease_key);
+          setDrawerOpen(true);
+        }}
       />
       <AboutDialog open={aboutOpen} onOpenChange={setAboutOpen} />
     </main>

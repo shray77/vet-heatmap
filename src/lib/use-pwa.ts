@@ -8,19 +8,16 @@ interface BeforeInstallPromptEvent extends Event {
 }
 
 /**
- * PWA install prompt + service worker registration hook.
+ * PWA hooks: install prompt + offline detection.
  *
- * Returns:
- *   - canInstall: true when browser fired beforeinstallprompt
- *   - promptInstall(): triggers the install prompt (call from a button)
- *   - updateAvailable: true when a new SW is waiting to activate
- *   - applyUpdate(): activates the new SW and reloads
+ * Note: SW update detection is intentionally DISABLED. The update banner
+ * was annoying users (and on iOS the "waiting worker" logic was unreliable).
+ * New versions are picked up automatically on next visit — no user action
+ * required.
  */
 export function usePWA() {
   const [canInstall, setCanInstall] = useState(false);
   const [installEvent, setInstallEvent] = useState<BeforeInstallPromptEvent | null>(null);
-  const [updateAvailable, setUpdateAvailable] = useState(false);
-  // Initial value derived once on client mount — avoids setState-in-effect.
   const [isOffline, setIsOffline] = useState(false);
 
   useEffect(() => {
@@ -30,24 +27,24 @@ export function usePWA() {
       navigator.serviceWorker
         .register(swUrl, { scope: "/vet-heatmap/" })
         .then((reg) => {
-          // Watch for waiting SW (new version available)
-          const checkWaiting = () => {
-            if (reg.waiting) setUpdateAvailable(true);
+          // Auto-activate any waiting worker silently (no user-facing banner).
+          // This is safe: SW changes only affect cached resources, not active
+          // page state. User gets the new version on next reload.
+          const activateWaiting = () => {
+            if (reg.waiting) reg.waiting.postMessage({ type: "SKIP_WAITING" });
           };
-          checkWaiting();
+          activateWaiting();
           reg.addEventListener("updatefound", () => {
             const newWorker = reg.installing;
             if (!newWorker) return;
-            newWorker.addEventListener("statechange", checkWaiting);
+            newWorker.addEventListener("statechange", activateWaiting);
           });
         })
         .catch((e) => {
-          // SW registration failure is non-fatal
           console.warn("[pwa] SW registration failed:", e);
         });
     }
 
-    // beforeinstallprompt
     const onBIP = (e: Event) => {
       e.preventDefault();
       setInstallEvent(e as BeforeInstallPromptEvent);
@@ -55,14 +52,12 @@ export function usePWA() {
     };
     window.addEventListener("beforeinstallprompt", onBIP);
 
-    // appinstalled event
     const onInstalled = () => {
       setCanInstall(false);
       setInstallEvent(null);
     };
     window.addEventListener("appinstalled", onInstalled);
 
-    // Online/offline
     const onOnline = () => setIsOffline(false);
     const onOffline = () => setIsOffline(true);
     window.addEventListener("online", onOnline);
@@ -84,25 +79,5 @@ export function usePWA() {
     setCanInstall(false);
   };
 
-  const applyUpdate = async () => {
-    if ("serviceWorker" in navigator) {
-      const reg = await navigator.serviceWorker.getRegistration();
-      if (reg?.waiting) {
-        // Listen for the new SW to take control, then reload
-        navigator.serviceWorker.addEventListener("controllerchange", () => {
-          window.location.reload();
-        }, { once: true });
-        reg.waiting.postMessage({ type: "SKIP_WAITING" });
-        // Fallback: if controllerchange doesn't fire within 3s, reload anyway
-        setTimeout(() => window.location.reload(), 3000);
-      } else {
-        // No waiting worker — just reload
-        window.location.reload();
-      }
-    } else {
-      window.location.reload();
-    }
-  };
-
-  return { canInstall, promptInstall, updateAvailable, applyUpdate, isOffline };
+  return { canInstall, promptInstall, isOffline };
 }

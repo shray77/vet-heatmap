@@ -6,6 +6,7 @@ interface KeyboardShortcutsProps {
   onOpenFilters?: () => void;
   onOpenCalculator?: () => void;
   onOpenAbout?: () => void;
+  onOpenNearby?: () => void;
   onResetFilters?: () => void;
   onToggleTheme?: () => void;
 }
@@ -17,6 +18,7 @@ interface KeyboardShortcutsProps {
  *   ?        — show about dialog
  *   f        — toggle mobile filters panel
  *   c        — open quarantine calculator
+ *   n        — open "nearby outbreaks" dialog (geolocation)
  *   r        — reset all filters
  *   t        — toggle theme (light/dark/system)
  *   /        — focus search box in filter panel
@@ -30,6 +32,7 @@ export function useKeyboardShortcuts({
   onOpenFilters,
   onOpenCalculator,
   onOpenAbout,
+  onOpenNearby,
   onResetFilters,
   onToggleTheme,
 }: KeyboardShortcutsProps) {
@@ -64,6 +67,10 @@ export function useKeyboardShortcuts({
           e.preventDefault();
           onOpenCalculator?.();
           break;
+        case "n":
+          e.preventDefault();
+          onOpenNearby?.();
+          break;
         case "r":
           e.preventDefault();
           onResetFilters?.();
@@ -85,5 +92,5 @@ export function useKeyboardShortcuts({
 
     window.addEventListener("keydown", handler);
     return () => window.removeEventListener("keydown", handler);
-  }, [onOpenFilters, onOpenCalculator, onOpenAbout, onResetFilters, onToggleTheme]);
+  }, [onOpenFilters, onOpenCalculator, onOpenAbout, onOpenNearby, onResetFilters, onToggleTheme]);
 }
