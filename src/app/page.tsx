@@ -5,12 +5,14 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import {
+  Menu,
+  Filter,
   Calculator,
   Github,
   Activity,
   Stethoscope,
   AlertTriangle,
-  Filter,
+  Info,
 } from "lucide-react";
 
 import { OutbreakMap } from "@/components/outbreak-map";
@@ -21,6 +23,7 @@ import { DiseaseProfileDrawer } from "@/components/disease-profile-drawer";
 import { QuarantineCalculator } from "@/components/quarantine-calculator";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { PwaBanners } from "@/components/pwa-banners";
+import { AboutDialog } from "@/components/about-dialog";
 
 import { useOutbreaks, useRegionsGeoJSON } from "@/lib/use-data";
 import {
@@ -71,6 +74,7 @@ function HomeContent() {
   const [calcOpen, setCalcOpen] = useState(false);
   const [calcPreselect, setCalcPreselect] = useState<DiseaseKey | null>(null);
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
+  const [aboutOpen, setAboutOpen] = useState(false);
 
   // Filtered outbreaks
   const filtered = useMemo(() => {
@@ -142,6 +146,14 @@ function HomeContent() {
           {/* Desktop actions */}
           <div className="hidden md:flex items-center gap-1">
             <Button
+              variant="ghost"
+              size="icon"
+              onClick={() => setAboutOpen(true)}
+              aria-label="О проекте"
+            >
+              <Info className="h-4 w-4" />
+            </Button>
+            <Button
               variant="outline"
               size="sm"
               onClick={() => openCalculator()}
@@ -168,6 +180,14 @@ function HomeContent() {
 
           {/* Mobile actions */}
           <div className="flex md:hidden items-center gap-1">
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={() => setAboutOpen(true)}
+              aria-label="О проекте"
+            >
+              <Info className="h-4 w-4" />
+            </Button>
             <Button
               variant="ghost"
               size="icon"
@@ -297,6 +317,7 @@ function HomeContent() {
         onOpenChange={setCalcOpen}
         preselectDisease={calcPreselect}
       />
+      <AboutDialog open={aboutOpen} onOpenChange={setAboutOpen} />
     </main>
   );
 }
