@@ -88,10 +88,20 @@ export function usePWA() {
     if ("serviceWorker" in navigator) {
       const reg = await navigator.serviceWorker.getRegistration();
       if (reg?.waiting) {
+        // Listen for the new SW to take control, then reload
+        navigator.serviceWorker.addEventListener("controllerchange", () => {
+          window.location.reload();
+        }, { once: true });
         reg.waiting.postMessage({ type: "SKIP_WAITING" });
+        // Fallback: if controllerchange doesn't fire within 3s, reload anyway
+        setTimeout(() => window.location.reload(), 3000);
+      } else {
+        // No waiting worker — just reload
+        window.location.reload();
       }
+    } else {
+      window.location.reload();
     }
-    window.location.reload();
   };
 
   return { canInstall, promptInstall, updateAvailable, applyUpdate, isOffline };

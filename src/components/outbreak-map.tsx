@@ -243,15 +243,21 @@ export function OutbreakMap({
   useEffect(() => {
     const map = mapRef.current;
     if (!map || !ready) return;
+    if (!geo) return; // need geo to compute centroids
+    if (outbreaks.length === 0) {
+      // No outbreaks to show — clear any existing markers
+      Object.values(markersRef.current).forEach((m) => m.remove());
+      Object.values(popupsRef.current).forEach((p) => p.remove());
+      markersRef.current = {};
+      popupsRef.current = {};
+      return;
+    }
 
     // Remove old markers
     Object.values(markersRef.current).forEach((m) => m.remove());
     Object.values(popupsRef.current).forEach((p) => p.remove());
     markersRef.current = {};
     popupsRef.current = {};
-
-    // Need geo to compute region centroids
-    if (!geo) return;
     const centroids = new Map<string, [number, number]>();
     for (const f of geo.features) {
       const name = (f.properties as { shapeName: string }).shapeName;
@@ -384,8 +390,11 @@ export function OutbreakMap({
     <div className="relative w-full h-full">
       <div ref={mapContainer} className="w-full h-full" />
       {!ready && (
-        <div className="absolute inset-0 flex items-center justify-center bg-background/50 backdrop-blur-sm">
-          <div className="text-sm text-muted-foreground animate-pulse">Загрузка карты…</div>
+        <div className="absolute inset-0 flex items-center justify-center bg-background/80 backdrop-blur-sm z-10">
+          <div className="flex flex-col items-center gap-3">
+            <div className="h-8 w-8 border-2 border-primary border-t-transparent rounded-full animate-spin" />
+            <div className="text-sm text-muted-foreground">Загрузка карты…</div>
+          </div>
         </div>
       )}
     </div>

@@ -19,25 +19,32 @@ export function StatsBar({ outbreaks, totalRegions }: StatsBarProps) {
     {
       label: "Всего вспышек",
       value: total,
-      color: "var(--chart-1)",
+      // neutral primary — readable on both light/dark
+      color: "var(--foreground)",
       icon: Activity,
     },
     {
       label: "Активные",
       value: ongoing,
+      // destructive — strong red, AAA contrast on bg
       color: "var(--destructive)",
       icon: AlertTriangle,
+      // emphasize ongoing with subtle bg tint
+      highlight: ongoing > 0,
     },
     {
       label: "Регионов затронуто",
       value: `${affectedRegions}/${totalRegions}`,
-      color: "var(--chart-4)",
+      // chart-4 (info blue) — but use foreground for the number, color only the icon
+      color: "var(--foreground)",
+      iconColor: "var(--chart-4)",
       icon: MapPin,
     },
     {
       label: "Типов болезней",
       value: diseaseTypes,
-      color: "var(--chart-3)",
+      color: "var(--foreground)",
+      iconColor: "var(--chart-3)",
       icon: Biohazard,
     },
   ];
@@ -47,21 +54,24 @@ export function StatsBar({ outbreaks, totalRegions }: StatsBarProps) {
       {cards.map((c) => (
         <Card
           key={c.label}
-          className="px-3 py-2 md:px-4 md:py-3 flex flex-col md:flex-row md:items-center gap-1 md:gap-3"
+          className={`px-3 py-2 md:px-4 md:py-3 flex items-center gap-3 transition-colors ${
+            c.highlight ? "border-destructive/30 bg-destructive/5" : ""
+          }`}
         >
           <c.icon
             className="h-5 w-5 md:h-6 md:w-6 shrink-0"
-            style={{ color: c.color }}
+            style={{ color: c.iconColor ?? c.color }}
             aria-hidden
           />
-          <div className="min-w-0">
+          {/* Number + label, baseline-aligned in a column */}
+          <div className="min-w-0 flex flex-col justify-center">
             <div
-              className="text-xl md:text-2xl font-bold leading-none truncate"
+              className="text-xl md:text-2xl font-bold leading-none tabular-nums"
               style={{ color: c.color }}
             >
               {c.value}
             </div>
-            <div className="text-[10px] md:text-xs text-muted-foreground truncate mt-1">
+            <div className="text-[10px] md:text-xs text-muted-foreground leading-tight mt-1 truncate">
               {c.label}
             </div>
           </div>

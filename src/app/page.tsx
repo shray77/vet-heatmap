@@ -28,6 +28,7 @@ import { AboutDialog } from "@/components/about-dialog";
 import { useOutbreaks, useRegionsGeoJSON } from "@/lib/use-data";
 import { useKeyboardShortcuts } from "@/lib/use-keyboard";
 import { useTheme } from "next-themes";
+import { diseaseColor } from "@/lib/colors";
 import {
   DEFAULT_FILTERS,
   FilterState,
@@ -244,29 +245,43 @@ function HomeContent() {
           <Button
             variant={filters.diseases.length === 0 ? "default" : "outline"}
             size="sm"
-            className="h-7 text-[11px] shrink-0"
+            className="h-9 text-xs shrink-0 px-3"
             onClick={resetFilters}
           >
             Все
           </Button>
-          {DISEASE_PROFILES.slice(0, 12).map((p) => (
-            <Button
-              key={p.disease_key}
-              variant={filters.diseases.includes(p.disease_key) ? "default" : "outline"}
-              size="sm"
-              className="h-7 text-[11px] shrink-0"
-              onClick={() =>
-                setFilters({
-                  ...filters,
-                  diseases: filters.diseases.includes(p.disease_key)
-                    ? filters.diseases.filter((x) => x !== p.disease_key)
-                    : [...filters.diseases, p.disease_key],
-                })
-              }
-            >
-              {p.short_ru}
-            </Button>
-          ))}
+          {DISEASE_PROFILES.slice(0, 12).map((p) => {
+            const isActive = filters.diseases.includes(p.disease_key);
+            const color = diseaseColor(p.disease_key, p.group);
+            return (
+              <button
+                key={p.disease_key}
+                onClick={() =>
+                  setFilters({
+                    ...filters,
+                    diseases: isActive
+                      ? filters.diseases.filter((x) => x !== p.disease_key)
+                      : [...filters.diseases, p.disease_key],
+                  })
+                }
+                className="h-9 px-3 rounded-md text-xs shrink-0 border transition-all flex items-center gap-1.5"
+                style={{
+                  backgroundColor: isActive ? color : "transparent",
+                  borderColor: isActive ? color : "var(--border)",
+                  color: isActive ? "#fff" : "var(--foreground)",
+                }}
+              >
+                <span
+                  className="w-2 h-2 rounded-full shrink-0"
+                  style={{
+                    backgroundColor: color,
+                    opacity: isActive ? 0.7 : 1,
+                  }}
+                />
+                {p.short_ru}
+              </button>
+            );
+          })}
         </div>
       </header>
 

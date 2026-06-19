@@ -76,13 +76,13 @@ export function EpiCurve({ outbreaks }: EpiCurveProps) {
           {showAll ? "Только топ-5" : "Показать все"}
         </button>
       </div>
-      <div ref={containerRef} style={{ width: "100%", height: 180, minHeight: 180 }}>
+      <div ref={containerRef} style={{ width: "100%", height: 220, minHeight: 220 }}>
         {data.length === 0 ? (
-          <div className="h-full flex items-center justify-center text-xs text-muted-foreground">
+          <div className="h-full flex items-center justify-center text-sm text-muted-foreground">
             Нет данных для выбранного фильтра
           </div>
         ) : mounted ? (
-          <ResponsiveContainer width="100%" height="100%" minHeight={180}>
+          <ResponsiveContainer width="100%" height="100%" minHeight={220}>
             <BarChart data={data} margin={{ top: 4, right: 8, bottom: 4, left: -16 }}>
               <CartesianGrid strokeDasharray="3 3" stroke="currentColor" opacity={0.15} />
               <XAxis
@@ -115,7 +115,9 @@ export function EpiCurve({ outbreaks }: EpiCurveProps) {
                 cursor={{ fill: "var(--accent)", opacity: 0.1 }}
               />
               <Legend
-                wrapperStyle={{ fontSize: 10 }}
+                wrapperStyle={{ fontSize: 11, paddingTop: 8 }}
+                iconType="circle"
+                iconSize={8}
                 formatter={(value: string) => {
                   const labels = DISEASE_LABELS[value as DiseaseKey];
                   return labels?.short_ru ?? value;

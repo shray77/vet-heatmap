@@ -184,19 +184,19 @@ export function OutbreaksTable({ outbreaks, onSelectOutbreak }: OutbreaksTablePr
         <Table>
           <TableHeader>
             <TableRow className="hover:bg-transparent">
-              <TableHead className="py-1.5"><SortHeader k="date" label="Дата" sortBy={sortBy} sortDir={sortDir} onToggle={toggleSort} /></TableHead>
-              <TableHead className="py-1.5"><SortHeader k="disease" label="Болезнь" sortBy={sortBy} sortDir={sortDir} onToggle={toggleSort} /></TableHead>
-              <TableHead className="py-1.5"><SortHeader k="region" label="Регион" sortBy={sortBy} sortDir={sortDir} onToggle={toggleSort} /></TableHead>
-              <TableHead className="py-1.5 hidden sm:table-cell">Вид</TableHead>
-              <TableHead className="py-1.5 text-right"><SortHeader k="cases" label="Случаи" sortBy={sortBy} sortDir={sortDir} onToggle={toggleSort} /></TableHead>
-              <TableHead className="py-1.5 text-right"><SortHeader k="deaths" label="Пало" sortBy={sortBy} sortDir={sortDir} onToggle={toggleSort} /></TableHead>
-              <TableHead className="py-1.5">Статус</TableHead>
+              <TableHead className="py-2"><SortHeader k="date" label="Дата" sortBy={sortBy} sortDir={sortDir} onToggle={toggleSort} /></TableHead>
+              <TableHead className="py-2"><SortHeader k="disease" label="Болезнь" sortBy={sortBy} sortDir={sortDir} onToggle={toggleSort} /></TableHead>
+              <TableHead className="py-2"><SortHeader k="region" label="Регион" sortBy={sortBy} sortDir={sortDir} onToggle={toggleSort} /></TableHead>
+              <TableHead className="py-2 hidden sm:table-cell">Вид</TableHead>
+              <TableHead className="py-2 text-right"><SortHeader k="cases" label="Случаи" sortBy={sortBy} sortDir={sortDir} onToggle={toggleSort} /></TableHead>
+              <TableHead className="py-2 text-right"><SortHeader k="deaths" label="Пало" sortBy={sortBy} sortDir={sortDir} onToggle={toggleSort} /></TableHead>
+              <TableHead className="py-2">Статус</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
             {filtered.length === 0 ? (
               <TableRow>
-                <TableCell colSpan={7} className="text-center text-xs text-muted-foreground py-8">
+                <TableCell colSpan={7} className="text-center text-sm text-muted-foreground py-8">
                   Нет данных для выбранного фильтра
                 </TableCell>
               </TableRow>
@@ -210,35 +210,35 @@ export function OutbreaksTable({ outbreaks, onSelectOutbreak }: OutbreaksTablePr
                     onClick={() => onSelectOutbreak?.(o)}
                     className="cursor-pointer hover:bg-accent/30"
                   >
-                    <TableCell className="py-1.5 text-xs whitespace-nowrap">
+                    <TableCell className="py-2 text-[13px] whitespace-nowrap tabular-nums">
                       {new Date(o.date).toLocaleDateString("ru-RU", { day: "2-digit", month: "2-digit", year: "2-digit" })}
                     </TableCell>
-                    <TableCell className="py-1.5 text-xs">
+                    <TableCell className="py-2 text-[13px]">
                       <span className="inline-flex items-center gap-1.5">
                         <span
-                          className="w-2 h-2 rounded-full shrink-0"
+                          className="w-2.5 h-2.5 rounded-full shrink-0"
                           style={{ backgroundColor: color }}
                         />
                         {labels?.short_ru ?? o.disease}
                       </span>
                     </TableCell>
-                    <TableCell className="py-1.5 text-xs">{o.region}</TableCell>
-                    <TableCell className="py-1.5 text-xs hidden sm:table-cell text-muted-foreground">
+                    <TableCell className="py-2 text-[13px]">{o.region}</TableCell>
+                    <TableCell className="py-2 text-[13px] hidden sm:table-cell text-muted-foreground">
                       {o.species}
                     </TableCell>
-                    <TableCell className="py-1.5 text-xs text-right font-mono">
+                    <TableCell className="py-2 text-[13px] text-right font-mono tabular-nums">
                       {o.cases.toLocaleString("ru-RU")}
                     </TableCell>
-                    <TableCell className="py-1.5 text-xs text-right font-mono text-destructive">
+                    <TableCell className="py-2 text-[13px] text-right font-mono tabular-nums text-destructive">
                       {o.deaths > 0 ? o.deaths.toLocaleString("ru-RU") : "—"}
                     </TableCell>
-                    <TableCell className="py-1.5">
+                    <TableCell className="py-2">
                       {o.status === "Ongoing" ? (
-                        <Badge variant="destructive" className="text-[9px] py-0 h-4">●</Badge>
+                        <Badge variant="destructive" className="text-[10px] py-0 h-5">●</Badge>
                       ) : o.status === "Resolved" ? (
-                        <Badge variant="secondary" className="text-[9px] py-0 h-4">✓</Badge>
+                        <Badge variant="secondary" className="text-[10px] py-0 h-5">✓</Badge>
                       ) : (
-                        <Badge variant="outline" className="text-[9px] py-0 h-4">?</Badge>
+                        <Badge variant="outline" className="text-[10px] py-0 h-5">?</Badge>
                       )}
                     </TableCell>
                   </TableRow>

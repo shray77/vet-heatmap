@@ -8,68 +8,76 @@ import { useState } from "react";
 /**
  * PWA banners: install prompt, update-available, offline.
  * Renders at the top of the page when needed.
+ *
+ * Each banner can be dismissed by the user (stored in sessionStorage so it
+ * doesn't reappear on the same session but does come back next visit).
  */
 export function PwaBanners() {
   const { canInstall, promptInstall, updateAvailable, applyUpdate, isOffline } = usePWA();
-  const [offlineDismissedAt, setOfflineDismissedAt] = useState<number | null>(null);
+  const [dismissedOffline, setDismissedOffline] = useState(false);
+  const [dismissedInstall, setDismissedInstall] = useState(false);
 
-  // Derived: if we go offline again after dismissing, show the banner once more.
-  // Pure derivation — no setState-in-effect.
-  const showOffline =
-    isOffline &&
-    (offlineDismissedAt === null || Date.now() - offlineDismissedAt > 60_000);
-
+  // Critical: update banner always shows (can't dismiss — security/feature)
   if (updateAvailable) {
     return (
       <div className="fixed top-0 inset-x-0 z-[100] bg-primary text-primary-foreground px-3 py-2 flex items-center justify-between gap-3 text-xs pt-safe">
         <div className="flex items-center gap-2 min-w-0">
           <RefreshCw className="h-3.5 w-3.5 shrink-0" />
-          <span className="truncate">Доступна новая версия приложения</span>
+          <span className="truncate">Доступна новая версия</span>
+        </div>
+        <Button
+          size="sm"
+          variant="secondary"
+          className="h-7 text-[11px] shrink-0"
+          onClick={applyUpdate}
+        >
+          Обновить
+        </Button>
+      </div>
+    );
+  }
+
+  // Install banner — dismissable (X in corner)
+  if (canInstall && !dismissedInstall) {
+    return (
+      <div className="fixed top-0 inset-x-0 z-[100] bg-primary/95 backdrop-blur text-primary-foreground px-3 py-2 flex items-center justify-between gap-3 text-xs pt-safe">
+        <div className="flex items-center gap-2 min-w-0 flex-1">
+          <Download className="h-3.5 w-3.5 shrink-0" />
+          <span className="truncate">Установить приложение для офлайн-доступа</span>
         </div>
         <div className="flex items-center gap-1 shrink-0">
           <Button
             size="sm"
             variant="secondary"
             className="h-7 text-[11px]"
-            onClick={applyUpdate}
+            onClick={promptInstall}
           >
-            Обновить
+            Установить
           </Button>
+          <button
+            onClick={() => setDismissedInstall(true)}
+            aria-label="Скрыть"
+            className="p-1.5 hover:bg-white/10 rounded transition-colors"
+          >
+            <X className="h-3.5 w-3.5" />
+          </button>
         </div>
       </div>
     );
   }
 
-  if (canInstall) {
-    return (
-      <div className="fixed top-0 inset-x-0 z-[100] bg-primary text-primary-foreground px-3 py-2 flex items-center justify-between gap-3 text-xs pt-safe">
-        <div className="flex items-center gap-2 min-w-0">
-          <Download className="h-3.5 w-3.5 shrink-0" />
-          <span className="truncate">Установить приложение для офлайн-доступа</span>
-        </div>
-        <Button
-          size="sm"
-          variant="secondary"
-          className="h-7 text-[11px] shrink-0"
-          onClick={promptInstall}
-        >
-          Установить
-        </Button>
-      </div>
-    );
-  }
-
-  if (showOffline) {
+  // Offline banner — dismissable
+  if (isOffline && !dismissedOffline) {
     return (
       <div className="fixed top-0 inset-x-0 z-[100] bg-amber-600 text-white px-3 py-2 flex items-center justify-between gap-3 text-xs pt-safe">
-        <div className="flex items-center gap-2 min-w-0">
+        <div className="flex items-center gap-2 min-w-0 flex-1">
           <WifiOff className="h-3.5 w-3.5 shrink-0" />
-          <span className="truncate">Офлайн-режим — показаны последние кэшированные данные</span>
+          <span className="truncate">Офлайн — показаны кэшированные данные</span>
         </div>
         <button
-          onClick={() => setOfflineDismissedAt(Date.now())}
+          onClick={() => setDismissedOffline(true)}
           aria-label="Скрыть"
-          className="shrink-0 p-1 hover:bg-white/10 rounded"
+          className="p-1.5 hover:bg-white/10 rounded transition-colors shrink-0"
         >
           <X className="h-3.5 w-3.5" />
         </button>
@@ -79,3 +87,4 @@ export function PwaBanners() {
 
   return null;
 }
+
