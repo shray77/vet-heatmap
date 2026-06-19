@@ -335,9 +335,9 @@ function HomeContent() {
       </header>
 
       {/* ─── Main content: map + sidebar ───────────────────────────── */}
-      <div className="flex-1 flex flex-col lg:flex-row min-h-0">
-        {/* Map */}
-        <div className="flex-1 relative min-h-[50vh] lg:min-h-0">
+      <div className="flex-1 flex flex-col lg:flex-row min-h-0 lg:min-h-[calc(100vh-220px)]">
+        {/* Map — on mobile fixed-height to avoid flex collapse; on desktop flex-1 */}
+        <div className="relative w-full h-[55vh] lg:h-auto lg:flex-1 lg:min-h-0">
           <OutbreakMap
             outbreaks={filtered}
             geo={geo}

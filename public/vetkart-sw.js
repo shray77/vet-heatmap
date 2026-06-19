@@ -8,10 +8,13 @@
  *
  * The worker is intentionally simple — no Workbox / Serwist dependency.
  * Works on GitHub Pages (basePath /vet-heatmap/).
+ *
+ * CACHE_VERSION is bumped on every code change that affects caching logic.
+ * This forces all clients to invalidate their old cache + activate new SW.
  */
 
-const VERSION = "v1.0.0";
-const CACHE_NAME = `vetkart-${VERSION}`;
+const CACHE_VERSION = "v3.1.0"; // bump on every deploy with logic changes
+const CACHE_NAME = `vetkart-${CACHE_VERSION}`;
 const BASE = "/vet-heatmap"; // GitHub Pages subpath
 
 // Resources to precache on install. The list is built at build-time below.
@@ -44,12 +47,15 @@ self.addEventListener("install", (event) => {
         // Some precache URLs may 404 in dev — ignore
         console.warn("[sw] precache partial failure:", e.message);
       }
+      // Force the new SW to take over immediately (no waiting for old SW
+      // to be released). Combined with `clients.claim()` in activate, this
+      // means new code applies on next page load.
       await self.skipWaiting();
     })(),
   );
 });
 
-// ─── Activate: clean up old caches ────────────────────────────────────
+// ─── Activate: clean up old caches + claim clients ────────────────────
 self.addEventListener("activate", (event) => {
   event.waitUntil(
     (async () => {
@@ -57,7 +63,13 @@ self.addEventListener("activate", (event) => {
       await Promise.all(
         keys.filter((k) => k !== CACHE_NAME).map((k) => caches.delete(k)),
       );
+      // Take control of all clients immediately — new SW applies on next load
       await self.clients.claim();
+      // Notify all open clients to reload (optional, but ensures fresh state)
+      const clients = await self.clients.matchAll({ type: "window" });
+      for (const c of clients) {
+        c.postMessage({ type: "SW_ACTIVATED", version: CACHE_VERSION });
+      }
     })(),
   );
 });

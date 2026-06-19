@@ -39,6 +39,7 @@ export function OutbreakMap({
   const mapRef = useRef<MLMap | null>(null);
   const markersRef = useRef<Record<string, Marker>>({});
   const popupsRef = useRef<Record<string, Popup>>({});
+  const resizeObserverRef = useRef<ResizeObserver | null>(null);
   const { resolvedTheme } = useTheme();
   const [ready, setReady] = useState(false);
 
@@ -110,7 +111,25 @@ export function OutbreakMap({
 
     mapRef.current = map;
 
+    // Resize observer — handles mobile URL bar show/hide + viewport changes
+    if (mapContainer.current && typeof ResizeObserver !== "undefined") {
+      const ro = new ResizeObserver(() => {
+        mapRef.current?.resize();
+      });
+      ro.observe(mapContainer.current);
+      // Store for cleanup
+      resizeObserverRef.current = ro;
+    }
+
+    // Also resize on window resize (mobile URL bar toggle, orientation change)
+    const onWindowResize = () => mapRef.current?.resize();
+    window.addEventListener("resize", onWindowResize);
+    window.addEventListener("orientationchange", onWindowResize);
+
     return () => {
+      window.removeEventListener("resize", onWindowResize);
+      window.removeEventListener("orientationchange", onWindowResize);
+      resizeObserverRef.current?.disconnect();
       // cleanup markers
       Object.values(markersRef.current).forEach((m) => m.remove());
       Object.values(popupsRef.current).forEach((p) => p.remove());
