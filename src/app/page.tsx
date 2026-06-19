@@ -57,10 +57,13 @@ function HomeContent() {
     return paramsToFilters(params);
   });
 
-  // Sync filters to URL
+  // Sync filters to URL (preserve GitHub Pages basePath /vet-heatmap/)
   useEffect(() => {
     const params = filtersToParams(filters);
-    const url = params.toString() ? `?${params.toString()}` : "/";
+    const basePath = process.env.NODE_ENV === "production" ? "/vet-heatmap" : "";
+    const url = params.toString()
+      ? `${basePath}/?${params.toString()}`
+      : `${basePath}/`;
     // Use history.replaceState to avoid Next.js router issues in static export
     window.history.replaceState(null, "", url);
   }, [filters]);
