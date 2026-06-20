@@ -513,7 +513,7 @@ function buildPopupHTML(o: Outbreak): string {
       </div>
       <div style="margin-bottom:8px;">${statusBadge}</div>
       <table style="font-size:12px;width:100%;border-spacing:0;">
-        <tr><td style="color:#888;padding:2px 8px 2px 0;">Регион:</td><td style="font-weight:500;">${escapeHTML(o.region)}</td></tr>
+        <tr><td style="color:#888;padding:2px 8px 2px 0;">Регион:</td><td style="font-weight:500;">${escapeHTML(o.region === 'Russia' || o.region === 'Russian Federation' ? 'Россия (без региона)' : o.region)}</td></tr>
         <tr><td style="color:#888;padding:2px 8px 2px 0;">Дата:</td><td>${formatDate(o.date)}</td></tr>
         <tr><td style="color:#888;padding:2px 8px 2px 0;">Вид:</td><td>${escapeHTML(speciesRu(o.species))}</td></tr>
         <tr><td style="color:#888;padding:2px 8px 2px 0;">Случаи:</td><td><strong>${o.cases.toLocaleString("ru-RU")}</strong></td></tr>

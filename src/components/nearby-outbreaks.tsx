@@ -260,7 +260,7 @@ export function NearbyOutbreaks({
                         />
                         <div className="flex-1 min-w-0">
                           <div className="text-[13px] font-medium truncate">
-                            {labels?.short_ru ?? o.disease} — {o.region}
+                            {labels?.short_ru ?? o.disease} — {o.region === "Russia" || o.region === "Russian Federation" ? "Россия" : o.region}
                           </div>
                           <div className="text-[11px] text-muted-foreground truncate">
                             {speciesRu(o.species)} · {new Date(o.date).toLocaleDateString("ru-RU", { day: "numeric", month: "short", year: "numeric" })}
