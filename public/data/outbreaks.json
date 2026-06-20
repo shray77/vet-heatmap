@@ -2,12 +2,525 @@
   "updated": "2026-06-20",
   "sources": [
     "curated",
+    "fsvps",
     "fsvps"
   ],
-  "total_outbreaks": 198,
+  "total_outbreaks": 297,
   "outbreaks": [
     {
       "id": 1,
+      "disease_key": "rabies",
+      "disease": "Бешенство",
+      "disease_group": "Wildlife",
+      "region": "Белгородская область",
+      "region_geo": "Belgorod",
+      "date": "2024-01-10",
+      "species": "Wildlife",
+      "cases": 0,
+      "deaths": 0,
+      "status": "Ongoing",
+      "source": "fsvps",
+      "source_url": "https://fsvps.gov.ru/wp-content/uploads/2025/01/10.01.2025г.pdf",
+      "notes": "Бешенство животных — Белгородская область"
+    },
+    {
+      "id": 2,
+      "disease_key": "rabies",
+      "disease": "Бешенство",
+      "disease_group": "Wildlife",
+      "region": "Волгоградская область",
+      "region_geo": "Volgograd",
+      "date": "2024-01-10",
+      "species": "Wildlife",
+      "cases": 0,
+      "deaths": 0,
+      "status": "Ongoing",
+      "source": "fsvps",
+      "source_url": "https://fsvps.gov.ru/wp-content/uploads/2025/01/10.01.2025г.pdf",
+      "notes": "Бешенство животных — Волгоградская область"
+    },
+    {
+      "id": 3,
+      "disease_key": "rabies",
+      "disease": "Бешенство",
+      "disease_group": "Wildlife",
+      "region": "Московская область",
+      "region_geo": "Moskovskaya",
+      "date": "2024-01-10",
+      "species": "Wildlife",
+      "cases": 0,
+      "deaths": 0,
+      "status": "Ongoing",
+      "source": "fsvps",
+      "source_url": "https://fsvps.gov.ru/wp-content/uploads/2025/01/10.01.2025г.pdf",
+      "notes": "Бешенство животных — Московская область"
+    },
+    {
+      "id": 4,
+      "disease_key": "rabies",
+      "disease": "Бешенство",
+      "disease_group": "Wildlife",
+      "region": "Смоленская область",
+      "region_geo": "Smolensk",
+      "date": "2024-01-10",
+      "species": "Wildlife",
+      "cases": 0,
+      "deaths": 0,
+      "status": "Ongoing",
+      "source": "fsvps",
+      "source_url": "https://fsvps.gov.ru/wp-content/uploads/2025/01/10.01.2025г.pdf",
+      "notes": "Бешенство животных — Смоленская область"
+    },
+    {
+      "id": 5,
+      "disease_key": "rabies",
+      "disease": "Бешенство",
+      "disease_group": "Wildlife",
+      "region": "Воронежская область",
+      "region_geo": "Voronezh",
+      "date": "2024-01-10",
+      "species": "Wildlife",
+      "cases": 0,
+      "deaths": 0,
+      "status": "Ongoing",
+      "source": "fsvps",
+      "source_url": "https://fsvps.gov.ru/wp-content/uploads/2025/01/10.01.2025г.pdf",
+      "notes": "Бешенство животных — Воронежская область"
+    },
+    {
+      "id": 6,
+      "disease_key": "brucellosis",
+      "disease": "Бруцеллёз",
+      "disease_group": "Ruminant",
+      "region": "Брянская область",
+      "region_geo": "Bryansk",
+      "date": "2024-01-10",
+      "species": "Cattle",
+      "cases": 0,
+      "deaths": 0,
+      "status": "Ongoing",
+      "source": "fsvps",
+      "source_url": "https://fsvps.gov.ru/wp-content/uploads/2025/01/10.01.2025г.pdf",
+      "notes": "Бруцеллёз — Брянская область | бруцеллез — Брянская область | Бруцеллёз — Брянская область"
+    },
+    {
+      "id": 7,
+      "disease_key": "leukosis",
+      "disease": "Лейкоз КРС",
+      "disease_group": "Ruminant",
+      "region": "Самарская область",
+      "region_geo": "Samara",
+      "date": "2024-01-10",
+      "species": "Cattle",
+      "cases": 0,
+      "deaths": 0,
+      "status": "Ongoing",
+      "source": "fsvps",
+      "source_url": "https://fsvps.gov.ru/wp-content/uploads/2025/01/10.01.2025г.pdf",
+      "notes": "Лейкоз КРС — Самарская область | Лейкоз КРС — Самарская область"
+    },
+    {
+      "id": 8,
+      "disease_key": "leukosis",
+      "disease": "Лейкоз КРС",
+      "disease_group": "Ruminant",
+      "region": "Брянская область",
+      "region_geo": "Bryansk",
+      "date": "2024-01-10",
+      "species": "Cattle",
+      "cases": 0,
+      "deaths": 0,
+      "status": "Resolved",
+      "source": "fsvps",
+      "source_url": "https://fsvps.gov.ru/wp-content/uploads/2025/01/10.01.2025г.pdf",
+      "notes": "Лейкоз КРС — Брянская область"
+    },
+    {
+      "id": 9,
+      "disease_key": "leukosis",
+      "disease": "Лейкоз КРС",
+      "disease_group": "Ruminant",
+      "region": "Рязанская область",
+      "region_geo": "Ryazan'",
+      "date": "2024-01-10",
+      "species": "Cattle",
+      "cases": 0,
+      "deaths": 0,
+      "status": "Resolved",
+      "source": "fsvps",
+      "source_url": "https://fsvps.gov.ru/wp-content/uploads/2025/01/10.01.2025г.pdf",
+      "notes": "Лейкоз КРС — Рязанская область"
+    },
+    {
+      "id": 10,
+      "disease_key": "lepto",
+      "disease": "Лептоспироз",
+      "disease_group": "Multi-species",
+      "region": "Самарская область",
+      "region_geo": "Samara",
+      "date": "2024-01-10",
+      "species": "Other",
+      "cases": 0,
+      "deaths": 0,
+      "status": "Ongoing",
+      "source": "fsvps",
+      "source_url": "https://fsvps.gov.ru/wp-content/uploads/2025/01/10.01.2025г.pdf",
+      "notes": "Лептоспироз — Самарская область"
+    },
+    {
+      "id": 11,
+      "disease_key": "rabies",
+      "disease": "Бешенство",
+      "disease_group": "Wildlife",
+      "region": "Алтайский край",
+      "region_geo": "Altay",
+      "date": "2024-01-10",
+      "species": "Cattle",
+      "cases": 0,
+      "deaths": 0,
+      "status": "Ongoing",
+      "source": "fsvps",
+      "source_url": "https://fsvps.gov.ru/wp-content/uploads/2025/01/10.01.2025г.pdf",
+      "notes": "Бешенство — Алтайский край"
+    },
+    {
+      "id": 12,
+      "disease_key": "brucellosis",
+      "disease": "Бруцеллёз",
+      "disease_group": "Ruminant",
+      "region": "Новосибирская область",
+      "region_geo": "Novosibirsk",
+      "date": "2024-01-10",
+      "species": "Cattle",
+      "cases": 0,
+      "deaths": 0,
+      "status": "Ongoing",
+      "source": "fsvps",
+      "source_url": "https://fsvps.gov.ru/wp-content/uploads/2025/01/10.01.2025г.pdf",
+      "notes": "Бруцеллёз — Новосибирская область"
+    },
+    {
+      "id": 13,
+      "disease_key": "rabies",
+      "disease": "Бешенство",
+      "disease_group": "Wildlife",
+      "region": "Красноярский край",
+      "region_geo": "Krasnoyarsk",
+      "date": "2024-01-13",
+      "species": "Wildlife",
+      "cases": 0,
+      "deaths": 0,
+      "status": "Ongoing",
+      "source": "fsvps",
+      "source_url": "https://fsvps.gov.ru/wp-content/uploads/2025/01/13.01.2025г.pdf",
+      "notes": "Бешенство животных — Красноярский край"
+    },
+    {
+      "id": 14,
+      "disease_key": "rabies",
+      "disease": "Бешенство",
+      "disease_group": "Wildlife",
+      "region": "Оренбургская область",
+      "region_geo": "Orenburg",
+      "date": "2024-01-13",
+      "species": "Wildlife",
+      "cases": 0,
+      "deaths": 0,
+      "status": "Ongoing",
+      "source": "fsvps",
+      "source_url": "https://fsvps.gov.ru/wp-content/uploads/2025/01/13.01.2025г.pdf",
+      "notes": "Бешенство животных — Оренбургская область"
+    },
+    {
+      "id": 15,
+      "disease_key": "rabies",
+      "disease": "Бешенство",
+      "disease_group": "Wildlife",
+      "region": "Самарская область",
+      "region_geo": "Samara",
+      "date": "2024-01-13",
+      "species": "Wildlife",
+      "cases": 0,
+      "deaths": 0,
+      "status": "Ongoing",
+      "source": "fsvps",
+      "source_url": "https://fsvps.gov.ru/wp-content/uploads/2025/01/13.01.2025г.pdf",
+      "notes": "Бешенство животных — Самарская область | Бешенство животных — Самарская область"
+    },
+    {
+      "id": 16,
+      "disease_key": "rabies",
+      "disease": "Бешенство",
+      "disease_group": "Wildlife",
+      "region": "Саратовская область",
+      "region_geo": "Saratov",
+      "date": "2024-01-13",
+      "species": "Wildlife",
+      "cases": 0,
+      "deaths": 0,
+      "status": "Ongoing",
+      "source": "fsvps",
+      "source_url": "https://fsvps.gov.ru/wp-content/uploads/2025/01/13.01.2025г.pdf",
+      "notes": "Бешенство животных — Саратовская область"
+    },
+    {
+      "id": 17,
+      "disease_key": "leukosis",
+      "disease": "Лейкоз КРС",
+      "disease_group": "Ruminant",
+      "region": "Челябинская область",
+      "region_geo": "Chelyabinsk",
+      "date": "2024-01-13",
+      "species": "Cattle",
+      "cases": 0,
+      "deaths": 0,
+      "status": "Resolved",
+      "source": "fsvps",
+      "source_url": "https://fsvps.gov.ru/wp-content/uploads/2025/01/13.01.2025г.pdf",
+      "notes": "Лейкоз КРС — Челябинская область"
+    },
+    {
+      "id": 18,
+      "disease_key": "rabies",
+      "disease": "Бешенство",
+      "disease_group": "Wildlife",
+      "region": "Амурская область",
+      "region_geo": "Amur",
+      "date": "2024-01-13",
+      "species": "Fox",
+      "cases": 0,
+      "deaths": 0,
+      "status": "Ongoing",
+      "source": "fsvps",
+      "source_url": "https://fsvps.gov.ru/wp-content/uploads/2025/01/13.01.2025г.pdf",
+      "notes": "Бешенство — Амурская область"
+    },
+    {
+      "id": 19,
+      "disease_key": "rabies",
+      "disease": "Бешенство",
+      "disease_group": "Wildlife",
+      "region": "Белгородская область",
+      "region_geo": "Belgorod",
+      "date": "2024-01-17",
+      "species": "Wildlife",
+      "cases": 0,
+      "deaths": 0,
+      "status": "Ongoing",
+      "source": "fsvps",
+      "source_url": "https://fsvps.gov.ru/wp-content/uploads/2025/01/17.01.2025г.pdf",
+      "notes": "Бешенство животных — Белгородская область"
+    },
+    {
+      "id": 20,
+      "disease_key": "rabies",
+      "disease": "Бешенство",
+      "disease_group": "Wildlife",
+      "region": "Воронежская область",
+      "region_geo": "Voronezh",
+      "date": "2024-01-17",
+      "species": "Wildlife",
+      "cases": 0,
+      "deaths": 0,
+      "status": "Ongoing",
+      "source": "fsvps",
+      "source_url": "https://fsvps.gov.ru/wp-content/uploads/2025/01/17.01.2025г.pdf",
+      "notes": "Бешенство животных — Воронежская область | Бешенство животных — Воронежская область"
+    },
+    {
+      "id": 21,
+      "disease_key": "rabies",
+      "disease": "Бешенство",
+      "disease_group": "Wildlife",
+      "region": "Московская область",
+      "region_geo": "Moskovskaya",
+      "date": "2024-01-17",
+      "species": "Wildlife",
+      "cases": 0,
+      "deaths": 0,
+      "status": "Ongoing",
+      "source": "fsvps",
+      "source_url": "https://fsvps.gov.ru/wp-content/uploads/2025/01/17.01.2025г.pdf",
+      "notes": "Бешенство животных — Московская область"
+    },
+    {
+      "id": 22,
+      "disease_key": "rabies",
+      "disease": "Бешенство",
+      "disease_group": "Wildlife",
+      "region": "Нижегородская область",
+      "region_geo": "Nizhegorod",
+      "date": "2024-01-17",
+      "species": "Wildlife",
+      "cases": 0,
+      "deaths": 0,
+      "status": "Ongoing",
+      "source": "fsvps",
+      "source_url": "https://fsvps.gov.ru/wp-content/uploads/2025/01/17.01.2025г.pdf",
+      "notes": "Бешенство животных — Нижегородская область"
+    },
+    {
+      "id": 23,
+      "disease_key": "rabies",
+      "disease": "Бешенство",
+      "disease_group": "Wildlife",
+      "region": "Челябинская область",
+      "region_geo": "Chelyabinsk",
+      "date": "2024-01-17",
+      "species": "Wildlife",
+      "cases": 0,
+      "deaths": 0,
+      "status": "Ongoing",
+      "source": "fsvps",
+      "source_url": "https://fsvps.gov.ru/wp-content/uploads/2025/01/17.01.2025г.pdf",
+      "notes": "Бешенство животных — Челябинская область"
+    },
+    {
+      "id": 24,
+      "disease_key": "rabies",
+      "disease": "Бешенство",
+      "disease_group": "Wildlife",
+      "region": "Владимирская область",
+      "region_geo": "Vladimir",
+      "date": "2024-01-17",
+      "species": "Wildlife",
+      "cases": 0,
+      "deaths": 0,
+      "status": "Ongoing",
+      "source": "fsvps",
+      "source_url": "https://fsvps.gov.ru/wp-content/uploads/2025/01/17.01.2025г.pdf",
+      "notes": "Бешенство животных — Владимирская область"
+    },
+    {
+      "id": 25,
+      "disease_key": "rabies",
+      "disease": "Бешенство",
+      "disease_group": "Wildlife",
+      "region": "Волгоградская область",
+      "region_geo": "Volgograd",
+      "date": "2024-01-17",
+      "species": "Wildlife",
+      "cases": 0,
+      "deaths": 0,
+      "status": "Ongoing",
+      "source": "fsvps",
+      "source_url": "https://fsvps.gov.ru/wp-content/uploads/2025/01/17.01.2025г.pdf",
+      "notes": "Бешенство животных — Волгоградская область | Бешенство — Волгоградская область"
+    },
+    {
+      "id": 26,
+      "disease_key": "rabies",
+      "disease": "Бешенство",
+      "disease_group": "Wildlife",
+      "region": "Забайкальский край",
+      "region_geo": "Chita",
+      "date": "2024-01-17",
+      "species": "Wildlife",
+      "cases": 0,
+      "deaths": 0,
+      "status": "Ongoing",
+      "source": "fsvps",
+      "source_url": "https://fsvps.gov.ru/wp-content/uploads/2025/01/17.01.2025г.pdf",
+      "notes": "Бешенство животных — Забайкальский край"
+    },
+    {
+      "id": 27,
+      "disease_key": "leukosis",
+      "disease": "Лейкоз КРС",
+      "disease_group": "Ruminant",
+      "region": "Тюменская область",
+      "region_geo": "Tyumen'",
+      "date": "2024-01-17",
+      "species": "Cattle",
+      "cases": 0,
+      "deaths": 0,
+      "status": "Ongoing",
+      "source": "fsvps",
+      "source_url": "https://fsvps.gov.ru/wp-content/uploads/2025/01/17.01.2025г.pdf",
+      "notes": "Лейкоз КРС — Тюменская область | Лейкоз КРС — Тюменская область"
+    },
+    {
+      "id": 28,
+      "disease_key": "lepto",
+      "disease": "Лептоспироз",
+      "disease_group": "Multi-species",
+      "region": "Калининградская область",
+      "region_geo": "Kaliningrad",
+      "date": "2024-01-17",
+      "species": "Other",
+      "cases": 0,
+      "deaths": 0,
+      "status": "Ongoing",
+      "source": "fsvps",
+      "source_url": "https://fsvps.gov.ru/wp-content/uploads/2025/01/17.01.2025г.pdf",
+      "notes": "Лептоспироз — Калининградская область | лептоспироз — Калининградская область"
+    },
+    {
+      "id": 29,
+      "disease_key": "leukosis",
+      "disease": "Лейкоз КРС",
+      "disease_group": "Ruminant",
+      "region": "Нижегородская область",
+      "region_geo": "Nizhegorod",
+      "date": "2024-01-17",
+      "species": "Cattle",
+      "cases": 0,
+      "deaths": 0,
+      "status": "Ongoing",
+      "source": "fsvps",
+      "source_url": "https://fsvps.gov.ru/wp-content/uploads/2025/01/17.01.2025г.pdf",
+      "notes": "Лейкоз КРС — Нижегородская область"
+    },
+    {
+      "id": 30,
+      "disease_key": "lepto",
+      "disease": "Лептоспироз",
+      "disease_group": "Multi-species",
+      "region": "Московская область",
+      "region_geo": "Moskovskaya",
+      "date": "2024-01-17",
+      "species": "Cattle",
+      "cases": 0,
+      "deaths": 0,
+      "status": "Ongoing",
+      "source": "fsvps",
+      "source_url": "https://fsvps.gov.ru/wp-content/uploads/2025/01/17.01.2025г.pdf",
+      "notes": "Лептоспироз КРС — Московская область"
+    },
+    {
+      "id": 31,
+      "disease_key": "avian_salmonellosis",
+      "disease": "Сальмонеллёз птицы",
+      "disease_group": "Avian",
+      "region": "Тамбовская область",
+      "region_geo": "Tambov",
+      "date": "2024-01-17",
+      "species": "Other",
+      "cases": 0,
+      "deaths": 0,
+      "status": "Ongoing",
+      "source": "fsvps",
+      "source_url": "https://fsvps.gov.ru/wp-content/uploads/2025/01/17.01.2025г.pdf",
+      "notes": "Сальмонеллёз — Тамбовская область"
+    },
+    {
+      "id": 32,
+      "disease_key": "trichinellosis",
+      "disease": "Трихинеллёз",
+      "disease_group": "Wildlife",
+      "region": "Омская область",
+      "region_geo": "Omsk",
+      "date": "2024-01-17",
+      "species": "кабан",
+      "cases": 0,
+      "deaths": 0,
+      "status": "Ongoing",
+      "source": "fsvps",
+      "source_url": "https://fsvps.gov.ru/wp-content/uploads/2025/01/17.01.2025г.pdf",
+      "notes": "Трихинеллёз — Омская область"
+    },
+    {
+      "id": 33,
       "disease_key": "ppr",
       "disease": "Чума мелких жвачных",
       "disease_group": "Ruminant",
@@ -22,7 +535,7 @@
       "notes": "Peste des Petits Ruminants (PPR)"
     },
     {
-      "id": 2,
+      "id": 34,
       "disease_key": "ppr",
       "disease": "Чума мелких жвачных",
       "disease_group": "Ruminant",
@@ -37,7 +550,7 @@
       "notes": "Peste des Petits Ruminants (PPR)"
     },
     {
-      "id": 3,
+      "id": 35,
       "disease_key": "csf",
       "disease": "Классическая чума свиней",
       "disease_group": "Swine",
@@ -52,7 +565,7 @@
       "notes": "Classical Swine Fever"
     },
     {
-      "id": 4,
+      "id": 36,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -67,7 +580,7 @@
       "notes": "Rabies"
     },
     {
-      "id": 5,
+      "id": 37,
       "disease_key": "anthrax",
       "disease": "Сибирская язва",
       "disease_group": "Ruminant",
@@ -82,7 +595,7 @@
       "notes": "Anthrax"
     },
     {
-      "id": 6,
+      "id": 38,
       "disease_key": "anthrax",
       "disease": "Сибирская язва",
       "disease_group": "Ruminant",
@@ -97,7 +610,7 @@
       "notes": "Anthrax"
     },
     {
-      "id": 7,
+      "id": 39,
       "disease_key": "anthrax",
       "disease": "Сибирская язва",
       "disease_group": "Ruminant",
@@ -112,7 +625,7 @@
       "notes": "Anthrax"
     },
     {
-      "id": 8,
+      "id": 40,
       "disease_key": "wnv",
       "disease": "Лихорадка Западного Нила",
       "disease_group": "Equine/Wildlife",
@@ -127,7 +640,7 @@
       "notes": "West Nile Virus"
     },
     {
-      "id": 9,
+      "id": 41,
       "disease_key": "fmd",
       "disease": "Ящур",
       "disease_group": "Ruminant",
@@ -142,7 +655,7 @@
       "notes": "Foot and Mouth Disease (FMD) O"
     },
     {
-      "id": 10,
+      "id": 42,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -157,7 +670,7 @@
       "notes": "Rabies"
     },
     {
-      "id": 11,
+      "id": 43,
       "disease_key": "wnv",
       "disease": "Лихорадка Западного Нила",
       "disease_group": "Equine/Wildlife",
@@ -172,7 +685,7 @@
       "notes": "West Nile Virus"
     },
     {
-      "id": 12,
+      "id": 44,
       "disease_key": "fmd",
       "disease": "Ящур",
       "disease_group": "Ruminant",
@@ -187,7 +700,7 @@
       "notes": "Foot and Mouth Disease (FMD) O"
     },
     {
-      "id": 13,
+      "id": 45,
       "disease_key": "asf",
       "disease": "Африканская чума свиней",
       "disease_group": "Swine",
@@ -202,7 +715,7 @@
       "notes": "African Swine Fever"
     },
     {
-      "id": 14,
+      "id": 46,
       "disease_key": "asf",
       "disease": "Африканская чума свиней",
       "disease_group": "Swine",
@@ -217,7 +730,7 @@
       "notes": "African Swine Fever"
     },
     {
-      "id": 15,
+      "id": 47,
       "disease_key": "bluetongue",
       "disease": "Блютунг",
       "disease_group": "Ruminant",
@@ -232,7 +745,7 @@
       "notes": "Bluetongue (BTV-8)"
     },
     {
-      "id": 16,
+      "id": 48,
       "disease_key": "btb",
       "disease": "Туберкулёз КРС",
       "disease_group": "Ruminant",
@@ -247,7 +760,7 @@
       "notes": "Bovine Tuberculosis"
     },
     {
-      "id": 17,
+      "id": 49,
       "disease_key": "bluetongue",
       "disease": "Блютунг",
       "disease_group": "Ruminant",
@@ -262,7 +775,7 @@
       "notes": "Bluetongue (BTV)"
     },
     {
-      "id": 18,
+      "id": 50,
       "disease_key": "asf",
       "disease": "Африканская чума свиней",
       "disease_group": "Swine",
@@ -277,7 +790,7 @@
       "notes": "African Swine Fever"
     },
     {
-      "id": 19,
+      "id": 51,
       "disease_key": "hpai",
       "disease": "Грипп птиц",
       "disease_group": "Avian",
@@ -292,7 +805,7 @@
       "notes": "Avian Influenza (HPAI H5N1)"
     },
     {
-      "id": 20,
+      "id": 52,
       "disease_key": "hpai",
       "disease": "Грипп птиц",
       "disease_group": "Avian",
@@ -307,7 +820,7 @@
       "notes": "Avian Influenza (HPAI H5N1)"
     },
     {
-      "id": 21,
+      "id": 53,
       "disease_key": "brucellosis",
       "disease": "Бруцеллёз",
       "disease_group": "Ruminant",
@@ -322,7 +835,1079 @@
       "notes": "Brucellosis (B. melitensis)"
     },
     {
-      "id": 22,
+      "id": 54,
+      "disease_key": "rabies",
+      "disease": "Бешенство",
+      "disease_group": "Wildlife",
+      "region": "Воронежская область",
+      "region_geo": "Voronezh",
+      "date": "2024-12-18",
+      "species": "Wildlife",
+      "cases": 0,
+      "deaths": 0,
+      "status": "Ongoing",
+      "source": "fsvps",
+      "source_url": "https://fsvps.gov.ru/wp-content/uploads/2024/12/18.12.2024г.pdf",
+      "notes": "Бешенство животных — Воронежская область"
+    },
+    {
+      "id": 55,
+      "disease_key": "rabies",
+      "disease": "Бешенство",
+      "disease_group": "Wildlife",
+      "region": "Нижегородская область",
+      "region_geo": "Nizhegorod",
+      "date": "2024-12-18",
+      "species": "Wildlife",
+      "cases": 0,
+      "deaths": 0,
+      "status": "Ongoing",
+      "source": "fsvps",
+      "source_url": "https://fsvps.gov.ru/wp-content/uploads/2024/12/18.12.2024г.pdf",
+      "notes": "Бешенство животных — Нижегородская область | Бешенство животных — Нижегородская область"
+    },
+    {
+      "id": 56,
+      "disease_key": "leukosis",
+      "disease": "Лейкоз КРС",
+      "disease_group": "Ruminant",
+      "region": "Ивановская область",
+      "region_geo": "Ivanovo",
+      "date": "2024-12-18",
+      "species": "Cattle",
+      "cases": 15,
+      "deaths": 0,
+      "status": "Ongoing",
+      "source": "fsvps",
+      "source_url": "https://fsvps.gov.ru/wp-content/uploads/2024/12/18.12.2024г.pdf",
+      "notes": "Лейкоз КРС — Ивановская область"
+    },
+    {
+      "id": 57,
+      "disease_key": "leukosis",
+      "disease": "Лейкоз КРС",
+      "disease_group": "Ruminant",
+      "region": "Алтайский край",
+      "region_geo": "Altay",
+      "date": "2024-12-18",
+      "species": "Cattle",
+      "cases": 0,
+      "deaths": 0,
+      "status": "Resolved",
+      "source": "fsvps",
+      "source_url": "https://fsvps.gov.ru/wp-content/uploads/2024/12/18.12.2024г.pdf",
+      "notes": "Лейкоз КРС — Алтайский край"
+    },
+    {
+      "id": 58,
+      "disease_key": "leukosis",
+      "disease": "Лейкоз КРС",
+      "disease_group": "Ruminant",
+      "region": "Рязанская область",
+      "region_geo": "Ryazan'",
+      "date": "2024-12-18",
+      "species": "Cattle",
+      "cases": 0,
+      "deaths": 0,
+      "status": "Resolved",
+      "source": "fsvps",
+      "source_url": "https://fsvps.gov.ru/wp-content/uploads/2024/12/18.12.2024г.pdf",
+      "notes": "Лейкоз КРС — Рязанская область"
+    },
+    {
+      "id": 59,
+      "disease_key": "leukosis",
+      "disease": "Лейкоз КРС",
+      "disease_group": "Ruminant",
+      "region": "Самарская область",
+      "region_geo": "Samara",
+      "date": "2024-12-18",
+      "species": "Cattle",
+      "cases": 0,
+      "deaths": 0,
+      "status": "Resolved",
+      "source": "fsvps",
+      "source_url": "https://fsvps.gov.ru/wp-content/uploads/2024/12/18.12.2024г.pdf",
+      "notes": "Лейкоз КРС — Самарская область"
+    },
+    {
+      "id": 60,
+      "disease_key": "lepto",
+      "disease": "Лептоспироз",
+      "disease_group": "Multi-species",
+      "region": "Забайкальский край",
+      "region_geo": "Chita",
+      "date": "2024-12-18",
+      "species": "Other",
+      "cases": 0,
+      "deaths": 0,
+      "status": "Ongoing",
+      "source": "fsvps",
+      "source_url": "https://fsvps.gov.ru/wp-content/uploads/2024/12/18.12.2024г.pdf",
+      "notes": "Лептоспироз — Забайкальский край"
+    },
+    {
+      "id": 61,
+      "disease_key": "rabies",
+      "disease": "Бешенство",
+      "disease_group": "Wildlife",
+      "region": "Волгоградская область",
+      "region_geo": "Volgograd",
+      "date": "2024-12-18",
+      "species": "Wildlife",
+      "cases": 0,
+      "deaths": 0,
+      "status": "Ongoing",
+      "source": "fsvps",
+      "source_url": "https://fsvps.gov.ru/wp-content/uploads/2024/12/18.12.2024г.pdf",
+      "notes": "Бешенство — Волгоградская область"
+    },
+    {
+      "id": 62,
+      "disease_key": "varroosis",
+      "disease": "Варроатоз пчёл",
+      "disease_group": "Multi-species",
+      "region": "Нижегородская область",
+      "region_geo": "Nizhegorod",
+      "date": "2024-12-18",
+      "species": "Other",
+      "cases": 0,
+      "deaths": 0,
+      "status": "Ongoing",
+      "source": "fsvps",
+      "source_url": "https://fsvps.gov.ru/wp-content/uploads/2024/12/18.12.2024г.pdf",
+      "notes": "Варроатоз пчёл — Нижегородская область"
+    },
+    {
+      "id": 63,
+      "disease_key": "leukosis",
+      "disease": "Лейкоз КРС",
+      "disease_group": "Ruminant",
+      "region": "Нижегородская область",
+      "region_geo": "Nizhegorod",
+      "date": "2024-12-18",
+      "species": "Cattle",
+      "cases": 0,
+      "deaths": 0,
+      "status": "Ongoing",
+      "source": "fsvps",
+      "source_url": "https://fsvps.gov.ru/wp-content/uploads/2024/12/18.12.2024г.pdf",
+      "notes": "Лейкоз КРС — Нижегородская область"
+    },
+    {
+      "id": 64,
+      "disease_key": "avian_salmonellosis",
+      "disease": "Сальмонеллёз птицы",
+      "disease_group": "Avian",
+      "region": "Орловская область",
+      "region_geo": "Orel",
+      "date": "2024-12-18",
+      "species": "Other",
+      "cases": 0,
+      "deaths": 0,
+      "status": "Ongoing",
+      "source": "fsvps",
+      "source_url": "https://fsvps.gov.ru/wp-content/uploads/2024/12/18.12.2024г.pdf",
+      "notes": "Сальмонеллёз — Орловская область"
+    },
+    {
+      "id": 65,
+      "disease_key": "rabies",
+      "disease": "Бешенство",
+      "disease_group": "Wildlife",
+      "region": "Ростовская область",
+      "region_geo": "Rostov",
+      "date": "2024-12-20",
+      "species": "Wildlife",
+      "cases": 0,
+      "deaths": 0,
+      "status": "Ongoing",
+      "source": "fsvps",
+      "source_url": "https://fsvps.gov.ru/wp-content/uploads/2024/12/20.12.2024г.pdf",
+      "notes": "Бешенство животных — Ростовская область"
+    },
+    {
+      "id": 66,
+      "disease_key": "rabies",
+      "disease": "Бешенство",
+      "disease_group": "Wildlife",
+      "region": "Рязанская область",
+      "region_geo": "Ryazan'",
+      "date": "2024-12-20",
+      "species": "Wildlife",
+      "cases": 0,
+      "deaths": 0,
+      "status": "Ongoing",
+      "source": "fsvps",
+      "source_url": "https://fsvps.gov.ru/wp-content/uploads/2024/12/20.12.2024г.pdf",
+      "notes": "Бешенство животных — Рязанская область"
+    },
+    {
+      "id": 67,
+      "disease_key": "brucellosis",
+      "disease": "Бруцеллёз",
+      "disease_group": "Ruminant",
+      "region": "Астраханская область",
+      "region_geo": "Astrakhan'",
+      "date": "2024-12-20",
+      "species": "Cattle",
+      "cases": 0,
+      "deaths": 0,
+      "status": "Resolved",
+      "source": "fsvps",
+      "source_url": "https://fsvps.gov.ru/wp-content/uploads/2024/12/20.12.2024г.pdf",
+      "notes": "Бруцеллёз — Астраханская область"
+    },
+    {
+      "id": 68,
+      "disease_key": "eia",
+      "disease": "Инфекционная анемия лошадей",
+      "disease_group": "Equine/Wildlife",
+      "region": "Алтайский край",
+      "region_geo": "Altay",
+      "date": "2024-12-20",
+      "species": "Other",
+      "cases": 0,
+      "deaths": 0,
+      "status": "Ongoing",
+      "source": "fsvps",
+      "source_url": "https://fsvps.gov.ru/wp-content/uploads/2024/12/20.12.2024г.pdf",
+      "notes": "Инфекционная анемия лошадей — Алтайский край"
+    },
+    {
+      "id": 69,
+      "disease_key": "leukosis",
+      "disease": "Лейкоз КРС",
+      "disease_group": "Ruminant",
+      "region": "Омская область",
+      "region_geo": "Omsk",
+      "date": "2024-12-20",
+      "species": "Cattle",
+      "cases": 0,
+      "deaths": 0,
+      "status": "Resolved",
+      "source": "fsvps",
+      "source_url": "https://fsvps.gov.ru/wp-content/uploads/2024/12/20.12.2024г.pdf",
+      "notes": "Лейкоз КРС — Омская область"
+    },
+    {
+      "id": 70,
+      "disease_key": "lepto",
+      "disease": "Лептоспироз",
+      "disease_group": "Multi-species",
+      "region": "Волгоградская область",
+      "region_geo": "Volgograd",
+      "date": "2024-12-20",
+      "species": "Other",
+      "cases": 0,
+      "deaths": 0,
+      "status": "Ongoing",
+      "source": "fsvps",
+      "source_url": "https://fsvps.gov.ru/wp-content/uploads/2024/12/20.12.2024г.pdf",
+      "notes": "Лептоспироз — Волгоградская область"
+    },
+    {
+      "id": 71,
+      "disease_key": "lepto",
+      "disease": "Лептоспироз",
+      "disease_group": "Multi-species",
+      "region": "Иркутская область",
+      "region_geo": "Irkutsk",
+      "date": "2024-12-20",
+      "species": "Cattle",
+      "cases": 0,
+      "deaths": 0,
+      "status": "Ongoing",
+      "source": "fsvps",
+      "source_url": "https://fsvps.gov.ru/wp-content/uploads/2024/12/20.12.2024г.pdf",
+      "notes": "Лептоспироз КРС — Иркутская область | лептоспироз — Иркутская область"
+    },
+    {
+      "id": 72,
+      "disease_key": "other",
+      "disease": "Прочее",
+      "disease_group": "Multi-species",
+      "region": "Иркутская область",
+      "region_geo": "Irkutsk",
+      "date": "2024-12-20",
+      "species": "Other",
+      "cases": 0,
+      "deaths": 0,
+      "status": "Ongoing",
+      "source": "fsvps",
+      "source_url": "https://fsvps.gov.ru/wp-content/uploads/2024/12/20.12.2024г.pdf",
+      "notes": "Туберкулёз — Иркутская область"
+    },
+    {
+      "id": 73,
+      "disease_key": "rabies",
+      "disease": "Бешенство",
+      "disease_group": "Wildlife",
+      "region": "Астраханская область",
+      "region_geo": "Astrakhan'",
+      "date": "2024-12-23",
+      "species": "Wildlife",
+      "cases": 0,
+      "deaths": 0,
+      "status": "Ongoing",
+      "source": "fsvps",
+      "source_url": "https://fsvps.gov.ru/wp-content/uploads/2024/12/23.12.2024г.pdf",
+      "notes": "Бешенство животных — Астраханская область | Бешенство — Астраханская область"
+    },
+    {
+      "id": 74,
+      "disease_key": "rabies",
+      "disease": "Бешенство",
+      "disease_group": "Wildlife",
+      "region": "Волгоградская область",
+      "region_geo": "Volgograd",
+      "date": "2024-12-23",
+      "species": "Wildlife",
+      "cases": 0,
+      "deaths": 0,
+      "status": "Ongoing",
+      "source": "fsvps",
+      "source_url": "https://fsvps.gov.ru/wp-content/uploads/2024/12/23.12.2024г.pdf",
+      "notes": "Бешенство животных — Волгоградская область | Бешенство — Волгоградская область"
+    },
+    {
+      "id": 75,
+      "disease_key": "rabies",
+      "disease": "Бешенство",
+      "disease_group": "Wildlife",
+      "region": "Курская область",
+      "region_geo": "Kursk",
+      "date": "2024-12-23",
+      "species": "Wildlife",
+      "cases": 0,
+      "deaths": 0,
+      "status": "Ongoing",
+      "source": "fsvps",
+      "source_url": "https://fsvps.gov.ru/wp-content/uploads/2024/12/23.12.2024г.pdf",
+      "notes": "Бешенство животных — Курская область"
+    },
+    {
+      "id": 76,
+      "disease_key": "rabies",
+      "disease": "Бешенство",
+      "disease_group": "Wildlife",
+      "region": "Челябинская область",
+      "region_geo": "Chelyabinsk",
+      "date": "2024-12-23",
+      "species": "Wildlife",
+      "cases": 0,
+      "deaths": 0,
+      "status": "Ongoing",
+      "source": "fsvps",
+      "source_url": "https://fsvps.gov.ru/wp-content/uploads/2024/12/23.12.2024г.pdf",
+      "notes": "Бешенство животных — Челябинская область"
+    },
+    {
+      "id": 77,
+      "disease_key": "rabies",
+      "disease": "Бешенство",
+      "disease_group": "Wildlife",
+      "region": "Тамбовская область",
+      "region_geo": "Tambov",
+      "date": "2024-12-23",
+      "species": "Wildlife",
+      "cases": 0,
+      "deaths": 0,
+      "status": "Ongoing",
+      "source": "fsvps",
+      "source_url": "https://fsvps.gov.ru/wp-content/uploads/2024/12/23.12.2024г.pdf",
+      "notes": "Бешенство животных — Тамбовская область | Бешенство животных — Тамбовская область"
+    },
+    {
+      "id": 78,
+      "disease_key": "leukosis",
+      "disease": "Лейкоз КРС",
+      "disease_group": "Ruminant",
+      "region": "Рязанская область",
+      "region_geo": "Ryazan'",
+      "date": "2024-12-23",
+      "species": "Cattle",
+      "cases": 0,
+      "deaths": 0,
+      "status": "Resolved",
+      "source": "fsvps",
+      "source_url": "https://fsvps.gov.ru/wp-content/uploads/2024/12/23.12.2024г.pdf",
+      "notes": "Лейкоз КРС — Рязанская область"
+    },
+    {
+      "id": 79,
+      "disease_key": "brucellosis",
+      "disease": "Бруцеллёз",
+      "disease_group": "Ruminant",
+      "region": "Новосибирская область",
+      "region_geo": "Novosibirsk",
+      "date": "2024-12-23",
+      "species": "Sheep/Goats",
+      "cases": 0,
+      "deaths": 0,
+      "status": "Ongoing",
+      "source": "fsvps",
+      "source_url": "https://fsvps.gov.ru/wp-content/uploads/2024/12/23.12.2024г.pdf",
+      "notes": "Бруцеллёз МРС — Новосибирская область | бруцеллез — Новосибирская область"
+    },
+    {
+      "id": 80,
+      "disease_key": "trichinellosis",
+      "disease": "Трихинеллёз",
+      "disease_group": "Wildlife",
+      "region": "Иркутская область",
+      "region_geo": "Irkutsk",
+      "date": "2024-12-23",
+      "species": "кабан",
+      "cases": 0,
+      "deaths": 0,
+      "status": "Ongoing",
+      "source": "fsvps",
+      "source_url": "https://fsvps.gov.ru/wp-content/uploads/2024/12/23.12.2024г.pdf",
+      "notes": "Трихинеллёз — Иркутская область"
+    },
+    {
+      "id": 81,
+      "disease_key": "rabies",
+      "disease": "Бешенство",
+      "disease_group": "Wildlife",
+      "region": "Белгородская область",
+      "region_geo": "Belgorod",
+      "date": "2024-12-25",
+      "species": "Wildlife",
+      "cases": 0,
+      "deaths": 0,
+      "status": "Ongoing",
+      "source": "fsvps",
+      "source_url": "https://fsvps.gov.ru/wp-content/uploads/2024/12/25.12.2024г.pdf",
+      "notes": "Бешенство животных — Белгородская область | Бешенство — Белгородская область"
+    },
+    {
+      "id": 82,
+      "disease_key": "rabies",
+      "disease": "Бешенство",
+      "disease_group": "Wildlife",
+      "region": "Пензенская область",
+      "region_geo": "Penza",
+      "date": "2024-12-25",
+      "species": "Wildlife",
+      "cases": 0,
+      "deaths": 0,
+      "status": "Ongoing",
+      "source": "fsvps",
+      "source_url": "https://fsvps.gov.ru/wp-content/uploads/2024/12/25.12.2024г.pdf",
+      "notes": "Бешенство животных — Пензенская область"
+    },
+    {
+      "id": 83,
+      "disease_key": "rabies",
+      "disease": "Бешенство",
+      "disease_group": "Wildlife",
+      "region": "Самарская область",
+      "region_geo": "Samara",
+      "date": "2024-12-25",
+      "species": "Wildlife",
+      "cases": 0,
+      "deaths": 0,
+      "status": "Ongoing",
+      "source": "fsvps",
+      "source_url": "https://fsvps.gov.ru/wp-content/uploads/2024/12/25.12.2024г.pdf",
+      "notes": "Бешенство животных — Самарская область"
+    },
+    {
+      "id": 84,
+      "disease_key": "rabies",
+      "disease": "Бешенство",
+      "disease_group": "Wildlife",
+      "region": "Тюменская область",
+      "region_geo": "Tyumen'",
+      "date": "2024-12-25",
+      "species": "Wildlife",
+      "cases": 0,
+      "deaths": 0,
+      "status": "Ongoing",
+      "source": "fsvps",
+      "source_url": "https://fsvps.gov.ru/wp-content/uploads/2024/12/25.12.2024г.pdf",
+      "notes": "Бешенство животных — Тюменская область"
+    },
+    {
+      "id": 85,
+      "disease_key": "rabies",
+      "disease": "Бешенство",
+      "disease_group": "Wildlife",
+      "region": "Воронежская область",
+      "region_geo": "Voronezh",
+      "date": "2024-12-25",
+      "species": "Wildlife",
+      "cases": 0,
+      "deaths": 0,
+      "status": "Ongoing",
+      "source": "fsvps",
+      "source_url": "https://fsvps.gov.ru/wp-content/uploads/2024/12/25.12.2024г.pdf",
+      "notes": "Бешенство животных — Воронежская область | Бешенство животных — Воронежская область"
+    },
+    {
+      "id": 86,
+      "disease_key": "rabies",
+      "disease": "Бешенство",
+      "disease_group": "Wildlife",
+      "region": "Орловская область",
+      "region_geo": "Orel",
+      "date": "2024-12-25",
+      "species": "Wildlife",
+      "cases": 0,
+      "deaths": 0,
+      "status": "Ongoing",
+      "source": "fsvps",
+      "source_url": "https://fsvps.gov.ru/wp-content/uploads/2024/12/25.12.2024г.pdf",
+      "notes": "Бешенство животных — Орловская область"
+    },
+    {
+      "id": 87,
+      "disease_key": "brucellosis",
+      "disease": "Бруцеллёз",
+      "disease_group": "Ruminant",
+      "region": "Брянская область",
+      "region_geo": "Bryansk",
+      "date": "2024-12-25",
+      "species": "Cattle",
+      "cases": 0,
+      "deaths": 0,
+      "status": "Ongoing",
+      "source": "fsvps",
+      "source_url": "https://fsvps.gov.ru/wp-content/uploads/2024/12/25.12.2024г.pdf",
+      "notes": "Бруцеллёз — Брянская область | бруцеллез — Брянская область | Бруцеллёз — Брянская область | бруцеллез — Брянская область | Бруцеллёз — Брянская область | бруцеллез — Брянская область | Бруцеллёз — Брянская область | Бруцеллёз — Брянская область | бруцеллез — Брянская область"
+    },
+    {
+      "id": 88,
+      "disease_key": "leukosis",
+      "disease": "Лейкоз КРС",
+      "disease_group": "Ruminant",
+      "region": "Самарская область",
+      "region_geo": "Samara",
+      "date": "2024-12-25",
+      "species": "Cattle",
+      "cases": 0,
+      "deaths": 0,
+      "status": "Ongoing",
+      "source": "fsvps",
+      "source_url": "https://fsvps.gov.ru/wp-content/uploads/2024/12/25.12.2024г.pdf",
+      "notes": "Лейкоз КРС — Самарская область | Лейкоз КРС — Самарская область | Лейкоз КРС — Самарская область | Лейкоз КРС — Самарская область | Лейкоз КРС — Самарская область | Лейкоз КРС — Самарская область | Лейкоз КРС — Самарская область"
+    },
+    {
+      "id": 89,
+      "disease_key": "leukosis",
+      "disease": "Лейкоз КРС",
+      "disease_group": "Ruminant",
+      "region": "Алтайский край",
+      "region_geo": "Altay",
+      "date": "2024-12-25",
+      "species": "Cattle",
+      "cases": 0,
+      "deaths": 0,
+      "status": "Resolved",
+      "source": "fsvps",
+      "source_url": "https://fsvps.gov.ru/wp-content/uploads/2024/12/25.12.2024г.pdf",
+      "notes": "Лейкоз КРС — Алтайский край | Лейкоз КРС — Алтайский край"
+    },
+    {
+      "id": 90,
+      "disease_key": "leukosis",
+      "disease": "Лейкоз КРС",
+      "disease_group": "Ruminant",
+      "region": "Воронежская область",
+      "region_geo": "Voronezh",
+      "date": "2024-12-25",
+      "species": "Cattle",
+      "cases": 0,
+      "deaths": 0,
+      "status": "Resolved",
+      "source": "fsvps",
+      "source_url": "https://fsvps.gov.ru/wp-content/uploads/2024/12/25.12.2024г.pdf",
+      "notes": "Лейкоз КРС — Воронежская область | Лейкоз КРС — Воронежская область"
+    },
+    {
+      "id": 91,
+      "disease_key": "leukosis",
+      "disease": "Лейкоз КРС",
+      "disease_group": "Ruminant",
+      "region": "Иркутская область",
+      "region_geo": "Irkutsk",
+      "date": "2024-12-25",
+      "species": "Cattle",
+      "cases": 0,
+      "deaths": 0,
+      "status": "Resolved",
+      "source": "fsvps",
+      "source_url": "https://fsvps.gov.ru/wp-content/uploads/2024/12/25.12.2024г.pdf",
+      "notes": "Лейкоз КРС — Иркутская область"
+    },
+    {
+      "id": 92,
+      "disease_key": "lepto",
+      "disease": "Лептоспироз",
+      "disease_group": "Multi-species",
+      "region": "Челябинская область",
+      "region_geo": "Chelyabinsk",
+      "date": "2024-12-25",
+      "species": "Other",
+      "cases": 0,
+      "deaths": 0,
+      "status": "Resolved",
+      "source": "fsvps",
+      "source_url": "https://fsvps.gov.ru/wp-content/uploads/2024/12/25.12.2024г.pdf",
+      "notes": "Лептоспироз — Челябинская область"
+    },
+    {
+      "id": 93,
+      "disease_key": "trichinellosis",
+      "disease": "Трихинеллёз",
+      "disease_group": "Wildlife",
+      "region": "Костромская область",
+      "region_geo": "Kostroma",
+      "date": "2024-12-25",
+      "species": "Other",
+      "cases": 0,
+      "deaths": 0,
+      "status": "Resolved",
+      "source": "fsvps",
+      "source_url": "https://fsvps.gov.ru/wp-content/uploads/2024/12/25.12.2024г.pdf",
+      "notes": "Трихинеллёз — Костромская область"
+    },
+    {
+      "id": 94,
+      "disease_key": "leukosis",
+      "disease": "Лейкоз КРС",
+      "disease_group": "Ruminant",
+      "region": "Нижегородская область",
+      "region_geo": "Nizhegorod",
+      "date": "2024-12-25",
+      "species": "Cattle",
+      "cases": 0,
+      "deaths": 0,
+      "status": "Ongoing",
+      "source": "fsvps",
+      "source_url": "https://fsvps.gov.ru/wp-content/uploads/2024/12/25.12.2024г.pdf",
+      "notes": "Лейкоз КРС — Нижегородская область"
+    },
+    {
+      "id": 95,
+      "disease_key": "lepto",
+      "disease": "Лептоспироз",
+      "disease_group": "Multi-species",
+      "region": "Самарская область",
+      "region_geo": "Samara",
+      "date": "2024-12-25",
+      "species": "Other",
+      "cases": 0,
+      "deaths": 0,
+      "status": "Ongoing",
+      "source": "fsvps",
+      "source_url": "https://fsvps.gov.ru/wp-content/uploads/2024/12/25.12.2024г.pdf",
+      "notes": "Лептоспироз — Самарская область | Лептоспироз — Самарская область"
+    },
+    {
+      "id": 96,
+      "disease_key": "rabies",
+      "disease": "Бешенство",
+      "disease_group": "Wildlife",
+      "region": "Белгородская область",
+      "region_geo": "Belgorod",
+      "date": "2024-12-27",
+      "species": "Wildlife",
+      "cases": 0,
+      "deaths": 0,
+      "status": "Ongoing",
+      "source": "fsvps",
+      "source_url": "https://fsvps.gov.ru/wp-content/uploads/2024/12/27.12.2024г.pdf",
+      "notes": "Бешенство животных — Белгородская область | Бешенство — Белгородская область"
+    },
+    {
+      "id": 97,
+      "disease_key": "rabies",
+      "disease": "Бешенство",
+      "disease_group": "Wildlife",
+      "region": "Волгоградская область",
+      "region_geo": "Volgograd",
+      "date": "2024-12-27",
+      "species": "Wildlife",
+      "cases": 0,
+      "deaths": 0,
+      "status": "Ongoing",
+      "source": "fsvps",
+      "source_url": "https://fsvps.gov.ru/wp-content/uploads/2024/12/27.12.2024г.pdf",
+      "notes": "Бешенство животных — Волгоградская область | Бешенство животных — Волгоградская область"
+    },
+    {
+      "id": 98,
+      "disease_key": "rabies",
+      "disease": "Бешенство",
+      "disease_group": "Wildlife",
+      "region": "Воронежская область",
+      "region_geo": "Voronezh",
+      "date": "2024-12-27",
+      "species": "Wildlife",
+      "cases": 0,
+      "deaths": 0,
+      "status": "Ongoing",
+      "source": "fsvps",
+      "source_url": "https://fsvps.gov.ru/wp-content/uploads/2024/12/27.12.2024г.pdf",
+      "notes": "Бешенство животных — Воронежская область"
+    },
+    {
+      "id": 99,
+      "disease_key": "rabies",
+      "disease": "Бешенство",
+      "disease_group": "Wildlife",
+      "region": "Красноярский край",
+      "region_geo": "Krasnoyarsk",
+      "date": "2024-12-27",
+      "species": "Wildlife",
+      "cases": 0,
+      "deaths": 0,
+      "status": "Ongoing",
+      "source": "fsvps",
+      "source_url": "https://fsvps.gov.ru/wp-content/uploads/2024/12/27.12.2024г.pdf",
+      "notes": "Бешенство животных — Красноярский край"
+    },
+    {
+      "id": 100,
+      "disease_key": "brucellosis",
+      "disease": "Бруцеллёз",
+      "disease_group": "Ruminant",
+      "region": "Астраханская область",
+      "region_geo": "Astrakhan'",
+      "date": "2024-12-27",
+      "species": "Cattle",
+      "cases": 0,
+      "deaths": 0,
+      "status": "Ongoing",
+      "source": "fsvps",
+      "source_url": "https://fsvps.gov.ru/wp-content/uploads/2024/12/27.12.2024г.pdf",
+      "notes": "Бруцеллёз — Астраханская область | бруцеллёз — Астраханская область"
+    },
+    {
+      "id": 101,
+      "disease_key": "eia",
+      "disease": "Инфекционная анемия лошадей",
+      "disease_group": "Equine/Wildlife",
+      "region": "Омская область",
+      "region_geo": "Omsk",
+      "date": "2024-12-27",
+      "species": "Other",
+      "cases": 0,
+      "deaths": 0,
+      "status": "Resolved",
+      "source": "fsvps",
+      "source_url": "https://fsvps.gov.ru/wp-content/uploads/2024/12/27.12.2024г.pdf",
+      "notes": "Инфекционная анемия лошадей — Омская область"
+    },
+    {
+      "id": 102,
+      "disease_key": "leukosis",
+      "disease": "Лейкоз КРС",
+      "disease_group": "Ruminant",
+      "region": "Калининградская область",
+      "region_geo": "Kaliningrad",
+      "date": "2024-12-27",
+      "species": "Cattle",
+      "cases": 0,
+      "deaths": 0,
+      "status": "Ongoing",
+      "source": "fsvps",
+      "source_url": "https://fsvps.gov.ru/wp-content/uploads/2024/12/27.12.2024г.pdf",
+      "notes": "Лейкоз КРС — Калининградская область"
+    },
+    {
+      "id": 103,
+      "disease_key": "leukosis",
+      "disease": "Лейкоз КРС",
+      "disease_group": "Ruminant",
+      "region": "Калужская область",
+      "region_geo": "Kaluga",
+      "date": "2024-12-27",
+      "species": "Cattle",
+      "cases": 0,
+      "deaths": 0,
+      "status": "Ongoing",
+      "source": "fsvps",
+      "source_url": "https://fsvps.gov.ru/wp-content/uploads/2024/12/27.12.2024г.pdf",
+      "notes": "Лейкоз КРС — Калужская область"
+    },
+    {
+      "id": 104,
+      "disease_key": "leukosis",
+      "disease": "Лейкоз КРС",
+      "disease_group": "Ruminant",
+      "region": "Алтайский край",
+      "region_geo": "Altay",
+      "date": "2024-12-27",
+      "species": "Cattle",
+      "cases": 0,
+      "deaths": 0,
+      "status": "Resolved",
+      "source": "fsvps",
+      "source_url": "https://fsvps.gov.ru/wp-content/uploads/2024/12/27.12.2024г.pdf",
+      "notes": "Лейкоз КРС — Алтайский край"
+    },
+    {
+      "id": 105,
+      "disease_key": "leukosis",
+      "disease": "Лейкоз КРС",
+      "disease_group": "Ruminant",
+      "region": "Забайкальский край",
+      "region_geo": "Chita",
+      "date": "2024-12-27",
+      "species": "Cattle",
+      "cases": 0,
+      "deaths": 0,
+      "status": "Resolved",
+      "source": "fsvps",
+      "source_url": "https://fsvps.gov.ru/wp-content/uploads/2024/12/27.12.2024г.pdf",
+      "notes": "Лейкоз КРС — Забайкальский край"
+    },
+    {
+      "id": 106,
+      "disease_key": "leukosis",
+      "disease": "Лейкоз КРС",
+      "disease_group": "Ruminant",
+      "region": "Пензенская область",
+      "region_geo": "Penza",
+      "date": "2024-12-27",
+      "species": "Cattle",
+      "cases": 0,
+      "deaths": 0,
+      "status": "Ongoing",
+      "source": "fsvps",
+      "source_url": "https://fsvps.gov.ru/wp-content/uploads/2024/12/27.12.2024г.pdf",
+      "notes": "Лейкоз КРС — Пензенская область"
+    },
+    {
+      "id": 107,
+      "disease_key": "brucellosis",
+      "disease": "Бруцеллёз",
+      "disease_group": "Ruminant",
+      "region": "Новосибирская область",
+      "region_geo": "Novosibirsk",
+      "date": "2024-12-27",
+      "species": "Cattle",
+      "cases": 0,
+      "deaths": 0,
+      "status": "Ongoing",
+      "source": "fsvps",
+      "source_url": "https://fsvps.gov.ru/wp-content/uploads/2024/12/27.12.2024г.pdf",
+      "notes": "Бруцеллёз — Новосибирская область"
+    },
+    {
+      "id": 108,
+      "disease_key": "leukosis",
+      "disease": "Лейкоз КРС",
+      "disease_group": "Ruminant",
+      "region": "Ростовская область",
+      "region_geo": "Rostov",
+      "date": "2024-12-27",
+      "species": "Cattle",
+      "cases": 0,
+      "deaths": 0,
+      "status": "Ongoing",
+      "source": "fsvps",
+      "source_url": "https://fsvps.gov.ru/wp-content/uploads/2024/12/27.12.2024г.pdf",
+      "notes": "Лейкоз КРС — Ростовская область"
+    },
+    {
+      "id": 109,
+      "disease_key": "rabies",
+      "disease": "Бешенство",
+      "disease_group": "Wildlife",
+      "region": "Смоленская область",
+      "region_geo": "Smolensk",
+      "date": "2024-12-28",
+      "species": "Wildlife",
+      "cases": 0,
+      "deaths": 0,
+      "status": "Ongoing",
+      "source": "fsvps",
+      "source_url": "https://fsvps.gov.ru/wp-content/uploads/2024/12/28.12.2024г.pdf",
+      "notes": "Бешенство животных — Смоленская область"
+    },
+    {
+      "id": 110,
+      "disease_key": "rabies",
+      "disease": "Бешенство",
+      "disease_group": "Wildlife",
+      "region": "Тамбовская область",
+      "region_geo": "Tambov",
+      "date": "2024-12-28",
+      "species": "Wildlife",
+      "cases": 0,
+      "deaths": 0,
+      "status": "Ongoing",
+      "source": "fsvps",
+      "source_url": "https://fsvps.gov.ru/wp-content/uploads/2024/12/28.12.2024г.pdf",
+      "notes": "Бешенство животных — Тамбовская область | Бешенство животных — Тамбовская область | Бешенство животных — Тамбовская область"
+    },
+    {
+      "id": 111,
+      "disease_key": "rabies",
+      "disease": "Бешенство",
+      "disease_group": "Wildlife",
+      "region": "Челябинская область",
+      "region_geo": "Chelyabinsk",
+      "date": "2024-12-28",
+      "species": "Wildlife",
+      "cases": 0,
+      "deaths": 0,
+      "status": "Ongoing",
+      "source": "fsvps",
+      "source_url": "https://fsvps.gov.ru/wp-content/uploads/2024/12/28.12.2024г.pdf",
+      "notes": "Бешенство животных — Челябинская область"
+    },
+    {
+      "id": 112,
+      "disease_key": "rabies",
+      "disease": "Бешенство",
+      "disease_group": "Wildlife",
+      "region": "Алтайский край",
+      "region_geo": "Altay",
+      "date": "2024-12-28",
+      "species": "Wildlife",
+      "cases": 0,
+      "deaths": 0,
+      "status": "Ongoing",
+      "source": "fsvps",
+      "source_url": "https://fsvps.gov.ru/wp-content/uploads/2024/12/28.12.2024г.pdf",
+      "notes": "Бешенство животных — Алтайский край"
+    },
+    {
+      "id": 113,
+      "disease_key": "rabies",
+      "disease": "Бешенство",
+      "disease_group": "Wildlife",
+      "region": "Нижегородская область",
+      "region_geo": "Nizhegorod",
+      "date": "2024-12-28",
+      "species": "Wildlife",
+      "cases": 0,
+      "deaths": 0,
+      "status": "Ongoing",
+      "source": "fsvps",
+      "source_url": "https://fsvps.gov.ru/wp-content/uploads/2024/12/28.12.2024г.pdf",
+      "notes": "Бешенство животных — Нижегородская область | Бешенство — Нижегородская область | Бешенство животных — Нижегородская область"
+    },
+    {
+      "id": 114,
+      "disease_key": "brucellosis",
+      "disease": "Бруцеллёз",
+      "disease_group": "Ruminant",
+      "region": "Брянская область",
+      "region_geo": "Bryansk",
+      "date": "2024-12-28",
+      "species": "Cattle",
+      "cases": 0,
+      "deaths": 0,
+      "status": "Ongoing",
+      "source": "fsvps",
+      "source_url": "https://fsvps.gov.ru/wp-content/uploads/2024/12/28.12.2024г.pdf",
+      "notes": "Бруцеллёз — Брянская область | бруцеллез — Брянская область"
+    },
+    {
+      "id": 115,
+      "disease_key": "brucellosis",
+      "disease": "Бруцеллёз",
+      "disease_group": "Ruminant",
+      "region": "Саратовская область",
+      "region_geo": "Saratov",
+      "date": "2024-12-28",
+      "species": "Other",
+      "cases": 0,
+      "deaths": 0,
+      "status": "Resolved",
+      "source": "fsvps",
+      "source_url": "https://fsvps.gov.ru/wp-content/uploads/2024/12/28.12.2024г.pdf",
+      "notes": "бруцеллез — Саратовская область"
+    },
+    {
+      "id": 116,
+      "disease_key": "leukosis",
+      "disease": "Лейкоз КРС",
+      "disease_group": "Ruminant",
+      "region": "Курская область",
+      "region_geo": "Kursk",
+      "date": "2024-12-28",
+      "species": "Cattle",
+      "cases": 0,
+      "deaths": 0,
+      "status": "Resolved",
+      "source": "fsvps",
+      "source_url": "https://fsvps.gov.ru/wp-content/uploads/2024/12/28.12.2024г.pdf",
+      "notes": "Лейкоз КРС — Курская область | Лейкоз КРС — Курская область"
+    },
+    {
+      "id": 117,
+      "disease_key": "leukosis",
+      "disease": "Лейкоз КРС",
+      "disease_group": "Ruminant",
+      "region": "Самарская область",
+      "region_geo": "Samara",
+      "date": "2024-12-28",
+      "species": "Cattle",
+      "cases": 0,
+      "deaths": 0,
+      "status": "Resolved",
+      "source": "fsvps",
+      "source_url": "https://fsvps.gov.ru/wp-content/uploads/2024/12/28.12.2024г.pdf",
+      "notes": "Лейкоз КРС — Самарская область"
+    },
+    {
+      "id": 118,
+      "disease_key": "lepto",
+      "disease": "Лептоспироз",
+      "disease_group": "Multi-species",
+      "region": "Калининградская область",
+      "region_geo": "Kaliningrad",
+      "date": "2024-12-28",
+      "species": "Other",
+      "cases": 0,
+      "deaths": 0,
+      "status": "Ongoing",
+      "source": "fsvps",
+      "source_url": "https://fsvps.gov.ru/wp-content/uploads/2024/12/28.12.2024г.pdf",
+      "notes": "Лептоспироз — Калининградская область"
+    },
+    {
+      "id": 119,
+      "disease_key": "lepto",
+      "disease": "Лептоспироз",
+      "disease_group": "Multi-species",
+      "region": "Иркутская область",
+      "region_geo": "Irkutsk",
+      "date": "2024-12-28",
+      "species": "Cattle",
+      "cases": 0,
+      "deaths": 0,
+      "status": "Ongoing",
+      "source": "fsvps",
+      "source_url": "https://fsvps.gov.ru/wp-content/uploads/2024/12/28.12.2024г.pdf",
+      "notes": "Лептоспироз КРС — Иркутская область | лептоспироз — Иркутская область"
+    },
+    {
+      "id": 120,
+      "disease_key": "leukosis",
+      "disease": "Лейкоз КРС",
+      "disease_group": "Ruminant",
+      "region": "Нижегородская область",
+      "region_geo": "Nizhegorod",
+      "date": "2024-12-28",
+      "species": "Cattle",
+      "cases": 0,
+      "deaths": 0,
+      "status": "Ongoing",
+      "source": "fsvps",
+      "source_url": "https://fsvps.gov.ru/wp-content/uploads/2024/12/28.12.2024г.pdf",
+      "notes": "Лейкоз КРС — Нижегородская область"
+    },
+    {
+      "id": 121,
       "disease_key": "hpai",
       "disease": "Грипп птиц",
       "disease_group": "Avian",
@@ -337,7 +1922,7 @@
       "notes": "Avian Influenza (HPAI H5N8)"
     },
     {
-      "id": 23,
+      "id": 122,
       "disease_key": "fmd",
       "disease": "Ящур",
       "disease_group": "Ruminant",
@@ -352,7 +1937,7 @@
       "notes": "Foot and Mouth Disease (FMD) A"
     },
     {
-      "id": 24,
+      "id": 123,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -367,7 +1952,7 @@
       "notes": "Rabies"
     },
     {
-      "id": 25,
+      "id": 124,
       "disease_key": "asf",
       "disease": "Африканская чума свиней",
       "disease_group": "Swine",
@@ -382,7 +1967,7 @@
       "notes": "African Swine Fever"
     },
     {
-      "id": 26,
+      "id": 125,
       "disease_key": "newcastle",
       "disease": "Болезнь Ньюкасла",
       "disease_group": "Avian",
@@ -397,7 +1982,7 @@
       "notes": "Newcastle Disease"
     },
     {
-      "id": 27,
+      "id": 126,
       "disease_key": "leukosis",
       "disease": "Лейкоз КРС",
       "disease_group": "Ruminant",
@@ -412,7 +1997,7 @@
       "notes": "Enzootic Bovine Leukosis"
     },
     {
-      "id": 28,
+      "id": 127,
       "disease_key": "csf",
       "disease": "Классическая чума свиней",
       "disease_group": "Swine",
@@ -427,7 +2012,7 @@
       "notes": "Classical Swine Fever"
     },
     {
-      "id": 29,
+      "id": 128,
       "disease_key": "hpai",
       "disease": "Грипп птиц",
       "disease_group": "Avian",
@@ -442,7 +2027,7 @@
       "notes": "Avian Influenza (HPAI H5N1)"
     },
     {
-      "id": 30,
+      "id": 129,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -457,7 +2042,7 @@
       "notes": "Rabies"
     },
     {
-      "id": 31,
+      "id": 130,
       "disease_key": "asf",
       "disease": "Африканская чума свиней",
       "disease_group": "Swine",
@@ -472,7 +2057,7 @@
       "notes": "African Swine Fever"
     },
     {
-      "id": 32,
+      "id": 131,
       "disease_key": "hpai",
       "disease": "Грипп птиц",
       "disease_group": "Avian",
@@ -487,7 +2072,7 @@
       "notes": "Avian Influenza (HPAI H5N1)"
     },
     {
-      "id": 33,
+      "id": 132,
       "disease_key": "asf",
       "disease": "Африканская чума свиней",
       "disease_group": "Swine",
@@ -502,7 +2087,7 @@
       "notes": "African Swine Fever"
     },
     {
-      "id": 34,
+      "id": 133,
       "disease_key": "hpai",
       "disease": "Грипп птиц",
       "disease_group": "Avian",
@@ -517,7 +2102,7 @@
       "notes": "Avian Influenza (HPAI H5)"
     },
     {
-      "id": 35,
+      "id": 134,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -532,7 +2117,7 @@
       "notes": "Rabies"
     },
     {
-      "id": 36,
+      "id": 135,
       "disease_key": "btb",
       "disease": "Туберкулёз КРС",
       "disease_group": "Ruminant",
@@ -547,7 +2132,7 @@
       "notes": "Bovine Tuberculosis"
     },
     {
-      "id": 37,
+      "id": 136,
       "disease_key": "asf",
       "disease": "Африканская чума свиней",
       "disease_group": "Swine",
@@ -562,7 +2147,7 @@
       "notes": "African Swine Fever"
     },
     {
-      "id": 38,
+      "id": 137,
       "disease_key": "eia",
       "disease": "Инфекционная анемия лошадей",
       "disease_group": "Equine/Wildlife",
@@ -577,7 +2162,7 @@
       "notes": "Equine Infectious Anemia"
     },
     {
-      "id": 39,
+      "id": 138,
       "disease_key": "hpai",
       "disease": "Грипп птиц",
       "disease_group": "Avian",
@@ -592,7 +2177,7 @@
       "notes": "Avian Influenza (HPAI H5)"
     },
     {
-      "id": 40,
+      "id": 139,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -607,7 +2192,7 @@
       "notes": "Rabies"
     },
     {
-      "id": 41,
+      "id": 140,
       "disease_key": "asf",
       "disease": "Африканская чума свиней",
       "disease_group": "Swine",
@@ -622,7 +2207,7 @@
       "notes": "African Swine Fever"
     },
     {
-      "id": 42,
+      "id": 141,
       "disease_key": "brucellosis",
       "disease": "Бруцеллёз",
       "disease_group": "Ruminant",
@@ -637,7 +2222,7 @@
       "notes": "Brucellosis (B. abortus)"
     },
     {
-      "id": 43,
+      "id": 142,
       "disease_key": "hpai",
       "disease": "Грипп птиц",
       "disease_group": "Avian",
@@ -652,7 +2237,7 @@
       "notes": "Avian Influenza (HPAI H5)"
     },
     {
-      "id": 44,
+      "id": 143,
       "disease_key": "asf",
       "disease": "Африканская чума свиней",
       "disease_group": "Swine",
@@ -667,7 +2252,7 @@
       "notes": "African Swine Fever"
     },
     {
-      "id": 45,
+      "id": 144,
       "disease_key": "hpai",
       "disease": "Грипп птиц",
       "disease_group": "Avian",
@@ -682,7 +2267,7 @@
       "notes": "Avian Influenza (HPAI H5)"
     },
     {
-      "id": 46,
+      "id": 145,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -697,7 +2282,7 @@
       "notes": "Rabies"
     },
     {
-      "id": 47,
+      "id": 146,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -712,7 +2297,7 @@
       "notes": "Rabies"
     },
     {
-      "id": 48,
+      "id": 147,
       "disease_key": "lepto",
       "disease": "Лептоспироз",
       "disease_group": "Multi-species",
@@ -727,7 +2312,7 @@
       "notes": "Leptospirosis"
     },
     {
-      "id": 49,
+      "id": 148,
       "disease_key": "hpai",
       "disease": "Грипп птиц",
       "disease_group": "Avian",
@@ -742,7 +2327,7 @@
       "notes": "Avian Influenza (HPAI H5N1)"
     },
     {
-      "id": 50,
+      "id": 149,
       "disease_key": "hpai",
       "disease": "Грипп птиц",
       "disease_group": "Avian",
@@ -757,7 +2342,7 @@
       "notes": "Avian Influenza (HPAI H5N8)"
     },
     {
-      "id": 51,
+      "id": 150,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -772,7 +2357,7 @@
       "notes": "Rabies"
     },
     {
-      "id": 52,
+      "id": 151,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -787,7 +2372,7 @@
       "notes": "Rabies"
     },
     {
-      "id": 53,
+      "id": 152,
       "disease_key": "bluetongue",
       "disease": "Блютунг",
       "disease_group": "Ruminant",
@@ -802,7 +2387,7 @@
       "notes": "Bluetongue (BTV-4)"
     },
     {
-      "id": 54,
+      "id": 153,
       "disease_key": "asf",
       "disease": "Африканская чума свиней",
       "disease_group": "Swine",
@@ -817,7 +2402,7 @@
       "notes": "African Swine Fever"
     },
     {
-      "id": 55,
+      "id": 154,
       "disease_key": "hpai",
       "disease": "Грипп птиц",
       "disease_group": "Avian",
@@ -832,7 +2417,7 @@
       "notes": "Avian Influenza (HPAI H5)"
     },
     {
-      "id": 56,
+      "id": 155,
       "disease_key": "lsd",
       "disease": "Узелковый дерматит",
       "disease_group": "Ruminant",
@@ -847,7 +2432,7 @@
       "notes": "Lumpy Skin Disease"
     },
     {
-      "id": 57,
+      "id": 156,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -862,7 +2447,7 @@
       "notes": "Rabies"
     },
     {
-      "id": 58,
+      "id": 157,
       "disease_key": "asf",
       "disease": "Африканская чума свиней",
       "disease_group": "Swine",
@@ -877,7 +2462,7 @@
       "notes": "African Swine Fever"
     },
     {
-      "id": 59,
+      "id": 158,
       "disease_key": "hpai",
       "disease": "Грипп птиц",
       "disease_group": "Avian",
@@ -892,7 +2477,7 @@
       "notes": "Avian Influenza (HPAI H5)"
     },
     {
-      "id": 60,
+      "id": 159,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -907,7 +2492,7 @@
       "notes": "Rabies"
     },
     {
-      "id": 61,
+      "id": 160,
       "disease_key": "eia",
       "disease": "Инфекционная анемия лошадей",
       "disease_group": "Equine/Wildlife",
@@ -922,7 +2507,7 @@
       "notes": "Equine Infectious Anemia"
     },
     {
-      "id": 62,
+      "id": 161,
       "disease_key": "anthrax",
       "disease": "Сибирская язва",
       "disease_group": "Ruminant",
@@ -937,7 +2522,7 @@
       "notes": "Anthrax"
     },
     {
-      "id": 63,
+      "id": 162,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -952,7 +2537,7 @@
       "notes": "Rabies"
     },
     {
-      "id": 64,
+      "id": 163,
       "disease_key": "hpai",
       "disease": "Грипп птиц",
       "disease_group": "Avian",
@@ -967,7 +2552,7 @@
       "notes": "Avian Influenza (HPAI H5)"
     },
     {
-      "id": 65,
+      "id": 164,
       "disease_key": "asf",
       "disease": "Африканская чума свиней",
       "disease_group": "Swine",
@@ -982,7 +2567,7 @@
       "notes": "African Swine Fever"
     },
     {
-      "id": 66,
+      "id": 165,
       "disease_key": "bluetongue",
       "disease": "Блютунг",
       "disease_group": "Ruminant",
@@ -997,7 +2582,7 @@
       "notes": "Bluetongue (BTV)"
     },
     {
-      "id": 67,
+      "id": 166,
       "disease_key": "anthrax",
       "disease": "Сибирская язва",
       "disease_group": "Ruminant",
@@ -1012,7 +2597,7 @@
       "notes": "Anthrax"
     },
     {
-      "id": 68,
+      "id": 167,
       "disease_key": "wnv",
       "disease": "Лихорадка Западного Нила",
       "disease_group": "Equine/Wildlife",
@@ -1027,7 +2612,7 @@
       "notes": "West Nile Virus"
     },
     {
-      "id": 69,
+      "id": 168,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -1043,7 +2628,7 @@
       "notes": "Бешенство животных — Алтайский край | Бешенство животных — Алтайский край"
     },
     {
-      "id": 70,
+      "id": 169,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -1059,7 +2644,7 @@
       "notes": "Бешенство животных — Астраханская область"
     },
     {
-      "id": 71,
+      "id": 170,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -1075,7 +2660,7 @@
       "notes": "Бешенство животных — Белгородская область | Бешенство — Белгородская область"
     },
     {
-      "id": 72,
+      "id": 171,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -1091,7 +2676,7 @@
       "notes": "Бешенство животных — Владимирская область"
     },
     {
-      "id": 73,
+      "id": 172,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -1107,7 +2692,7 @@
       "notes": "Бешенство животных — Воронежская область"
     },
     {
-      "id": 74,
+      "id": 173,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -1123,7 +2708,7 @@
       "notes": "Бешенство животных — Новгородская область"
     },
     {
-      "id": 75,
+      "id": 174,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -1139,7 +2724,7 @@
       "notes": "Бешенство животных — Тюменская область | Бешенство животных — Тюменская область"
     },
     {
-      "id": 76,
+      "id": 175,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -1155,7 +2740,7 @@
       "notes": "Бешенство животных — Кемеровская область"
     },
     {
-      "id": 77,
+      "id": 176,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -1171,7 +2756,7 @@
       "notes": "Бешенство животных — Курская область"
     },
     {
-      "id": 78,
+      "id": 177,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -1187,7 +2772,7 @@
       "notes": "Бешенство животных — Оренбургская область"
     },
     {
-      "id": 79,
+      "id": 178,
       "disease_key": "brucellosis",
       "disease": "Бруцеллёз",
       "disease_group": "Ruminant",
@@ -1203,7 +2788,7 @@
       "notes": "Бруцеллёз — Краснодарский край | бруцеллёз — Краснодарский край"
     },
     {
-      "id": 80,
+      "id": 179,
       "disease_key": "brucellosis",
       "disease": "Бруцеллёз",
       "disease_group": "Ruminant",
@@ -1219,7 +2804,7 @@
       "notes": "бруцеллёз — Пензенская область | бруцеллёз — Пензенская область"
     },
     {
-      "id": 81,
+      "id": 180,
       "disease_key": "eia",
       "disease": "Инфекционная анемия лошадей",
       "disease_group": "Equine/Wildlife",
@@ -1235,7 +2820,7 @@
       "notes": "Инфекционная анемия лошадей — Алтайский край"
     },
     {
-      "id": 82,
+      "id": 181,
       "disease_key": "leukosis",
       "disease": "Лейкоз КРС",
       "disease_group": "Ruminant",
@@ -1251,7 +2836,7 @@
       "notes": "Лейкоз КРС — Брянская область"
     },
     {
-      "id": 83,
+      "id": 182,
       "disease_key": "leukosis",
       "disease": "Лейкоз КРС",
       "disease_group": "Ruminant",
@@ -1267,7 +2852,7 @@
       "notes": "Лейкоз КРС — Ярославская область"
     },
     {
-      "id": 84,
+      "id": 183,
       "disease_key": "leukosis",
       "disease": "Лейкоз КРС",
       "disease_group": "Ruminant",
@@ -1283,7 +2868,7 @@
       "notes": "Лейкоз КРС — Алтайский край"
     },
     {
-      "id": 85,
+      "id": 184,
       "disease_key": "leukosis",
       "disease": "Лейкоз КРС",
       "disease_group": "Ruminant",
@@ -1299,7 +2884,7 @@
       "notes": "Лейкоз КРС — Иркутская область"
     },
     {
-      "id": 86,
+      "id": 185,
       "disease_key": "leukosis",
       "disease": "Лейкоз КРС",
       "disease_group": "Ruminant",
@@ -1315,7 +2900,7 @@
       "notes": "Лейкоз КРС — Самарская область"
     },
     {
-      "id": 87,
+      "id": 186,
       "disease_key": "lepto",
       "disease": "Лептоспироз",
       "disease_group": "Multi-species",
@@ -1331,7 +2916,7 @@
       "notes": "Лептоспироз КРС — Алтайский край | лептоспироз — Алтайский край"
     },
     {
-      "id": 88,
+      "id": 187,
       "disease_key": "trichinellosis",
       "disease": "Трихинеллёз",
       "disease_group": "Wildlife",
@@ -1347,7 +2932,7 @@
       "notes": "Трихинеллёз — Томская область"
     },
     {
-      "id": 89,
+      "id": 188,
       "disease_key": "varroosis",
       "disease": "Варроатоз пчёл",
       "disease_group": "Multi-species",
@@ -1363,7 +2948,7 @@
       "notes": "Варроатоз пчёл — Нижегородская область"
     },
     {
-      "id": 90,
+      "id": 189,
       "disease_key": "leukosis",
       "disease": "Лейкоз КРС",
       "disease_group": "Ruminant",
@@ -1379,7 +2964,7 @@
       "notes": "Лейкоз КРС — Нижегородская область"
     },
     {
-      "id": 91,
+      "id": 190,
       "disease_key": "lepto",
       "disease": "Лептоспироз",
       "disease_group": "Multi-species",
@@ -1395,7 +2980,7 @@
       "notes": "Лептоспироз КРС — Свердловская область"
     },
     {
-      "id": 92,
+      "id": 191,
       "disease_key": "nosemosis",
       "disease": "Нозематоз пчёл",
       "disease_group": "Multi-species",
@@ -1411,7 +2996,7 @@
       "notes": "Нозематоз пчёл — Калининградская область"
     },
     {
-      "id": 93,
+      "id": 192,
       "disease_key": "brucellosis",
       "disease": "Бруцеллёз",
       "disease_group": "Ruminant",
@@ -1427,7 +3012,7 @@
       "notes": "Бруцеллёз — Калужская область"
     },
     {
-      "id": 94,
+      "id": 193,
       "disease_key": "eia",
       "disease": "Инфекционная анемия лошадей",
       "disease_group": "Equine/Wildlife",
@@ -1443,7 +3028,7 @@
       "notes": "Инфекционная анемия лошадей — Амурская область"
     },
     {
-      "id": 95,
+      "id": 194,
       "disease_key": "eia",
       "disease": "Инфекционная анемия лошадей",
       "disease_group": "Equine/Wildlife",
@@ -1459,7 +3044,7 @@
       "notes": "Инфекционная анемия лошадей — Алтайский край"
     },
     {
-      "id": 96,
+      "id": 195,
       "disease_key": "leukosis",
       "disease": "Лейкоз КРС",
       "disease_group": "Ruminant",
@@ -1475,7 +3060,7 @@
       "notes": "Лейкоз КРС — Калининградская область"
     },
     {
-      "id": 97,
+      "id": 196,
       "disease_key": "lepto",
       "disease": "Лептоспироз",
       "disease_group": "Multi-species",
@@ -1491,7 +3076,7 @@
       "notes": "Лептоспироз КРС — Алтайский край"
     },
     {
-      "id": 98,
+      "id": 197,
       "disease_key": "trichinellosis",
       "disease": "Трихинеллёз",
       "disease_group": "Wildlife",
@@ -1507,7 +3092,7 @@
       "notes": "Трихинеллез — Иркутская область"
     },
     {
-      "id": 99,
+      "id": 198,
       "disease_key": "brucellosis",
       "disease": "Бруцеллёз",
       "disease_group": "Ruminant",
@@ -1523,7 +3108,7 @@
       "notes": "Бруцеллёз — Амурская область | Бруцеллёз — Амурская область"
     },
     {
-      "id": 100,
+      "id": 199,
       "disease_key": "nosemosis",
       "disease": "Нозематоз пчёл",
       "disease_group": "Multi-species",
@@ -1539,7 +3124,7 @@
       "notes": "Нозематоз — Иркутская область | Нозематоз — Иркутская область | нозематоз — Иркутская область"
     },
     {
-      "id": 101,
+      "id": 200,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -1555,7 +3140,7 @@
       "notes": "Бешенство животных — Воронежская область"
     },
     {
-      "id": 102,
+      "id": 201,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -1571,7 +3156,7 @@
       "notes": "Бешенство животных — Тамбовская область | Бешенство животных — Тамбовская область"
     },
     {
-      "id": 103,
+      "id": 202,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -1587,7 +3172,7 @@
       "notes": "Бешенство животных — Алтайский край | Бешенство животных — Алтайский край"
     },
     {
-      "id": 104,
+      "id": 203,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -1603,7 +3188,7 @@
       "notes": "Бешенство животных — Курганская область"
     },
     {
-      "id": 105,
+      "id": 204,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -1619,7 +3204,7 @@
       "notes": "Бешенство животных — Ярославская область"
     },
     {
-      "id": 106,
+      "id": 205,
       "disease_key": "leukosis",
       "disease": "Лейкоз КРС",
       "disease_group": "Ruminant",
@@ -1635,7 +3220,7 @@
       "notes": "Лейкоз КРС — Брянская область"
     },
     {
-      "id": 107,
+      "id": 206,
       "disease_key": "brucellosis",
       "disease": "Бруцеллёз",
       "disease_group": "Ruminant",
@@ -1651,7 +3236,7 @@
       "notes": "Бруцеллез — Свердловская область"
     },
     {
-      "id": 108,
+      "id": 207,
       "disease_key": "trichinellosis",
       "disease": "Трихинеллёз",
       "disease_group": "Wildlife",
@@ -1667,7 +3252,7 @@
       "notes": "Трихинеллез — Ханты-Мансийский автономный округ"
     },
     {
-      "id": 109,
+      "id": 208,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -1683,7 +3268,7 @@
       "notes": "Бешенство животных — Нижегородская область"
     },
     {
-      "id": 110,
+      "id": 209,
       "disease_key": "asf",
       "disease": "Африканская чума свиней",
       "disease_group": "Swine",
@@ -1699,7 +3284,7 @@
       "notes": "ачс — Омская область"
     },
     {
-      "id": 111,
+      "id": 210,
       "disease_key": "asf",
       "disease": "Африканская чума свиней",
       "disease_group": "Swine",
@@ -1715,7 +3300,7 @@
       "notes": "ачс — Тамбовская область"
     },
     {
-      "id": 112,
+      "id": 211,
       "disease_key": "asf",
       "disease": "Африканская чума свиней",
       "disease_group": "Swine",
@@ -1731,7 +3316,7 @@
       "notes": "ачс — Челябинская область"
     },
     {
-      "id": 113,
+      "id": 212,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -1747,7 +3332,7 @@
       "notes": "Бешенство животных — Амурская область"
     },
     {
-      "id": 114,
+      "id": 213,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -1763,7 +3348,7 @@
       "notes": "Бешенство животных — Омская область | Бешенство животных — Омская область | Бешенство животных — Омская область | Бешенство животных — Омская область"
     },
     {
-      "id": 115,
+      "id": 214,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -1779,7 +3364,7 @@
       "notes": "Бешенство животных — Челябинская область"
     },
     {
-      "id": 116,
+      "id": 215,
       "disease_key": "brucellosis",
       "disease": "Бруцеллёз",
       "disease_group": "Ruminant",
@@ -1795,7 +3380,7 @@
       "notes": "Бруцеллёз — Воронежская область | Бруцеллёз — Воронежская область"
     },
     {
-      "id": 117,
+      "id": 216,
       "disease_key": "brucellosis",
       "disease": "Бруцеллёз",
       "disease_group": "Ruminant",
@@ -1811,7 +3396,7 @@
       "notes": "бруцеллез — Оренбургская область"
     },
     {
-      "id": 118,
+      "id": 217,
       "disease_key": "leukosis",
       "disease": "Лейкоз КРС",
       "disease_group": "Ruminant",
@@ -1827,7 +3412,7 @@
       "notes": "Лейкоз КРС — Воронежская область"
     },
     {
-      "id": 119,
+      "id": 218,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -1843,7 +3428,7 @@
       "notes": "Бешенство — Владимирская область"
     },
     {
-      "id": 120,
+      "id": 219,
       "disease_key": "leukosis",
       "disease": "Лейкоз КРС",
       "disease_group": "Ruminant",
@@ -1859,7 +3444,7 @@
       "notes": "Лейкоз КРС — Иркутская область | Лейкоз КРС — Иркутская область | Лейкоз КРС — Иркутская область"
     },
     {
-      "id": 121,
+      "id": 220,
       "disease_key": "lepto",
       "disease": "Лептоспироз",
       "disease_group": "Multi-species",
@@ -1875,7 +3460,7 @@
       "notes": "Лептоспироз — Свердловская область"
     },
     {
-      "id": 122,
+      "id": 221,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -1891,7 +3476,7 @@
       "notes": "Бешенство животных — Оренбургская область | Бешенство животных — Оренбургская область"
     },
     {
-      "id": 123,
+      "id": 222,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -1907,7 +3492,7 @@
       "notes": "Бешенство животных — Тюменская область | Бешенство животных — Тюменская область | Бешенство животных — Тюменская область | Бешенство животных — Тюменская область | Бешенство животных — Тюменская область"
     },
     {
-      "id": 124,
+      "id": 223,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -1923,7 +3508,7 @@
       "notes": "Бешенство животных — Кемеровская область"
     },
     {
-      "id": 125,
+      "id": 224,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -1939,7 +3524,7 @@
       "notes": "Бешенство животных — Курская область"
     },
     {
-      "id": 126,
+      "id": 225,
       "disease_key": "leukosis",
       "disease": "Лейкоз КРС",
       "disease_group": "Ruminant",
@@ -1955,7 +3540,7 @@
       "notes": "Лейкоз КРС — Алтайский край | Лейкоз КРС — Алтайский край | Лейкоз КРС — Алтайский край"
     },
     {
-      "id": 127,
+      "id": 226,
       "disease_key": "leukosis",
       "disease": "Лейкоз КРС",
       "disease_group": "Ruminant",
@@ -1971,7 +3556,7 @@
       "notes": "Лейкоз КРС — Самарская область | Лейкоз КРС — Самарская область | Лейкоз КРС — Самарская область | Лейкоз КРС — Самарская область | Лейкоз КРС — Самарская область | Лейкоз КРС — Самарская область | Лейкоз КРС — Самарская область"
     },
     {
-      "id": 128,
+      "id": 227,
       "disease_key": "leukosis",
       "disease": "Лейкоз КРС",
       "disease_group": "Ruminant",
@@ -1987,7 +3572,7 @@
       "notes": "Лейкоз КРС — Тверская область"
     },
     {
-      "id": 129,
+      "id": 228,
       "disease_key": "other",
       "disease": "Прочее",
       "disease_group": "Multi-species",
@@ -2003,7 +3588,7 @@
       "notes": "лейкоз крупного рогатого — Тюменская область"
     },
     {
-      "id": 130,
+      "id": 229,
       "disease_key": "leukosis",
       "disease": "Лейкоз КРС",
       "disease_group": "Ruminant",
@@ -2019,7 +3604,7 @@
       "notes": "Лейкоз КРС — Забайкальский край"
     },
     {
-      "id": 131,
+      "id": 230,
       "disease_key": "leukosis",
       "disease": "Лейкоз КРС",
       "disease_group": "Ruminant",
@@ -2035,7 +3620,7 @@
       "notes": "Лейкоз КРС — Тюменская область"
     },
     {
-      "id": 132,
+      "id": 231,
       "disease_key": "other",
       "disease": "Прочее",
       "disease_group": "Multi-species",
@@ -2051,7 +3636,7 @@
       "notes": "иал — Вологодская область"
     },
     {
-      "id": 133,
+      "id": 232,
       "disease_key": "brucellosis",
       "disease": "Бруцеллёз",
       "disease_group": "Ruminant",
@@ -2067,7 +3652,7 @@
       "notes": "бруцеллез — Приморский край"
     },
     {
-      "id": 134,
+      "id": 233,
       "disease_key": "brucellosis",
       "disease": "Бруцеллёз",
       "disease_group": "Ruminant",
@@ -2083,7 +3668,7 @@
       "notes": "бруцеллез — Ростовская область"
     },
     {
-      "id": 135,
+      "id": 234,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -2099,7 +3684,7 @@
       "notes": "Бешенство — Белгородская область | Бешенство животных — Белгородская область | Бешенство — Белгородская область"
     },
     {
-      "id": 136,
+      "id": 235,
       "disease_key": "varroosis",
       "disease": "Варроатоз пчёл",
       "disease_group": "Multi-species",
@@ -2115,7 +3700,7 @@
       "notes": "Варроатоз — Кемеровская область"
     },
     {
-      "id": 137,
+      "id": 236,
       "disease_key": "leukosis",
       "disease": "Лейкоз КРС",
       "disease_group": "Ruminant",
@@ -2131,7 +3716,7 @@
       "notes": "Лейкоз КРС — Ростовская область"
     },
     {
-      "id": 138,
+      "id": 237,
       "disease_key": "lepto",
       "disease": "Лептоспироз",
       "disease_group": "Multi-species",
@@ -2147,7 +3732,7 @@
       "notes": "Лептоспироз — Тюменская область"
     },
     {
-      "id": 139,
+      "id": 238,
       "disease_key": "nosemosis",
       "disease": "Нозематоз пчёл",
       "disease_group": "Multi-species",
@@ -2163,7 +3748,7 @@
       "notes": "Нозематоз — Ростовская область"
     },
     {
-      "id": 140,
+      "id": 239,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -2179,7 +3764,7 @@
       "notes": "Бешенство животных — Брянская область"
     },
     {
-      "id": 141,
+      "id": 240,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -2195,7 +3780,7 @@
       "notes": "Бешенство животных — Самарская область"
     },
     {
-      "id": 142,
+      "id": 241,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -2211,7 +3796,7 @@
       "notes": "Бешенство животных — Тамбовская область | Бешенство животных — Тамбовская область"
     },
     {
-      "id": 143,
+      "id": 242,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -2227,7 +3812,7 @@
       "notes": "Бешенство животных — Алтайский край"
     },
     {
-      "id": 144,
+      "id": 243,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -2243,7 +3828,7 @@
       "notes": "Бешенство животных — Ростовская область"
     },
     {
-      "id": 145,
+      "id": 244,
       "disease_key": "brucellosis",
       "disease": "Бруцеллёз",
       "disease_group": "Ruminant",
@@ -2259,7 +3844,7 @@
       "notes": "Бруцеллёз — Самарская область"
     },
     {
-      "id": 146,
+      "id": 245,
       "disease_key": "varroosis",
       "disease": "Варроатоз пчёл",
       "disease_group": "Multi-species",
@@ -2275,7 +3860,7 @@
       "notes": "Варроатоз пчёл — Свердловская область | варроатоз — Свердловская область"
     },
     {
-      "id": 147,
+      "id": 246,
       "disease_key": "leukosis",
       "disease": "Лейкоз КРС",
       "disease_group": "Ruminant",
@@ -2291,7 +3876,7 @@
       "notes": "Лейкоз КРС — Брянская область"
     },
     {
-      "id": 148,
+      "id": 247,
       "disease_key": "leukosis",
       "disease": "Лейкоз КРС",
       "disease_group": "Ruminant",
@@ -2307,7 +3892,7 @@
       "notes": "Лейкоз КРС — Иркутская область | Лейкоз КРС — Иркутская область"
     },
     {
-      "id": 149,
+      "id": 248,
       "disease_key": "leukosis",
       "disease": "Лейкоз КРС",
       "disease_group": "Ruminant",
@@ -2323,7 +3908,7 @@
       "notes": "Лейкоз КРС — Калининградская область"
     },
     {
-      "id": 150,
+      "id": 249,
       "disease_key": "leukosis",
       "disease": "Лейкоз КРС",
       "disease_group": "Ruminant",
@@ -2339,7 +3924,7 @@
       "notes": "Лейкоз КРС — Костромская область"
     },
     {
-      "id": 151,
+      "id": 250,
       "disease_key": "leukosis",
       "disease": "Лейкоз КРС",
       "disease_group": "Ruminant",
@@ -2355,7 +3940,7 @@
       "notes": "Лейкоз КРС — Омская область"
     },
     {
-      "id": 152,
+      "id": 251,
       "disease_key": "lepto",
       "disease": "Лептоспироз",
       "disease_group": "Multi-species",
@@ -2371,7 +3956,7 @@
       "notes": "Лептоспироз — Тюменская область | лептоспироз — Тюменская область"
     },
     {
-      "id": 153,
+      "id": 252,
       "disease_key": "nosemosis",
       "disease": "Нозематоз пчёл",
       "disease_group": "Multi-species",
@@ -2387,7 +3972,7 @@
       "notes": "Нозематоз пчёл — Еврейская автономная область"
     },
     {
-      "id": 154,
+      "id": 253,
       "disease_key": "trichinellosis",
       "disease": "Трихинеллёз",
       "disease_group": "Wildlife",
@@ -2403,7 +3988,7 @@
       "notes": "Трихинеллёз — Иркутская область"
     },
     {
-      "id": 155,
+      "id": 254,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -2419,7 +4004,7 @@
       "notes": "Бешенство животных — Белгородская область | Бешенство животных — Белгородская область | Бешенство — Белгородская область | Бешенство — Белгородская область"
     },
     {
-      "id": 156,
+      "id": 255,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -2435,7 +4020,7 @@
       "notes": "Бешенство животных — Московская область"
     },
     {
-      "id": 157,
+      "id": 256,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -2451,7 +4036,7 @@
       "notes": "Бешенство животных — Воронежская область"
     },
     {
-      "id": 158,
+      "id": 257,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -2467,7 +4052,7 @@
       "notes": "Бешенство животных — Кемеровская область | Бешенство животных — Кемеровская область"
     },
     {
-      "id": 159,
+      "id": 258,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -2483,7 +4068,7 @@
       "notes": "Бешенство животных — Тюменская область"
     },
     {
-      "id": 160,
+      "id": 259,
       "disease_key": "leukosis",
       "disease": "Лейкоз КРС",
       "disease_group": "Ruminant",
@@ -2499,7 +4084,7 @@
       "notes": "Лейкоз КРС — Калужская область"
     },
     {
-      "id": 161,
+      "id": 260,
       "disease_key": "leukosis",
       "disease": "Лейкоз КРС",
       "disease_group": "Ruminant",
@@ -2515,7 +4100,7 @@
       "notes": "Лейкоз КРС — Московская область"
     },
     {
-      "id": 162,
+      "id": 261,
       "disease_key": "leukosis",
       "disease": "Лейкоз КРС",
       "disease_group": "Ruminant",
@@ -2531,7 +4116,7 @@
       "notes": "Лейкоз КРС — Свердловская область"
     },
     {
-      "id": 163,
+      "id": 262,
       "disease_key": "leukosis",
       "disease": "Лейкоз КРС",
       "disease_group": "Ruminant",
@@ -2547,7 +4132,7 @@
       "notes": "Лейкоз КРС — Ростовская область"
     },
     {
-      "id": 164,
+      "id": 263,
       "disease_key": "leukosis",
       "disease": "Лейкоз КРС",
       "disease_group": "Ruminant",
@@ -2563,7 +4148,7 @@
       "notes": "Лейкоз КРС — Тюменская область"
     },
     {
-      "id": 165,
+      "id": 264,
       "disease_key": "lepto",
       "disease": "Лептоспироз",
       "disease_group": "Multi-species",
@@ -2579,7 +4164,7 @@
       "notes": "Лептоспироз — Забайкальский край | Лептоспироз — Забайкальский край | Лептоспироз — Забайкальский край"
     },
     {
-      "id": 166,
+      "id": 265,
       "disease_key": "lepto",
       "disease": "Лептоспироз",
       "disease_group": "Multi-species",
@@ -2595,7 +4180,7 @@
       "notes": "Лептоспироз — Московская область | лептоспироз — Московская область"
     },
     {
-      "id": 167,
+      "id": 266,
       "disease_key": "varroosis",
       "disease": "Варроатоз пчёл",
       "disease_group": "Multi-species",
@@ -2611,7 +4196,7 @@
       "notes": "Варроатоз пчёл — Нижегородская область"
     },
     {
-      "id": 168,
+      "id": 267,
       "disease_key": "leukosis",
       "disease": "Лейкоз КРС",
       "disease_group": "Ruminant",
@@ -2627,7 +4212,7 @@
       "notes": "Лейкоз КРС — Самарская область | Лейкоз КРС — Самарская область"
     },
     {
-      "id": 169,
+      "id": 268,
       "disease_key": "nosemosis",
       "disease": "Нозематоз пчёл",
       "disease_group": "Multi-species",
@@ -2643,7 +4228,7 @@
       "notes": "Нозематоз пчёл — Тверская область"
     },
     {
-      "id": 170,
+      "id": 269,
       "disease_key": "brucellosis",
       "disease": "Бруцеллёз",
       "disease_group": "Ruminant",
@@ -2659,7 +4244,7 @@
       "notes": "Бруцеллёз — Самарская область"
     },
     {
-      "id": 171,
+      "id": 270,
       "disease_key": "varroosis",
       "disease": "Варроатоз пчёл",
       "disease_group": "Multi-species",
@@ -2675,7 +4260,7 @@
       "notes": "Варроатоз пчёл — Свердловская область"
     },
     {
-      "id": 172,
+      "id": 271,
       "disease_key": "leukosis",
       "disease": "Лейкоз КРС",
       "disease_group": "Ruminant",
@@ -2691,7 +4276,7 @@
       "notes": "Лейкоз КРС — Брянская область"
     },
     {
-      "id": 173,
+      "id": 272,
       "disease_key": "lepto",
       "disease": "Лептоспироз",
       "disease_group": "Multi-species",
@@ -2707,7 +4292,7 @@
       "notes": "Лептоспироз — Забайкальский край"
     },
     {
-      "id": 174,
+      "id": 273,
       "disease_key": "lepto",
       "disease": "Лептоспироз",
       "disease_group": "Multi-species",
@@ -2723,7 +4308,7 @@
       "notes": "Лептоспироз — Московская область"
     },
     {
-      "id": 175,
+      "id": 274,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -2739,7 +4324,7 @@
       "notes": "Бешенство животных — Белгородская область | Бешенство животных — Белгородская область"
     },
     {
-      "id": 176,
+      "id": 275,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -2755,7 +4340,7 @@
       "notes": "Бешенство животных — Воронежская область | Бешенство животных — Воронежская область"
     },
     {
-      "id": 177,
+      "id": 276,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -2771,7 +4356,7 @@
       "notes": "Бешенство животных — Омская область"
     },
     {
-      "id": 178,
+      "id": 277,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -2787,7 +4372,7 @@
       "notes": "Бешенство животных — Самарская область"
     },
     {
-      "id": 179,
+      "id": 278,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -2803,7 +4388,7 @@
       "notes": "Бешенство животных — Смоленская область"
     },
     {
-      "id": 180,
+      "id": 279,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -2819,7 +4404,7 @@
       "notes": "Бешенство животных — Тюменская область | Бешенство животных — Тюменская область"
     },
     {
-      "id": 181,
+      "id": 280,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -2835,7 +4420,7 @@
       "notes": "Бешенство животных — Владимирская область"
     },
     {
-      "id": 182,
+      "id": 281,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -2851,7 +4436,7 @@
       "notes": "Бешенство животных — Московская область"
     },
     {
-      "id": 183,
+      "id": 282,
       "disease_key": "brucellosis",
       "disease": "Бруцеллёз",
       "disease_group": "Ruminant",
@@ -2867,7 +4452,7 @@
       "notes": "Бруцеллёз МРС — Московская область | бруцеллез — Московская область"
     },
     {
-      "id": 184,
+      "id": 283,
       "disease_key": "varroosis",
       "disease": "Варроатоз пчёл",
       "disease_group": "Multi-species",
@@ -2883,7 +4468,7 @@
       "notes": "Варроатоз пчёл — Тюменская область | варроатоз — Тюменская область"
     },
     {
-      "id": 185,
+      "id": 284,
       "disease_key": "leukosis",
       "disease": "Лейкоз КРС",
       "disease_group": "Ruminant",
@@ -2899,7 +4484,7 @@
       "notes": "Лейкоз КРС — Иркутская область"
     },
     {
-      "id": 186,
+      "id": 285,
       "disease_key": "leukosis",
       "disease": "Лейкоз КРС",
       "disease_group": "Ruminant",
@@ -2915,7 +4500,7 @@
       "notes": "Лейкоз КРС — Калужская область"
     },
     {
-      "id": 187,
+      "id": 286,
       "disease_key": "leukosis",
       "disease": "Лейкоз КРС",
       "disease_group": "Ruminant",
@@ -2931,7 +4516,7 @@
       "notes": "Лейкоз КРС — Тюменская область | Лейкоз КРС — Тюменская область"
     },
     {
-      "id": 188,
+      "id": 287,
       "disease_key": "leukosis",
       "disease": "Лейкоз КРС",
       "disease_group": "Ruminant",
@@ -2947,7 +4532,7 @@
       "notes": "Лейкоз КРС — Алтайский край"
     },
     {
-      "id": 189,
+      "id": 288,
       "disease_key": "leukosis",
       "disease": "Лейкоз КРС",
       "disease_group": "Ruminant",
@@ -2963,7 +4548,7 @@
       "notes": "Лейкоз КРС — Свердловская область"
     },
     {
-      "id": 190,
+      "id": 289,
       "disease_key": "leukosis",
       "disease": "Лейкоз КРС",
       "disease_group": "Ruminant",
@@ -2979,7 +4564,7 @@
       "notes": "Лейкоз КРС — Тульская область"
     },
     {
-      "id": 191,
+      "id": 290,
       "disease_key": "nosemosis",
       "disease": "Нозематоз пчёл",
       "disease_group": "Multi-species",
@@ -2995,7 +4580,7 @@
       "notes": "Нозематоз пчёл — Тюменская область | нозематоз — Тюменская область"
     },
     {
-      "id": 192,
+      "id": 291,
       "disease_key": "trichinellosis",
       "disease": "Трихинеллёз",
       "disease_group": "Wildlife",
@@ -3011,7 +4596,7 @@
       "notes": "Трихинеллёз — Забайкальский край | Трихинеллёз — Забайкальский край"
     },
     {
-      "id": 193,
+      "id": 292,
       "disease_key": "lepto",
       "disease": "Лептоспироз",
       "disease_group": "Multi-species",
@@ -3027,7 +4612,7 @@
       "notes": "лептоспироз — Саратовская область"
     },
     {
-      "id": 194,
+      "id": 293,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -3043,7 +4628,7 @@
       "notes": "Бешенство — Алтайский край"
     },
     {
-      "id": 195,
+      "id": 294,
       "disease_key": "varroosis",
       "disease": "Варроатоз пчёл",
       "disease_group": "Multi-species",
@@ -3059,7 +4644,7 @@
       "notes": "Варроатоз пчёл — Иркутская область"
     },
     {
-      "id": 196,
+      "id": 295,
       "disease_key": "svc",
       "disease": "Весенняя виремия карпов",
       "disease_group": "Wildlife",
@@ -3075,7 +4660,7 @@
       "notes": "Весенняя виремия карпов — Ростовская область"
     },
     {
-      "id": 197,
+      "id": 296,
       "disease_key": "leukosis",
       "disease": "Лейкоз КРС",
       "disease_group": "Ruminant",
@@ -3091,7 +4676,7 @@
       "notes": "Лейкоз КРС — Ростовская область"
     },
     {
-      "id": 198,
+      "id": 297,
       "disease_key": "avian_salmonellosis",
       "disease": "Сальмонеллёз птицы",
       "disease_group": "Avian",

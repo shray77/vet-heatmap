@@ -28,6 +28,10 @@ import { fileURLToPath } from "node:url";
 import type { Outbreak, SourceKey } from "../../src/types/domain";
 import { loadCuratedOutbreaks } from "./sources/curated";
 import { scrapeFsvps } from "./sources/fsvps";
+import { scrapeHistoricalArchive } from "./sources/fsvps-historical";
+import { parseFsvpsReport } from "./sources/fsvps-pdf-parser";
+import * as pdfjs from "pdfjs-dist/legacy/build/pdf.mjs";
+import { readFile } from "node:fs/promises";
 import { scrapeWahis } from "./sources/wahis";
 import { scrapeEfsa } from "./sources/efsa";
 import { mergeOutbreaks, buildDataset } from "./merge";
@@ -70,6 +74,93 @@ async function main() {
     if (fsvpsResult.value.warning) console.log(`        ⚠  ${fsvpsResult.value.warning}`);
   } else {
     console.log(`      ✗ fsvps FAILED: ${fsvpsResult.reason?.message ?? fsvpsResult.reason}`);
+  }
+
+  // ─── Historical archive (2024 data) ──────────────────────────
+  // Scrape older fsvps reports from the archive page, parse PDFs,
+  // and add to the outbreak list.
+  try {
+    console.log("\n      ─── Historical archive (2024) ───");
+    const histResult = await scrapeHistoricalArchive({ maxReports: 10, yearFilter: 2024 });
+    console.log(`      Found ${histResult.totalFound} historical reports, processing ${histResult.reports.length}`);
+
+    const histOutbreaks: any[] = [];
+    let histParsed = 0;
+    let histFailed = 0;
+
+    for (const report of histResult.reports) {
+      if (!report.pdfUrl) continue;
+      try {
+        // Download PDF
+        const pdfRes = await fetch(report.pdfUrl, {
+          headers: { "User-Agent": "Mozilla/5.0", "Accept": "application/pdf,*/*;q=0.8" },
+        });
+        if (!pdfRes.ok) { histFailed++; continue; }
+        const ab = await pdfRes.arrayBuffer();
+        const buf = Buffer.from(ab);
+        const data = new Uint8Array(buf.buffer, buf.byteOffset, buf.byteLength);
+
+        // Extract text
+        const doc = await pdfjs.getDocument({ data }).promise;
+        let text = "";
+        for (let i = 1; i <= doc.numPages; i++) {
+          const page = await doc.getPage(i);
+          const content = await page.getTextContent();
+          text += content.items.map((it: any) => it.str || "").join(" ") + "\n";
+        }
+
+        // Parse
+        const articles = parseFsvpsReport(text, report.date, report.pdfUrl);
+        for (const raw of articles) {
+          histOutbreaks.push({
+            ...raw,
+            detected_disease: raw.detected_disease,
+            detected_region: raw.detected_region,
+            detected_species: raw.detected_species,
+            detected_cases: raw.detected_cases,
+            detected_deaths: raw.detected_deaths,
+          });
+        }
+        histParsed++;
+        await new Promise((r) => setTimeout(r, 200)); // polite delay
+      } catch (e) {
+        histFailed++;
+      }
+    }
+
+    console.log(`      Historical: parsed ${histParsed} PDFs, ${histFailed} failed, ${histOutbreaks.length} articles extracted`);
+
+    // Convert RawArticles to Outbreaks (reuse fsvps.ts convertRawToOutbreak)
+    if (histOutbreaks.length > 0) {
+      const { normalizeDisease, getDiseaseLabels } = await import("../../src/data/diseases-normalize");
+      const { normalizeRegion } = await import("../../src/data/regions");
+      const histOutbreaksConverted = histOutbreaks.map((raw: any, i: number) => {
+        const disease_key = normalizeDisease(raw.detected_disease ?? "");
+        const labels = getDiseaseLabels(disease_key);
+        const region_geo = normalizeRegion(raw.detected_region ?? "") ?? "";
+        const status = raw.body_text && /(снятие|отмен)/i.test(raw.body_text) ? "Resolved" : "Ongoing";
+        return {
+          id: 10000 + i, // offset to avoid collision with curated IDs
+          disease_key,
+          disease: labels.ru,
+          disease_group: labels.group,
+          region: raw.detected_region ?? "",
+          region_geo,
+          date: raw.published_at,
+          species: raw.detected_species ?? "Other",
+          cases: raw.detected_cases ?? 0,
+          deaths: raw.detected_deaths ?? 0,
+          status,
+          source: "fsvps" as const,
+          source_url: raw.url,
+          notes: raw.title,
+        };
+      });
+      sources.push({ source: "fsvps", outbreaks: histOutbreaksConverted });
+      console.log(`      ✓ Historical: ${histOutbreaksConverted.length} outbreaks added from 2024`);
+    }
+  } catch (e) {
+    console.log(`      ⚠ Historical archive failed:`, e instanceof Error ? e.message : e);
   }
 
   const wahisResult = results[1];
