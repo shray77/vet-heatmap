@@ -283,8 +283,16 @@ export function SIRSimulator({ open, onOpenChange, preselectDisease }: SIRSimula
         </DialogHeader>
 
         <div className="grid grid-cols-1 md:grid-cols-[1fr_1.4fr] gap-4">
-          {/* ─── Controls ─── */}
-          <div className="space-y-3">
+          {/* ─── Controls (with tabs) ─── */}
+          <div>
+            <Tabs defaultValue="basic">
+              <TabsList className="grid w-full grid-cols-2 mb-3">
+                <TabsTrigger value="basic" className="text-xs">Параметры</TabsTrigger>
+                <TabsTrigger value="interventions" className="text-xs">Интервенции</TabsTrigger>
+              </TabsList>
+
+              {/* Tab: Basic parameters */}
+              <TabsContent value="basic" className="space-y-5 mt-0">
             <div className="space-y-1.5">
               <Label className="text-xs font-medium">Болезнь (пресет)</Label>
               <Select
@@ -303,8 +311,6 @@ export function SIRSimulator({ open, onOpenChange, preselectDisease }: SIRSimula
                 </SelectContent>
               </Select>
             </div>
-
-            <Separator />
 
             <SliderControl
               label="R₀ (репродуктивное число)"
@@ -379,11 +385,12 @@ export function SIRSimulator({ open, onOpenChange, preselectDisease }: SIRSimula
               format={(v) => `${v} дн`}
               onChange={setTotalDays}
             />
+              </TabsContent>
 
-            <Separator />
-
+              {/* Tab: Interventions */}
+              <TabsContent value="interventions" className="space-y-4 mt-0">
             {/* Interventions */}
-            <div className="space-y-2">
+            <div className="space-y-3">
               <Label className="text-xs font-semibold flex items-center gap-1">
                 <ShieldHalf className="h-3 w-3" />
                 Интервенции
@@ -460,6 +467,8 @@ export function SIRSimulator({ open, onOpenChange, preselectDisease }: SIRSimula
                 </div>
               )}
             </div>
+              </TabsContent>
+            </Tabs>
           </div>
 
           {/* ─── Results ─── */}
