@@ -16,6 +16,7 @@ import {
   Beaker,
   Zap,
   GitCompare,
+  Download,
 } from "lucide-react";
 
 import { OutbreakMap } from "@/components/outbreak-map";
@@ -40,6 +41,8 @@ import { useOutbreaks, useRegionsGeoJSON } from "@/lib/use-data";
 import { useKeyboardShortcuts } from "@/lib/use-keyboard";
 import { useTheme } from "next-themes";
 import { diseaseColor } from "@/lib/colors";
+import { generateOutbreakReport } from "@/lib/pdf-export";
+import { checkForNewOutbreaks } from "@/lib/push-notifications";
 import {
   DEFAULT_FILTERS,
   FilterState,
