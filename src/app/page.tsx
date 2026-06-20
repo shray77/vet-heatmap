@@ -179,13 +179,13 @@ function HomeContent() {
       <PwaBanners />
 
       {/* ─── Header ──────────────────────────────────────────────────── */}
-      <header className="sticky top-0 z-50 bg-background/95 backdrop-blur border-b pt-safe">
+      <header className="sticky top-0 z-50 bg-gradient-to-b from-background to-background/95 backdrop-blur border-b pt-safe">
         <div className="flex items-center gap-2 px-3 py-2 md:px-4 md:py-3">
           <div className="flex items-center gap-2 flex-1 min-w-0">
             <Stethoscope className="h-5 w-5 md:h-6 md:w-6 text-primary shrink-0" />
             <div className="min-w-0">
-              <h1 className="text-sm md:text-lg font-bold leading-tight truncate">
-                ВетКарта
+              <h1 className="text-sm md:text-lg font-bold leading-tight tracking-tight truncate">
+                <span className="text-primary">Вет</span>Карта
               </h1>
               <p className="text-[10px] md:text-xs text-muted-foreground leading-tight truncate">
                 Эпизоотическая обстановка России
@@ -368,7 +368,7 @@ function HomeContent() {
           />
 
           {/* Legend overlay (bottom-right) */}
-          <div className="absolute bottom-2 right-2 bg-background/90 backdrop-blur border rounded-md p-2 text-[10px] space-y-1 max-w-[200px] pointer-events-none">
+          <div className="absolute bottom-2 right-2 bg-card/95 backdrop-blur border-l-2 border-l-primary rounded-md p-2.5 text-[10px] space-y-1 max-w-[200px] shadow-md pointer-events-none">
             <div className="font-semibold text-foreground">Зоны риска</div>
             <LegendRow color="#D32F2F" label="Защита (3 км)" />
             <LegendRow color="#F57C00" label="Наблюдение (10 км)" />
