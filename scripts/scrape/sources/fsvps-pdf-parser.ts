@@ -193,10 +193,10 @@ function parseSections(text: string): ParsedSection[] {
       }
     }
 
-    // Split by list markers (•, o, \u0007) AND by region-start patterns.
-    // Each item starts when we see a marker OR a known region pattern after a period.
+    // Split by list markers (•, o, \u0007, \uf0d8 Wingdings bullet) AND by region-start patterns.
+    // The actual fsvps PDF uses \uf0d8 (Wingdings bullet, Unicode 61656) as the list marker.
     const items = sectionText
-      .replace(/[\u0007•\u25CF]\s*/g, "\nITEM:")
+      .replace(/[\u0007•\u25CF\uf0d8]\s*/g, "\nITEM:")
       .replace(/\bo\.\s+/g, "\nITEM:")
       // Also split when a new region appears after a period (e.g., ". Калужская область")
       .replace(/\.\s+(?=((?:Республика\s+)?[А-Я][а-яё]+(?:-[А-Я][а-яё]+)?\s*(?:область|край|АО)))/g, "\nITEM:")

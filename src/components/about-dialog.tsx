@@ -56,7 +56,7 @@ export function AboutDialog({ open, onOpenChange }: AboutDialogProps) {
                   <ExternalLink className="h-3 w-3" />
                 </a>
                 <span className="text-muted-foreground">
-                  — ежедневные PDF-сводки, индексируются автоматически (cron Mon/Thu 06:00 UTC)
+                  — ежедневные PDF-сводки ВНИИЗЖ, парсятся автоматически (cron Mon/Thu 09:00 МСК)
                 </span>
               </li>
               <li className="flex gap-2">
@@ -92,7 +92,7 @@ export function AboutDialog({ open, onOpenChange }: AboutDialogProps) {
               <li className="flex gap-2">
                 <Badge variant="outline" className="text-[10px] h-5 shrink-0">SEED</Badge>
                 <span className="text-muted-foreground">
-                  Кураторский датасет — 68 вспышек за 2024-2025, как fallback
+                  Кураторский датасет — 68 вспышек за 2024-2025 (исторический fallback)
                 </span>
               </li>
             </ul>
@@ -104,12 +104,16 @@ export function AboutDialog({ open, onOpenChange }: AboutDialogProps) {
           <section className="space-y-2">
             <h3 className="font-semibold">Возможности</h3>
             <ul className="text-xs space-y-1 leading-relaxed">
-              <li>🗺️ Интерактивная карта: хороплет плотности + маркеры вспышек + зоны риска 3/10/30 км</li>
-              <li>🦠 Справочник 16 болезней с R₀, инкубационным, мерами борьбы, ссылками на НПА РФ и WOAH</li>
-              <li>📅 Калькулятор карантина с таймлайном ключевых дат</li>
-              <li>📊 Эпидкривая по ISO-неделям</li>
+              <li>🗺️ Интерактивная карта: хороплет + маркеры + зоны риска 3/10/30 км по WOAH</li>
+              <li>🦠 Справочник 21 болезни с R₀, инкубационным, мерами борьбы, ссылками на НПА РФ и WOAH</li>
+              <li>📅 Калькулятор карантина с таймлайном ключевых дат + экспорт</li>
+              <li>📊 Эпидкривая по ISO-неделям + таблица вспышек с сортировкой и CSV-экспортом</li>
+              <li>🔬 SEIR-симулятор с инкубационным периодом, летальностью, карантином и вакцинацией</li>
+              <li>📍 «Рядом со мной» — геолокация + расчёт расстояния до активных вспышек</li>
+              <li>🔥 Топ регионов по вспышкам с мини-барами</li>
               <li>🔍 Фильтры по болезни / виду / статусу / периоду + URL-shareable state</li>
-              <li>📱 PWA: офлайн-режим, установка на домашний экран, push при обновлениях</li>
+              <li>⌨️ Горячие клавиши: ? f c n s r t /</li>
+              <li>📱 PWA: офлайн-режим, установка на домашний экран</li>
               <li>🌙 Тёмная и светлая темы</li>
             </ul>
           </section>
@@ -151,7 +155,7 @@ export function AboutDialog({ open, onOpenChange }: AboutDialogProps) {
             <div className="flex flex-wrap gap-1.5">
               {[
                 "Next.js 16", "TypeScript", "Tailwind CSS 4", "shadcn/ui",
-                "MapLibre GL", "Recharts", "Bun", "GitHub Actions", "GitHub Pages",
+                "MapLibre GL", "Recharts", "pdfjs-dist", "Bun", "GitHub Actions", "GitHub Pages",
               ].map((t) => (
                 <Badge key={t} variant="outline" className="text-[10px]">{t}</Badge>
               ))}
@@ -213,7 +217,7 @@ export function AboutDialog({ open, onOpenChange }: AboutDialogProps) {
                 MIT License
               </span>
               <span>·</span>
-              <span>v1.0.0</span>
+              <span>v6.0.0</span>
             </div>
           </section>
         </div>
