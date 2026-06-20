@@ -165,6 +165,12 @@
   .thin-scroll::-webkit-scrollbar-thumb { background: oklch(0.7 0 0 / 0.3); border-radius: 2px; }
   .thin-scroll::-webkit-scrollbar-track { background: transparent; }
 
+  /* Red night mode — preserves night vision for field work.
+   * Apply by adding class "night-red" to <html> element. */
+  .night-red {
+    filter: sepia(1) hue-rotate(-50deg) saturate(2) brightness(0.85);
+  }
+
   /* Smooth slide-in for side panels */
   @keyframes slide-in-right {
     from { transform: translateX(100%); opacity: 0; }

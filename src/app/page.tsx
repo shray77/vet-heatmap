@@ -15,6 +15,7 @@ import {
   LocateFixed,
   Beaker,
   Zap,
+  GitCompare,
 } from "lucide-react";
 
 import { OutbreakMap } from "@/components/outbreak-map";
@@ -22,6 +23,7 @@ import { StatsBar } from "@/components/stats-bar";
 import { FilterPanel } from "@/components/filter-panel";
 import { EpiCurve } from "@/components/epi-curve";
 import { HotspotList } from "@/components/hotspot-list";
+import { TimelineSlider } from "@/components/timeline-slider";
 import { OutbreaksTable } from "@/components/outbreaks-table";
 import { DiseaseProfileDrawer } from "@/components/disease-profile-drawer";
 import { QuarantineCalculator } from "@/components/quarantine-calculator";
@@ -32,6 +34,7 @@ import { RegionDrillDown } from "@/components/region-drill-down";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { PwaBanners } from "@/components/pwa-banners";
 import { AboutDialog } from "@/components/about-dialog";
+import { DiseaseComparison } from "@/components/disease-comparison";
 
 import { useOutbreaks, useRegionsGeoJSON } from "@/lib/use-data";
 import { useKeyboardShortcuts } from "@/lib/use-keyboard";
@@ -90,6 +93,8 @@ function HomeContent() {
   const [spatialOpen, setSpatialOpen] = useState(false);
   const [regionDrillDown, setRegionDrillDown] = useState<string | null>(null);
   const [regionDrillDownOpen, setRegionDrillDownOpen] = useState(false);
+  const [timelineRange, setTimelineRange] = useState<{from: string | null, to: string | null}>({from: null, to: null});
+  const [compareOpen, setCompareOpen] = useState(false);
 
   // Region centroids for "nearby" calculation (computed once geo is loaded)
   const regionCentroids = useMemo(() => {
@@ -120,7 +125,11 @@ function HomeContent() {
   // Filtered outbreaks
   const filtered = useMemo(() => {
     if (!data) return [];
-    return applyFilters(data.outbreaks, filters);
+    return applyFilters(data.outbreaks, {
+      ...filters,
+      dateFrom: timelineRange.from ?? filters.dateFrom,
+      dateTo: timelineRange.to ?? filters.dateTo,
+    });
   }, [data, filters]);
 
   const totalRegions = geo?.features.length ?? 85;
@@ -226,6 +235,14 @@ function HomeContent() {
             >
               <Zap className="h-4 w-4 mr-1" />
               Распростр.
+            </Button>
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={() => setCompareOpen(true)}
+            >
+              <GitCompare className="h-4 w-4 mr-1" />
+              Сравнить
             </Button>
             <Button
               variant="outline"
@@ -401,6 +418,7 @@ function HomeContent() {
               showChoropleth={showChoropleth}
               onShowChoroplethChange={setShowChoropleth}
             />
+            <TimelineSlider outbreaks={data?.outbreaks ?? []} onDateRangeChange={(from, to) => setTimelineRange({from, to})} />
             <HotspotList outbreaks={filtered} onSelectRegion={(r) => { setRegionDrillDown(r); setRegionDrillDownOpen(true); }} />
             <EpiCurve outbreaks={filtered} />
             <OutbreaksTable outbreaks={filtered} onSelectOutbreak={(o) => onSelectOutbreak(o)} />
@@ -452,6 +470,7 @@ function HomeContent() {
         outbreaks={data?.outbreaks ?? []}
         regionCentroids={regionCentroids}
       />
+      <DiseaseComparison open={compareOpen} onOpenChange={setCompareOpen} />
       <AboutDialog open={aboutOpen} onOpenChange={setAboutOpen} />
     </main>
   );

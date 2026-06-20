@@ -1,17 +1,15 @@
 "use client";
 
-import { Moon, Sun, Monitor } from "lucide-react";
+import { Moon, Sun, Monitor, Eye } from "lucide-react";
 import { useTheme } from "next-themes";
 import { Button } from "@/components/ui/button";
 import { useSyncExternalStore } from "react";
 
-// Subscribe to "is mounted" without triggering cascading re-render
-// (per react-hooks/set-state-in-effect rule)
 function useMounted(): boolean {
   return useSyncExternalStore(
     () => () => {},
-    () => true, // client
-    () => false, // server
+    () => true,
+    () => false,
   );
 }
 
@@ -27,21 +25,39 @@ export function ThemeToggle() {
     );
   }
 
-  // Cycle: light -> dark -> system
-  const next = theme === "light" ? "dark" : theme === "dark" ? "system" : "light";
-  const Icon = resolvedTheme === "dark" ? Moon : Sun;
-  const Label =
-    theme === "system" ? <Monitor className="h-4 w-4" /> : <Icon className="h-4 w-4" />;
+  // Cycle: light -> dark -> system -> night-red
+  const next = theme === "light" ? "dark" : theme === "dark" ? "system" : theme === "system" ? "night-red" : "light";
+
+  let Icon = Sun;
+  let label = "Тема: " + theme;
+
+  if (theme === "night-red") {
+    Icon = Eye;
+  } else if (resolvedTheme === "dark") {
+    Icon = Moon;
+  } else if (theme === "system") {
+    Icon = Monitor;
+  }
+
+  const handleClick = () => {
+    if (next === "night-red") {
+      document.documentElement.classList.add("night-red");
+      setTheme("dark");
+    } else {
+      document.documentElement.classList.remove("night-red");
+      setTheme(next);
+    }
+  };
 
   return (
     <Button
       variant="ghost"
       size="icon"
-      onClick={() => setTheme(next)}
-      aria-label={`Тема: ${theme}, переключить на ${next}`}
-      title={`Тема: ${theme}`}
+      onClick={handleClick}
+      aria-label={label}
+      title={label}
     >
-      {Label}
+      <Icon className="h-4 w-4" />
     </Button>
   );
 }
