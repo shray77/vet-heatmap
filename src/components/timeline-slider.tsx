@@ -98,7 +98,10 @@ export function TimelineSlider({ outbreaks, onDateRangeChange }: TimelineSliderP
   const monthLabels = useMemo(() => {
     const labels: string[] = [];
     for (let i = 0; i < totalMonths; i++) {
-      const d = new Date(minMonth[0], minMonth[1] - 1 + i, 1);
+      const absMonth = minMonth + i;
+      const year = Math.floor(absMonth / 12);
+      const month = (absMonth % 12);
+      const d = new Date(year, month, 1);
       labels.push(d.toLocaleDateString("ru-RU", { month: "short", year: "2-digit" }));
     }
     return labels;
@@ -178,13 +181,15 @@ export function TimelineSlider({ outbreaks, onDateRangeChange }: TimelineSliderP
   );
 }
 
-/** Convert "YYYY-MM-DD" to [year, month] (1-indexed). */
-function monthIndex(dateStr: string): [number, number] {
+/** Convert "YYYY-MM-DD" to absolute month number (year*12 + month). */
+function monthIndex(dateStr: string): number {
   const [y, m] = dateStr.split("-").map(Number);
-  return [y, m];
+  return y * 12 + (m - 1);
 }
 
-/** Convert [year, month] to "YYYY-MM" string (first day of month). */
-function monthString([year, month]: [number, number]): string {
+/** Convert absolute month number to "YYYY-MM" string. */
+function monthString(absMonth: number): string {
+  const year = Math.floor(absMonth / 12);
+  const month = (absMonth % 12) + 1;
   return `${year}-${String(month).padStart(2, "0")}`;
 }
