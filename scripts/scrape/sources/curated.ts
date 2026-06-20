@@ -21,7 +21,10 @@ import { normalizeDisease, getDiseaseLabels } from "../../../src/data/diseases-n
 import { normalizeRegion } from "../../../src/data/regions";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
-const CURATED_PATH = resolve(__dirname, "..", "..", "..", "public", "data", "outbreaks.json");
+// Read from legacy/ — this file is the original hand-curated seed and is never
+// overwritten. Reading from public/data/outbreaks.json would create a feedback
+// loop (merge output becomes input on next run).
+const CURATED_PATH = resolve(__dirname, "..", "..", "..", "legacy", "python", "data", "outbreaks", "outbreaks.json");
 
 /** Legacy JSON shape (from Python pipeline). */
 interface LegacyOutbreak {

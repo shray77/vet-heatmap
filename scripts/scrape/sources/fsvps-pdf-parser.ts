@@ -225,7 +225,14 @@ function parseSections(text: string): ParsedSection[] {
 function extractRegion(text: string): string | null {
   REGION_PATTERN.lastIndex = 0;
   const m = REGION_PATTERN.exec(text);
-  if (m) return m[0].trim();
+  if (m) {
+    let r = m[0].trim();
+    // Fix common parser issues:
+    // "Мансийский автономный округ" → "Ханты-Мансийский автономный округ"
+    // (the "Ханты-" prefix is on a previous line in the PDF)
+    r = r.replace(/^Мансийский автономный округ$/i, "Ханты-Мансийский автономный округ");
+    return r;
+  }
   return null;
 }
 

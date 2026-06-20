@@ -293,11 +293,16 @@ export function OutbreakMap({
 
       // Use precise coords if available, else region centroid
       let lngLat: [number, number] | null = null;
-      if (typeof o.lon === "number" && typeof o.lat === "number") {
+      if (typeof o.lon === "number" && typeof o.lat === "number"
+          && Number.isFinite(o.lon) && Number.isFinite(o.lat)
+          && !(o.lon === 0 && o.lat === 0)) {
         lngLat = [o.lon, o.lat];
       } else if (o.region_geo) {
         const c = centroids.get(o.region_geo);
-        if (c) lngLat = c;
+        // Guard against invalid centroids (anti-meridian wraparound → lng=0)
+        if (c && Number.isFinite(c[0]) && Number.isFinite(c[1]) && c[0] !== 0) {
+          lngLat = c;
+        }
       }
       if (!lngLat) continue;
 
@@ -483,12 +488,26 @@ function computeBBox(geom: GeoJSON.Geometry): [number, number, number, number] |
 }
 
 function getOutbreakCenter(o: Outbreak, geo: GeoJSON.FeatureCollection | null): [number, number] | null {
-  if (typeof o.lon === "number" && typeof o.lat === "number") return [o.lon, o.lat];
+  if (typeof o.lon === "number" && typeof o.lat === "number"
+      && Number.isFinite(o.lon) && Number.isFinite(o.lat)
+      && !(o.lon === 0 && o.lat === 0)) {
+    return [o.lon, o.lat];
+  }
   if (geo && o.region_geo) {
     for (const f of geo.features) {
       if ((f.properties as { shapeName?: string }).shapeName === o.region_geo) {
         const bbox = computeBBox(f.geometry);
-        if (bbox) return [(bbox[0] + bbox[2]) / 2, (bbox[1] + bbox[3]) / 2];
+        if (bbox) {
+          const cx = (bbox[0] + bbox[2]) / 2;
+          const cy = (bbox[1] + bbox[3]) / 2;
+          // For Russia, cx=0 always means anti-meridian wraparound bug
+          // (Chukotka spans -180..+180, midpoint = 0 = Atlantic Ocean).
+          // Filter these out — outbreak won't render, but won't appear in
+          // the wrong place either.
+          if (Number.isFinite(cx) && Number.isFinite(cy) && cx !== 0) {
+            return [cx, cy];
+          }
+        }
       }
     }
   }
