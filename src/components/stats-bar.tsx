@@ -54,24 +54,41 @@ export function StatsBar({ outbreaks, totalRegions }: StatsBarProps) {
       {cards.map((c) => (
         <Card
           key={c.label}
-          className={`px-3 py-2 md:px-4 md:py-3 flex items-center gap-3 transition-colors ${
-            c.highlight ? "border-destructive/30 bg-destructive/5" : ""
-          }`}
+          className={`relative overflow-hidden px-3 py-2 md:px-4 md:py-3 flex items-center gap-3 transition-all
+            md:hover:-translate-y-0.5 md:hover:shadow-md md:hover:border-primary/30
+            ${c.highlight ? "border-destructive/30 bg-destructive/5" : ""}`}
         >
-          <c.icon
-            className="h-5 w-5 md:h-6 md:w-6 shrink-0"
-            style={{ color: c.iconColor ?? c.color }}
-            aria-hidden
-          />
-          {/* Number + label, baseline-aligned in a column */}
-          <div className="min-w-0 flex flex-col justify-center">
+          {/* Soft red glow behind active card — visible in dark, subtle in light */}
+          {c.highlight && (
             <div
-              className="text-xl md:text-2xl font-bold leading-none tabular-nums"
+              className="absolute -top-1/2 -right-1/2 h-32 w-32 rounded-full bg-destructive/10 blur-2xl pointer-events-none"
+              aria-hidden
+            />
+          )}
+          {/* Pulsing dot for active outbreaks (replaces icon when highlight) */}
+          {c.highlight ? (
+            <span className="relative flex h-5 w-5 md:h-6 md:w-6 shrink-0" aria-hidden>
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-destructive opacity-75" />
+              <span className="relative inline-flex h-5 w-5 md:h-6 md:w-6 rounded-full bg-destructive/20 items-center justify-center">
+                <c.icon className="h-3 w-3 md:h-4 md:w-4 text-destructive" />
+              </span>
+            </span>
+          ) : (
+            <c.icon
+              className="h-5 w-5 md:h-6 md:w-6 shrink-0"
+              style={{ color: c.iconColor ?? c.color }}
+              aria-hidden
+            />
+          )}
+          {/* Number + label, baseline-aligned in a column */}
+          <div className="min-w-0 flex flex-col justify-center relative">
+            <div
+              className="text-xl md:text-2xl font-bold leading-none tabular-nums tracking-tight"
               style={{ color: c.color }}
             >
               {c.value}
             </div>
-            <div className="text-[10px] md:text-xs text-muted-foreground leading-tight mt-1 truncate">
+            <div className="text-[10px] md:text-xs text-muted-foreground leading-tight mt-1 truncate tracking-tight">
               {c.label}
             </div>
           </div>
