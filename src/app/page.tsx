@@ -14,6 +14,7 @@ import {
   Info,
   LocateFixed,
   Beaker,
+  Zap,
 } from "lucide-react";
 
 import { OutbreakMap } from "@/components/outbreak-map";
@@ -26,6 +27,7 @@ import { DiseaseProfileDrawer } from "@/components/disease-profile-drawer";
 import { QuarantineCalculator } from "@/components/quarantine-calculator";
 import { NearbyOutbreaks } from "@/components/nearby-outbreaks";
 import { SIRSimulator } from "@/components/sir-simulator";
+import { SpatialSimulator } from "@/components/spatial-simulator";
 import { RegionDrillDown } from "@/components/region-drill-down";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { PwaBanners } from "@/components/pwa-banners";
@@ -85,6 +87,7 @@ function HomeContent() {
   const [aboutOpen, setAboutOpen] = useState(false);
   const [nearbyOpen, setNearbyOpen] = useState(false);
   const [sirOpen, setSirOpen] = useState(false);
+  const [spatialOpen, setSpatialOpen] = useState(false);
   const [regionDrillDown, setRegionDrillDown] = useState<string | null>(null);
   const [regionDrillDownOpen, setRegionDrillDownOpen] = useState(false);
 
@@ -215,6 +218,14 @@ function HomeContent() {
             >
               <LocateFixed className="h-4 w-4 mr-1" />
               Рядом
+            </Button>
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={() => setSpatialOpen(true)}
+            >
+              <Zap className="h-4 w-4 mr-1" />
+              Spread
             </Button>
             <Button
               variant="outline"
@@ -434,6 +445,12 @@ function HomeContent() {
           setDrawerDisease(o.disease_key);
           setDrawerOpen(true);
         }}
+      />
+      <SpatialSimulator
+        open={spatialOpen}
+        onOpenChange={setSpatialOpen}
+        outbreaks={data?.outbreaks ?? []}
+        regionCentroids={regionCentroids}
       />
       <AboutDialog open={aboutOpen} onOpenChange={setAboutOpen} />
     </main>
