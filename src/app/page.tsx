@@ -20,6 +20,7 @@ import { OutbreakMap } from "@/components/outbreak-map";
 import { StatsBar } from "@/components/stats-bar";
 import { FilterPanel } from "@/components/filter-panel";
 import { EpiCurve } from "@/components/epi-curve";
+import { HotspotList } from "@/components/hotspot-list";
 import { OutbreaksTable } from "@/components/outbreaks-table";
 import { DiseaseProfileDrawer } from "@/components/disease-profile-drawer";
 import { QuarantineCalculator } from "@/components/quarantine-calculator";
@@ -389,6 +390,7 @@ function HomeContent() {
               showChoropleth={showChoropleth}
               onShowChoroplethChange={setShowChoropleth}
             />
+            <HotspotList outbreaks={filtered} onSelectRegion={(r) => { setRegionDrillDown(r); setRegionDrillDownOpen(true); }} />
             <EpiCurve outbreaks={filtered} />
             <OutbreaksTable outbreaks={filtered} onSelectOutbreak={(o) => onSelectOutbreak(o)} />
           </div>
