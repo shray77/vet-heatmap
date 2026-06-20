@@ -25,6 +25,7 @@ import { DiseaseProfileDrawer } from "@/components/disease-profile-drawer";
 import { QuarantineCalculator } from "@/components/quarantine-calculator";
 import { NearbyOutbreaks } from "@/components/nearby-outbreaks";
 import { SIRSimulator } from "@/components/sir-simulator";
+import { RegionDrillDown } from "@/components/region-drill-down";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { PwaBanners } from "@/components/pwa-banners";
 import { AboutDialog } from "@/components/about-dialog";
@@ -83,6 +84,8 @@ function HomeContent() {
   const [aboutOpen, setAboutOpen] = useState(false);
   const [nearbyOpen, setNearbyOpen] = useState(false);
   const [sirOpen, setSirOpen] = useState(false);
+  const [regionDrillDown, setRegionDrillDown] = useState<string | null>(null);
+  const [regionDrillDownOpen, setRegionDrillDownOpen] = useState(false);
 
   // Region centroids for "nearby" calculation (computed once geo is loaded)
   const regionCentroids = useMemo(() => {
@@ -123,8 +126,9 @@ function HomeContent() {
     setDrawerOpen(true);
   }, []);
 
-  const onSelectRegion = useCallback((_region: string) => {
-    // could open a region summary later
+  const onSelectRegion = useCallback((region: string) => {
+    setRegionDrillDown(region);
+    setRegionDrillDownOpen(true);
   }, []);
 
   const openCalculator = (d?: DiseaseKey) => {
@@ -426,6 +430,16 @@ function HomeContent() {
         }}
       />
       <SIRSimulator open={sirOpen} onOpenChange={setSirOpen} />
+      <RegionDrillDown
+        region={regionDrillDown}
+        outbreaks={data?.outbreaks ?? []}
+        open={regionDrillDownOpen}
+        onOpenChange={setRegionDrillDownOpen}
+        onSelectOutbreak={(o) => {
+          setDrawerDisease(o.disease_key);
+          setDrawerOpen(true);
+        }}
+      />
       <AboutDialog open={aboutOpen} onOpenChange={setAboutOpen} />
     </main>
   );
