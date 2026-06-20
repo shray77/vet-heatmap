@@ -308,60 +308,53 @@ function HomeContent() {
           </div>
         </div>
 
-        {/* Stats bar */}
-        <div className="px-3 pb-2 md:px-4 md:pb-3">
+        {/* Inline KPI bar + disease chips in one row */}
+        <div className="px-3 pb-2 md:px-4 md:pb-2 flex items-center gap-3 overflow-hidden">
           <StatsBar outbreaks={filtered} totalRegions={totalRegions} />
-        </div>
-
-        {/* Disease chips row (quick disease filter access) */}
-        <div className="px-3 pb-2 md:px-4 md:pb-3 flex gap-1 overflow-x-auto thin-scroll">
-          <Button
-            variant={filters.diseases.length === 0 ? "default" : "outline"}
-            size="sm"
-            className="h-9 text-xs shrink-0 px-3"
-            onClick={resetFilters}
-          >
-            Все
-          </Button>
-          {DISEASE_PROFILES.slice(0, 12).map((p) => {
-            const isActive = filters.diseases.includes(p.disease_key);
-            const color = diseaseColor(p.disease_key, p.group);
-            return (
-              <button
-                key={p.disease_key}
-                onClick={() =>
-                  setFilters({
-                    ...filters,
-                    diseases: isActive
-                      ? filters.diseases.filter((x) => x !== p.disease_key)
-                      : [...filters.diseases, p.disease_key],
-                  })
-                }
-                className="h-9 px-3 rounded-md text-xs shrink-0 border transition-all flex items-center gap-1.5"
-                style={{
-                  backgroundColor: isActive ? color : "transparent",
-                  borderColor: isActive ? color : "var(--border)",
-                  color: isActive ? "#fff" : "var(--foreground)",
-                }}
-              >
-                <span
-                  className="w-2 h-2 rounded-full shrink-0"
+          {/* Disease quick-filter chips — desktop only */}
+          <div className="hidden lg:flex gap-1 overflow-x-auto thin-scroll ml-auto">
+            <Button
+              variant={filters.diseases.length === 0 ? "default" : "outline"}
+              size="sm"
+              className="h-7 text-[11px] shrink-0 px-2"
+              onClick={resetFilters}
+            >
+              Все
+            </Button>
+            {DISEASE_PROFILES.slice(0, 10).map((p) => {
+              const isActive = filters.diseases.includes(p.disease_key);
+              const color = diseaseColor(p.disease_key, p.group);
+              return (
+                <button
+                  key={p.disease_key}
+                  onClick={() =>
+                    setFilters({
+                      ...filters,
+                      diseases: isActive
+                        ? filters.diseases.filter((x) => x !== p.disease_key)
+                        : [...filters.diseases, p.disease_key],
+                    })
+                  }
+                  className="h-7 px-2 rounded-md text-[11px] shrink-0 border transition-all flex items-center gap-1"
                   style={{
-                    backgroundColor: color,
-                    opacity: isActive ? 0.7 : 1,
+                    backgroundColor: isActive ? color : "transparent",
+                    borderColor: isActive ? color : "var(--border)",
+                    color: isActive ? "#fff" : "var(--foreground)",
                   }}
-                />
-                {p.short_ru}
-              </button>
-            );
-          })}
+                >
+                  <span className="w-1.5 h-1.5 rounded-full shrink-0" style={{ backgroundColor: color, opacity: isActive ? 0.7 : 1 }} />
+                  {p.short_ru}
+                </button>
+              );
+            })}
+          </div>
         </div>
       </header>
 
-      {/* ─── Main content: map + sidebar ───────────────────────────── */}
-      <div className="flex-1 flex flex-col lg:flex-row min-h-0 lg:min-h-[calc(100vh-220px)]">
-        {/* Map — on mobile fixed-height to avoid flex collapse; on desktop flex-1 */}
-        <div className="relative w-full h-[55vh] lg:h-auto lg:flex-1 lg:min-h-0">
+      {/* ─── Main content: map fills remaining space + sidebar ───── */}
+      <div className="flex-1 flex min-h-0">
+        {/* Map — full remaining height */}
+        <div className="relative flex-1 min-h-0">
           <OutbreakMap
             outbreaks={filtered}
             geo={geo}
@@ -383,9 +376,9 @@ function HomeContent() {
           </div>
         </div>
 
-        {/* Desktop sidebar */}
-        <aside className="hidden lg:flex lg:w-[360px] xl:w-[400px] flex-col border-l bg-background/50">
-          <div className="p-3 space-y-3 overflow-y-auto thin-scroll">
+        {/* Desktop sidebar — right panel with filters + charts + table */}
+        <aside className="hidden lg:flex lg:w-[340px] xl:w-[380px] flex-col border-l bg-background/50">
+          <div className="p-3 space-y-3 overflow-y-auto thin-scroll flex-1">
             <FilterPanel
               outbreaks={data?.outbreaks ?? []}
               filters={filters}
