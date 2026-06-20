@@ -8,6 +8,7 @@ import { useTheme } from "next-themes";
 import type { Outbreak, OutbreakDataset, DiseaseProfile } from "@/types/domain";
 import { diseaseColor } from "@/lib/colors";
 import { DISEASE_PROFILES_BY_KEY } from "@/data/disease-profiles";
+import { REGION_PROPERTIES } from "@/data/regions";
 import { speciesRu, sourceRu } from "@/lib/i18n-species";
 
 const basePath = process.env.NODE_ENV === "production" ? "/vet-heatmap" : "";
@@ -22,6 +23,8 @@ interface OutbreakMapProps {
   showRiskZones: boolean;
   /** Show choropleth (density) layer. */
   showChoropleth: boolean;
+  /** Show livestock density heatmap (pigs/cattle/poultry per km²). */
+  densityLayer: "none" | "pigs" | "cattle" | "poultry";
   /** Called when user clicks an outbreak marker. */
   onSelectOutbreak?: (o: Outbreak) => void;
   /** Called when user clicks a region. */
@@ -33,6 +36,7 @@ export function OutbreakMap({
   geo,
   showRiskZones,
   showChoropleth,
+  densityLayer,
   onSelectOutbreak,
   onSelectRegion,
 }: OutbreakMapProps) {
@@ -410,6 +414,70 @@ export function OutbreakMap({
       });
     }
   }, [outbreaks, geo, showRiskZones, ready]);
+
+  // ─── Livestock density layer ─────────────────────────────────────────
+  useEffect(() => {
+    const map = mapRef.current;
+    if (!map || !ready || !geo) return;
+
+    // Remove old density layer
+    if (map.getLayer("density-fill")) map.removeLayer("density-fill");
+    if (map.getSource("density-data")) map.removeSource("density-data");
+
+    if (densityLayer === "none" || !showChoropleth) return;
+
+    // Build GeoJSON with density values
+    const densityField = densityLayer === "pigs" ? "pigs_per_km2" : densityLayer === "cattle" ? "cattle_per_km2" : "poultry_per_km2";
+    const maxDensity = Math.max(...Object.values(REGION_PROPERTIES).map(p => p[densityField] as number), 1);
+
+    const features = geo.features.map((f) => {
+      const name = (f.properties as { shapeName?: string }).shapeName;
+      const props = name ? REGION_PROPERTIES[name] : undefined;
+      const density = props ? (props[densityField] as number) : 0;
+      return {
+        ...f,
+        properties: {
+          ...f.properties,
+          density,
+          densityPercent: (density / maxDensity) * 100,
+        },
+      };
+    });
+
+    map.addSource("density-data", {
+      type: "geojson",
+      data: { type: "FeatureCollection", features },
+    });
+
+    const colors = densityLayer === "pigs"
+      ? ["#fff5f0", "#fcbba1", "#fc9272", "#fb6a4a", "#ef3b2c", "#a50f15"]
+      : densityLayer === "cattle"
+        ? ["#f7fcf5", "#c7e9c0", "#a1d99b", "#74c476", "#41ab5d", "#238b45"]
+        : ["#fffbeb", "#fee391", "#fec44f", "#fe9929", "#ec7014", "#cc4c02"];
+
+    map.addLayer({
+      id: "density-fill",
+      type: "fill",
+      source: "density-data",
+      layout: {},
+      paint: {
+        "fill-color": {
+          property: "densityPercent",
+          type: "interval",
+          stops: [
+            [0, colors[0]],
+            [5, colors[1]],
+            [15, colors[2]],
+            [30, colors[3]],
+            [50, colors[4]],
+            [75, colors[5]],
+          ],
+          default: colors[0],
+        },
+        "fill-opacity": 0.6,
+      },
+    }, "choropleth-line" in map.getStyle()?.layers?.map(l => l.id) ?? [] ? "choropleth-line" : undefined);
+  }, [densityLayer, showChoropleth, geo, ready]);
 
   return (
     <div className="relative w-full h-full">

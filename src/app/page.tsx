@@ -82,6 +82,7 @@ function HomeContent() {
   // Layer toggles
   const [showRiskZones, setShowRiskZones] = useState(true);
   const [showChoropleth, setShowChoropleth] = useState(true);
+  const [densityLayer, setDensityLayer] = useState<"none" | "pigs" | "cattle" | "poultry">("none");
 
   // Drawer/dialog state
   const [drawerDisease, setDrawerDisease] = useState<DiseaseKey | null>(null);
@@ -331,6 +332,7 @@ function HomeContent() {
                     showRiskZones={showRiskZones}
                     onShowRiskZonesChange={setShowRiskZones}
                     showChoropleth={showChoropleth}
+            densityLayer={densityLayer}
                     onShowChoroplethChange={setShowChoropleth}
                   />
                 </div>
@@ -391,6 +393,7 @@ function HomeContent() {
             geo={geo}
             showRiskZones={showRiskZones}
             showChoropleth={showChoropleth}
+            densityLayer={densityLayer}
             onSelectOutbreak={(o) => onSelectOutbreak(o)}
             onSelectRegion={onSelectRegion}
           />
@@ -401,6 +404,29 @@ function HomeContent() {
             <LegendRow color="#D32F2F" label="Защита (3 км)" />
             <LegendRow color="#F57C00" label="Наблюдение (10 км)" />
             <LegendRow color="#1565C0" label="Ограничение (30 км)" />
+            {/* Density layer toggle */}
+            <div className="pt-1 border-t">
+              <div className="font-semibold text-foreground mb-1">Плотность животных</div>
+              <div className="flex gap-1">
+                {[
+                  { v: "none", label: "Нет", color: "var(--muted)" },
+                  { v: "pigs", label: "Свиньи", color: "#fb6a4a" },
+                  { v: "cattle", label: "КРС", color: "#74c476" },
+                  { v: "poultry", label: "Птица", color: "#fe9929" },
+                ].map((opt) => (
+                  <button
+                    key={opt.v}
+                    onClick={() => setDensityLayer(opt.v as any)}
+                    className={`px-1.5 py-0.5 rounded text-[9px] border transition-all ${
+                      densityLayer === opt.v ? "bg-foreground text-background" : "bg-transparent"
+                    }`}
+                    style={densityLayer === opt.v ? {} : { borderColor: opt.color, color: opt.color }}
+                  >
+                    {opt.label}
+                  </button>
+                ))}
+              </div>
+            </div>
             <div className="pt-1 border-t text-muted-foreground">
               Источник: {data?.sources.join(", ")} · обн. {data?.updated}
             </div>
@@ -418,6 +444,7 @@ function HomeContent() {
               showRiskZones={showRiskZones}
               onShowRiskZonesChange={setShowRiskZones}
               showChoropleth={showChoropleth}
+            densityLayer={densityLayer}
               onShowChoroplethChange={setShowChoropleth}
             />
             <TimelineSlider outbreaks={data?.outbreaks ?? []} onDateRangeChange={(from, to) => setTimelineRange({from, to})} />
@@ -472,7 +499,7 @@ function HomeContent() {
         outbreaks={data?.outbreaks ?? []}
         regionCentroids={regionCentroids}
       />
-      {/* DiseaseComparison temporarily disabled */}
+      <DiseaseComparison open={compareOpen} onOpenChange={setCompareOpen} />
       <AboutDialog open={aboutOpen} onOpenChange={setAboutOpen} />
     </main>
   );
