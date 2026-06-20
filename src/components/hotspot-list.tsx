@@ -6,6 +6,7 @@ import { Flame, TrendingDown } from "lucide-react";
 import type { Outbreak } from "@/types/domain";
 import { diseaseColor } from "@/lib/colors";
 import { DISEASE_LABELS } from "@/data/diseases-normalize";
+import { REGION_PROPERTIES } from "@/data/regions";
 
 interface HotspotListProps {
   outbreaks: Outbreak[];
@@ -61,7 +62,7 @@ export function HotspotList({ outbreaks, onSelectRegion }: HotspotListProps) {
               <div className="flex items-center gap-2 mb-0.5">
                 <span className="text-[10px] font-mono text-muted-foreground w-3">{i + 1}</span>
                 <span className="text-xs font-medium truncate flex-1 group-hover:text-primary transition-colors">
-                  {region}
+                  {REGION_PROPERTIES[region]?.name_ru ?? region}
                 </span>
                 <span className="text-xs font-bold tabular-nums">{stats.total}</span>
                 {stats.ongoing > 0 && (
