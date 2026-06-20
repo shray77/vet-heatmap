@@ -42,7 +42,6 @@ import { useKeyboardShortcuts } from "@/lib/use-keyboard";
 import { useTheme } from "next-themes";
 import { diseaseColor } from "@/lib/colors";
 import { generateOutbreakReport } from "@/lib/pdf-export";
-import { checkForNewOutbreaks } from "@/lib/push-notifications";
 import {
   DEFAULT_FILTERS,
   FilterState,
@@ -154,13 +153,6 @@ function HomeContent() {
 
   const resetFilters = () => setFilters(DEFAULT_FILTERS);
   const { setTheme, theme } = useTheme();
-
-  // Check for new outbreaks on data load → local push notification
-  useEffect(() => {
-    if (data && !loading) {
-      checkForNewOutbreaks(data.outbreaks.length).catch(() => {});
-    }
-  }, [data, loading]);
 
   // Keyboard shortcuts
   useKeyboardShortcuts({
