@@ -420,7 +420,7 @@ function HomeContent() {
               showChoropleth={showChoropleth}
               onShowChoroplethChange={setShowChoropleth}
             />
-            {/* TimelineSlider temporarily disabled */}
+            <TimelineSlider outbreaks={data?.outbreaks ?? []} onDateRangeChange={(from, to) => setTimelineRange({from, to})} />
             <HotspotList outbreaks={filtered} onSelectRegion={(r) => { setRegionDrillDown(r); setRegionDrillDownOpen(true); }} />
             <EpiCurve outbreaks={filtered} />
             <OutbreaksTable outbreaks={filtered} onSelectOutbreak={(o) => onSelectOutbreak(o)} />
