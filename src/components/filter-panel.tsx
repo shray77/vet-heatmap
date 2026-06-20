@@ -14,6 +14,7 @@ import {
 } from "@/components/ui/popover";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Search, X, ChevronDown } from "lucide-react";
+import { speciesRu } from "@/lib/i18n-species";
 import type { Outbreak, DiseaseKey, OutbreakStatus } from "@/types/domain";
 import { DISEASE_LABELS } from "@/data/diseases-normalize";
 import { diseaseColor } from "@/lib/colors";
@@ -188,7 +189,7 @@ export function FilterPanel({
                     checked={filters.species.includes(s)}
                     onCheckedChange={() => toggleSpecies(s)}
                   />
-                  <span className="text-xs">{s}</span>
+                  <span className="text-xs">{speciesRu(s)}</span>
                 </label>
               ))}
             </div>

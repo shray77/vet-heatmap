@@ -168,10 +168,13 @@
     font-family: inherit;
   }
 
-  /* Pulse animation for ongoing outbreaks */
+  /* Pulse animation for ongoing outbreaks.
+   * CRITICAL: Do NOT use transform: scale() here — it overrides MapLibre's
+   * transform: translate() that positions the marker on the map.
+   * Animate opacity only. */
   @keyframes pulse-outbreak {
-    0%, 100% { opacity: 1; transform: scale(1); }
-    50% { opacity: 0.6; transform: scale(1.2); }
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
   }
   .pulse-outbreak {
     animation: pulse-outbreak 2s ease-in-out infinite;
