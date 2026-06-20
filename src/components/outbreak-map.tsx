@@ -312,7 +312,7 @@ export function OutbreakMap({
 
       // Build HTML element
       const el = document.createElement("div");
-      el.className = "outbreak-marker";
+      el.className = `outbreak-marker${isOngoing ? " outbreak-marker--active" : ""}`;
       el.style.cssText = `
         width: ${8 + Math.min(Math.sqrt(o.cases) / 2, 18)}px;
         height: ${8 + Math.min(Math.sqrt(o.cases) / 2, 18)}px;
@@ -321,7 +321,8 @@ export function OutbreakMap({
         border: 2px solid ${isOngoing ? "#fff" : color};
         box-shadow: 0 0 0 ${isOngoing ? "2px" : "1px"} ${color}88;
         cursor: pointer;
-        ${isOngoing ? "animation: pulse-outbreak 2s ease-in-out infinite;" : ""}
+        --ripple-color: ${color}99;
+        ${isOngoing ? "" : ""}
       `;
 
       const popup = new Popup({ offset: 14, closeButton: true, maxWidth: "320px" }).setHTML(
