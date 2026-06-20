@@ -1,6 +1,5 @@
 "use client";
 
-import { Card } from "@/components/ui/card";
 import { AlertTriangle, Activity, MapPin, Biohazard } from "lucide-react";
 import type { Outbreak } from "@/types/domain";
 
@@ -9,91 +8,67 @@ interface StatsBarProps {
   totalRegions: number;
 }
 
+/**
+ * Compact inline KPI bar — inspired by CDC top banner.
+ * Single row on desktop, 2x2 grid on mobile.
+ * Shows: total / active / regions / disease types.
+ */
 export function StatsBar({ outbreaks, totalRegions }: StatsBarProps) {
   const total = outbreaks.length;
   const ongoing = outbreaks.filter((o) => o.status === "Ongoing").length;
   const affectedRegions = new Set(outbreaks.map((o) => o.region_geo).filter(Boolean)).size;
   const diseaseTypes = new Set(outbreaks.map((o) => o.disease_key)).size;
 
-  const cards = [
-    {
-      label: "Всего вспышек",
-      value: total,
-      // neutral primary — readable on both light/dark
-      color: "var(--foreground)",
-      icon: Activity,
-    },
-    {
-      label: "Активные",
-      value: ongoing,
-      // destructive — strong red, AAA contrast on bg
-      color: "var(--destructive)",
-      icon: AlertTriangle,
-      // emphasize ongoing with subtle bg tint
-      highlight: ongoing > 0,
-    },
-    {
-      label: "Регионов затронуто",
-      value: `${affectedRegions}/${totalRegions}`,
-      // chart-4 (info blue) — but use foreground for the number, color only the icon
-      color: "var(--foreground)",
-      iconColor: "var(--chart-4)",
-      icon: MapPin,
-    },
-    {
-      label: "Типов болезней",
-      value: diseaseTypes,
-      color: "var(--foreground)",
-      iconColor: "var(--chart-3)",
-      icon: Biohazard,
-    },
+  const items = [
+    { label: "Всего", value: total, icon: Activity, color: "var(--foreground)", pulse: false },
+    { label: "Активных", value: ongoing, icon: AlertTriangle, color: "var(--destructive)", pulse: ongoing > 0 },
+    { label: "Регионов", value: `${affectedRegions}/${totalRegions}`, icon: MapPin, color: "var(--chart-4)", pulse: false },
+    { label: "Болезней", value: diseaseTypes, icon: Biohazard, color: "var(--chart-3)", pulse: false },
   ];
 
   return (
-    <div className="grid grid-cols-2 md:grid-cols-4 gap-2 w-full">
-      {cards.map((c) => (
-        <Card
-          key={c.label}
-          className={`relative overflow-hidden px-3 py-2 md:px-4 md:py-3 flex items-center gap-3 transition-all
-            md:hover:-translate-y-0.5 md:hover:shadow-md md:hover:border-primary/30
-            ${c.highlight ? "border-destructive/30 bg-destructive/5" : ""}`}
-        >
-          {/* Soft red glow behind active card — visible in dark, subtle in light */}
-          {c.highlight && (
-            <div
-              className="absolute -top-1/2 -right-1/2 h-32 w-32 rounded-full bg-destructive/10 blur-2xl pointer-events-none"
-              aria-hidden
-            />
-          )}
-          {/* Pulsing dot for active outbreaks (replaces icon when highlight) */}
-          {c.highlight ? (
-            <span className="relative flex h-5 w-5 md:h-6 md:w-6 shrink-0" aria-hidden>
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-destructive opacity-75" />
-              <span className="relative inline-flex h-5 w-5 md:h-6 md:w-6 rounded-full bg-destructive/20 items-center justify-center">
-                <c.icon className="h-3 w-3 md:h-4 md:w-4 text-destructive" />
+    <>
+      {/* Desktop: inline KPI bar */}
+      <div className="hidden md:flex items-center gap-4 px-1">
+        {items.map((item, i) => (
+          <div key={item.label} className="flex items-center gap-2">
+            {i > 0 && <div className="h-4 w-px bg-border" />}
+            <item.icon className="h-4 w-4 shrink-0" style={{ color: item.color }} aria-hidden />
+            {item.pulse && (
+              <span className="relative flex h-2 w-2 shrink-0" aria-hidden>
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-destructive opacity-75" />
+                <span className="relative inline-flex h-2 w-2 rounded-full bg-destructive" />
               </span>
+            )}
+            <span className="text-lg font-bold tabular-nums tracking-tight" style={{ color: item.color }}>
+              {item.value}
             </span>
-          ) : (
-            <c.icon
-              className="h-5 w-5 md:h-6 md:w-6 shrink-0"
-              style={{ color: c.iconColor ?? c.color }}
-              aria-hidden
-            />
-          )}
-          {/* Number + label, baseline-aligned in a column */}
-          <div className="min-w-0 flex flex-col justify-center relative">
-            <div
-              className="text-xl md:text-2xl font-bold leading-none tabular-nums tracking-tight"
-              style={{ color: c.color }}
-            >
-              {c.value}
-            </div>
-            <div className="text-[10px] md:text-xs text-muted-foreground leading-tight mt-1 truncate tracking-tight">
-              {c.label}
-            </div>
+            <span className="text-xs text-muted-foreground tracking-tight">{item.label}</span>
           </div>
-        </Card>
-      ))}
-    </div>
+        ))}
+      </div>
+
+      {/* Mobile: 2x2 compact grid */}
+      <div className="md:hidden grid grid-cols-2 gap-1.5">
+        {items.map((item) => (
+          <div
+            key={item.label}
+            className="flex items-center gap-2 px-2.5 py-1.5 rounded-md bg-card border"
+          >
+            {item.pulse && (
+              <span className="relative flex h-1.5 w-1.5 shrink-0" aria-hidden>
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-destructive opacity-75" />
+                <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-destructive" />
+              </span>
+            )}
+            <item.icon className="h-3.5 w-3.5 shrink-0" style={{ color: item.color }} aria-hidden />
+            <span className="text-sm font-bold tabular-nums" style={{ color: item.color }}>
+              {item.value}
+            </span>
+            <span className="text-[10px] text-muted-foreground">{item.label}</span>
+          </div>
+        ))}
+      </div>
+    </>
   );
 }
