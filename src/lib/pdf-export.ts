@@ -9,17 +9,18 @@
  *   - Footer (source, disclaimer)
  */
 
-import jsPDF from "jspdf";
+// jsPDF is dynamically imported inside generateOutbreakReport() to avoid SSR issues
 import type { Outbreak } from "@/types/domain";
 import { DISEASE_LABELS } from "@/data/diseases-normalize";
 import { speciesRu } from "@/lib/i18n-species";
 import { REGION_PROPERTIES } from "@/data/regions";
 import { diseaseColor } from "@/lib/colors";
 
-export function generateOutbreakReport(
+export async function generateOutbreakReport(
   outbreaks: Outbreak[],
   opts: { regionName?: string; totalRegions: number },
 ) {
+  const { default: jsPDF } = await import("jspdf");
   const doc = new jsPDF({ unit: "mm", format: "a4" });
   const pageWidth = 210;
   const pageHeight = 297;
