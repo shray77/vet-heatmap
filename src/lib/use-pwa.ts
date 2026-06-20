@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { pushSupported, getPermission, requestPermission, checkForNewOutbreaks } from "./push-notifications";
 
 interface BeforeInstallPromptEvent extends Event {
   prompt: () => Promise<void>;
@@ -20,7 +19,6 @@ export function usePWA() {
   const [canInstall, setCanInstall] = useState(false);
   const [installEvent, setInstallEvent] = useState<BeforeInstallPromptEvent | null>(null);
   const [isOffline, setIsOffline] = useState(false);
-  const [pushPermission, setPushPermission] = useState<NotificationPermission>("default");
 
   useEffect(() => {
     // Service worker registration — only in production (basePath /vet-heatmap)
@@ -81,10 +79,5 @@ export function usePWA() {
     setCanInstall(false);
   };
 
-  const enablePush = async () => {
-    const perm = await requestPermission();
-    setPushPermission(perm);
-  };
-
-  return { canInstall, promptInstall, isOffline, pushPermission, enablePush, pushSupported: typeof window !== "undefined" && "Notification" in window && "serviceWorker" in navigator };
+  return { canInstall, promptInstall, isOffline };
 }

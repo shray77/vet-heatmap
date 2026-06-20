@@ -2,7 +2,7 @@
 
 import { usePWA } from "@/lib/use-pwa";
 import { Button } from "@/components/ui/button";
-import { Download, WifiOff, X, Bell } from "lucide-react";
+import { Download, WifiOff, X } from "lucide-react";
 import { useState } from "react";
 
 /**
@@ -34,17 +34,7 @@ export function PwaBanners() {
           >
             Установить
           </Button>
-          {pushSupported && pushPermission !== "granted" && (
-            <Button
-              size="sm"
-              variant="ghost"
-              className="h-7 text-[11px] text-primary-foreground/70"
-              onClick={enablePush}
-            >
-              <Bell className="h-3 w-3 mr-0.5" />
-              Уведом.
-            </Button>
-          )}
+          
           <button
             onClick={() => setDismissedInstall(true)}
             aria-label="Скрыть"

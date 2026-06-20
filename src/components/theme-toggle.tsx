@@ -1,6 +1,6 @@
 "use client";
 
-import { Moon, Sun, Monitor, Eye } from "lucide-react";
+import { Moon, Sun, Monitor } from "lucide-react";
 import { useTheme } from "next-themes";
 import { Button } from "@/components/ui/button";
 import { useSyncExternalStore } from "react";
@@ -25,39 +25,19 @@ export function ThemeToggle() {
     );
   }
 
-  // Cycle: light -> dark -> system -> night-red
-  const next = theme === "light" ? "dark" : theme === "dark" ? "system" : theme === "system" ? "night-red" : "light";
-
-  let Icon = Sun;
-  let label = "Тема: " + theme;
-
-  if (theme === "night-red") {
-    Icon = Eye;
-  } else if (resolvedTheme === "dark") {
-    Icon = Moon;
-  } else if (theme === "system") {
-    Icon = Monitor;
-  }
-
-  const handleClick = () => {
-    if (next === "night-red") {
-      document.documentElement.classList.add("night-red");
-      setTheme("dark");
-    } else {
-      document.documentElement.classList.remove("night-red");
-      setTheme(next);
-    }
-  };
+  const next = theme === "light" ? "dark" : theme === "dark" ? "system" : "light";
+  const Icon = resolvedTheme === "dark" ? Moon : Sun;
+  const Label = theme === "system" ? <Monitor className="h-4 w-4" /> : <Icon className="h-4 w-4" />;
 
   return (
     <Button
       variant="ghost"
       size="icon"
-      onClick={handleClick}
-      aria-label={label}
-      title={label}
+      onClick={() => setTheme(next)}
+      aria-label={`Тема: ${theme}, переключить на ${next}`}
+      title={`Тема: ${theme}`}
     >
-      <Icon className="h-4 w-4" />
+      {Label}
     </Button>
   );
 }
