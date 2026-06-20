@@ -420,7 +420,7 @@ function HomeContent() {
               showChoropleth={showChoropleth}
               onShowChoroplethChange={setShowChoropleth}
             />
-            <TimelineSlider outbreaks={data?.outbreaks ?? []} onDateRangeChange={(from, to) => setTimelineRange({from, to})} />
+            {/* TimelineSlider temporarily disabled */}
             <HotspotList outbreaks={filtered} onSelectRegion={(r) => { setRegionDrillDown(r); setRegionDrillDownOpen(true); }} />
             <EpiCurve outbreaks={filtered} />
             <OutbreaksTable outbreaks={filtered} onSelectOutbreak={(o) => onSelectOutbreak(o)} />
@@ -472,7 +472,7 @@ function HomeContent() {
         outbreaks={data?.outbreaks ?? []}
         regionCentroids={regionCentroids}
       />
-      <DiseaseComparison open={compareOpen} onOpenChange={setCompareOpen} />
+      {/* DiseaseComparison temporarily disabled */}
       <AboutDialog open={aboutOpen} onOpenChange={setAboutOpen} />
     </main>
   );
