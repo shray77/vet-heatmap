@@ -33,6 +33,8 @@ import { parseFsvpsReport } from "./sources/fsvps-pdf-parser";
 import * as pdfjs from "pdfjs-dist/legacy/build/pdf.mjs";
 import { readFile } from "node:fs/promises";
 import { scrapeWahis } from "./sources/wahis";
+import { normalizeDisease, getDiseaseLabels } from "../../src/data/diseases-normalize";
+import { normalizeRegion } from "../../src/data/regions";
 import { scrapeEfsa } from "./sources/efsa";
 import { mergeOutbreaks, buildDataset } from "./merge";
 
@@ -165,8 +167,30 @@ async function main() {
 
   const wahisResult = results[1];
   if (wahisResult.status === "fulfilled") {
-    console.log(`      ✓ wahis: ${wahisResult.value.outbreaks.length} outbreaks (stub)`);
-    sources.push({ source: "wahis", outbreaks: wahisResult.value.outbreaks, warning: wahisResult.value.warning });
+    // Convert WAHIS RawArticles to Outbreaks
+    const wahisRaw = wahisResult.value.raw;
+    const wahisOutbreaks = wahisRaw.map((raw: any, i: number) => {
+                  const disease_key = normalizeDisease(raw.detected_disease ?? "");
+      const labels = getDiseaseLabels(disease_key);
+      return {
+        id: 20000 + i,
+        disease_key,
+        disease: labels.ru,
+        disease_group: labels.group,
+        region: raw.detected_region ?? "",
+        region_geo: normalizeRegion(raw.detected_region ?? "") ?? "",
+        date: raw.published_at,
+        species: raw.detected_species ?? "Other",
+        cases: raw.detected_cases ?? 0,
+        deaths: raw.detected_deaths ?? 0,
+        status: raw.body_text?.includes("On-going") ? "Ongoing" : "Resolved",
+        source: "wahis" as const,
+        source_url: raw.url,
+        notes: raw.title,
+      };
+    });
+    console.log(`      ✓ wahis: ${wahisRaw.length} events, ${wahisOutbreaks.length} outbreaks`);
+    sources.push({ source: "wahis", outbreaks: wahisOutbreaks, warning: wahisResult.value.warning });
     if (wahisResult.value.warning) console.log(`        ⚠  ${wahisResult.value.warning}`);
   } else {
     console.log(`      ✗ wahis FAILED: ${wahisResult.reason?.message ?? wahisResult.reason}`);
