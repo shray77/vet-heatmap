@@ -25,6 +25,7 @@ import type { DiseaseKey } from "@/types/domain";
 import { DISEASE_PROFILES_BY_KEY } from "@/data/disease-profiles";
 import { diseaseColor } from "@/lib/colors";
 import { DISEASE_LABELS } from "@/data/diseases-normalize";
+import { speciesRu, groupRu } from "@/lib/i18n-species";
 
 interface DiseaseProfileDrawerProps {
   disease: DiseaseKey | null;
@@ -77,7 +78,7 @@ export function DiseaseProfileDrawer({
               {profile.vaccine_available ? "Вакцина есть" : "Без вакцины"}
             </Badge>
             <Badge variant="outline" className="text-[10px]">
-              {profile.group}
+              {groupRu(profile.group)}
             </Badge>
           </div>
 
@@ -134,7 +135,7 @@ export function DiseaseProfileDrawer({
             <div className="flex flex-wrap gap-1.5">
               {profile.susceptible_species.map((s) => (
                 <Badge key={s} variant="outline" className="text-[11px]">
-                  {s}
+                  {speciesRu(s)}
                 </Badge>
               ))}
             </div>

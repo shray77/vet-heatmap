@@ -8,6 +8,7 @@ import { useTheme } from "next-themes";
 import type { Outbreak, OutbreakDataset, DiseaseProfile } from "@/types/domain";
 import { diseaseColor } from "@/lib/colors";
 import { DISEASE_PROFILES_BY_KEY } from "@/data/disease-profiles";
+import { speciesRu, sourceRu } from "@/lib/i18n-species";
 
 const basePath = process.env.NODE_ENV === "production" ? "/vet-heatmap" : "";
 
@@ -441,10 +442,10 @@ function buildPopupHTML(o: Outbreak): string {
       <table style="font-size:12px;width:100%;border-spacing:0;">
         <tr><td style="color:#888;padding:2px 8px 2px 0;">Регион:</td><td style="font-weight:500;">${escapeHTML(o.region)}</td></tr>
         <tr><td style="color:#888;padding:2px 8px 2px 0;">Дата:</td><td>${formatDate(o.date)}</td></tr>
-        <tr><td style="color:#888;padding:2px 8px 2px 0;">Вид:</td><td>${escapeHTML(o.species)}</td></tr>
+        <tr><td style="color:#888;padding:2px 8px 2px 0;">Вид:</td><td>${escapeHTML(speciesRu(o.species))}</td></tr>
         <tr><td style="color:#888;padding:2px 8px 2px 0;">Случаи:</td><td><strong>${o.cases.toLocaleString("ru-RU")}</strong></td></tr>
         <tr><td style="color:#888;padding:2px 8px 2px 0;">Пало:</td><td><strong style="color:#D32F2F;">${o.deaths.toLocaleString("ru-RU")}</strong></td></tr>
-        <tr><td style="color:#888;padding:2px 8px 2px 0;">Источник:</td><td style="font-size:11px;text-transform:uppercase;">${o.source}</td></tr>
+        <tr><td style="color:#888;padding:2px 8px 2px 0;">Источник:</td><td style="font-size:11px;">${sourceRu(o.source)}</td></tr>
       </table>
     </div>
   `;

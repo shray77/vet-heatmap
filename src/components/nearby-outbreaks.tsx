@@ -15,6 +15,7 @@ import { MapPin, LocateFixed, AlertTriangle, X, Navigation } from "lucide-react"
 import type { Outbreak } from "@/types/domain";
 import { diseaseColor } from "@/lib/colors";
 import { DISEASE_LABELS } from "@/data/diseases-normalize";
+import { speciesRu } from "@/lib/i18n-species";
 
 interface NearbyOutbreaksProps {
   open: boolean;
@@ -257,7 +258,7 @@ export function NearbyOutbreaks({
                             {labels?.short_ru ?? o.disease} — {o.region}
                           </div>
                           <div className="text-[11px] text-muted-foreground truncate">
-                            {o.species} · {new Date(o.date).toLocaleDateString("ru-RU", { day: "numeric", month: "short", year: "numeric" })}
+                            {speciesRu(o.species)} · {new Date(o.date).toLocaleDateString("ru-RU", { day: "numeric", month: "short", year: "numeric" })}
                           </div>
                         </div>
                         <div className="text-right shrink-0">

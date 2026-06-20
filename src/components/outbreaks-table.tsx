@@ -24,6 +24,7 @@ import { ChevronDown, ChevronUp, Download, Search } from "lucide-react";
 import type { Outbreak, DiseaseKey } from "@/types/domain";
 import { diseaseColor } from "@/lib/colors";
 import { DISEASE_LABELS } from "@/data/diseases-normalize";
+import { speciesRu } from "@/lib/i18n-species";
 
 interface OutbreaksTableProps {
   outbreaks: Outbreak[];
@@ -224,7 +225,7 @@ export function OutbreaksTable({ outbreaks, onSelectOutbreak }: OutbreaksTablePr
                     </TableCell>
                     <TableCell className="py-2 text-[13px]">{o.region}</TableCell>
                     <TableCell className="py-2 text-[13px] hidden sm:table-cell text-muted-foreground">
-                      {o.species}
+                      {speciesRu(o.species)}
                     </TableCell>
                     <TableCell className="py-2 text-[13px] text-right font-mono tabular-nums">
                       {o.cases.toLocaleString("ru-RU")}
