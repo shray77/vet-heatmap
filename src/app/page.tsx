@@ -225,7 +225,7 @@ function HomeContent() {
               onClick={() => setSpatialOpen(true)}
             >
               <Zap className="h-4 w-4 mr-1" />
-              Spread
+              Распростр.
             </Button>
             <Button
               variant="outline"
