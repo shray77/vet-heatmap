@@ -209,7 +209,8 @@ export function OutbreaksTable({ outbreaks, onSelectOutbreak }: OutbreaksTablePr
                   <TableRow
                     key={o.id}
                     onClick={() => onSelectOutbreak?.(o)}
-                    className="cursor-pointer hover:bg-accent/30"
+                    className="cursor-pointer hover:bg-accent/30 relative"
+                    style={{ boxShadow: `inset 3px 0 0 0 ${color}` }}
                   >
                     <TableCell className="py-2 text-[13px] whitespace-nowrap tabular-nums">
                       {new Date(o.date).toLocaleDateString("ru-RU", { day: "2-digit", month: "2-digit", year: "2-digit" })}
@@ -235,9 +236,15 @@ export function OutbreaksTable({ outbreaks, onSelectOutbreak }: OutbreaksTablePr
                     </TableCell>
                     <TableCell className="py-2">
                       {o.status === "Ongoing" ? (
-                        <Badge variant="destructive" className="text-[10px] py-0 h-5">●</Badge>
+                        <Badge variant="destructive" className="text-[10px] py-0 h-5 gap-1">
+                          <span className="relative flex h-1.5 w-1.5">
+                            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-white opacity-75" />
+                            <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-white" />
+                          </span>
+                          Активна
+                        </Badge>
                       ) : o.status === "Resolved" ? (
-                        <Badge variant="secondary" className="text-[10px] py-0 h-5">✓</Badge>
+                        <Badge variant="secondary" className="text-[10px] py-0 h-5">Заверш.</Badge>
                       ) : (
                         <Badge variant="outline" className="text-[10px] py-0 h-5">?</Badge>
                       )}
