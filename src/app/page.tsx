@@ -14,6 +14,10 @@ import {
   Info,
   LocateFixed,
   Beaker,
+  Radio,
+  Truck,
+  FileText,
+  Upload,
 } from "lucide-react";
 
 import { OutbreakMap } from "@/components/outbreak-map";
@@ -25,6 +29,10 @@ import { DiseaseProfileDrawer } from "@/components/disease-profile-drawer";
 import { QuarantineCalculator } from "@/components/quarantine-calculator";
 import { NearbyOutbreaks } from "@/components/nearby-outbreaks";
 import { SIRSimulator } from "@/components/sir-simulator";
+import { OutbreakSourceTracker } from "@/components/outbreak-source-tracker";
+import { TransportGraphAnalysis } from "@/components/transport-graph-analysis";
+import { PdfReportExport } from "@/components/pdf-report-export";
+import { CustomDataImport } from "@/components/custom-data-import";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { PwaBanners } from "@/components/pwa-banners";
 import { AboutDialog } from "@/components/about-dialog";
@@ -83,6 +91,10 @@ function HomeContent() {
   const [aboutOpen, setAboutOpen] = useState(false);
   const [nearbyOpen, setNearbyOpen] = useState(false);
   const [sirOpen, setSirOpen] = useState(false);
+  const [sourceTrackerOpen, setSourceTrackerOpen] = useState(false);
+  const [transportOpen, setTransportOpen] = useState(false);
+  const [pdfReportOpen, setPdfReportOpen] = useState(false);
+  const [customImportOpen, setCustomImportOpen] = useState(false);
 
   // Region centroids for "nearby" calculation (computed once geo is loaded)
   const regionCentroids = useMemo(() => {
@@ -218,6 +230,38 @@ function HomeContent() {
             >
               <Beaker className="h-4 w-4 mr-1" />
               SIR
+            </Button>
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={() => setSourceTrackerOpen(true)}
+            >
+              <Radio className="h-4 w-4 mr-1" />
+              Источник
+            </Button>
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={() => setTransportOpen(true)}
+            >
+              <Truck className="h-4 w-4 mr-1" />
+              Транспорт
+            </Button>
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={() => setPdfReportOpen(true)}
+            >
+              <FileText className="h-4 w-4 mr-1" />
+              Отчёт
+            </Button>
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={() => setCustomImportOpen(true)}
+            >
+              <Upload className="h-4 w-4 mr-1" />
+              Импорт
             </Button>
             <Button
               variant="outline"
@@ -426,6 +470,10 @@ function HomeContent() {
         }}
       />
       <SIRSimulator open={sirOpen} onOpenChange={setSirOpen} />
+      <OutbreakSourceTracker open={sourceTrackerOpen} onOpenChange={setSourceTrackerOpen} outbreaks={filtered} />
+      <TransportGraphAnalysis open={transportOpen} onOpenChange={setTransportOpen} outbreaks={filtered} />
+      <PdfReportExport open={pdfReportOpen} onOpenChange={setPdfReportOpen} outbreaks={outbreaks || []} />
+      <CustomDataImport open={customImportOpen} onOpenChange={setCustomImportOpen} outbreaks={outbreaks || []} />
       <AboutDialog open={aboutOpen} onOpenChange={setAboutOpen} />
     </main>
   );

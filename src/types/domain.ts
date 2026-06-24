@@ -194,4 +194,7 @@ export interface RawArticle {
   detected_species?: string;
   detected_cases?: number;
   detected_deaths?: number;
+  /** Feature 4: Advanced metadata from FSVPS parser. */
+  detected_farm_type?: string | null;
+  detected_animal_count?: number;
 }

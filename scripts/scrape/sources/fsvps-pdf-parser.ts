@@ -300,6 +300,10 @@ function itemToArticle(
   const cases = extractNumber(itemText, ["заражено", "выявлено", "заболело", "инфицировано"]);
   const deaths = extractNumber(itemText, ["пало", "погибло", "усыпано"]);
 
+  // Feature 4: Advanced metadata extraction
+  const farmType = extractFarmType(itemText);
+  const animalCount = extractNumber(itemText, ["голов", "особей", "животных", "птиц"]);
+
   return {
     source: "fsvps",
     url: sourceUrl,
@@ -311,7 +315,25 @@ function itemToArticle(
     detected_species: species,
     detected_cases: cases,
     detected_deaths: deaths,
+    detected_farm_type: farmType,
+    detected_animal_count: animalCount,
   };
+}
+
+/**
+ * Feature 4: Extract farm/household type from text.
+ * Returns: "ЛПХ" | "КФХ" | "Свиноводческий комплекс" | "Птицефабрика" | "Ферма" | null
+ */
+function extractFarmType(text: string): string | null {
+  const lower = text.toLowerCase();
+  if (/лпх|личн\w*\s+подсобн\w*\s+хозяйств/i.test(text)) return "ЛПХ";
+  if (/кфх|крестьянск\w*\s+фермерск\w*\s+хозяйств/i.test(text)) return "КФХ";
+  if (/свиноводч\w*\s+комплекс|свинокомплекс/i.test(text)) return "Свиноводческий комплекс";
+  if (/птицефабрик|птицеводч\w*\s+предприяти/i.test(text)) return "Птицефабрика";
+  if (/фермерск\w*\s+хозяйств|сельскохозяйств\w*\s+организац/i.test(text)) return "Ферма";
+  if (/зоопарк|зоосад/i.test(text)) return "Зоопарк";
+  if (/приют/i.test(text)) return "Приют";
+  return null;
 }
 
 /** Convert a RawArticle to an Outbreak. */
