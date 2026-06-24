@@ -263,34 +263,159 @@ export function OutbreakMap({
     };
   }, [geo, outbreaks, showChoropleth, ready, resolvedTheme, onSelectRegion]);
 
-  // ─── Outbreak markers (HTML markers, not symbols, for better popup UX) ──
+  // ─── Outbreak markers ──────────────────────────────────────────────
+  // Use MapLibre circle layers for performance (HTML markers lag on mobile).
+  // Only use HTML markers for desktop (hover-capable devices) where popups are better.
   useEffect(() => {
     const map = mapRef.current;
     if (!map || !ready) return;
-    if (!geo) return; // need geo to compute centroids
-    if (outbreaks.length === 0) {
-      // No outbreaks to show — clear any existing markers
-      Object.values(markersRef.current).forEach((m) => m.remove());
-      Object.values(popupsRef.current).forEach((p) => p.remove());
-      markersRef.current = {};
-      popupsRef.current = {};
-      return;
-    }
+    if (!geo) return;
 
-    // Remove old markers
+    // Detect mobile (no hover, coarse pointer)
+    const isMobile = window.matchMedia("(hover: none), (pointer: coarse)").matches;
+
+    // Remove old HTML markers if any
     Object.values(markersRef.current).forEach((m) => m.remove());
     Object.values(popupsRef.current).forEach((p) => p.remove());
     markersRef.current = {};
     popupsRef.current = {};
+
+    // Remove old circle layers if switching from mobile to desktop or vice versa
+    const layers = map.getStyle()?.layers ?? [];
+    for (const l of layers) {
+      if (l.id === "outbreaks-circle" || l.id === "outbreaks-circle-active") {
+        map.removeLayer(l.id);
+      }
+    }
+    if (map.getSource("outbreaks-points")) {
+      map.removeSource("outbreaks-points");
+    }
+
+    if (outbreaks.length === 0) return;
+
+    // Compute centroids
     const centroids = new Map<string, [number, number]>();
     for (const f of geo.features) {
       const name = (f.properties as { shapeName: string }).shapeName;
       if (!name) continue;
-      // Compute centroid of geometry (approximate using bounding box)
       const bbox = computeBBox(f.geometry);
       if (bbox) centroids.set(name, [(bbox[0] + bbox[2]) / 2, (bbox[1] + bbox[3]) / 2]);
     }
 
+    // Build GeoJSON points for all outbreaks
+    const features: GeoJSON.Feature<GeoJSON.Point>[] = [];
+    for (const o of outbreaks) {
+      let lngLat: [number, number] | null = null;
+      if (typeof o.lon === "number" && typeof o.lat === "number"
+          && Number.isFinite(o.lon) && Number.isFinite(o.lat)
+          && !(o.lon === 0 && o.lat === 0)) {
+        lngLat = [o.lon, o.lat];
+      } else if (o.region_geo) {
+        const c = centroids.get(o.region_geo);
+        if (c && Number.isFinite(c[0]) && Number.isFinite(c[1]) && c[0] !== 0) {
+          lngLat = c;
+        }
+      }
+      if (!lngLat) continue;
+
+      const color = diseaseColor(o.disease_key, o.disease_group);
+      const isOngoing = o.status === "Ongoing";
+      const size = 8 + Math.min(Math.sqrt(o.cases || 1) / 2, 18);
+
+      features.push({
+        type: "Feature",
+        geometry: { type: "Point", coordinates: lngLat },
+        properties: {
+          id: o.id,
+          disease: o.disease,
+          disease_key: o.disease_key,
+          region: o.region,
+          date: o.date,
+          status: o.status,
+          cases: o.cases,
+          deaths: o.deaths,
+          species: o.species,
+          color,
+          isOngoing,
+          size,
+        },
+      });
+    }
+
+    if (features.length === 0) return;
+
+    const geojson: GeoJSON.FeatureCollection = { type: "FeatureCollection", features };
+
+    if (isMobile) {
+      // ─── Mobile: use native MapLibre circle layers (fast!) ────────
+      map.addSource("outbreaks-points", { type: "geojson", data: geojson });
+
+      // Resolved outbreaks (smaller, dimmer)
+      map.addLayer({
+        id: "outbreaks-circle",
+        type: "circle",
+        source: "outbreaks-points",
+        filter: ["!", ["get", "isOngoing"]],
+        paint: {
+          "circle-radius": ["interpolate", ["linear"], ["get", "size"], 0, 4, 30, 12],
+          "circle-color": ["get", "color"],
+          "circle-opacity": 0.7,
+          "circle-stroke-width": 1,
+          "circle-stroke-color": ["get", "color"],
+          "circle-stroke-opacity": 0.9,
+        },
+      });
+
+      // Ongoing outbreaks (bigger, brighter)
+      map.addLayer({
+        id: "outbreaks-circle-active",
+        type: "circle",
+        source: "outbreaks-points",
+        filter: ["get", "isOngoing"],
+        paint: {
+          "circle-radius": ["interpolate", ["linear"], ["get", "size"], 0, 6, 30, 16],
+          "circle-color": ["get", "color"],
+          "circle-opacity": 0.9,
+          "circle-stroke-width": 2,
+          "circle-stroke-color": "#ffffff",
+          "circle-stroke-opacity": 1,
+        },
+      });
+
+      // Popup on tap
+      const popup = new Popup({ closeButton: true, maxWidth: "300px" });
+      const onMobileClick = (e: maplibregl.MapMouseEvent) => {
+        const f = e.features?.[0];
+        if (!f) return;
+        const p = f.properties as Record<string, unknown>;
+        const html = buildPopupHTML({
+          id: p.id as number,
+          disease: p.disease as string,
+          region: p.region as string,
+          date: p.date as string,
+          status: p.status as Outbreak["status"],
+          cases: p.cases as number,
+          deaths: p.deaths as number,
+          species: p.species as string,
+          disease_key: p.disease_key as Outbreak["disease_key"],
+          disease_group: "Multi-species" as Outbreak["disease_group"],
+          region_geo: "",
+          source: "fsvps" as Outbreak["source"],
+          notes: "",
+        } as Outbreak);
+        popup.setHTML(html).setLngLat(e.lngLat).addTo(map);
+      };
+      map.on("click", "outbreaks-circle", onMobileClick);
+      map.on("click", "outbreaks-circle-active", onMobileClick);
+
+      return () => {
+        map.off("click", "outbreaks-circle", onMobileClick);
+        map.off("click", "outbreaks-circle-active", onMobileClick);
+        popup.remove();
+      };
+    }
+
+    // ─── Desktop: use HTML markers (better popup UX) ──────────────
     for (const o of outbreaks) {
       const color = diseaseColor(o.disease_key, o.disease_group);
       const isOngoing = o.status === "Ongoing";

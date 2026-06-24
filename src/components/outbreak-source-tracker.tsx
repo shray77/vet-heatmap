@@ -8,7 +8,6 @@ import {
   DialogTitle,
   DialogDescription,
 } from "@/components/ui/dialog";
-import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
@@ -22,7 +21,7 @@ import {
 import { Radio, MapPin, Clock, TrendingDown, AlertTriangle } from "lucide-react";
 import type { Outbreak } from "@/types/domain";
 import { DISEASE_PROFILES } from "@/data/disease-profiles";
-import { REGIONS } from "@/data/regions";
+import { REGION_PROPERTIES } from "@/data/regions";
 
 interface Props {
   open: boolean;
@@ -97,8 +96,8 @@ export function OutbreakSourceTracker({ open, onOpenChange, outbreaks }: Props) 
     // Spread velocity (km/day) between first and second outbreak
     let spreadVelocity = 0;
     if (diseaseOutbreaks.length >= 2) {
-      const r1 = REGIONS.find((r) => r.name === earliest.region_geo);
-      const r2 = REGIONS.find((r) => r.name === diseaseOutbreaks[1].region_geo);
+      const r1 = REGION_PROPERTIES[earliest.region_geo];
+      const r2 = REGION_PROPERTIES[diseaseOutbreaks[1].region_geo];
       if (r1 && r2) {
         const dx = r1.lon - r2.lon;
         const dy = r1.lat - r2.lat;

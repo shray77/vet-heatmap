@@ -18,7 +18,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { FileText, Printer, Download } from "lucide-react";
+import { FileText, Printer } from "lucide-react";
 import type { Outbreak } from "@/types/domain";
 import { DISEASE_PROFILES } from "@/data/disease-profiles";
 

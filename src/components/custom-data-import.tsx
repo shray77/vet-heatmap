@@ -14,7 +14,7 @@ import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import { Upload, FileJson, FileText, AlertCircle, CheckCircle2, MapPin } from "lucide-react";
 import type { Outbreak } from "@/types/domain";
-import { REGIONS } from "@/data/regions";
+import { REGION_PROPERTIES } from "@/data/regions";
 
 interface Props {
   open: boolean;
@@ -112,8 +112,8 @@ export function CustomDataImport({ open, onOpenChange, outbreaks }: Props) {
   const computeRisk = (pts: CustomPoint[], obs: Outbreak[]) => {
     // Get region centroids for distance calculation
     const regionCoords = new Map<string, [number, number]>();
-    for (const r of REGIONS) {
-      regionCoords.set(r.name, [r.lat, r.lon]);
+    for (const [name, props] of Object.entries(REGION_PROPERTIES)) {
+      regionCoords.set(name, [props.lat, props.lon]);
     }
 
     const results: RiskAssessment[] = pts.map((point) => {

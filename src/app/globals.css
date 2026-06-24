@@ -152,24 +152,29 @@
     font-family: inherit;
   }
 
-  /* Pulse animation — opacity ONLY (no transform, it breaks MapLibre positioning) */
+  /* Pulse animation — opacity ONLY (no transform, no box-shadow → GPU friendly) */
   @keyframes pulse-outbreak {
     0%, 100% { opacity: 1; }
-    50% { opacity: 0.4; }
+    50% { opacity: 0.5; }
   }
   .pulse-outbreak {
     animation: pulse-outbreak 2s ease-in-out infinite;
   }
 
-  /* Ripple effect for active outbreak markers */
-  @keyframes outbreak-ripple {
-    0%   { box-shadow: 0 0 0 0   var(--ripple-color, rgba(211,47,47,0.6)); }
-    70%  { box-shadow: 0 0 0 14px transparent; }
-    100% { box-shadow: 0 0 0 0   transparent; }
-  }
+  /* Active markers: static border ring (no animation on mobile for perf) */
   .outbreak-marker--active {
     position: relative;
-    animation: outbreak-ripple 2.4s ease-out infinite;
+  }
+  /* Ripple only on desktop (hover-capable devices) */
+  @media (hover: hover) and (pointer: fine) {
+    @keyframes outbreak-ripple {
+      0%   { box-shadow: 0 0 0 0   var(--ripple-color, rgba(211,47,47,0.6)); }
+      70%  { box-shadow: 0 0 0 14px transparent; }
+      100% { box-shadow: 0 0 0 0   transparent; }
+    }
+    .outbreak-marker--active {
+      animation: outbreak-ripple 2.4s ease-out infinite;
+    }
   }
 
   .thin-scroll::-webkit-scrollbar { width: 4px; height: 4px; }
