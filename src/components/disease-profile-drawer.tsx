@@ -60,7 +60,7 @@ export function DiseaseProfileDrawer({
             <SheetTitle className="text-lg">{profile.name_ru}</SheetTitle>
           </div>
           <SheetDescription className="text-xs">
-            {profile.name_en} · {profile.short_ru}
+            {profile.short_ru} · {groupRu(profile.group)}
           </SheetDescription>
         </SheetHeader>
 

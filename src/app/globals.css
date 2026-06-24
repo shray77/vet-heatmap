@@ -43,45 +43,35 @@
   --radius-xl: calc(var(--radius) + 4px);
 }
 
-/* ─── Veterinary palette ──────────────────────────────────────────────────
- * Light theme: clinical white background, veterinary-green primary
- * (matching the medical/veterinary context), red for outbreak markers,
- * amber for surveillance warnings, blue for info.
+/* ─── Veterinary palette v6 — dark-first, Linear-inspired ────────────
+ * Light: clinical, with green-tinted warmth
+ * Dark: tinted dark green-black, card surfaces pop
  */
 :root {
   --radius: 0.5rem;
-  --background: oklch(0.985 0.002 130);           /* off-white with subtle green tint */
-  --foreground: oklch(0.18 0.01 150);             /* near-black */
+  --background: oklch(0.985 0.002 130);
+  --foreground: oklch(0.18 0.01 150);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.18 0.01 150);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.18 0.01 150);
-
-  /* Primary: veterinary green (Material Green 900) */
-  --primary: oklch(0.36 0.12 150);                /* #1B5E20 */
+  --primary: oklch(0.36 0.12 150);
   --primary-foreground: oklch(0.99 0 0);
-  /* Secondary: light medical gray */
   --secondary: oklch(0.96 0.005 150);
   --secondary-foreground: oklch(0.2 0.01 150);
   --muted: oklch(0.96 0.005 150);
   --muted-foreground: oklch(0.52 0.01 150);
-  /* Accent: outbreak red */
-  --accent: oklch(0.95 0.03 25);                  /* #D32F2F softened */
+  --accent: oklch(0.95 0.03 25);
   --accent-foreground: oklch(0.99 0 0);
-
-  /* Destructive: same as accent red */
-  --destructive: oklch(0.55 0.22 27);             /* #D32F2F */
+  --destructive: oklch(0.55 0.22 27);
   --border: oklch(0.92 0.005 150);
   --input: oklch(0.92 0.005 150);
   --ring: oklch(0.5 0.12 150);
-
-  /* Chart palette: green / red / amber / blue / violet */
-  --chart-1: oklch(0.55 0.15 150);                /* primary green */
-  --chart-2: oklch(0.6 0.22 25);                  /* outbreak red */
-  --chart-3: oklch(0.75 0.17 70);                 /* warning amber */
-  --chart-4: oklch(0.55 0.18 240);                /* info blue */
-  --chart-5: oklch(0.55 0.2 300);                 /* violet */
-
+  --chart-1: oklch(0.55 0.15 150);
+  --chart-2: oklch(0.6 0.22 25);
+  --chart-3: oklch(0.75 0.17 70);
+  --chart-4: oklch(0.55 0.18 240);
+  --chart-5: oklch(0.55 0.2 300);
   --sidebar: oklch(0.99 0.002 130);
   --sidebar-foreground: oklch(0.18 0.01 150);
   --sidebar-primary: oklch(0.36 0.12 150);
@@ -92,19 +82,14 @@
   --sidebar-ring: oklch(0.5 0.12 150);
 }
 
-/* Dark theme: tinted green-black (Linear-style), card lifts from background
- * for clear surface separation.
- */
+/* Dark theme: tinted green-black, card lifts */
 .dark {
-  /* Tinted background — green hue reinforces brand */
   --background: oklch(0.135 0.012 160);
   --foreground: oklch(0.95 0 0);
-  /* Card lifts from background for visible surface separation */
   --card: oklch(0.185 0.014 160);
   --card-foreground: oklch(0.95 0 0);
   --popover: oklch(0.205 0.015 160);
   --popover-foreground: oklch(0.95 0 0);
-
   --primary: oklch(0.7 0.16 150);
   --primary-foreground: oklch(0.13 0.005 240);
   --secondary: oklch(0.22 0.01 160);
@@ -113,18 +98,15 @@
   --muted-foreground: oklch(0.65 0.01 160);
   --accent: oklch(0.55 0.22 25);
   --accent-foreground: oklch(0.99 0 0);
-
   --destructive: oklch(0.6 0.22 25);
   --border: oklch(1 0 0 / 8%);
   --input: oklch(1 0 0 / 12%);
   --ring: oklch(0.7 0.17 150);
-
   --chart-1: oklch(0.7 0.16 150);
   --chart-2: oklch(0.65 0.22 25);
   --chart-3: oklch(0.8 0.17 70);
   --chart-4: oklch(0.65 0.18 240);
   --chart-5: oklch(0.7 0.2 300);
-
   --sidebar: oklch(0.17 0.008 160);
   --sidebar-foreground: oklch(0.95 0 0);
   --sidebar-primary: oklch(0.7 0.16 150);
@@ -145,40 +127,81 @@
       var(--font-geist-sans),
       -apple-system, BlinkMacSystemFont,
       "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-    /* Geist stylistic sets — straighter l, single-story a (optional polish) */
     font-feature-settings: "cv11", "ss01";
     letter-spacing: -0.006em;
     -webkit-text-size-adjust: 100%;
     text-size-adjust: 100%;
   }
-  /* Dark-mode card elevation — frosted top-edge + soft shadow */
+  /* Dark-mode card elevation */
   .dark [data-slot="card"] {
     box-shadow:
       inset 0 1px 0 0 oklch(1 0 0 / 0.04),
       0 1px 2px 0 oklch(0 0 0 / 0.3);
   }
-  /* iOS safe area helpers */
+  .dark .rounded-lg.border.bg-card {
+    box-shadow:
+      inset 0 1px 0 0 oklch(1 0 0 / 0.04),
+      0 1px 2px 0 oklch(0 0 0 / 0.3);
+  }
   .pt-safe { padding-top: env(safe-area-inset-top); }
   .pb-safe { padding-bottom: env(safe-area-inset-bottom); }
   .pl-safe { padding-left: env(safe-area-inset-left); }
   .pr-safe { padding-right: env(safe-area-inset-right); }
 
-  /* MapLibre container */
   .maplibregl-map {
     font-family: inherit;
   }
 
-  /* Pulse animation for ongoing outbreaks */
+  /* Pulse animation — opacity ONLY (no transform, it breaks MapLibre positioning) */
   @keyframes pulse-outbreak {
-    0%, 100% { opacity: 1; transform: scale(1); }
-    50% { opacity: 0.6; transform: scale(1.2); }
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
   }
   .pulse-outbreak {
     animation: pulse-outbreak 2s ease-in-out infinite;
   }
 
-  /* Thin scrollbar for filter panels */
+  /* Ripple effect for active outbreak markers */
+  @keyframes outbreak-ripple {
+    0%   { box-shadow: 0 0 0 0   var(--ripple-color, rgba(211,47,47,0.6)); }
+    70%  { box-shadow: 0 0 0 14px transparent; }
+    100% { box-shadow: 0 0 0 0   transparent; }
+  }
+  .outbreak-marker--active {
+    position: relative;
+    animation: outbreak-ripple 2.4s ease-out infinite;
+  }
+
   .thin-scroll::-webkit-scrollbar { width: 4px; height: 4px; }
   .thin-scroll::-webkit-scrollbar-thumb { background: oklch(0.7 0 0 / 0.3); border-radius: 2px; }
   .thin-scroll::-webkit-scrollbar-track { background: transparent; }
+
+  /* Red night mode — preserves night vision for field work.
+   * Apply by adding class "night-red" to <html> element. */
+  .night-red {
+    filter: sepia(1) hue-rotate(-50deg) saturate(2) brightness(0.85);
+  }
+
+  /* Smooth slide-in for side panels */
+  @keyframes slide-in-right {
+    from { transform: translateX(100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+  }
+  .slide-in-right {
+    animation: slide-in-right 200ms ease-out;
+  }
+
+  /* Shimmer for skeletons */
+  @keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+  }
+  .shimmer {
+    background: linear-gradient(90deg,
+      var(--muted) 25%,
+      color-mix(in srgb, var(--muted) 60%, var(--card)) 50%,
+      var(--muted) 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s ease-in-out infinite;
+  }
 }

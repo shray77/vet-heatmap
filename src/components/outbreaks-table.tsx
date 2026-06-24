@@ -224,7 +224,7 @@ export function OutbreaksTable({ outbreaks, onSelectOutbreak }: OutbreaksTablePr
                         {labels?.short_ru ?? o.disease}
                       </span>
                     </TableCell>
-                    <TableCell className="py-2 text-[13px]">{o.region}</TableCell>
+                    <TableCell className="py-2 text-[13px]">{o.region === "Russia" || o.region === "Russian Federation" ? "Россия (без региона)" : o.region}</TableCell>
                     <TableCell className="py-2 text-[13px] hidden sm:table-cell text-muted-foreground">
                       {speciesRu(o.species)}
                     </TableCell>

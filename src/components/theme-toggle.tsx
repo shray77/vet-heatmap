@@ -5,13 +5,11 @@ import { useTheme } from "next-themes";
 import { Button } from "@/components/ui/button";
 import { useSyncExternalStore } from "react";
 
-// Subscribe to "is mounted" without triggering cascading re-render
-// (per react-hooks/set-state-in-effect rule)
 function useMounted(): boolean {
   return useSyncExternalStore(
     () => () => {},
-    () => true, // client
-    () => false, // server
+    () => true,
+    () => false,
   );
 }
 
@@ -27,11 +25,9 @@ export function ThemeToggle() {
     );
   }
 
-  // Cycle: light -> dark -> system
   const next = theme === "light" ? "dark" : theme === "dark" ? "system" : "light";
   const Icon = resolvedTheme === "dark" ? Moon : Sun;
-  const Label =
-    theme === "system" ? <Monitor className="h-4 w-4" /> : <Icon className="h-4 w-4" />;
+  const Label = theme === "system" ? <Monitor className="h-4 w-4" /> : <Icon className="h-4 w-4" />;
 
   return (
     <Button

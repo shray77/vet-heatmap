@@ -14,33 +14,48 @@ import {
   Info,
   LocateFixed,
   Beaker,
+<<<<<<< HEAD
   Radio,
   Truck,
   FileText,
   Upload,
+=======
+  Zap,
+  GitCompare,
+  Download,
+>>>>>>> 272446e426dcac3cc0cae7b457259b54afacf02b
 } from "lucide-react";
 
 import { OutbreakMap } from "@/components/outbreak-map";
 import { StatsBar } from "@/components/stats-bar";
 import { FilterPanel } from "@/components/filter-panel";
 import { EpiCurve } from "@/components/epi-curve";
+import { HotspotList } from "@/components/hotspot-list";
+import { TimelineSlider } from "@/components/timeline-slider";
 import { OutbreaksTable } from "@/components/outbreaks-table";
 import { DiseaseProfileDrawer } from "@/components/disease-profile-drawer";
 import { QuarantineCalculator } from "@/components/quarantine-calculator";
 import { NearbyOutbreaks } from "@/components/nearby-outbreaks";
 import { SIRSimulator } from "@/components/sir-simulator";
+<<<<<<< HEAD
 import { OutbreakSourceTracker } from "@/components/outbreak-source-tracker";
 import { TransportGraphAnalysis } from "@/components/transport-graph-analysis";
 import { PdfReportExport } from "@/components/pdf-report-export";
 import { CustomDataImport } from "@/components/custom-data-import";
+=======
+import { SpatialSimulator } from "@/components/spatial-simulator";
+import { RegionDrillDown } from "@/components/region-drill-down";
+>>>>>>> 272446e426dcac3cc0cae7b457259b54afacf02b
 import { ThemeToggle } from "@/components/theme-toggle";
 import { PwaBanners } from "@/components/pwa-banners";
 import { AboutDialog } from "@/components/about-dialog";
+import { DiseaseComparison } from "@/components/disease-comparison";
 
 import { useOutbreaks, useRegionsGeoJSON } from "@/lib/use-data";
 import { useKeyboardShortcuts } from "@/lib/use-keyboard";
 import { useTheme } from "next-themes";
 import { diseaseColor } from "@/lib/colors";
+import { generateOutbreakReport } from "@/lib/pdf-export";
 import {
   DEFAULT_FILTERS,
   FilterState,
@@ -81,6 +96,7 @@ function HomeContent() {
   // Layer toggles
   const [showRiskZones, setShowRiskZones] = useState(true);
   const [showChoropleth, setShowChoropleth] = useState(true);
+  const [densityLayer, setDensityLayer] = useState<"none" | "pigs" | "cattle" | "poultry">("none");
 
   // Drawer/dialog state
   const [drawerDisease, setDrawerDisease] = useState<DiseaseKey | null>(null);
@@ -91,10 +107,18 @@ function HomeContent() {
   const [aboutOpen, setAboutOpen] = useState(false);
   const [nearbyOpen, setNearbyOpen] = useState(false);
   const [sirOpen, setSirOpen] = useState(false);
+<<<<<<< HEAD
   const [sourceTrackerOpen, setSourceTrackerOpen] = useState(false);
   const [transportOpen, setTransportOpen] = useState(false);
   const [pdfReportOpen, setPdfReportOpen] = useState(false);
   const [customImportOpen, setCustomImportOpen] = useState(false);
+=======
+  const [spatialOpen, setSpatialOpen] = useState(false);
+  const [regionDrillDown, setRegionDrillDown] = useState<string | null>(null);
+  const [regionDrillDownOpen, setRegionDrillDownOpen] = useState(false);
+  const [timelineRange, setTimelineRange] = useState<{from: string | null, to: string | null}>({from: null, to: null});
+  const [compareOpen, setCompareOpen] = useState(false);
+>>>>>>> 272446e426dcac3cc0cae7b457259b54afacf02b
 
   // Region centroids for "nearby" calculation (computed once geo is loaded)
   const regionCentroids = useMemo(() => {
@@ -125,7 +149,11 @@ function HomeContent() {
   // Filtered outbreaks
   const filtered = useMemo(() => {
     if (!data) return [];
-    return applyFilters(data.outbreaks, filters);
+    return applyFilters(data.outbreaks, {
+      ...filters,
+      dateFrom: timelineRange.from ?? filters.dateFrom,
+      dateTo: timelineRange.to ?? filters.dateTo,
+    });
   }, [data, filters]);
 
   const totalRegions = geo?.features.length ?? 85;
@@ -135,8 +163,9 @@ function HomeContent() {
     setDrawerOpen(true);
   }, []);
 
-  const onSelectRegion = useCallback((_region: string) => {
-    // could open a region summary later
+  const onSelectRegion = useCallback((region: string) => {
+    setRegionDrillDown(region);
+    setRegionDrillDownOpen(true);
   }, []);
 
   const openCalculator = (d?: DiseaseKey) => {
@@ -164,7 +193,7 @@ function HomeContent() {
 
   if (loading || geoLoading) {
     return (
-      <main className="min-h-screen flex items-center justify-center">
+      <main className="h-dvh flex items-center justify-center">
         <div className="text-center space-y-2">
           <Activity className="h-8 w-8 mx-auto animate-pulse text-primary" />
           <div className="text-sm text-muted-foreground">Загрузка данных…</div>
@@ -175,7 +204,7 @@ function HomeContent() {
 
   if (error) {
     return (
-      <main className="min-h-screen flex items-center justify-center p-6">
+      <main className="h-dvh flex items-center justify-center p-6">
         <div className="text-center space-y-3 max-w-md">
           <AlertTriangle className="h-10 w-10 mx-auto text-destructive" />
           <h2 className="text-lg font-semibold">Не удалось загрузить данные</h2>
@@ -187,50 +216,36 @@ function HomeContent() {
   }
 
   return (
-    <main className="min-h-screen flex flex-col bg-background">
+    <main className="flex h-dvh flex-col overflow-hidden bg-background">
       <PwaBanners />
 
-      {/* ─── Header ──────────────────────────────────────────────────── */}
-      <header className="sticky top-0 z-50 bg-gradient-to-b from-background to-background/95 backdrop-blur border-b pt-safe">
-        <div className="flex items-center gap-2 px-3 py-2 md:px-4 md:py-3">
-          <div className="flex items-center gap-2 flex-1 min-w-0">
+      {/* ─── Header — fixed height, never scrolls ──────────────────── */}
+      <header className="z-50 shrink-0 border-b bg-background/80 backdrop-blur-xl pt-safe">
+        <div className="relative flex items-center gap-2 px-4 py-2 md:py-3">
+          {/* Mesh gradient accent */}
+          <div className="pointer-events-none absolute inset-0 opacity-[0.04] [background:conic-gradient(from_0deg,transparent,var(--primary),transparent)] [animation:spin_18s_linear_infinite] blur-2xl" />
+
+          <div className="relative flex items-center gap-2 flex-1 min-w-0">
             <Stethoscope className="h-5 w-5 md:h-6 md:w-6 text-primary shrink-0" />
             <div className="min-w-0">
               <h1 className="text-sm md:text-lg font-bold leading-tight tracking-tight truncate">
                 <span className="text-primary">Вет</span>Карта
               </h1>
-              <p className="text-[10px] md:text-xs text-muted-foreground leading-tight truncate">
-                Эпизоотическая обстановка России
-              </p>
             </div>
           </div>
 
           {/* Desktop actions */}
-          <div className="hidden md:flex items-center gap-1">
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={() => setAboutOpen(true)}
-              aria-label="О проекте"
-            >
+          <div className="relative hidden md:flex items-center gap-1">
+            <Button variant="ghost" size="icon" onClick={() => setAboutOpen(true)} aria-label="О проекте">
               <Info className="h-4 w-4" />
             </Button>
-            <Button
-              variant="outline"
-              size="sm"
-              onClick={() => setNearbyOpen(true)}
-            >
-              <LocateFixed className="h-4 w-4 mr-1" />
-              Рядом
+            <Button variant="outline" size="sm" onClick={() => setNearbyOpen(true)}>
+              <LocateFixed className="h-4 w-4 mr-1" />Рядом
             </Button>
-            <Button
-              variant="outline"
-              size="sm"
-              onClick={() => setSirOpen(true)}
-            >
-              <Beaker className="h-4 w-4 mr-1" />
-              SIR
+            <Button variant="outline" size="sm" onClick={() => setSpatialOpen(true)}>
+              <Zap className="h-4 w-4 mr-1" />Распростр.
             </Button>
+<<<<<<< HEAD
             <Button
               variant="outline"
               size="sm"
@@ -270,18 +285,19 @@ function HomeContent() {
             >
               <Calculator className="h-4 w-4 mr-1" />
               Карантин
+=======
+            <Button variant="outline" size="sm" onClick={() => setCompareOpen(true)}>
+              <GitCompare className="h-4 w-4 mr-1" />Сравнить
+>>>>>>> 272446e426dcac3cc0cae7b457259b54afacf02b
             </Button>
-            <Button
-              variant="ghost"
-              size="icon"
-              asChild
-              aria-label="GitHub"
-            >
-              <a
-                href="https://github.com/shray77/vet-heatmap"
-                target="_blank"
-                rel="noopener"
-              >
+            <Button variant="outline" size="sm" onClick={() => setSirOpen(true)}>
+              <Beaker className="h-4 w-4 mr-1" />SIR
+            </Button>
+            <Button variant="outline" size="sm" onClick={() => openCalculator()}>
+              <Calculator className="h-4 w-4 mr-1" />Карантин
+            </Button>
+            <Button variant="ghost" size="icon" asChild aria-label="GitHub">
+              <a href="https://github.com/shray77/vet-heatmap" target="_blank" rel="noopener">
                 <Github className="h-4 w-4" />
               </a>
             </Button>
@@ -289,37 +305,17 @@ function HomeContent() {
           </div>
 
           {/* Mobile actions */}
-          <div className="flex md:hidden items-center gap-1">
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={() => setAboutOpen(true)}
-              aria-label="О проекте"
-            >
+          <div className="relative flex md:hidden items-center gap-1">
+            <Button variant="ghost" size="icon" onClick={() => setAboutOpen(true)} aria-label="О проекте">
               <Info className="h-4 w-4" />
             </Button>
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={() => setNearbyOpen(true)}
-              aria-label="Рядом со мной"
-            >
+            <Button variant="ghost" size="icon" onClick={() => setNearbyOpen(true)} aria-label="Рядом">
               <LocateFixed className="h-4 w-4" />
             </Button>
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={() => setSirOpen(true)}
-              aria-label="SIR-симулятор"
-            >
+            <Button variant="ghost" size="icon" onClick={() => setSirOpen(true)} aria-label="SIR">
               <Beaker className="h-4 w-4" />
             </Button>
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={() => openCalculator()}
-              aria-label="Калькулятор"
-            >
+            <Button variant="ghost" size="icon" onClick={() => openCalculator()} aria-label="Карантин">
               <Calculator className="h-4 w-4" />
             </Button>
             <ThemeToggle />
@@ -340,6 +336,7 @@ function HomeContent() {
                     showRiskZones={showRiskZones}
                     onShowRiskZonesChange={setShowRiskZones}
                     showChoropleth={showChoropleth}
+                    densityLayer={densityLayer}
                     onShowChoroplethChange={setShowChoropleth}
                   />
                 </div>
@@ -348,84 +345,113 @@ function HomeContent() {
           </div>
         </div>
 
-        {/* Stats bar */}
-        <div className="px-3 pb-2 md:px-4 md:pb-3">
+        {/* Inline KPI + disease chips — desktop only */}
+        <div className="relative hidden md:flex items-center gap-3 overflow-hidden px-4 pb-2">
           <StatsBar outbreaks={filtered} totalRegions={totalRegions} />
-        </div>
-
-        {/* Disease chips row (quick disease filter access) */}
-        <div className="px-3 pb-2 md:px-4 md:pb-3 flex gap-1 overflow-x-auto thin-scroll">
-          <Button
-            variant={filters.diseases.length === 0 ? "default" : "outline"}
-            size="sm"
-            className="h-9 text-xs shrink-0 px-3"
-            onClick={resetFilters}
-          >
-            Все
-          </Button>
-          {DISEASE_PROFILES.slice(0, 12).map((p) => {
-            const isActive = filters.diseases.includes(p.disease_key);
-            const color = diseaseColor(p.disease_key, p.group);
-            return (
-              <button
-                key={p.disease_key}
-                onClick={() =>
-                  setFilters({
-                    ...filters,
-                    diseases: isActive
-                      ? filters.diseases.filter((x) => x !== p.disease_key)
-                      : [...filters.diseases, p.disease_key],
-                  })
-                }
-                className="h-9 px-3 rounded-md text-xs shrink-0 border transition-all flex items-center gap-1.5"
-                style={{
-                  backgroundColor: isActive ? color : "transparent",
-                  borderColor: isActive ? color : "var(--border)",
-                  color: isActive ? "#fff" : "var(--foreground)",
-                }}
-              >
-                <span
-                  className="w-2 h-2 rounded-full shrink-0"
+          <div className="flex gap-1 overflow-x-auto thin-scroll ml-auto">
+            <Button
+              variant={filters.diseases.length === 0 ? "default" : "outline"}
+              size="sm"
+              className="h-7 text-[11px] shrink-0 px-2"
+              onClick={resetFilters}
+            >
+              Все
+            </Button>
+            {DISEASE_PROFILES.slice(0, 10).map((p) => {
+              const isActive = filters.diseases.includes(p.disease_key);
+              const color = diseaseColor(p.disease_key, p.group);
+              return (
+                <button
+                  key={p.disease_key}
+                  onClick={() =>
+                    setFilters({
+                      ...filters,
+                      diseases: isActive
+                        ? filters.diseases.filter((x) => x !== p.disease_key)
+                        : [...filters.diseases, p.disease_key],
+                    })
+                  }
+                  className="h-7 px-2 rounded-md text-[11px] shrink-0 border transition-all flex items-center gap-1"
                   style={{
-                    backgroundColor: color,
-                    opacity: isActive ? 0.7 : 1,
+                    backgroundColor: isActive ? color : "transparent",
+                    borderColor: isActive ? color : "var(--border)",
+                    color: isActive ? "#fff" : "var(--foreground)",
                   }}
-                />
-                {p.short_ru}
-              </button>
-            );
-          })}
+                >
+                  <span className="w-1.5 h-1.5 rounded-full shrink-0" style={{ backgroundColor: color, opacity: isActive ? 0.7 : 1 }} />
+                  {p.short_ru}
+                </button>
+              );
+            })}
+          </div>
         </div>
       </header>
 
-      {/* ─── Main content: map + sidebar ───────────────────────────── */}
-      <div className="flex-1 flex flex-col lg:flex-row min-h-0 lg:min-h-[calc(100vh-220px)]">
-        {/* Map — on mobile fixed-height to avoid flex collapse; on desktop flex-1 */}
-        <div className="relative w-full h-[55vh] lg:h-auto lg:flex-1 lg:min-h-0">
+      {/* ─── Body: map locked + sidebar scrolls ────────────────────── */}
+      <div className="flex min-h-0 flex-1 overflow-hidden">
+        {/* MAP — locked, fills, never scrolls page */}
+        <section className="relative min-h-0 flex-1 overflow-hidden">
           <OutbreakMap
             outbreaks={filtered}
             geo={geo}
             showRiskZones={showRiskZones}
             showChoropleth={showChoropleth}
+            densityLayer={densityLayer}
             onSelectOutbreak={(o) => onSelectOutbreak(o)}
             onSelectRegion={onSelectRegion}
           />
 
-          {/* Legend overlay (bottom-right) */}
-          <div className="absolute bottom-2 right-2 bg-card/95 backdrop-blur border-l-2 border-l-primary rounded-md p-2.5 text-[10px] space-y-1 max-w-[200px] shadow-md pointer-events-none">
-            <div className="font-semibold text-foreground">Зоны риска</div>
+          {/* Mobile KPI orbs — floating glass discs over map */}
+          <div className="pointer-events-none absolute left-3 top-3 z-20 flex gap-2 md:hidden">
+            <div className="flex h-12 w-12 flex-col items-center justify-center rounded-full border border-white/15 bg-card/60 shadow-lg backdrop-blur-xl">
+              <span className="text-sm font-bold tabular-nums leading-none text-foreground">{filtered.length}</span>
+              <span className="mt-0.5 text-[7px] uppercase text-muted-foreground">всего</span>
+            </div>
+            <div className="flex h-12 w-12 flex-col items-center justify-center rounded-full border border-white/15 bg-card/60 shadow-lg backdrop-blur-xl">
+              <span className="text-sm font-bold tabular-nums leading-none text-destructive">
+                {filtered.filter((o) => o.status === "Ongoing").length}
+              </span>
+              <span className="mt-0.5 text-[7px] uppercase text-muted-foreground">активн.</span>
+            </div>
+          </div>
+
+          {/* Frosted glass floating legend pill */}
+          <div className="absolute bottom-3 right-3 z-20 max-w-[220px] rounded-2xl border border-white/15 bg-card/60 p-3 text-[10px] shadow-2xl backdrop-blur-xl pointer-events-auto">
+            <div className="font-semibold text-foreground mb-1.5">Зоны риска</div>
             <LegendRow color="#D32F2F" label="Защита (3 км)" />
             <LegendRow color="#F57C00" label="Наблюдение (10 км)" />
             <LegendRow color="#1565C0" label="Ограничение (30 км)" />
-            <div className="pt-1 border-t text-muted-foreground">
-              Источник: {data?.sources.join(", ")} · обн. {data?.updated}
+            <div className="pt-1.5 mt-1.5 border-t border-white/10">
+              <div className="font-semibold text-foreground mb-1">Плотность</div>
+              <div className="flex gap-1">
+                {[
+                  { v: "none", label: "Нет", color: "var(--muted)" },
+                  { v: "pigs", label: "Св.", color: "#fb6a4a" },
+                  { v: "cattle", label: "КРС", color: "#74c476" },
+                  { v: "poultry", label: "Птц.", color: "#fe9929" },
+                ].map((opt) => (
+                  <button
+                    key={opt.v}
+                    onClick={() => setDensityLayer(opt.v as any)}
+                    className={`px-1.5 py-0.5 rounded text-[9px] border transition-all ${
+                      densityLayer === opt.v ? "bg-foreground text-background" : "bg-transparent"
+                    }`}
+                    style={densityLayer === opt.v ? {} : { borderColor: opt.color, color: opt.color }}
+                  >
+                    {opt.label}
+                  </button>
+                ))}
+              </div>
+            </div>
+            <div className="pt-1.5 mt-1.5 border-t border-white/10 text-muted-foreground">
+              {data?.sources.join(", ")} · {data?.updated}
             </div>
           </div>
-        </div>
+        </section>
 
-        {/* Desktop sidebar */}
-        <aside className="hidden lg:flex lg:w-[360px] xl:w-[400px] flex-col border-l bg-background/50">
-          <div className="p-3 space-y-3 overflow-y-auto thin-scroll">
+        {/* DESKTOP SIDEBAR — the ONLY scroll region */}
+        <aside className="hidden w-[380px] shrink-0 flex-col overflow-hidden border-l bg-background/60 lg:flex xl:w-[420px]">
+          <div className="thin-scroll flex-1 space-y-4 overflow-y-auto overscroll-contain p-4">
             <FilterPanel
               outbreaks={data?.outbreaks ?? []}
               filters={filters}
@@ -434,18 +460,27 @@ function HomeContent() {
               showRiskZones={showRiskZones}
               onShowRiskZonesChange={setShowRiskZones}
               showChoropleth={showChoropleth}
+              densityLayer={densityLayer}
               onShowChoroplethChange={setShowChoropleth}
             />
+            <TimelineSlider outbreaks={data?.outbreaks ?? []} onDateRangeChange={(from, to) => setTimelineRange({from, to})} />
+            <HotspotList outbreaks={filtered} onSelectRegion={(r) => { setRegionDrillDown(r); setRegionDrillDownOpen(true); }} />
             <EpiCurve outbreaks={filtered} />
             <OutbreaksTable outbreaks={filtered} onSelectOutbreak={(o) => onSelectOutbreak(o)} />
           </div>
         </aside>
       </div>
 
-      {/* ─── Mobile: Epi curve + table below map ─────────────────── */}
-      <div className="lg:hidden p-3 space-y-3">
-        <EpiCurve outbreaks={filtered} />
-        <OutbreaksTable outbreaks={filtered} onSelectOutbreak={(o) => onSelectOutbreak(o)} />
+      {/* ─── Mobile: bottom sheet content ──────────────────────────── */}
+      <div className="thin-scroll flex min-h-0 flex-1 flex-col overflow-y-auto overscroll-contain rounded-t-3xl border-t bg-card/95 p-4 pb-safe shadow-[0_-8px_30px_rgba(0,0,0,0.12)] backdrop-blur-xl lg:hidden">
+        {/* Drag handle */}
+        <div className="mx-auto mb-3 h-1.5 w-10 rounded-full bg-muted-foreground/30" />
+        <div className="space-y-4">
+          <TimelineSlider outbreaks={data?.outbreaks ?? []} onDateRangeChange={(from, to) => setTimelineRange({from, to})} />
+          <HotspotList outbreaks={filtered} onSelectRegion={(r) => { setRegionDrillDown(r); setRegionDrillDownOpen(true); }} />
+          <EpiCurve outbreaks={filtered} />
+          <OutbreaksTable outbreaks={filtered} onSelectOutbreak={(o) => onSelectOutbreak(o)} />
+        </div>
       </div>
 
       {/* ─── Drawers/Dialogs ─────────────────────────────────────── */}
@@ -470,10 +505,30 @@ function HomeContent() {
         }}
       />
       <SIRSimulator open={sirOpen} onOpenChange={setSirOpen} />
+<<<<<<< HEAD
       <OutbreakSourceTracker open={sourceTrackerOpen} onOpenChange={setSourceTrackerOpen} outbreaks={filtered} />
       <TransportGraphAnalysis open={transportOpen} onOpenChange={setTransportOpen} outbreaks={filtered} />
       <PdfReportExport open={pdfReportOpen} onOpenChange={setPdfReportOpen} outbreaks={outbreaks || []} />
       <CustomDataImport open={customImportOpen} onOpenChange={setCustomImportOpen} outbreaks={outbreaks || []} />
+=======
+      <RegionDrillDown
+        region={regionDrillDown}
+        outbreaks={data?.outbreaks ?? []}
+        open={regionDrillDownOpen}
+        onOpenChange={setRegionDrillDownOpen}
+        onSelectOutbreak={(o) => {
+          setDrawerDisease(o.disease_key);
+          setDrawerOpen(true);
+        }}
+      />
+      <SpatialSimulator
+        open={spatialOpen}
+        onOpenChange={setSpatialOpen}
+        outbreaks={data?.outbreaks ?? []}
+        regionCentroids={regionCentroids}
+      />
+      <DiseaseComparison open={compareOpen} onOpenChange={setCompareOpen} />
+>>>>>>> 272446e426dcac3cc0cae7b457259b54afacf02b
       <AboutDialog open={aboutOpen} onOpenChange={setAboutOpen} />
     </main>
   );

@@ -34,6 +34,7 @@ export function PwaBanners() {
           >
             Установить
           </Button>
+          
           <button
             onClick={() => setDismissedInstall(true)}
             aria-label="Скрыть"

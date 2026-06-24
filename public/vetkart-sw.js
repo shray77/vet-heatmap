@@ -13,7 +13,7 @@
  * This forces all clients to invalidate their old cache + activate new SW.
  */
 
-const CACHE_VERSION = "v3.1.0"; // bump on every deploy with logic changes
+const CACHE_VERSION = "v7.0.0"; // pulse-outbreak CSS fix — force refresh
 const CACHE_NAME = `vetkart-${CACHE_VERSION}`;
 const BASE = "/vet-heatmap"; // GitHub Pages subpath
 

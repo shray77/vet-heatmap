@@ -111,12 +111,17 @@ export function NearbyOutbreaks({
 
   /** Get [lat, lon] for an outbreak — explicit or via region centroid. */
   const getOutbreakPos = useCallback((o: Outbreak): [number, number] | null => {
-    if (typeof o.lat === "number" && typeof o.lon === "number") {
+    if (typeof o.lat === "number" && typeof o.lon === "number"
+        && Number.isFinite(o.lat) && Number.isFinite(o.lon)
+        && !(o.lat === 0 && o.lon === 0)) {
       return [o.lat, o.lon];
     }
     if (o.region_geo && regionCentroids?.has(o.region_geo)) {
       const [lng, lat] = regionCentroids.get(o.region_geo)!;
-      return [lat, lng];
+      // Guard against anti-meridian wraparound → lng=0 (Atlantic Ocean)
+      if (Number.isFinite(lng) && Number.isFinite(lat) && lng !== 0) {
+        return [lat, lng];
+      }
     }
     return null;
   }, [regionCentroids]);
@@ -255,7 +260,7 @@ export function NearbyOutbreaks({
                         />
                         <div className="flex-1 min-w-0">
                           <div className="text-[13px] font-medium truncate">
-                            {labels?.short_ru ?? o.disease} — {o.region}
+                            {labels?.short_ru ?? o.disease} — {o.region === "Russia" || o.region === "Russian Federation" ? "Россия" : o.region}
                           </div>
                           <div className="text-[11px] text-muted-foreground truncate">
                             {speciesRu(o.species)} · {new Date(o.date).toLocaleDateString("ru-RU", { day: "numeric", month: "short", year: "numeric" })}
