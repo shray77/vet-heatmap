@@ -19,6 +19,8 @@ import {
   FileText,
   Upload,
   Factory,
+  Play,
+  MapPin,
   Zap,
   GitCompare,
   Download,} from "lucide-react";
@@ -44,6 +46,8 @@ import { RegionDrillDown } from "@/components/region-drill-down";import { ThemeT
 import { PwaBanners } from "@/components/pwa-banners";
 import { AboutDialog } from "@/components/about-dialog";
 import { DiseaseComparison } from "@/components/disease-comparison";
+import { SpreadAnimation } from "@/components/spread-animation";
+import { RegionReportCard } from "@/components/region-report-card";
 
 import { useOutbreaks, useRegionsGeoJSON } from "@/lib/use-data";
 import { useKeyboardShortcuts } from "@/lib/use-keyboard";
@@ -106,6 +110,8 @@ function HomeContent() {
   const [pdfReportOpen, setPdfReportOpen] = useState(false);
   const [customImportOpen, setCustomImportOpen] = useState(false);
   const [enterpriseRiskOpen, setEnterpriseRiskOpen] = useState(false);
+  const [spreadAnimOpen, setSpreadAnimOpen] = useState(false);
+  const [regionCardOpen, setRegionCardOpen] = useState(false);
 
   // Load enterprises
   const [enterprises, setEnterprises] = useState<{id:string;name:string;type:string;lat:number;lon:number;region?:string}[]>([]);
@@ -284,6 +290,22 @@ function HomeContent() {
             >
               <Factory className="h-4 w-4 mr-1" />
               Предприятия
+            </Button>
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={() => setSpreadAnimOpen(true)}
+            >
+              <Play className="h-4 w-4 mr-1" />
+              Анимация
+            </Button>
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={() => setRegionCardOpen(true)}
+            >
+              <MapPin className="h-4 w-4 mr-1" />
+              Регион
             </Button>
             <Button
               variant="outline"
@@ -514,6 +536,8 @@ function HomeContent() {
       <PdfReportExport open={pdfReportOpen} onOpenChange={setPdfReportOpen} outbreaks={outbreaks || []} />
       <CustomDataImport open={customImportOpen} onOpenChange={setCustomImportOpen} outbreaks={outbreaks || []} />
       <EnterpriseRiskMonitor open={enterpriseRiskOpen} onOpenChange={setEnterpriseRiskOpen} outbreaks={outbreaks || []} enterprises={enterprises} />
+      <SpreadAnimation open={spreadAnimOpen} onOpenChange={setSpreadAnimOpen} outbreaks={outbreaks || []} />
+      <RegionReportCard open={regionCardOpen} onOpenChange={setRegionCardOpen} outbreaks={outbreaks || []} />
       <RegionDrillDown
         region={regionDrillDown}
         outbreaks={data?.outbreaks ?? []}
