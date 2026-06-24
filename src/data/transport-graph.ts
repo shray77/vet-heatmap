@@ -88,16 +88,36 @@ export const TRANSPORT_EDGES: TransportEdge[] = [
 
 export interface RiskNode {
   region: string;
-  distance: number; // суммарное расстояние от очага
+  distance: number; // суммарное расстояние от очага (км)
   path: string[]; // маршрут (регионы)
   highway: string; // последняя трасса
-  riskWeight: number; // суммарный вес риска
+  riskWeight: number; // суммарный вес риска (0..1)
   hops: number; // кол-во пересадок
+  travelHours: number; // время в пути скотовоза (часы)
+  arrivalDate: string | null; // расчётная дата прибытия (ISO)
 }
+
+/**
+ * Средняя скорость скотовоза в России (км/ч).
+ * Источник: ФДА-1.1, практические данные транспортных компаний.
+ * Учитывает проверки на постах, заправки, отдых животных.
+ */
+const LIVESTOCK_TRUCK_SPEED_KMH = 55;
+
+/**
+ * Дневной лимит движения скотовоза (часы).
+ * По правилам перевозки животных — не более 8 часов в сутки.
+ */
+const DAILY_DRIVING_LIMIT_H = 8;
 
 /**
  * Находит все регионы в радиусе N хопов от указанного региона
  * по транспортному графу. Возвращает отсортированный по риску список.
+ *
+ * Для каждого узла считает:
+ *   - travelHours = distance / 55 км/ч (средняя скорость скотовоза)
+ *   - arrivalDate = сегодня + ceil(travelHours / 8) дней (дневной лимит 8ч)
+ *   - riskWeight = произведение весов нагрузки трасс
  */
 export function findConnectedRegions(
   startRegion: string,
@@ -112,8 +132,18 @@ export function findConnectedRegions(
   }
 
   const visited = new Set<string>([startRegion]);
+  const now = new Date();
   const queue: RiskNode[] = [
-    { region: startRegion, distance: 0, path: [startRegion], highway: "", riskWeight: 1.0, hops: 0 },
+    {
+      region: startRegion,
+      distance: 0,
+      path: [startRegion],
+      highway: "",
+      riskWeight: 1.0,
+      hops: 0,
+      travelHours: 0,
+      arrivalDate: now.toISOString().split("T")[0],
+    },
   ];
   const results: RiskNode[] = [];
 
@@ -126,13 +156,23 @@ export function findConnectedRegions(
       if (visited.has(e.to)) continue;
       visited.add(e.to);
 
+      const segmentDistance = node.distance + e.distance_km;
+      const segmentHours = segmentDistance / LIVESTOCK_TRUCK_SPEED_KMH;
+
+      // Arrival date: account for daily driving limit (8h/day → 1 day per 440 km)
+      const drivingDays = Math.ceil(segmentHours / DAILY_DRIVING_LIMIT_H);
+      const arrival = new Date(now);
+      arrival.setDate(arrival.getDate() + drivingDays);
+
       const next: RiskNode = {
         region: e.to,
-        distance: node.distance + e.distance_km,
+        distance: segmentDistance,
         path: [...node.path, e.to],
         highway: e.highway || node.highway,
         riskWeight: node.riskWeight * e.risk_weight,
         hops: node.hops + 1,
+        travelHours: Math.round(segmentHours * 10) / 10,
+        arrivalDate: arrival.toISOString().split("T")[0],
       };
       results.push(next);
       queue.push(next);

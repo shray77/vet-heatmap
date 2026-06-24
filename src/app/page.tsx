@@ -14,17 +14,14 @@ import {
   Info,
   LocateFixed,
   Beaker,
-<<<<<<< HEAD
   Radio,
   Truck,
   FileText,
   Upload,
-=======
+  Factory,
   Zap,
   GitCompare,
-  Download,
->>>>>>> 272446e426dcac3cc0cae7b457259b54afacf02b
-} from "lucide-react";
+  Download,} from "lucide-react";
 
 import { OutbreakMap } from "@/components/outbreak-map";
 import { StatsBar } from "@/components/stats-bar";
@@ -37,16 +34,13 @@ import { DiseaseProfileDrawer } from "@/components/disease-profile-drawer";
 import { QuarantineCalculator } from "@/components/quarantine-calculator";
 import { NearbyOutbreaks } from "@/components/nearby-outbreaks";
 import { SIRSimulator } from "@/components/sir-simulator";
-<<<<<<< HEAD
 import { OutbreakSourceTracker } from "@/components/outbreak-source-tracker";
 import { TransportGraphAnalysis } from "@/components/transport-graph-analysis";
 import { PdfReportExport } from "@/components/pdf-report-export";
 import { CustomDataImport } from "@/components/custom-data-import";
-=======
+import { EnterpriseRiskMonitor } from "@/components/enterprise-risk-monitor";
 import { SpatialSimulator } from "@/components/spatial-simulator";
-import { RegionDrillDown } from "@/components/region-drill-down";
->>>>>>> 272446e426dcac3cc0cae7b457259b54afacf02b
-import { ThemeToggle } from "@/components/theme-toggle";
+import { RegionDrillDown } from "@/components/region-drill-down";import { ThemeToggle } from "@/components/theme-toggle";
 import { PwaBanners } from "@/components/pwa-banners";
 import { AboutDialog } from "@/components/about-dialog";
 import { DiseaseComparison } from "@/components/disease-comparison";
@@ -107,19 +101,25 @@ function HomeContent() {
   const [aboutOpen, setAboutOpen] = useState(false);
   const [nearbyOpen, setNearbyOpen] = useState(false);
   const [sirOpen, setSirOpen] = useState(false);
-<<<<<<< HEAD
   const [sourceTrackerOpen, setSourceTrackerOpen] = useState(false);
   const [transportOpen, setTransportOpen] = useState(false);
   const [pdfReportOpen, setPdfReportOpen] = useState(false);
   const [customImportOpen, setCustomImportOpen] = useState(false);
-=======
+  const [enterpriseRiskOpen, setEnterpriseRiskOpen] = useState(false);
+
+  // Load enterprises
+  const [enterprises, setEnterprises] = useState<{id:string;name:string;type:string;lat:number;lon:number;region?:string}[]>([]);
+  useEffect(() => {
+    fetch("/data/enterprises.json")
+      .then((r) => r.json())
+      .then((d) => setEnterprises(d.enterprises || []))
+      .catch(() => {});
+  }, []);
   const [spatialOpen, setSpatialOpen] = useState(false);
   const [regionDrillDown, setRegionDrillDown] = useState<string | null>(null);
   const [regionDrillDownOpen, setRegionDrillDownOpen] = useState(false);
   const [timelineRange, setTimelineRange] = useState<{from: string | null, to: string | null}>({from: null, to: null});
   const [compareOpen, setCompareOpen] = useState(false);
->>>>>>> 272446e426dcac3cc0cae7b457259b54afacf02b
-
   // Region centroids for "nearby" calculation (computed once geo is loaded)
   const regionCentroids = useMemo(() => {
     const m = new Map<string, [number, number]>();
@@ -245,7 +245,6 @@ function HomeContent() {
             <Button variant="outline" size="sm" onClick={() => setSpatialOpen(true)}>
               <Zap className="h-4 w-4 mr-1" />Распростр.
             </Button>
-<<<<<<< HEAD
             <Button
               variant="outline"
               size="sm"
@@ -281,15 +280,20 @@ function HomeContent() {
             <Button
               variant="outline"
               size="sm"
+              onClick={() => setEnterpriseRiskOpen(true)}
+            >
+              <Factory className="h-4 w-4 mr-1" />
+              Предприятия
+            </Button>
+            <Button
+              variant="outline"
+              size="sm"
               onClick={() => openCalculator()}
             >
               <Calculator className="h-4 w-4 mr-1" />
               Карантин
-=======
             <Button variant="outline" size="sm" onClick={() => setCompareOpen(true)}>
-              <GitCompare className="h-4 w-4 mr-1" />Сравнить
->>>>>>> 272446e426dcac3cc0cae7b457259b54afacf02b
-            </Button>
+              <GitCompare className="h-4 w-4 mr-1" />Сравнить            </Button>
             <Button variant="outline" size="sm" onClick={() => setSirOpen(true)}>
               <Beaker className="h-4 w-4 mr-1" />SIR
             </Button>
@@ -505,12 +509,11 @@ function HomeContent() {
         }}
       />
       <SIRSimulator open={sirOpen} onOpenChange={setSirOpen} />
-<<<<<<< HEAD
       <OutbreakSourceTracker open={sourceTrackerOpen} onOpenChange={setSourceTrackerOpen} outbreaks={filtered} />
       <TransportGraphAnalysis open={transportOpen} onOpenChange={setTransportOpen} outbreaks={filtered} />
       <PdfReportExport open={pdfReportOpen} onOpenChange={setPdfReportOpen} outbreaks={outbreaks || []} />
       <CustomDataImport open={customImportOpen} onOpenChange={setCustomImportOpen} outbreaks={outbreaks || []} />
-=======
+      <EnterpriseRiskMonitor open={enterpriseRiskOpen} onOpenChange={setEnterpriseRiskOpen} outbreaks={outbreaks || []} enterprises={enterprises} />
       <RegionDrillDown
         region={regionDrillDown}
         outbreaks={data?.outbreaks ?? []}
@@ -527,9 +530,7 @@ function HomeContent() {
         outbreaks={data?.outbreaks ?? []}
         regionCentroids={regionCentroids}
       />
-      <DiseaseComparison open={compareOpen} onOpenChange={setCompareOpen} />
->>>>>>> 272446e426dcac3cc0cae7b457259b54afacf02b
-      <AboutDialog open={aboutOpen} onOpenChange={setAboutOpen} />
+      <DiseaseComparison open={compareOpen} onOpenChange={setCompareOpen} />      <AboutDialog open={aboutOpen} onOpenChange={setAboutOpen} />
     </main>
   );
 }

@@ -138,6 +138,9 @@ export function TransportGraphAnalysis({ open, onOpenChange, outbreaks }: Props)
                           {node.distance} км • {node.highway}
                         </div>
                         <div className="text-xs text-muted-foreground">
+                          🚛 В пути: {node.travelHours} ч • прибытие ~{node.arrivalDate}
+                        </div>
+                        <div className="text-xs text-muted-foreground">
                           Маршрут: {node.path.join(" → ")}
                         </div>
                       </div>

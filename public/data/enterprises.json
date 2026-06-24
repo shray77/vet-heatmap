@@ -1,0 +1,624 @@
+{
+  "updated": "2026-06-24",
+  "sources": [
+    "openstreetmap",
+    "curated"
+  ],
+  "total": 59,
+  "enterprises": [
+    {
+      "id": "osm-355571404",
+      "name": "FH Roleski",
+      "type": "meat_plant",
+      "lat": 49.9874511,
+      "lon": 20.9096953,
+      "tags": {
+        "building": "industrial",
+        "building:levels": "1",
+        "industrial": "meat",
+        "landuse": "industrial",
+        "name": "FH Roleski",
+        "source:building": "BDOT"
+      }
+    },
+    {
+      "id": "osm-333796742",
+      "name": "Firma de Producție și Comerț „Rogob”",
+      "type": "meat_plant",
+      "lat": 47.1234928,
+      "lon": 28.8942139,
+      "tags": {
+        "addr:city": "Goianul Nou",
+        "addr:country": "MD",
+        "addr:district": "Municipiul Chișinău",
+        "addr:housenumber": "1/1",
+        "addr:postcode": "MD-2089",
+        "addr:street": "Strada Gloriei",
+        "industrial": "meat",
+        "landuse": "industrial",
+        "name": "Firma de Producție și Comerț „Rogob”",
+        "operator": "Societatea cu Răspundere Limitată „Rogob”"
+      }
+    },
+    {
+      "id": "osm-701130006",
+      "name": "Hurtownia wędlin HAWED",
+      "type": "meat_plant",
+      "lat": 50.8789247,
+      "lon": 20.6518473,
+      "tags": {
+        "industrial": "meat",
+        "landuse": "industrial",
+        "name": "Hurtownia wędlin HAWED"
+      }
+    },
+    {
+      "id": "osm-1149447113",
+      "name": "Kanniston Kotieläintila",
+      "type": "farm",
+      "lat": 60.9585515,
+      "lon": 22.9049644,
+      "tags": {
+        "accommodation": "yes",
+        "addr:city": "Loimaa",
+        "addr:housenumber": "172",
+        "addr:postcode": "32440",
+        "addr:street": "Kannistontie",
+        "animals": "yes",
+        "charge": "5 EUR",
+        "email": "info@kannistontila.fi",
+        "farm": "organic",
+        "fee": "yes",
+        "food": "organic",
+        "image": "http://kannisto.kuvat.fi",
+        "name": "Kanniston Kotieläintila",
+        "name:de": "Kannisto Haustierhof",
+        "name:en": "Kannisto Domestic Animal Farm",
+        "name:et": "Kannisto Turismitalu",
+        "name:fr": "Ferme D’Animaux Domestiques Kannisto",
+        "name:sv": "Kannisto Landgård",
+        "opening_hours": "Mo-Su 09:00-20:00",
+        "payment:cash": "yes",
+        "payment:credit_cards": "yes",
+        "payment:debit_cards": "yes",
+        "payment:mastercard": "yes",
+        "payment:visa": "yes",
+        "phone": "040 716 3945",
+        "tourism": "zoo",
+        "website": "https://www.kannistontila.fi/",
+        "zoo": "petting_zoo"
+      }
+    },
+    {
+      "id": "osm-12459701014",
+      "name": "Kardrob",
+      "type": "farm",
+      "lat": 51.950994,
+      "lon": 21.2100207,
+      "tags": {
+        "email": "ferma.kardrob@gmail.com",
+        "farm": "eggs",
+        "name": "Kardrob",
+        "phone": "+48 609 050 004",
+        "shop": "farm",
+        "website": "https://kardrob.pl/"
+      }
+    },
+    {
+      "id": "osm-9905384289",
+      "name": "Kokodrob - Ferma Kur Niosek",
+      "type": "farm",
+      "lat": 51.9517985,
+      "lon": 21.2102179,
+      "tags": {
+        "email": "kokodrob@op.pl",
+        "farm": "eggs",
+        "name": "Kokodrob - Ferma Kur Niosek",
+        "phone": "+48 605 095 253",
+        "shop": "farm",
+        "website": "https://kokodrob.pl/"
+      }
+    },
+    {
+      "id": "osm-1745610530",
+      "name": "Metsä-Mäkelä",
+      "type": "farm",
+      "lat": 60.707778,
+      "lon": 25.774456,
+      "tags": {
+        "addr:housename": "Metsä-Mäkelä",
+        "addr:housenumber": "184",
+        "addr:postcode": "07600",
+        "addr:street": "Niemeläntie",
+        "building": "house",
+        "farm": "Metsä-Mäkelä",
+        "name": "Metsä-Mäkelä",
+        "place": "locality"
+      }
+    },
+    {
+      "id": "osm-2863259933",
+      "name": "Milex Meat Sp. z o.o. Zakład Przemysłu Mięsnego",
+      "type": "meat_plant",
+      "lat": 51.9000457,
+      "lon": 19.6525663,
+      "tags": {
+        "industrial": "meat",
+        "name": "Milex Meat Sp. z o.o. Zakład Przemysłu Mięsnego",
+        "phone": "+48 42 715 05 54",
+        "website": "https://www.milex-meat.eu/"
+      }
+    },
+    {
+      "id": "osm-342264674",
+      "name": "Puișorul de aur",
+      "type": "meat_plant",
+      "lat": 46.2602182,
+      "lon": 28.1756113,
+      "tags": {
+        "industrial": "meat",
+        "landuse": "industrial",
+        "name": "Puișorul de aur",
+        "name:ru": "Золотой цыпленок",
+        "name:uk": "Золоте курча"
+      }
+    },
+    {
+      "id": "osm-1027482223",
+      "name": "Roleski Sp.J",
+      "type": "meat_plant",
+      "lat": 49.9872358,
+      "lon": 20.9111986,
+      "tags": {
+        "industrial": "meat",
+        "landuse": "industrial",
+        "name": "Roleski Sp.J"
+      }
+    },
+    {
+      "id": "osm-1303065353",
+      "name": "Zakłady mięsne Biela",
+      "type": "meat_plant",
+      "lat": 49.4426446,
+      "lon": 19.9121892,
+      "tags": {
+        "industrial": "meat",
+        "landuse": "industrial",
+        "name": "Zakłady mięsne Biela"
+      }
+    },
+    {
+      "id": "cur-35",
+      "name": "Агрокомплекс Кургансемена (КРС)",
+      "type": "farm",
+      "lat": 55.44,
+      "lon": 65.34,
+      "region": "Курганская обл."
+    },
+    {
+      "id": "cur-5",
+      "name": "Агрохолдинг КРиМ",
+      "type": "farm",
+      "lat": 55.02,
+      "lon": 82.93,
+      "region": "Новосибирская обл."
+    },
+    {
+      "id": "cur-12",
+      "name": "БЕЛГРАНКОРМ — птицеводство",
+      "type": "farm",
+      "lat": 50.59,
+      "lon": 36.58,
+      "region": "Белгородская обл."
+    },
+    {
+      "id": "cur-19",
+      "name": "Боровская птицефабрика",
+      "type": "farm",
+      "lat": 57.05,
+      "lon": 65.32,
+      "region": "Тюменская обл."
+    },
+    {
+      "id": "cur-17",
+      "name": "Васильевская птицефабрика",
+      "type": "farm",
+      "lat": 55.35,
+      "lon": 49.12,
+      "region": "Республика Татарстан"
+    },
+    {
+      "id": "cur-24",
+      "name": "Великолукский мясокомбинат",
+      "type": "meat_plant",
+      "lat": 56.34,
+      "lon": 30.52,
+      "region": "Псковская обл."
+    },
+    {
+      "id": "cur-6",
+      "name": "Великолукский свиноводческий комплекс",
+      "type": "farm",
+      "lat": 56.34,
+      "lon": 30.52,
+      "region": "Псковская обл."
+    },
+    {
+      "id": "cur-30",
+      "name": "Вимм-Билль-Данн",
+      "type": "dairy",
+      "lat": 55.75,
+      "lon": 37.61,
+      "region": "Москва"
+    },
+    {
+      "id": "cur-29",
+      "name": "Данон Россия",
+      "type": "dairy",
+      "lat": 55.75,
+      "lon": 37.61,
+      "region": "Москва"
+    },
+    {
+      "id": "cur-34",
+      "name": "Заречное (КРС)",
+      "type": "farm",
+      "lat": 51.53,
+      "lon": 39.16,
+      "region": "Воронежская обл."
+    },
+    {
+      "id": "cur-38",
+      "name": "Казанская ярмарка (животноводство)",
+      "type": "market",
+      "lat": 55.79,
+      "lon": 49.12,
+      "region": "Республика Татарстан"
+    },
+    {
+      "id": "cur-25",
+      "name": "Кампомос (мясопереработка)",
+      "type": "meat_plant",
+      "lat": 54.32,
+      "lon": 48.4,
+      "region": "Ульяновская обл."
+    },
+    {
+      "id": "cur-8",
+      "name": "Краснодарский свинокомплекс",
+      "type": "farm",
+      "lat": 45.04,
+      "lon": 38.98,
+      "region": "Краснодарский край"
+    },
+    {
+      "id": "cur-10",
+      "name": "Курский свинокомплекс",
+      "type": "farm",
+      "lat": 51.73,
+      "lon": 36.19,
+      "region": "Курская обл."
+    },
+    {
+      "id": "cur-14",
+      "name": "Линдовская птицефабрика",
+      "type": "farm",
+      "lat": 56.32,
+      "lon": 43.98,
+      "region": "Нижегородская обл."
+    },
+    {
+      "id": "cur-21",
+      "name": "Микоян",
+      "type": "meat_plant",
+      "lat": 55.73,
+      "lon": 37.65,
+      "region": "Москва"
+    },
+    {
+      "id": "cur-33",
+      "name": "Мираторг — КРС (мясное скотоводство)",
+      "type": "farm",
+      "lat": 50.59,
+      "lon": 36.58,
+      "region": "Белгородская обл."
+    },
+    {
+      "id": "cur-1",
+      "name": "Мираторг — свиноводство",
+      "type": "farm",
+      "lat": 50.59,
+      "lon": 36.58,
+      "region": "Белгородская обл."
+    },
+    {
+      "id": "cur-31",
+      "name": "Молвест",
+      "type": "dairy",
+      "lat": 51.66,
+      "lon": 39.2,
+      "region": "Воронежская обл."
+    },
+    {
+      "id": "osm-2002570898",
+      "name": "Молочные продукты и птица",
+      "type": "market",
+      "lat": 43.3289585,
+      "lon": 45.6843211,
+      "tags": {
+        "amenity": "marketplace",
+        "name": "Молочные продукты и птица"
+      }
+    },
+    {
+      "id": "cur-7",
+      "name": "Омский бекон",
+      "type": "farm",
+      "lat": 54.99,
+      "lon": 73.37,
+      "region": "Омская обл."
+    },
+    {
+      "id": "cur-23",
+      "name": "Останкинский мясоперерабатывающий",
+      "type": "meat_plant",
+      "lat": 55.83,
+      "lon": 37.6,
+      "region": "Москва"
+    },
+    {
+      "id": "cur-40",
+      "name": "Племзавод «Большевик» (свиноводство)",
+      "type": "farm",
+      "lat": 51.73,
+      "lon": 36.19,
+      "region": "Курская обл."
+    },
+    {
+      "id": "cur-39",
+      "name": "Племзавод «Россия» (КРС)",
+      "type": "farm",
+      "lat": 51.22,
+      "lon": 39.18,
+      "region": "Воронежская обл."
+    },
+    {
+      "id": "osm-1228468626",
+      "name": "Покинуті ферми",
+      "type": "farm",
+      "lat": 48.6612526,
+      "lon": 35.2326018,
+      "tags": {
+        "landuse": "farm",
+        "name": "Покинуті ферми",
+        "name:uk": "Покинуті ферми"
+      }
+    },
+    {
+      "id": "cur-11",
+      "name": "Приосколье — птицеводство",
+      "type": "farm",
+      "lat": 50.41,
+      "lon": 37.51,
+      "region": "Белгородская обл."
+    },
+    {
+      "id": "cur-32",
+      "name": "Простоквашино (Вимм-Билль-Данн)",
+      "type": "dairy",
+      "lat": 56.85,
+      "lon": 60.61,
+      "region": "Свердловская обл."
+    },
+    {
+      "id": "cur-20",
+      "name": "Птицефабрика Челябинская",
+      "type": "farm",
+      "lat": 55.16,
+      "lon": 61.4,
+      "region": "Челябинская обл."
+    },
+    {
+      "id": "cur-26",
+      "name": "Раменский мясокомбинат",
+      "type": "meat_plant",
+      "lat": 55.57,
+      "lon": 38.22,
+      "region": "Московская обл."
+    },
+    {
+      "id": "cur-16",
+      "name": "Роскар (птицеводство)",
+      "type": "farm",
+      "lat": 55.75,
+      "lon": 37.61,
+      "region": "Московская обл."
+    },
+    {
+      "id": "cur-2",
+      "name": "Русагро — свиноводство",
+      "type": "farm",
+      "lat": 51.53,
+      "lon": 39.16,
+      "region": "Воронежская обл."
+    },
+    {
+      "id": "cur-27",
+      "name": "Самкамен (мясопереработка)",
+      "type": "meat_plant",
+      "lat": 53.2,
+      "lon": 50.15,
+      "region": "Самарская обл."
+    },
+    {
+      "id": "osm-129694006",
+      "name": "Сарапульский мясокомбинат",
+      "type": "meat_plant",
+      "lat": 56.441519,
+      "lon": 53.8001146,
+      "tags": {
+        "addr:city": "Сарапул",
+        "barrier": "fence",
+        "industrial": "meat",
+        "landuse": "industrial",
+        "name": "Сарапульский мясокомбинат"
+      }
+    },
+    {
+      "id": "cur-15",
+      "name": "Северная птицефабрика",
+      "type": "farm",
+      "lat": 59.94,
+      "lon": 30.31,
+      "region": "Ленинградская обл."
+    },
+    {
+      "id": "cur-36",
+      "name": "Сенная ярмарка (скотный рынок)",
+      "type": "market",
+      "lat": 51.53,
+      "lon": 39.16,
+      "region": "Воронежская обл."
+    },
+    {
+      "id": "cur-4",
+      "name": "Сибагро — свиноводство",
+      "type": "farm",
+      "lat": 56.5,
+      "lon": 84.97,
+      "region": "Томская обл."
+    },
+    {
+      "id": "cur-18",
+      "name": "Синявинская птицефабрика",
+      "type": "farm",
+      "lat": 59.72,
+      "lon": 31.02,
+      "region": "Ленинградская обл."
+    },
+    {
+      "id": "osm-4375192443",
+      "name": "Скотный рынок",
+      "type": "market",
+      "lat": 42.8374242,
+      "lon": 73.8405626,
+      "tags": {
+        "amenity": "marketplace",
+        "name": "Скотный рынок",
+        "name:ru": "Скотный рынок",
+        "trade": "animals"
+      }
+    },
+    {
+      "id": "osm-5874451286",
+      "name": "Скотный рынок",
+      "type": "market",
+      "lat": 42.5070727,
+      "lon": 78.3772858,
+      "tags": {
+        "amenity": "marketplace",
+        "name": "Скотный рынок",
+        "name:en": "Animal bazar",
+        "name:ru": "Скотный рынок",
+        "trade": "animals"
+      }
+    },
+    {
+      "id": "osm-10846106694",
+      "name": "Скотный рынок",
+      "type": "market",
+      "lat": 46.9821998,
+      "lon": 54.0261785,
+      "tags": {
+        "amenity": "marketplace",
+        "name": "Скотный рынок"
+      }
+    },
+    {
+      "id": "osm-8389146074",
+      "name": "Скоторынок",
+      "type": "market",
+      "lat": 41.091505,
+      "lon": 68.6866117,
+      "tags": {
+        "addr:city": "Лесбек батыр ауылы",
+        "amenity": "marketplace",
+        "name": "Скоторынок"
+      }
+    },
+    {
+      "id": "cur-28",
+      "name": "Таврия (мясопереработка)",
+      "type": "meat_plant",
+      "lat": 47.21,
+      "lon": 39.71,
+      "region": "Ростовская обл."
+    },
+    {
+      "id": "cur-9",
+      "name": "Тамбовские фермы",
+      "type": "farm",
+      "lat": 52.72,
+      "lon": 41.45,
+      "region": "Тамбовская обл."
+    },
+    {
+      "id": "cur-37",
+      "name": "Тушинский скотный рынок",
+      "type": "market",
+      "lat": 55.82,
+      "lon": 37.46,
+      "region": "Москва"
+    },
+    {
+      "id": "cur-13",
+      "name": "Уралбройлер",
+      "type": "farm",
+      "lat": 56.02,
+      "lon": 60.58,
+      "region": "Челябинская обл."
+    },
+    {
+      "id": "osm-687533852",
+      "name": "Царство верблюдов",
+      "type": "farm",
+      "lat": 54.9658015,
+      "lon": 49.0675671,
+      "tags": {
+        "addr:city": "Болгар",
+        "addr:housenumber": "9",
+        "addr:postcode": "422840",
+        "addr:street": "улица Кул Гали",
+        "animal": "camel",
+        "contact:phone": "+7 967 4640888",
+        "description": "Верблюжья ферма",
+        "email": "comdir@laidoya.ru",
+        "fee": "yes",
+        "landuse": "farm",
+        "name": "Царство верблюдов",
+        "name:en": "Kingdom of camels",
+        "official_name": "Этно-туристическая площадка «Царство верблюдов»",
+        "official_name:en": "'Kingdom of camels' Ethno-tourist site",
+        "place": "farm",
+        "tourism": "zoo",
+        "website": "laidoya.ru"
+      }
+    },
+    {
+      "id": "cur-22",
+      "name": "Черкизово — мясопереработка",
+      "type": "meat_plant",
+      "lat": 55.79,
+      "lon": 37.71,
+      "region": "Москва"
+    },
+    {
+      "id": "cur-3",
+      "name": "Черкизово — свиноводство",
+      "type": "farm",
+      "lat": 55.75,
+      "lon": 37.61,
+      "region": "Московская обл."
+    }
+  ]
+}
