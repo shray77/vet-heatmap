@@ -314,13 +314,12 @@ function HomeContent() {
             >
               <Calculator className="h-4 w-4 mr-1" />
               Карантин
+            </Button>
             <Button variant="outline" size="sm" onClick={() => setCompareOpen(true)}>
-              <GitCompare className="h-4 w-4 mr-1" />Сравнить            </Button>
+              <GitCompare className="h-4 w-4 mr-1" />Сравнить
+            </Button>
             <Button variant="outline" size="sm" onClick={() => setSirOpen(true)}>
               <Beaker className="h-4 w-4 mr-1" />SIR
-            </Button>
-            <Button variant="outline" size="sm" onClick={() => openCalculator()}>
-              <Calculator className="h-4 w-4 mr-1" />Карантин
             </Button>
             <Button variant="ghost" size="icon" asChild aria-label="GitHub">
               <a href="https://github.com/shray77/vet-heatmap" target="_blank" rel="noopener">
