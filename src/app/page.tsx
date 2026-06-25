@@ -532,11 +532,11 @@ function HomeContent() {
       <SIRSimulator open={sirOpen} onOpenChange={setSirOpen} />
       <OutbreakSourceTracker open={sourceTrackerOpen} onOpenChange={setSourceTrackerOpen} outbreaks={filtered} />
       <TransportGraphAnalysis open={transportOpen} onOpenChange={setTransportOpen} outbreaks={filtered} />
-      <PdfReportExport open={pdfReportOpen} onOpenChange={setPdfReportOpen} outbreaks={outbreaks || []} />
-      <CustomDataImport open={customImportOpen} onOpenChange={setCustomImportOpen} outbreaks={outbreaks || []} />
-      <EnterpriseRiskMonitor open={enterpriseRiskOpen} onOpenChange={setEnterpriseRiskOpen} outbreaks={outbreaks || []} enterprises={enterprises} />
-      <SpreadAnimation open={spreadAnimOpen} onOpenChange={setSpreadAnimOpen} outbreaks={outbreaks || []} />
-      <RegionReportCard open={regionCardOpen} onOpenChange={setRegionCardOpen} outbreaks={outbreaks || []} />
+      <PdfReportExport open={pdfReportOpen} onOpenChange={setPdfReportOpen} outbreaks={data?.outbreaks ?? []} />
+      <CustomDataImport open={customImportOpen} onOpenChange={setCustomImportOpen} outbreaks={data?.outbreaks ?? []} />
+      <EnterpriseRiskMonitor open={enterpriseRiskOpen} onOpenChange={setEnterpriseRiskOpen} outbreaks={data?.outbreaks ?? []} enterprises={enterprises} />
+      <SpreadAnimation open={spreadAnimOpen} onOpenChange={setSpreadAnimOpen} outbreaks={data?.outbreaks ?? []} />
+      <RegionReportCard open={regionCardOpen} onOpenChange={setRegionCardOpen} outbreaks={data?.outbreaks ?? []} />
       <RegionDrillDown
         region={regionDrillDown}
         outbreaks={data?.outbreaks ?? []}
