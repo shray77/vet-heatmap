@@ -29,6 +29,8 @@ interface FilterPanelProps {
   onShowRiskZonesChange: (v: boolean) => void;
   showChoropleth: boolean;
   onShowChoroplethChange: (v: boolean) => void;
+  showHeatmap?: boolean;
+  onShowHeatmapChange?: (v: boolean) => void;
 }
 
 export function FilterPanel({
@@ -40,6 +42,8 @@ export function FilterPanel({
   onShowRiskZonesChange,
   showChoropleth,
   onShowChoroplethChange,
+  showHeatmap = false,
+  onShowHeatmapChange,
 }: FilterPanelProps) {
   // Compute available filter options from the data
   const allDiseases = useMemo(() => {
@@ -292,6 +296,17 @@ export function FilterPanel({
             id="choropleth"
             checked={showChoropleth}
             onCheckedChange={onShowChoroplethChange}
+          />
+        </div>
+        {onShowHeatmapChange && (
+          <div className="flex items-center justify-between">
+            <Label htmlFor="heatmap" className="text-xs cursor-pointer">
+              Тепловая карта вспышек
+            </Label>
+            <Switch
+              id="heatmap"
+              checked={showHeatmap}
+              onCheckedChange={onShowHeatmapChange}
           />
         </div>
       </div>

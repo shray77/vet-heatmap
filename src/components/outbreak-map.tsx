@@ -25,6 +25,8 @@ interface OutbreakMapProps {
   showChoropleth: boolean;
   /** Show livestock density heatmap (pigs/cattle/poultry per km²). */
   densityLayer: "none" | "pigs" | "cattle" | "poultry";
+  /** Show outbreak heatmap (replaces markers with density heatmap). */
+  showHeatmap?: boolean;
   /** Called when user clicks an outbreak marker. */
   onSelectOutbreak?: (o: Outbreak) => void;
   /** Called when user clicks a region. */
@@ -37,6 +39,7 @@ export function OutbreakMap({
   showRiskZones,
   showChoropleth,
   densityLayer,
+  showHeatmap = false,
   onSelectOutbreak,
   onSelectRegion,
 }: OutbreakMapProps) {
@@ -604,6 +607,78 @@ export function OutbreakMap({
       },
     }, "choropleth-line" in map.getStyle()?.layers?.map(l => l.id) ?? [] ? "choropleth-line" : undefined);
   }, [densityLayer, showChoropleth, geo, ready]);
+
+  // ─── Outbreak heatmap layer ───────────────────────────────────────
+  useEffect(() => {
+    const map = mapRef.current;
+    if (!map || !ready || !geo) return;
+
+    // Remove existing heatmap
+    if (map.getLayer("outbreak-heat")) map.removeLayer("outbreak-heat");
+    if (map.getSource("outbreak-heat-data")) map.removeSource("outbreak-heat-data");
+
+    if (!showHeatmap) return;
+
+    // Build point GeoJSON from outbreaks
+    const centroids = new Map<string, [number, number]>();
+    for (const f of geo.features) {
+      const name = (f.properties as { shapeName?: string }).shapeName;
+      if (!name) continue;
+      const bbox = computeBBox(f.geometry);
+      if (bbox) centroids.set(name, [(bbox[0] + bbox[2]) / 2, (bbox[1] + bbox[3]) / 2]);
+    }
+
+    const features: GeoJSON.Feature<GeoJSON.Point>[] = [];
+    for (const o of outbreaks) {
+      let lngLat: [number, number] | null = null;
+      if (typeof o.lon === "number" && typeof o.lat === "number"
+          && Number.isFinite(o.lon) && Number.isFinite(o.lat)
+          && !(o.lon === 0 && o.lat === 0)) {
+        lngLat = [o.lon, o.lat];
+      } else if (o.region_geo) {
+        const c = centroids.get(o.region_geo);
+        if (c && c[0] !== 0) lngLat = c;
+      }
+      if (!lngLat) continue;
+
+      features.push({
+        type: "Feature",
+        geometry: { type: "Point", coordinates: lngLat },
+        properties: {
+          weight: Math.max(0.1, Math.min(1, (o.cases || 1) / 100)),
+          active: o.status === "Ongoing" ? 1 : 0.3,
+        },
+      });
+    }
+
+    if (features.length === 0) return;
+
+    map.addSource("outbreak-heat-data", {
+      type: "geojson",
+      data: { type: "FeatureCollection", features },
+    });
+
+    map.addLayer({
+      id: "outbreak-heat",
+      type: "heatmap",
+      source: "outbreak-heat-data",
+      paint: {
+        "heatmap-weight": ["interpolate", ["linear"], ["get", "weight"], 0, 0, 1, 1],
+        "heatmap-intensity": ["interpolate", ["linear"], ["zoom"], 0, 1, 6, 3],
+        "heatmap-color": [
+          "interpolate", ["linear"], ["heatmap-density"],
+          0, "rgba(0,0,0,0)",
+          0.2, "rgba(33,102,172,0.4)",
+          0.4, "rgba(103,169,207,0.6)",
+          0.6, "rgba(209,229,240,0.7)",
+          0.8, "rgba(253,219,199,0.8)",
+          1, "rgba(239,138,98,0.9)",
+        ],
+        "heatmap-radius": ["interpolate", ["linear"], ["zoom"], 0, 20, 6, 60],
+        "heatmap-opacity": ["interpolate", ["linear"], ["zoom"], 7, 0.8, 9, 0],
+      },
+    });
+  }, [showHeatmap, outbreaks, geo, ready]);
 
   return (
     <div className="relative w-full h-full">

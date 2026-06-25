@@ -95,6 +95,7 @@ function HomeContent() {
   const [showRiskZones, setShowRiskZones] = useState(true);
   const [showChoropleth, setShowChoropleth] = useState(true);
   const [densityLayer, setDensityLayer] = useState<"none" | "pigs" | "cattle" | "poultry">("none");
+  const [showHeatmap, setShowHeatmap] = useState(false);
 
   // Drawer/dialog state
   const [drawerDisease, setDrawerDisease] = useState<DiseaseKey | null>(null);
@@ -362,7 +363,10 @@ function HomeContent() {
                     onShowRiskZonesChange={setShowRiskZones}
                     showChoropleth={showChoropleth}
                     densityLayer={densityLayer}
+            showHeatmap={showHeatmap}
+                    showHeatmap={showHeatmap}
                     onShowChoroplethChange={setShowChoropleth}
+                    onShowHeatmapChange={setShowHeatmap}
                   />
                 </div>
               </SheetContent>
@@ -422,6 +426,7 @@ function HomeContent() {
             showRiskZones={showRiskZones}
             showChoropleth={showChoropleth}
             densityLayer={densityLayer}
+            showHeatmap={showHeatmap}
             onSelectOutbreak={(o) => onSelectOutbreak(o)}
             onSelectRegion={onSelectRegion}
           />
@@ -486,6 +491,7 @@ function HomeContent() {
               onShowRiskZonesChange={setShowRiskZones}
               showChoropleth={showChoropleth}
               densityLayer={densityLayer}
+            showHeatmap={showHeatmap}
               onShowChoroplethChange={setShowChoropleth}
             />
             <TimelineSlider outbreaks={data?.outbreaks ?? []} onDateRangeChange={(from, to) => setTimelineRange({from, to})} />
