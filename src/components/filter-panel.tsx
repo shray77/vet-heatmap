@@ -248,6 +248,8 @@ export function FilterPanel({
             { label: "30д", days: 30 },
             { label: "90д", days: 90 },
             { label: "1 год", days: 365 },
+            { label: "2 года", days: 730 },
+            { label: "Всё время", days: null as number | null },
           ].map((p) => (
             <Button
               key={p.label}
@@ -255,9 +257,13 @@ export function FilterPanel({
               variant="outline"
               className="h-6 text-[10px] px-2"
               onClick={() => {
-                const d = new Date();
-                d.setDate(d.getDate() - p.days);
-                onChange({ ...filters, dateFrom: d.toISOString().slice(0, 10), dateTo: null });
+                if (p.days === null) {
+                  onChange({ ...filters, dateFrom: null, dateTo: null });
+                } else {
+                  const d = new Date();
+                  d.setDate(d.getDate() - p.days);
+                  onChange({ ...filters, dateFrom: d.toISOString().slice(0, 10), dateTo: null });
+                }
               }}
             >
               {p.label}

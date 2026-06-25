@@ -22,7 +22,12 @@ export const DEFAULT_FILTERS: FilterState = {
   diseases: [],
   species: [],
   statuses: [],
-  dateFrom: null,
+  // Default: last 2 years — keeps data fresh
+  dateFrom: (() => {
+    const d = new Date();
+    d.setFullYear(d.getFullYear() - 2);
+    return d.toISOString().slice(0, 10);
+  })(),
   dateTo: null,
   query: "",
 };
