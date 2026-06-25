@@ -120,6 +120,24 @@ export function OutbreakSourceTracker({ open, onOpenChange, outbreaks }: Props) 
       })
       .map((o) => o.region);
 
+    // Probability scoring: how likely each early outbreak is the source
+    const sourceProbabilities = windows.slice(0, Math.min(5, windows.length)).map((w, i) => {
+      // Earlier = more likely (weight: 1 - i/total)
+      const earlinessWeight = 1 - (i / Math.min(5, windows.length));
+      // More cases = more likely it was burning longer (weight: log(cases+1)/5)
+      const casesWeight = Math.log((w.outbreak.cases || 1) + 1) / 5;
+      // Overlap with intersection window = higher probability
+      const overlapMs = Math.max(0,
+        Math.min(w.infectionEnd.getTime(), intersectEnd.getTime()) -
+        Math.max(w.infectionStart.getTime(), intersectStart.getTime())
+      );
+      const overlapDays = overlapMs / (1000 * 60 * 60 * 24);
+      const overlapWeight = Math.min(1, overlapDays / incubMax);
+      // Combined score (0-100)
+      const score = Math.round((earlinessWeight * 0.5 + casesWeight * 0.2 + overlapWeight * 0.3) * 100);
+      return { outbreak: w.outbreak, probability: Math.min(100, score) };
+    });
+
     return {
       profile,
       diseaseOutbreaks,
@@ -130,6 +148,7 @@ export function OutbreakSourceTracker({ open, onOpenChange, outbreaks }: Props) 
       spreadVelocity,
       riskRegions: [...new Set(riskRegions)],
       r0: profile.r0_min,
+      sourceProbabilities,
     };
   }, [selectedDisease, outbreaks]);
 
@@ -240,6 +259,33 @@ export function OutbreakSourceTracker({ open, onOpenChange, outbreaks }: Props) 
                       <Badge key={r} variant="secondary">
                         {r}
                       </Badge>
+                    ))}
+                  </div>
+                </Card>
+              )}
+
+              {/* Source probability ranking */}
+              {analysis.sourceProbabilities.length > 1 && (
+                <Card className="p-4 space-y-2">
+                  <div className="flex items-center gap-2">
+                    <TrendingDown className="h-5 w-5 text-purple-500" />
+                    <h3 className="font-semibold">Ранжирование источников</h3>
+                  </div>
+                  <div className="space-y-1.5">
+                    {analysis.sourceProbabilities.map((sp, i) => (
+                      <div key={i} className="flex items-center gap-2 text-xs">
+                        <span className="font-medium w-24 truncate">{sp.outbreak.region}</span>
+                        <div className="flex-1 bg-muted rounded-full h-4 overflow-hidden">
+                          <div
+                            className="h-full rounded-full transition-all"
+                            style={{
+                              width: `${sp.probability}%`,
+                              backgroundColor: sp.probability > 70 ? "#ef4444" : sp.probability > 40 ? "#f59e0b" : "#6b7280",
+                            }}
+                          />
+                        </div>
+                        <span className="font-bold tabular-nums w-8 text-right">{sp.probability}%</span>
+                      </div>
                     ))}
                   </div>
                 </Card>

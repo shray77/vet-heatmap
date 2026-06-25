@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo, useCallback } from "react";
+import { useState, useMemo, useCallback, useRef, useEffect } from "react";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Calendar, Play, Pause, SkipBack, SkipForward } from "lucide-react";
@@ -30,6 +30,16 @@ export function TimelineSlider({ outbreaks, onDateRangeChange }: TimelineSliderP
 
   const [range, setRange] = useState<[number, number]>([0, totalMonths - 1]);
   const [playing, setPlaying] = useState(false);
+  const intervalRef = useRef<NodeJS.Timeout | null>(null);
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+  // Cleanup on unmount
+  useEffect(() => {
+    return () => {
+      if (intervalRef.current) clearInterval(intervalRef.current);
+      if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    };
+  }, []);
 
   // Build histogram: outbreaks per month
   const histogram = useMemo(() => {
@@ -69,12 +79,13 @@ export function TimelineSlider({ outbreaks, onDateRangeChange }: TimelineSliderP
         current = 0;
       }
       handleChange([current, totalMonths - 1]);
-      if (!playing) clearInterval(interval);
     }, 500);
+    // Store interval ref for cleanup
+    intervalRef.current = interval;
     // Auto-stop after full cycle
-    setTimeout(() => {
+    timeoutRef.current = setTimeout(() => {
       setPlaying(false);
-      clearInterval(interval);
+      if (intervalRef.current) clearInterval(intervalRef.current);
     }, totalMonths * 500);
   };
 

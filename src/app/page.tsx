@@ -4,6 +4,14 @@ import { useState, useEffect, useMemo, useCallback } from "react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import {
+  DropdownMenu,
+  DropdownMenuTrigger,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+} from "@/components/ui/dropdown-menu";
+import {
   Menu,
   Filter,
   Calculator,
@@ -342,24 +350,65 @@ function HomeContent() {
             <ThemeToggle />
           </div>
 
-          {/* Mobile actions */}
+          {/* Mobile actions — compact dropdown for tools */}
           <div className="relative flex md:hidden items-center gap-1">
-            <Button variant="ghost" size="icon" onClick={() => setAboutOpen(true)} aria-label="О проекте">
-              <Info className="h-4 w-4" />
-            </Button>
-            <Button variant="ghost" size="icon" onClick={() => setNearbyOpen(true)} aria-label="Рядом">
-              <LocateFixed className="h-4 w-4" />
-            </Button>
-            <Button variant="ghost" size="icon" onClick={() => setSirOpen(true)} aria-label="SIR">
-              <Beaker className="h-4 w-4" />
-            </Button>
-            <Button variant="ghost" size="icon" onClick={() => openCalculator()} aria-label="Карантин">
-              <Calculator className="h-4 w-4" />
-            </Button>
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button variant="outline" size="sm" className="h-9 gap-1">
+                  <Beaker className="h-4 w-4" />
+                  <span className="text-xs">Инструменты</span>
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end" className="w-56">
+                <DropdownMenuLabel>Аналитика</DropdownMenuLabel>
+                <DropdownMenuItem onClick={() => setSirOpen(true)}>
+                  <Beaker className="h-4 w-4 mr-2" /> SIR модель
+                </DropdownMenuItem>
+                <DropdownMenuItem onClick={() => setSourceTrackerOpen(true)}>
+                  <Radio className="h-4 w-4 mr-2" /> Источник вспышки
+                </DropdownMenuItem>
+                <DropdownMenuItem onClick={() => setTransportOpen(true)}>
+                  <Truck className="h-4 w-4 mr-2" /> Транспорт
+                </DropdownMenuItem>
+                <DropdownMenuItem onClick={() => setSpreadAnimOpen(true)}>
+                  <Play className="h-4 w-4 mr-2" /> Анимация
+                </DropdownMenuItem>
+                <DropdownMenuSeparator />
+                <DropdownMenuLabel>Инструменты</DropdownMenuLabel>
+                <DropdownMenuItem onClick={() => setPdfReportOpen(true)}>
+                  <FileText className="h-4 w-4 mr-2" /> Отчёт PDF
+                </DropdownMenuItem>
+                <DropdownMenuItem onClick={() => openCalculator()}>
+                  <Calculator className="h-4 w-4 mr-2" /> Карантин
+                </DropdownMenuItem>
+                <DropdownMenuItem onClick={() => setNearbyOpen(true)}>
+                  <LocateFixed className="h-4 w-4 mr-2" /> Рядом
+                </DropdownMenuItem>
+                <DropdownMenuItem onClick={() => setRegionCardOpen(true)}>
+                  <MapPin className="h-4 w-4 mr-2" /> Карточка региона
+                </DropdownMenuItem>
+                <DropdownMenuItem onClick={() => setEnterpriseRiskOpen(true)}>
+                  <Factory className="h-4 w-4 mr-2" /> Предприятия
+                </DropdownMenuItem>
+                <DropdownMenuItem onClick={() => setCustomImportOpen(true)}>
+                  <Upload className="h-4 w-4 mr-2" /> Импорт данных
+                </DropdownMenuItem>
+                <DropdownMenuItem onClick={() => setAlertOpen(true)}>
+                  <Bell className="h-4 w-4 mr-2" /> Уведомления
+                </DropdownMenuItem>
+                <DropdownMenuItem onClick={() => setCompareOpen(true)}>
+                  <GitCompare className="h-4 w-4 mr-2" /> Сравнить болезни
+                </DropdownMenuItem>
+                <DropdownMenuSeparator />
+                <DropdownMenuItem onClick={() => setAboutOpen(true)}>
+                  <Info className="h-4 w-4 mr-2" /> О проекте
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
             <ThemeToggle />
             <Sheet open={mobileFiltersOpen} onOpenChange={setMobileFiltersOpen}>
               <SheetTrigger asChild>
-                <Button variant="outline" size="icon" aria-label="Фильтры">
+                <Button variant="outline" size="sm" className="h-9" aria-label="Фильтры">
                   <Filter className="h-4 w-4" />
                 </Button>
               </SheetTrigger>
@@ -375,7 +424,6 @@ function HomeContent() {
                     onShowRiskZonesChange={setShowRiskZones}
                     showChoropleth={showChoropleth}
                     densityLayer={densityLayer}
-            showHeatmap={showHeatmap}
                     showHeatmap={showHeatmap}
                     onShowChoroplethChange={setShowChoropleth}
                     onShowHeatmapChange={setShowHeatmap}
