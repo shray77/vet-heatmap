@@ -87,12 +87,12 @@ export function SpreadAnimation({ open, onOpenChange, outbreaks }: Props) {
     };
   }, [playing, timeline.length]);
 
-  // Reset when disease changes — use ref to avoid setState in effect
-  const prevDiseaseRef = useRef(selectedDisease);
-  if (prevDiseaseRef.current !== selectedDisease) {
-    prevDiseaseRef.current = selectedDisease;
-    if (currentFrame !== 0) setCurrentFrame(0);
-    if (playing) setPlaying(false);
+  // Reset when disease changes — use derived state pattern
+  const [prevDisease, setPrevDisease] = useState(selectedDisease);
+  if (prevDisease !== selectedDisease) {
+    setPrevDisease(selectedDisease);
+    setCurrentFrame(0);
+    setPlaying(false);
   }
 
   const currentData = timeline[currentFrame];
