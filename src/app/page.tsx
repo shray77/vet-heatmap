@@ -23,7 +23,9 @@ import {
   MapPin,
   Zap,
   GitCompare,
-  Download,} from "lucide-react";
+  Download,
+  Bell,
+} from "lucide-react";
 
 import { OutbreakMap } from "@/components/outbreak-map";
 import { StatsBar } from "@/components/stats-bar";
@@ -48,6 +50,7 @@ import { AboutDialog } from "@/components/about-dialog";
 import { DiseaseComparison } from "@/components/disease-comparison";
 import { SpreadAnimation } from "@/components/spread-animation";
 import { RegionReportCard } from "@/components/region-report-card";
+import { AlertSettings } from "@/components/alert-settings";
 
 import { useOutbreaks, useRegionsGeoJSON } from "@/lib/use-data";
 import { useKeyboardShortcuts } from "@/lib/use-keyboard";
@@ -113,6 +116,7 @@ function HomeContent() {
   const [enterpriseRiskOpen, setEnterpriseRiskOpen] = useState(false);
   const [spreadAnimOpen, setSpreadAnimOpen] = useState(false);
   const [regionCardOpen, setRegionCardOpen] = useState(false);
+  const [alertOpen, setAlertOpen] = useState(false);
 
   // Load enterprises
   const [enterprises, setEnterprises] = useState<{id:string;name:string;type:string;lat:number;lon:number;region?:string}[]>([]);
@@ -307,6 +311,14 @@ function HomeContent() {
             >
               <MapPin className="h-4 w-4 mr-1" />
               Регион
+            </Button>
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={() => setAlertOpen(true)}
+            >
+              <Bell className="h-4 w-4 mr-1" />
+              Уведомления
             </Button>
             <Button
               variant="outline"
@@ -543,6 +555,7 @@ function HomeContent() {
       <EnterpriseRiskMonitor open={enterpriseRiskOpen} onOpenChange={setEnterpriseRiskOpen} outbreaks={data?.outbreaks ?? []} enterprises={enterprises} />
       <SpreadAnimation open={spreadAnimOpen} onOpenChange={setSpreadAnimOpen} outbreaks={data?.outbreaks ?? []} />
       <RegionReportCard open={regionCardOpen} onOpenChange={setRegionCardOpen} outbreaks={data?.outbreaks ?? []} />
+      <AlertSettings open={alertOpen} onOpenChange={setAlertOpen} outbreaks={data?.outbreaks ?? []} />
       <RegionDrillDown
         region={regionDrillDown}
         outbreaks={data?.outbreaks ?? []}
