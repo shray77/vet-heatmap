@@ -307,8 +307,9 @@ export function FilterPanel({
               id="heatmap"
               checked={showHeatmap}
               onCheckedChange={onShowHeatmapChange}
-          />
-        </div>
+            />
+          </div>
+        )}
       </div>
 
       {/* Reset */}

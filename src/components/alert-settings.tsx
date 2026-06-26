@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useCallback, useMemo } from "react";
+import { useState, useCallback, useMemo } from "react";
 import {
   Dialog,
   DialogContent,
@@ -56,28 +56,23 @@ const STORAGE_KEY = "vet_alert_config";
  * For real-time push, a server + VAPID + push service is needed.
  */
 export function AlertSettings({ open, onOpenChange, outbreaks }: Props) {
-  const [config, setConfig] = useState<AlertConfig>({
-    enabled: false,
-    regions: [],
-    diseases: [],
-    maxDistanceKm: 100,
-    lastCheckedCount: 0,
-    lastCheckedDate: "",
-  });
-  const [permission, setPermission] = useState<NotificationPermission>("default");
-  const [testSent, setTestSent] = useState(false);
-
-  useEffect(() => {
+  // Load config from localStorage synchronously (lazy initializer — no effect needed)
+  const [config, setConfig] = useState<AlertConfig>(() => {
+    if (typeof window === "undefined") {
+      return { enabled: false, regions: [], diseases: [], maxDistanceKm: 100, lastCheckedCount: 0, lastCheckedDate: "" };
+    }
     const stored = localStorage.getItem(STORAGE_KEY);
     if (stored) {
       try {
-        setConfig(JSON.parse(stored));
+        return JSON.parse(stored);
       } catch {}
     }
-    if ("Notification" in window) {
-      setPermission(Notification.permission);
-    }
-  }, []);
+    return { enabled: false, regions: [], diseases: [], maxDistanceKm: 100, lastCheckedCount: 0, lastCheckedDate: "" };
+  });
+  const [permission, setPermission] = useState<NotificationPermission>(
+    typeof window !== "undefined" && "Notification" in window ? Notification.permission : "default"
+  );
+  const [testSent, setTestSent] = useState(false);
 
   const saveConfig = useCallback((cfg: AlertConfig) => {
     setConfig(cfg);
