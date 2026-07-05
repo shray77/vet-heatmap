@@ -10,6 +10,8 @@ export interface FilterState {
   species: string[];
   /** Statuses to show. Empty = all. */
   statuses: OutbreakStatus[];
+  /** Federal districts to show. Empty = all. */
+  federalDistricts: string[];
   /** ISO date string. If null = no lower bound. */
   dateFrom: string | null;
   /** ISO date string. If null = no upper bound. */
@@ -22,10 +24,11 @@ export const DEFAULT_FILTERS: FilterState = {
   diseases: [],
   species: [],
   statuses: [],
-  // Default: last 2 years — keeps data fresh
+  federalDistricts: [],
+  // Default: last 3 years — keeps data fresh
   dateFrom: (() => {
     const d = new Date();
-    d.setFullYear(d.getFullYear() - 2);
+    d.setFullYear(d.getFullYear() - 3);
     return d.toISOString().slice(0, 10);
   })(),
   dateTo: null,
@@ -38,6 +41,7 @@ export function filtersToParams(f: FilterState): URLSearchParams {
   if (f.diseases.length) p.set("d", f.diseases.join(","));
   if (f.species.length) p.set("sp", f.species.join(","));
   if (f.statuses.length) p.set("st", f.statuses.join(","));
+  if (f.federalDistricts.length) p.set("fd", f.federalDistricts.join(","));
   if (f.dateFrom) p.set("from", f.dateFrom);
   if (f.dateTo) p.set("to", f.dateTo);
   if (f.query) p.set("q", f.query);
@@ -52,11 +56,13 @@ export function paramsToFilters(params: URLSearchParams | Record<string, string>
   const d = get("d");
   const sp = get("sp");
   const st = get("st");
+  const fd = get("fd");
 
   return {
     diseases: d ? (d.split(",").filter(Boolean) as DiseaseKey[]) : [],
     species: sp ? sp.split(",").filter(Boolean) : [],
-    statuses: st ? (st.split(",").filter(Boolean) as OutbreakStatus[]) : [],
+    statuses: st ? st.split(",").filter(Boolean) as OutbreakStatus[] : [],
+    federalDistricts: fd ? fd.split(",").filter(Boolean) : [],
     dateFrom: get("from"),
     dateTo: get("to"),
     query: get("q") ?? "",
@@ -71,12 +77,14 @@ export function applyFilters<T extends {
   date: string;
   disease: string;
   region: string;
+  federal_district?: string;
 }>(outbreaks: T[], f: FilterState): T[] {
   const qLower = f.query.trim().toLowerCase();
   return outbreaks.filter((o) => {
     if (f.diseases.length && !f.diseases.includes(o.disease_key)) return false;
     if (f.species.length && !f.species.includes(o.species)) return false;
     if (f.statuses.length && !f.statuses.includes(o.status)) return false;
+    if (f.federalDistricts.length && !f.federalDistricts.includes(o.federal_district || "")) return false;
     if (f.dateFrom && o.date < f.dateFrom) return false;
     if (f.dateTo && o.date > f.dateTo) return false;
     if (qLower) {

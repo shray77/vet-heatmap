@@ -99,6 +99,10 @@ export interface Outbreak {
   lon?: number;
   /** Free-text notes extracted from the source. */
   notes?: string;
+  /** Federal district (ЦФО, СЗФО, ЮФО, etc.) — assigned by post-processing. */
+  federal_district?: string;
+  /** Whether region was inferred (not from original source). */
+  region_inferred?: boolean;
 }
 
 export interface OutbreakDataset {

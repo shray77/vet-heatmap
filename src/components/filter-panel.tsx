@@ -58,6 +58,15 @@ export function FilterPanel({
     return Array.from(set).sort();
   }, [outbreaks]);
 
+  const allFederalDistricts = useMemo(() => {
+    const counts = new Map<string, number>();
+    for (const o of outbreaks) {
+      const fd = (o as any).federal_district || "";
+      if (fd) counts.set(fd, (counts.get(fd) ?? 0) + 1);
+    }
+    return Array.from(counts.entries()).sort((a, b) => b[1] - a[1]);
+  }, [outbreaks]);
+
   const statuses: OutbreakStatus[] = ["Ongoing", "Resolved", "Unknown"];
 
   const toggleDisease = (k: DiseaseKey) => {
@@ -84,10 +93,19 @@ export function FilterPanel({
     });
   };
 
+  const toggleFederalDistrict = (fd: string) => {
+    const has = filters.federalDistricts.includes(fd);
+    onChange({
+      ...filters,
+      federalDistricts: has ? filters.federalDistricts.filter((x) => x !== fd) : [...filters.federalDistricts, fd],
+    });
+  };
+
   const activeCount =
     filters.diseases.length +
     filters.species.length +
     filters.statuses.length +
+    filters.federalDistricts.length +
     (filters.dateFrom ? 1 : 0) +
     (filters.dateTo ? 1 : 0);
 
@@ -222,6 +240,48 @@ export function FilterPanel({
             );
           })}
         </div>
+      </div>
+
+      {/* Federal district filter */}
+      <div className="space-y-1.5">
+        <div className="flex items-center justify-between">
+          <Label className="text-xs font-medium text-muted-foreground">Федеральный округ</Label>
+          {filters.federalDistricts.length > 0 && (
+            <button
+              onClick={() => onChange({ ...filters, federalDistricts: [] })}
+              className="text-[10px] text-muted-foreground hover:text-foreground"
+            >
+              сбросить
+            </button>
+          )}
+        </div>
+        <Popover>
+          <PopoverTrigger asChild>
+            <Button variant="outline" size="sm" className="w-full justify-between h-8 text-xs font-normal">
+              {filters.federalDistricts.length === 0
+                ? "Все округа"
+                : `${filters.federalDistricts.length} выбрано`}
+              <ChevronDown className="h-3 w-3" />
+            </Button>
+          </PopoverTrigger>
+          <PopoverContent className="w-64 max-h-64 overflow-y-auto" align="start">
+            <div className="space-y-1.5">
+              {allFederalDistricts.map(([fd, n]) => (
+                <label
+                  key={fd}
+                  className="flex items-center gap-2 cursor-pointer py-0.5 hover:bg-accent/30 rounded px-1"
+                >
+                  <Checkbox
+                    checked={filters.federalDistricts.includes(fd)}
+                    onCheckedChange={() => toggleFederalDistrict(fd)}
+                  />
+                  <span className="text-xs flex-1">{fd}</span>
+                  <span className="text-[10px] text-muted-foreground">({n})</span>
+                </label>
+              ))}
+            </div>
+          </PopoverContent>
+        </Popover>
       </div>
 
       {/* Date range */}
