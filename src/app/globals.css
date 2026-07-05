@@ -210,3 +210,11 @@
     animation: shimmer 1.5s ease-in-out infinite;
   }
 }
+
+/* Night mode (red filter for field work at night) */
+.night-mode {
+  filter: sepia(1) hue-rotate(-50deg) brightness(0.7) saturate(1.5);
+}
+.night-mode .maplibremap-map {
+  filter: sepia(1) hue-rotate(-50deg) brightness(0.6) saturate(1.8);
+}

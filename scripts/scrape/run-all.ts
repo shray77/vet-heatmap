@@ -83,7 +83,7 @@ async function main() {
   // and add to the outbreak list.
   try {
     console.log("\n      ─── Historical archive (2024) ───");
-    const histResult = await scrapeHistoricalArchive({ maxReports: 10, yearFilter: 2024 });
+    const histResult = await scrapeHistoricalArchive({ maxReports: 100, yearFilter: 2024 });
     console.log(`      Found ${histResult.totalFound} historical reports, processing ${histResult.reports.length}`);
 
     const histOutbreaks: any[] = [];

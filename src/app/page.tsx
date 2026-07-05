@@ -59,6 +59,7 @@ import { DiseaseComparison } from "@/components/disease-comparison";
 import { SpreadAnimation } from "@/components/spread-animation";
 import { RegionReportCard } from "@/components/region-report-card";
 import { AlertSettings } from "@/components/alert-settings";
+import { RiskScoreMap } from "@/components/risk-score-map";
 
 import { useOutbreaks, useRegionsGeoJSON } from "@/lib/use-data";
 import { useKeyboardShortcuts } from "@/lib/use-keyboard";
@@ -125,6 +126,7 @@ function HomeContent() {
   const [spreadAnimOpen, setSpreadAnimOpen] = useState(false);
   const [regionCardOpen, setRegionCardOpen] = useState(false);
   const [alertOpen, setAlertOpen] = useState(false);
+  const [nightMode, setNightMode] = useState(false);
 
   // Load enterprises
   const [enterprises, setEnterprises] = useState<{id:string;name:string;type:string;lat:number;lon:number;region?:string}[]>([]);
@@ -235,7 +237,7 @@ function HomeContent() {
   }
 
   return (
-    <main className="flex h-dvh flex-col overflow-hidden bg-background">
+    <main className={`flex h-dvh flex-col overflow-hidden bg-background ${nightMode ? "night-mode" : ""}`}>
       <PwaBanners />
 
       {/* ─── Header — fixed height, never scrolls ──────────────────── */}
@@ -346,6 +348,15 @@ function HomeContent() {
               <a href="https://github.com/shray77/vet-heatmap" target="_blank" rel="noopener">
                 <Github className="h-4 w-4" />
               </a>
+            </Button>
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={() => setNightMode(!nightMode)}
+              aria-label="Ночной режим"
+              title="Ночной режим (красный фильтр)"
+            >
+              {nightMode ? "☀️" : "🌙"}
             </Button>
             <ThemeToggle />
           </div>
@@ -557,6 +568,8 @@ function HomeContent() {
             <TimelineSlider outbreaks={data?.outbreaks ?? []} onDateRangeChange={(from, to) => setTimelineRange({from, to})} />
             <HotspotList outbreaks={filtered} onSelectRegion={(r) => { setRegionDrillDown(r); setRegionDrillDownOpen(true); }} />
             <EpiCurve outbreaks={filtered} />
+            <DiseaseComparison outbreaks={filtered} />
+            <RiskScoreMap outbreaks={filtered} />
             <OutbreaksTable outbreaks={filtered} onSelectOutbreak={(o) => onSelectOutbreak(o)} />
           </div>
         </aside>
@@ -570,6 +583,8 @@ function HomeContent() {
           <TimelineSlider outbreaks={data?.outbreaks ?? []} onDateRangeChange={(from, to) => setTimelineRange({from, to})} />
           <HotspotList outbreaks={filtered} onSelectRegion={(r) => { setRegionDrillDown(r); setRegionDrillDownOpen(true); }} />
           <EpiCurve outbreaks={filtered} />
+          <DiseaseComparison outbreaks={filtered} />
+          <RiskScoreMap outbreaks={filtered} />
           <OutbreaksTable outbreaks={filtered} onSelectOutbreak={(o) => onSelectOutbreak(o)} />
         </div>
       </div>
