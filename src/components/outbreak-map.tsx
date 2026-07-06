@@ -368,7 +368,7 @@ export function OutbreakMap({
         paint: {
           "circle-radius": ["interpolate", ["linear"], ["get", "point_count"], 1, 12, 10, 18, 50, 28, 200, 40],
           "circle-color": ["interpolate", ["linear"], ["get", "point_count"], 1, "#f59e0b", 10, "#ef4444", 50, "#dc2626", 200, "#991b1b"],
-          "circle-opacity": 0.8,
+          "circle-opacity": 0.6,
           "circle-stroke-width": 2,
           "circle-stroke-color": "#ffffff",
           "circle-stroke-opacity": 0.5,
@@ -412,7 +412,7 @@ export function OutbreakMap({
         paint: {
           "circle-radius": ["interpolate", ["linear"], ["get", "size"], 0, 4, 30, 12],
           "circle-color": ["get", "color"],
-          "circle-opacity": 0.7,
+          "circle-opacity": 0.6,
           "circle-stroke-width": 1,
           "circle-stroke-color": ["get", "color"],
           "circle-stroke-opacity": 0.9,
@@ -428,7 +428,7 @@ export function OutbreakMap({
         paint: {
           "circle-radius": ["interpolate", ["linear"], ["get", "size"], 0, 6, 30, 16],
           "circle-color": ["get", "color"],
-          "circle-opacity": 0.9,
+          "circle-opacity": 0.7,
           "circle-stroke-width": 2,
           "circle-stroke-color": "#ffffff",
           "circle-stroke-opacity": 1,
@@ -606,20 +606,28 @@ export function OutbreakMap({
 
     map.addSource("risk-zones", { type: "geojson", data: { type: "FeatureCollection", features } });
 
-    // Draw in order: restriction (biggest, bottom) → surveillance → protection (top)
+    // Draw as outline-only circles (no fill) to avoid covering markers
     const layerOrder = ["restriction", "surveillance", "protection"];
+    const zoneStyles: Record<string, { width: number; opacity: number; dash: number[] }> = {
+      restriction: { width: 1.5, opacity: 0.5, dash: [2, 2] },
+      surveillance: { width: 1.5, opacity: 0.6, dash: [3, 2] },
+      protection: { width: 2, opacity: 0.8, dash: [1, 0] }, // solid
+    };
     for (const label of layerOrder) {
       const hasFeatures = features.some((f) => f.properties?.label === label);
       if (!hasFeatures) continue;
+      const zs = zoneStyles[label];
       map.addLayer({
         id: `risk-zone-${label}`,
-        type: "fill",
+        type: "line",
         source: "risk-zones",
         filter: ["==", ["get", "label"], label],
         layout: {},
         paint: {
-          "fill-color": ["get", "color"],
-          "fill-opacity": ["get", "opacity"],
+          "line-color": ["get", "color"],
+          "line-width": zs.width,
+          "line-opacity": zs.opacity,
+          "line-dasharray": zs.dash,
         },
       });
     }
@@ -673,9 +681,15 @@ export function OutbreakMap({
 
         if (features.length === 0) return;
         map.addSource("risk-zones", { type: "geojson", data: { type: "FeatureCollection", features } });
+        const zStyles: Record<string, { width: number; opacity: number; dash: number[] }> = {
+          restriction: { width: 1.5, opacity: 0.5, dash: [2, 2] },
+          surveillance: { width: 1.5, opacity: 0.6, dash: [3, 2] },
+          protection: { width: 2, opacity: 0.8, dash: [1, 0] },
+        };
         for (const label of ["restriction", "surveillance", "protection"]) {
           if (!features.some((f) => f.properties?.label === label)) continue;
-          map.addLayer({ id: `risk-zone-${label}`, type: "fill", source: "risk-zones", filter: ["==", ["get", "label"], label], layout: {}, paint: { "fill-color": ["get", "color"], "fill-opacity": ["get", "opacity"] } });
+          const zs = zStyles[label];
+          map.addLayer({ id: `risk-zone-${label}`, type: "line", source: "risk-zones", filter: ["==", ["get", "label"], label], layout: {}, paint: { "line-color": ["get", "color"], "line-width": zs.width, "line-opacity": zs.opacity, "line-dasharray": zs.dash } });
         }
       }, 300); // debounce 300ms
     };
