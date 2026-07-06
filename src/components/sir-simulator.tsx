@@ -102,6 +102,14 @@ interface SimParams {
   vaccinationEnabled: boolean;
   vaccinationStartDay: number;
   vaccinationRatePerDay: number; // fraction of S vaccinated per day
+  // NEW: Stamping out (culling/depopulation)
+  cullingEnabled: boolean;
+  cullingStartDay: number;
+  cullingEfficacy: number;    // 0..1, fraction of infected farms culled per day
+  // NEW: Movement restrictions
+  movementBanEnabled: boolean;
+  movementBanStartDay: number;
+  movementBanEfficacy: number; // 0..1, reduction in transmission
 }
 
 function runSEIR(p: SimParams): SimPoint[] {
@@ -133,7 +141,13 @@ function runSEIR(p: SimParams): SimPoint[] {
       const subDt = dt / 5;
       const isQuarantined = p.quarantineEnabled && day >= p.quarantineStartDay;
       const isVaccinating = p.vaccinationEnabled && day >= p.vaccinationStartDay;
-      const beta = isQuarantined ? baseBeta * (1 - p.quarantineEfficacy) : baseBeta;
+      const isMovementBanned = p.movementBanEnabled && day >= p.movementBanStartDay;
+      const isCulling = p.cullingEnabled && day >= p.cullingStartDay;
+
+      // Beta reduced by quarantine AND movement ban
+      let beta = baseBeta;
+      if (isQuarantined) beta *= (1 - p.quarantineEfficacy);
+      if (isMovementBanned) beta *= (1 - p.movementBanEfficacy);
 
       const newInfections = beta * S * I / p.N * subDt;
       const newInfectious = sigma * E * subDt;
@@ -141,11 +155,14 @@ function runSEIR(p: SimParams): SimPoint[] {
       const newDeaths = mu * I * subDt;
       const newVaccinated = isVaccinating ? p.vaccinationRatePerDay * S * subDt : 0;
 
+      // Stamping out: cull infected animals (removes from I → D)
+      const newCulled = isCulling ? p.cullingEfficacy * I * subDt : 0;
+
       S += -newInfections - newVaccinated;
       E += newInfections - newInfectious;
-      I += newInfectious - newRecoveries - newDeaths;
+      I += newInfectious - newRecoveries - newDeaths - newCulled;
       R += newRecoveries + newVaccinated;
-      D += newDeaths;
+      D += newDeaths + newCulled; // culled animals counted as dead
 
       if (S < 0) S = 0;
       if (E < 0) E = 0;
@@ -155,10 +172,10 @@ function runSEIR(p: SimParams): SimPoint[] {
     }
 
     const cumulative = E + I + R + D;
-    const Reff = (S / p.N) * p.r0 *
-      (p.quarantineEnabled && day >= p.quarantineStartDay
-        ? (1 - p.quarantineEfficacy)
-        : 1);
+    let interventionFactor = 1;
+    if (p.quarantineEnabled && day >= p.quarantineStartDay) interventionFactor *= (1 - p.quarantineEfficacy);
+    if (p.movementBanEnabled && day >= p.movementBanStartDay) interventionFactor *= (1 - p.movementBanEfficacy);
+    const Reff = (S / p.N) * p.r0 * interventionFactor;
 
     points.push({
       day: Math.round(day),
@@ -192,6 +209,12 @@ export function SIRSimulator({ open, onOpenChange, preselectDisease }: SIRSimula
   const [vaccinationEnabled, setVaccinationEnabled] = useState<boolean>(false);
   const [vaccinationStartDay, setVaccinationStartDay] = useState<number>(21);
   const [vaccinationRatePerDay, setVaccinationRatePerDay] = useState<number>(0.02);
+  const [cullingEnabled, setCullingEnabled] = useState<boolean>(false);
+  const [cullingStartDay, setCullingStartDay] = useState<number>(7);
+  const [cullingEfficacy, setCullingEfficacy] = useState<number>(0.3);
+  const [movementBanEnabled, setMovementBanEnabled] = useState<boolean>(false);
+  const [movementBanStartDay, setMovementBanStartDay] = useState<number>(3);
+  const [movementBanEfficacy, setMovementBanEfficacy] = useState<number>(0.5);
   const [chartReady, setChartReady] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const [loadedDisease, setLoadedDisease] = useState<string | null>(null);
@@ -234,10 +257,18 @@ export function SIRSimulator({ open, onOpenChange, preselectDisease }: SIRSimula
       vaccinationEnabled,
       vaccinationStartDay,
       vaccinationRatePerDay,
+      cullingEnabled,
+      cullingStartDay,
+      cullingEfficacy,
+      movementBanEnabled,
+      movementBanStartDay,
+      movementBanEfficacy,
     });
   }, [population, initialInfected, r0, incubationDays, infectiousDays,
       caseFatalityRate, totalDays, quarantineEnabled, quarantineStartDay,
-      quarantineEfficacy, vaccinationEnabled, vaccinationStartDay, vaccinationRatePerDay]);
+      quarantineEfficacy, vaccinationEnabled, vaccinationStartDay, vaccinationRatePerDay,
+      cullingEnabled, cullingStartDay, cullingEfficacy,
+      movementBanEnabled, movementBanStartDay, movementBanEfficacy]);
 
   const stats = useMemo(() => {
     let peakI = 0;
@@ -467,6 +498,56 @@ export function SIRSimulator({ open, onOpenChange, preselectDisease }: SIRSimula
                 </div>
               )}
             </div>
+
+              {/* ─── Stamping out (culling) ─── */}
+              <Separator />
+              <div className="space-y-2">
+                <div className="flex items-center justify-between">
+                  <Label className="text-xs font-medium flex items-center gap-1.5">
+                    <Skull className="h-3.5 w-3.5" />
+                    Забой (stamp out)
+                  </Label>
+                  <Switch checked={cullingEnabled} onCheckedChange={setCullingEnabled} />
+                </div>
+                {cullingEnabled && (
+                  <div className="grid grid-cols-2 gap-3 pl-1">
+                    <div>
+                      <Label className="text-[10px] text-muted-foreground">Начало (день)</Label>
+                      <Slider value={[cullingStartDay]} min={1} max={60} step={1} onValueChange={(v) => setCullingStartDay(v[0])} className="mt-1" />
+                      <div className="text-[10px] text-muted-foreground mt-0.5">День {cullingStartDay}</div>
+                    </div>
+                    <div>
+                      <Label className="text-[10px] text-muted-foreground">Эффективность ({Math.round(cullingEfficacy * 100)}%/день)</Label>
+                      <Slider value={[cullingEfficacy * 100]} min={5} max={80} step={5} onValueChange={(v) => setCullingEfficacy(v[0] / 100)} className="mt-1" />
+                    </div>
+                  </div>
+                )}
+              </div>
+
+              {/* ─── Movement ban ─── */}
+              <Separator />
+              <div className="space-y-2">
+                <div className="flex items-center justify-between">
+                  <Label className="text-xs font-medium flex items-center gap-1.5">
+                    <ShieldHalf className="h-3.5 w-3.5" />
+                    Запрет перемещения животных
+                  </Label>
+                  <Switch checked={movementBanEnabled} onCheckedChange={setMovementBanEnabled} />
+                </div>
+                {movementBanEnabled && (
+                  <div className="grid grid-cols-2 gap-3 pl-1">
+                    <div>
+                      <Label className="text-[10px] text-muted-foreground">Начало (день)</Label>
+                      <Slider value={[movementBanStartDay]} min={1} max={30} step={1} onValueChange={(v) => setMovementBanStartDay(v[0])} className="mt-1" />
+                      <div className="text-[10px] text-muted-foreground mt-0.5">День {movementBanStartDay}</div>
+                    </div>
+                    <div>
+                      <Label className="text-[10px] text-muted-foreground">Снижение передачи ({Math.round(movementBanEfficacy * 100)}%)</Label>
+                      <Slider value={[movementBanEfficacy * 100]} min={10} max={90} step={5} onValueChange={(v) => setMovementBanEfficacy(v[0] / 100)} className="mt-1" />
+                    </div>
+                  </div>
+                )}
+              </div>
               </TabsContent>
             </Tabs>
           </div>

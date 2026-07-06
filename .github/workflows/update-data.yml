@@ -36,6 +36,9 @@ jobs:
       - name: Geocode (Nominatim + region centroids)
         run: python3 scripts/geocode.py || true
 
+      - name: Scrape enterprises (Overpass + curated)
+        run: timeout 120 bun run scripts/scrape/osint-enterprises.ts || true
+
       - name: Check for changes
         id: changes
         run: |
