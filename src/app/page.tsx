@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useMemo, useCallback } from "react";
+import { useState, useEffect, useMemo, useCallback, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import {
@@ -32,6 +32,7 @@ import {
   Zap,
   Download,
   Bell,
+  ChevronDown,
 } from "lucide-react";
 
 import { OutbreakMap } from "@/components/outbreak-map";
@@ -146,6 +147,13 @@ function HomeContent() {
   // Outbreak detail panel (replaces small popup on marker click)
   const [selectedOutbreak, setSelectedOutbreak] = useState<Outbreak | null>(null);
   const [outbreakDetailOpen, setOutbreakDetailOpen] = useState(false);
+
+  // Resizable sidebar width (desktop only). Stored in localStorage.
+  const [sidebarWidth, setSidebarWidth] = useState(() => {
+    if (typeof window === "undefined") return 380;
+    const saved = window.localStorage.getItem("vet:sidebarWidth");
+    return saved ? Math.min(Math.max(parseInt(saved, 10), 280), 720) : 380;
+  });
   
   // Region centroids for "nearby" calculation (computed once geo is loaded)
   const regionCentroids = useMemo(() => {
@@ -296,93 +304,66 @@ function HomeContent() {
             </div>
           </div>
 
-          {/* Desktop actions */}
-          <div className="relative hidden md:flex items-center gap-1">
-            <Button variant="ghost" size="icon" onClick={() => setAboutOpen(true)} aria-label="О проекте">
-              <Info className="h-4 w-4" />
-            </Button>
+          {/* Desktop actions — compact: keep only most-used visible, hide rest in 'Tools' dropdown */}
+          <div className="relative hidden md:flex items-center gap-1 shrink-0">
+            {/* Most-used: stay as individual buttons */}
             <Button variant="outline" size="sm" onClick={() => setNearbyOpen(true)}>
               <LocateFixed className="h-4 w-4 mr-1" />Рядом
             </Button>
-            <Button variant="outline" size="sm" onClick={() => setSpatialOpen(true)}>
-              <Zap className="h-4 w-4 mr-1" />Распростр.
+            <Button variant="outline" size="sm" onClick={() => openCalculator()}>
+              <Calculator className="h-4 w-4 mr-1" />Карантин
             </Button>
-            <Button
-              variant="outline"
-              size="sm"
-              onClick={() => setSourceTrackerOpen(true)}
-            >
-              <Radio className="h-4 w-4 mr-1" />
-              Источник
-            </Button>
-            <Button
-              variant="outline"
-              size="sm"
-              onClick={() => setTransportOpen(true)}
-            >
-              <Truck className="h-4 w-4 mr-1" />
-              Транспорт
-            </Button>
-            <Button
-              variant="outline"
-              size="sm"
-              onClick={() => setPdfReportOpen(true)}
-            >
-              <FileText className="h-4 w-4 mr-1" />
-              Отчёт
-            </Button>
-            <Button
-              variant="outline"
-              size="sm"
-              onClick={() => setCustomImportOpen(true)}
-            >
-              <Upload className="h-4 w-4 mr-1" />
-              Импорт
-            </Button>
-            <Button
-              variant="outline"
-              size="sm"
-              onClick={() => setEnterpriseRiskOpen(true)}
-            >
-              <Factory className="h-4 w-4 mr-1" />
-              Предприятия
-            </Button>
-            <Button
-              variant="outline"
-              size="sm"
-              onClick={() => setSpreadAnimOpen(true)}
-            >
-              <Play className="h-4 w-4 mr-1" />
-              Анимация
-            </Button>
-            <Button
-              variant="outline"
-              size="sm"
-              onClick={() => setRegionCardOpen(true)}
-            >
-              <MapPin className="h-4 w-4 mr-1" />
-              Регион
-            </Button>
-            <Button
-              variant="outline"
-              size="sm"
-              onClick={() => setAlertOpen(true)}
-            >
-              <Bell className="h-4 w-4 mr-1" />
-              Уведомления
-            </Button>
-            <Button
-              variant="outline"
-              size="sm"
-              onClick={() => openCalculator()}
-            >
-              <Calculator className="h-4 w-4 mr-1" />
-              Карантин
-            </Button>
-
             <Button variant="outline" size="sm" onClick={() => setSirOpen(true)}>
               <Beaker className="h-4 w-4 mr-1" />SIR
             </Button>
+
+            {/* Tools dropdown — holds the rest, prevents header overflow */}
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button variant="outline" size="sm" className="h-9 gap-1">
+                  <Beaker className="h-4 w-4" />
+                  <span className="text-xs">Инструменты</span>
+                  <ChevronDown className="h-3 w-3 opacity-60" />
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end" className="w-56">
+                <DropdownMenuLabel>Аналитика</DropdownMenuLabel>
+                <DropdownMenuItem onClick={() => setSpatialOpen(true)}>
+                  <Zap className="h-4 w-4 mr-2" /> Распространение
+                </DropdownMenuItem>
+                <DropdownMenuItem onClick={() => setSourceTrackerOpen(true)}>
+                  <Radio className="h-4 w-4 mr-2" /> Источник вспышки
+                </DropdownMenuItem>
+                <DropdownMenuItem onClick={() => setTransportOpen(true)}>
+                  <Truck className="h-4 w-4 mr-2" /> Транспорт
+                </DropdownMenuItem>
+                <DropdownMenuItem onClick={() => setSpreadAnimOpen(true)}>
+                  <Play className="h-4 w-4 mr-2" /> Анимация
+                </DropdownMenuItem>
+                <DropdownMenuSeparator />
+                <DropdownMenuLabel>Данные</DropdownMenuLabel>
+                <DropdownMenuItem onClick={() => setRegionCardOpen(true)}>
+                  <MapPin className="h-4 w-4 mr-2" /> Карточка региона
+                </DropdownMenuItem>
+                <DropdownMenuItem onClick={() => setEnterpriseRiskOpen(true)}>
+                  <Factory className="h-4 w-4 mr-2" /> Предприятия
+                </DropdownMenuItem>
+                <DropdownMenuItem onClick={() => setPdfReportOpen(true)}>
+                  <FileText className="h-4 w-4 mr-2" /> Отчёт PDF
+                </DropdownMenuItem>
+                <DropdownMenuItem onClick={() => setCustomImportOpen(true)}>
+                  <Upload className="h-4 w-4 mr-2" /> Импорт данных
+                </DropdownMenuItem>
+                <DropdownMenuItem onClick={() => setAlertOpen(true)}>
+                  <Bell className="h-4 w-4 mr-2" /> Уведомления
+                </DropdownMenuItem>
+                <DropdownMenuSeparator />
+                <DropdownMenuItem onClick={() => setAboutOpen(true)}>
+                  <Info className="h-4 w-4 mr-2" /> О проекте
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+
             <Button variant="ghost" size="icon" asChild aria-label="GitHub">
               <a href="https://github.com/shray77/vet-heatmap" target="_blank" rel="noopener">
                 <Github className="h-4 w-4" />
@@ -608,8 +589,13 @@ function HomeContent() {
           </div>
         </section>
 
-        {/* DESKTOP SIDEBAR — the ONLY scroll region */}
-        <aside className="hidden w-[380px] shrink-0 flex-col overflow-hidden border-l bg-background/60 lg:flex xl:w-[420px]">
+        {/* DESKTOP SIDEBAR — resizable, the ONLY scroll region */}
+        <aside
+          className="hidden shrink-0 flex-col overflow-hidden border-l bg-background/60 lg:flex"
+          style={{ width: `${sidebarWidth}px` }}
+        >
+          {/* Drag handle — drag to resize sidebar */}
+          <SidebarResizer width={sidebarWidth} onResize={setSidebarWidth} />
           <div className="thin-scroll flex-1 space-y-4 overflow-y-auto overscroll-contain p-4">
             <FilterPanel
               outbreaks={data?.outbreaks ?? []}
@@ -717,6 +703,91 @@ function LegendRow({ color, label }: { color: string; label: string }) {
         style={{ backgroundColor: color, opacity: 0.5 }}
       />
       <span className="text-foreground">{label}</span>
+    </div>
+  );
+}
+
+/**
+ * Drag handle for resizing the desktop sidebar.
+ *
+ * Drag left/right to shrink/grow the sidebar between 280px and 720px.
+ * Width is persisted to localStorage via the parent's onResize callback.
+ *
+ * Renders a thin vertical bar at the left edge of the sidebar. Cursor
+ * changes to col-resize on hover. The handle is keyboard-accessible
+ * (ArrowLeft/ArrowRight to adjust by 16px).
+ */
+function SidebarResizer({
+  width,
+  onResize,
+}: {
+  width: number;
+  onResize: (w: number) => void;
+}) {
+  const draggingRef = useRef(false);
+
+  useEffect(() => {
+    const onMove = (e: MouseEvent) => {
+      if (!draggingRef.current) return;
+      // Sidebar is on the right, so dragging left (decreasing clientX)
+      // means the sidebar gets wider.
+      const newWidth = Math.min(
+        Math.max(window.innerWidth - e.clientX, 280),
+        720,
+      );
+      onResize(newWidth);
+    };
+    const onUp = () => {
+      if (draggingRef.current) {
+        draggingRef.current = false;
+        document.body.style.cursor = "";
+        document.body.style.userSelect = "";
+        // Persist on release (not every move — avoids localStorage thrash)
+        window.localStorage.setItem("vet:sidebarWidth", String(width));
+      }
+    };
+    window.addEventListener("mousemove", onMove);
+    window.addEventListener("mouseup", onUp);
+    return () => {
+      window.removeEventListener("mousemove", onMove);
+      window.removeEventListener("mouseup", onUp);
+    };
+  }, [onResize, width]);
+
+  const startDrag = (e: React.MouseEvent) => {
+    e.preventDefault();
+    draggingRef.current = true;
+    document.body.style.cursor = "col-resize";
+    document.body.style.userSelect = "none";
+  };
+
+  const onKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === "ArrowLeft") {
+      e.preventDefault();
+      onResize(Math.min(width + 16, 720));
+    } else if (e.key === "ArrowRight") {
+      e.preventDefault();
+      onResize(Math.max(width - 16, 280));
+    }
+  };
+
+  return (
+    <div
+      role="separator"
+      aria-orientation="vertical"
+      aria-label="Изменить размер боковой панели"
+      tabIndex={0}
+      onMouseDown={startDrag}
+      onKeyDown={onKeyDown}
+      className="group relative h-1 w-full cursor-col-resize shrink-0 bg-border hover:bg-primary/40 transition-colors"
+      title="Перетащите для изменения размера (←/→ для шага 16px)"
+    >
+      {/* Grip dots — visible on hover */}
+      <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex gap-0.5 opacity-0 group-hover:opacity-100 transition-opacity">
+        <div className="h-0.5 w-0.5 rounded-full bg-muted-foreground" />
+        <div className="h-0.5 w-0.5 rounded-full bg-muted-foreground" />
+        <div className="h-0.5 w-0.5 rounded-full bg-muted-foreground" />
+      </div>
     </div>
   );
 }

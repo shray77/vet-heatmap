@@ -173,31 +173,55 @@ export function RegionMiniMap({
       }
 
       // 3. Outbreaks — clustered circle layer
+      // Apply local jitter to break up outbreaks with the same lat/lon
+      // (multiple outbreaks at the same region centroid still stack).
+      // Jitter is deterministic per outbreak.id so re-renders are stable.
+      const seen = new Map<string, number>(); // key="lon,lat rounded" → count
       const outbreakFeatures: GeoJSON.Feature<GeoJSON.Point>[] = outbreaks
         .filter((o) => typeof o.lat === "number" && typeof o.lon === "number")
-        .map((o) => ({
-          type: "Feature" as const,
-          geometry: { type: "Point" as const, coordinates: [o.lon!, o.lat!] },
-          properties: {
-            id: o.id,
-            disease: o.disease,
-            disease_key: o.disease_key,
-            date: o.date,
-            status: o.status,
-            cases: o.cases,
-            species: o.species,
-            color: diseaseColor(o.disease_key, o.disease_group),
-            isOngoing: o.status === "Ongoing",
-          },
-        }));
+        .map((o) => {
+          // Quantize to 0.001° (~100 m) and find how many we've seen at this spot
+          const qlon = Math.round(o.lon! * 1000) / 1000;
+          const qlat = Math.round(o.lat! * 1000) / 1000;
+          const key = `${qlon},${qlat}`;
+          const n = (seen.get(key) ?? 0);
+          seen.set(key, n + 1);
+
+          // If multiple at same spot, spread them on a small spiral
+          // around the centroid. Spiral radius grows with n.
+          let lon = o.lon!;
+          let lat = o.lat!;
+          if (n > 0) {
+            const angle = n * 2.39996; // golden angle in radians (~137.5°)
+            const r = 0.008 * Math.sqrt(n); // ~800m * sqrt(n) in degrees
+            lon = qlon + r * Math.cos(angle);
+            lat = qlat + r * Math.sin(angle);
+          }
+
+          return {
+            type: "Feature" as const,
+            geometry: { type: "Point" as const, coordinates: [lon, lat] },
+            properties: {
+              id: o.id,
+              disease: o.disease,
+              disease_key: o.disease_key,
+              date: o.date,
+              status: o.status,
+              cases: o.cases,
+              species: o.species,
+              color: diseaseColor(o.disease_key, o.disease_group),
+              isOngoing: o.status === "Ongoing",
+            },
+          };
+        });
 
       if (outbreakFeatures.length) {
         map.addSource("outbreaks-points", {
           type: "geojson",
           data: { type: "FeatureCollection", features: outbreakFeatures },
           cluster: true,
-          clusterMaxZoom: 14,
-          clusterRadius: 30,
+          clusterMaxZoom: 16,   // keep clustering longer (was 14)
+          clusterRadius: 40,    // bigger cluster radius (was 30)
         });
 
         // Resolved (smaller, dimmer)
