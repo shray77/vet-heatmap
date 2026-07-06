@@ -67,8 +67,52 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+      url: ${{ steps.deploy_out.outputs.page_url }}
     steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
+      # GitHub Pages backend occasionally returns "Deployment failed, try
+      # again later" for transient reasons (artifact propagation delay,
+      # internal queue hiccups, OIDC token issuance). Retry up to 3 times
+      # with 30s → 60s backoff. Usually succeeds on attempt 2.
+
+      - name: Deploy attempt 1
+        id: deploy_1
         uses: actions/deploy-pages@v4
+        continue-on-error: true
+
+      - name: Wait 30s before retry
+        if: steps.deploy_1.outcome == 'failure'
+        run: sleep 30
+
+      - name: Deploy attempt 2
+        id: deploy_2
+        if: steps.deploy_1.outcome == 'failure'
+        uses: actions/deploy-pages@v4
+        continue-on-error: true
+
+      - name: Wait 60s before final retry
+        if: steps.deploy_2.outcome == 'failure'
+        run: sleep 60
+
+      - name: Deploy attempt 3 (final)
+        id: deploy_3
+        if: steps.deploy_2.outcome == 'failure'
+        uses: actions/deploy-pages@v4
+        # No continue-on-error here — if this fails, the job fails.
+
+      - name: Resolve deploy output (whichever attempt succeeded)
+        id: deploy_out
+        if: always()
+        run: |
+          if [ "${{ steps.deploy_1.outcome }}" = "success" ]; then
+            echo "page_url=${{ steps.deploy_1.outputs.page_url }}" >> "$GITHUB_OUTPUT"
+            echo "✓ Deployed on attempt 1"
+          elif [ "${{ steps.deploy_2.outcome }}" = "success" ]; then
+            echo "page_url=${{ steps.deploy_2.outputs.page_url }}" >> "$GITHUB_OUTPUT"
+            echo "✓ Deployed on attempt 2"
+          elif [ "${{ steps.deploy_3.outcome }}" = "success" ]; then
+            echo "page_url=${{ steps.deploy_3.outputs.page_url }}" >> "$GITHUB_OUTPUT"
+            echo "✓ Deployed on attempt 3"
+          else
+            echo "✗ All 3 deploy attempts failed"
+            exit 1
+          fi
