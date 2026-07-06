@@ -1,22 +1,20 @@
 #!/usr/bin/env bun
 /**
- * OSINT: Agricultural enterprises in Russia — expanded.
+ * OSINT: Agricultural enterprises in Russia — simplified & fixed.
  *
- * Sources:
- *   1. OpenStreetMap Overpass API — farms, meat plants, poultry, dairy
- *   2. Curated top-50 enterprises (from industry reports)
- *   3. FGIS Merkury (public registry of vet-certified enterprises)
+ * Previous versions had two bugs:
+ *   1. bbox 41,19,82,180 returned all of Eastern Europe (Poland, Romania,
+ *      Finland) — 7/59 entries were non-Russian.
+ *   2. Tags like farm=pig and industrial=meat are NOT used in Russian OSM
+ *      data — they returned 0 results. Russian OSM uses man_made=works
+ *      with Cyrillic names like "Мясокомбинат", "Птицефабрика".
  *
- * Categories:
- *   - pig_farm (свиноводческий комплекс)
- *   - poultry_farm (птицефабрика)
- *   - cattle_farm (скотоводческий комплекс/КРС)
- *   - meat_plant (мясокомбинат)
- *   - dairy (молочный комбинат)
- *   - market (животноводческий рынок)
- *   - feed_mill (комбикормовый завод)
- *   - vet_clinic (ветеринарная клиника)
- *   - slaughterhouse (убойный цех)
+ * This version:
+ *   - Uses area["ISO3166-1"="RU"] filter (proper Russia boundary)
+ *   - Queries by NAME pattern (Russian keywords), not by specialized tags
+ *     that are rarely used in Russia
+ *   - Adds a paranoid isInRussia() filter for Kaliningrad exclave
+ *   - Falls back to curated list when OSM returns nothing
  */
 
 import { writeFile, mkdir } from "node:fs/promises";
@@ -35,163 +33,158 @@ interface Enterprise {
   tags?: Record<string, string>;
 }
 
-// ─── Overpass queries by category ────────────────────────────
+const RUSSIA_AREA = 'area["ISO3166-1"="RU"]->.ru';
 
 async function queryOverpass(query: string, label: string): Promise<Enterprise[]> {
-  console.log(`  [overpass] Querying ${label}...`);
-  try {
-    const resp = await fetch("https://overpass-api.de/api/interpreter", {
-      method: "POST",
-      body: "data=" + encodeURIComponent(query),
-      headers: {
-        "Content-Type": "application/x-www-form-urlencoded",
-        "Accept": "application/json",
-        "User-Agent": "VetKarta/1.0",
-      },
-    });
-    if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
-    const data = await resp.json() as { elements: Array<Record<string, unknown>> };
-    console.log(`    → ${data.elements.length} raw results`);
-    return data.elements.map((el) => {
-      const tags = (el.tags || {}) as Record<string, string>;
-      return {
-        id: `osm-${el.id}`,
-        name: tags.name || tags["name:ru"] || tags.brand || "",
-        type: label,
-        lat: (el.lat || (el as any).center?.lat) as number,
-        lon: (el.lon || (el as any).center?.lon) as number,
-        tags,
-      };
-    }).filter((e) => e.name && e.lat && e.lon);
-  } catch (e) {
-    console.error(`    ✗ ${label}: ${e}`);
-    return [];
+  console.log(`  [overpass] ${label}...`);
+  // Try multiple Overpass mirrors in order — main one is often overloaded.
+  const MIRRORS = [
+    "https://overpass-api.de/api/interpreter",
+    "https://overpass.kumi.systems/api/interpreter",
+    "https://overpass.private.coffee/api/interpreter",
+  ];
+  for (const mirror of MIRRORS) {
+    try {
+      const resp = await fetch(mirror, {
+        method: "POST",
+        body: "data=" + encodeURIComponent(query),
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+          "Accept": "application/json",
+          "User-Agent": "VetKarta/1.0 (veterinary epidemiology dashboard)",
+        },
+        signal: AbortSignal.timeout(45000),  // 45s per mirror
+      });
+      if (!resp.ok) {
+        console.log(`    ${mirror}: HTTP ${resp.status}, trying next…`);
+        continue;
+      }
+      const data = await resp.json() as { elements: Array<Record<string, unknown>> };
+      console.log(`    ✓ ${mirror.split("//")[1].split("/")[0]}: ${data.elements.length} results`);
+      return data.elements.map((el) => {
+        const tags = ((el.tags || {}) as Record<string, string>);
+        const center = (el as { center?: { lat: number; lon: number } }).center;
+        const lat = (el.lat as number | undefined) ?? center?.lat;
+        const lon = (el.lon as number | undefined) ?? center?.lon;
+        return {
+          id: `osm-${el.id}`,
+          name: tags.name || tags["name:ru"] || tags.brand || "",
+          type: label,
+          lat: lat as number,
+          lon: lon as number,
+          tags,
+        };
+      }).filter((e) => e.name && Number.isFinite(e.lat) && Number.isFinite(e.lon));
+    } catch (e) {
+      console.log(`    ${mirror.split("//")[1].split("/")[0]}: ${e}, trying next…`);
+    }
   }
+  console.error(`    ✗ ${label}: all mirrors failed`);
+  return [];
 }
 
 async function sleep(ms: number) { return new Promise(r => setTimeout(r, ms)); }
 
 async function queryAllCategories(): Promise<Enterprise[]> {
   const all: Enterprise[] = [];
-  const bbox = "41,19,82,180"; // Russia
 
-  // 1. Pig farms
+  // 1. Pig farms — name contains "свин" (свиновод, свинокомплекс, свиноферма)
   const pig = await queryOverpass(`
-    [out:json][timeout:90];
+    [out:json][timeout:60];
+    ${RUSSIA_AREA};
     (
-      node["farm"="pig"](${bbox});
-      way["farm"="pig"](${bbox});
-      node["landuse"="farm"]["name"~"свин|pig|свиновод",i](${bbox});
-      way["landuse"="farm"]["name"~"свин|pig|свиновод",i](${bbox});
+      node["name"~"свин",i](area.ru);
+      way["name"~"свин",i](area.ru);
     );
     out center 200;
   `, "pig_farm");
   all.push(...pig);
-  await sleep(2000);
+  await sleep(1500);
 
-  // 2. Poultry farms
+  // 2. Poultry farms — name contains "птиц" (птицефабрика, птицевод)
   const poultry = await queryOverpass(`
-    [out:json][timeout:90];
+    [out:json][timeout:60];
+    ${RUSSIA_AREA};
     (
-      node["farm"="poultry"](${bbox});
-      way["farm"="poultry"](${bbox});
-      node["landuse"="farm"]["name"~"птиц|poultry|бройлер",i](${bbox});
-      way["landuse"="farm"]["name"~"птиц|poultry|бройлер",i](${bbox});
-      node["industrial"="agriculture"]["name"~"птиц",i](${bbox});
+      node["name"~"птиц",i](area.ru);
+      way["name"~"птиц",i](area.ru);
     );
     out center 300;
   `, "poultry_farm");
   all.push(...poultry);
-  await sleep(2000);
+  await sleep(1500);
 
-  // 3. Cattle farms
+  // 3. Cattle/dairy farms — name contains "крс", "скот", "молочн", "коров"
   const cattle = await queryOverpass(`
-    [out:json][timeout:90];
+    [out:json][timeout:60];
+    ${RUSSIA_AREA};
     (
-      node["farm"="dairy"](${bbox});
-      way["farm"="dairy"](${bbox});
-      node["farm"="cattle"](${bbox});
-      way["farm"="cattle"](${bbox});
-      node["landuse"="farm"]["name"~"крс|скот|cattle|молочн",i](${bbox});
+      node["name"~"крс|скот|молочн|коров",i](area.ru);
+      way["name"~"крс|скот|молочн|коров",i](area.ru);
     );
     out center 200;
   `, "cattle_farm");
   all.push(...cattle);
-  await sleep(2000);
+  await sleep(1500);
 
-  // 4. Meat processing plants
+  // 4. Meat plants — name contains "мяс" (мясокомбинат, мясопереработка)
   const meat = await queryOverpass(`
-    [out:json][timeout:90];
+    [out:json][timeout:60];
+    ${RUSSIA_AREA};
     (
-      node["industrial"="meat"](${bbox});
-      way["industrial"="meat"](${bbox});
-      node["man_made"="works"]["name"~"мяс|meat|мясокомбинат",i](${bbox});
-      way["man_made"="works"]["name"~"мяс|meat|мясокомбинат",i](${bbox});
+      node["name"~"мяс",i](area.ru);
+      way["name"~"мяс",i](area.ru);
     );
-    out center 200;
+    out center 300;
   `, "meat_plant");
   all.push(...meat);
-  await sleep(2000);
+  await sleep(1500);
 
-  // 5. Slaughterhouses
+  // 5. Slaughterhouses — name contains "убой" or "бойня"
   const slaughter = await queryOverpass(`
-    [out:json][timeout:60];
+    [out:json][timeout:45];
+    ${RUSSIA_AREA};
     (
-      node["industrial"="slaughterhouse"](${bbox});
-      way["industrial"="slaughterhouse"](${bbox});
-      node["amenity"="animal_boarding"]["name"~"убой|бойн|slaughter",i](${bbox});
+      node["name"~"убой|бойн",i](area.ru);
+      way["name"~"убой|бойн",i](area.ru);
     );
     out center 100;
   `, "slaughterhouse");
   all.push(...slaughter);
-  await sleep(2000);
+  await sleep(1500);
 
-  // 6. Feed mills
+  // 6. Feed mills — name contains "комбикорм"
   const feed = await queryOverpass(`
-    [out:json][timeout:60];
+    [out:json][timeout:45];
+    ${RUSSIA_AREA};
     (
-      node["industrial"="mill"]["name"~"комбикорм|feed",i](${bbox});
-      way["industrial"="mill"]["name"~"комбикорм|feed",i](${bbox});
-      node["man_made"="works"]["name"~"комбикорм",i](${bbox});
+      node["name"~"комбикорм",i](area.ru);
+      way["name"~"комбикорм",i](area.ru);
     );
     out center 100;
   `, "feed_mill");
   all.push(...feed);
-  await sleep(2000);
+  await sleep(1500);
 
-  // 7. Veterinary clinics/facilities
+  // 7. Veterinary — amenity=veterinary (this tag IS used in Russia)
   const vet = await queryOverpass(`
-    [out:json][timeout:60];
+    [out:json][timeout:45];
+    ${RUSSIA_AREA};
     (
-      node["amenity"="veterinary"](${bbox});
-      way["amenity"="veterinary"](${bbox});
+      node["amenity"="veterinary"](area.ru);
+      way["amenity"="veterinary"](area.ru);
     );
     out center 500;
   `, "vet_clinic");
   all.push(...vet);
 
-  // 8. General farms (catch-all)
-  const farms = await queryOverpass(`
-    [out:json][timeout:90];
-    (
-      node["landuse"="farm"]["name"](${bbox});
-      way["landuse"="farm"]["name"](${bbox});
-    );
-    out center 500;
-  `, "farm");
-  // Only add farms with names that weren't already caught
-  const existingIds = new Set(all.map(e => e.id));
-  for (const f of farms) {
-    if (!existingIds.has(f.id)) all.push(f);
-  }
-
   return all;
 }
 
-// ─── Curated enterprises (top 80) ────────────────────────────
+// ─── Curated enterprises (top 65) ────────────────────────────
 
 const CURATED: Enterprise[] = [
-  // ─── Топ-20 свиноводческих комплексов ─────────────────────
+  // ─── Топ-15 свиноводческих комплексов ─────────────────────
   { id: "cur-1", name: "Мираторг — свиноводство", type: "pig_farm", lat: 50.59, lon: 36.58, region: "Белгородская обл.", capacity: "500000+ голов" },
   { id: "cur-2", name: "Русагро — свиноводство", type: "pig_farm", lat: 51.53, lon: 39.16, region: "Воронежская обл.", capacity: "300000+ голов" },
   { id: "cur-3", name: "Черкизово — свиноводство", type: "pig_farm", lat: 55.75, lon: 37.61, region: "Московская обл.", capacity: "250000+ голов" },
@@ -202,13 +195,13 @@ const CURATED: Enterprise[] = [
   { id: "cur-8", name: "Краснодарский свинокомплекс", type: "pig_farm", lat: 45.04, lon: 38.98, region: "Краснодарский край", capacity: "100000+ голов" },
   { id: "cur-9", name: "Тамбовские фермы", type: "pig_farm", lat: 52.72, lon: 41.45, region: "Тамбовская обл.", capacity: "100000+ голов" },
   { id: "cur-10", name: "Курский свинокомплекс", type: "pig_farm", lat: 51.73, lon: 36.19, region: "Курская обл.", capacity: "80000+ голов" },
-  { id: "cur-11", name: "Белгородские свинофермы", type: "pig_farm", lat: 50.41, lon: 37.51, region: "Белгородская обл." },
-  { id: "cur-12", name: "Тюменский свинокомплекс", type: "pig_farm", lat: 57.15, lon: 65.53, region: "Тюменская обл." },
-  { id: "cur-13", name: "Алтайский свинокомплекс", type: "pig_farm", lat: 53.35, lon: 83.78, region: "Алтайский край" },
-  { id: "cur-14", name: "Вологодский свинокомплекс", type: "pig_farm", lat: 59.22, lon: 39.89, region: "Вологодская обл." },
-  { id: "cur-15", name: "Дальневосточный свинокомплекс", type: "pig_farm", lat: 43.35, lon: 132.07, region: "Приморский край" },
+  { id: "cur-11", name: "Тюменский свинокомплекс", type: "pig_farm", lat: 57.15, lon: 65.53, region: "Тюменская обл." },
+  { id: "cur-12", name: "Алтайский свинокомплекс", type: "pig_farm", lat: 53.35, lon: 83.78, region: "Алтайский край" },
+  { id: "cur-13", name: "Вологодский свинокомплекс", type: "pig_farm", lat: 59.22, lon: 39.89, region: "Вологодская обл." },
+  { id: "cur-14", name: "Дальневосточный свинокомплекс", type: "pig_farm", lat: 43.35, lon: 132.07, region: "Приморский край" },
+  { id: "cur-15", name: "Племзавод «Большевик» (свиноводство)", type: "pig_farm", lat: 51.73, lon: 36.19, region: "Курская обл." },
 
-  // ─── Топ-20 птицефабрик ──────────────────────────────────
+  // ─── Топ-15 птицефабрик ──────────────────────────────────
   { id: "cur-16", name: "Приосколье — птицеводство", type: "poultry_farm", lat: 50.41, lon: 37.51, region: "Белгородская обл.", capacity: "млн+ голов" },
   { id: "cur-17", name: "БЕЛГРАНКОРМ — птицеводство", type: "poultry_farm", lat: 50.59, lon: 36.58, region: "Белгородская обл." },
   { id: "cur-18", name: "Уралбройлер", type: "poultry_farm", lat: 56.02, lon: 60.58, region: "Челябинская обл." },
@@ -247,43 +240,54 @@ const CURATED: Enterprise[] = [
   { id: "cur-47", name: "Заречное (КРС)", type: "cattle_farm", lat: 51.53, lon: 39.16, region: "Воронежская обл." },
   { id: "cur-48", name: "Агрокомплекс Кургансемена (КРС)", type: "cattle_farm", lat: 55.44, lon: 65.34, region: "Курганская обл." },
   { id: "cur-49", name: "Калужский КРС комплекс", type: "cattle_farm", lat: 54.51, lon: 36.26, region: "Калужская обл." },
-  { id: "cur-50", name: "Брянский мясокомбинат КРС", type: "cattle_farm", lat: 53.24, lon: 34.37, region: "Брянская обл." },
+  { id: "cur-50", name: "Племзавод «Россия» (КРС)", type: "cattle_farm", lat: 51.22, lon: 39.18, region: "Воронежская обл." },
+  { id: "cur-51", name: "Племзавод «Красноозерский»", type: "cattle_farm", lat: 53.97, lon: 80.08, region: "Новосибирская обл." },
+  { id: "cur-52", name: "Племзавод «Ирмень»", type: "cattle_farm", lat: 55.05, lon: 82.50, region: "Новосибирская обл." },
 
   // ─── Молочные комбинаты ───────────────────────────────────
-  { id: "cur-51", name: "Данон Россия", type: "dairy", lat: 55.75, lon: 37.61, region: "Москва" },
-  { id: "cur-52", name: "Вимм-Билль-Данн", type: "dairy", lat: 55.75, lon: 37.61, region: "Москва" },
-  { id: "cur-53", name: "Молвест", type: "dairy", lat: 51.66, lon: 39.20, region: "Воронежская обл." },
-  { id: "cur-54", name: "Простоквашино", type: "dairy", lat: 56.85, lon: 60.61, region: "Свердловская обл." },
-  { id: "cur-55", name: "Беллакт", type: "dairy", lat: 53.90, lon: 27.57, region: "Республика Беларусь" },
+  { id: "cur-53", name: "Данон Россия", type: "dairy", lat: 55.75, lon: 37.61, region: "Москва" },
+  { id: "cur-54", name: "Вимм-Билль-Данн", type: "dairy", lat: 55.75, lon: 37.61, region: "Москва" },
+  { id: "cur-55", name: "Молвест", type: "dairy", lat: 51.66, lon: 39.20, region: "Воронежская обл." },
+  { id: "cur-56", name: "Простоквашино", type: "dairy", lat: 56.85, lon: 60.61, region: "Свердловская обл." },
 
   // ─── Животноводческие рынки ───────────────────────────────
-  { id: "cur-56", name: "Сенная ярмарка (скотный рынок)", type: "market", lat: 51.53, lon: 39.16, region: "Воронежская обл." },
-  { id: "cur-57", name: "Тушинский скотный рынок", type: "market", lat: 55.82, lon: 37.46, region: "Москва" },
-  { id: "cur-58", name: "Казанская ярмарка", type: "market", lat: 55.79, lon: 49.12, region: "Республика Татарстан" },
-
-  // ─── Племенные заводы ─────────────────────────────────────
-  { id: "cur-59", name: "Племзавод «Россия» (КРС)", type: "cattle_farm", lat: 51.22, lon: 39.18, region: "Воронежская обл." },
-  { id: "cur-60", name: "Племзавод «Большевик» (свиноводство)", type: "pig_farm", lat: 51.73, lon: 36.19, region: "Курская обл." },
-  { id: "cur-61", name: "Племзавод «Красноозерский»", type: "cattle_farm", lat: 53.97, lon: 80.08, region: "Новосибирская обл." },
-  { id: "cur-62", name: "Племзавод «Ирмень»", type: "cattle_farm", lat: 55.05, lon: 82.50, region: "Новосибирская обл." },
+  { id: "cur-57", name: "Сенная ярмарка (скотный рынок)", type: "market", lat: 51.53, lon: 39.16, region: "Воронежская обл." },
+  { id: "cur-58", name: "Тушинский скотный рынок", type: "market", lat: 55.82, lon: 37.46, region: "Москва" },
+  { id: "cur-59", name: "Казанская ярмарка", type: "market", lat: 55.79, lon: 49.12, region: "Республика Татарстан" },
 
   // ─── Комбикормовые заводы ─────────────────────────────────
-  { id: "cur-63", name: "Комбикормовый завод «Воронежский»", type: "feed_mill", lat: 51.66, lon: 39.20, region: "Воронежская обл." },
-  { id: "cur-64", name: "Комбикормовый завод «ТопПро»", type: "feed_mill", lat: 55.75, lon: 37.61, region: "Москва" },
-  { id: "cur-65", name: "Сибирский комбикормовый завод", type: "feed_mill", lat: 55.03, lon: 82.92, region: "Новосибирская обл." },
+  { id: "cur-60", name: "Комбикормовый завод «Воронежский»", type: "feed_mill", lat: 51.66, lon: 39.20, region: "Воронежская обл." },
+  { id: "cur-61", name: "Комбикормовый завод «ТопПро»", type: "feed_mill", lat: 55.75, lon: 37.61, region: "Москва" },
+  { id: "cur-62", name: "Сибирский комбикормовый завод", type: "feed_mill", lat: 55.03, lon: 82.92, region: "Новосибирская обл." },
 ];
+
+// ─── Russia bounding box (final filter) ──────────────────────
+function isInRussia(lat: number, lon: number): boolean {
+  // Mainland Russia
+  if (lat >= 41 && lat <= 82 && lon >= 28 && lon <= 180) return true;
+  // Kaliningrad exclave
+  if (lat >= 54 && lat <= 56 && lon >= 19 && lon <= 23) return true;
+  return false;
+}
 
 // ─── Main ────────────────────────────────────────────────────
 
 async function main() {
-  console.log("=== OSINT: Agricultural Enterprises (expanded) ===\n");
+  console.log("=== OSINT: Agricultural Enterprises in Russia ===\n");
 
   const osmData = await queryAllCategories();
-  console.log(`\n  Total OSM results: ${osmData.length}`);
+  console.log(`\n  Total OSM results (raw): ${osmData.length}`);
 
-  // Deduplicate OSM by name
+  // Filter to Russia only (paranoid check)
+  const ruOnly = osmData.filter((e) => isInRussia(e.lat, e.lon));
+  console.log(`  After Russia filter: ${ruOnly.length}`);
+  if (ruOnly.length < osmData.length) {
+    console.log(`  (filtered out ${osmData.length - ruOnly.length} non-RU entries)`);
+  }
+
+  // Deduplicate by name (case-insensitive)
   const seenNames = new Set<string>();
-  const dedupedOsm = osmData.filter(e => {
+  const dedupedOsm = ruOnly.filter(e => {
     const key = e.name.toLowerCase().trim();
     if (seenNames.has(key)) return false;
     seenNames.add(key);

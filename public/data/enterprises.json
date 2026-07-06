@@ -1,26 +1,11 @@
 {
-  "updated": "2026-06-24",
+  "updated": "2026-07-06",
   "sources": [
     "openstreetmap",
     "curated"
   ],
-  "total": 59,
+  "total": 50,
   "enterprises": [
-    {
-      "id": "osm-355571404",
-      "name": "FH Roleski",
-      "type": "meat_plant",
-      "lat": 49.9874511,
-      "lon": 20.9096953,
-      "tags": {
-        "building": "industrial",
-        "building:levels": "1",
-        "industrial": "meat",
-        "landuse": "industrial",
-        "name": "FH Roleski",
-        "source:building": "BDOT"
-      }
-    },
     {
       "id": "osm-333796742",
       "name": "Firma de Producție și Comerț „Rogob”",
@@ -41,115 +26,6 @@
       }
     },
     {
-      "id": "osm-701130006",
-      "name": "Hurtownia wędlin HAWED",
-      "type": "meat_plant",
-      "lat": 50.8789247,
-      "lon": 20.6518473,
-      "tags": {
-        "industrial": "meat",
-        "landuse": "industrial",
-        "name": "Hurtownia wędlin HAWED"
-      }
-    },
-    {
-      "id": "osm-1149447113",
-      "name": "Kanniston Kotieläintila",
-      "type": "farm",
-      "lat": 60.9585515,
-      "lon": 22.9049644,
-      "tags": {
-        "accommodation": "yes",
-        "addr:city": "Loimaa",
-        "addr:housenumber": "172",
-        "addr:postcode": "32440",
-        "addr:street": "Kannistontie",
-        "animals": "yes",
-        "charge": "5 EUR",
-        "email": "info@kannistontila.fi",
-        "farm": "organic",
-        "fee": "yes",
-        "food": "organic",
-        "image": "http://kannisto.kuvat.fi",
-        "name": "Kanniston Kotieläintila",
-        "name:de": "Kannisto Haustierhof",
-        "name:en": "Kannisto Domestic Animal Farm",
-        "name:et": "Kannisto Turismitalu",
-        "name:fr": "Ferme D’Animaux Domestiques Kannisto",
-        "name:sv": "Kannisto Landgård",
-        "opening_hours": "Mo-Su 09:00-20:00",
-        "payment:cash": "yes",
-        "payment:credit_cards": "yes",
-        "payment:debit_cards": "yes",
-        "payment:mastercard": "yes",
-        "payment:visa": "yes",
-        "phone": "040 716 3945",
-        "tourism": "zoo",
-        "website": "https://www.kannistontila.fi/",
-        "zoo": "petting_zoo"
-      }
-    },
-    {
-      "id": "osm-12459701014",
-      "name": "Kardrob",
-      "type": "farm",
-      "lat": 51.950994,
-      "lon": 21.2100207,
-      "tags": {
-        "email": "ferma.kardrob@gmail.com",
-        "farm": "eggs",
-        "name": "Kardrob",
-        "phone": "+48 609 050 004",
-        "shop": "farm",
-        "website": "https://kardrob.pl/"
-      }
-    },
-    {
-      "id": "osm-9905384289",
-      "name": "Kokodrob - Ferma Kur Niosek",
-      "type": "farm",
-      "lat": 51.9517985,
-      "lon": 21.2102179,
-      "tags": {
-        "email": "kokodrob@op.pl",
-        "farm": "eggs",
-        "name": "Kokodrob - Ferma Kur Niosek",
-        "phone": "+48 605 095 253",
-        "shop": "farm",
-        "website": "https://kokodrob.pl/"
-      }
-    },
-    {
-      "id": "osm-1745610530",
-      "name": "Metsä-Mäkelä",
-      "type": "farm",
-      "lat": 60.707778,
-      "lon": 25.774456,
-      "tags": {
-        "addr:housename": "Metsä-Mäkelä",
-        "addr:housenumber": "184",
-        "addr:postcode": "07600",
-        "addr:street": "Niemeläntie",
-        "building": "house",
-        "farm": "Metsä-Mäkelä",
-        "name": "Metsä-Mäkelä",
-        "place": "locality"
-      }
-    },
-    {
-      "id": "osm-2863259933",
-      "name": "Milex Meat Sp. z o.o. Zakład Przemysłu Mięsnego",
-      "type": "meat_plant",
-      "lat": 51.9000457,
-      "lon": 19.6525663,
-      "tags": {
-        "industrial": "meat",
-        "name": "Milex Meat Sp. z o.o. Zakład Przemysłu Mięsnego",
-        "phone": "+48 42 715 05 54",
-        "website": "https://www.milex-meat.eu/"
-      }
-    },
-    {
       "id": "osm-342264674",
       "name": "Puișorul de aur",
       "type": "meat_plant",
@@ -161,30 +37,6 @@
         "name": "Puișorul de aur",
         "name:ru": "Золотой цыпленок",
         "name:uk": "Золоте курча"
-      }
-    },
-    {
-      "id": "osm-1027482223",
-      "name": "Roleski Sp.J",
-      "type": "meat_plant",
-      "lat": 49.9872358,
-      "lon": 20.9111986,
-      "tags": {
-        "industrial": "meat",
-        "landuse": "industrial",
-        "name": "Roleski Sp.J"
-      }
-    },
-    {
-      "id": "osm-1303065353",
-      "name": "Zakłady mięsne Biela",
-      "type": "meat_plant",
-      "lat": 49.4426446,
-      "lon": 19.9121892,
-      "tags": {
-        "industrial": "meat",
-        "landuse": "industrial",
-        "name": "Zakłady mięsne Biela"
       }
     },
     {
