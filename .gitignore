@@ -69,7 +69,9 @@ prisma/migrations/dev/
 
 # Scraping temp
 scripts/scrape/.cache/
+scripts/scrape/.cache
 scripts/scrape/raw-html/
+scripts/scrape/raw-html
 
 # Misc
 .zscripts/

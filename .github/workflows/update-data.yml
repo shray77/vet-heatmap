@@ -42,10 +42,21 @@ jobs:
       - name: Check for changes
         id: changes
         run: |
-          if git diff --quiet public/data/outbreaks.json; then
-            echo "changed=false" >> $GITHUB_OUTPUT
+          # Track both outbreak + enterprise datasets.
+          # Use --quiet (exit 0 = no changes, 1 = changes present).
+          changed=0
+          for f in public/data/outbreaks.json public/data/enterprises.json; do
+            if [ -f "$f" ]; then
+              if ! git diff --no-color --quiet -- "$f"; then
+                changed=1
+                echo "  changed: $f"
+              fi
+            fi
+          done
+          if [ "$changed" = "1" ]; then
+            echo "changed=true" >> "$GITHUB_OUTPUT"
           else
-            echo "changed=true" >> $GITHUB_OUTPUT
+            echo "changed=false" >> "$GITHUB_OUTPUT"
           fi
 
       - name: Commit updated data
@@ -53,11 +64,31 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add public/data/outbreaks.json
-          git commit -m "chore(data): refresh outbreak dataset [skip ci]
+
+          # Explicit file list — never use `git add -A` / `git add .`
+          # because scripts/scrape/.cache/ is gitignored and would
+          # cause "fatal: pathspec did not match any files" or
+          # "The following paths are ignored by one of your .gitignore files".
+          FILES_TO_ADD=()
+          for f in public/data/outbreaks.json public/data/enterprises.json; do
+            if [ -f "$f" ]; then
+              FILES_TO_ADD+=("$f")
+            fi
+          done
+
+          if [ "${#FILES_TO_ADD[@]}" -eq 0 ]; then
+            echo "No data files to add — skipping commit."
+            exit 0
+          fi
+
+          printf 'Adding files:\n'
+          printf '  %s\n' "${FILES_TO_ADD[@]}"
+
+          git add -- "${FILES_TO_ADD[@]}"
+          git commit -m "chore(data): refresh outbreak + enterprise datasets [skip ci]
 
           Scraper run: $(date -u +'%Y-%m-%d %H:%M UTC')
-          Sources: fsvps.gov.ru + wahis.woah.org + curated
+          Sources: fsvps.gov.ru + wahis.woah.org + curated + OSM Overpass
           "
           git push
 
