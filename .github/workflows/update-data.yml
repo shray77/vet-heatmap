@@ -33,6 +33,9 @@ jobs:
       - name: Post-process (infer regions + federal districts)
         run: python3 scripts/post-process.py || true
 
+      - name: Geocode (Nominatim + region centroids)
+        run: python3 scripts/geocode.py || true
+
       - name: Check for changes
         id: changes
         run: |

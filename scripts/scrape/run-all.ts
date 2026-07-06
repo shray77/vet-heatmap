@@ -155,7 +155,9 @@ async function main() {
           status,
           source: "fsvps" as const,
           source_url: raw.url,
-          notes: raw.title,
+          notes: raw.body_text || raw.title,
+          municipality: (raw as any).detected_municipality ?? undefined,
+          settlements: (raw as any).detected_settlements,
         };
       });
       sources.push({ source: "fsvps", outbreaks: histOutbreaksConverted });
