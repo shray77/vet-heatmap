@@ -267,15 +267,22 @@ export function OutbreakMap({
   }, [geo, outbreaks, showChoropleth, ready, resolvedTheme, onSelectRegion]);
 
   // ─── Outbreak markers ──────────────────────────────────────────────
-  // Use MapLibre circle layers for performance (HTML markers lag on mobile).
-  // Only use HTML markers for desktop (hover-capable devices) where popups are better.
+  // PERFORMANCE: Always use MapLibre circle layers + clustering.
+  // HTML markers were used previously on desktop for nicer popup UX,
+  // but with >500 outbreaks this created 1000+ DOM nodes + Popups +
+  // event listeners and crippled the page. Circle layers are GPU-rendered
+  // and handle 10k+ points smoothly. Popups still work via click handler.
+  // HTML markers are only used for tiny datasets (< 80 points) where the
+  // overhead is negligible and the UX gain is real.
   useEffect(() => {
     const map = mapRef.current;
     if (!map || !ready) return;
     if (!geo) return;
 
-    // Detect mobile (no hover, coarse pointer)
+    // Only fall back to HTML markers for very small datasets on
+    // hover-capable (desktop) devices.
     const isMobile = window.matchMedia("(hover: none), (pointer: coarse)").matches;
+    const useHtmlMarkers = !isMobile && outbreaks.length < 80;
 
     // Remove old HTML markers if any
     Object.values(markersRef.current).forEach((m) => m.remove());
@@ -332,7 +339,11 @@ export function OutbreakMap({
           id: o.id,
           disease: o.disease,
           disease_key: o.disease_key,
+          disease_group: o.disease_group,
           region: o.region,
+          region_geo: o.region_geo ?? "",
+          source: o.source,
+          notes: o.notes ?? "",
           date: o.date,
           status: o.status,
           cases: o.cases,
@@ -349,15 +360,74 @@ export function OutbreakMap({
 
     const geojson: GeoJSON.FeatureCollection = { type: "FeatureCollection", features };
 
-    if (isMobile) {
-      // ─── Mobile: use clustered circle layers ────────────────────
-      map.addSource("outbreaks-points", {
-        type: "geojson",
-        data: geojson,
-        cluster: true,
-        clusterMaxZoom: 12,
-        clusterRadius: 40,
-      });
+    if (useHtmlMarkers) {
+      // ─── Desktop with small dataset: use HTML markers (best popup UX) ─
+      for (const o of outbreaks) {
+        const color = diseaseColor(o.disease_key, o.disease_group);
+        const isOngoing = o.status === "Ongoing";
+
+        // Use precise coords if available, else region centroid
+        let lngLat: [number, number] | null = null;
+        if (typeof o.lon === "number" && typeof o.lat === "number"
+            && Number.isFinite(o.lon) && Number.isFinite(o.lat)
+            && !(o.lon === 0 && o.lat === 0)) {
+          lngLat = [o.lon, o.lat];
+        } else if (o.region_geo) {
+          const c = centroids.get(o.region_geo);
+          if (c && Number.isFinite(c[0]) && Number.isFinite(c[1]) && c[0] !== 0) {
+            lngLat = c;
+          }
+        }
+        if (!lngLat) continue;
+
+        // Build HTML element
+        const el = document.createElement("div");
+        el.className = `outbreak-marker${isOngoing ? " outbreak-marker--active" : ""}`;
+        el.style.cssText = `
+          width: ${8 + Math.min(Math.sqrt(o.cases) / 2, 18)}px;
+          height: ${8 + Math.min(Math.sqrt(o.cases) / 2, 18)}px;
+          border-radius: 50%;
+          background: ${color};
+          border: 2px solid ${isOngoing ? "#fff" : color};
+          box-shadow: 0 0 0 ${isOngoing ? "2px" : "1px"} ${color}88;
+          cursor: pointer;
+          --ripple-color: ${color}99;
+          ${isOngoing ? "" : ""}
+        `;
+
+        const popup = new Popup({ offset: 14, closeButton: true, maxWidth: "320px" }).setHTML(
+          buildPopupHTML(o),
+        );
+        popupsRef.current[o.id] = popup;
+
+        const marker = new Marker({ element: el }).setLngLat(lngLat).setPopup(popup).addTo(map);
+        el.addEventListener("click", (e) => {
+          e.stopPropagation();
+          onSelectOutbreak?.(o);
+        });
+        markersRef.current[o.id] = marker;
+      }
+
+      return () => {
+        Object.values(markersRef.current).forEach((m) => m.remove());
+        Object.values(popupsRef.current).forEach((p) => p.remove());
+        markersRef.current = {};
+        popupsRef.current = {};
+      };
+    }
+
+    // ─── Default: clustered circle layers (mobile OR large dataset) ────
+    map.addSource("outbreaks-points", {
+      type: "geojson",
+      data: geojson,
+      cluster: true,
+      clusterMaxZoom: 14,        // was 12 — keep clustering longer to avoid
+                                 // 886 individual points appearing too early
+      clusterRadius: 50,         // was 40 — denser clusters
+      clusterProperties: {       // aggregate counts for hover tooltip
+        ongoing: ["+", ["case", ["==", ["get", "isOngoing"], true], 1, 0]],
+      },
+    });
 
       // Cluster count circles
       map.addLayer({
@@ -435,9 +505,9 @@ export function OutbreakMap({
         },
       });
 
-      // Popup on tap
+      // Popup on click (works for both mobile tap and desktop click)
       const popup = new Popup({ closeButton: true, maxWidth: "300px" });
-      const onMobileClick = (e: maplibregl.MapMouseEvent) => {
+      const onPointClick = (e: maplibregl.MapMouseEvent) => {
         const f = e.features?.[0];
         if (!f) return;
         const p = f.properties as Record<string, unknown>;
@@ -451,77 +521,38 @@ export function OutbreakMap({
           deaths: p.deaths as number,
           species: p.species as string,
           disease_key: p.disease_key as Outbreak["disease_key"],
-          disease_group: "Multi-species" as Outbreak["disease_group"],
-          region_geo: "",
-          source: "fsvps" as Outbreak["source"],
-          notes: "",
+          disease_group: (p.disease_group as Outbreak["disease_group"]) ?? "Multi-species",
+          region_geo: (p.region_geo as string) ?? "",
+          source: (p.source as Outbreak["source"]) ?? "fsvps",
+          notes: (p.notes as string) ?? "",
         } as Outbreak);
         popup.setHTML(html).setLngLat(e.lngLat).addTo(map);
+
+        // Find the original outbreak object and call onSelectOutbreak
+        const id = p.id as number;
+        const o = outbreaks.find((x) => x.id === id);
+        if (o) onSelectOutbreak?.(o);
       };
-      map.on("click", "outbreaks-circle", onMobileClick);
-      map.on("click", "outbreaks-circle-active", onMobileClick);
+      map.on("click", "outbreaks-circle", onPointClick);
+      map.on("click", "outbreaks-circle-active", onPointClick);
+
+      // Cursor pointer on hover (desktop)
+      const onMouseEnter = () => { map.getCanvas().style.cursor = "pointer"; };
+      const onMouseLeave = () => { map.getCanvas().style.cursor = ""; };
+      map.on("mouseenter", "outbreaks-circle", onMouseEnter);
+      map.on("mouseleave", "outbreaks-circle", onMouseLeave);
+      map.on("mouseenter", "outbreaks-circle-active", onMouseEnter);
+      map.on("mouseleave", "outbreaks-circle-active", onMouseLeave);
 
       return () => {
-        map.off("click", "outbreaks-circle", onMobileClick);
-        map.off("click", "outbreaks-circle-active", onMobileClick);
+        map.off("click", "outbreaks-circle", onPointClick);
+        map.off("click", "outbreaks-circle-active", onPointClick);
+        map.off("mouseenter", "outbreaks-circle", onMouseEnter);
+        map.off("mouseleave", "outbreaks-circle", onMouseLeave);
+        map.off("mouseenter", "outbreaks-circle-active", onMouseEnter);
+        map.off("mouseleave", "outbreaks-circle-active", onMouseLeave);
         popup.remove();
       };
-    }
-
-    // ─── Desktop: use HTML markers (better popup UX) ──────────────
-    for (const o of outbreaks) {
-      const color = diseaseColor(o.disease_key, o.disease_group);
-      const isOngoing = o.status === "Ongoing";
-
-      // Use precise coords if available, else region centroid
-      let lngLat: [number, number] | null = null;
-      if (typeof o.lon === "number" && typeof o.lat === "number"
-          && Number.isFinite(o.lon) && Number.isFinite(o.lat)
-          && !(o.lon === 0 && o.lat === 0)) {
-        lngLat = [o.lon, o.lat];
-      } else if (o.region_geo) {
-        const c = centroids.get(o.region_geo);
-        // Guard against invalid centroids (anti-meridian wraparound → lng=0)
-        if (c && Number.isFinite(c[0]) && Number.isFinite(c[1]) && c[0] !== 0) {
-          lngLat = c;
-        }
-      }
-      if (!lngLat) continue;
-
-      // Build HTML element
-      const el = document.createElement("div");
-      el.className = `outbreak-marker${isOngoing ? " outbreak-marker--active" : ""}`;
-      el.style.cssText = `
-        width: ${8 + Math.min(Math.sqrt(o.cases) / 2, 18)}px;
-        height: ${8 + Math.min(Math.sqrt(o.cases) / 2, 18)}px;
-        border-radius: 50%;
-        background: ${color};
-        border: 2px solid ${isOngoing ? "#fff" : color};
-        box-shadow: 0 0 0 ${isOngoing ? "2px" : "1px"} ${color}88;
-        cursor: pointer;
-        --ripple-color: ${color}99;
-        ${isOngoing ? "" : ""}
-      `;
-
-      const popup = new Popup({ offset: 14, closeButton: true, maxWidth: "320px" }).setHTML(
-        buildPopupHTML(o),
-      );
-      popupsRef.current[o.id] = popup;
-
-      const marker = new Marker({ element: el }).setLngLat(lngLat).setPopup(popup).addTo(map);
-      el.addEventListener("click", (e) => {
-        e.stopPropagation();
-        onSelectOutbreak?.(o);
-      });
-      markersRef.current[o.id] = marker;
-    }
-
-    return () => {
-      Object.values(markersRef.current).forEach((m) => m.remove());
-      Object.values(popupsRef.current).forEach((p) => p.remove());
-      markersRef.current = {};
-      popupsRef.current = {};
-    };
   }, [outbreaks, geo, ready, onSelectOutbreak]);
 
   // ─── Risk zones (only visible when zoomed in) ──────────────────────
@@ -542,17 +573,19 @@ export function OutbreakMap({
 
     if (!showRiskZones) return;
 
-    // Only show risk zones when zoomed in (zoom > 6 ≈ region level)
+    // PERFORMANCE: only show risk zones when zoomed in (zoom > 7 ≈ district level).
+    // Was 6 — too low, drew 2658+ polygons for 886 ongoing outbreaks at
+    // country-level zoom where they overlap into meaningless noise.
     const currentZoom = map.getZoom();
-    if (currentZoom < 6) return;
+    if (currentZoom < 7) return;
 
     // Scale zone visibility based on zoom level
-    // zoom 6-8: only protection (3-5km) — barely visible, small dots
-    // zoom 8-10: protection + surveillance
-    // zoom 10+: all three zones
-    const showProtection = currentZoom >= 6;
-    const showSurveillance = currentZoom >= 8;
-    const showRestriction = currentZoom >= 10;
+    // zoom 7-9:  only protection (3-5km) — barely visible, small dots
+    // zoom 9-11: protection + surveillance
+    // zoom 11+:  all three zones
+    const showProtection = currentZoom >= 7;
+    const showSurveillance = currentZoom >= 9;
+    const showRestriction = currentZoom >= 11;
 
     // Build circles for ongoing outbreaks only
     const ongoing = outbreaks.filter((o) => o.status === "Ongoing");
@@ -560,12 +593,30 @@ export function OutbreakMap({
 
     // Limit to visible area for performance
     const bounds = map.getBounds();
-    const visible = ongoing.filter((o) => {
+    let visible = ongoing.filter((o) => {
       const center = getOutbreakCenter(o, geo);
       if (!center) return false;
       return center[0] >= bounds.getWest() - 2 && center[0] <= bounds.getEast() + 2 &&
              center[1] >= bounds.getSouth() - 2 && center[1] <= bounds.getNorth() + 2;
     });
+
+    // PERFORMANCE: cap at 60 nearest outbreaks to avoid drawing 180+ polygons
+    // when zoomed out at region level. 60 × 3 zones = 180 polygons max.
+    const MAX_RISK_ZONE_OUTBREAKS = 60;
+    if (visible.length > MAX_RISK_ZONE_OUTBREAKS) {
+      // Sort by distance to map center (closer first)
+      const center = map.getCenter();
+      visible.sort((a, b) => {
+        const ca = getOutbreakCenter(a, geo);
+        const cb = getOutbreakCenter(b, geo);
+        if (!ca) return 1;
+        if (!cb) return -1;
+        const da = (ca[0] - center.lng) ** 2 + (ca[1] - center.lat) ** 2;
+        const db = (cb[0] - center.lng) ** 2 + (cb[1] - center.lat) ** 2;
+        return da - db;
+      });
+      visible = visible.slice(0, MAX_RISK_ZONE_OUTBREAKS);
+    }
 
     const features: GeoJSON.Feature[] = [];
     for (const o of visible) {
@@ -650,20 +701,36 @@ export function OutbreakMap({
         if (map.getSource("risk-zones")) map.removeSource("risk-zones");
 
         const currentZoom = map.getZoom();
-        if (currentZoom < 6) return;
+        if (currentZoom < 7) return;
 
-        const showProtection = currentZoom >= 6;
-        const showSurveillance = currentZoom >= 8;
-        const showRestriction = currentZoom >= 10;
+        const showProtection = currentZoom >= 7;
+        const showSurveillance = currentZoom >= 9;
+        const showRestriction = currentZoom >= 11;
 
         const ongoing = outbreaks.filter((o) => o.status === "Ongoing");
         const bounds = map.getBounds();
-        const visible = ongoing.filter((o) => {
+        let visible = ongoing.filter((o) => {
           const center = getOutbreakCenter(o, geo);
           if (!center) return false;
           return center[0] >= bounds.getWest() - 2 && center[0] <= bounds.getEast() + 2 &&
                  center[1] >= bounds.getSouth() - 2 && center[1] <= bounds.getNorth() + 2;
         });
+
+        // PERFORMANCE: cap at 60 nearest outbreaks (same as initial render)
+        const MAX_RISK_ZONE_OUTBREAKS = 60;
+        if (visible.length > MAX_RISK_ZONE_OUTBREAKS) {
+          const mapCenter = map.getCenter();
+          visible.sort((a, b) => {
+            const ca = getOutbreakCenter(a, geo);
+            const cb = getOutbreakCenter(b, geo);
+            if (!ca) return 1;
+            if (!cb) return -1;
+            const da = (ca[0] - mapCenter.lng) ** 2 + (ca[1] - mapCenter.lat) ** 2;
+            const db = (cb[0] - mapCenter.lng) ** 2 + (cb[1] - mapCenter.lat) ** 2;
+            return da - db;
+          });
+          visible = visible.slice(0, MAX_RISK_ZONE_OUTBREAKS);
+        }
 
         const features: GeoJSON.Feature[] = [];
         for (const o of visible) {
