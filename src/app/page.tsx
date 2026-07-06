@@ -30,7 +30,6 @@ import {
   Play,
   MapPin,
   Zap,
-  GitCompare,
   Download,
   Bell,
 } from "lucide-react";
@@ -140,7 +139,7 @@ function HomeContent() {
   const [regionDrillDown, setRegionDrillDown] = useState<string | null>(null);
   const [regionDrillDownOpen, setRegionDrillDownOpen] = useState(false);
   const [timelineRange, setTimelineRange] = useState<{from: string | null, to: string | null}>({from: null, to: null});
-  const [compareOpen, setCompareOpen] = useState(false);
+  
   // Region centroids for "nearby" calculation (computed once geo is loaded)
   const regionCentroids = useMemo(() => {
     const m = new Map<string, [number, number]>();
@@ -338,9 +337,7 @@ function HomeContent() {
               <Calculator className="h-4 w-4 mr-1" />
               Карантин
             </Button>
-            <Button variant="outline" size="sm" onClick={() => setCompareOpen(true)}>
-              <GitCompare className="h-4 w-4 mr-1" />Сравнить
-            </Button>
+
             <Button variant="outline" size="sm" onClick={() => setSirOpen(true)}>
               <Beaker className="h-4 w-4 mr-1" />SIR
             </Button>
@@ -407,9 +404,7 @@ function HomeContent() {
                 <DropdownMenuItem onClick={() => setAlertOpen(true)}>
                   <Bell className="h-4 w-4 mr-2" /> Уведомления
                 </DropdownMenuItem>
-                <DropdownMenuItem onClick={() => setCompareOpen(true)}>
-                  <GitCompare className="h-4 w-4 mr-2" /> Сравнить болезни
-                </DropdownMenuItem>
+
                 <DropdownMenuSeparator />
                 <DropdownMenuItem onClick={() => setAboutOpen(true)}>
                   <Info className="h-4 w-4 mr-2" /> О проекте
@@ -635,7 +630,7 @@ function HomeContent() {
         outbreaks={data?.outbreaks ?? []}
         regionCentroids={regionCentroids}
       />
-      <DiseaseComparison open={compareOpen} onOpenChange={setCompareOpen} />      <AboutDialog open={aboutOpen} onOpenChange={setAboutOpen} />
+      <AboutDialog open={aboutOpen} onOpenChange={setAboutOpen} />
     </main>
   );
 }

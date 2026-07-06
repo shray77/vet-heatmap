@@ -7,11 +7,15 @@ import { ThemeProvider } from "@/components/theme-provider";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin", "cyrillic"],
+  preload: false,
+  display: "swap",
 });
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin", "cyrillic"],
+  preload: false,
+  display: "swap",
 });
 
 const siteUrl = "https://shray77.github.io/vet-heatmap";
