@@ -112,8 +112,15 @@ REGION_CENTROIDS = {
     "Orenburg": (55.1, 51.8),
 }
 
-# Cache file
-CACHE_PATH = Path("/home/z/my-project/repos/vet-heatmap/scripts/.cache/geocode_cache.json")
+# Resolve all paths relative to the repo root (parent of scripts/).
+# Hardcoded absolute paths broke GitHub Actions runs because the runner
+# checks out to /home/runner/work/<repo>/<repo>/, not /home/z/...
+REPO_ROOT = Path(__file__).resolve().parent.parent
+DATA_PATH = REPO_ROOT / "public/data/outbreaks.json"
+REGIONS_TS_PATH = REPO_ROOT / "src/data/regions.ts"
+
+# Cache file (gitignored — see .gitignore)
+CACHE_PATH = REPO_ROOT / "scripts/.cache/geocode_cache.json"
 
 def load_cache():
     if CACHE_PATH.exists():
@@ -166,7 +173,7 @@ def get_region_centroid(region_geo: str, region_ru: str = "") -> tuple[float, fl
     # Try Russian name → English mapping
     if region_ru:
         import re
-        content = Path("/home/z/my-project/repos/vet-heatmap/src/data/regions.ts").read_text()
+        content = REGIONS_TS_PATH.read_text()
         for m in re.finditer(r'"([^"]+)":\s*"([^"]+)"', content):
             if m.group(1) == region_ru:
                 coords = REGION_CENTROIDS.get(m.group(2))
@@ -175,8 +182,7 @@ def get_region_centroid(region_geo: str, region_ru: str = "") -> tuple[float, fl
     return None
 
 def main():
-    data_path = Path("/home/z/my-project/repos/vet-heatmap/public/data/outbreaks.json")
-    data = json.loads(data_path.read_text())
+    data = json.loads(DATA_PATH.read_text())
     outbreaks = data["outbreaks"]
 
     cache = load_cache()
@@ -253,8 +259,8 @@ def main():
     print(f"Cache saved: {len(cache)} entries")
 
     # Write data
-    data_path.write_text(json.dumps(data, ensure_ascii=False, indent=2))
-    print(f"Written {len(outbreaks)} outbreaks to {data_path}")
+    DATA_PATH.write_text(json.dumps(data, ensure_ascii=False, indent=2))
+    print(f"Written {len(outbreaks)} outbreaks to {DATA_PATH}")
 
 if __name__ == "__main__":
     main()

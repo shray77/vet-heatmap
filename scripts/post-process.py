@@ -9,7 +9,15 @@ import json
 import re
 from collections import defaultdict
 from pathlib import Path
-from datetime import datetime, timedelta
+from datetime import datetime
+
+# Resolve all paths relative to the repo root (parent of scripts/).
+# Hardcoded absolute paths broke GitHub Actions runs because the runner
+# checks out to /home/runner/work/<repo>/<repo>/, not /home/z/...
+REPO_ROOT = Path(__file__).resolve().parent.parent
+DATA_PATH = REPO_ROOT / "public/data/outbreaks.json"
+REGIONS_TS_PATH = REPO_ROOT / "src/data/regions.ts"
+
 
 def parse_date(s):
     try:
@@ -18,12 +26,11 @@ def parse_date(s):
         return None
 
 def main():
-    data_path = Path("/home/z/my-project/repos/vet-heatmap/public/data/outbreaks.json")
-    data = json.loads(data_path.read_text())
+    data = json.loads(DATA_PATH.read_text())
     outbreaks = data["outbreaks"]
-    
+
     # Load region → federal_district mapping from regions.ts
-    regions_ts = Path("/home/z/my-project/repos/vet-heatmap/src/data/regions.ts").read_text()
+    regions_ts = REGIONS_TS_PATH.read_text()
     
     # Parse REGION_PROPERTIES to get shapeName → federal_district
     fd_map = {}
@@ -74,11 +81,11 @@ def main():
             
             # Strategy 1: Find closest FSVPS outbreak with same disease within ±90 days
             best_match = None
-            best_diff = timedelta(days=999)
+            best_diff = 999  # days
             for fsvps_date, fsvps_region in fsvps_lookup.get(o_disease, []):
                 if fsvps_date and o_date:
                     diff = abs((fsvps_date - o_date).days)
-                    if diff < 90 and diff < best_diff.days:
+                    if diff < 90 and diff < best_diff:
                         best_diff = diff
                         best_match = fsvps_region
             
@@ -124,8 +131,8 @@ def main():
     with_mun = sum(1 for o in outbreaks if o.get("municipality"))
     print(f"\nMunicipalities: {with_mun}/{len(outbreaks)} outbreaks have municipality data")
     
-    data_path.write_text(json.dumps(data, ensure_ascii=False, indent=2))
-    print(f"\nWritten {len(outbreaks)} outbreaks to {data_path}")
+    DATA_PATH.write_text(json.dumps(data, ensure_ascii=False, indent=2))
+    print(f"\nWritten {len(outbreaks)} outbreaks to {DATA_PATH}")
 
 if __name__ == "__main__":
     main()

@@ -35,7 +35,14 @@ jobs:
         run: python3 scripts/post-process.py || true
 
       - name: Geocode (Nominatim + region centroids)
-        run: python3 scripts/geocode.py || true
+        run: timeout 240 python3 scripts/geocode.py || true
+
+      - name: Fast-geocode fallback (region centroid + jitter)
+        # Always runs — assigns coords to any outbreaks that still don't
+        # have lat/lon after the Nominatim pass (rate-limited, often times
+        # out in CI for 1000+ outbreaks). Uses region centroid + ±0.3°
+        # deterministic jitter so points don't stack at exact region center.
+        run: python3 scripts/fast-geocode.py
 
       - name: Scrape enterprises (Overpass + curated)
         run: timeout 120 bun run scripts/scrape/osint-enterprises.ts || true
