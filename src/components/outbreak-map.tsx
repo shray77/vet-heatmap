@@ -5,11 +5,19 @@ import maplibregl, { Map as MLMap, Popup, Marker, LngLatBoundsLike } from "mapli
 import "maplibre-gl/dist/maplibre-gl.css";
 import { useTheme } from "next-themes";
 
-import type { Outbreak, OutbreakDataset, DiseaseProfile } from "@/types/domain";
+import type { Outbreak, OutbreakDataset, DiseaseProfile, DiseaseKey, DiseaseGroup } from "@/types/domain";
 import { diseaseColor } from "@/lib/colors";
+import { DISEASE_LABELS } from "@/data/diseases-normalize";
 import { DISEASE_PROFILES_BY_KEY } from "@/data/disease-profiles";
 import { REGION_PROPERTIES } from "@/data/regions";
 import { speciesRu, sourceRu } from "@/lib/i18n-species";
+
+/** Safe color lookup that accepts string keys (cluster properties). */
+function diseaseColorSafe(key: string): string {
+  const labels = (DISEASE_LABELS as Record<string, { group: DiseaseGroup }>)[key];
+  if (labels) return diseaseColor(key as DiseaseKey, labels.group);
+  return "#757575";
+}
 
 const basePath = process.env.NODE_ENV === "production" ? "/vet-heatmap" : "";
 
@@ -119,6 +127,35 @@ export function OutbreakMap({
 
     mapRef.current = map;
 
+    // Listen for external "focus region" events (from SearchBox).
+    // Fly to the region's bounding-box center + appropriate zoom.
+    const onFocusRegion = (e: Event) => {
+      const shapeName = (e as CustomEvent<string>).detail;
+      if (!shapeName || !geo) return;
+      const f = geo.features.find(
+        (feat) => (feat.properties as { shapeName?: string }).shapeName === shapeName,
+      );
+      if (!f) return;
+      // Compute bbox of the region
+      let minX = Infinity, minY = Infinity, maxX = -Infinity, maxY = -Infinity;
+      const visit = (coords: unknown) => {
+        if (typeof (coords as number[])[0] === "number") {
+          const [x, y] = coords as number[];
+          minX = Math.min(minX, x);
+          minY = Math.min(minY, y);
+          maxX = Math.max(maxX, x);
+          maxY = Math.max(maxY, y);
+        } else if (Array.isArray(coords)) {
+          for (const c of coords) visit(c);
+        }
+      };
+      visit((f.geometry as { coordinates: unknown }).coordinates);
+      if (minX === Infinity) return;
+      const bounds: [[number, number], [number, number]] = [[minX, minY], [maxX, maxY]];
+      map.fitBounds(bounds, { padding: 40, maxZoom: 8, duration: 1200 });
+    };
+    window.addEventListener("vet:focusRegion", onFocusRegion as EventListener);
+
     // Resize observer — handles mobile URL bar show/hide + viewport changes
     if (mapContainer.current && typeof ResizeObserver !== "undefined") {
       const ro = new ResizeObserver(() => {
@@ -137,6 +174,7 @@ export function OutbreakMap({
     return () => {
       window.removeEventListener("resize", onWindowResize);
       window.removeEventListener("orientationchange", onWindowResize);
+      window.removeEventListener("vet:focusRegion", onFocusRegion as EventListener);
       resizeObserverRef.current?.disconnect();
       // cleanup markers
       Object.values(markersRef.current).forEach((m) => m.remove());
@@ -473,6 +511,78 @@ export function OutbreakMap({
         }
       });
 
+      // Cluster hover → popup with disease breakdown
+      const clusterPopup = new Popup({ closeButton: false, maxWidth: "240px", offset: 12 });
+      const onClusterEnter = (e: maplibregl.MapMouseEvent & { features?: maplibregl.MapGeoJSONFeature[] }) => {
+        const f = e.features?.[0];
+        if (!f) return;
+        map.getCanvas().style.cursor = "pointer";
+
+        const clusterId = (f.properties as { cluster_id?: number }).cluster_id;
+        const source = map.getSource("outbreaks-points") as maplibregl.GeoJSONSource;
+        if (!source || clusterId === undefined) return;
+
+        // Get all features in this cluster, then group by disease
+        source.getClusterLeaves(clusterId, 200, 0, (err, leaves) => {
+          if (err || !leaves || leaves.length === 0) return;
+          const byDisease = new Map<string, number>();
+          let ongoing = 0;
+          for (const lf of leaves) {
+            const p = lf.properties as { disease_key?: string; isOngoing?: boolean };
+            const key = p.disease_key ?? "other";
+            byDisease.set(key, (byDisease.get(key) ?? 0) + 1);
+            if (p.isOngoing) ongoing++;
+          }
+          // Sort by count desc, take top 5
+          const sorted = Array.from(byDisease.entries()).sort((a, b) => b[1] - a[1]).slice(0, 5);
+          const total = leaves.length;
+          const otherCount = total - sorted.reduce((s, [, c]) => s + c, 0);
+
+          const rows = sorted.map(([key, count]) => {
+            const labels = (DISEASE_LABELS as Record<string, { short_ru: string }>)[key];
+            const color = diseaseColorSafe(key);
+            const pct = Math.round((count / total) * 100);
+            return `
+              <div style="display:flex;align-items:center;gap:6px;font-size:11px;padding:2px 0;">
+                <span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:${color};"></span>
+                <span style="flex:1;color:#1f2937;">${labels?.short_ru ?? key}</span>
+                <span style="color:#6b7280;font-variant-numeric:tabular-nums;">${count} (${pct}%)</span>
+              </div>
+            `;
+          }).join("");
+          const otherRow = otherCount > 0
+            ? `<div style="display:flex;align-items:center;gap:6px;font-size:11px;padding:2px 0;color:#9ca3af;">
+                <span style="display:inline-block;width:8px;height:8px;"></span>
+                <span style="flex:1;">прочее</span>
+                <span style="font-variant-numeric:tabular-nums;">${otherCount}</span>
+              </div>`
+            : "";
+
+          const html = `
+            <div style="font-family:inherit;padding:2px;">
+              <div style="font-size:11px;font-weight:600;color:#1f2937;margin-bottom:4px;">
+                ${total} вспышек ${ongoing > 0 ? `· <span style="color:#dc2626;">${ongoing} активн.</span>` : ""}
+              </div>
+              ${rows}
+              ${otherRow}
+              <div style="font-size:10px;color:#9ca3af;margin-top:4px;border-top:1px solid #e5e7eb;padding-top:4px;">
+                клик — раскрыть кластер
+              </div>
+            </div>
+          `;
+          const geom = f.geometry;
+          if (geom && geom.type === "Point") {
+            clusterPopup.setHTML(html).setLngLat(geom.coordinates as [number, number]).addTo(map);
+          }
+        });
+      };
+      const onClusterLeave = () => {
+        map.getCanvas().style.cursor = "";
+        clusterPopup.remove();
+      };
+      map.on("mouseenter", "outbreaks-clusters", onClusterEnter);
+      map.on("mouseleave", "outbreaks-clusters", onClusterLeave);
+
       // Resolved outbreaks (smaller, dimmer) — unclustered only
       map.addLayer({
         id: "outbreaks-circle",
@@ -551,7 +661,10 @@ export function OutbreakMap({
         map.off("mouseleave", "outbreaks-circle", onMouseLeave);
         map.off("mouseenter", "outbreaks-circle-active", onMouseEnter);
         map.off("mouseleave", "outbreaks-circle-active", onMouseLeave);
+        map.off("mouseenter", "outbreaks-clusters", onClusterEnter);
+        map.off("mouseleave", "outbreaks-clusters", onClusterLeave);
         popup.remove();
+        clusterPopup.remove();
       };
   }, [outbreaks, geo, ready, onSelectOutbreak]);
 

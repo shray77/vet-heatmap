@@ -49,6 +49,9 @@ import { OutbreakSourceTracker } from "@/components/outbreak-source-tracker";
 import { TransportGraphAnalysis } from "@/components/transport-graph-analysis";
 import { PdfReportExport } from "@/components/pdf-report-export";
 import { CustomDataImport } from "@/components/custom-data-import";
+import { SearchBox } from "@/components/search-box";
+import { TodaySummary } from "@/components/today-summary";
+import { OutbreakDetailPanel } from "@/components/outbreak-detail-panel";
 import { EnterpriseRiskMonitor } from "@/components/enterprise-risk-monitor";
 import { SpatialSimulator } from "@/components/spatial-simulator";
 import { RegionDrillDown } from "@/components/region-drill-down";import { ThemeToggle } from "@/components/theme-toggle";
@@ -139,6 +142,10 @@ function HomeContent() {
   const [regionDrillDown, setRegionDrillDown] = useState<string | null>(null);
   const [regionDrillDownOpen, setRegionDrillDownOpen] = useState(false);
   const [timelineRange, setTimelineRange] = useState<{from: string | null, to: string | null}>({from: null, to: null});
+
+  // Outbreak detail panel (replaces small popup on marker click)
+  const [selectedOutbreak, setSelectedOutbreak] = useState<Outbreak | null>(null);
+  const [outbreakDetailOpen, setOutbreakDetailOpen] = useState(false);
   
   // Region centroids for "nearby" calculation (computed once geo is loaded)
   const regionCentroids = useMemo(() => {
@@ -179,8 +186,34 @@ function HomeContent() {
   const totalRegions = geo?.features.length ?? 85;
 
   const onSelectOutbreak = useCallback((o: Outbreak) => {
-    setDrawerDisease(o.disease_key);
-    setDrawerOpen(true);
+    // Open the new detail panel instead of just the disease drawer.
+    // Detail panel includes a "view disease profile" button that opens
+    // the DiseaseProfileDrawer as a secondary step.
+    setSelectedOutbreak(o);
+    setOutbreakDetailOpen(true);
+  }, []);
+
+  /** Focus the map on a region (called from search box). */
+  const focusRegion = useCallback((shapeName: string) => {
+    // Open region drill-down panel
+    setRegionDrillDown(shapeName);
+    setRegionDrillDownOpen(true);
+    // Also dispatch a custom event so OutbreakMap can fly to the region.
+    // (OutbreakMap listens for 'vet:focusRegion' events.)
+    window.dispatchEvent(new CustomEvent("vet:focusRegion", { detail: shapeName }));
+  }, []);
+
+  /** Toggle a disease filter (called from search box disease hit). */
+  const toggleDiseaseFilter = useCallback((key: DiseaseKey) => {
+    setFilters((f) => {
+      const isActive = f.diseases.includes(key);
+      return {
+        ...f,
+        diseases: isActive
+          ? f.diseases.filter((x) => x !== key)
+          : [...f.diseases, key],
+      };
+    });
   }, []);
 
   const onSelectRegion = useCallback((region: string) => {
@@ -251,6 +284,15 @@ function HomeContent() {
               <h1 className="text-sm md:text-lg font-bold leading-tight tracking-tight truncate">
                 <span className="text-primary">Вет</span>Карта
               </h1>
+            </div>
+            {/* Desktop search box */}
+            <div className="hidden md:block ml-3">
+              <SearchBox
+                outbreaks={data?.outbreaks ?? []}
+                onFocusRegion={focusRegion}
+                onSelectDisease={(k) => { setDrawerDisease(k); setDrawerOpen(true); }}
+                onToggleDiseaseFilter={toggleDiseaseFilter}
+              />
             </div>
           </div>
 
@@ -454,6 +496,7 @@ function HomeContent() {
             </Button>
             {DISEASE_PROFILES.slice(0, 10).map((p) => {
               const isActive = filters.diseases.includes(p.disease_key);
+              const isSolo = filters.diseases.length === 1 && isActive;
               const color = diseaseColor(p.disease_key, p.group);
               return (
                 <button
@@ -466,11 +509,22 @@ function HomeContent() {
                         : [...filters.diseases, p.disease_key],
                     })
                   }
+                  onDoubleClick={(e) => {
+                    e.preventDefault();
+                    // Solo: only this disease (or reset if already solo)
+                    setFilters({
+                      ...filters,
+                      diseases: isSolo ? [] : [p.disease_key],
+                    });
+                  }}
+                  title={`${p.name_ru} — клик: фильтр, двойной клик: только эта болезнь`}
                   className="h-7 px-2 rounded-md text-[11px] shrink-0 border transition-all flex items-center gap-1"
                   style={{
                     backgroundColor: isActive ? color : "transparent",
                     borderColor: isActive ? color : "var(--border)",
                     color: isActive ? "#fff" : "var(--foreground)",
+                    outline: isSolo ? `2px solid ${color}` : "none",
+                    outlineOffset: -1,
                   }}
                 >
                   <span className="w-1.5 h-1.5 rounded-full shrink-0" style={{ backgroundColor: color, opacity: isActive ? 0.7 : 1 }} />
@@ -481,6 +535,15 @@ function HomeContent() {
           </div>
         </div>
       </header>
+
+      {/* ─── Today summary strip (desktop only — mobile gets KPI orbs) ── */}
+      <div className="hidden md:block">
+        <TodaySummary
+          outbreaks={filtered}
+          totalRegionsWithOutbreaks={totalRegions}
+          onSelectDisease={(k) => { setDrawerDisease(k); setDrawerOpen(true); }}
+        />
+      </div>
 
       {/* ─── Body: map locked + sidebar scrolls ────────────────────── */}
       <div className="flex min-h-0 flex-1 overflow-hidden">
@@ -620,9 +683,20 @@ function HomeContent() {
         open={regionDrillDownOpen}
         onOpenChange={setRegionDrillDownOpen}
         onSelectOutbreak={(o) => {
-          setDrawerDisease(o.disease_key);
-          setDrawerOpen(true);
+          setSelectedOutbreak(o);
+          setOutbreakDetailOpen(true);
         }}
+        geo={geo}
+        enterprises={enterprises}
+      />
+      <OutbreakDetailPanel
+        outbreak={selectedOutbreak}
+        open={outbreakDetailOpen}
+        onOpenChange={setOutbreakDetailOpen}
+        outbreaks={data?.outbreaks ?? []}
+        enterprises={enterprises}
+        onSelectDisease={(k) => { setDrawerDisease(k); setDrawerOpen(true); }}
+        onSimulate={(o) => { setSirOpen(true); }}
       />
       <SpatialSimulator
         open={spatialOpen}

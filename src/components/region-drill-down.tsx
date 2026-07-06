@@ -1,5 +1,6 @@
 "use client";
 
+import { useMemo } from "react";
 import {
   Sheet,
   SheetContent,
@@ -24,6 +25,7 @@ import { diseaseColor } from "@/lib/colors";
 import { DISEASE_LABELS } from "@/data/diseases-normalize";
 import { speciesRu, sourceRu } from "@/lib/i18n-species";
 import { getRegionProperties } from "@/data/regions";
+import { RegionMiniMap, type EnterpriseLite } from "./region-mini-map";
 
 interface RegionDrillDownProps {
   region: string | null;
@@ -31,6 +33,10 @@ interface RegionDrillDownProps {
   open: boolean;
   onOpenChange: (v: boolean) => void;
   onSelectOutbreak?: (o: Outbreak) => void;
+  /** Full GeoJSON (all regions) — used to extract the selected region's polygon. */
+  geo?: GeoJSON.FeatureCollection | null;
+  /** Enterprises (filtered to this region internally). */
+  enterprises?: EnterpriseLite[];
 }
 
 export function RegionDrillDown({
@@ -39,6 +45,8 @@ export function RegionDrillDown({
   open,
   onOpenChange,
   onSelectOutbreak,
+  geo,
+  enterprises = [],
 }: RegionDrillDownProps) {
   if (!region) return null;
 
@@ -48,6 +56,15 @@ export function RegionDrillDown({
   const diseases = new Set(regionOutbreaks.map((o) => o.disease_key));
   const totalCases = regionOutbreaks.reduce((s, o) => s + o.cases, 0);
   const totalDeaths = regionOutbreaks.reduce((s, o) => s + o.deaths, 0);
+
+  // Extract just this region's polygon for the mini-map
+  const regionGeo = useMemo<GeoJSON.FeatureCollection>(() => {
+    if (!geo) return { type: "FeatureCollection", features: [] };
+    const features = geo.features.filter(
+      (f) => (f.properties as { shapeName?: string }).shapeName === region,
+    );
+    return { type: "FeatureCollection", features };
+  }, [geo, region]);
 
   return (
     <Sheet open={open} onOpenChange={onOpenChange}>
@@ -69,6 +86,19 @@ export function RegionDrillDown({
         </SheetHeader>
 
         <div className="space-y-4">
+          {/* Mini-map with outbreaks + enterprises + risk zones */}
+          {regionGeo.features.length > 0 && (
+            <RegionMiniMap
+              geo={regionGeo}
+              outbreaks={regionOutbreaks}
+              enterprises={enterprises}
+              onSelectOutbreak={(o) => {
+                onSelectOutbreak?.(o);
+                onOpenChange(false);
+              }}
+            />
+          )}
+
           {/* Stats summary */}
           <div className="grid grid-cols-2 gap-2">
             <Card className="p-2.5 flex items-center gap-2">
@@ -139,7 +169,7 @@ export function RegionDrillDown({
             <h4 className="text-xs font-semibold mb-2">
               Вспышки в регионе ({regionOutbreaks.length})
             </h4>
-            <div className="max-h-[50vh] overflow-y-auto thin-scroll">
+            <div className="max-h-[40vh] overflow-y-auto thin-scroll">
               <Table>
                 <TableHeader>
                   <TableRow className="hover:bg-transparent">

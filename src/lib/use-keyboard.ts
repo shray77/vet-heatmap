@@ -10,25 +10,25 @@ interface KeyboardShortcutsProps {
   onOpenSIR?: () => void;
   onResetFilters?: () => void;
   onToggleTheme?: () => void;
+  onToggleTimelinePlay?: () => void;
+  onOpenSearch?: () => void;
 }
 
 /**
  * Global keyboard shortcuts handler.
  *
  * Shortcuts:
- *   ?        — show about dialog
+ *   ?        — show about dialog (shortcut cheatsheet)
  *   f        — toggle mobile filters panel
  *   c        — open quarantine calculator
  *   n        — open "nearby outbreaks" dialog (geolocation)
  *   s        — open SIR simulator
  *   r        — reset all filters
  *   t        — toggle theme (light/dark/system)
- *   /        — focus search box in filter panel
+ *   /        — focus search box (autocomplete)
+ *   Space    — play/pause timeline slider
+ *   d        — toggle disease profile drawer (last viewed)
  *   Esc      — close any open dialog/drawer
- *
- * Shortcuts are ignored when:
- *   - User is typing in an input/textarea/select
- *   - User has a dialog open (handled by Esc only)
  */
 export function useKeyboardShortcuts({
   onOpenFilters,
@@ -38,6 +38,8 @@ export function useKeyboardShortcuts({
   onOpenSIR,
   onResetFilters,
   onToggleTheme,
+  onToggleTimelinePlay,
+  onOpenSearch,
 }: KeyboardShortcutsProps) {
   useEffect(() => {
     const handler = (e: KeyboardEvent) => {
@@ -54,7 +56,7 @@ export function useKeyboardShortcuts({
         }
       }
 
-      // Skip if any modifier is pressed
+      // Skip if any modifier is pressed (except Space which we use without modifiers)
       if (e.ctrlKey || e.metaKey || e.altKey) return;
 
       switch (e.key.toLowerCase()) {
@@ -88,16 +90,23 @@ export function useKeyboardShortcuts({
           break;
         case "/":
           e.preventDefault();
-          // Focus the first search input in the page
-          const search = document.querySelector<HTMLInputElement>(
-            'input[type="text"], input[placeholder*="Поиск"], input[placeholder*="поиск"]',
-          );
-          if (search) search.focus();
+          // Try the registered search focus method first, fall back to DOM query
+          const focusSearch = (window as unknown as { __focusVetSearch?: () => void }).__focusVetSearch;
+          if (focusSearch) {
+            focusSearch();
+          } else {
+            onOpenSearch?.();
+          }
+          break;
+        case " ":
+          // Space — toggle timeline play
+          e.preventDefault();
+          onToggleTimelinePlay?.();
           break;
       }
     };
 
     window.addEventListener("keydown", handler);
     return () => window.removeEventListener("keydown", handler);
-  }, [onOpenFilters, onOpenCalculator, onOpenAbout, onOpenNearby, onOpenSIR, onResetFilters, onToggleTheme]);
+  }, [onOpenFilters, onOpenCalculator, onOpenAbout, onOpenNearby, onOpenSIR, onResetFilters, onToggleTheme, onToggleTimelinePlay, onOpenSearch]);
 }
