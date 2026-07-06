@@ -11,29 +11,80 @@
 
 // ─── Outbreaks ─────────────────────────────────────────────────────────────
 
-/** Canonical disease keys. Used as stable identifiers across sources. */
+/** Canonical disease keys. Used as stable identifiers across sources.
+ *
+ * Coverage: Приказ Минсельхоза РФ №62 от 09.03.2011 (ред. 2020) —
+ * "Перечень заразных и иных болезней животных". The 21 original keys
+ * cover the most epidemiologically significant diseases; the additional
+ * 30 keys (prrs, erysipelas, bvd, ibr, glanders, qfever, etc.) extend
+ * coverage to trade-relevant, zoonotic, and poultry/equine pathogens
+ * that appear in FSVPS / WAHIS reports but were previously bucketed
+ * under "other".
+ */
 export type DiseaseKey =
+  // ─── Swine ───────────────────────────────────────────────────────────
   | "asf" // African Swine Fever
   | "csf" // Classical Swine Fever
+  | "prrs" // Porcine Reproductive & Respiratory Syndrome
+  | "erysipelas" // Erysipelas (Рожа свиней)
+  | "tesch" // Teschen disease (энтеровирусный энцефаломиелит свиней)
+  | "svd" // Swine Vesicular Disease
+  | "tge" // Transmissible Gastroenteritis of Swine
+  // ─── Ruminant ────────────────────────────────────────────────────────
   | "fmd" // Foot-and-Mouth Disease
   | "anthrax"
-  | "rabies"
-  | "hpai" // Highly Pathogenic Avian Influenza
-  | "newcastle" // Newcastle Disease
   | "bluetongue"
   | "brucellosis"
   | "btb" // Bovine Tuberculosis
   | "ppr" // Peste des Petits Ruminants
   | "lsd" // Lumpy Skin Disease
-  | "wnv" // West Nile Virus
-  | "lepto" // Leptospirosis
-  | "eia" // Equine Infectious Anemia
   | "leukosis" // Enzootic Bovine Leukosis
-  | "varroosis" // Varroa mite (bees)
-  | "nosemosis" // Nosema (bees)
+  | "bvd" // Bovine Viral Diarrhea
+  | "ibr" // Infectious Bovine Rhinotracheitis
+  | "paratub" // Paratuberculosis (Johne's disease)
+  | "blackleg" // Эмфизематозный карбункул (эмкар)
+  | "sgp" // Sheep/Goat Pox (оспа овец и коз)
+  | "cbpp" // Contagious Bovine Pleuropneumonia
+  | "mcf" // Malignant Catarrhal Fever
+  | "pasteurellosis" // Пастереллёз
+  | "bse" // Bovine Spongiform Encephalopathy
+  | "scrapie" // Скрепи овец и коз
+  // ─── Avian ──────────────────────────────────────────────────────────
+  | "hpai" // Highly Pathogenic Avian Influenza
+  | "newcastle" // Newcastle Disease
+  | "avian_salmonellosis" // Avian salmonellosis
+  | "gumboro" // Infectious Bursal Disease (Болезнь Гамборо)
+  | "marek" // Marek's Disease
+  | "ilt" // Infectious Laryngotracheitis (кур)
+  | "rhd" // Rabbit Hemorrhagic Disease (ВГБК кроликов)
+  | "myxomatosis" // Миксоматоз
+  | "pullorum" // Тиф-пуллороз птиц
+  | "ib" // Infectious Bronchitis (кур)
+  | "eds" // Egg Drop Syndrome (ССЯ-76)
+  // ─── Equine / Wildlife ─────────────────────────────────────────────
+  | "rabies"
+  | "wnv" // West Nile Virus
+  | "eia" // Equine Infectious Anemia
   | "trichinellosis" // Trichinella
   | "svc" // Spring Viraemia of Carp
-  | "avian_salmonellosis" // Avian salmonellosis
+  | "glanders" // Сап (zoonotic)
+  | "eva" // Equine Viral Arteritis
+  | "equine_flu" // Грипп лошадей
+  | "strangles" // Мыт
+  | "dourine" // Случная болезнь лошадей
+  // ─── Bees ──────────────────────────────────────────────────────────
+  | "varroosis" // Varroa mite
+  | "nosemosis" // Nosema
+  | "afb" // American Foulbrood (Американский гнилец)
+  | "efb" // European Foulbrood (Европейский гнилец)
+  // ─── Multi-species / Zoonotic ──────────────────────────────────────
+  | "lepto" // Leptospirosis
+  | "qfever" // Q Fever (Лихорадка Ку)
+  | "tularaemia" // Туляремия
+  | "listeriosis" // Листериоз
+  | "echinococcosis" // Эхинококкоз
+  | "toxoplasmosis" // Токсоплазмоз
+  | "yersiniosis" // Иерсиниоз
   | "other";
 
 export type DiseaseGroup =

@@ -40,10 +40,70 @@ export function DiseaseProfileDrawer({
 }: DiseaseProfileDrawerProps) {
   if (!disease) return null;
   const profile = DISEASE_PROFILES_BY_KEY[disease];
-  if (!profile) return null;
-
   const labels = DISEASE_LABELS[disease];
+  if (!labels) return null;
   const color = diseaseColor(disease, labels.group);
+
+  // Fallback for diseases without a full profile (aliases exist, but no
+  // clinical data filled in yet). Show a minimal card instead of closing
+  // the drawer silently.
+  if (!profile) {
+    return (
+      <Sheet open={open} onOpenChange={onOpenChange}>
+        <SheetContent
+          side="right"
+          className="w-full sm:max-w-md md:max-w-lg overflow-y-auto thin-scroll pb-safe"
+        >
+          <SheetHeader className="space-y-2 pb-4">
+            <div className="flex items-center gap-2">
+              <div
+                className="w-3 h-3 rounded-full"
+                style={{ backgroundColor: color }}
+              />
+              <SheetTitle className="text-lg">{labels.ru}</SheetTitle>
+            </div>
+            <SheetDescription className="text-xs">
+              {labels.short_ru} · {groupRu(labels.group)}
+            </SheetDescription>
+          </SheetHeader>
+
+          <div className="space-y-4">
+            <div className="flex flex-wrap gap-1.5">
+              <Badge variant="outline" className="text-[10px]">
+                {groupRu(labels.group)}
+              </Badge>
+              <Badge variant="secondary" className="text-[10px]">
+                <BookOpen className="h-3 w-3 mr-1" />
+                EN: {labels.en}
+              </Badge>
+            </div>
+
+            <div className="rounded-md border border-dashed border-muted-foreground/30 bg-muted/30 p-4 text-xs text-muted-foreground">
+              <div className="flex items-start gap-2">
+                <FileText className="h-4 w-4 mt-0.5 shrink-0" />
+                <div className="space-y-1">
+                  <div className="font-medium text-foreground">
+                    Полный профиль не заполнен
+                  </div>
+                  <div>
+                    Болезнь распознаётся скрепером и отображается в фильтрах
+                    и на карте, но детальные данные (инкубационный период,
+                    R₀, зоны карантина, клинические признаки) пока не
+                    внесены.
+                  </div>
+                  <div className="mt-2">
+                    Источник перечня: Приказ Минсельхоза РФ №62 от
+                    09.03.2011 «Об утверждении Перечня заразных и иных
+                    болезней животных».
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </SheetContent>
+      </Sheet>
+    );
+  }
 
   return (
     <Sheet open={open} onOpenChange={onOpenChange}>
