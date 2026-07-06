@@ -48,6 +48,15 @@ export function RegionDrillDown({
   geo,
   enterprises = [],
 }: RegionDrillDownProps) {
+  // Hooks MUST run before any early return — useMemo first.
+  const regionGeo = useMemo<GeoJSON.FeatureCollection>(() => {
+    if (!geo || !region) return { type: "FeatureCollection", features: [] };
+    const features = geo.features.filter(
+      (f) => (f.properties as { shapeName?: string }).shapeName === region,
+    );
+    return { type: "FeatureCollection", features };
+  }, [geo, region]);
+
   if (!region) return null;
 
   const props = getRegionProperties(region);
@@ -56,15 +65,6 @@ export function RegionDrillDown({
   const diseases = new Set(regionOutbreaks.map((o) => o.disease_key));
   const totalCases = regionOutbreaks.reduce((s, o) => s + o.cases, 0);
   const totalDeaths = regionOutbreaks.reduce((s, o) => s + o.deaths, 0);
-
-  // Extract just this region's polygon for the mini-map
-  const regionGeo = useMemo<GeoJSON.FeatureCollection>(() => {
-    if (!geo) return { type: "FeatureCollection", features: [] };
-    const features = geo.features.filter(
-      (f) => (f.properties as { shapeName?: string }).shapeName === region,
-    );
-    return { type: "FeatureCollection", features };
-  }, [geo, region]);
 
   return (
     <Sheet open={open} onOpenChange={onOpenChange}>

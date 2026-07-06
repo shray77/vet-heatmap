@@ -131,9 +131,6 @@ export function SearchBox({
     return out.slice(0, 12);
   }, [query, counts]);
 
-  // Reset active index when query changes
-  useEffect(() => { setActiveIdx(0); }, [query]);
-
   // Click-outside to close
   useEffect(() => {
     const onDoc = (e: MouseEvent) => {
@@ -162,6 +159,7 @@ export function SearchBox({
       onSelectDisease(hit.key as DiseaseKey);
     }
     setQuery("");
+    setActiveIdx(0);
     setOpen(false);
     inputRef.current?.blur();
   };
@@ -178,6 +176,7 @@ export function SearchBox({
       if (hits[activeIdx]) pick(hits[activeIdx]);
     } else if (e.key === "Escape") {
       setQuery("");
+      setActiveIdx(0);
       setOpen(false);
       inputRef.current?.blur();
     }
@@ -190,7 +189,7 @@ export function SearchBox({
         <Input
           ref={inputRef}
           value={query}
-          onChange={(e) => { setQuery(e.target.value); setOpen(true); }}
+          onChange={(e) => { setQuery(e.target.value); setActiveIdx(0); setOpen(true); }}
           onFocus={() => setOpen(true)}
           onKeyDown={onKeyDown}
           placeholder="Поиск: регион или болезнь…"
@@ -199,7 +198,7 @@ export function SearchBox({
         />
         {query && (
           <button
-            onClick={() => { setQuery(""); inputRef.current?.focus(); }}
+            onClick={() => { setQuery(""); setActiveIdx(0); inputRef.current?.focus(); }}
             className="absolute right-1.5 top-1/2 -translate-y-1/2 rounded-sm p-0.5 text-muted-foreground hover:text-foreground"
             aria-label="Очистить"
           >
