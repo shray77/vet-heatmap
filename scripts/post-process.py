@@ -119,6 +119,10 @@ def main():
     # Update metadata
     data["updated"] = datetime.now().strftime("%Y-%m-%d")
     data["total_outbreaks"] = len(outbreaks)
+
+    # Count municipalities
+    with_mun = sum(1 for o in outbreaks if o.get("municipality"))
+    print(f"\nMunicipalities: {with_mun}/{len(outbreaks)} outbreaks have municipality data")
     
     data_path.write_text(json.dumps(data, ensure_ascii=False, indent=2))
     print(f"\nWritten {len(outbreaks)} outbreaks to {data_path}")

@@ -286,7 +286,7 @@ export function OutbreakMap({
     // Remove old circle layers if switching from mobile to desktop or vice versa
     const layers = map.getStyle()?.layers ?? [];
     for (const l of layers) {
-      if (l.id === "outbreaks-circle" || l.id === "outbreaks-circle-active") {
+      if (l.id === "outbreaks-circle" || l.id === "outbreaks-circle-active" || l.id === "outbreaks-clusters" || l.id === "outbreaks-clusters-count") {
         map.removeLayer(l.id);
       }
     }
@@ -350,15 +350,65 @@ export function OutbreakMap({
     const geojson: GeoJSON.FeatureCollection = { type: "FeatureCollection", features };
 
     if (isMobile) {
-      // ─── Mobile: use native MapLibre circle layers (fast!) ────────
-      map.addSource("outbreaks-points", { type: "geojson", data: geojson });
+      // ─── Mobile: use clustered circle layers ────────────────────
+      map.addSource("outbreaks-points", {
+        type: "geojson",
+        data: geojson,
+        cluster: true,
+        clusterMaxZoom: 12,
+        clusterRadius: 40,
+      });
 
-      // Resolved outbreaks (smaller, dimmer)
+      // Cluster count circles
+      map.addLayer({
+        id: "outbreaks-clusters",
+        type: "circle",
+        source: "outbreaks-points",
+        filter: ["has", "point_count"],
+        paint: {
+          "circle-radius": ["interpolate", ["linear"], ["get", "point_count"], 1, 12, 10, 18, 50, 28, 200, 40],
+          "circle-color": ["interpolate", ["linear"], ["get", "point_count"], 1, "#f59e0b", 10, "#ef4444", 50, "#dc2626", 200, "#991b1b"],
+          "circle-opacity": 0.8,
+          "circle-stroke-width": 2,
+          "circle-stroke-color": "#ffffff",
+          "circle-stroke-opacity": 0.5,
+        },
+      });
+
+      // Cluster count text
+      map.addLayer({
+        id: "outbreaks-clusters-count",
+        type: "symbol",
+        source: "outbreaks-points",
+        filter: ["has", "point_count"],
+        layout: {
+          "text-field": "{point_count_abbreviated}",
+          "text-size": 12,
+          "text-font": ["Noto Sans Regular"],
+        },
+        paint: {
+          "text-color": "#ffffff",
+        },
+      });
+
+      // Click cluster → zoom in
+      map.on("click", "outbreaks-clusters", (e) => {
+        const features = map.queryRenderedFeatures(e.point, { layers: ["outbreaks-clusters"] });
+        if (features.length > 0) {
+          const clusterId = (features[0].properties as any).cluster_id;
+          (map.getSource("outbreaks-points") as maplibregl.GeoJSONSource).getClusterExpansionZoom(clusterId, (err, zoom) => {
+            if (err) return;
+            map.easeTo({ center: (features[0].geometry as any).coordinates, zoom: zoom + 1, duration: 500 });
+          });
+        }
+      });
+
+      // Resolved outbreaks (smaller, dimmer) — unclustered only
       map.addLayer({
         id: "outbreaks-circle",
         type: "circle",
         source: "outbreaks-points",
-        filter: ["!", ["get", "isOngoing"]],
+        filter: ["all", ["!", ["has", "point_count"]], ["!", ["get", "isOngoing"]]],
         paint: {
           "circle-radius": ["interpolate", ["linear"], ["get", "size"], 0, 4, 30, 12],
           "circle-color": ["get", "color"],
@@ -369,12 +419,12 @@ export function OutbreakMap({
         },
       });
 
-      // Ongoing outbreaks (bigger, brighter)
+      // Ongoing outbreaks (bigger, brighter) — unclustered only
       map.addLayer({
         id: "outbreaks-circle-active",
         type: "circle",
         source: "outbreaks-points",
-        filter: ["get", "isOngoing"],
+        filter: ["all", ["!", ["has", "point_count"]], ["get", "isOngoing"]],
         paint: {
           "circle-radius": ["interpolate", ["linear"], ["get", "size"], 0, 6, 30, 16],
           "circle-color": ["get", "color"],

@@ -102,17 +102,19 @@ export function OutbreaksTable({ outbreaks, onSelectOutbreak }: OutbreaksTablePr
   };
 
   const exportCsv = () => {
-    const headers = ["id", "date", "disease", "region", "species", "cases", "deaths", "status", "source"];
+    const headers = ["id", "date", "disease", "region", "municipality", "species", "cases", "deaths", "status", "source", "federal_district"];
     const rows = filtered.map((o) => [
       o.id,
       o.date,
       `"${o.disease}"`,
       `"${o.region}"`,
+      `"${o.municipality ?? ""}"`,
       `"${o.species}"`,
       o.cases,
       o.deaths,
       o.status,
       o.source,
+      `"${o.federal_district ?? ""}"`,
     ].join(","));
     const csv = [headers.join(","), ...rows].join("\n");
     const blob = new Blob(["\ufeff" + csv], { type: "text/csv;charset=utf-8" });
@@ -224,7 +226,12 @@ export function OutbreaksTable({ outbreaks, onSelectOutbreak }: OutbreaksTablePr
                         {labels?.short_ru ?? o.disease}
                       </span>
                     </TableCell>
-                    <TableCell className="py-2 text-[13px]">{o.region === "Russia" || o.region === "Russian Federation" ? "Россия (без региона)" : o.region}</TableCell>
+                    <TableCell className="py-2 text-[13px]">
+                      <div>{o.region === "Russia" || o.region === "Russian Federation" ? "Россия (без региона)" : o.region}</div>
+                      {o.municipality && (
+                        <div className="text-[10px] text-muted-foreground mt-0.5">{o.municipality}</div>
+                      )}
+                    </TableCell>
                     <TableCell className="py-2 text-[13px] hidden sm:table-cell text-muted-foreground">
                       {speciesRu(o.species)}
                     </TableCell>

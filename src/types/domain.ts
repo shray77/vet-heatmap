@@ -103,6 +103,10 @@ export interface Outbreak {
   federal_district?: string;
   /** Whether region was inferred (not from original source). */
   region_inferred?: boolean;
+  /** Municipality/district extracted from PDF text (e.g. "Борисовский м.о.", "с. Березовка"). */
+  municipality?: string;
+  /** Settlement names extracted from PDF text (for geocoding). */
+  settlements?: string[];
 }
 
 export interface OutbreakDataset {
@@ -200,5 +204,7 @@ export interface RawArticle {
   detected_deaths?: number;
   /** Feature 4: Advanced metadata from FSVPS parser. */
   detected_farm_type?: string | null;
+  detected_municipality?: string | null;
+  detected_settlements?: string[];
   detected_animal_count?: number;
 }

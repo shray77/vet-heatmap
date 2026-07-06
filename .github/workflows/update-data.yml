@@ -2,8 +2,8 @@ name: Update outbreak data
 
 on:
   schedule:
-    # Run Mon & Thu at 06:00 UTC (= 09:00 Moscow time MSK)
-    - cron: "0 6 * * 1,4"
+    # Every 6 hours: 03:00, 09:00, 15:00, 21:00 UTC (Moscow +3h)
+    - cron: "0 3,9,15,21 * * *"
   workflow_dispatch: # allow manual triggering
 
 permissions:
@@ -12,6 +12,7 @@ permissions:
 jobs:
   scrape:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -24,8 +25,13 @@ jobs:
       - name: Install dependencies
         run: bun install --frozen-lockfile
 
-      - name: Run scraper pipeline
-        run: bun run scripts/scrape/run-all.ts
+      - name: Run scraper pipeline (FSVPS + WAHIS + curated)
+        run: timeout 300 bun run scripts/scrape/run-all.ts || true
+        env:
+          SCRAPE_TIMEOUT: "240"
+
+      - name: Post-process (infer regions + federal districts)
+        run: python3 scripts/post-process.py || true
 
       - name: Check for changes
         id: changes
@@ -41,11 +47,11 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add public/data/outbreaks.json scripts/scrape/.cache/fsvps-pdfs.json
+          git add public/data/outbreaks.json
           git commit -m "chore(data): refresh outbreak dataset [skip ci]
 
           Scraper run: $(date -u +'%Y-%m-%d %H:%M UTC')
-          Sources: fsvps.gov.ru PDF index (real), curated (fallback)
+          Sources: fsvps.gov.ru + wahis.woah.org + curated
           "
           git push
 

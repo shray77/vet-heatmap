@@ -72,6 +72,9 @@ function mergePair(a: Outbreak, b: Outbreak): Outbreak {
     notes: [a.notes, b.notes].filter(Boolean).join(" | ") || winner.notes,
     // Take the most recent date if sources disagree
     date: a.date > b.date ? a.date : b.date,
+    // Municipality/settlements from FSVPS (if available)
+    municipality: (a as any).municipality ?? (b as any).municipality,
+    settlements: (a as any).settlements ?? (b as any).settlements,
   };
 }
 

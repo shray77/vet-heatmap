@@ -281,6 +281,38 @@ function extractNumber(text: string, keywords: string[]): number | undefined {
   return undefined;
 }
 
+/** Extract municipality/district from an item text.
+ *  Patterns: "Борисовский м.о.", "Верхнемамонский район", "Суздальский м.о.",
+ *            "с. Березовка", "с. Зыбино", "д. Ивановка", "пос. Лесной"
+ */
+function extractMunicipality(text: string): string | null {
+  // Try "X район" or "X м.о." (муниципальный округ)
+  const districtMatch = text.match(/([А-Я][а-яё\-]+(?:ский|ая|ое|ий)\s+(?:район|м\.о\.|муниципальный округ|городской округ))/);
+  if (districtMatch) return districtMatch[1].trim();
+
+  // Try "с. Name" / "д. Name" / "пос. Name" / "г. Name" / "ст. Name"
+  const settlementMatch = text.match(/(?:^|[,;:.\s])((?:с|д|пос|г|ст|х|аул)\.\s+[А-Я][а-яё\-]+)/);
+  if (settlementMatch) return settlementMatch[1].trim();
+
+  // Try "в населенном пункте Name" or "н.п. Name"
+  const npMatch = text.match(/(?:населенн\w*\s+пункт\w*|н\.п\.)\s+([А-Я][а-яё\-]+)/);
+  if (npMatch) return npMatch[1].trim();
+
+  return null;
+}
+
+/** Extract all settlement names from text (for geocoding). */
+function extractSettlements(text: string): string[] {
+  const settlements: string[] = [];
+  // Match "с. Name", "д. Name", "пос. Name", "г. Name", "ст. Name", "х. Name"
+  const re = /(?:с|д|пос|г|ст|х|аул)\.\s+([А-Я][а-яё\-]+)/g;
+  let m: RegExpExecArray | null;
+  while ((m = re.exec(text)) !== null) {
+    settlements.push(m[1]);
+  }
+  return settlements;
+}
+
 /** Convert a parsed section + item to a RawArticle. */
 function itemToArticle(
   section: ParsedSection,
@@ -311,10 +343,14 @@ function itemToArticle(
   const farmType = extractFarmType(itemText);
   const animalCount = extractNumber(itemText, ["голов", "особей", "животных", "птиц"]);
 
+  // Municipality/district extraction
+  const municipality = extractMunicipality(itemText);
+  const settlements = extractSettlements(itemText);
+
   return {
     source: "fsvps",
     url: sourceUrl,
-    title: `${section.disease_label} — ${region}`,
+    title: `${section.disease_label} — ${region}${municipality ? ` (${municipality})` : ""}`,
     published_at: reportDate,
     body_text: itemText,
     detected_disease: section.disease_label,
@@ -324,6 +360,8 @@ function itemToArticle(
     detected_deaths: deaths,
     detected_farm_type: farmType,
     detected_animal_count: animalCount,
+    detected_municipality: municipality,
+    detected_settlements: settlements.length > 0 ? settlements : undefined,
   };
 }
 
