@@ -1,5 +1,6 @@
 #!/usr/bin/env bun
 /**
+<<<<<<< Updated upstream
  * OSINT: Agricultural enterprises in Russia — simplified & fixed.
  *
  * Previous versions had two bugs:
@@ -15,6 +16,11 @@
  *     that are rarely used in Russia
  *   - Adds a paranoid isInRussia() filter for Kaliningrad exclave
  *   - Falls back to curated list when OSM returns nothing
+=======
+ * OSINT: Agricultural enterprises in Russia — v3 (fixed).
+ *
+ * Output: public/data/enterprises.json
+>>>>>>> Stashed changes
  */
 
 import { writeFile, mkdir } from "node:fs/promises";
@@ -37,13 +43,23 @@ const RUSSIA_AREA = 'area["ISO3166-1"="RU"]->.ru';
 
 async function queryOverpass(query: string, label: string): Promise<Enterprise[]> {
   console.log(`  [overpass] ${label}...`);
+<<<<<<< Updated upstream
   // Try multiple Overpass mirrors in order — main one is often overloaded.
+=======
+>>>>>>> Stashed changes
   const MIRRORS = [
     "https://overpass-api.de/api/interpreter",
     "https://overpass.kumi.systems/api/interpreter",
     "https://overpass.private.coffee/api/interpreter",
   ];
   for (const mirror of MIRRORS) {
+<<<<<<< Updated upstream
+=======
+    const shortName = mirror.split("//")[1].split("/")[0];
+    // Use AbortController + setTimeout (AbortSignal.timeout is unstable in Bun)
+    const ctrl = new AbortController();
+    const timer = setTimeout(() => ctrl.abort(), 130000);  // 130s — allow for the big union query
+>>>>>>> Stashed changes
     try {
       const resp = await fetch(mirror, {
         method: "POST",
@@ -53,6 +69,7 @@ async function queryOverpass(query: string, label: string): Promise<Enterprise[]
           "Accept": "application/json",
           "User-Agent": "VetKarta/1.0 (veterinary epidemiology dashboard)",
         },
+<<<<<<< Updated upstream
         signal: AbortSignal.timeout(45000),  // 45s per mirror
       });
       if (!resp.ok) {
@@ -61,6 +78,32 @@ async function queryOverpass(query: string, label: string): Promise<Enterprise[]
       }
       const data = await resp.json() as { elements: Array<Record<string, unknown>> };
       console.log(`    ✓ ${mirror.split("//")[1].split("/")[0]}: ${data.elements.length} results`);
+=======
+        signal: ctrl.signal,
+      });
+      clearTimeout(timer);
+      if (!resp.ok) {
+        console.log(`    ${shortName}: HTTP ${resp.status}, trying next…`);
+        // Drain body to avoid memory leak
+        try { await resp.text(); } catch {}
+        continue;
+      }
+      // Parse JSON safely — Overpass sometimes returns HTML error pages
+      // even with 200 OK status (server misconfiguration during overload)
+      const text = await resp.text();
+      let data: { elements: Array<Record<string, unknown>> };
+      try {
+        data = JSON.parse(text);
+      } catch {
+        console.log(`    ${shortName}: invalid JSON response (HTML error page?), trying next…`);
+        continue;
+      }
+      if (!data.elements || !Array.isArray(data.elements)) {
+        console.log(`    ${shortName}: no 'elements' array in response, trying next…`);
+        continue;
+      }
+      console.log(`    ✓ ${shortName}: ${data.elements.length} results`);
+>>>>>>> Stashed changes
       return data.elements.map((el) => {
         const tags = ((el.tags || {}) as Record<string, string>);
         const center = (el as { center?: { lat: number; lon: number } }).center;
@@ -76,7 +119,12 @@ async function queryOverpass(query: string, label: string): Promise<Enterprise[]
         };
       }).filter((e) => e.name && Number.isFinite(e.lat) && Number.isFinite(e.lon));
     } catch (e) {
+<<<<<<< Updated upstream
       console.log(`    ${mirror.split("//")[1].split("/")[0]}: ${e}, trying next…`);
+=======
+      clearTimeout(timer);
+      console.log(`    ${shortName}: ${e}, trying next…`);
+>>>>>>> Stashed changes
     }
   }
   console.error(`    ✗ ${label}: all mirrors failed`);
@@ -86,6 +134,7 @@ async function queryOverpass(query: string, label: string): Promise<Enterprise[]
 async function sleep(ms: number) { return new Promise(r => setTimeout(r, ms)); }
 
 async function queryAllCategories(): Promise<Enterprise[]> {
+<<<<<<< Updated upstream
   const all: Enterprise[] = [];
 
   // 1. Pig farms — name contains "свин" (свиновод, свинокомплекс, свиноферма)
@@ -185,12 +234,90 @@ async function queryAllCategories(): Promise<Enterprise[]> {
 
 const CURATED: Enterprise[] = [
   // ─── Топ-15 свиноводческих комплексов ─────────────────────
+=======
+  // SINGLE big query — much faster than 19 small ones (each takes 20-50s).
+  // Combine all exact-name searches into one Overpass union query.
+  // Categorize results by which name matched.
+
+  const PIG_NAMES = ["Свинокомплекс", "Свиноводческий", "Свиноферма", "Свиноводство", "Свиноферма"];
+  const POULTRY_NAMES = ["Птицефабрика", "Птицеводство", "Птицекомплекс", "Птицесовхоз"];
+  const MEAT_NAMES = ["Мясокомбинат", "Мясоперерабатывающий", "Мясозавод", "Мясоптицекомбинат"];
+  const CATTLE_NAMES = ["Скотокомплекс", "Молочный", "Молокозавод", "Молкомбинат"];
+  const FEED_NAMES = ["Комбикормовый"];
+
+  // Build one giant union query
+  const allNames = [
+    ...PIG_NAMES.map(n => ({ name: n, type: "pig_farm" })),
+    ...POULTRY_NAMES.map(n => ({ name: n, type: "poultry_farm" })),
+    ...MEAT_NAMES.map(n => ({ name: n, type: "meat_plant" })),
+    ...CATTLE_NAMES.map(n => ({ name: n, type: "cattle_farm" })),
+    ...FEED_NAMES.map(n => ({ name: n, type: "feed_mill" })),
+  ];
+
+  // Build Overpass union of name="X" filters
+  const nameFilters = allNames.map(({ name }) =>
+    `node["name"="${name}"](area.ru);way["name"="${name}"](area.ru);`
+  ).join("");
+
+  const combinedQuery = `
+    [out:json][timeout:120];
+    ${RUSSIA_AREA};
+    (
+      ${nameFilters}
+    );
+    out center 1000;
+  `;
+
+  // Execute single query
+  const results = await queryOverpass(combinedQuery, "all_farms");
+
+  // Categorize each result by which name pattern it matches
+  const categorized: Enterprise[] = results.map((e) => {
+    const matched = allNames.find(({ name }) =>
+      e.name === name ||
+      e.name.startsWith(name + " ") ||
+      e.name.startsWith(name + ",") ||
+      e.name.startsWith(name + " «") ||
+      e.name.startsWith(name + " \"")
+    );
+    if (matched) return { ...e, type: matched.type };
+    // Fallback by keyword in name
+    if (e.name.includes("свин") || e.name.includes("Свин")) return { ...e, type: "pig_farm" };
+    if (e.name.includes("птиц") || e.name.includes("Птиц")) return { ...e, type: "poultry_farm" };
+    if (e.name.includes("мяс") || e.name.includes("Мяс")) return { ...e, type: "meat_plant" };
+    if (e.name.includes("молоч") || e.name.includes("Молоч") || e.name.includes("КРС")) return { ...e, type: "cattle_farm" };
+    if (e.name.includes("комбикорм") || e.name.includes("Комбикорм")) return { ...e, type: "feed_mill" };
+    return { ...e, type: "farm" };
+  });
+
+  // Also query veterinary separately (uses amenity=veterinary tag)
+  const vetResults = await queryOverpass(`
+    [out:json][timeout:60];
+    ${RUSSIA_AREA};
+    (
+      node["amenity"="veterinary"]["name"](area.ru);
+      way["amenity"="veterinary"]["name"](area.ru);
+    );
+    out center 200;
+  `, "vet_clinic");
+
+  return [...categorized, ...vetResults];
+}
+
+// ─── Curated enterprises ─────────────────────────────────────
+const CURATED: Enterprise[] = [
+  // ─── Свиноводческие комплексы ────────────────────────────
+>>>>>>> Stashed changes
   { id: "cur-1", name: "Мираторг — свиноводство", type: "pig_farm", lat: 50.59, lon: 36.58, region: "Белгородская обл.", capacity: "500000+ голов" },
   { id: "cur-2", name: "Русагро — свиноводство", type: "pig_farm", lat: 51.53, lon: 39.16, region: "Воронежская обл.", capacity: "300000+ голов" },
   { id: "cur-3", name: "Черкизово — свиноводство", type: "pig_farm", lat: 55.75, lon: 37.61, region: "Московская обл.", capacity: "250000+ голов" },
   { id: "cur-4", name: "Сибагро — свиноводство", type: "pig_farm", lat: 56.50, lon: 84.97, region: "Томская обл.", capacity: "200000+ голов" },
   { id: "cur-5", name: "Агрохолдинг КРиМ", type: "pig_farm", lat: 55.02, lon: 82.93, region: "Новосибирская обл.", capacity: "150000+ голов" },
+<<<<<<< Updated upstream
   { id: "cur-6", name: "Великолукский СК", type: "pig_farm", lat: 56.34, lon: 30.52, region: "Псковская обл.", capacity: "120000+ голов" },
+=======
+  { id: "cur-6", name: "Великолукский свиноводческий комплекс", type: "pig_farm", lat: 56.34, lon: 30.52, region: "Псковская обл.", capacity: "120000+ голов" },
+>>>>>>> Stashed changes
   { id: "cur-7", name: "Омский бекон", type: "pig_farm", lat: 54.99, lon: 73.37, region: "Омская обл.", capacity: "120000+ голов" },
   { id: "cur-8", name: "Краснодарский свинокомплекс", type: "pig_farm", lat: 45.04, lon: 38.98, region: "Краснодарский край", capacity: "100000+ голов" },
   { id: "cur-9", name: "Тамбовские фермы", type: "pig_farm", lat: 52.72, lon: 41.45, region: "Тамбовская обл.", capacity: "100000+ голов" },
@@ -201,7 +328,11 @@ const CURATED: Enterprise[] = [
   { id: "cur-14", name: "Дальневосточный свинокомплекс", type: "pig_farm", lat: 43.35, lon: 132.07, region: "Приморский край" },
   { id: "cur-15", name: "Племзавод «Большевик» (свиноводство)", type: "pig_farm", lat: 51.73, lon: 36.19, region: "Курская обл." },
 
+<<<<<<< Updated upstream
   // ─── Топ-15 птицефабрик ──────────────────────────────────
+=======
+  // ─── Птицефабрики ──────────────────────────────────────────
+>>>>>>> Stashed changes
   { id: "cur-16", name: "Приосколье — птицеводство", type: "poultry_farm", lat: 50.41, lon: 37.51, region: "Белгородская обл.", capacity: "млн+ голов" },
   { id: "cur-17", name: "БЕЛГРАНКОРМ — птицеводство", type: "poultry_farm", lat: 50.59, lon: 36.58, region: "Белгородская обл." },
   { id: "cur-18", name: "Уралбройлер", type: "poultry_farm", lat: 56.02, lon: 60.58, region: "Челябинская обл." },
@@ -218,7 +349,11 @@ const CURATED: Enterprise[] = [
   { id: "cur-29", name: "Омская птицефабрика", type: "poultry_farm", lat: 55.00, lon: 73.40, region: "Омская обл." },
   { id: "cur-30", name: "Красноярская птицефабрика", type: "poultry_farm", lat: 56.01, lon: 92.85, region: "Красноярский край" },
 
+<<<<<<< Updated upstream
   // ─── Топ-15 мясокомбинатов ────────────────────────────────
+=======
+  // ─── Мясокомбинаты ────────────────────────────────────────
+>>>>>>> Stashed changes
   { id: "cur-31", name: "Микоян", type: "meat_plant", lat: 55.73, lon: 37.65, region: "Москва" },
   { id: "cur-32", name: "Черкизово — мясопереработка", type: "meat_plant", lat: 55.79, lon: 37.71, region: "Москва" },
   { id: "cur-33", name: "Останкинский мясоперерабатывающий", type: "meat_plant", lat: 55.83, lon: 37.60, region: "Москва" },
@@ -261,6 +396,7 @@ const CURATED: Enterprise[] = [
   { id: "cur-62", name: "Сибирский комбикормовый завод", type: "feed_mill", lat: 55.03, lon: 82.92, region: "Новосибирская обл." },
 ];
 
+<<<<<<< Updated upstream
 // ─── Russia bounding box (final filter) ──────────────────────
 function isInRussia(lat: number, lon: number): boolean {
   // Mainland Russia
@@ -272,20 +408,43 @@ function isInRussia(lat: number, lon: number): boolean {
 
 // ─── Main ────────────────────────────────────────────────────
 
+=======
+// ─── Russia filter (paranoid) ────────────────────────────────
+function isInRussia(lat: number, lon: number): boolean {
+  // Mainland Russia — strict bounds to exclude Moldova/Romania/Belarus
+  // Russia's westernmost mainland point is ~27°E (Pskov region).
+  // Anything below 41°N is Caucasus/Kazakhstan border.
+  if (lat >= 42 && lat <= 82 && lon >= 30 && lon <= 180) return true;
+  // Kaliningrad exclave (54-56°N, 19-23°E)
+  if (lat >= 54 && lat <= 56 && lon >= 19 && lon <= 23) return true;
+  // Pskov/Smolensk area (northwest, near Belarus border) — 28-30°E, 55-58°N
+  if (lat >= 55 && lat <= 58 && lon >= 28 && lon <= 30) return true;
+  return false;
+}
+
+>>>>>>> Stashed changes
 async function main() {
   console.log("=== OSINT: Agricultural Enterprises in Russia ===\n");
 
   const osmData = await queryAllCategories();
   console.log(`\n  Total OSM results (raw): ${osmData.length}`);
 
+<<<<<<< Updated upstream
   // Filter to Russia only (paranoid check)
+=======
+  // Filter to Russia only
+>>>>>>> Stashed changes
   const ruOnly = osmData.filter((e) => isInRussia(e.lat, e.lon));
   console.log(`  After Russia filter: ${ruOnly.length}`);
   if (ruOnly.length < osmData.length) {
     console.log(`  (filtered out ${osmData.length - ruOnly.length} non-RU entries)`);
   }
 
+<<<<<<< Updated upstream
   // Deduplicate by name (case-insensitive)
+=======
+  // Deduplicate by name
+>>>>>>> Stashed changes
   const seenNames = new Set<string>();
   const dedupedOsm = ruOnly.filter(e => {
     const key = e.name.toLowerCase().trim();
@@ -304,13 +463,19 @@ async function main() {
     }
   }
 
+<<<<<<< Updated upstream
   // Sort by type then name
+=======
+>>>>>>> Stashed changes
   merged.sort((a, b) => {
     if (a.type !== b.type) return a.type.localeCompare(b.type);
     return a.name.localeCompare(b.name);
   });
 
+<<<<<<< Updated upstream
   // Stats
+=======
+>>>>>>> Stashed changes
   const byType: Record<string, number> = {};
   for (const e of merged) byType[e.type] = (byType[e.type] || 0) + 1;
   console.log("\n  By type:");

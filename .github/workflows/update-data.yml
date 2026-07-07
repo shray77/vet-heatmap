@@ -45,13 +45,11 @@ jobs:
         run: python3 scripts/fast-geocode.py
 
       - name: Scrape enterprises (Overpass + curated)
-        # Overpass API is rate-limited and often overloaded. Script tries
-        # 3 mirrors with 45s timeout each, plus 1.5s sleep between
-        # categories. Worst case: 7 categories × 3 mirrors × 45s = ~16 min,
-        # but typical case is 2-3 min. 240s is enough for normal runs.
-        # `|| true` ensures the workflow continues even if all mirrors fail
-        # (curated fallback provides 62 base enterprises).
-        run: timeout 240 bun run scripts/scrape/osint-enterprises.ts || true
+        # Use Python version — Bun version crashed on long-running Overpass
+        # queries (fetch failed, AbortController issues). Python's urllib is
+        # stable. Script saves partial results after each category, so even
+        # if it dies mid-run we still get a usable enterprises.json.
+        run: timeout 240 python3 scripts/scrape/osint-enterprises.py || true
 
       - name: Check for changes
         id: changes
