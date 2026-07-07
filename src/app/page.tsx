@@ -134,7 +134,12 @@ function HomeContent() {
   // Load enterprises
   const [enterprises, setEnterprises] = useState<{id:string;name:string;type:string;lat:number;lon:number;region?:string}[]>([]);
   useEffect(() => {
-    fetch("/data/enterprises.json")
+    // IMPORTANT: must use basePath for prod (GitHub Pages /vet-heatmap/)
+    // — fetch without basePath returns 404 HTML page, JSON parse fails,
+    // enterprises stays [] (this was the bug — "Монитор предприятий"
+    // showed "Все (0)" even though enterprises.json had 686 entries).
+    const basePath = process.env.NODE_ENV === "production" ? "/vet-heatmap" : "";
+    fetch(`${basePath}/data/enterprises.json`, { cache: "no-store" })
       .then((r) => r.json())
       .then((d) => setEnterprises(d.enterprises || []))
       .catch(() => {});
