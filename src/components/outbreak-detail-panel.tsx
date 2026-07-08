@@ -28,6 +28,8 @@ import { DISEASE_LABELS } from "@/data/diseases-normalize";
 import { DISEASE_PROFILES_BY_KEY } from "@/data/disease-profiles";
 import { speciesRu, sourceRu } from "@/lib/i18n-species";
 import type { EnterpriseLite } from "./region-mini-map";
+import { RtChart } from "./rt-chart";
+import { ResponseChecklist } from "./response-checklist";
 
 interface OutbreakDetailPanelProps {
   outbreak: Outbreak | null;
@@ -263,6 +265,20 @@ export function OutbreakDetailPanel({
             </>
           )}
 
+          {/* Rt chart — effective reproduction number */}
+          {/* Shows if epidemic is growing or fading for this disease */}
+          <Separator />
+          <div className="space-y-1.5">
+            <div className="flex items-center gap-1.5 text-xs font-semibold">
+              <Activity className="h-3.5 w-3.5 text-primary" />
+              Эпидемическая динамика (Rt)
+            </div>
+            <div className="text-[10px] text-muted-foreground">
+              Коэффициент эффективного воспроизводства — растёт ли эпидемия этой болезни
+            </div>
+            <RtChart outbreaks={outbreaks} diseaseKey={outbreak.disease_key} compact />
+          </div>
+
           {/* Recommended measures */}
           {profile?.measures_summary && (
             <>
@@ -278,6 +294,23 @@ export function OutbreakDetailPanel({
                 <div className="text-[10px] text-muted-foreground">
                   Зоны: защита {profile.protection_zone_km} км · наблюдение {profile.surveillance_zone_km} км · ограничение {profile.restriction_zone_km} км
                 </div>
+              </div>
+            </>
+          )}
+
+          {/* Response checklist — disease-specific actionable steps */}
+          {profile?.response_checklist && profile.response_checklist.length > 0 && (
+            <>
+              <Separator />
+              <div className="space-y-1.5">
+                <div className="flex items-center gap-1.5 text-xs font-semibold">
+                  <ShieldAlert className="h-3.5 w-3.5 text-primary" />
+                  Чек-лист реагирования ({profile.short_ru})
+                </div>
+                <div className="text-[10px] text-muted-foreground">
+                  Пошаговые действия по дням от обнаружения. Отмечайте выполненные — прогресс сохраняется.
+                </div>
+                <ResponseChecklist items={profile.response_checklist} outbreak={outbreak} />
               </div>
             </>
           )}

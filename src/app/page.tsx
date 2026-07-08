@@ -45,6 +45,7 @@ import { TimelineSlider } from "@/components/timeline-slider";
 import { OutbreaksTable } from "@/components/outbreaks-table";
 import { SearchBox } from "@/components/search-box";
 import { TodaySummary } from "@/components/today-summary";
+import { UserRegionBadgeContainer } from "@/components/user-region";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { PwaBanners } from "@/components/pwa-banners";
 
@@ -79,6 +80,7 @@ const RiskScoreMap = dynamic(() => import("@/components/risk-score-map").then(m 
 
 import { useOutbreaks, useRegionsGeoJSON } from "@/lib/use-data";
 import { useQuery } from "@tanstack/react-query";
+import { useUIStore } from "@/lib/ui-store";
 import { useKeyboardShortcuts } from "@/lib/use-keyboard";
 import { useTheme } from "next-themes";
 import { diseaseColor } from "@/lib/colors";
@@ -120,30 +122,40 @@ function HomeContent() {
     window.history.replaceState(null, "", url);
   }, [filters]);
 
-  // Layer toggles
+  // Layer toggles (kept as local state — they're not dialog state)
   const [showRiskZones, setShowRiskZones] = useState(true);
   const [showChoropleth, setShowChoropleth] = useState(true);
   const [densityLayer, setDensityLayer] = useState<"none" | "pigs" | "cattle" | "poultry">("none");
   const [showHeatmap, setShowHeatmap] = useState(false);
-
-  // Drawer/dialog state
-  const [drawerDisease, setDrawerDisease] = useState<DiseaseKey | null>(null);
-  const [drawerOpen, setDrawerOpen] = useState(false);
-  const [calcOpen, setCalcOpen] = useState(false);
-  const [calcPreselect, setCalcPreselect] = useState<DiseaseKey | null>(null);
-  const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
-  const [aboutOpen, setAboutOpen] = useState(false);
-  const [nearbyOpen, setNearbyOpen] = useState(false);
-  const [sirOpen, setSirOpen] = useState(false);
-  const [sourceTrackerOpen, setSourceTrackerOpen] = useState(false);
-  const [transportOpen, setTransportOpen] = useState(false);
-  const [pdfReportOpen, setPdfReportOpen] = useState(false);
-  const [customImportOpen, setCustomImportOpen] = useState(false);
-  const [enterpriseRiskOpen, setEnterpriseRiskOpen] = useState(false);
-  const [spreadAnimOpen, setSpreadAnimOpen] = useState(false);
-  const [regionCardOpen, setRegionCardOpen] = useState(false);
-  const [alertOpen, setAlertOpen] = useState(false);
   const [nightMode, setNightMode] = useState(false);
+
+  // ─── Dialog state via Zustand store ──────────────────────────────────
+  // Replaces 17 useState + 4 selected-item useState with a single store.
+  // Components can self-read their open state without prop drilling.
+  const {
+    drawerOpen, setDrawerOpen,
+    drawerDisease, setDrawerDisease,
+    calcOpen, setCalcOpen,
+    calcPreselect, setCalcPreselect,
+    mobileFiltersOpen, setMobileFiltersOpen,
+    aboutOpen, setAboutOpen,
+    nearbyOpen, setNearbyOpen,
+    sirOpen, setSirOpen,
+    sourceTrackerOpen, setSourceTrackerOpen,
+    transportOpen, setTransportOpen,
+    pdfReportOpen, setPdfReportOpen,
+    customImportOpen, setCustomImportOpen,
+    enterpriseRiskOpen, setEnterpriseRiskOpen,
+    spreadAnimOpen, setSpreadAnimOpen,
+    regionCardOpen, setRegionCardOpen,
+    alertOpen, setAlertOpen,
+    spatialOpen, setSpatialOpen,
+    regionDrillDown, setRegionDrillDown,
+    regionDrillDownOpen, setRegionDrillDownOpen,
+    selectedOutbreak, setSelectedOutbreak,
+    outbreakDetailOpen, setOutbreakDetailOpen,
+    openDisease, openOutbreak, openRegion,
+  } = useUIStore();
 
   // Load enterprises (OSM + Yandex.Maps merged) via React Query.
   // Previously hand-rolled fetch+useState — now deduped + cached + retried.
@@ -164,14 +176,7 @@ function HomeContent() {
     staleTime: 30 * 60 * 1000, // 30 min — enterprises change rarely
   });
   const enterprises = enterprisesQuery.data ?? [];
-  const [spatialOpen, setSpatialOpen] = useState(false);
-  const [regionDrillDown, setRegionDrillDown] = useState<string | null>(null);
-  const [regionDrillDownOpen, setRegionDrillDownOpen] = useState(false);
   const [timelineRange, setTimelineRange] = useState<{from: string | null, to: string | null}>({from: null, to: null});
-
-  // Outbreak detail panel (replaces small popup on marker click)
-  const [selectedOutbreak, setSelectedOutbreak] = useState<Outbreak | null>(null);
-  const [outbreakDetailOpen, setOutbreakDetailOpen] = useState(false);
 
   // Resizable sidebar width (desktop only). Stored in localStorage.
   const [sidebarWidth, setSidebarWidth] = useState(() => {
@@ -219,22 +224,18 @@ function HomeContent() {
   const totalRegions = geo?.features.length ?? 85;
 
   const onSelectOutbreak = useCallback((o: Outbreak) => {
-    // Open the new detail panel instead of just the disease drawer.
-    // Detail panel includes a "view disease profile" button that opens
-    // the DiseaseProfileDrawer as a secondary step.
-    setSelectedOutbreak(o);
-    setOutbreakDetailOpen(true);
-  }, []);
+    // Uses Zustand store convenience action — sets selectedOutbreak + opens
+    // detail panel in one call.
+    openOutbreak(o);
+  }, [openOutbreak]);
 
   /** Focus the map on a region (called from search box). */
   const focusRegion = useCallback((shapeName: string) => {
-    // Open region drill-down panel
-    setRegionDrillDown(shapeName);
-    setRegionDrillDownOpen(true);
+    // Uses Zustand store convenience action
+    openRegion(shapeName);
     // Also dispatch a custom event so OutbreakMap can fly to the region.
-    // (OutbreakMap listens for 'vet:focusRegion' events.)
     window.dispatchEvent(new CustomEvent("vet:focusRegion", { detail: shapeName }));
-  }, []);
+  }, [openRegion]);
 
   /** Toggle a disease filter (called from search box disease hit). */
   const toggleDiseaseFilter = useCallback((key: DiseaseKey) => {
@@ -250,9 +251,8 @@ function HomeContent() {
   }, []);
 
   const onSelectRegion = useCallback((region: string) => {
-    setRegionDrillDown(region);
-    setRegionDrillDownOpen(true);
-  }, []);
+    openRegion(region);
+  }, [openRegion]);
 
   const openCalculator = (d?: DiseaseKey) => {
     if (d) setCalcPreselect(d);
@@ -279,10 +279,23 @@ function HomeContent() {
 
   if (loading || geoLoading) {
     return (
-      <main className="h-dvh flex items-center justify-center">
-        <div className="text-center space-y-2">
-          <Activity className="h-8 w-8 mx-auto animate-pulse text-primary" />
-          <div className="text-sm text-muted-foreground">Загрузка данных…</div>
+      <main className="h-dvh flex flex-col items-center justify-center gap-4">
+        <div className="text-center space-y-3">
+          <Activity className="h-10 w-10 mx-auto animate-pulse text-primary" />
+          <div className="text-sm font-medium">Загрузка данных…</div>
+          <div className="text-xs text-muted-foreground">
+            Загружаем {data?.total_outbreaks ?? 1300}+ вспышек и {geo?.features.length ?? 85} регионов
+          </div>
+        </div>
+        {/* Skeleton — mimics the real layout so users know what to expect */}
+        <div className="w-full max-w-md space-y-3 px-4">
+          <div className="h-12 rounded-lg bg-muted/60 animate-pulse" />
+          <div className="h-64 rounded-lg bg-muted/40 animate-pulse" />
+          <div className="grid grid-cols-3 gap-2">
+            <div className="h-20 rounded-lg bg-muted/40 animate-pulse" />
+            <div className="h-20 rounded-lg bg-muted/40 animate-pulse" />
+            <div className="h-20 rounded-lg bg-muted/40 animate-pulse" />
+          </div>
         </div>
       </main>
     );
@@ -325,6 +338,17 @@ function HomeContent() {
                 onFocusRegion={focusRegion}
                 onSelectDisease={(k) => { setDrawerDisease(k); setDrawerOpen(true); }}
                 onToggleDiseaseFilter={toggleDiseaseFilter}
+              />
+            </div>
+            {/* User region badge — persistent "My Region" mode */}
+            <div className="hidden md:block ml-2">
+              <UserRegionBadgeContainer
+                outbreaks={data?.outbreaks ?? []}
+                onFilterByRegion={(r) => {
+                  setFilters((f) => ({ ...f, federalDistricts: [], query: "", }));
+                  focusRegion(r);
+                }}
+                onOpenSettings={() => {}}
               />
             </div>
           </div>
@@ -609,7 +633,8 @@ function HomeContent() {
               </div>
             </div>
             <div className="pt-1.5 mt-1.5 border-t border-white/10 text-muted-foreground">
-              {data?.sources.join(", ")} · {data?.updated}
+              <div>Данные актуальны на: <span className="text-foreground font-medium">{data?.updated ?? "—"}</span></div>
+              <div className="text-[9px] mt-0.5">Источники: {data?.sources.join(", ")}</div>
             </div>
           </div>
         </section>

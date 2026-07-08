@@ -215,6 +215,23 @@ export interface DiseaseProfile {
   woah_reference: string;
   /** Russian regulatory references. */
   rf_regulatory: string[];
+  /** Disease-specific response checklist — actionable steps with deadlines.
+   * Curated for top diseases (ASF, FMD, HPAI, CSF, rabies) per WOAH +
+   * Приказ МСХ. Optional — diseases without checklists show measures_summary
+   * as fallback. */
+  response_checklist?: ResponseCheckItem[];
+}
+
+/** A single step in a disease response protocol. */
+export interface ResponseCheckItem {
+  /** Day relative to detection (0 = day of detection, 1 = next day, etc.). */
+  day: number;
+  /** Action description (Russian). */
+  action: string;
+  /** Whether this step is mandatory by law/WOAH. */
+  mandatory: boolean;
+  /** Optional category for grouping (e.g. "уведомление", "карантин", "уничтожение"). */
+  category?: "notify" | "quarantine" | "cull" | "surveillance" | "vaccination" | "disinfection" | "documentation" | "other";
 }
 
 // ─── Region metadata ───────────────────────────────────────────────────────

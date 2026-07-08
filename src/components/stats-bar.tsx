@@ -1,7 +1,8 @@
 "use client";
 
-import { AlertTriangle, Activity, MapPin, Biohazard } from "lucide-react";
+import { AlertTriangle, Activity, MapPin, Biohazard, Download } from "lucide-react";
 import type { Outbreak } from "@/types/domain";
+import { exportOutbreaksCSV } from "@/lib/csv-export";
 
 interface StatsBarProps {
   outbreaks: Outbreak[];
@@ -11,7 +12,7 @@ interface StatsBarProps {
 /**
  * Compact inline KPI bar — inspired by CDC top banner.
  * Single row on desktop, 2x2 grid on mobile.
- * Shows: total / active / regions / disease types.
+ * Shows: total / active / regions / disease types + CSV export button.
  */
 export function StatsBar({ outbreaks, totalRegions }: StatsBarProps) {
   const total = outbreaks.length;
@@ -28,7 +29,7 @@ export function StatsBar({ outbreaks, totalRegions }: StatsBarProps) {
 
   return (
     <>
-      {/* Desktop: inline KPI bar */}
+      {/* Desktop: inline KPI bar + CSV export */}
       <div className="hidden md:flex items-center gap-4 px-1">
         {items.map((item, i) => (
           <div key={item.label} className="flex items-center gap-2">
@@ -46,6 +47,16 @@ export function StatsBar({ outbreaks, totalRegions }: StatsBarProps) {
             <span className="text-xs text-muted-foreground tracking-tight">{item.label}</span>
           </div>
         ))}
+        {/* CSV export button — exports currently filtered outbreaks */}
+        <button
+          onClick={() => exportOutbreaksCSV(outbreaks)}
+          disabled={outbreaks.length === 0}
+          className="flex items-center gap-1 px-2 py-1 rounded-md border border-border hover:bg-accent text-xs text-muted-foreground hover:text-foreground transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
+          title={`Экспорт ${outbreaks.length} вспышек в CSV (Excel-совместимый)`}
+        >
+          <Download className="h-3.5 w-3.5" />
+          CSV
+        </button>
       </div>
 
       {/* Mobile: 2x2 compact grid */}
