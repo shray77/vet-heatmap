@@ -39,6 +39,12 @@ interface OutbreakMapProps {
   onSelectOutbreak?: (o: Outbreak) => void;
   /** Called when user clicks a region. */
   onSelectRegion?: (region: string) => void;
+  /** Initial map center [lng, lat] (from URL params). */
+  initialCenter?: [number, number];
+  /** Initial zoom level (from URL params). */
+  initialZoom?: number;
+  /** Called when map moves (for URL sync). */
+  onMapMove?: (center: [number, number], zoom: number) => void;
 }
 
 export function OutbreakMap({
@@ -50,6 +56,9 @@ export function OutbreakMap({
   showHeatmap = false,
   onSelectOutbreak,
   onSelectRegion,
+  initialCenter,
+  initialZoom,
+  onMapMove,
 }: OutbreakMapProps) {
   const mapContainer = useRef<HTMLDivElement>(null);
   const mapRef = useRef<MLMap | null>(null);
@@ -110,8 +119,8 @@ export function OutbreakMap({
           },
         ],
       },
-      center: [55, 60], // geographic center of Russia-ish
-      zoom: 2.5,
+      center: initialCenter ?? [55, 60], // geographic center of Russia-ish (or URL-restored)
+      zoom: initialZoom ?? 2.5,
       minZoom: 2,
       maxZoom: 12,
       maxBounds: RUSSIA_BOUNDS,
@@ -126,6 +135,18 @@ export function OutbreakMap({
     map.addControl(new maplibregl.ScaleControl({ unit: "metric" }), "bottom-left");
 
     mapRef.current = map;
+
+    // Notify parent of map position changes (for URL sharing)
+    let moveTimer: ReturnType<typeof setTimeout> | null = null;
+    const onMoveEnd = () => {
+      if (moveTimer) clearTimeout(moveTimer);
+      moveTimer = setTimeout(() => {
+        const c = map.getCenter();
+        const z = map.getZoom();
+        onMapMove?.([c.lng, c.lat], z);
+      }, 500); // debounce 500ms — avoid URL update on every frame
+    };
+    map.on("moveend", onMoveEnd);
 
     // Listen for external "focus region" events (from SearchBox).
     // Fly to the region's bounding-box center + appropriate zoom.

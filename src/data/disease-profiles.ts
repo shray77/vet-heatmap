@@ -122,6 +122,17 @@ export const DISEASE_PROFILES: DiseaseProfile[] = [
       "Закон РФ от 14.05.1993 № 4979-1 «О ветеринарии»",
       "Правила ВП-АС-1/0029 «О мерах по борьбе с КЧС»",
     ],
+    response_checklist: [
+      { day: 0, action: "Уведомить ГУВ + Россельхознадзор (24 часа)", mandatory: true, category: "notify" },
+      { day: 0, action: "Объявить карантин + зоны защиты (3 км) и наблюдения (10 км)", mandatory: true, category: "quarantine" },
+      { day: 1, action: "Клинический осмотр + термометрия свиней в угрожаемой зоне", mandatory: true, category: "surveillance" },
+      { day: 2, action: "Вакцинация свиней в угрожаемой зоне (живой лапинизированной вакциной)", mandatory: true, category: "vaccination" },
+      { day: 3, action: "Убой больного и подозрительного поголовья (санитарный)", mandatory: true, category: "cull" },
+      { day: 5, action: "Дезинфекция помещений, транспорта, инвентаря (3-кратная)", mandatory: true, category: "disinfection" },
+      { day: 14, action: "Серологический мониторинг (ИФА) в зоне наблюдения", mandatory: true, category: "surveillance" },
+      { day: 21, action: "Снятие карантина при отсутствии новых случаев", mandatory: true, category: "quarantine" },
+      { day: 30, action: "Акт эпизоотологического расследования", mandatory: true, category: "documentation" },
+    ],
   },
 
   // ───────────────────────────────────────────────────────────────────────
@@ -267,6 +278,18 @@ export const DISEASE_PROFILES: DiseaseProfile[] = [
       "СП 3.1.7.2627-10 «Профилактика бешенства среди людей»",
       "ВП-ЛЖ-1/0001 «О мерах по профилактике и ликвидации бешенства животных»",
     ],
+    response_checklist: [
+      { day: 0, action: "Уведомить ГУВ + Россельхознадзор + Роспотребнадзор (зооноз!)", mandatory: true, category: "notify" },
+      { day: 0, action: "Объявить неблагополучный пункт + угрожаемую зону (до 15 км)", mandatory: true, category: "quarantine" },
+      { day: 0, action: "Изоляция больных животных, запрет выгула собак, охоты", mandatory: true, category: "quarantine" },
+      { day: 1, action: "Уничтожение больных животных (без снятия шкур)", mandatory: true, category: "cull" },
+      { day: 2, action: "Оральная вакцинация диких животных в угрожаемой зоне (раскладка приманок)", mandatory: true, category: "vaccination" },
+      { day: 3, action: "Вакцинация всех собак и кошек в населённом пункте", mandatory: true, category: "vaccination" },
+      { day: 7, action: "Дезинфекция помещений, мест содержания, транспорта", mandatory: true, category: "disinfection" },
+      { day: 30, action: "Серологический мониторинг диких хищников", mandatory: false, category: "surveillance" },
+      { day: 60, action: "Снятие ограничений при отсутствии новых случаев", mandatory: true, category: "quarantine" },
+      { day: 60, action: "Акт эпизоотологического расследования", mandatory: true, category: "documentation" },
+    ],
   },
 
   // ───────────────────────────────────────────────────────────────────────
@@ -370,6 +393,17 @@ export const DISEASE_PROFILES: DiseaseProfile[] = [
       "Закон РФ от 14.05.1993 № 4979-1 «О ветеринарии»",
       "ВП-ПГ-1/0002 «О мерах по борьбе с болезнью Ньюкасла»",
     ],
+    response_checklist: [
+      { day: 0, action: "Уведомить ГУВ + Россельхознадзор (24 часа)", mandatory: true, category: "notify" },
+      { day: 0, action: "Объявить карантин + зоны защиты (3 км) и наблюдения (10 км)", mandatory: true, category: "quarantine" },
+      { day: 0, action: "Изоляция птицы, запрет перемещения и реализации", mandatory: true, category: "quarantine" },
+      { day: 1, action: "Клинический осмотр птицы в зоне наблюдения (10 км)", mandatory: true, category: "surveillance" },
+      { day: 3, action: "Убой больной и подозрительной птицы", mandatory: true, category: "cull" },
+      { day: 5, action: "Дезинфекция птичников, инвентаря (3-кратная)", mandatory: true, category: "disinfection" },
+      { day: 14, action: "Вакцинация птицы в угрожаемой зоне (лентогенная/мезогенная вакцина)", mandatory: true, category: "vaccination" },
+      { day: 21, action: "Снятие карантина при отсутствии новых случаев", mandatory: true, category: "quarantine" },
+      { day: 30, action: "Акт эпизоотологического расследования", mandatory: true, category: "documentation" },
+    ],
   },
 
   // ───────────────────────────────────────────────────────────────────────
@@ -412,6 +446,18 @@ export const DISEASE_PROFILES: DiseaseProfile[] = [
     rf_regulatory: [
       "Закон РФ от 14.05.1993 № 4979-1 «О ветеринарии»",
       "ВП-ОК-1/0003 «О мерах по борьбе с блютунгом»",
+    ],
+    response_checklist: [
+      { day: 0, action: "Уведомить ГУВ + Россельхознадзор (24 часа)", mandatory: true, category: "notify" },
+      { day: 0, action: "Объявить карантин + зоны защиты (20 км) и наблюдения (50 км)", mandatory: true, category: "quarantine" },
+      { day: 1, action: "Ограничить перемещение КРС, МРС в угрожаемой зоне", mandatory: true, category: "quarantine" },
+      { day: 3, action: "Серологическое исследование поголовья в зоне защиты (ИФА)", mandatory: true, category: "surveillance" },
+      { day: 5, action: "Изоляция и лечение больных животных (симптоматическое)", mandatory: true, category: "other" },
+      { day: 7, action: "Борьба с переносчиками (куликоидами): дезинсекция помещений", mandatory: true, category: "disinfection" },
+      { day: 14, action: "Вакцинация поголовья в угрожаемой зоне (живой аттенуированной)", mandatory: true, category: "vaccination" },
+      { day: 30, action: "Повторный серологический мониторинг", mandatory: true, category: "surveillance" },
+      { day: 60, action: "Снятие ограничений при отсутствии новых случаев", mandatory: true, category: "quarantine" },
+      { day: 60, action: "Акт эпизоотологического расследования", mandatory: true, category: "documentation" },
     ],
   },
 

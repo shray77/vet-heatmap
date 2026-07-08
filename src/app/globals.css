@@ -218,3 +218,35 @@
 .night-mode .maplibremap-map {
   filter: sepia(1) hue-rotate(-50deg) brightness(0.6) saturate(1.8);
 }
+
+/* ─── Tablet / touch device optimizations ──────────────────────────────
+   Field veterinarians use tablets with gloves. Increase touch targets
+   on coarse-pointer devices (touch screens) without affecting desktop
+   mouse precision.
+*/
+@media (pointer: coarse) {
+  /* Increase button sizes for touch */
+  button {
+    min-height: 36px;
+    min-width: 36px;
+  }
+  /* Don't shrink small icon buttons — they need to be tappable */
+  button[class*="h-7"], button[class*="h-8"] {
+    min-height: 40px;
+  }
+  /* Increase chip/button padding */
+  button[class*="px-2"] {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+  /* Larger table rows for easier touch scrolling */
+  tbody tr {
+    min-height: 44px;
+  }
+  /* Prevent text selection on long-press (annoying on touch) */
+  button, .outbreak-marker, [role="option"], [role="menuitem"] {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
+  }
+}

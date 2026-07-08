@@ -77,6 +77,7 @@ const RegionReportCard = dynamic(() => import("@/components/region-report-card")
 const AlertSettings = dynamic(() => import("@/components/alert-settings").then(m => ({ default: m.AlertSettings })), { ssr: false });
 const DiseaseComparison = dynamic(() => import("@/components/disease-comparison").then(m => ({ default: m.DiseaseComparison })), { ssr: false });
 const RiskScoreMap = dynamic(() => import("@/components/risk-score-map").then(m => ({ default: m.RiskScoreMap })), { ssr: false });
+const SeasonalHeatmap = dynamic(() => import("@/components/seasonal-heatmap").then(m => ({ default: m.SeasonalHeatmap })), { ssr: false });
 
 import { useOutbreaks, useRegionsGeoJSON } from "@/lib/use-data";
 import { useQuery } from "@tanstack/react-query";
@@ -588,6 +589,11 @@ function HomeContent() {
             showHeatmap={showHeatmap}
             onSelectOutbreak={(o) => onSelectOutbreak(o)}
             onSelectRegion={onSelectRegion}
+            initialCenter={filters.mapLng != null && filters.mapLat != null ? [filters.mapLng, filters.mapLat] : undefined}
+            initialZoom={filters.mapZoom}
+            onMapMove={(center, zoom) => {
+              setFilters((f) => ({ ...f, mapLng: center[0], mapLat: center[1], mapZoom: zoom }));
+            }}
           />
 
           {/* Mobile KPI orbs — floating glass discs over map */}
@@ -678,6 +684,7 @@ function HomeContent() {
           <HotspotList outbreaks={filtered} onSelectRegion={(r) => { setRegionDrillDown(r); setRegionDrillDownOpen(true); }} />
           <EpiCurve outbreaks={filtered} />
           <DiseaseComparison outbreaks={filtered} />
+          <SeasonalHeatmap outbreaks={filtered} />
           <RiskScoreMap outbreaks={filtered} />
           <OutbreaksTable outbreaks={filtered} onSelectOutbreak={(o) => onSelectOutbreak(o)} />
         </div>

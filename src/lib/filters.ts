@@ -18,6 +18,14 @@ export interface FilterState {
   dateTo: string | null;
   /** Search query (matches disease, region, species). */
   query: string;
+  /** Map center latitude (for URL sharing). Not used for filtering. */
+  mapLat?: number;
+  /** Map center longitude. */
+  mapLng?: number;
+  /** Map zoom level. */
+  mapZoom?: number;
+  /** Selected outbreak ID (for deep linking). */
+  outbreakId?: number;
 }
 
 export const DEFAULT_FILTERS: FilterState = {
@@ -45,6 +53,10 @@ export function filtersToParams(f: FilterState): URLSearchParams {
   if (f.dateFrom) p.set("from", f.dateFrom);
   if (f.dateTo) p.set("to", f.dateTo);
   if (f.query) p.set("q", f.query);
+  if (f.mapLat != null) p.set("lat", f.mapLat.toFixed(4));
+  if (f.mapLng != null) p.set("lng", f.mapLng.toFixed(4));
+  if (f.mapZoom != null) p.set("z", String(Math.round(f.mapZoom)));
+  if (f.outbreakId != null) p.set("oid", String(f.outbreakId));
   return p;
 }
 
@@ -66,6 +78,10 @@ export function paramsToFilters(params: URLSearchParams | Record<string, string>
     dateFrom: get("from"),
     dateTo: get("to"),
     query: get("q") ?? "",
+    mapLat: get("lat") ? parseFloat(get("lat")!) : undefined,
+    mapLng: get("lng") ? parseFloat(get("lng")!) : undefined,
+    mapZoom: get("z") ? parseFloat(get("z")!) : undefined,
+    outbreakId: get("oid") ? parseInt(get("oid")!, 10) : undefined,
   };
 }
 
