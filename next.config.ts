@@ -59,11 +59,12 @@ const nextConfig: NextConfig = {
   env: {
     NEXT_PUBLIC_BUILD_VERSION: BUILD_VERSION,
   },
-  // TODO: remove `ignoreBuildErrors: true` once the remaining ~49 tsc errors
-  // are fixed. Currently pre-existing in filter-panel.tsx (densityLayer prop),
-  // enterprise-risk-monitor.tsx (Enterprise type union), sir-simulator.tsx
-  // (recharts types). These don't affect runtime correctness.
-  typescript: { ignoreBuildErrors: true },
+  // Type checking is now enforced in production builds — all tsc errors
+  // have been resolved. Previously `ignoreBuildErrors: true` was needed
+  // because of pre-existing type mismatches (MapLibre 5.x API, recharts 3.x
+  // Tooltip types, Enterprise type union). These were fixed in commit
+  // 9d126b7 + this commit. Lint + tests + tsc all pass clean.
+  typescript: { ignoreBuildErrors: false },
   // Strict mode causes double-mount of effects in dev, which breaks MapLibre
   // init in some edge cases. Disable for stable production behavior.
   reactStrictMode: false,

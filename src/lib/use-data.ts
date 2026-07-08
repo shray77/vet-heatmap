@@ -1,16 +1,22 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useQuery } from "@tanstack/react-query";
 import type { OutbreakDataset, DiseaseProfile } from "@/types/domain";
 import { DISEASE_PROFILES } from "@/data/disease-profiles";
 
 /**
- * Load the outbreaks dataset from /public/data.
+ * Data fetching hooks powered by React Query.
  *
- * In dev (no basePath), fetches `/data/outbreaks.json`.
- * In prod (GitHub Pages), fetches `/vet-heatmap/data/outbreaks.json`.
+ * Benefits over the previous hand-rolled useState+useEffect:
+ *   - Automatic dedup: multiple components calling useOutbreaks() share
+ *     one fetch (was: each component fetched independently).
+ *   - Background refresh: data auto-refreshes when stale (5 min) without
+ *     user action.
+ *   - Retry on error: transient network failures retry twice.
+ *   - Cache: navigations between dialogs don't re-fetch.
  *
- * Disease profiles are imported directly (compile-time data) for performance.
+ * The service worker's stale-while-revalidate handles HTTP-level caching;
+ * React Query manages the in-memory cache on top.
  */
 
 const basePath = process.env.NODE_ENV === "production" ? "/vet-heatmap" : "";
@@ -21,76 +27,50 @@ interface LoadState {
   error: string | null;
 }
 
-export function useOutbreaks(): LoadState & { profiles: DiseaseProfile[]; profilesByKey: Record<string, DiseaseProfile> } {
-  const [state, setState] = useState<LoadState>({
-    data: null,
-    loading: true,
-    error: null,
+export function useOutbreaks(): LoadState & {
+  profiles: DiseaseProfile[];
+  profilesByKey: Record<string, DiseaseProfile>;
+} {
+  const query = useQuery({
+    queryKey: ["outbreaks"],
+    queryFn: async () => {
+      const res = await fetch(`${basePath}/data/outbreaks.json`);
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      return (await res.json()) as OutbreakDataset;
+    },
+    staleTime: 5 * 60 * 1000, // 5 min
   });
 
-  useEffect(() => {
-    let cancelled = false;
-    (async () => {
-      try {
-        // Default browser cache + service worker stale-while-revalidate.
-        // Previously used `cache: "no-store"` which forced a full 1.1 MB
-        // download on every page load — brutal for field vets on mobile.
-        // The SW already handles freshness via its runtime strategy.
-        const res = await fetch(`${basePath}/data/outbreaks.json`);
-        if (!res.ok) throw new Error(`HTTP ${res.status}`);
-        const data: OutbreakDataset = await res.json();
-        if (!cancelled) setState({ data, loading: false, error: null });
-      } catch (e) {
-        if (!cancelled) {
-          setState({
-            data: null,
-            loading: false,
-            error: e instanceof Error ? e.message : String(e),
-          });
-        }
-      }
-    })();
-    return () => {
-      cancelled = true;
-    };
-  }, []);
+  const profilesByKey = Object.fromEntries(
+    DISEASE_PROFILES.map((p) => [p.disease_key, p]),
+  );
 
-  const profilesByKey = Object.fromEntries(DISEASE_PROFILES.map((p) => [p.disease_key, p]));
-  return { ...state, profiles: DISEASE_PROFILES, profilesByKey };
+  return {
+    data: query.data ?? null,
+    loading: query.isLoading,
+    error: query.error?.message ?? null,
+    profiles: DISEASE_PROFILES,
+    profilesByKey,
+  };
 }
 
 /** Load the GeoJSON regions layer. */
 export function useRegionsGeoJSON() {
-  const [state, setState] = useState<{
-    geo: GeoJSON.FeatureCollection | null;
-    loading: boolean;
-    error: string | null;
-  }>({ geo: null, loading: true, error: null });
+  const query = useQuery({
+    queryKey: ["regions-geojson"],
+    queryFn: async () => {
+      const res = await fetch(`${basePath}/data/russia_regions.geojson`);
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      return (await res.json()) as GeoJSON.FeatureCollection;
+    },
+    staleTime: 60 * 60 * 1000, // 1 hour — geo data rarely changes
+  });
 
-  useEffect(() => {
-    let cancelled = false;
-    (async () => {
-      try {
-        const res = await fetch(`${basePath}/data/russia_regions.geojson`);
-        if (!res.ok) throw new Error(`HTTP ${res.status}`);
-        const geo: GeoJSON.FeatureCollection = await res.json();
-        if (!cancelled) setState({ geo, loading: false, error: null });
-      } catch (e) {
-        if (!cancelled) {
-          setState({
-            geo: null,
-            loading: false,
-            error: e instanceof Error ? e.message : String(e),
-          });
-        }
-      }
-    })();
-    return () => {
-      cancelled = true;
-    };
-  }, []);
-
-  return state;
+  return {
+    geo: query.data ?? null,
+    loading: query.isLoading,
+    error: query.error?.message ?? null,
+  };
 }
 
 export { basePath };

@@ -78,6 +78,7 @@ const DiseaseComparison = dynamic(() => import("@/components/disease-comparison"
 const RiskScoreMap = dynamic(() => import("@/components/risk-score-map").then(m => ({ default: m.RiskScoreMap })), { ssr: false });
 
 import { useOutbreaks, useRegionsGeoJSON } from "@/lib/use-data";
+import { useQuery } from "@tanstack/react-query";
 import { useKeyboardShortcuts } from "@/lib/use-keyboard";
 import { useTheme } from "next-themes";
 import { diseaseColor } from "@/lib/colors";
@@ -144,29 +145,25 @@ function HomeContent() {
   const [alertOpen, setAlertOpen] = useState(false);
   const [nightMode, setNightMode] = useState(false);
 
-  // Load enterprises (OSM + Yandex.Maps merged)
-  const [enterprises, setEnterprises] = useState<{id:string;name:string;type:string;lat:number;lon:number;region?:string}[]>([]);
-  useEffect(() => {
-    // IMPORTANT: must use basePath for prod (GitHub Pages /vet-heatmap/)
-    // — fetch without basePath returns 404 HTML page, JSON parse fails,
-    // enterprises stays [] (this was the bug — "Монитор предприятий"
-    // showed "Все (0)" even though enterprises.json had 686 entries).
-    const basePath = process.env.NODE_ENV === "production" ? "/vet-heatmap" : "";
-
-    // Load both OSM-curated enterprises.json AND Yandex.Maps enterprises-yandex.json
-    // Yandex has better coverage of Russian businesses (many small/medium farms
-    // not tagged in OSM). Merge by id (Yandex ids start with "yandex-", OSM with "osm-").
-    Promise.all([
-      fetch(`${basePath}/data/enterprises.json`, { cache: "no-store" }).then(r => r.json()).catch(() => ({ enterprises: [] })),
-      fetch(`${basePath}/data/enterprises-yandex.json`, { cache: "no-store" }).then(r => r.json()).catch(() => ({ enterprises: [] })),
-    ]).then(([osmData, yandexData]) => {
-      const osmEnts = (osmData.enterprises || []).filter((e: any) => typeof e.lat === "number" && typeof e.lon === "number");
-      const yandexEnts = (yandexData.enterprises || []).filter((e: any) => typeof e.lat === "number" && typeof e.lon === "number");
+  // Load enterprises (OSM + Yandex.Maps merged) via React Query.
+  // Previously hand-rolled fetch+useState — now deduped + cached + retried.
+  const basePath = process.env.NODE_ENV === "production" ? "/vet-heatmap" : "";
+  const enterprisesQuery = useQuery({
+    queryKey: ["enterprises"],
+    queryFn: async () => {
+      const [osmRes, yandexRes] = await Promise.all([
+        fetch(`${basePath}/data/enterprises.json`).then((r) => r.json()).catch(() => ({ enterprises: [] })),
+        fetch(`${basePath}/data/enterprises-yandex.json`).then((r) => r.json()).catch(() => ({ enterprises: [] })),
+      ]);
+      const osmEnts = (osmRes.enterprises || []).filter((e: any) => typeof e.lat === "number" && typeof e.lon === "number");
+      const yandexEnts = (yandexRes.enterprises || []).filter((e: any) => typeof e.lat === "number" && typeof e.lon === "number");
       const all = [...osmEnts, ...yandexEnts];
       console.log(`[enterprises] OSM: ${osmEnts.length}, Yandex: ${yandexEnts.length}, merged: ${all.length}`);
-      setEnterprises(all);
-    }).catch(() => setEnterprises([]));
-  }, []);
+      return all as { id: string; name: string; type: string; lat: number; lon: number; region?: string }[];
+    },
+    staleTime: 30 * 60 * 1000, // 30 min — enterprises change rarely
+  });
+  const enterprises = enterprisesQuery.data ?? [];
   const [spatialOpen, setSpatialOpen] = useState(false);
   const [regionDrillDown, setRegionDrillDown] = useState<string | null>(null);
   const [regionDrillDownOpen, setRegionDrillDownOpen] = useState(false);
@@ -687,7 +684,7 @@ function HomeContent() {
       <TransportGraphAnalysis open={transportOpen} onOpenChange={setTransportOpen} outbreaks={filtered} />
       <PdfReportExport open={pdfReportOpen} onOpenChange={setPdfReportOpen} outbreaks={data?.outbreaks ?? []} />
       <CustomDataImport open={customImportOpen} onOpenChange={setCustomImportOpen} outbreaks={data?.outbreaks ?? []} />
-      <EnterpriseRiskMonitor open={enterpriseRiskOpen} onOpenChange={setEnterpriseRiskOpen} outbreaks={data?.outbreaks ?? []} enterprises={enterprises} />
+      <EnterpriseRiskMonitor open={enterpriseRiskOpen} onOpenChange={setEnterpriseRiskOpen} outbreaks={data?.outbreaks ?? []} enterprises={enterprises as any} />
       <SpreadAnimation open={spreadAnimOpen} onOpenChange={setSpreadAnimOpen} outbreaks={data?.outbreaks ?? []} />
       <RegionReportCard open={regionCardOpen} onOpenChange={setRegionCardOpen} outbreaks={data?.outbreaks ?? []} />
       <AlertSettings open={alertOpen} onOpenChange={setAlertOpen} outbreaks={data?.outbreaks ?? []} />
@@ -701,14 +698,14 @@ function HomeContent() {
           setOutbreakDetailOpen(true);
         }}
         geo={geo}
-        enterprises={enterprises}
+        enterprises={enterprises as any}
       />
       <OutbreakDetailPanel
         outbreak={selectedOutbreak}
         open={outbreakDetailOpen}
         onOpenChange={setOutbreakDetailOpen}
         outbreaks={data?.outbreaks ?? []}
-        enterprises={enterprises}
+        enterprises={enterprises as any}
         onSelectDisease={(k) => { setDrawerDisease(k); setDrawerOpen(true); }}
         onSimulate={(o) => { setSirOpen(true); }}
       />

@@ -25,7 +25,7 @@ import { findConnectedRegions } from "@/data/transport-graph";
 interface Enterprise {
   id: string;
   name: string;
-  type: "farm" | "meat_plant" | "market" | "dairy";
+  type: "farm" | "meat_plant" | "market" | "dairy" | "pig_farm" | "poultry_farm" | "cattle_farm" | "feed_mill" | "vet_clinic" | "slaughterhouse";
   lat: number;
   lon: number;
   region?: string;

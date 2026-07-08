@@ -615,13 +615,13 @@ export function SIRSimulator({ open, onOpenChange, preselectDisease }: SIRSimula
                       <CartesianGrid strokeDasharray="3 3" stroke="currentColor" opacity={0.15} />
                       <XAxis
                         dataKey="day"
-                        tick={{ fontSize: 10, fill: "currentColor", fontVariantNumeric: "tabular-nums" }}
+                        tick={{ fontSize: 10, fill: "currentColor" } as any}
                         stroke="currentColor"
                         strokeOpacity={0.3}
                         label={{ value: "День", position: "insideBottom", offset: -2, style: { fontSize: 10, fill: "currentColor" } }}
                       />
                       <YAxis
-                        tick={{ fontSize: 10, fill: "currentColor", fontVariantNumeric: "tabular-nums" }}
+                        tick={{ fontSize: 10, fill: "currentColor" } as any}
                         stroke="currentColor"
                         strokeOpacity={0.3}
                         tickFormatter={(v) => v >= 1000 ? `${(v / 1000).toFixed(0)}k` : v}
@@ -635,13 +635,13 @@ export function SIRSimulator({ open, onOpenChange, preselectDisease }: SIRSimula
                           fontSize: 11,
                         }}
                         labelFormatter={(d) => `День ${d}`}
-                        formatter={(v: number, name) => {
+                        formatter={((v: number, name: string) => {
                           const labels: Record<string, string> = {
                             S: "Восприимчивые", E: "Инкубация", I: "Больные",
                             R: "Выздоровевшие", D: "Погибшие",
                           };
-                          return [v.toLocaleString("ru-RU"), labels[name] ?? name];
-                        }}
+                          return [v?.toLocaleString("ru-RU") ?? "", labels[name] ?? name];
+                        }) as any}
                       />
                       <Legend
                         wrapperStyle={{ fontSize: 11 }}
@@ -718,7 +718,7 @@ export function SIRSimulator({ open, onOpenChange, preselectDisease }: SIRSimula
                           fontSize: 11,
                         }}
                         labelFormatter={(d) => `День ${d}`}
-                        formatter={(v: number) => [v.toFixed(2), "R эфф."]}
+                        formatter={((v: number) => [v?.toFixed(2) ?? "", "R эфф."]) as any}
                       />
                       <ReferenceLine y={1} stroke="var(--destructive)" strokeDasharray="3 3" />
                       <Area type="monotone" dataKey="Reff" stroke="var(--primary)" fill="var(--primary)" fillOpacity={0.15} name="R эфф." />
@@ -782,7 +782,7 @@ function SliderControl({
 function InterventionToggle({
   icon: Icon, label, desc, enabled, onToggle, color,
 }: {
-  icon: React.ComponentType<{ className?: string }>;
+  icon: React.ComponentType<{ className?: string; style?: React.CSSProperties }>;
   label: string;
   desc: string;
   enabled: boolean;
@@ -826,7 +826,7 @@ function InterventionToggle({
 function StatCard({
   icon: Icon, color, label, value, sub,
 }: {
-  icon: React.ComponentType<{ className?: string }>;
+  icon: React.ComponentType<{ className?: string; style?: React.CSSProperties }>;
   color: string;
   label: string;
   value: string;

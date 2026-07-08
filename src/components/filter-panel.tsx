@@ -31,6 +31,8 @@ interface FilterPanelProps {
   onShowChoroplethChange: (v: boolean) => void;
   showHeatmap?: boolean;
   onShowHeatmapChange?: (v: boolean) => void;
+  /** Livestock density layer toggle (passed from page.tsx but not used in panel UI — kept for prop compatibility). */
+  densityLayer?: "none" | "pigs" | "cattle" | "poultry";
 }
 
 export function FilterPanel({
@@ -44,6 +46,7 @@ export function FilterPanel({
   onShowChoroplethChange,
   showHeatmap = false,
   onShowHeatmapChange,
+  densityLayer: _densityLayer,
 }: FilterPanelProps) {
   // Compute available filter options from the data
   const allDiseases = useMemo(() => {

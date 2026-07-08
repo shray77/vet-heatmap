@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { applyFilters, filtersToParams, paramsToFilters, DEFAULT_FILTERS } from "./filters";
+import { applyFilters, filtersToParams, paramsToFilters, DEFAULT_FILTERS, type FilterState } from "./filters";
 import type { Outbreak, DiseaseKey, OutbreakStatus } from "@/types/domain";
 
 function makeOutbreak(overrides: Partial<Outbreak> = {}): Outbreak {
@@ -22,6 +22,14 @@ function makeOutbreak(overrides: Partial<Outbreak> = {}): Outbreak {
   };
 }
 
+// Helper to build FilterState with proper typing (avoid `never[]` inference)
+function makeFilters(overrides: Partial<FilterState> = {}): FilterState {
+  return {
+    ...DEFAULT_FILTERS,
+    ...overrides,
+  };
+}
+
 describe("applyFilters", () => {
   const outbreaks = [
     makeOutbreak({ id: 1, disease_key: "asf", disease: "АЧС", region: "Москва", species: "Swine (domestic)", status: "Ongoing", date: "2024-06-15", federal_district: "ЦФО" }),
@@ -30,63 +38,63 @@ describe("applyFilters", () => {
   ];
 
   it("returns all outbreaks when filters are empty", () => {
-    const f = { ...DEFAULT_FILTERS, diseases: [], species: [], statuses: [], federalDistricts: [], dateFrom: null, dateTo: null, query: "" };
+    const f = makeFilters({ diseases: [], species: [], statuses: [], federalDistricts: [], dateFrom: null, dateTo: null, query: "" });
     expect(applyFilters(outbreaks, f)).toHaveLength(3);
   });
 
   it("filters by disease", () => {
-    const f = { ...DEFAULT_FILTERS, diseases: ["asf" as DiseaseKey], species: [], statuses: [], federalDistricts: [], dateFrom: null, dateTo: null, query: "" };
+    const f = makeFilters({ diseases: ["asf" as DiseaseKey], species: [], statuses: [], federalDistricts: [], dateFrom: null, dateTo: null, query: "" });
     const result = applyFilters(outbreaks, f);
     expect(result).toHaveLength(1);
     expect(result[0].disease_key).toBe("asf");
   });
 
   it("filters by multiple diseases", () => {
-    const f = { ...DEFAULT_FILTERS, diseases: ["asf", "hpai"] as DiseaseKey[], species: [], statuses: [], federalDistricts: [], dateFrom: null, dateTo: null, query: "" };
+    const f = makeFilters({ diseases: ["asf", "hpai"] as DiseaseKey[], species: [], statuses: [], federalDistricts: [], dateFrom: null, dateTo: null, query: "" });
     expect(applyFilters(outbreaks, f)).toHaveLength(2);
   });
 
   it("filters by status", () => {
-    const f = { ...DEFAULT_FILTERS, diseases: [], species: [], statuses: ["Ongoing"], federalDistricts: [], dateFrom: null, dateTo: null, query: "" };
+    const f = makeFilters({ diseases: [], species: [], statuses: ["Ongoing"], federalDistricts: [], dateFrom: null, dateTo: null, query: "" });
     const result = applyFilters(outbreaks, f);
     expect(result).toHaveLength(2);
     expect(result.every((o) => o.status === "Ongoing")).toBe(true);
   });
 
   it("filters by federal district", () => {
-    const f = { ...DEFAULT_FILTERS, diseases: [], species: [], statuses: [], federalDistricts: ["ЦФО"], dateFrom: null, dateTo: null, query: "" };
+    const f = makeFilters({ diseases: [], species: [], statuses: [], federalDistricts: ["ЦФО"], dateFrom: null, dateTo: null, query: "" });
     expect(applyFilters(outbreaks, f)).toHaveLength(2);
   });
 
   it("filters by date range", () => {
-    const f = { ...DEFAULT_FILTERS, diseases: [], species: [], statuses: [], federalDistricts: [], dateFrom: "2024-01-01", dateTo: "2024-12-31", query: "" };
+    const f = makeFilters({ diseases: [], species: [], statuses: [], federalDistricts: [], dateFrom: "2024-01-01", dateTo: "2024-12-31", query: "" });
     expect(applyFilters(outbreaks, f)).toHaveLength(2);
   });
 
   it("filters by search query (disease name)", () => {
-    const f = { ...DEFAULT_FILTERS, diseases: [], species: [], statuses: [], federalDistricts: [], dateFrom: null, dateTo: null, query: "ящур" };
+    const f = makeFilters({ diseases: [], species: [], statuses: [], federalDistricts: [], dateFrom: null, dateTo: null, query: "ящур" });
     expect(applyFilters(outbreaks, f)).toHaveLength(1);
   });
 
   it("filters by search query (region)", () => {
-    const f = { ...DEFAULT_FILTERS, diseases: [], species: [], statuses: [], federalDistricts: [], dateFrom: null, dateTo: null, query: "краснодар" };
+    const f = makeFilters({ diseases: [], species: [], statuses: [], federalDistricts: [], dateFrom: null, dateTo: null, query: "краснодар" });
     expect(applyFilters(outbreaks, f)).toHaveLength(1);
   });
 
   it("combines multiple filters (AND logic)", () => {
-    const f = { ...DEFAULT_FILTERS, diseases: [], species: ["Swine (domestic)"], statuses: ["Ongoing"], federalDistricts: ["ЦФО"], dateFrom: null, dateTo: null, query: "" };
+    const f = makeFilters({ diseases: [], species: ["Swine (domestic)"], statuses: ["Ongoing"], federalDistricts: ["ЦФО"], dateFrom: null, dateTo: null, query: "" });
     expect(applyFilters(outbreaks, f)).toHaveLength(1);
   });
 
   it("returns empty array when nothing matches", () => {
-    const f = { ...DEFAULT_FILTERS, diseases: ["rabies" as DiseaseKey], species: [], statuses: [], federalDistricts: [], dateFrom: null, dateTo: null, query: "" };
+    const f = makeFilters({ diseases: ["rabies" as DiseaseKey], species: [], statuses: [], federalDistricts: [], dateFrom: null, dateTo: null, query: "" });
     expect(applyFilters(outbreaks, f)).toHaveLength(0);
   });
 });
 
 describe("filtersToParams / paramsToFilters", () => {
   it("round-trips empty filters", () => {
-    const f = { ...DEFAULT_FILTERS, diseases: [], species: [], statuses: [], federalDistricts: [], dateFrom: null, dateTo: null, query: "" };
+    const f = makeFilters({ diseases: [], species: [], statuses: [], federalDistricts: [], dateFrom: null, dateTo: null, query: "" });
     const params = filtersToParams(f);
     const restored = paramsToFilters(params);
     expect(restored.diseases).toEqual([]);
@@ -94,7 +102,7 @@ describe("filtersToParams / paramsToFilters", () => {
   });
 
   it("round-trips populated filters", () => {
-    const f = { ...DEFAULT_FILTERS, diseases: ["asf", "hpai"] as DiseaseKey[], species: ["Poultry"], statuses: ["Ongoing"], federalDistricts: ["ЦФО"], dateFrom: "2024-01-01", dateTo: "2024-12-31", query: "тест" };
+    const f = makeFilters({ diseases: ["asf", "hpai"] as DiseaseKey[], species: ["Poultry"], statuses: ["Ongoing"], federalDistricts: ["ЦФО"], dateFrom: "2024-01-01", dateTo: "2024-12-31", query: "тест" });
     const params = filtersToParams(f);
     const restored = paramsToFilters(params);
     expect(restored.diseases).toEqual(["asf", "hpai"]);

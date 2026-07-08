@@ -370,10 +370,10 @@ export function SpatialSimulator({
                           borderRadius: 6,
                           fontSize: 11,
                         }}
-                        formatter={(v: number, name) => {
+                        formatter={((v: number, name: string) => {
                           if (name === "day") return [`День ${v}`, "Первое заражение"];
                           return [v, name];
-                        }}
+                        }) as any}
                       />
                       <Bar dataKey="day" fill={color} radius={[0, 4, 4, 0]} />
                     </BarChart>

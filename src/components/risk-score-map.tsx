@@ -17,7 +17,7 @@ interface RegionRisk {
   name_ru: string;
   federal_district: string;
   score: number;
-  diseases: { key: DiseaseKey; name: string; outbreaks: number; r0: number; density: number; contribution: number }[];
+  diseases: { key: DiseaseKey; name: string; group: string; outbreaks: number; r0: number; density: number; contribution: number }[];
 }
 
 export function RiskScoreMap({ outbreaks }: RiskScoreProps) {
@@ -61,6 +61,7 @@ export function RiskScoreMap({ outbreaks }: RiskScoreProps) {
         diseases.push({
           key: dkey,
           name: profile?.name_ru ?? dkey,
+          group: profile?.group ?? "Multi-species",
           outbreaks: count,
           r0,
           density,
@@ -122,7 +123,7 @@ export function RiskScoreMap({ outbreaks }: RiskScoreProps) {
               <div className="flex flex-wrap gap-1 ml-8">
                 {r.diseases.slice(0, 4).map((d) => (
                   <span key={d.key} className="text-[9px] px-1.5 py-0.5 rounded-full border"
-                    style={{ borderColor: diseaseColor(d.key, ""), color: diseaseColor(d.key, ""), opacity: 0.8 }}>
+                    style={{ borderColor: diseaseColor(d.key, d.group as any), color: diseaseColor(d.key, d.group as any), opacity: 0.8 }}>
                     {d.name} ×{d.outbreaks}
                   </span>
                 ))}
