@@ -13,7 +13,7 @@ permissions:
 jobs:
   scrape:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 25
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -22,6 +22,18 @@ jobs:
         uses: oven-sh/setup-bun@v2
         with:
           bun-version: latest
+
+      - name: Setup Python (for scrapers + Playwright)
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install Playwright + Chromium
+        # Used by yandex-enterprises.py to scrape Yandex.Maps.
+        # Browser is ~150MB but cached between runs.
+        run: |
+          pip install --quiet playwright
+          python -m playwright install --with-deps chromium
 
       - name: Install dependencies
         run: bun install --frozen-lockfile
@@ -51,13 +63,23 @@ jobs:
         # if it dies mid-run we still get a usable enterprises.json.
         run: timeout 240 python3 scripts/scrape/osint-enterprises.py || true
 
+      - name: Scrape Yandex.Maps enterprises (Playwright)
+        # Yandex has much better coverage of Russian businesses than OSM —
+        # many small/medium farms, meat plants, and feed mills are listed
+        # in Yandex Business but not tagged in OSM at all.
+        # Uses Playwright (headless Chromium) to bypass JS-heavy Yandex UI.
+        # Searches top-30 cities × 5 categories = 150 searches.
+        # 540s timeout = 9 min (150 × ~3.5s avg per search).
+        # Saves partial results after each city×category.
+        run: timeout 540 python3 scripts/scrape/yandex-enterprises.py --cities 30 --categories 5 --scroll-pages 3 || true
+
       - name: Check for changes
         id: changes
         run: |
           # Track both outbreak + enterprise datasets.
           # Use --quiet (exit 0 = no changes, 1 = changes present).
           changed=0
-          for f in public/data/outbreaks.json public/data/enterprises.json; do
+          for f in public/data/outbreaks.json public/data/enterprises.json public/data/enterprises-yandex.json; do
             if [ -f "$f" ]; then
               if ! git diff --no-color --quiet -- "$f"; then
                 changed=1
@@ -82,7 +104,7 @@ jobs:
           # cause "fatal: pathspec did not match any files" or
           # "The following paths are ignored by one of your .gitignore files".
           FILES_TO_ADD=()
-          for f in public/data/outbreaks.json public/data/enterprises.json; do
+          for f in public/data/outbreaks.json public/data/enterprises.json public/data/enterprises-yandex.json; do
             if [ -f "$f" ]; then
               FILES_TO_ADD+=("$f")
             fi
@@ -100,7 +122,7 @@ jobs:
           git commit -m "chore(data): refresh outbreak + enterprise datasets [skip ci]
 
           Scraper run: $(date -u +'%Y-%m-%d %H:%M UTC')
-          Sources: fsvps.gov.ru + wahis.woah.org + curated + OSM Overpass
+          Sources: fsvps.gov.ru + wahis.woah.org + curated + OSM Overpass + Yandex.Maps
           "
           git push
 

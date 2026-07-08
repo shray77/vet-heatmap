@@ -131,7 +131,7 @@ function HomeContent() {
   const [alertOpen, setAlertOpen] = useState(false);
   const [nightMode, setNightMode] = useState(false);
 
-  // Load enterprises
+  // Load enterprises (OSM + Yandex.Maps merged)
   const [enterprises, setEnterprises] = useState<{id:string;name:string;type:string;lat:number;lon:number;region?:string}[]>([]);
   useEffect(() => {
     // IMPORTANT: must use basePath for prod (GitHub Pages /vet-heatmap/)
@@ -139,10 +139,20 @@ function HomeContent() {
     // enterprises stays [] (this was the bug — "Монитор предприятий"
     // showed "Все (0)" even though enterprises.json had 686 entries).
     const basePath = process.env.NODE_ENV === "production" ? "/vet-heatmap" : "";
-    fetch(`${basePath}/data/enterprises.json`, { cache: "no-store" })
-      .then((r) => r.json())
-      .then((d) => setEnterprises(d.enterprises || []))
-      .catch(() => {});
+
+    // Load both OSM-curated enterprises.json AND Yandex.Maps enterprises-yandex.json
+    // Yandex has better coverage of Russian businesses (many small/medium farms
+    // not tagged in OSM). Merge by id (Yandex ids start with "yandex-", OSM with "osm-").
+    Promise.all([
+      fetch(`${basePath}/data/enterprises.json`, { cache: "no-store" }).then(r => r.json()).catch(() => ({ enterprises: [] })),
+      fetch(`${basePath}/data/enterprises-yandex.json`, { cache: "no-store" }).then(r => r.json()).catch(() => ({ enterprises: [] })),
+    ]).then(([osmData, yandexData]) => {
+      const osmEnts = (osmData.enterprises || []).filter((e: any) => typeof e.lat === "number" && typeof e.lon === "number");
+      const yandexEnts = (yandexData.enterprises || []).filter((e: any) => typeof e.lat === "number" && typeof e.lon === "number");
+      const all = [...osmEnts, ...yandexEnts];
+      console.log(`[enterprises] OSM: ${osmEnts.length}, Yandex: ${yandexEnts.length}, merged: ${all.length}`);
+      setEnterprises(all);
+    }).catch(() => setEnterprises([]));
   }, []);
   const [spatialOpen, setSpatialOpen] = useState(false);
   const [regionDrillDown, setRegionDrillDown] = useState<string | null>(null);
