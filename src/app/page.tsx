@@ -33,6 +33,7 @@ import {
   Download,
   Bell,
   ChevronDown,
+  ArrowLeftRight,
 } from "lucide-react";
 
 import dynamic from "next/dynamic";
@@ -78,6 +79,7 @@ const AlertSettings = dynamic(() => import("@/components/alert-settings").then(m
 const DiseaseComparison = dynamic(() => import("@/components/disease-comparison").then(m => ({ default: m.DiseaseComparison })), { ssr: false });
 const RiskScoreMap = dynamic(() => import("@/components/risk-score-map").then(m => ({ default: m.RiskScoreMap })), { ssr: false });
 const SeasonalHeatmap = dynamic(() => import("@/components/seasonal-heatmap").then(m => ({ default: m.SeasonalHeatmap })), { ssr: false });
+const RegionComparison = dynamic(() => import("@/components/region-comparison").then(m => ({ default: m.RegionComparison })), { ssr: false });
 
 import { useOutbreaks, useRegionsGeoJSON } from "@/lib/use-data";
 import { useQuery } from "@tanstack/react-query";
@@ -155,6 +157,7 @@ function HomeContent() {
     regionDrillDownOpen, setRegionDrillDownOpen,
     selectedOutbreak, setSelectedOutbreak,
     outbreakDetailOpen, setOutbreakDetailOpen,
+    comparisonOpen, setComparisonOpen,
     openDisease, openOutbreak, openRegion,
   } = useUIStore();
 
@@ -395,6 +398,9 @@ function HomeContent() {
                 <DropdownMenuItem onClick={() => setRegionCardOpen(true)}>
                   <MapPin className="h-4 w-4 mr-2" /> Карточка региона
                 </DropdownMenuItem>
+                <DropdownMenuItem onClick={() => setComparisonOpen(true)}>
+                  <ArrowLeftRight className="h-4 w-4 mr-2" /> Сравнение регионов
+                </DropdownMenuItem>
                 <DropdownMenuItem onClick={() => setEnterpriseRiskOpen(true)}>
                   <Factory className="h-4 w-4 mr-2" /> Предприятия
                 </DropdownMenuItem>
@@ -467,6 +473,9 @@ function HomeContent() {
                 </DropdownMenuItem>
                 <DropdownMenuItem onClick={() => setRegionCardOpen(true)}>
                   <MapPin className="h-4 w-4 mr-2" /> Карточка региона
+                </DropdownMenuItem>
+                <DropdownMenuItem onClick={() => setComparisonOpen(true)}>
+                  <ArrowLeftRight className="h-4 w-4 mr-2" /> Сравнение регионов
                 </DropdownMenuItem>
                 <DropdownMenuItem onClick={() => setEnterpriseRiskOpen(true)}>
                   <Factory className="h-4 w-4 mr-2" /> Предприятия
@@ -748,6 +757,7 @@ function HomeContent() {
         regionCentroids={regionCentroids}
       />
       <AboutDialog open={aboutOpen} onOpenChange={setAboutOpen} />
+      <RegionComparison open={comparisonOpen} onOpenChange={setComparisonOpen} outbreaks={data?.outbreaks ?? []} />
     </main>
   );
 }

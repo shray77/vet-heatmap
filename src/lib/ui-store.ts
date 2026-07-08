@@ -40,6 +40,7 @@ interface UIState {
   spatialOpen: boolean;
   regionDrillDownOpen: boolean;
   outbreakDetailOpen: boolean;
+  comparisonOpen: boolean;
 
   // ─── Selected items ──────────────────────────────────────────────────
   drawerDisease: DiseaseKey | null;
@@ -65,6 +66,7 @@ interface UIState {
   setSpatialOpen: (v: boolean) => void;
   setRegionDrillDownOpen: (v: boolean) => void;
   setOutbreakDetailOpen: (v: boolean) => void;
+  setComparisonOpen: (v: boolean) => void;
 
   setDrawerDisease: (v: DiseaseKey | null) => void;
   setCalcPreselect: (v: DiseaseKey | null) => void;
@@ -98,6 +100,7 @@ export const useUIStore = create<UIState>((set) => ({
   spatialOpen: false,
   regionDrillDownOpen: false,
   outbreakDetailOpen: false,
+  comparisonOpen: false,
   drawerDisease: null,
   calcPreselect: null,
   regionDrillDown: null,
@@ -121,6 +124,7 @@ export const useUIStore = create<UIState>((set) => ({
   setSpatialOpen: (v) => set({ spatialOpen: v }),
   setRegionDrillDownOpen: (v) => set({ regionDrillDownOpen: v }),
   setOutbreakDetailOpen: (v) => set({ outbreakDetailOpen: v }),
+  setComparisonOpen: (v) => set({ comparisonOpen: v }),
   setDrawerDisease: (v) => set({ drawerDisease: v }),
   setCalcPreselect: (v) => set({ calcPreselect: v }),
   setRegionDrillDown: (v) => set({ regionDrillDown: v }),
