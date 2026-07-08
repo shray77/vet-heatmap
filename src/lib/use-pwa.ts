@@ -28,8 +28,6 @@ export function usePWA() {
         .register(swUrl, { scope: "/vet-heatmap/" })
         .then((reg) => {
           // Auto-activate any waiting worker silently (no user-facing banner).
-          // This is safe: SW changes only affect cached resources, not active
-          // page state. User gets the new version on next reload.
           const activateWaiting = () => {
             if (reg.waiting) reg.waiting.postMessage({ type: "SKIP_WAITING" });
           };
@@ -43,6 +41,25 @@ export function usePWA() {
         .catch((e) => {
           console.warn("[pwa] SW registration failed:", e);
         });
+
+      // When SW activates a NEW version (different from the one that loaded
+      // the current page), auto-reload once to pick up the new code.
+      // Without this, users see stale UI until they manually refresh.
+      // The SW posts SW_ACTIVATED with the new version after activate().
+      let hasReloaded = false;
+      navigator.serviceWorker.addEventListener("message", (event) => {
+        if (event.data?.type === "SW_ACTIVATED" && !hasReloaded) {
+          hasReloaded = true;
+          // Check if the SW version differs from the page's build version
+          const pageVersion = process.env.NEXT_PUBLIC_BUILD_VERSION;
+          const swVersion = event.data.version;
+          if (pageVersion && swVersion && pageVersion !== swVersion) {
+            console.log(`[pwa] SW updated: ${pageVersion} → ${swVersion}, reloading…`);
+            // Soft reload — preserves scroll position and form state better
+            window.location.reload();
+          }
+        }
+      });
     }
 
     const onBIP = (e: Event) => {

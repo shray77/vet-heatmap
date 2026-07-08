@@ -35,6 +35,7 @@ import {
   ChevronDown,
 } from "lucide-react";
 
+import dynamic from "next/dynamic";
 import { OutbreakMap } from "@/components/outbreak-map";
 import { StatsBar } from "@/components/stats-bar";
 import { FilterPanel } from "@/components/filter-panel";
@@ -42,27 +43,39 @@ import { EpiCurve } from "@/components/epi-curve";
 import { HotspotList } from "@/components/hotspot-list";
 import { TimelineSlider } from "@/components/timeline-slider";
 import { OutbreaksTable } from "@/components/outbreaks-table";
-import { DiseaseProfileDrawer } from "@/components/disease-profile-drawer";
-import { QuarantineCalculator } from "@/components/quarantine-calculator";
-import { NearbyOutbreaks } from "@/components/nearby-outbreaks";
-import { SIRSimulator } from "@/components/sir-simulator";
-import { OutbreakSourceTracker } from "@/components/outbreak-source-tracker";
-import { TransportGraphAnalysis } from "@/components/transport-graph-analysis";
-import { PdfReportExport } from "@/components/pdf-report-export";
-import { CustomDataImport } from "@/components/custom-data-import";
 import { SearchBox } from "@/components/search-box";
 import { TodaySummary } from "@/components/today-summary";
-import { OutbreakDetailPanel } from "@/components/outbreak-detail-panel";
-import { EnterpriseRiskMonitor } from "@/components/enterprise-risk-monitor";
-import { SpatialSimulator } from "@/components/spatial-simulator";
-import { RegionDrillDown } from "@/components/region-drill-down";import { ThemeToggle } from "@/components/theme-toggle";
+import { ThemeToggle } from "@/components/theme-toggle";
 import { PwaBanners } from "@/components/pwa-banners";
-import { AboutDialog } from "@/components/about-dialog";
-import { DiseaseComparison } from "@/components/disease-comparison";
-import { SpreadAnimation } from "@/components/spread-animation";
-import { RegionReportCard } from "@/components/region-report-card";
-import { AlertSettings } from "@/components/alert-settings";
-import { RiskScoreMap } from "@/components/risk-score-map";
+
+// Heavy dialog components — lazy-loaded with next/dynamic to keep the
+// initial bundle small. Each dialog pulls in heavy deps:
+//   - SIRSimulator: recharts (~400KB)
+//   - PdfReportExport: jspdf + html2canvas (~500KB)
+//   - SpatialSimulator: recharts
+//   - OutbreakSourceTracker: recharts
+//   - TransportGraphAnalysis: recharts
+//   - SpreadAnimation: framer-motion
+// Without code-splitting these all load on first paint (~1.87 MB main chunk).
+// With dynamic imports they only load when the user opens the dialog.
+const DiseaseProfileDrawer = dynamic(() => import("@/components/disease-profile-drawer").then(m => ({ default: m.DiseaseProfileDrawer })), { ssr: false });
+const QuarantineCalculator = dynamic(() => import("@/components/quarantine-calculator").then(m => ({ default: m.QuarantineCalculator })), { ssr: false });
+const NearbyOutbreaks = dynamic(() => import("@/components/nearby-outbreaks").then(m => ({ default: m.NearbyOutbreaks })), { ssr: false });
+const SIRSimulator = dynamic(() => import("@/components/sir-simulator").then(m => ({ default: m.SIRSimulator })), { ssr: false });
+const OutbreakSourceTracker = dynamic(() => import("@/components/outbreak-source-tracker").then(m => ({ default: m.OutbreakSourceTracker })), { ssr: false });
+const TransportGraphAnalysis = dynamic(() => import("@/components/transport-graph-analysis").then(m => ({ default: m.TransportGraphAnalysis })), { ssr: false });
+const PdfReportExport = dynamic(() => import("@/components/pdf-report-export").then(m => ({ default: m.PdfReportExport })), { ssr: false });
+const CustomDataImport = dynamic(() => import("@/components/custom-data-import").then(m => ({ default: m.CustomDataImport })), { ssr: false });
+const OutbreakDetailPanel = dynamic(() => import("@/components/outbreak-detail-panel").then(m => ({ default: m.OutbreakDetailPanel })), { ssr: false });
+const EnterpriseRiskMonitor = dynamic(() => import("@/components/enterprise-risk-monitor").then(m => ({ default: m.EnterpriseRiskMonitor })), { ssr: false });
+const SpatialSimulator = dynamic(() => import("@/components/spatial-simulator").then(m => ({ default: m.SpatialSimulator })), { ssr: false });
+const RegionDrillDown = dynamic(() => import("@/components/region-drill-down").then(m => ({ default: m.RegionDrillDown })), { ssr: false });
+const AboutDialog = dynamic(() => import("@/components/about-dialog").then(m => ({ default: m.AboutDialog })), { ssr: false });
+const SpreadAnimation = dynamic(() => import("@/components/spread-animation").then(m => ({ default: m.SpreadAnimation })), { ssr: false });
+const RegionReportCard = dynamic(() => import("@/components/region-report-card").then(m => ({ default: m.RegionReportCard })), { ssr: false });
+const AlertSettings = dynamic(() => import("@/components/alert-settings").then(m => ({ default: m.AlertSettings })), { ssr: false });
+const DiseaseComparison = dynamic(() => import("@/components/disease-comparison").then(m => ({ default: m.DiseaseComparison })), { ssr: false });
+const RiskScoreMap = dynamic(() => import("@/components/risk-score-map").then(m => ({ default: m.RiskScoreMap })), { ssr: false });
 
 import { useOutbreaks, useRegionsGeoJSON } from "@/lib/use-data";
 import { useKeyboardShortcuts } from "@/lib/use-keyboard";

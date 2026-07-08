@@ -332,20 +332,66 @@ def main():
     all_results = []
 
     with sync_playwright() as p:
-        # Use Chromium with realistic viewport
+        # Use Chromium with stealth settings to bypass Yandex bot detection.
+        # Yandex detects default Playwright/Puppeteer fingerprints and serves
+        # empty results or captchas. These args + UA help but aren't perfect.
         browser = p.chromium.launch(
             headless=args.headless,
             args=[
                 "--disable-blink-features=AutomationControlled",
                 "--no-sandbox",
                 "--disable-dev-shm-usage",
+                "--disable-features=IsolateOrigins,site-per-process",
+                "--disable-infobars",
+                "--window-size=1280,900",
+                "--disable-dev-shm-usage",
+                # Realistic Chrome flags
+                "--enable-features=NetworkService,NetworkServiceInProcess",
+                "--disable-extensions",
+                "--disable-default-apps",
+                "--disable-component-extensions-with-background-pages",
             ],
         )
         context = browser.new_context(
             viewport={"width": 1280, "height": 900},
-            user_agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36",
+            user_agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.6478.126 Safari/537.36",
             locale="ru-RU",
+            timezone_id="Europe/Moscow",
+            extra_http_headers={
+                "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+                "Accept-Language": "ru-RU,ru;q=0.9,en;q=0.8",
+                "Accept-Encoding": "gzip, deflate, br",
+                "DNT": "1",
+                "Upgrade-Insecure-Requests": "1",
+                "Sec-Fetch-Dest": "document",
+                "Sec-Fetch-Mode": "navigate",
+                "Sec-Fetch-Site": "none",
+                "Sec-Fetch-User": "?1",
+                "Cache-Control": "max-age=0",
+            },
         )
+
+        # Inject stealth script to mask webdriver property — Yandex checks
+        # navigator.webdriver === true and blocks if so.
+        context.add_init_script("""
+            Object.defineProperty(navigator, 'webdriver', { get: () => undefined });
+            Object.defineProperty(navigator, 'languages', { get: () => ['ru-RU', 'ru', 'en'] });
+            Object.defineProperty(navigator, 'plugins', {
+                get: () => [1, 2, 3, 4, 5].map(i => ({
+                    name: 'Plugin ' + i,
+                    filename: 'plugin' + i + '.so',
+                    description: 'Plugin ' + i,
+                })),
+            });
+            // Override Chrome runtime to look real
+            window.chrome = { runtime: {} };
+            // Override permissions
+            const originalQuery = window.navigator.permissions.query;
+            window.navigator.permissions.query = (parameters) =>
+                parameters.name === 'notifications'
+                    ? Promise.resolve({ state: Notification.permission })
+                    : originalQuery(parameters);
+        """)
         # Block images/fonts/stylesheets for speed (we only need text data)
         context.route("**/*.{png,jpg,jpeg,gif,svg,woff,woff2,ttf,css}",
                       lambda route: route.abort())
@@ -426,8 +472,10 @@ def main():
 
                     save_partial(all_results, city_name, query)
 
-                    # Be nice to Yandex — 3-5s between searches
-                    delay = 3 + (hash(search_text) % 3)  # 3-5s, varied
+                    # Be nice to Yandex — 5-10s randomized delay between
+                    # searches. Yandex blocks rapid-fire requests, so we
+                    # need longer delays than the previous 3-5s.
+                    delay = 5 + (hash(search_text) % 6)  # 5-10s, varied
                     page.wait_for_timeout(delay * 1000)
 
                 except Exception as e:
