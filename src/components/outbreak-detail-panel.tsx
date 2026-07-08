@@ -1,5 +1,6 @@
 "use client";
 
+import { useMemo } from "react";
 import {
   Sheet,
   SheetContent,
@@ -73,16 +74,24 @@ export function OutbreakDetailPanel({
   onSelectDisease,
   onSimulate,
 }: OutbreakDetailPanelProps) {
+  // Memoize expensive O(N×M) haversine computations.
+  // Hooks MUST run before any early return — so we guard inside the memo.
+  // Without this, every parent re-render (which happens on every map move)
+  // re-runs ~900k distance calculations.
+  const nearby = useMemo(
+    () => outbreak ? computeNearby(outbreak, outbreaks, 100, 5) : [],
+    [outbreak, outbreaks],
+  );
+  const atRisk = useMemo(
+    () => outbreak ? computeAtRiskEnterprises(outbreak, enterprises, 50, 5) : [],
+    [outbreak, enterprises],
+  );
+
   if (!outbreak) return null;
 
   const labels = DISEASE_LABELS[outbreak.disease_key];
   const profile = DISEASE_PROFILES_BY_KEY[outbreak.disease_key];
   const color = diseaseColor(outbreak.disease_key, outbreak.disease_group);
-
-  // Compute nearby outbreaks of the same disease (within 100 km)
-  const nearby = computeNearby(outbreak, outbreaks, 100, 5);
-  // Compute at-risk enterprises (within 50 km)
-  const atRisk = computeAtRiskEnterprises(outbreak, enterprises, 50, 5);
 
   return (
     <Sheet open={open} onOpenChange={onOpenChange}>

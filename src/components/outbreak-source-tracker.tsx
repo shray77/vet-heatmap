@@ -21,7 +21,7 @@ import {
 import { Radio, MapPin, Clock, TrendingDown, AlertTriangle } from "lucide-react";
 import type { Outbreak } from "@/types/domain";
 import { DISEASE_PROFILES } from "@/data/disease-profiles";
-import { REGION_PROPERTIES } from "@/data/regions";
+import { REGION_PROPERTIES, REGION_CENTROIDS } from "@/data/regions";
 
 interface Props {
   open: boolean;
@@ -96,11 +96,12 @@ export function OutbreakSourceTracker({ open, onOpenChange, outbreaks }: Props) 
     // Spread velocity (km/day) between first and second outbreak
     let spreadVelocity = 0;
     if (diseaseOutbreaks.length >= 2) {
-      const r1 = REGION_PROPERTIES[earliest.region_geo];
-      const r2 = REGION_PROPERTIES[diseaseOutbreaks[1].region_geo];
-      if (r1 && r2) {
-        const dx = r1.lon - r2.lon;
-        const dy = r1.lat - r2.lat;
+      // Use REGION_CENTROIDS (RegionProperties has no lat/lon fields).
+      const c1 = REGION_CENTROIDS[earliest.region_geo];
+      const c2 = REGION_CENTROIDS[diseaseOutbreaks[1].region_geo];
+      if (c1 && c2) {
+        const dx = c1[0] - c2[0];  // lon
+        const dy = c1[1] - c2[1];  // lat
         const distKm = Math.sqrt(dx * dx + dy * dy) * 111;
         const daysDiff =
           (new Date(diseaseOutbreaks[1].date).getTime() -

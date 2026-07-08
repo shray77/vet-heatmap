@@ -44,13 +44,16 @@ export function RiskScoreMap({ outbreaks }: RiskScoreProps) {
 
       for (const [dkey, count] of data.diseases) {
         const profile = DISEASE_PROFILES_BY_KEY[dkey];
-        const r0 = profile?.r0 ?? 1.5;
-        // Get density based on disease group
+        // Use r0_max as the upper bound of transmission potential —
+        // more epidemiologically meaningful than the (non-existent) r0 field.
+        const r0 = profile?.r0_max ?? 1.5;
+        // Get density based on disease group — matches DiseaseGroup type
+        // ("Avian" | "Swine" | "Ruminant" | "Equine/Wildlife" | "Wildlife" | "Multi-species")
         let density = 1;
-        const group = profile?.group ?? "Other";
+        const group = profile?.group ?? "Multi-species";
         if (group === "Swine") density = props.pigs_per_km2;
-        else if (group === "Cattle") density = props.cattle_per_km2;
-        else if (group === "Poultry") density = props.poultry_per_km2;
+        else if (group === "Ruminant") density = props.cattle_per_km2;
+        else if (group === "Avian") density = props.poultry_per_km2;
         else density = (props.pigs_per_km2 + props.cattle_per_km2 + props.poultry_per_km2) / 3;
 
         const contribution = count * r0 * density * 0.1;

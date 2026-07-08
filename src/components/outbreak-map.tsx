@@ -499,32 +499,44 @@ export function OutbreakMap({
         },
       });
 
-      // Click cluster → zoom in
-      map.on("click", "outbreaks-clusters", (e) => {
+      // Click cluster → zoom in (MapLibre 5.x: async/Promise, no callback)
+      map.on("click", "outbreaks-clusters", async (e) => {
         const features = map.queryRenderedFeatures(e.point, { layers: ["outbreaks-clusters"] });
         if (features.length > 0) {
-          const clusterId = (features[0].properties as any).cluster_id;
-          (map.getSource("outbreaks-points") as maplibregl.GeoJSONSource).getClusterExpansionZoom(clusterId, (err, zoom) => {
-            if (err) return;
-            map.easeTo({ center: (features[0].geometry as any).coordinates, zoom: zoom + 1, duration: 500 });
-          });
+          const clusterId = (features[0].properties as { cluster_id?: number }).cluster_id;
+          const source = map.getSource("outbreaks-points") as maplibregl.GeoJSONSource | undefined;
+          if (!source || clusterId === undefined) return;
+          try {
+            const zoom = await source.getClusterExpansionZoom(clusterId);
+            const geom = features[0].geometry;
+            if (geom && geom.type === "Point") {
+              map.easeTo({
+                center: geom.coordinates as [number, number],
+                zoom: zoom + 1,
+                duration: 500,
+              });
+            }
+          } catch {
+            // cluster may have been removed during async wait — ignore
+          }
         }
       });
 
       // Cluster hover → popup with disease breakdown
       const clusterPopup = new Popup({ closeButton: false, maxWidth: "240px", offset: 12 });
-      const onClusterEnter = (e: maplibregl.MapMouseEvent & { features?: maplibregl.MapGeoJSONFeature[] }) => {
+      const onClusterEnter = async (e: maplibregl.MapMouseEvent & { features?: maplibregl.MapGeoJSONFeature[] }) => {
         const f = e.features?.[0];
         if (!f) return;
         map.getCanvas().style.cursor = "pointer";
 
         const clusterId = (f.properties as { cluster_id?: number }).cluster_id;
-        const source = map.getSource("outbreaks-points") as maplibregl.GeoJSONSource;
+        const source = map.getSource("outbreaks-points") as maplibregl.GeoJSONSource | undefined;
         if (!source || clusterId === undefined) return;
 
-        // Get all features in this cluster, then group by disease
-        source.getClusterLeaves(clusterId, 200, 0, (err, leaves) => {
-          if (err || !leaves || leaves.length === 0) return;
+        try {
+          // MapLibre 5.x: getClusterLeaves returns a Promise
+          const leaves = await source.getClusterLeaves(clusterId, 200, 0);
+          if (!leaves || leaves.length === 0) return;
           const byDisease = new Map<string, number>();
           let ongoing = 0;
           for (const lf of leaves) {
@@ -574,7 +586,9 @@ export function OutbreakMap({
           if (geom && geom.type === "Point") {
             clusterPopup.setHTML(html).setLngLat(geom.coordinates as [number, number]).addTo(map);
           }
-        });
+        } catch {
+          // cluster may have been removed during async wait — ignore
+        }
       };
       const onClusterLeave = () => {
         map.getCanvas().style.cursor = "";
@@ -617,7 +631,7 @@ export function OutbreakMap({
 
       // Popup on click (works for both mobile tap and desktop click)
       const popup = new Popup({ closeButton: true, maxWidth: "300px" });
-      const onPointClick = (e: maplibregl.MapMouseEvent) => {
+      const onPointClick = (e: maplibregl.MapMouseEvent & { features?: maplibregl.MapGeoJSONFeature[] }) => {
         const f = e.features?.[0];
         if (!f) return;
         const p = f.properties as Record<string, unknown>;
@@ -939,7 +953,14 @@ export function OutbreakMap({
         },
         "fill-opacity": 0.6,
       },
-    }, "choropleth-line" in map.getStyle()?.layers?.map(l => l.id) ?? [] ? "choropleth-line" : undefined);
+    }, (() => {
+      // Insert density layer BELOW choropleth-line if it exists.
+      // Previous code had a bug: `"choropleth-line" in stringArray`
+      // checks for an array INDEX named "choropleth-line", always false.
+      const layers = map.getStyle()?.layers ?? [];
+      const choroplethLine = layers.find((l) => l.id === "choropleth-line");
+      return choroplethLine ? "choropleth-line" : undefined;
+    })());
   }, [densityLayer, showChoropleth, geo, ready]);
 
   // ─── Outbreak heatmap layer ───────────────────────────────────────

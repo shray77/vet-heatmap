@@ -304,5 +304,120 @@ export function getRegionProperties(shapeName: string): RegionProperties | undef
   return REGION_PROPERTIES[shapeName];
 }
 
+/**
+ * Region centroids: shapeName → [lon, lat].
+ *
+ * Used by EnterpriseRiskMonitor, OutbreakSourceTracker, CustomDataImport
+ * and OutbreakDetailPanel for distance calculations when an outbreak
+ * doesn't have precise lat/lon (only region_geo).
+ *
+ * Values are approximate region centers (capital city coords in most
+ * cases). For large regions (Yakutia, Krasnoyarsk Krai) this is the
+ * geometric center, which is fine for ~50km resolution risk assessment.
+ *
+ * Source: OSM Nominatim + Wikipedia region capital coordinates.
+ */
+export const REGION_CENTROIDS: Record<string, [number, number]> = {
+  // Central Federal District (ЦФО)
+  "Moskva": [37.6173, 55.7558],
+  "Moskovskaya": [37.5, 55.5],
+  "City of St. Petersburg": [30.3141, 59.9386],
+  "Leningrad": [30.5, 59.7],
+  "Belgorod": [36.5883, 50.6009],
+  "Bryansk": [34.3717, 53.2427],
+  "Vladimir": [40.3962, 56.1291],
+  "Voronezh": [39.2003, 51.6608],
+  "Ivanovo": [40.9714, 57.0004],
+  "Kaluga": [36.2613, 54.5139],
+  "Kostroma": [40.9266, 57.7665],
+  "Kursk": [36.1926, 51.7373],
+  "Lipetsk": [39.5704, 52.6088],
+  "Oryol": [36.0785, 52.9696], "Orel": [36.0785, 52.9696],
+  "Ryazan": [39.7426, 54.6229], "Ryazan'": [39.7426, 54.6229],
+  "Smolensk": [31.9993, 54.7826],
+  "Tambov": [41.4523, 52.7212],
+  "Tver": [35.9023, 56.8627], "Tver'": [35.9023, 56.8627],
+  "Tula": [37.6175, 54.1938],
+  "Yaroslavl": [39.8736, 57.6265],
+  // Northwestern Federal District (СЗФО)
+  "Arkhangelsk": [40.5169, 64.5394], "Arkhangel'sk": [40.5169, 64.5394],
+  "Vologda": [39.8915, 59.2188],
+  "Murmansk": [33.4147, 68.9585],
+  "Nenets": [55.0, 67.0],
+  "Karelia": [33.5, 61.8],
+  "Komi": [54.0, 64.0],
+  "Kaliningrad": [20.5, 54.7],
+  "Pskov": [28.3345, 57.8194],
+  "Novgorod": [31.2840, 58.5228],
+  // Southern Federal District (ЮФО)
+  "Adygey": [38.9869, 44.6098],
+  "Kalmyk": [44.2770, 46.3105],
+  "Krasnodar": [38.9769, 45.0235],
+  "Astrakhan": [48.0308, 46.3492], "Astrakhan'": [48.0308, 46.3492],
+  "Volgograd": [44.5169, 48.7079],
+  "Rostov": [39.7015, 47.2313],
+  "Sevastopol": [33.5, 44.6],
+  "Crimea": [34.2, 45.0],
+  // North Caucasian Federal District (СКФО)
+  "Dagestan": [47.5, 42.5],
+  "Chechnya": [45.7, 43.3],
+  "Ingush": [45.0, 43.2],
+  "Kabardin-Balkar": [43.5, 43.5],
+  "Karachay-Cherkess": [42.0, 43.8],
+  "North Ossetia": [44.7, 43.0],
+  "Stavropol": [42.0, 45.0], "Stavropol'": [42.0, 45.0],
+  // Volga Federal District (ПФО)
+  "Tatarstan": [52.0, 55.5],
+  "Bashkortostan": [56.0, 54.0],
+  "Mordovia": [44.0, 54.2],
+  "Udmurt": [52.2, 57.0],
+  "Chuvash": [47.2, 55.5],
+  "Mariy-El": [47.9, 56.6],
+  "Kirov": [49.7, 58.6],
+  "Nizhny Novgorod": [44.0, 56.3], "Nizhegorod": [44.0, 56.3],
+  "Samara": [50.15, 53.5],
+  "Orenburg": [55.1, 51.8],
+  "Penza": [45.0, 53.0],
+  "Perm": [56.0, 58.0], "Perm'": [56.0, 58.0],
+  "Saratov": [46.0, 51.5],
+  "Ulyanovsk": [48.4, 54.3],
+  // Ural Federal District (УрФО)
+  "Kurgan": [64.0, 55.5],
+  "Sverdlovsk": [60.0, 58.0],
+  "Tyumen": [65.5, 57.0], "Tyumen'": [65.5, 57.0],
+  "Khanty-Mansiy": [73.0, 61.0],
+  "Yamalo-Nenets": [67.0, 67.0],
+  "Chelyabinsk": [61.4, 55.0],
+  // Siberian Federal District (СФО)
+  "Altay": [83.0, 52.5],
+  "Altai Republic": [86.0, 51.0],
+  "Kemerovo": [87.0, 55.0],
+  "Novosibirsk": [82.9, 55.0],
+  "Omsk": [73.3, 55.0],
+  "Tomsk": [84.97, 56.5],
+  "Tyva": [93.0, 51.0],
+  "Khakass": [90.0, 53.0],
+  "Irkutsk": [104.3, 52.3],
+  "Buryat": [107.0, 52.0],
+  "Zabaykalsk": [113.5, 52.0], "Chita": [113.5, 52.0],
+  // Far Eastern Federal District (ДФО)
+  "Sakha": [130.0, 62.0], "Yakutia": [130.0, 62.0],
+  "Amur": [127.5, 50.3],
+  "Kamchatka": [160.0, 56.0],
+  "Magadan": [150.7, 62.0],
+  "Primorye": [132.0, 44.0],
+  "Sakhalin": [143.0, 50.0],
+  "Khabarovsk": [135.4, 48.5],
+  "Chukotka": [177.0, 67.0],
+};
+
+/**
+ * Get region centroid [lon, lat] by shapeName.
+ * Falls back to [0, 0] (which callers should filter out) if unknown.
+ */
+export function getRegionCentroid(shapeName: string): [number, number] | null {
+  return REGION_CENTROIDS[shapeName] ?? null;
+}
+
 /** All known GeoJSON shapeNames. */
 export const ALL_REGION_NAMES: string[] = Object.keys(REGION_PROPERTIES);

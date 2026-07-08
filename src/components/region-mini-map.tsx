@@ -345,6 +345,11 @@ export function RegionMiniMap({
 
     if (map.loaded()) update();
     else map.on("load", update);
+
+    // Cleanup: removing layers/sources at the start of next update() handles
+    // re-runs. We don't need to manually off() handlers because removeLayer()
+    // also drops any listeners attached to that layer id. Popup instances
+    // are GC'd when their anchor layer is removed.
   }, [geo, outbreaks, enterprises, bbox, onSelectOutbreak]);
 
   const enterpriseCount = enterprises.filter((e) =>

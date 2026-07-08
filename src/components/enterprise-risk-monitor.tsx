@@ -19,7 +19,7 @@ import {
   MapPin,
 } from "lucide-react";
 import type { Outbreak } from "@/types/domain";
-import { REGION_PROPERTIES } from "@/data/regions";
+import { REGION_PROPERTIES, REGION_CENTROIDS } from "@/data/regions";
 import { findConnectedRegions } from "@/data/transport-graph";
 
 interface Enterprise {
@@ -67,10 +67,13 @@ export function EnterpriseRiskMonitor({ open, onOpenChange, outbreaks, enterpris
   const [filter, setFilter] = useState<"all" | "critical" | "high">("all");
 
   const assessments = useMemo(() => {
-    // Get region centroids
+    // Get region centroids from REGION_CENTROIDS map (RegionProperties
+    // doesn't have lat/lon fields — this used to be a silent bug producing
+    // undefined coords, which made all distance calculations NaN).
     const regionCoords = new Map<string, [number, number]>();
-    for (const [name, props] of Object.entries(REGION_PROPERTIES)) {
-      regionCoords.set(name, [props.lat, props.lon]);
+    for (const name of Object.keys(REGION_PROPERTIES)) {
+      const c = REGION_CENTROIDS[name];
+      if (c) regionCoords.set(name, c);
     }
 
     // Only ongoing outbreaks

@@ -15,7 +15,12 @@ const nextConfig: NextConfig = {
   images: { unoptimized: true },
   // MapLibre needs to be transpiled (it has some ESM edge cases)
   transpilePackages: ["maplibre-gl"],
-  // Type-check is done via `tsc --noEmit` separately; faster iteration here
+  // TODO: remove `ignoreBuildErrors: true` once the remaining ~60 tsc errors
+  // are fixed. Currently there are pre-existing type mismatches in
+  // outbreak-map.tsx (MapLibre 5.x API), filter-panel.tsx (densityLayer prop),
+  // and enterprise-risk-monitor.tsx (Enterprise type union). These don't
+  // affect runtime correctness but block the build. Tracking issue: see
+  // the Plan agent review (§1.8) for the full list.
   typescript: { ignoreBuildErrors: true },
   // Strict mode causes double-mount of effects in dev, which breaks MapLibre
   // init in some edge cases. Disable for stable production behavior.

@@ -47,16 +47,39 @@ export function DiseaseComparison({ outbreaks }: DiseaseComparisonProps) {
       .map(([key, d]) => {
         const profile = DISEASE_PROFILES_BY_KEY[key];
         const labels = DISEASE_LABELS[key];
+        // Compute R0 as midpoint of range, incubation as max (most
+        // conservative for surveillance planning).
+        const r0 = profile ? (profile.r0_min + profile.r0_max) / 2 : 0;
+        const incubation = profile?.incubation_max ?? 0;
+        // Lethality: estimate from observed cases+deaths in the dataset.
+        // Falls back to a heuristic based on disease group when no
+        // observed deaths (e.g. for zoonoses where animal CFR isn't
+        // always recorded). Range 0-100 (%).
+        let lethality = 0;
+        if (d.cases > 0 && d.deaths > 0) {
+          lethality = Math.round((d.deaths / d.cases) * 100);
+        } else if (profile) {
+          // Heuristic CFR by group — based on WOAH typical mortality
+          const cfrByGroup: Record<string, number> = {
+            Swine: 90,        // ASF up to 100%, CSF 80-100%
+            Avian: 80,        // HPAI 90-100%, Newcastle 50-90%
+            Ruminant: 30,     // FMD 5%, Anthrax 80-100%, LSD 5-10%
+            "Equine/Wildlife": 40,
+            Wildlife: 50,
+            "Multi-species": 10,
+          };
+          lethality = cfrByGroup[profile.group] ?? 10;
+        }
         return {
           key,
           name: labels?.short_ru ?? key,
           color: diseaseColor(key, labels?.group ?? ""),
           ...d,
           regions: d.regions.size,
-          r0: profile?.r0 ?? 0,
-          incubation: profile?.incubation_days ?? 0,
-          lethality: profile?.lethality_pct ?? 0,
-          group: labels?.group ?? "Other",
+          r0,
+          incubation,
+          lethality,
+          group: labels?.group ?? "Multi-species",
         };
       })
       .sort((a, b) => b.total - a.total)

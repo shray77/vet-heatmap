@@ -32,7 +32,11 @@ export function useOutbreaks(): LoadState & { profiles: DiseaseProfile[]; profil
     let cancelled = false;
     (async () => {
       try {
-        const res = await fetch(`${basePath}/data/outbreaks.json`, { cache: "no-store" });
+        // Default browser cache + service worker stale-while-revalidate.
+        // Previously used `cache: "no-store"` which forced a full 1.1 MB
+        // download on every page load — brutal for field vets on mobile.
+        // The SW already handles freshness via its runtime strategy.
+        const res = await fetch(`${basePath}/data/outbreaks.json`);
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
         const data: OutbreakDataset = await res.json();
         if (!cancelled) setState({ data, loading: false, error: null });
