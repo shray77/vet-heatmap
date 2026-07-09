@@ -3,7 +3,7 @@
   "sources": [
     "yandex"
   ],
-  "total": 111,
+  "total": 112,
   "enterprises": [
     {
       "id": "yandex-187535263300",
@@ -1224,6 +1224,17 @@
       "address": "Пушкин, ш. Подбельского, 9",
       "city": "Санкт-Петербург",
       "rubric": "Комбикорма и кормовые добавки",
+      "source": "yandex"
+    },
+    {
+      "id": "yandex-1279968400",
+      "name": "Уральская Мясная Компания",
+      "type": "meat_plant",
+      "lat": null,
+      "lon": null,
+      "address": "Челябинск, Водосточная ул., 100",
+      "city": "Челябинск",
+      "rubric": "Продукты питания оптом",
       "source": "yandex"
     }
   ]
