@@ -1,9 +1,9 @@
 {
-  "updated": "2026-07-08",
+  "updated": "2026-07-09",
   "sources": [
     "yandex"
   ],
-  "total": 110,
+  "total": 111,
   "enterprises": [
     {
       "id": "yandex-187535263300",
@@ -1212,6 +1212,17 @@
       "lon": null,
       "address": "Красноярск, ул. Калинина, 49, корп. 8",
       "city": "Красноярск",
+      "rubric": "Комбикорма и кормовые добавки",
+      "source": "yandex"
+    },
+    {
+      "id": "yandex-1521605645",
+      "name": "ГК Апекс Плюс",
+      "type": "feed_mill",
+      "lat": null,
+      "lon": null,
+      "address": "Пушкин, ш. Подбельского, 9",
+      "city": "Санкт-Петербург",
       "rubric": "Комбикорма и кормовые добавки",
       "source": "yandex"
     }
