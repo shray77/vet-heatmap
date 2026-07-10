@@ -3,7 +3,7 @@
   "sources": [
     "yandex"
   ],
-  "total": 117,
+  "total": 118,
   "enterprises": [
     {
       "id": "yandex-187535263300",
@@ -1290,6 +1290,17 @@
       "address": "Челябинск, ул. Разина, 9, этаж 0",
       "city": "Челябинск",
       "rubric": "Магазин продуктов",
+      "source": "yandex"
+    },
+    {
+      "id": "yandex-137249674647",
+      "name": "Комбикорма. Петергоф",
+      "type": "feed_mill",
+      "lat": null,
+      "lon": null,
+      "address": "Петергоф, ул. Первого Мая, 89",
+      "city": "Санкт-Петербург",
+      "rubric": "Комбикорма и кормовые добавки",
       "source": "yandex"
     }
   ]
