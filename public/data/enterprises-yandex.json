@@ -3,7 +3,7 @@
   "sources": [
     "yandex"
   ],
-  "total": 113,
+  "total": 117,
   "enterprises": [
     {
       "id": "yandex-187535263300",
@@ -1246,6 +1246,50 @@
       "address": "Москва, Дмитровское ш., 165, корп. 1, подъезд 5, этаж 3",
       "city": "Москва",
       "rubric": "Яйцо и мясо птицы",
+      "source": "yandex"
+    },
+    {
+      "id": "yandex-1260720923",
+      "name": "Челябинская птицефабрика",
+      "type": "poultry_farm",
+      "lat": null,
+      "lon": null,
+      "address": "Челябинская область, Копейск, посёлок Октябрьский",
+      "city": "Челябинск",
+      "rubric": "Животноводческое хозяйство",
+      "source": "yandex"
+    },
+    {
+      "id": "yandex-1320197586",
+      "name": "Равис",
+      "type": "poultry_farm",
+      "lat": null,
+      "lon": null,
+      "address": "Челябинск, ул. Руставели, 22, этаж цокольный",
+      "city": "Челябинск",
+      "rubric": "Яйцо и мясо птицы",
+      "source": "yandex"
+    },
+    {
+      "id": "yandex-1141607154",
+      "name": "Равис",
+      "type": "poultry_farm",
+      "lat": null,
+      "lon": null,
+      "address": "Челябинск, ул. Воровского, 60",
+      "city": "Челябинск",
+      "rubric": "Магазин продуктов",
+      "source": "yandex"
+    },
+    {
+      "id": "yandex-1116452581",
+      "name": "Равис",
+      "type": "poultry_farm",
+      "lat": null,
+      "lon": null,
+      "address": "Челябинск, ул. Разина, 9, этаж 0",
+      "city": "Челябинск",
+      "rubric": "Магазин продуктов",
       "source": "yandex"
     }
   ]
