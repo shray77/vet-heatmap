@@ -1,9 +1,9 @@
 {
-  "updated": "2026-07-10",
+  "updated": "2026-07-11",
   "sources": [
     "yandex"
   ],
-  "total": 118,
+  "total": 119,
   "enterprises": [
     {
       "id": "yandex-187535263300",
@@ -1300,6 +1300,17 @@
       "lon": null,
       "address": "Петергоф, ул. Первого Мая, 89",
       "city": "Санкт-Петербург",
+      "rubric": "Комбикорма и кормовые добавки",
+      "source": "yandex"
+    },
+    {
+      "id": "yandex-1208123595",
+      "name": "Биорост",
+      "type": "feed_mill",
+      "lat": null,
+      "lon": null,
+      "address": "Москва, Тверская ул., 12, стр. 1, офис 28, этаж 6",
+      "city": "Москва",
       "rubric": "Комбикорма и кормовые добавки",
       "source": "yandex"
     }
