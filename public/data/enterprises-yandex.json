@@ -3,7 +3,7 @@
   "sources": [
     "yandex"
   ],
-  "total": 119,
+  "total": 120,
   "enterprises": [
     {
       "id": "yandex-187535263300",
@@ -1311,6 +1311,17 @@
       "lon": null,
       "address": "Москва, Тверская ул., 12, стр. 1, офис 28, этаж 6",
       "city": "Москва",
+      "rubric": "Комбикорма и кормовые добавки",
+      "source": "yandex"
+    },
+    {
+      "id": "yandex-112175075721",
+      "name": "Vega",
+      "type": "feed_mill",
+      "lat": null,
+      "lon": null,
+      "address": "городской округ Новосибирск, Северный проезд, 17",
+      "city": "Новосибирск",
       "rubric": "Комбикорма и кормовые добавки",
       "source": "yandex"
     }
