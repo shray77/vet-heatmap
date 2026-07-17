@@ -3,7 +3,7 @@
   "sources": [
     "yandex"
   ],
-  "total": 120,
+  "total": 122,
   "enterprises": [
     {
       "id": "yandex-187535263300",
@@ -1323,6 +1323,28 @@
       "address": "городской округ Новосибирск, Северный проезд, 17",
       "city": "Новосибирск",
       "rubric": "Комбикорма и кормовые добавки",
+      "source": "yandex"
+    },
+    {
+      "id": "yandex-154599188020",
+      "name": "Комбикорм+",
+      "type": "feed_mill",
+      "lat": null,
+      "lon": null,
+      "address": "",
+      "city": "Нижний Новгород",
+      "rubric": "комбикормовый завод",
+      "source": "yandex"
+    },
+    {
+      "id": "yandex-232818823046",
+      "name": "Купец Сибири",
+      "type": "meat_plant",
+      "lat": null,
+      "lon": null,
+      "address": "Красноярск, Брянская ул., 280, офис 1-3, этаж 1",
+      "city": "Красноярск",
+      "rubric": "Мясная продукция оптом",
       "source": "yandex"
     }
   ]
