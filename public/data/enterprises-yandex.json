@@ -1,9 +1,9 @@
 {
-  "updated": "2026-07-28",
+  "updated": "2026-07-29",
   "sources": [
     "yandex"
   ],
-  "total": 129,
+  "total": 130,
   "enterprises": [
     {
       "id": "yandex-187535263300",
@@ -1420,6 +1420,17 @@
       "lat": null,
       "lon": null,
       "address": "городской округ Новосибирск, Северный проезд, 5/1",
+      "city": "Новосибирск",
+      "rubric": "Мясная продукция оптом",
+      "source": "yandex"
+    },
+    {
+      "id": "yandex-55666563687",
+      "name": "Куш",
+      "type": "meat_plant",
+      "lat": null,
+      "lon": null,
+      "address": "Россия, Новосибирск, ул. Дуси Ковальчук, 1, корп. 6",
       "city": "Новосибирск",
       "rubric": "Мясная продукция оптом",
       "source": "yandex"
