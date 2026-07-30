@@ -1,6 +1,6 @@
 import { resolve } from "node:path";
 
-export default {
+const vitestConfig = {
   test: {
     environment: "node",
     globals: true,
@@ -26,3 +26,5 @@ export default {
     },
   },
 };
+
+export default vitestConfig;

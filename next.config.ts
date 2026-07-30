@@ -5,6 +5,7 @@ import { resolve } from "node:path";
 let withBundleAnalyzer = (config: NextConfig) => config;
 if (process.env.ANALYZE === "true") {
   try {
+    // eslint-disable-next-line @typescript-eslint/no-require-imports
     const bundleAnalyzer = require("@next/bundle-analyzer");
     withBundleAnalyzer = bundleAnalyzer({ enabled: true });
   } catch {
