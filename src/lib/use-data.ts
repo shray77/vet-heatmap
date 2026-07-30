@@ -43,7 +43,7 @@ export function useOutbreaks(): LoadState & {
       // Group outbreaks by region to apply spatial jittering when coordinates stack
       const regionCounters: Record<string, number> = {};
       const jitteredOutbreaks = rawData.outbreaks.map((ob) => {
-        const key = ob.region_iso || ob.region;
+        const key = ob.region_geo || ob.region;
         const count = regionCounters[key] || 0;
         regionCounters[key] = count + 1;
 
