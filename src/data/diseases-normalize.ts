@@ -70,6 +70,10 @@ const DISEASE_ALIASES: Record<string, DiseaseKey> = {
   "anthrax": "anthrax",
   // ─── Rabies ────────────────────────────────────────────────────────
   "бешенство": "rabies",
+  "бешенства": "rabies",
+  "бешенству": "rabies",
+  "бешенстве": "rabies",
+  "бешеных": "rabies",
   "rabies": "rabies",
   // ─── HPAI ───────────────────────────────────────────────────────────
   "грипп птиц": "hpai",
