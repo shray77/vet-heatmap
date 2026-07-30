@@ -48,7 +48,7 @@ export function useOutbreaks(): LoadState & {
         regionCounters[key] = count + 1;
 
         if (count > 0 && typeof ob.lat === "number" && typeof ob.lon === "number") {
-          const jittered = applySpatialJitter({ lat: ob.lat, lon: ob.lon }, count, ob.id);
+          const jittered = applySpatialJitter({ lat: ob.lat, lon: ob.lon }, count, String(ob.id));
           return {
             ...ob,
             lat: jittered.lat,

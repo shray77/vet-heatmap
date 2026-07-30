@@ -8,7 +8,7 @@
  *   4. Parse disease, region, and status to generate RawArticle / Outbreak objects for real-time alerts.
  */
 
-import type { RawArticle, OutbreakStatus, DiseaseKey } from "../../../src/types/domain";
+import type { RawArticle } from "../../../src/types/domain";
 import { normalizeDisease } from "../../../src/data/diseases-normalize";
 import { normalizeRegion } from "../../../src/data/regions";
 
@@ -62,22 +62,16 @@ export function parseTelegramAlerts(messages: TelegramMessage[]): RawArticle[] {
   for (const msg of messages) {
     const text = msg.text;
     const diseaseKey = normalizeDisease(text);
-    if (!diseaseKey) continue; // Skip non-outbreak news
-
-    const regionIso = normalizeRegion(text);
-    const isResolved = /сняти|отмен|ликвид/i.test(text);
-    const status: OutbreakStatus = isResolved ? "Resolved" : "Ongoing";
+    const regionName = normalizeRegion(text);
 
     articles.push({
-      id: `tg-${msg.id}`,
-      title: text.slice(0, 100) + (text.length > 100 ? "..." : ""),
+      source: "fsvps" as const, // closest SourceKey — telegram is a notification mirror
       url: msg.url,
-      source: "telegram",
+      title: text.slice(0, 120) + (text.length > 120 ? "..." : ""),
       published_at: msg.date,
-      disease_key: diseaseKey,
-      region_iso: regionIso || undefined,
-      status,
-      summary: text,
+      body_text: text,
+      detected_disease: diseaseKey !== "other" ? diseaseKey : undefined,
+      detected_region: regionName || undefined,
     });
   }
 

@@ -40,10 +40,10 @@ describe("Telegram Scraper", () => {
     const articles = parseTelegramAlerts(messages);
     expect(articles).toHaveLength(2);
 
-    expect(articles[0].disease_key).toBe("asf");
-    expect(articles[0].status).toBe("Ongoing");
+    expect(articles[0].detected_disease).toBe("asf");
+    expect(articles[0].body_text).toContain("Иркутской области");
 
-    expect(articles[1].disease_key).toBe("rabies");
-    expect(articles[1].status).toBe("Resolved");
+    expect(articles[1].detected_disease).toBe("rabies");
+    expect(articles[1].body_text).toContain("Алтайском крае");
   });
 });
