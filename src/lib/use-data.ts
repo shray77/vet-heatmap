@@ -19,6 +19,8 @@ import { DISEASE_PROFILES } from "@/data/disease-profiles";
  * React Query manages the in-memory cache on top.
  */
 
+import { applySpatialJitter } from "@/lib/jitter";
+
 const basePath = process.env.NODE_ENV === "production" ? "/vet-heatmap" : "";
 
 interface LoadState {
@@ -36,7 +38,30 @@ export function useOutbreaks(): LoadState & {
     queryFn: async () => {
       const res = await fetch(`${basePath}/data/outbreaks.json`);
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
-      return (await res.json()) as OutbreakDataset;
+      const rawData = (await res.json()) as OutbreakDataset;
+
+      // Group outbreaks by region to apply spatial jittering when coordinates stack
+      const regionCounters: Record<string, number> = {};
+      const jitteredOutbreaks = rawData.outbreaks.map((ob) => {
+        const key = ob.region_iso || ob.region;
+        const count = regionCounters[key] || 0;
+        regionCounters[key] = count + 1;
+
+        if (count > 0 && typeof ob.lat === "number" && typeof ob.lon === "number") {
+          const jittered = applySpatialJitter({ lat: ob.lat, lon: ob.lon }, count, ob.id);
+          return {
+            ...ob,
+            lat: jittered.lat,
+            lon: jittered.lon,
+          };
+        }
+        return ob;
+      });
+
+      return {
+        ...rawData,
+        outbreaks: jitteredOutbreaks,
+      };
     },
     staleTime: 5 * 60 * 1000, // 5 min
   });

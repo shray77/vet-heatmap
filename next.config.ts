@@ -2,11 +2,15 @@ import type { NextConfig } from "next";
 import { readFileSync, writeFileSync, existsSync } from "node:fs";
 import { execSync } from "node:child_process";
 import { resolve } from "node:path";
-import bundleAnalyzer from "@next/bundle-analyzer";
-
-const withBundleAnalyzer = bundleAnalyzer({
-  enabled: process.env.ANALYZE === "true",
-});
+let withBundleAnalyzer = (config: NextConfig) => config;
+if (process.env.ANALYZE === "true") {
+  try {
+    const bundleAnalyzer = require("@next/bundle-analyzer");
+    withBundleAnalyzer = bundleAnalyzer({ enabled: true });
+  } catch {
+    // bundle-analyzer optional when not analyzing
+  }
+}
 
 const isProd = process.env.NODE_ENV === "production";
 // GitHub Pages serves the site at /vet-heatmap/ subpath.
@@ -52,6 +56,9 @@ console.log(`[next.config] Build version: ${BUILD_VERSION}`);
 
 const nextConfig: NextConfig = {
   output: "export",
+  turbopack: {
+    root: resolve(__dirname),
+  },
   // GitHub Pages needs /vet-heatmap subpath in production
   basePath,
   assetPrefix,

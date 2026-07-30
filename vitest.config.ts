@@ -1,9 +1,8 @@
-import { defineConfig } from "vitest/config";
 import { resolve } from "node:path";
 
-export default defineConfig({
+export default {
   test: {
-    environment: "jsdom",
+    environment: "node",
     globals: true,
     setupFiles: ["./vitest.setup.ts"],
     include: [
@@ -26,4 +25,4 @@ export default defineConfig({
       "@": resolve(__dirname, "src"),
     },
   },
-});
+};
