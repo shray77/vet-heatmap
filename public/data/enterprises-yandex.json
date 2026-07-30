@@ -3,7 +3,7 @@
   "sources": [
     "yandex"
   ],
-  "total": 130,
+  "total": 131,
   "enterprises": [
     {
       "id": "yandex-187535263300",
@@ -1433,6 +1433,17 @@
       "address": "Россия, Новосибирск, ул. Дуси Ковальчук, 1, корп. 6",
       "city": "Новосибирск",
       "rubric": "Мясная продукция оптом",
+      "source": "yandex"
+    },
+    {
+      "id": "yandex-150578815010",
+      "name": "Экольмаркет",
+      "type": "meat_plant",
+      "lat": null,
+      "lon": null,
+      "address": "д. Старосъяново, Новая ул., 11, стр. 1",
+      "city": "Москва",
+      "rubric": "Магазин мяса, колбас",
       "source": "yandex"
     }
   ]
