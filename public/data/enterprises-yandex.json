@@ -3,7 +3,7 @@
   "sources": [
     "yandex"
   ],
-  "total": 131,
+  "total": 132,
   "enterprises": [
     {
       "id": "yandex-187535263300",
@@ -1444,6 +1444,17 @@
       "address": "д. Старосъяново, Новая ул., 11, стр. 1",
       "city": "Москва",
       "rubric": "Магазин мяса, колбас",
+      "source": "yandex"
+    },
+    {
+      "id": "yandex-4772451460",
+      "name": "Татферма",
+      "type": "poultry_farm",
+      "lat": null,
+      "lon": null,
+      "address": "Казань, ул. Юлиуса Фучика, 4",
+      "city": "Казань",
+      "rubric": "Яйцо и мясо птицы",
       "source": "yandex"
     }
   ]
