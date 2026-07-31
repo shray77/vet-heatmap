@@ -26,6 +26,7 @@ const RUSSIA_BOUNDS: LngLatBoundsLike = [[19, 41], [180, 82]];
 
 interface OutbreakMapProps {
   outbreaks: Outbreak[];
+  selectedOutbreak?: Outbreak | null;
   geo: GeoJSON.FeatureCollection | null;
   /** Show risk-zone circles around ongoing outbreaks (3/10/30 km). */
   showRiskZones: boolean;
@@ -49,6 +50,7 @@ interface OutbreakMapProps {
 
 export function OutbreakMap({
   outbreaks,
+  selectedOutbreak,
   geo,
   showRiskZones,
   showChoropleth,
@@ -67,6 +69,7 @@ export function OutbreakMap({
   const resizeObserverRef = useRef<ResizeObserver | null>(null);
   const { resolvedTheme } = useTheme();
   const [ready, setReady] = useState(false);
+  const [mapStyle, setMapStyle] = useState<"light" | "dark" | "satellite">(() => (resolvedTheme === "dark" ? "dark" : "light"));
 
   // ─── Init map ────────────────────────────────────────────────────────
   useEffect(() => {
@@ -208,11 +211,11 @@ export function OutbreakMap({
     };
   }, []); // init once
 
-  // ─── Switch base layer on theme change ──────────────────────────────
+  // ─── Switch base layer on style/theme change ────────────────────────
   useEffect(() => {
     const map = mapRef.current;
     if (!map || !ready) return;
-    const isDark = resolvedTheme === "dark";
+    const styleSource = mapStyle === "satellite" ? "satellite" : mapStyle === "dark" ? "osm-dark" : "osm-light";
     if (map.getLayer("background-tiles")) {
       map.removeLayer("background-tiles");
     }
@@ -220,14 +223,14 @@ export function OutbreakMap({
       {
         id: "background-tiles",
         type: "raster",
-        source: isDark ? "osm-dark" : "osm-light",
+        source: styleSource,
         minzoom: 0,
         maxzoom: 19,
       },
       // insert before any other layers if they exist
       map.getStyle().layers.find((l) => l.id.startsWith("choropleth") || l.id.startsWith("risk") || l.id.startsWith("outbreak"))?.id,
     );
-  }, [resolvedTheme, ready]);
+  }, [mapStyle, resolvedTheme, ready]);
 
   // ─── Choropleth layer ───────────────────────────────────────────────
   useEffect(() => {
@@ -913,6 +916,156 @@ export function OutbreakMap({
     return () => { map.off("zoomend", onZoom); if (zoomTimer) clearTimeout(zoomTimer); };
   }, [outbreaks, geo, showRiskZones, ready]);
 
+  // ─── Selected Outbreak Highlight, Buffer Zones & Contact Links ───────
+  useEffect(() => {
+    const map = mapRef.current;
+    if (!map || !ready) return;
+
+    const selectedLayerIds = [
+      "selected-buffer-restriction",
+      "selected-buffer-surveillance",
+      "selected-buffer-protection",
+      "selected-connections",
+      "selected-pulse",
+    ];
+
+    for (const id of selectedLayerIds) {
+      if (map.getLayer(id)) map.removeLayer(id);
+    }
+    if (map.getSource("selected-buffers")) map.removeSource("selected-buffers");
+    if (map.getSource("selected-connections-src")) map.removeSource("selected-connections-src");
+    if (map.getSource("selected-pulse-src")) map.removeSource("selected-pulse-src");
+
+    if (!selectedOutbreak) return;
+
+    const center = getOutbreakCenter(selectedOutbreak, geo);
+    if (!center) return;
+
+    const profile = DISEASE_PROFILES_BY_KEY[selectedOutbreak.disease_key];
+    const protR = profile?.protection_zone_km ?? 3;
+    const survR = profile?.surveillance_zone_km ?? 10;
+    const restR = profile?.restriction_zone_km ?? 30;
+
+    const bufferFeatures: GeoJSON.Feature[] = [
+      {
+        type: "Feature",
+        properties: { zone: "restriction" },
+        geometry: { type: "Polygon", coordinates: [makeCircle(center, restR)] },
+      },
+      {
+        type: "Feature",
+        properties: { zone: "surveillance" },
+        geometry: { type: "Polygon", coordinates: [makeCircle(center, survR)] },
+      },
+      {
+        type: "Feature",
+        properties: { zone: "protection" },
+        geometry: { type: "Polygon", coordinates: [makeCircle(center, protR)] },
+      },
+    ];
+
+    map.addSource("selected-buffers", {
+      type: "geojson",
+      data: { type: "FeatureCollection", features: bufferFeatures },
+    });
+
+    map.addLayer({
+      id: "selected-buffer-restriction",
+      type: "fill",
+      source: "selected-buffers",
+      filter: ["==", ["get", "zone"], "restriction"],
+      paint: { "fill-color": "#3b82f6", "fill-opacity": 0.15, "fill-outline-color": "#2563eb" },
+    });
+    map.addLayer({
+      id: "selected-buffer-surveillance",
+      type: "fill",
+      source: "selected-buffers",
+      filter: ["==", ["get", "zone"], "surveillance"],
+      paint: { "fill-color": "#f59e0b", "fill-opacity": 0.22, "fill-outline-color": "#d97706" },
+    });
+    map.addLayer({
+      id: "selected-buffer-protection",
+      type: "fill",
+      source: "selected-buffers",
+      filter: ["==", ["get", "zone"], "protection"],
+      paint: { "fill-color": "#dc2626", "fill-opacity": 0.3, "fill-outline-color": "#b91c1c" },
+    });
+
+    // Epidemiological contact links (same disease within 100km)
+    const nearbySameDisease = outbreaks.filter((o) => {
+      if (o.id === selectedOutbreak.id || o.disease_key !== selectedOutbreak.disease_key) return false;
+      const c = getOutbreakCenter(o, geo);
+      if (!c) return false;
+      const dist = Math.hypot((c[0] - center[0]) * 111 * Math.cos((center[1] * Math.PI) / 180), (c[1] - center[1]) * 111);
+      return dist <= 100;
+    });
+
+    if (nearbySameDisease.length > 0) {
+      const lineFeatures: GeoJSON.Feature[] = nearbySameDisease.map((o) => {
+        const c = getOutbreakCenter(o, geo)!;
+        return {
+          type: "Feature",
+          properties: {},
+          geometry: { type: "LineString", coordinates: [center, c] },
+        };
+      });
+
+      map.addSource("selected-connections-src", {
+        type: "geojson",
+        data: { type: "FeatureCollection", features: lineFeatures },
+      });
+
+      map.addLayer({
+        id: "selected-connections",
+        type: "line",
+        source: "selected-connections-src",
+        paint: {
+          "line-color": diseaseColor(selectedOutbreak.disease_key, selectedOutbreak.disease_group),
+          "line-width": 2.5,
+          "line-dasharray": [3, 2],
+          "line-opacity": 0.9,
+        },
+      });
+    }
+
+    // Pulsing highlight marker
+    map.addSource("selected-pulse-src", {
+      type: "geojson",
+      data: {
+        type: "FeatureCollection",
+        features: [{ type: "Feature", properties: {}, geometry: { type: "Point", coordinates: center } }],
+      },
+    });
+
+    map.addLayer({
+      id: "selected-pulse",
+      type: "circle",
+      source: "selected-pulse-src",
+      paint: {
+        "circle-radius": 16,
+        "circle-color": "transparent",
+        "circle-stroke-width": 3,
+        "circle-stroke-color": "#ef4444",
+        "circle-stroke-opacity": 0.9,
+      },
+    });
+
+    // Fly map to selected outbreak center
+    const bounds = map.getBounds();
+    if (!bounds.contains(center)) {
+      map.flyTo({ center, zoom: Math.max(map.getZoom(), 8), duration: 1000 });
+    }
+
+    return () => {
+      for (const id of selectedLayerIds) {
+        if (map.getLayer(id)) map.removeLayer(id);
+      }
+      if (map.getSource("selected-buffers")) map.removeSource("selected-buffers");
+      if (map.getSource("selected-connections-src")) map.removeSource("selected-connections-src");
+      if (map.getSource("selected-pulse-src")) map.removeSource("selected-pulse-src");
+    };
+  }, [selectedOutbreak, outbreaks, geo, ready]);
+
   // ─── Livestock density layer ─────────────────────────────────────────
   useEffect(() => {
     const map = mapRef.current;
@@ -1059,6 +1212,28 @@ export function OutbreakMap({
   return (
     <div className="relative w-full h-full">
       <div ref={mapContainer} className="w-full h-full" />
+
+      {/* Floating base map style switcher pill */}
+      <div className="absolute top-3 left-3 z-20 hidden sm:flex gap-1 rounded-full border border-white/15 bg-card/75 p-1 shadow-lg backdrop-blur-xl pointer-events-auto">
+        {[
+          { id: "dark", label: "🌙 Тёмная" },
+          { id: "light", label: "☀️ Светлая" },
+          { id: "satellite", label: "🛰️ Спутник" },
+        ].map((st) => (
+          <button
+            key={st.id}
+            onClick={() => setMapStyle(st.id as any)}
+            className={`px-2.5 py-1 rounded-full text-[10px] font-medium transition-all ${
+              mapStyle === st.id
+                ? "bg-primary text-primary-foreground shadow"
+                : "text-muted-foreground hover:text-foreground"
+            }`}
+          >
+            {st.label}
+          </button>
+        ))}
+      </div>
+
       {!ready && (
         <div className="absolute inset-0 flex items-center justify-center bg-background/80 backdrop-blur-sm z-10">
           <div className="flex flex-col items-center gap-3">

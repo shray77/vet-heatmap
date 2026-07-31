@@ -52,42 +52,47 @@ const ENTERPRISE_LABELS: Record<string, string> = {
   dairy: "Молочный завод",
 };
 
+const PIG_DISEASES = new Set(["asf", "csf", "prrs", "erysipelas", "tesch", "svd", "tge"]);
+const POULTRY_DISEASES = new Set(["hpai", "newcastle", "gumboro", "marek", "ilt", "ib", "eds", "pullorum"]);
+const CATTLE_DISEASES = new Set(["fmd", "anthrax", "bluetongue", "brucellosis", "btb", "lsd", "leukosis", "bvd", "ibr", "cbpp"]);
+
+function isSusceptible(type: string, diseaseKey: string): boolean {
+  if (type === "pig_farm" || type === "meat_plant" || type === "slaughterhouse") {
+    return PIG_DISEASES.has(diseaseKey) || diseaseKey === "anthrax" || diseaseKey === "rabies";
+  }
+  if (type === "poultry_farm") {
+    return POULTRY_DISEASES.has(diseaseKey);
+  }
+  if (type === "cattle_farm" || type === "dairy") {
+    return CATTLE_DISEASES.has(diseaseKey) || diseaseKey === "anthrax" || diseaseKey === "rabies";
+  }
+  return true;
+}
+
 /**
  * Enterprise Risk Monitor — warns when outbreaks threaten major agricultural enterprises.
- *
- * Math:
- * 1. For each enterprise, find distance to nearest ONGOING outbreak
- * 2. If distance < disease restriction_zone_km → CRITICAL
- * 3. If distance < disease surveillance_zone_km → HIGH
- * 4. Check transport graph: if outbreak region is connected to enterprise region
- *    within 2 hops → add transport risk factor
- * 5. Estimate truck arrival time: distance_km / 55 km/h (avg livestock truck speed in Russia)
  */
 export function EnterpriseRiskMonitor({ open, onOpenChange, outbreaks, enterprises }: Props) {
   const [filter, setFilter] = useState<"all" | "critical" | "high">("all");
 
   const assessments = useMemo(() => {
-    // Get region centroids from REGION_CENTROIDS map (RegionProperties
-    // doesn't have lat/lon fields — this used to be a silent bug producing
-    // undefined coords, which made all distance calculations NaN).
     const regionCoords = new Map<string, [number, number]>();
     for (const name of Object.keys(REGION_PROPERTIES)) {
       const c = REGION_CENTROIDS[name];
       if (c) regionCoords.set(name, c);
     }
 
-    // Only ongoing outbreaks
     const ongoing = outbreaks.filter((o) => o.status === "Ongoing" || o.status === "Unknown");
     const activeOutbreaks = ongoing.length > 0 ? ongoing : outbreaks;
 
     return enterprises
       .map((ent) => {
-        // Find nearest outbreak by distance
         let nearestOutbreak: Outbreak | null = null;
         let minDistKm = Infinity;
+        let nearestSusceptible: Outbreak | null = null;
+        let minSuscDistKm = Infinity;
 
         for (const o of activeOutbreaks) {
-          // Use outbreak coords if available, else region centroid
           let oLat: number | undefined = o.lat;
           let oLon: number | undefined = o.lon;
           if ((!oLat || !oLon || (oLat === 0 && oLon === 0)) && o.region_geo) {
@@ -96,8 +101,7 @@ export function EnterpriseRiskMonitor({ open, onOpenChange, outbreaks, enterpris
           }
           if (!oLat || !oLon) continue;
 
-          // Haversine formula (proper spherical distance)
-          const R = 6371; // Earth radius km
+          const R = 6371;
           const dLat = ((ent.lat - oLat) * Math.PI) / 180;
           const dLon = ((ent.lon - oLon) * Math.PI) / 180;
           const a =
@@ -112,14 +116,22 @@ export function EnterpriseRiskMonitor({ open, onOpenChange, outbreaks, enterpris
             minDistKm = dist;
             nearestOutbreak = o;
           }
+
+          if (isSusceptible(ent.type, o.disease_key) && dist < minSuscDistKm) {
+            minSuscDistKm = dist;
+            nearestSusceptible = o;
+          }
         }
 
-        // Check transport graph risk
+        // Use susceptible outbreak if available, else general nearest
+        const targetOutbreak = nearestSusceptible || nearestOutbreak;
+        const targetDistKm = nearestSusceptible ? minSuscDistKm : minDistKm;
+        const speciesMatch = !!nearestSusceptible;
+
         let transportRisk = false;
         let transportHops = 0;
-        if (nearestOutbreak?.region_geo) {
-          const connected = findConnectedRegions(nearestOutbreak.region_geo, 2);
-          // Check if enterprise is in a connected region (rough match by region name)
+        if (targetOutbreak?.region_geo) {
+          const connected = findConnectedRegions(targetOutbreak.region_geo, 2);
           const entRegionNormalized = ent.region?.toLowerCase() || "";
           for (const node of connected) {
             const nodeName = node.region.toLowerCase();
@@ -131,20 +143,19 @@ export function EnterpriseRiskMonitor({ open, onOpenChange, outbreaks, enterpris
           }
         }
 
-        // Risk level
         let level: "critical" | "high" | "moderate" | "low" = "low";
-        if (minDistKm < 30) level = "critical";
-        else if (minDistKm < 100) level = "high";
-        else if (minDistKm < 300 || transportRisk) level = "moderate";
+        if (targetDistKm < 30 && speciesMatch) level = "critical";
+        else if (targetDistKm < 100 || (targetDistKm < 30 && !speciesMatch)) level = "high";
+        else if (targetDistKm < 300 || transportRisk) level = "moderate";
 
-        // Truck arrival time (55 km/h average for livestock transport in Russia)
         const truckSpeedKmh = 55;
-        const arrivalHours = minDistKm === Infinity ? null : minDistKm / truckSpeedKmh;
+        const arrivalHours = targetDistKm === Infinity ? null : targetDistKm / truckSpeedKmh;
 
         return {
           enterprise: ent,
-          nearestOutbreak,
-          distanceKm: minDistKm === Infinity ? null : Math.round(minDistKm),
+          nearestOutbreak: targetOutbreak,
+          distanceKm: targetDistKm === Infinity ? null : Math.round(targetDistKm),
+          speciesMatch,
           level,
           transportRisk,
           transportHops,
@@ -253,6 +264,21 @@ export function EnterpriseRiskMonitor({ open, onOpenChange, outbreaks, enterpris
                           ? `${Math.round(a.arrivalHours * 60)} мин`
                           : `${a.arrivalHours} ч`}
                       </div>
+                    )}
+                    {a.nearestOutbreak?.region_geo && (
+                      <Button
+                        size="sm"
+                        variant="outline"
+                        className="mt-2 h-7 text-[11px] gap-1"
+                        onClick={() => {
+                          onOpenChange(false);
+                          if (a.nearestOutbreak?.region_geo) {
+                            window.dispatchEvent(new CustomEvent("vet:focusRegion", { detail: a.nearestOutbreak.region_geo }));
+                          }
+                        }}
+                      >
+                        <MapPin className="h-3 w-3" /> На карту
+                      </Button>
                     )}
                   </div>
                 </div>

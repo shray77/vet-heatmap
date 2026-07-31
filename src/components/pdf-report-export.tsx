@@ -116,31 +116,32 @@ export function PdfReportExport({ open, onOpenChange, outbreaks, filters }: Prop
 
     const html = `<!DOCTYPE html><html lang="ru"><head><meta charset="UTF-8">
 <title>Экстренное извещение №${o.id} — ${o.disease}</title>
-<style>@page{size:A4;margin:2cm}body{font-family:'Times New Roman',serif;font-size:12pt;line-height:1.5;color:#000}h1{font-size:14pt;text-align:center;text-transform:uppercase;margin-bottom:0}h2{font-size:12pt;border-bottom:1px solid #000;padding-bottom:2px;margin-top:20px}.header{text-align:center;margin-bottom:20px}.stamp{border:2px solid #000;padding:10px;text-align:center;margin:20px 0}.stamp h1{margin:0}table{width:100%;border-collapse:collapse;margin:10px 0}td{padding:4px 8px;border:1px solid #999;vertical-align:top}td:first-child{background:#f5f5f5;font-weight:bold;width:35%}ul{margin:5px 0;padding-left:20px}.footer{margin-top:40px;border-top:1px solid #000;padding-top:10px;font-size:10pt}.sign{margin-top:30px;display:flex;justify-content:space-between}.sign-line{border-bottom:1px solid #000;width:200px;height:30px}</style>
+<style>@page{size:A4;margin:2cm}body{font-family:'Times New Roman',serif;font-size:12pt;line-height:1.5;color:#000}h1{font-size:13pt;text-align:center;text-transform:uppercase;margin:10px 0 5px 0;letter-spacing:0.5px}h2{font-size:11pt;border-bottom:1.5px solid #000;padding-bottom:2px;margin-top:18px;text-transform:uppercase}.agency-header{text-align:center;font-size:10pt;font-weight:bold;text-transform:uppercase;border-bottom:3px double #000;padding-bottom:8px;margin-bottom:15px}.stamp{border:2px solid #000;padding:12px;text-align:center;margin:15px 0;background:#fafafa}.stamp h1{margin:0}table{width:100%;border-collapse:collapse;margin:10px 0}td{padding:5px 8px;border:1px solid #777;vertical-align:top}td:first-child{background:#f0f0f0;font-weight:bold;width:38%}ul{margin:5px 0;padding-left:20px}.footer{margin-top:35px;border-top:1px solid #000;padding-top:8px;font-size:9pt;color:#444}.sign{margin-top:30px;display:flex;justify-content:space-between;align-items:flex-end}.sign-line{border-bottom:1px solid #000;width:180px;height:25px;display:inline-block}</style>
 </head><body>
-<div class="stamp"><h1>ЭКСТРЕННОЕ ИЗВЕЩЕНИЕ<br>о возникновении заразной болезни животных</h1><p>№ ${o.id} от ${new Date().toLocaleDateString("ru-RU")}</p></div>
-<h2>I. Сведения о вспышке</h2><table>
-<tr><td>Болезнь</td><td><strong>${o.disease}</strong></td></tr>
-<tr><td>Регион</td><td>${o.region}</td></tr>
+<div class="agency-header">МИНИСТЕРСТВО СЕЛЬСКОГО ХОЗЯЙСТВА РОССИЙСКОЙ ФЕДЕРАЦИИ<br>ФЕДЕРАЛЬНАЯ СЛУЖБА ПО ВЕТЕРИНАРНОМУ И ФИТОСАНИТАРНОМУ НАДЗОРУ</div>
+<div class="stamp"><h1>ЭКСТРЕННОЕ ИЗВЕЩЕНИЕ № ${o.id}</h1><p style="margin:4px 0 0 0;font-size:11pt">о выявлении чрезвычайной эпизоотической ситуации</p><p style="margin:2px 0 0 0;font-size:10pt;color:#555">Дата составления: ${new Date().toLocaleDateString("ru-RU")}</p></div>
+<h2>I. Общие сведения об очаге</h2><table>
+<tr><td>Наименование болезни</td><td><strong>${o.disease}</strong></td></tr>
+<tr><td>Субъект РФ / Регион</td><td>${o.region}</td></tr>
 <tr><td>Дата выявления</td><td>${o.date}</td></tr>
-<tr><td>Статус</td><td>${o.status === "Ongoing" ? "Действующий" : "Ликвидирован"}</td></tr>
-<tr><td>Вид животных</td><td>${o.species}</td></tr>
-<tr><td>Случаев</td><td>${o.cases || "—"}</td></tr>
-<tr><td>Пало</td><td>${o.deaths || "—"}</td></tr>
-<tr><td>Источник</td><td>${o.source.toUpperCase()}</td></tr>
+<tr><td>Эпизоотический статус</td><td><strong>${o.status === "Ongoing" ? "🔴 ОЧАГ АКТИВЕН (Карантин)" : "🟢 ЛИКВИДИРОВАН"}</strong></td></tr>
+<tr><td>Восприимчивое поголовье</td><td>${o.species}</td></tr>
+<tr><td>Количество заболевших голов</td><td><strong>${o.cases || "—"}</strong></td></tr>
+<tr><td>Количество павших голов</td><td><strong style="color:#c62828">${o.deaths || "—"}</strong></td></tr>
+<tr><td>Первичный источник информации</td><td>${o.source.toUpperCase()}</td></tr>
 </table>
-${p ? `<h2>II. Характеристика</h2><table>
-<tr><td>Инкубация</td><td>${p.incubation_min}–${p.incubation_max} сут.</td></tr>
-<tr><td>R₀</td><td>${p.r0_min}–${p.r0_max}</td></tr>
-<tr><td>Зооноз</td><td>${p.zoonotic ? "Да" : "Нет"}</td></tr>
-<tr><td>Зона защиты</td><td>${p.protection_zone_km} км</td></tr>
-<tr><td>Зона наблюдения</td><td>${p.surveillance_zone_km} км</td></tr>
+${p ? `<h2>II. Противоэпизоотический профиль</h2><table>
+<tr><td>Инкубационный период</td><td>${p.incubation_min}–${p.incubation_max} сут.</td></tr>
+<tr><td>Индекс репродукции (R₀)</td><td>${p.r0_min}–${p.r0_max}</td></tr>
+<tr><td>Опасность для человека (зооноз)</td><td><strong>${p.zoonotic ? "⚠️ ДА (Опасное заболевание)" : "Нет"}</strong></td></tr>
+<tr><td>Установленная зона защиты</td><td>${p.protection_zone_km} км</td></tr>
+<tr><td>Установленная зона наблюдения</td><td>${p.surveillance_zone_km} км</td></tr>
 </table>
-<h2>III. Меры борьбы</h2><p>${p.measures_summary}</p>
-<h2>IV. НПА</h2><ul>${p.rf_regulatory.map(r => `<li>${r}</li>`).join("")}</ul>
-<p style="font-size:10pt;color:#666">${p.woah_reference}</p>` : ""}
-<div class="footer"><p>Документ сформирован ВетКарта (${new Date().toLocaleString("ru-RU")})</p></div>
-<div class="sign"><div><p>Гл. вет. инспектор:</p><div class="sign-line"></div></div><div><p>М.П.</p></div></div>
+<h2>III. Предписанные мерам ликвидации</h2><p style="text-align:justify;background:#f9f9f9;padding:8px;border:1px solid #ddd;">${p.measures_summary}</p>
+<h2>IV. Нормативно-правовая база</h2><ul>${p.rf_regulatory.map(r => `<li>${r}</li>`).join("")}</ul>
+<p style="font-size:9pt;color:#666">Международный стандарт WOAH: ${p.woah_reference}</p>` : ""}
+<div class="footer"><p>Документ сгенерирован автоматически государственной ветеринарной информационной системой «ВетКарта» (${new Date().toLocaleString("ru-RU")}).</p></div>
+<div class="sign"><div><p>Главный ветврач района: ____________________ / <span className="sign-line"></span> /</p></div><div><p style="border:2px dashed #999;padding:10px 15px;text-align:center;font-size:9pt">М.П.<br>ЭПИЗООТИЧЕСКАЯ<br>СЛУЖБА</p></div></div>
 </body></html>`;
     w.document.write(html);
     w.document.close();

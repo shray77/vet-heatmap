@@ -181,6 +181,7 @@ function HomeContent() {
   });
   const enterprises = enterprisesQuery.data ?? [];
   const [timelineRange, setTimelineRange] = useState<{from: string | null, to: string | null}>({from: null, to: null});
+  const [mobileSheetExpanded, setMobileSheetExpanded] = useState(false);
 
   // Resizable sidebar width (desktop only). Stored in localStorage.
   const [sidebarWidth, setSidebarWidth] = useState(() => {
@@ -592,6 +593,7 @@ function HomeContent() {
           <OutbreakMap
             outbreaks={filtered}
             geo={geo}
+            selectedOutbreak={selectedOutbreak}
             showRiskZones={showRiskZones}
             showChoropleth={showChoropleth}
             densityLayer={densityLayer}
@@ -684,19 +686,41 @@ function HomeContent() {
         </aside>
       </div>
 
-      {/* ─── Mobile: bottom sheet content ──────────────────────────── */}
-      <div className="thin-scroll flex min-h-0 flex-1 flex-col overflow-y-auto overscroll-contain rounded-t-3xl border-t bg-card/95 p-4 pb-safe shadow-[0_-8px_30px_rgba(0,0,0,0.12)] backdrop-blur-xl lg:hidden">
-        {/* Drag handle */}
-        <div className="mx-auto mb-3 h-1.5 w-10 rounded-full bg-muted-foreground/30" />
-        <div className="space-y-4">
-          <TimelineSlider outbreaks={data?.outbreaks ?? []} onDateRangeChange={(from, to) => setTimelineRange({from, to})} />
-          <HotspotList outbreaks={filtered} onSelectRegion={(r) => { setRegionDrillDown(r); setRegionDrillDownOpen(true); }} />
-          <EpiCurve outbreaks={filtered} />
-          <DiseaseComparison outbreaks={filtered} />
-          <SeasonalHeatmap outbreaks={filtered} />
-          <RiskScoreMap outbreaks={filtered} />
-          <OutbreaksTable outbreaks={filtered} onSelectOutbreak={(o) => onSelectOutbreak(o)} />
-        </div>
+      {/* ─── Mobile: collapsible bottom sheet content ──────────────────── */}
+      <div
+        className={`transition-all duration-300 ease-in-out border-t bg-card/95 backdrop-blur-xl shadow-[0_-8px_30px_rgba(0,0,0,0.15)] rounded-t-3xl flex flex-col shrink-0 lg:hidden ${
+          mobileSheetExpanded ? "h-[65vh]" : "h-14"
+        }`}
+      >
+        {/* Collapsed/Expanded Header bar */}
+        <button
+          onClick={() => setMobileSheetExpanded(!mobileSheetExpanded)}
+          className="w-full px-4 py-2.5 flex items-center justify-between shrink-0 select-none cursor-pointer text-left"
+          aria-label="Переключить боковую панель аналитики"
+        >
+          <div className="flex items-center gap-2 min-w-0">
+            <div className="mx-0.5 h-1.5 w-8 rounded-full bg-muted-foreground/40 shrink-0" />
+            <span className="text-xs font-semibold tracking-tight text-foreground truncate">
+              📊 Аналитика и данные ({filtered.length})
+            </span>
+          </div>
+          <div className="flex items-center gap-1.5 text-xs text-primary font-medium shrink-0">
+            <span>{mobileSheetExpanded ? "Свернуть ▼" : "Развернуть ▲"}</span>
+          </div>
+        </button>
+
+        {/* Expanded scrollable content */}
+        {mobileSheetExpanded && (
+          <div className="thin-scroll flex-1 overflow-y-auto overscroll-contain px-4 pb-safe space-y-4 pt-1">
+            <TimelineSlider outbreaks={data?.outbreaks ?? []} onDateRangeChange={(from, to) => setTimelineRange({from, to})} />
+            <HotspotList outbreaks={filtered} onSelectRegion={(r) => { setRegionDrillDown(r); setRegionDrillDownOpen(true); }} />
+            <EpiCurve outbreaks={filtered} />
+            <DiseaseComparison outbreaks={filtered} />
+            <SeasonalHeatmap outbreaks={filtered} />
+            <RiskScoreMap outbreaks={filtered} />
+            <OutbreaksTable outbreaks={filtered} onSelectOutbreak={(o) => onSelectOutbreak(o)} />
+          </div>
+        )}
       </div>
 
       {/* ─── Drawers/Dialogs ─────────────────────────────────────── */}
