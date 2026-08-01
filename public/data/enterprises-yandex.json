@@ -3,7 +3,7 @@
   "sources": [
     "yandex"
   ],
-  "total": 132,
+  "total": 137,
   "enterprises": [
     {
       "id": "yandex-187535263300",
@@ -1455,6 +1455,61 @@
       "address": "Казань, ул. Юлиуса Фучика, 4",
       "city": "Казань",
       "rubric": "Яйцо и мясо птицы",
+      "source": "yandex"
+    },
+    {
+      "id": "yandex-1725800053",
+      "name": "Птица Тольяттинской птицефабрики",
+      "type": "poultry_farm",
+      "lat": null,
+      "lon": null,
+      "address": "Самара, просп. Кирова, 226Б, павильон 49",
+      "city": "Самара",
+      "rubric": "Яйцо и мясо птицы",
+      "source": "yandex"
+    },
+    {
+      "id": "yandex-187863905545",
+      "name": "Васильевский бройлер",
+      "type": "poultry_farm",
+      "lat": null,
+      "lon": null,
+      "address": "Самара, Заводское шоссе",
+      "city": "Самара",
+      "rubric": "Яйцо и мясо птицы",
+      "source": "yandex"
+    },
+    {
+      "id": "yandex-101051147903",
+      "name": "Поволжский",
+      "type": "poultry_farm",
+      "lat": null,
+      "lon": null,
+      "address": "Самара, просп. Кирова, 24, корп. 24",
+      "city": "Самара",
+      "rubric": "Мясная продукция оптом",
+      "source": "yandex"
+    },
+    {
+      "id": "yandex-46489661277",
+      "name": "Тольяттинская птицефабрика",
+      "type": "poultry_farm",
+      "lat": null,
+      "lon": null,
+      "address": "Самара, посёлок Прибрежный, ул. Труда, 6",
+      "city": "Самара",
+      "rubric": "Яйцо и мясо птицы",
+      "source": "yandex"
+    },
+    {
+      "id": "yandex-1668957633",
+      "name": "Борская индейка",
+      "type": "poultry_farm",
+      "lat": null,
+      "lon": null,
+      "address": "Самара, просп. Кирова, 2Д",
+      "city": "Самара",
+      "rubric": "Доставка продуктов",
       "source": "yandex"
     }
   ]
