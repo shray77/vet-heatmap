@@ -3,7 +3,7 @@
   "sources": [
     "yandex"
   ],
-  "total": 139,
+  "total": 140,
   "enterprises": [
     {
       "id": "yandex-187535263300",
@@ -1532,6 +1532,17 @@
       "address": "Новосибирск, Софийская ул., 18",
       "city": "Новосибирск",
       "rubric": "Комбикорма и кормовые добавки",
+      "source": "yandex"
+    },
+    {
+      "id": "yandex-116536789042",
+      "name": "Премьер",
+      "type": "meat_plant",
+      "lat": null,
+      "lon": null,
+      "address": "Казань, ул. Васильченко, 1, корп. 153Б, офис 340",
+      "city": "Казань",
+      "rubric": "Мясная продукция оптом",
       "source": "yandex"
     }
   ]
