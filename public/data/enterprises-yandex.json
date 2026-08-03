@@ -3,7 +3,7 @@
   "sources": [
     "yandex"
   ],
-  "total": 137,
+  "total": 139,
   "enterprises": [
     {
       "id": "yandex-187535263300",
@@ -1510,6 +1510,28 @@
       "address": "Самара, просп. Кирова, 2Д",
       "city": "Самара",
       "rubric": "Доставка продуктов",
+      "source": "yandex"
+    },
+    {
+      "id": "yandex-31103811494",
+      "name": "Комбикорм Зерно",
+      "type": "feed_mill",
+      "lat": null,
+      "lon": null,
+      "address": "д. Пирогово, Совхозная ул., 20/1",
+      "city": "Москва",
+      "rubric": "Комбикорма и кормовые добавки",
+      "source": "yandex"
+    },
+    {
+      "id": "yandex-213783939474",
+      "name": "Морозово Органик",
+      "type": "feed_mill",
+      "lat": null,
+      "lon": null,
+      "address": "Новосибирск, Софийская ул., 18",
+      "city": "Новосибирск",
+      "rubric": "Комбикорма и кормовые добавки",
       "source": "yandex"
     }
   ]
