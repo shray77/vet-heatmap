@@ -3,7 +3,7 @@
   "sources": [
     "yandex"
   ],
-  "total": 140,
+  "total": 141,
   "enterprises": [
     {
       "id": "yandex-187535263300",
@@ -1543,6 +1543,17 @@
       "address": "Казань, ул. Васильченко, 1, корп. 153Б, офис 340",
       "city": "Казань",
       "rubric": "Мясная продукция оптом",
+      "source": "yandex"
+    },
+    {
+      "id": "yandex-220372757660",
+      "name": "Звента",
+      "type": "feed_mill",
+      "lat": null,
+      "lon": null,
+      "address": "Москва, ул. Песчаный Карьер, 3",
+      "city": "Москва",
+      "rubric": "Комбикорма и кормовые добавки",
       "source": "yandex"
     }
   ]
