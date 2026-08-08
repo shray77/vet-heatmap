@@ -234,28 +234,50 @@ async function main() {
   console.log(`Sources contributing: ${dataset.sources.join(", ")}`);
   console.log(`Total outbreaks: ${dataset.total_outbreaks}`);
 
+  const { REGION_PROPERTIES } = await import("../../src/data/regions");
+
   const byDisease: Record<string, number> = {};
   const byStatus: Record<string, number> = {};
   const bySource: Record<string, number> = {};
+  const byDistrict: Record<string, { total: number, diseases: Record<string, number> }> = {};
+
   for (const o of dataset.outbreaks) {
     byDisease[o.disease] = (byDisease[o.disease] ?? 0) + 1;
     byStatus[o.status] = (byStatus[o.status] ?? 0) + 1;
     bySource[o.source] = (bySource[o.source] ?? 0) + 1;
-  }
-  console.log("\nBy disease:");
-  for (const [d, n] of Object.entries(byDisease).sort((a, b) => b[1] - a[1])) {
-    console.log(`  ${n.toString().padStart(3)}  ${d}`);
-  }
-  console.log("\nBy status:");
-  for (const [s, n] of Object.entries(byStatus)) {
-    console.log(`  ${n.toString().padStart(3)}  ${s}`);
-  }
-  console.log("\nBy source:");
-  for (const [s, n] of Object.entries(bySource)) {
-    console.log(`  ${n.toString().padStart(3)}  ${s}`);
+
+    const district = o.region_geo && REGION_PROPERTIES[o.region_geo]
+      ? REGION_PROPERTIES[o.region_geo].federal_district
+      : "Неизвестно";
+    
+    if (!byDistrict[district]) byDistrict[district] = { total: 0, diseases: {} };
+    byDistrict[district].total++;
+    byDistrict[district].diseases[o.disease] = (byDistrict[district].diseases[o.disease] ?? 0) + 1;
   }
 
-  console.log(`\nFinished: ${new Date().toISOString()}`);
+  console.log("\n📊 ТОП-5 БОЛЕЗНЕЙ:");
+  for (const [d, n] of Object.entries(byDisease).sort((a, b) => b[1] - a[1]).slice(0, 5)) {
+    console.log(`  🔸 ${n.toString().padStart(4)} | ${d}`);
+  }
+
+  console.log("\n🗺️  ПО ФЕДЕРАЛЬНЫМ ОКРУГАМ:");
+  for (const [dist, data] of Object.entries(byDistrict).sort((a, b) => b[1].total - a[1].total)) {
+    const topDisease = Object.entries(data.diseases).sort((a, b) => b[1] - a[1])[0];
+    const topStr = topDisease ? `(в осн. ${topDisease[0]} - ${topDisease[1]})` : "";
+    console.log(`  📍 ${dist.padEnd(10)}: ${data.total.toString().padStart(4)} вспышек ${topStr}`);
+  }
+
+  console.log("\nСтатусы:");
+  for (const [s, n] of Object.entries(byStatus)) {
+    console.log(`  ${s === "Ongoing" ? "🔥" : "✅"} ${n.toString().padStart(4)} | ${s}`);
+  }
+  
+  console.log("\nИсточники:");
+  for (const [s, n] of Object.entries(bySource)) {
+    console.log(`  📡 ${n.toString().padStart(4)} | ${s}`);
+  }
+
+  console.log(`\n🎉 Сбор данных завершен: ${new Date().toISOString()}`);
 }
 
 main().catch((e) => {
