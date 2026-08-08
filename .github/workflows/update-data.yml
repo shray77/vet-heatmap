@@ -39,7 +39,18 @@ jobs:
         run: bun install --frozen-lockfile
 
       - name: Run scraper pipeline (FSVPS + WAHIS + curated)
-        run: timeout 300 bun run scripts/scrape/run-all.ts || true
+        run: |
+          # Запускаем парсер и сохраняем вывод
+          timeout 300 bun run scripts/scrape/run-all.ts | tee scraper.log || true
+          
+          # Публикуем красивую сводку на главную страницу экшена
+          if [ -n "$GITHUB_STEP_SUMMARY" ]; then
+            echo "## 📊 Отчёт о новых вспышках" >> $GITHUB_STEP_SUMMARY
+            echo "\`\`\`text" >> $GITHUB_STEP_SUMMARY
+            # Вытягиваем всё начиная со сводки по топ болезням
+            grep -A 100 "ТОП-5 БОЛЕЗНЕЙ" scraper.log >> $GITHUB_STEP_SUMMARY || echo "Сводка не найдена." >> $GITHUB_STEP_SUMMARY
+            echo "\`\`\`" >> $GITHUB_STEP_SUMMARY
+          fi
         env:
           SCRAPE_TIMEOUT: "240"
 
