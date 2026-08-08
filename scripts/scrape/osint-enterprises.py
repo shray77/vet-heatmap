@@ -15,7 +15,7 @@ import urllib.request
 import urllib.parse
 from pathlib import Path
 
-REPO_ROOT = Path(__file__).resolve().parent.parent
+REPO_ROOT = Path(__file__).resolve().parent.parent.parent
 OUTPUT_PATH = REPO_ROOT / "public/data/enterprises.json"
 
 MIRRORS = [
