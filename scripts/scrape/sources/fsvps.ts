@@ -142,12 +142,41 @@ export async function scrapeFsvps(opts: { lookbackDays?: number; maxReports?: nu
   outbreaks: Outbreak[];
   warning?: string;
 }> {
-  console.log("[fsvps] Fetching operational news page…");
-  const html = await fetchHtml(FSVPS_URL);
-  console.log(`[fsvps] HTML size: ${html.length.toLocaleString()} bytes`);
+  const lookback = opts.lookbackDays ?? 30;
+  const cutoff = new Date();
+  cutoff.setDate(cutoff.getDate() - lookback);
+  const maxReports = opts.maxReports ?? 14;
 
-  const reports = extractPdfReports(html);
-  console.log(`[fsvps] Found ${reports.length} PDF reports`);
+  const allReports: FsvpPdfReport[] = [];
+  let page = 1;
+
+  while (page <= 20) {
+    const url = page === 1 ? FSVPS_URL : `${FSVPS_URL}page/${page}/`;
+    console.log(`[fsvps] Fetching page ${page}…`);
+    try {
+      const html = await fetchHtml(url);
+      const pageReports = extractPdfReports(html);
+      if (pageReports.length === 0) break;
+      allReports.push(...pageReports);
+      
+      const recentSoFar = allReports.filter((r) => new Date(r.date) >= cutoff);
+      if (recentSoFar.length >= maxReports) break; // we have enough recent ones
+      
+      // If the oldest report on this page is older than cutoff, we don't need next pages
+      const oldestDate = pageReports[pageReports.length - 1]?.date;
+      if (oldestDate && new Date(oldestDate) < cutoff) break;
+    } catch (e) {
+      console.warn(`[fsvps] Failed to fetch page ${page}:`, e);
+      break;
+    }
+    page++;
+  }
+
+  // Deduplicate by URL
+  const uniqueReportsMap = new Map(allReports.map(r => [r.url, r]));
+  const reports = Array.from(uniqueReportsMap.values()).sort((a, b) => b.date.localeCompare(a.date));
+
+  console.log(`[fsvps] Found ${reports.length} unique PDF reports across pages`);
 
   // Save manifest for the frontend "last fetched" indicator
   await mkdir(CACHE_DIR, { recursive: true });
@@ -157,15 +186,9 @@ export async function scrapeFsvps(opts: { lookbackDays?: number; maxReports?: nu
     "utf-8",
   );
 
-  // Apply lookback window (default: last 30 days — recent reports are most relevant)
-  const lookback = opts.lookbackDays ?? 30;
-  const cutoff = new Date();
-  cutoff.setDate(cutoff.getDate() - lookback);
   const recent = reports.filter((r) => new Date(r.date) >= cutoff);
   console.log(`[fsvps] ${recent.length} reports within last ${lookback} days`);
 
-  // Cap number of PDFs to parse (default: 14 — ~2 weeks of working days)
-  const maxReports = opts.maxReports ?? 14;
   const toParse = recent.slice(0, maxReports);
   console.log(`[fsvps] Will parse ${toParse.length} PDFs (cap: ${maxReports})`);
 

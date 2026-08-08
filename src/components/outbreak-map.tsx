@@ -341,12 +341,9 @@ export function OutbreakMap({
     if (!map || !ready) return;
     if (!geo) return;
 
-    // Only fall back to HTML markers for very small datasets on
-    // hover-capable (desktop) devices.
-    const isMobile = window.matchMedia("(hover: none), (pointer: coarse)").matches;
-    const useHtmlMarkers = !isMobile && outbreaks.length < 80;
-
-    // Remove old HTML markers if any
+    // Always use MapLibre clustered layers (no HTML markers)
+    // This solves marker overlapping in region centers and improves performance.
+    const useHtmlMarkers = false;
     Object.values(markersRef.current).forEach((m) => m.remove());
     Object.values(popupsRef.current).forEach((p) => p.remove());
     markersRef.current = {};

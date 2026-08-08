@@ -1,102 +1,22 @@
 "use client";
 
-import { useState, useEffect, useMemo, useCallback, useRef } from "react";
+import { useState, useMemo, useCallback } from "react";
+import { Activity, AlertTriangle } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import {
-  DropdownMenu,
-  DropdownMenuTrigger,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-} from "@/components/ui/dropdown-menu";
-import {
-  Menu,
-  Filter,
-  Calculator,
-  Github,
-  Activity,
-  Stethoscope,
-  AlertTriangle,
-  Info,
-  LocateFixed,
-  Beaker,
-  Radio,
-  Truck,
-  FileText,
-  Upload,
-  Factory,
-  Play,
-  MapPin,
-  Zap,
-  Download,
-  Bell,
-  ChevronDown,
-  ArrowLeftRight,
-} from "lucide-react";
-
-import dynamic from "next/dynamic";
 import { OutbreakMap } from "@/components/outbreak-map";
-import { StatsBar } from "@/components/stats-bar";
-import { FilterPanel } from "@/components/filter-panel";
-import { EpiCurve } from "@/components/epi-curve";
-import { HotspotList } from "@/components/hotspot-list";
-import { TimelineSlider } from "@/components/timeline-slider";
-import { OutbreaksTable } from "@/components/outbreaks-table";
-import { SearchBox } from "@/components/search-box";
 import { TodaySummary } from "@/components/today-summary";
-import { UserRegionBadgeContainer } from "@/components/user-region";
-import { ThemeToggle } from "@/components/theme-toggle";
 import { PwaBanners } from "@/components/pwa-banners";
-
-// Heavy dialog components — lazy-loaded with next/dynamic to keep the
-// initial bundle small. Each dialog pulls in heavy deps:
-//   - SIRSimulator: recharts (~400KB)
-//   - PdfReportExport: jspdf + html2canvas (~500KB)
-//   - SpatialSimulator: recharts
-//   - OutbreakSourceTracker: recharts
-//   - TransportGraphAnalysis: recharts
-//   - SpreadAnimation: framer-motion
-// Without code-splitting these all load on first paint (~1.87 MB main chunk).
-// With dynamic imports they only load when the user opens the dialog.
-const DiseaseProfileDrawer = dynamic(() => import("@/components/disease-profile-drawer").then(m => ({ default: m.DiseaseProfileDrawer })), { ssr: false });
-const QuarantineCalculator = dynamic(() => import("@/components/quarantine-calculator").then(m => ({ default: m.QuarantineCalculator })), { ssr: false });
-const NearbyOutbreaks = dynamic(() => import("@/components/nearby-outbreaks").then(m => ({ default: m.NearbyOutbreaks })), { ssr: false });
-const SIRSimulator = dynamic(() => import("@/components/sir-simulator").then(m => ({ default: m.SIRSimulator })), { ssr: false });
-const OutbreakSourceTracker = dynamic(() => import("@/components/outbreak-source-tracker").then(m => ({ default: m.OutbreakSourceTracker })), { ssr: false });
-const TransportGraphAnalysis = dynamic(() => import("@/components/transport-graph-analysis").then(m => ({ default: m.TransportGraphAnalysis })), { ssr: false });
-const PdfReportExport = dynamic(() => import("@/components/pdf-report-export").then(m => ({ default: m.PdfReportExport })), { ssr: false });
-const CustomDataImport = dynamic(() => import("@/components/custom-data-import").then(m => ({ default: m.CustomDataImport })), { ssr: false });
-const OutbreakDetailPanel = dynamic(() => import("@/components/outbreak-detail-panel").then(m => ({ default: m.OutbreakDetailPanel })), { ssr: false });
-const EnterpriseRiskMonitor = dynamic(() => import("@/components/enterprise-risk-monitor").then(m => ({ default: m.EnterpriseRiskMonitor })), { ssr: false });
-const SpatialSimulator = dynamic(() => import("@/components/spatial-simulator").then(m => ({ default: m.SpatialSimulator })), { ssr: false });
-const RegionDrillDown = dynamic(() => import("@/components/region-drill-down").then(m => ({ default: m.RegionDrillDown })), { ssr: false });
-const AboutDialog = dynamic(() => import("@/components/about-dialog").then(m => ({ default: m.AboutDialog })), { ssr: false });
-const SpreadAnimation = dynamic(() => import("@/components/spread-animation").then(m => ({ default: m.SpreadAnimation })), { ssr: false });
-const RegionReportCard = dynamic(() => import("@/components/region-report-card").then(m => ({ default: m.RegionReportCard })), { ssr: false });
-const AlertSettings = dynamic(() => import("@/components/alert-settings").then(m => ({ default: m.AlertSettings })), { ssr: false });
-const DiseaseComparison = dynamic(() => import("@/components/disease-comparison").then(m => ({ default: m.DiseaseComparison })), { ssr: false });
-const RiskScoreMap = dynamic(() => import("@/components/risk-score-map").then(m => ({ default: m.RiskScoreMap })), { ssr: false });
-const SeasonalHeatmap = dynamic(() => import("@/components/seasonal-heatmap").then(m => ({ default: m.SeasonalHeatmap })), { ssr: false });
-const RegionComparison = dynamic(() => import("@/components/region-comparison").then(m => ({ default: m.RegionComparison })), { ssr: false });
-
+import { Header } from "@/components/layout/header";
+import { Sidebar } from "@/components/layout/sidebar";
+import { DialogManager } from "@/components/layout/dialog-manager";
 import { useOutbreaks, useRegionsGeoJSON } from "@/lib/use-data";
 import { useQuery } from "@tanstack/react-query";
 import { useUIStore } from "@/lib/ui-store";
 import { useKeyboardShortcuts } from "@/lib/use-keyboard";
 import { useTheme } from "next-themes";
-import { diseaseColor } from "@/lib/colors";
-import { generateOutbreakReport } from "@/lib/pdf-export";
-import {
-  DEFAULT_FILTERS,
-  FilterState,
-  applyFilters,
-  filtersToParams,
-  paramsToFilters,
-} from "@/lib/filters";
+import { DEFAULT_FILTERS, applyFilters } from "@/lib/filters";
+import { useUrlFilters } from "@/lib/use-url-filters";
 import type { DiseaseKey, Outbreak } from "@/types/domain";
-import { DISEASE_PROFILES } from "@/data/disease-profiles";
 
 export default function Home() {
   return <HomeContent />;
@@ -105,64 +25,22 @@ export default function Home() {
 function HomeContent() {
   const { data, loading, error } = useOutbreaks();
   const { geo, loading: geoLoading } = useRegionsGeoJSON();
+  const [filters, setFilters] = useUrlFilters();
 
-  // Read URL search params directly (avoids useSearchParams() which requires
-  // Suspense boundary and was breaking production static export hydration).
-  const [filters, setFilters] = useState<FilterState>(() => {
-    if (typeof window === "undefined") return DEFAULT_FILTERS;
-    const params = new URLSearchParams(window.location.search);
-    return paramsToFilters(params);
-  });
-
-  // Sync filters to URL (preserve GitHub Pages basePath /vet-heatmap/)
-  useEffect(() => {
-    const params = filtersToParams(filters);
-    const basePath = process.env.NODE_ENV === "production" ? "/vet-heatmap" : "";
-    const url = params.toString()
-      ? `${basePath}/?${params.toString()}`
-      : `${basePath}/`;
-    // Use history.replaceState to avoid Next.js router issues in static export
-    window.history.replaceState(null, "", url);
-  }, [filters]);
-
-  // Layer toggles (kept as local state — they're not dialog state)
   const [showRiskZones, setShowRiskZones] = useState(true);
   const [showChoropleth, setShowChoropleth] = useState(true);
   const [densityLayer, setDensityLayer] = useState<"none" | "pigs" | "cattle" | "poultry">("none");
   const [showHeatmap, setShowHeatmap] = useState(false);
   const [nightMode, setNightMode] = useState(false);
+  const [timelineRange, setTimelineRange] = useState<{from: string | null, to: string | null}>({from: null, to: null});
+  const [mobileSheetExpanded, setMobileSheetExpanded] = useState(false);
 
-  // ─── Dialog state via Zustand store ──────────────────────────────────
-  // Replaces 17 useState + 4 selected-item useState with a single store.
-  // Components can self-read their open state without prop drilling.
   const {
-    drawerOpen, setDrawerOpen,
-    drawerDisease, setDrawerDisease,
-    calcOpen, setCalcOpen,
-    calcPreselect, setCalcPreselect,
-    mobileFiltersOpen, setMobileFiltersOpen,
-    aboutOpen, setAboutOpen,
-    nearbyOpen, setNearbyOpen,
-    sirOpen, setSirOpen,
-    sourceTrackerOpen, setSourceTrackerOpen,
-    transportOpen, setTransportOpen,
-    pdfReportOpen, setPdfReportOpen,
-    customImportOpen, setCustomImportOpen,
-    enterpriseRiskOpen, setEnterpriseRiskOpen,
-    spreadAnimOpen, setSpreadAnimOpen,
-    regionCardOpen, setRegionCardOpen,
-    alertOpen, setAlertOpen,
-    spatialOpen, setSpatialOpen,
-    regionDrillDown, setRegionDrillDown,
-    regionDrillDownOpen, setRegionDrillDownOpen,
-    selectedOutbreak, setSelectedOutbreak,
-    outbreakDetailOpen, setOutbreakDetailOpen,
-    comparisonOpen, setComparisonOpen,
-    openDisease, openOutbreak, openRegion,
+    setDrawerDisease, setDrawerOpen, setCalcOpen, setCalcPreselect,
+    setMobileFiltersOpen, setAboutOpen, setNearbyOpen, setSirOpen,
+    openRegion, openOutbreak, selectedOutbreak
   } = useUIStore();
 
-  // Load enterprises (OSM + Yandex.Maps merged) via React Query.
-  // Previously hand-rolled fetch+useState — now deduped + cached + retried.
   const basePath = process.env.NODE_ENV === "production" ? "/vet-heatmap" : "";
   const enterprisesQuery = useQuery({
     queryKey: ["enterprises"],
@@ -173,39 +51,24 @@ function HomeContent() {
       ]);
       const osmEnts = (osmRes.enterprises || []).filter((e: any) => typeof e.lat === "number" && typeof e.lon === "number");
       const yandexEnts = (yandexRes.enterprises || []).filter((e: any) => typeof e.lat === "number" && typeof e.lon === "number");
-      const all = [...osmEnts, ...yandexEnts];
-      console.log(`[enterprises] OSM: ${osmEnts.length}, Yandex: ${yandexEnts.length}, merged: ${all.length}`);
-      return all as { id: string; name: string; type: string; lat: number; lon: number; region?: string }[];
+      return [...osmEnts, ...yandexEnts] as { id: string; name: string; type: string; lat: number; lon: number; region?: string }[];
     },
-    staleTime: 30 * 60 * 1000, // 30 min — enterprises change rarely
+    staleTime: 30 * 60 * 1000,
   });
   const enterprises = enterprisesQuery.data ?? [];
-  const [timelineRange, setTimelineRange] = useState<{from: string | null, to: string | null}>({from: null, to: null});
-  const [mobileSheetExpanded, setMobileSheetExpanded] = useState(false);
 
-  // Resizable sidebar width (desktop only). Stored in localStorage.
-  const [sidebarWidth, setSidebarWidth] = useState(() => {
-    if (typeof window === "undefined") return 380;
-    const saved = window.localStorage.getItem("vet:sidebarWidth");
-    return saved ? Math.min(Math.max(parseInt(saved, 10), 280), 720) : 380;
-  });
-  
-  // Region centroids for "nearby" calculation (computed once geo is loaded)
   const regionCentroids = useMemo(() => {
     const m = new Map<string, [number, number]>();
     if (!geo) return m;
     for (const f of geo.features) {
       const name = (f.properties as { shapeName?: string }).shapeName;
       if (!name) continue;
-      // Compute centroid as bounding-box center (rough, fine for distance calc)
       let minX = Infinity, minY = Infinity, maxX = -Infinity, maxY = -Infinity;
       const visit = (coords: unknown) => {
         if (typeof (coords as number[])[0] === "number") {
           const [x, y] = coords as number[];
-          minX = Math.min(minX, x);
-          minY = Math.min(minY, y);
-          maxX = Math.max(maxX, x);
-          maxY = Math.max(maxY, y);
+          minX = Math.min(minX, x); minY = Math.min(minY, y);
+          maxX = Math.max(maxX, x); maxY = Math.max(maxY, y);
         } else if (Array.isArray(coords)) {
           for (const c of coords) visit(c);
         }
@@ -216,7 +79,6 @@ function HomeContent() {
     return m;
   }, [geo]);
 
-  // Filtered outbreaks
   const filtered = useMemo(() => {
     if (!data) return [];
     return applyFilters(data.outbreaks, {
@@ -224,62 +86,33 @@ function HomeContent() {
       dateFrom: timelineRange.from ?? filters.dateFrom,
       dateTo: timelineRange.to ?? filters.dateTo,
     });
-  }, [data, filters]);
+  }, [data, filters, timelineRange]);
 
   const totalRegions = geo?.features.length ?? 85;
 
-  const onSelectOutbreak = useCallback((o: Outbreak) => {
-    // Uses Zustand store convenience action — sets selectedOutbreak + opens
-    // detail panel in one call.
-    openOutbreak(o);
-  }, [openOutbreak]);
-
-  /** Focus the map on a region (called from search box). */
   const focusRegion = useCallback((shapeName: string) => {
-    // Uses Zustand store convenience action
     openRegion(shapeName);
-    // Also dispatch a custom event so OutbreakMap can fly to the region.
     window.dispatchEvent(new CustomEvent("vet:focusRegion", { detail: shapeName }));
   }, [openRegion]);
 
-  /** Toggle a disease filter (called from search box disease hit). */
   const toggleDiseaseFilter = useCallback((key: DiseaseKey) => {
     setFilters((f) => {
       const isActive = f.diseases.includes(key);
-      return {
-        ...f,
-        diseases: isActive
-          ? f.diseases.filter((x) => x !== key)
-          : [...f.diseases, key],
-      };
+      return { ...f, diseases: isActive ? f.diseases.filter((x) => x !== key) : [...f.diseases, key] };
     });
-  }, []);
-
-  const onSelectRegion = useCallback((region: string) => {
-    openRegion(region);
-  }, [openRegion]);
-
-  const openCalculator = (d?: DiseaseKey) => {
-    if (d) setCalcPreselect(d);
-    setCalcOpen(true);
-  };
+  }, [setFilters]);
 
   const resetFilters = () => setFilters(DEFAULT_FILTERS);
   const { setTheme, theme } = useTheme();
 
-  // Keyboard shortcuts
   useKeyboardShortcuts({
     onOpenFilters: () => setMobileFiltersOpen(true),
-    onOpenCalculator: () => openCalculator(),
+    onOpenCalculator: () => setCalcOpen(true),
     onOpenAbout: () => setAboutOpen(true),
     onOpenNearby: () => setNearbyOpen(true),
     onOpenSIR: () => setSirOpen(true),
     onResetFilters: resetFilters,
-    onToggleTheme: () => {
-      // Cycle: light -> dark -> system
-      const next = theme === "light" ? "dark" : theme === "dark" ? "system" : "light";
-      setTheme(next);
-    },
+    onToggleTheme: () => setTheme(theme === "light" ? "dark" : theme === "dark" ? "system" : "light"),
   });
 
   if (loading || geoLoading) {
@@ -290,16 +123,6 @@ function HomeContent() {
           <div className="text-sm font-medium">Загрузка данных…</div>
           <div className="text-xs text-muted-foreground">
             Загружаем {data?.total_outbreaks ?? 1300}+ вспышек и {geo?.features.length ?? 85} регионов
-          </div>
-        </div>
-        {/* Skeleton — mimics the real layout so users know what to expect */}
-        <div className="w-full max-w-md space-y-3 px-4">
-          <div className="h-12 rounded-lg bg-muted/60 animate-pulse" />
-          <div className="h-64 rounded-lg bg-muted/40 animate-pulse" />
-          <div className="grid grid-cols-3 gap-2">
-            <div className="h-20 rounded-lg bg-muted/40 animate-pulse" />
-            <div className="h-20 rounded-lg bg-muted/40 animate-pulse" />
-            <div className="h-20 rounded-lg bg-muted/40 animate-pulse" />
           </div>
         </div>
       </main>
@@ -323,261 +146,15 @@ function HomeContent() {
     <main className={`flex h-dvh flex-col overflow-hidden bg-background ${nightMode ? "night-mode" : ""}`}>
       <PwaBanners />
 
-      {/* ─── Header — fixed height, never scrolls ──────────────────── */}
-      <header className="z-50 shrink-0 border-b bg-background/80 backdrop-blur-xl pt-safe">
-        <div className="relative flex items-center gap-2 px-4 py-2 md:py-3">
-          {/* Mesh gradient accent */}
-          <div className="pointer-events-none absolute inset-0 opacity-[0.04] [background:conic-gradient(from_0deg,transparent,var(--primary),transparent)] [animation:spin_18s_linear_infinite] blur-2xl" />
+      <Header
+        outbreaks={data?.outbreaks ?? []} filtered={filtered} filters={filters} setFilters={setFilters as any}
+        totalRegions={totalRegions} focusRegion={focusRegion} toggleDiseaseFilter={toggleDiseaseFilter}
+        resetFilters={resetFilters} nightMode={nightMode} setNightMode={setNightMode}
+        showRiskZones={showRiskZones} setShowRiskZones={setShowRiskZones}
+        showChoropleth={showChoropleth} setShowChoropleth={setShowChoropleth}
+        showHeatmap={showHeatmap} setShowHeatmap={setShowHeatmap} densityLayer={densityLayer}
+      />
 
-          <div className="relative flex items-center gap-2 flex-1 min-w-0">
-            <Stethoscope className="h-5 w-5 md:h-6 md:w-6 text-primary shrink-0" />
-            <div className="min-w-0">
-              <h1 className="text-sm md:text-lg font-bold leading-tight tracking-tight truncate">
-                <span className="text-primary">Вет</span>Карта
-              </h1>
-            </div>
-            {/* Desktop search box */}
-            <div className="hidden md:block ml-3">
-              <SearchBox
-                outbreaks={data?.outbreaks ?? []}
-                onFocusRegion={focusRegion}
-                onSelectDisease={(k) => { setDrawerDisease(k); setDrawerOpen(true); }}
-                onToggleDiseaseFilter={toggleDiseaseFilter}
-              />
-            </div>
-            {/* User region badge — persistent "My Region" mode */}
-            <div className="hidden md:block ml-2">
-              <UserRegionBadgeContainer
-                outbreaks={data?.outbreaks ?? []}
-                onFilterByRegion={(r) => {
-                  setFilters((f) => ({ ...f, federalDistricts: [], query: "", }));
-                  focusRegion(r);
-                }}
-                onOpenSettings={() => {}}
-              />
-            </div>
-          </div>
-
-          {/* Desktop actions — compact: keep only most-used visible, hide rest in 'Tools' dropdown */}
-          <div className="relative hidden md:flex items-center gap-1 shrink-0">
-            {/* Most-used: stay as individual buttons */}
-            <Button variant="outline" size="sm" onClick={() => setNearbyOpen(true)}>
-              <LocateFixed className="h-4 w-4 mr-1" />Рядом
-            </Button>
-            <Button variant="outline" size="sm" onClick={() => openCalculator()}>
-              <Calculator className="h-4 w-4 mr-1" />Карантин
-            </Button>
-            <Button variant="outline" size="sm" onClick={() => setSirOpen(true)}>
-              <Beaker className="h-4 w-4 mr-1" />SIR
-            </Button>
-
-            {/* Tools dropdown — holds the rest, prevents header overflow */}
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <Button variant="outline" size="sm" className="h-9 gap-1">
-                  <Beaker className="h-4 w-4" />
-                  <span className="text-xs">Инструменты</span>
-                  <ChevronDown className="h-3 w-3 opacity-60" />
-                </Button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent align="end" className="w-56">
-                <DropdownMenuLabel>Аналитика</DropdownMenuLabel>
-                <DropdownMenuItem onClick={() => setSpatialOpen(true)}>
-                  <Zap className="h-4 w-4 mr-2" /> Распространение
-                </DropdownMenuItem>
-                <DropdownMenuItem onClick={() => setSourceTrackerOpen(true)}>
-                  <Radio className="h-4 w-4 mr-2" /> Источник вспышки
-                </DropdownMenuItem>
-                <DropdownMenuItem onClick={() => setTransportOpen(true)}>
-                  <Truck className="h-4 w-4 mr-2" /> Транспорт
-                </DropdownMenuItem>
-                <DropdownMenuItem onClick={() => setSpreadAnimOpen(true)}>
-                  <Play className="h-4 w-4 mr-2" /> Анимация
-                </DropdownMenuItem>
-                <DropdownMenuSeparator />
-                <DropdownMenuLabel>Данные</DropdownMenuLabel>
-                <DropdownMenuItem onClick={() => setRegionCardOpen(true)}>
-                  <MapPin className="h-4 w-4 mr-2" /> Карточка региона
-                </DropdownMenuItem>
-                <DropdownMenuItem onClick={() => setComparisonOpen(true)}>
-                  <ArrowLeftRight className="h-4 w-4 mr-2" /> Сравнение регионов
-                </DropdownMenuItem>
-                <DropdownMenuItem onClick={() => setEnterpriseRiskOpen(true)}>
-                  <Factory className="h-4 w-4 mr-2" /> Предприятия
-                </DropdownMenuItem>
-                <DropdownMenuItem onClick={() => setPdfReportOpen(true)}>
-                  <FileText className="h-4 w-4 mr-2" /> Отчёт PDF
-                </DropdownMenuItem>
-                <DropdownMenuItem onClick={() => setCustomImportOpen(true)}>
-                  <Upload className="h-4 w-4 mr-2" /> Импорт данных
-                </DropdownMenuItem>
-                <DropdownMenuItem onClick={() => setAlertOpen(true)}>
-                  <Bell className="h-4 w-4 mr-2" /> Уведомления
-                </DropdownMenuItem>
-                <DropdownMenuSeparator />
-                <DropdownMenuItem onClick={() => setAboutOpen(true)}>
-                  <Info className="h-4 w-4 mr-2" /> О проекте
-                </DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
-
-            <Button variant="ghost" size="icon" asChild aria-label="GitHub">
-              <a href="https://github.com/shray77/vet-heatmap" target="_blank" rel="noopener">
-                <Github className="h-4 w-4" />
-              </a>
-            </Button>
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={() => setNightMode(!nightMode)}
-              aria-label="Ночной режим"
-              title="Ночной режим (красный фильтр)"
-            >
-              {nightMode ? "☀️" : "🌙"}
-            </Button>
-            <ThemeToggle />
-          </div>
-
-          {/* Mobile actions — compact dropdown for tools */}
-          <div className="relative flex md:hidden items-center gap-1">
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <Button variant="outline" size="sm" className="h-9 gap-1">
-                  <Beaker className="h-4 w-4" />
-                  <span className="text-xs">Инструменты</span>
-                </Button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent align="end" className="w-56">
-                <DropdownMenuLabel>Аналитика</DropdownMenuLabel>
-                <DropdownMenuItem onClick={() => setSirOpen(true)}>
-                  <Beaker className="h-4 w-4 mr-2" /> SIR модель
-                </DropdownMenuItem>
-                <DropdownMenuItem onClick={() => setSourceTrackerOpen(true)}>
-                  <Radio className="h-4 w-4 mr-2" /> Источник вспышки
-                </DropdownMenuItem>
-                <DropdownMenuItem onClick={() => setTransportOpen(true)}>
-                  <Truck className="h-4 w-4 mr-2" /> Транспорт
-                </DropdownMenuItem>
-                <DropdownMenuItem onClick={() => setSpreadAnimOpen(true)}>
-                  <Play className="h-4 w-4 mr-2" /> Анимация
-                </DropdownMenuItem>
-                <DropdownMenuSeparator />
-                <DropdownMenuLabel>Инструменты</DropdownMenuLabel>
-                <DropdownMenuItem onClick={() => setPdfReportOpen(true)}>
-                  <FileText className="h-4 w-4 mr-2" /> Отчёт PDF
-                </DropdownMenuItem>
-                <DropdownMenuItem onClick={() => openCalculator()}>
-                  <Calculator className="h-4 w-4 mr-2" /> Карантин
-                </DropdownMenuItem>
-                <DropdownMenuItem onClick={() => setNearbyOpen(true)}>
-                  <LocateFixed className="h-4 w-4 mr-2" /> Рядом
-                </DropdownMenuItem>
-                <DropdownMenuItem onClick={() => setRegionCardOpen(true)}>
-                  <MapPin className="h-4 w-4 mr-2" /> Карточка региона
-                </DropdownMenuItem>
-                <DropdownMenuItem onClick={() => setComparisonOpen(true)}>
-                  <ArrowLeftRight className="h-4 w-4 mr-2" /> Сравнение регионов
-                </DropdownMenuItem>
-                <DropdownMenuItem onClick={() => setEnterpriseRiskOpen(true)}>
-                  <Factory className="h-4 w-4 mr-2" /> Предприятия
-                </DropdownMenuItem>
-                <DropdownMenuItem onClick={() => setCustomImportOpen(true)}>
-                  <Upload className="h-4 w-4 mr-2" /> Импорт данных
-                </DropdownMenuItem>
-                <DropdownMenuItem onClick={() => setAlertOpen(true)}>
-                  <Bell className="h-4 w-4 mr-2" /> Уведомления
-                </DropdownMenuItem>
-
-                <DropdownMenuSeparator />
-                <DropdownMenuItem onClick={() => setAboutOpen(true)}>
-                  <Info className="h-4 w-4 mr-2" /> О проекте
-                </DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
-            <ThemeToggle />
-            <Sheet open={mobileFiltersOpen} onOpenChange={setMobileFiltersOpen}>
-              <SheetTrigger asChild>
-                <Button variant="outline" size="sm" className="h-9" aria-label="Фильтры">
-                  <Filter className="h-4 w-4" />
-                </Button>
-              </SheetTrigger>
-              <SheetContent side="left" className="w-[85vw] max-w-sm overflow-y-auto thin-scroll pb-safe">
-                <div className="p-4">
-                  <h2 className="text-base font-semibold mb-3">Фильтры</h2>
-                  <FilterPanel
-                    outbreaks={data?.outbreaks ?? []}
-                    filters={filters}
-                    onChange={setFilters}
-                    onReset={resetFilters}
-                    showRiskZones={showRiskZones}
-                    onShowRiskZonesChange={setShowRiskZones}
-                    showChoropleth={showChoropleth}
-                    densityLayer={densityLayer}
-                    showHeatmap={showHeatmap}
-                    onShowChoroplethChange={setShowChoropleth}
-                    onShowHeatmapChange={setShowHeatmap}
-                  />
-                </div>
-              </SheetContent>
-            </Sheet>
-          </div>
-        </div>
-
-        {/* Inline KPI + disease chips — desktop only */}
-        <div className="relative hidden md:flex items-center gap-3 overflow-hidden px-4 pb-2">
-          <StatsBar outbreaks={filtered} totalRegions={totalRegions} />
-          <div className="flex gap-1 overflow-x-auto thin-scroll ml-auto">
-            <Button
-              variant={filters.diseases.length === 0 ? "default" : "outline"}
-              size="sm"
-              className="h-7 text-[11px] shrink-0 px-2"
-              onClick={resetFilters}
-            >
-              Все
-            </Button>
-            {DISEASE_PROFILES.slice(0, 10).map((p) => {
-              const isActive = filters.diseases.includes(p.disease_key);
-              const isSolo = filters.diseases.length === 1 && isActive;
-              const color = diseaseColor(p.disease_key, p.group);
-              return (
-                <button
-                  key={p.disease_key}
-                  onClick={() =>
-                    setFilters({
-                      ...filters,
-                      diseases: isActive
-                        ? filters.diseases.filter((x) => x !== p.disease_key)
-                        : [...filters.diseases, p.disease_key],
-                    })
-                  }
-                  onDoubleClick={(e) => {
-                    e.preventDefault();
-                    // Solo: only this disease (or reset if already solo)
-                    setFilters({
-                      ...filters,
-                      diseases: isSolo ? [] : [p.disease_key],
-                    });
-                  }}
-                  title={`${p.name_ru} — клик: фильтр, двойной клик: только эта болезнь`}
-                  className="h-7 px-2 rounded-md text-[11px] shrink-0 border transition-all flex items-center gap-1"
-                  style={{
-                    backgroundColor: isActive ? color : "transparent",
-                    borderColor: isActive ? color : "var(--border)",
-                    color: isActive ? "#fff" : "var(--foreground)",
-                    outline: isSolo ? `2px solid ${color}` : "none",
-                    outlineOffset: -1,
-                  }}
-                >
-                  <span className="w-1.5 h-1.5 rounded-full shrink-0" style={{ backgroundColor: color, opacity: isActive ? 0.7 : 1 }} />
-                  {p.short_ru}
-                </button>
-              );
-            })}
-          </div>
-        </div>
-      </header>
-
-      {/* ─── Today summary strip (desktop only — mobile gets KPI orbs) ── */}
       <div className="hidden md:block">
         <TodaySummary
           outbreaks={filtered}
@@ -586,9 +163,7 @@ function HomeContent() {
         />
       </div>
 
-      {/* ─── Body: map locked + sidebar scrolls ────────────────────── */}
       <div className="flex min-h-0 flex-1 overflow-hidden">
-        {/* MAP — locked, fills, never scrolls page */}
         <section className="relative min-h-0 flex-1 overflow-hidden">
           <OutbreakMap
             outbreaks={filtered}
@@ -598,287 +173,84 @@ function HomeContent() {
             showChoropleth={showChoropleth}
             densityLayer={densityLayer}
             showHeatmap={showHeatmap}
-            onSelectOutbreak={(o) => onSelectOutbreak(o)}
-            onSelectRegion={onSelectRegion}
+            onSelectOutbreak={openOutbreak}
+            onSelectRegion={openRegion}
             initialCenter={filters.mapLng != null && filters.mapLat != null ? [filters.mapLng, filters.mapLat] : undefined}
             initialZoom={filters.mapZoom}
-            onMapMove={(center, zoom) => {
-              setFilters((f) => ({ ...f, mapLng: center[0], mapLat: center[1], mapZoom: zoom }));
-            }}
+            onMapMove={(center, zoom) => setFilters((f) => ({ ...f, mapLng: center[0], mapLat: center[1], mapZoom: zoom }))}
           />
-
-          {/* Mobile KPI orbs — floating glass discs over map */}
-          <div className="pointer-events-none absolute left-3 top-3 z-20 flex gap-2 md:hidden">
-            <div className="flex h-12 w-12 flex-col items-center justify-center rounded-full border border-white/15 bg-card/60 shadow-lg backdrop-blur-xl">
-              <span className="text-sm font-bold tabular-nums leading-none text-foreground">{filtered.length}</span>
-              <span className="mt-0.5 text-[7px] uppercase text-muted-foreground">всего</span>
-            </div>
-            <div className="flex h-12 w-12 flex-col items-center justify-center rounded-full border border-white/15 bg-card/60 shadow-lg backdrop-blur-xl">
-              <span className="text-sm font-bold tabular-nums leading-none text-destructive">
-                {filtered.filter((o) => o.status === "Ongoing").length}
-              </span>
-              <span className="mt-0.5 text-[7px] uppercase text-muted-foreground">активн.</span>
-            </div>
-          </div>
-
-          {/* Frosted glass floating legend pill */}
-          <div className="absolute bottom-3 right-3 z-20 max-w-[220px] rounded-2xl border border-white/15 bg-card/60 p-3 text-[10px] shadow-2xl backdrop-blur-xl pointer-events-auto">
-            <div className="font-semibold text-foreground mb-1.5">Зоны риска</div>
-            <LegendRow color="#D32F2F" label="Защита (3 км)" />
-            <LegendRow color="#F57C00" label="Наблюдение (10 км)" />
-            <LegendRow color="#1565C0" label="Ограничение (30 км)" />
-            <div className="pt-1.5 mt-1.5 border-t border-white/10">
-              <div className="font-semibold text-foreground mb-1">Плотность</div>
-              <div className="flex gap-1">
-                {[
-                  { v: "none", label: "Нет", color: "var(--muted)" },
-                  { v: "pigs", label: "Св.", color: "#fb6a4a" },
-                  { v: "cattle", label: "КРС", color: "#74c476" },
-                  { v: "poultry", label: "Птц.", color: "#fe9929" },
-                ].map((opt) => (
-                  <button
-                    key={opt.v}
-                    onClick={() => setDensityLayer(opt.v as any)}
-                    className={`px-1.5 py-0.5 rounded text-[9px] border transition-all ${
-                      densityLayer === opt.v ? "bg-foreground text-background" : "bg-transparent"
-                    }`}
-                    style={densityLayer === opt.v ? {} : { borderColor: opt.color, color: opt.color }}
-                  >
-                    {opt.label}
-                  </button>
-                ))}
-              </div>
-            </div>
-            <div className="pt-1.5 mt-1.5 border-t border-white/10 text-muted-foreground">
-              <div>Данные актуальны на: <span className="text-foreground font-medium">{data?.updated ?? "—"}</span></div>
-              <div className="text-[9px] mt-0.5">Источники: {data?.sources.join(", ")}</div>
-            </div>
-          </div>
+          <MobileFloatingStats filtered={filtered} />
+          <MapLegend densityLayer={densityLayer} updated={data?.updated} sources={data?.sources} />
         </section>
 
-        {/* DESKTOP SIDEBAR — resizable, the ONLY scroll region */}
-        <aside
-          className="hidden shrink-0 flex-col overflow-hidden border-l bg-background/60 lg:flex"
-          style={{ width: `${sidebarWidth}px` }}
-        >
-          {/* Drag handle — drag to resize sidebar */}
-          <SidebarResizer width={sidebarWidth} onResize={setSidebarWidth} />
-          <div className="thin-scroll flex-1 space-y-4 overflow-y-auto overscroll-contain p-4">
-            <FilterPanel
-              outbreaks={data?.outbreaks ?? []}
-              filters={filters}
-              onChange={setFilters}
-              onReset={resetFilters}
-              showRiskZones={showRiskZones}
-              onShowRiskZonesChange={setShowRiskZones}
-              showChoropleth={showChoropleth}
-              densityLayer={densityLayer}
-            showHeatmap={showHeatmap}
-              onShowChoroplethChange={setShowChoropleth}
-            />
-            <TimelineSlider outbreaks={data?.outbreaks ?? []} onDateRangeChange={(from, to) => setTimelineRange({from, to})} />
-            <HotspotList outbreaks={filtered} onSelectRegion={(r) => { setRegionDrillDown(r); setRegionDrillDownOpen(true); }} />
-            <EpiCurve outbreaks={filtered} />
-            <DiseaseComparison outbreaks={filtered} />
-            <RiskScoreMap outbreaks={filtered} />
-            <OutbreaksTable outbreaks={filtered} onSelectOutbreak={(o) => onSelectOutbreak(o)} />
-          </div>
-        </aside>
+        <Sidebar
+          outbreaks={data?.outbreaks ?? []} filtered={filtered} filters={filters} setFilters={setFilters as any}
+          resetFilters={resetFilters} showRiskZones={showRiskZones} setShowRiskZones={setShowRiskZones}
+          showChoropleth={showChoropleth} setShowChoropleth={setShowChoropleth} showHeatmap={showHeatmap}
+          setShowHeatmap={setShowHeatmap} densityLayer={densityLayer}
+          timelineRange={timelineRange} setTimelineRange={setTimelineRange} onSelectOutbreak={openOutbreak}
+          mobileSheetExpanded={mobileSheetExpanded} setMobileSheetExpanded={setMobileSheetExpanded}
+        />
       </div>
 
-      {/* ─── Mobile: collapsible bottom sheet content ──────────────────── */}
-      <div
-        className={`transition-all duration-300 ease-in-out border-t bg-card/95 backdrop-blur-xl shadow-[0_-8px_30px_rgba(0,0,0,0.15)] rounded-t-3xl flex flex-col shrink-0 lg:hidden ${
-          mobileSheetExpanded ? "h-[65vh]" : "h-14"
-        }`}
-      >
-        {/* Collapsed/Expanded Header bar */}
-        <button
-          onClick={() => setMobileSheetExpanded(!mobileSheetExpanded)}
-          className="w-full px-4 py-2.5 flex items-center justify-between shrink-0 select-none cursor-pointer text-left"
-          aria-label="Переключить боковую панель аналитики"
-        >
-          <div className="flex items-center gap-2 min-w-0">
-            <div className="mx-0.5 h-1.5 w-8 rounded-full bg-muted-foreground/40 shrink-0" />
-            <span className="text-xs font-semibold tracking-tight text-foreground truncate">
-              📊 Аналитика и данные ({filtered.length})
-            </span>
-          </div>
-          <div className="flex items-center gap-1.5 text-xs text-primary font-medium shrink-0">
-            <span>{mobileSheetExpanded ? "Свернуть ▼" : "Развернуть ▲"}</span>
-          </div>
-        </button>
-
-        {/* Expanded scrollable content */}
-        {mobileSheetExpanded && (
-          <div className="thin-scroll flex-1 overflow-y-auto overscroll-contain px-4 pb-safe space-y-4 pt-1">
-            <TimelineSlider outbreaks={data?.outbreaks ?? []} onDateRangeChange={(from, to) => setTimelineRange({from, to})} />
-            <HotspotList outbreaks={filtered} onSelectRegion={(r) => { setRegionDrillDown(r); setRegionDrillDownOpen(true); }} />
-            <EpiCurve outbreaks={filtered} />
-            <DiseaseComparison outbreaks={filtered} />
-            <SeasonalHeatmap outbreaks={filtered} />
-            <RiskScoreMap outbreaks={filtered} />
-            <OutbreaksTable outbreaks={filtered} onSelectOutbreak={(o) => onSelectOutbreak(o)} />
-          </div>
-        )}
-      </div>
-
-      {/* ─── Drawers/Dialogs ─────────────────────────────────────── */}
-      <DiseaseProfileDrawer
-        disease={drawerDisease}
-        open={drawerOpen}
-        onOpenChange={setDrawerOpen}
+      <DialogManager
+        outbreaks={data?.outbreaks ?? []} filtered={filtered} geo={geo}
+        enterprises={enterprises} regionCentroids={regionCentroids}
       />
-      <QuarantineCalculator
-        open={calcOpen}
-        onOpenChange={setCalcOpen}
-        preselectDisease={calcPreselect}
-      />
-      <NearbyOutbreaks
-        open={nearbyOpen}
-        onOpenChange={setNearbyOpen}
-        outbreaks={data?.outbreaks ?? []}
-        regionCentroids={regionCentroids}
-        onFocusOutbreak={(o) => {
-          setDrawerDisease(o.disease_key);
-          setDrawerOpen(true);
-        }}
-      />
-      <SIRSimulator open={sirOpen} onOpenChange={setSirOpen} />
-      <OutbreakSourceTracker open={sourceTrackerOpen} onOpenChange={setSourceTrackerOpen} outbreaks={filtered} />
-      <TransportGraphAnalysis open={transportOpen} onOpenChange={setTransportOpen} outbreaks={filtered} />
-      <PdfReportExport open={pdfReportOpen} onOpenChange={setPdfReportOpen} outbreaks={data?.outbreaks ?? []} />
-      <CustomDataImport open={customImportOpen} onOpenChange={setCustomImportOpen} outbreaks={data?.outbreaks ?? []} />
-      <EnterpriseRiskMonitor open={enterpriseRiskOpen} onOpenChange={setEnterpriseRiskOpen} outbreaks={data?.outbreaks ?? []} enterprises={enterprises as any} />
-      <SpreadAnimation open={spreadAnimOpen} onOpenChange={setSpreadAnimOpen} outbreaks={data?.outbreaks ?? []} />
-      <RegionReportCard open={regionCardOpen} onOpenChange={setRegionCardOpen} outbreaks={data?.outbreaks ?? []} />
-      <AlertSettings open={alertOpen} onOpenChange={setAlertOpen} outbreaks={data?.outbreaks ?? []} />
-      <RegionDrillDown
-        region={regionDrillDown}
-        outbreaks={data?.outbreaks ?? []}
-        open={regionDrillDownOpen}
-        onOpenChange={setRegionDrillDownOpen}
-        onSelectOutbreak={(o) => {
-          setSelectedOutbreak(o);
-          setOutbreakDetailOpen(true);
-        }}
-        geo={geo}
-        enterprises={enterprises as any}
-      />
-      <OutbreakDetailPanel
-        outbreak={selectedOutbreak}
-        open={outbreakDetailOpen}
-        onOpenChange={setOutbreakDetailOpen}
-        outbreaks={data?.outbreaks ?? []}
-        enterprises={enterprises as any}
-        onSelectDisease={(k) => { setDrawerDisease(k); setDrawerOpen(true); }}
-        onSimulate={(o) => { setSirOpen(true); }}
-      />
-      <SpatialSimulator
-        open={spatialOpen}
-        onOpenChange={setSpatialOpen}
-        outbreaks={data?.outbreaks ?? []}
-        regionCentroids={regionCentroids}
-      />
-      <AboutDialog open={aboutOpen} onOpenChange={setAboutOpen} />
-      <RegionComparison open={comparisonOpen} onOpenChange={setComparisonOpen} outbreaks={data?.outbreaks ?? []} />
     </main>
+  );
+}
+
+function MobileFloatingStats({ filtered }: { filtered: Outbreak[] }) {
+  return (
+    <div className="pointer-events-none absolute left-3 top-3 z-20 flex gap-2 md:hidden">
+      <div className="flex h-12 w-12 flex-col items-center justify-center rounded-full border border-white/15 bg-card/60 shadow-lg backdrop-blur-xl">
+        <span className="text-sm font-bold tabular-nums leading-none text-foreground">{filtered.length}</span>
+        <span className="mt-0.5 text-[7px] uppercase text-muted-foreground">всего</span>
+      </div>
+      <div className="flex h-12 w-12 flex-col items-center justify-center rounded-full border border-white/15 bg-card/60 shadow-lg backdrop-blur-xl">
+        <span className="text-sm font-bold tabular-nums leading-none text-destructive">
+          {filtered.filter((o) => o.status === "Ongoing").length}
+        </span>
+        <span className="mt-0.5 text-[7px] uppercase text-muted-foreground">активн.</span>
+      </div>
+    </div>
+  );
+}
+
+function MapLegend({ densityLayer, updated, sources }: { densityLayer: string, updated?: string, sources?: string[] }) {
+  return (
+    <div className="absolute bottom-3 right-3 z-20 max-w-[220px] rounded-2xl border border-white/15 bg-card/60 p-3 text-[10px] shadow-2xl backdrop-blur-xl pointer-events-auto">
+      <div className="font-semibold text-foreground mb-1.5">Зоны риска</div>
+      <LegendRow color="#D32F2F" label="Защита (3 км)" />
+      <LegendRow color="#F57C00" label="Наблюдение (10 км)" />
+      <LegendRow color="#1565C0" label="Ограничение (30 км)" />
+      <div className="pt-1.5 mt-1.5 border-t border-white/10">
+        <div className="font-semibold text-foreground mb-1">Плотность</div>
+        <div className="flex gap-1">
+          {[
+            { v: "none", label: "Нет", color: "var(--muted)" },
+            { v: "pigs", label: "Св.", color: "#fb6a4a" },
+            { v: "cattle", label: "КРС", color: "#74c476" },
+            { v: "poultry", label: "Птц.", color: "#fe9929" },
+          ].map((opt) => (
+            <div key={opt.v} className={`px-1.5 py-0.5 rounded text-[9px] border transition-all ${densityLayer === opt.v ? "bg-foreground text-background" : "bg-transparent"}`} style={densityLayer === opt.v ? {} : { borderColor: opt.color, color: opt.color }}>{opt.label}</div>
+          ))}
+        </div>
+      </div>
+      <div className="pt-1.5 mt-1.5 border-t border-white/10 text-muted-foreground">
+        <div>Данные актуальны на: <span className="text-foreground font-medium">{updated ?? "—"}</span></div>
+        <div className="text-[9px] mt-0.5">Источники: {sources?.join(", ")}</div>
+      </div>
+    </div>
   );
 }
 
 function LegendRow({ color, label }: { color: string; label: string }) {
   return (
     <div className="flex items-center gap-1.5">
-      <div
-        className="w-2.5 h-2.5 rounded-sm"
-        style={{ backgroundColor: color, opacity: 0.5 }}
-      />
+      <div className="w-2.5 h-2.5 rounded-sm" style={{ backgroundColor: color, opacity: 0.5 }} />
       <span className="text-foreground">{label}</span>
-    </div>
-  );
-}
-
-/**
- * Drag handle for resizing the desktop sidebar.
- *
- * Drag left/right to shrink/grow the sidebar between 280px and 720px.
- * Width is persisted to localStorage via the parent's onResize callback.
- *
- * Renders a thin vertical bar at the left edge of the sidebar. Cursor
- * changes to col-resize on hover. The handle is keyboard-accessible
- * (ArrowLeft/ArrowRight to adjust by 16px).
- */
-function SidebarResizer({
-  width,
-  onResize,
-}: {
-  width: number;
-  onResize: (w: number) => void;
-}) {
-  const draggingRef = useRef(false);
-
-  useEffect(() => {
-    const onMove = (e: MouseEvent) => {
-      if (!draggingRef.current) return;
-      // Sidebar is on the right, so dragging left (decreasing clientX)
-      // means the sidebar gets wider.
-      const newWidth = Math.min(
-        Math.max(window.innerWidth - e.clientX, 280),
-        720,
-      );
-      onResize(newWidth);
-    };
-    const onUp = () => {
-      if (draggingRef.current) {
-        draggingRef.current = false;
-        document.body.style.cursor = "";
-        document.body.style.userSelect = "";
-        // Persist on release (not every move — avoids localStorage thrash)
-        window.localStorage.setItem("vet:sidebarWidth", String(width));
-      }
-    };
-    window.addEventListener("mousemove", onMove);
-    window.addEventListener("mouseup", onUp);
-    return () => {
-      window.removeEventListener("mousemove", onMove);
-      window.removeEventListener("mouseup", onUp);
-    };
-  }, [onResize, width]);
-
-  const startDrag = (e: React.MouseEvent) => {
-    e.preventDefault();
-    draggingRef.current = true;
-    document.body.style.cursor = "col-resize";
-    document.body.style.userSelect = "none";
-  };
-
-  const onKeyDown = (e: React.KeyboardEvent) => {
-    if (e.key === "ArrowLeft") {
-      e.preventDefault();
-      onResize(Math.min(width + 16, 720));
-    } else if (e.key === "ArrowRight") {
-      e.preventDefault();
-      onResize(Math.max(width - 16, 280));
-    }
-  };
-
-  return (
-    <div
-      role="separator"
-      aria-orientation="vertical"
-      aria-label="Изменить размер боковой панели"
-      tabIndex={0}
-      onMouseDown={startDrag}
-      onKeyDown={onKeyDown}
-      className="group relative h-1 w-full cursor-col-resize shrink-0 bg-border hover:bg-primary/40 transition-colors"
-      title="Перетащите для изменения размера (←/→ для шага 16px)"
-    >
-      {/* Grip dots — visible on hover */}
-      <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex gap-0.5 opacity-0 group-hover:opacity-100 transition-opacity">
-        <div className="h-0.5 w-0.5 rounded-full bg-muted-foreground" />
-        <div className="h-0.5 w-0.5 rounded-full bg-muted-foreground" />
-        <div className="h-0.5 w-0.5 rounded-full bg-muted-foreground" />
-      </div>
     </div>
   );
 }

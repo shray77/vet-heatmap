@@ -58,7 +58,7 @@ const CATTLE_DISEASES = new Set(["fmd", "anthrax", "bluetongue", "brucellosis", 
 
 function isSusceptible(type: string, diseaseKey: string): boolean {
   if (type === "pig_farm" || type === "meat_plant" || type === "slaughterhouse") {
-    return PIG_DISEASES.has(diseaseKey) || diseaseKey === "anthrax" || diseaseKey === "rabies";
+    return PIG_DISEASES.has(diseaseKey) || diseaseKey === "anthrax" || diseaseKey === "rabies" || diseaseKey === "fmd";
   }
   if (type === "poultry_farm") {
     return POULTRY_DISEASES.has(diseaseKey);
@@ -66,6 +66,14 @@ function isSusceptible(type: string, diseaseKey: string): boolean {
   if (type === "cattle_farm" || type === "dairy") {
     return CATTLE_DISEASES.has(diseaseKey) || diseaseKey === "anthrax" || diseaseKey === "rabies";
   }
+  
+  // If it's a bee disease or fish disease, meat plants/dairies are NOT susceptible.
+  if (diseaseKey === "varroatosis" || diseaseKey === "nosematosis") {
+    return false; // Only apiaries would be affected (if they existed in types)
+  }
+  
+  // For markets/vet_clinics or unknown farms, we err on the side of caution for major livestock diseases,
+  // but explicitly exclude bee diseases.
   return true;
 }
 
@@ -144,9 +152,17 @@ export function EnterpriseRiskMonitor({ open, onOpenChange, outbreaks, enterpris
         }
 
         let level: "critical" | "high" | "moderate" | "low" = "low";
-        if (targetDistKm < 30 && speciesMatch) level = "critical";
-        else if (targetDistKm < 100 || (targetDistKm < 30 && !speciesMatch)) level = "high";
-        else if (targetDistKm < 300 || transportRisk) level = "moderate";
+        
+        // Only assign high/critical risk if the enterprise is biologically susceptible
+        if (speciesMatch) {
+          if (targetDistKm < 30) level = "critical";
+          else if (targetDistKm < 100) level = "high";
+          else if (targetDistKm < 300 || transportRisk) level = "moderate";
+        } else {
+          // If NOT susceptible (e.g. bee disease vs meat plant), risk is always low,
+          // regardless of how close it is.
+          level = "low";
+        }
 
         const truckSpeedKmh = 55;
         const arrivalHours = targetDistKm === Infinity ? null : targetDistKm / truckSpeedKmh;
