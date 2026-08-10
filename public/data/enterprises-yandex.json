@@ -3,7 +3,7 @@
   "sources": [
     "yandex"
   ],
-  "total": 141,
+  "total": 142,
   "enterprises": [
     {
       "id": "yandex-187535263300",
@@ -1554,6 +1554,17 @@
       "address": "Москва, ул. Песчаный Карьер, 3",
       "city": "Москва",
       "rubric": "Комбикорма и кормовые добавки",
+      "source": "yandex"
+    },
+    {
+      "id": "yandex-14251611348",
+      "name": "Радуга",
+      "type": "meat_plant",
+      "lat": null,
+      "lon": null,
+      "address": "д. Чёрное, ул. Агрогородок, 63",
+      "city": "Москва",
+      "rubric": "Производство продуктов питания",
       "source": "yandex"
     }
   ]
