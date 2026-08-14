@@ -185,7 +185,7 @@ export function FilterPanel({
                 const active = filters.species.includes(s);
                 const ru = speciesRu(s) || s;
                 return (
-                  <button key={s} onClick={() => toggleSpecies(s)} className={\'px-2 py-0.5 rounded-full text-[11px] border transition-colors \'+ (active ? "bg-foreground text-background border-foreground" : "border-border text-muted-foreground hover:border-foreground/50")}>
+                  <button key={s} onClick={() => toggleSpecies(s)} className={'px-2 py-0.5 rounded-full text-[11px] border transition-colors '+ (active ? "bg-foreground text-background border-foreground" : "border-border text-muted-foreground hover:border-foreground/50")}>
                     {ru}
                   </button>
                 );
@@ -203,7 +203,7 @@ export function FilterPanel({
               {statuses.map((st) => {
                 const active = filters.statuses.includes(st);
                 return (
-                  <button key={st} onClick={() => toggleStatus(st)} className={\'px-2 py-0.5 rounded-full text-[11px] border transition-colors \'+ (active ? "bg-foreground text-background border-foreground" : "border-border text-muted-foreground")}>
+                  <button key={st} onClick={() => toggleStatus(st)} className={'px-2 py-0.5 rounded-full text-[11px] border transition-colors '+ (active ? "bg-foreground text-background border-foreground" : "border-border text-muted-foreground")}>
                     {st === "Ongoing" ? "Активные" : st === "Resolved" ? "Завершён" : "Неизвестно"}
                   </button>
                 );
@@ -221,7 +221,7 @@ export function FilterPanel({
               {allFederalDistricts.map(([fd, n]) => {
                 const active = filters.federalDistricts.includes(fd);
                 return (
-                  <button key={fd} onClick={() => toggleDistrict(fd)} className={\'px-2 py-0.5 rounded-full text-[11px] border transition-colors \'+ (active ? "bg-foreground text-background border-foreground" : "border-border text-muted-foreground")}>
+                  <button key={fd} onClick={() => toggleDistrict(fd)} className={'px-2 py-0.5 rounded-full text-[11px] border transition-colors '+ (active ? "bg-foreground text-background border-foreground" : "border-border text-muted-foreground")}>
                     {fd} ({n})
                   </button>
                 );

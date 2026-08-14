@@ -891,9 +891,9 @@ export function OutbreakMap({
           const surveillanceR = profile?.surveillance_zone_km ?? 10;
           const restrictionR = profile?.restriction_zone_km ?? 30;
 
-          if (showProtection) features.push({ type: "Feature", properties: { outbreak_id: o.id, label: "protection", color: "#dc2626", opacity: 0.25, radius_km: protectionR }, geometry: { type: "Point", coordinates: center } } });
-          if (showSurveillance) features.push({ type: "Feature", properties: { outbreak_id: o.id, label: "surveillance", color: "#f59e0b", opacity: 0.15, radius_km: surveillanceR }, geometry: { type: "Point", coordinates: center } } });
-          if (showRestriction) features.push({ type: "Feature", properties: { outbreak_id: o.id, label: "restriction", color: "#3b82f6", opacity: 0.08, radius_km: restrictionR }, geometry: { type: "Point", coordinates: center } } });
+          if (showProtection) features.push({ type: "Feature", properties: { outbreak_id: o.id, label: "protection", color: "#dc2626", opacity: 0.25, radius_km: protectionR }, geometry: { type: "Point", coordinates: center } });
+          if (showSurveillance) features.push({ type: "Feature", properties: { outbreak_id: o.id, label: "surveillance", color: "#f59e0b", opacity: 0.15, radius_km: surveillanceR }, geometry: { type: "Point", coordinates: center } });
+          if (showRestriction) features.push({ type: "Feature", properties: { outbreak_id: o.id, label: "restriction", color: "#3b82f6", opacity: 0.08, radius_km: restrictionR }, geometry: { type: "Point", coordinates: center } });
         }
 
         if (features.length === 0) return;
