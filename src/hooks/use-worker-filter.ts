@@ -27,7 +27,8 @@ export function useWorkerFilter(
   const [filtered, setFiltered] = useState<Outbreak[]>([]);
   const [version, setVersion] = useState(0);
 
-  // Fallback: synchronous filter (used on first render or if Worker fails)
+  // Fallback: synchronous filter (used when Worker is unavailable, or while
+  // waiting for the Worker's first response on the initial render).
   const syncFiltered = useMemo(() => {
     if (worker) return filtered; // Worker handles it
     const qLower = filters.query.trim().toLowerCase();
@@ -46,11 +47,12 @@ export function useWorkerFilter(
     });
   }, [outbreaks, filters, worker, filtered]);
 
+  // Only post to the Worker when there is actual work to do. The empty-
+  // outbreaks case is handled directly in the render body (below), so we
+  // never need to call setState synchronously inside this effect.
   useEffect(() => {
-    if (!worker || outbreaks.length === 0) {
-      setFiltered(outbreaks);
-      return;
-    }
+    if (!worker) return;
+    if (outbreaks.length === 0) return;
 
     let cancelled = false;
 
@@ -70,10 +72,17 @@ export function useWorkerFilter(
     };
   }, [worker, outbreaks, filters]);
 
-  // Return sync result if worker hasn't responded yet (first render)
-  if (worker && version === 0) {
-    return syncFiltered;
-  }
+  // No Worker available — use the synchronous filter result.
+  if (!worker) return syncFiltered;
 
-  return worker ? filtered : syncFiltered;
+  // Empty outbreaks — result is always empty. Return [] directly instead of
+  // falling through to the (potentially stale) `filtered` state from a
+  // previous non-empty run.
+  if (outbreaks.length === 0) return [];
+
+  // Worker is active but hasn't responded yet (first render) — fall back
+  // to the synchronous result so the UI shows something immediately.
+  if (version === 0) return syncFiltered;
+
+  return filtered;
 }
