@@ -17,6 +17,7 @@ import { useKeyboardShortcuts } from "@/lib/use-keyboard";
 import { useTheme } from "next-themes";
 import { DEFAULT_FILTERS, applyFilters } from "@/lib/filters";
 import { useUrlFilters } from "@/lib/use-url-filters";
+import { useDebounced } from "@/hooks/use-filter-options";
 import type { DiseaseKey, Outbreak } from "@/types/domain";
 
 export default function Home() {
@@ -27,6 +28,8 @@ function HomeContent() {
   const { data, loading, error } = useOutbreaks();
   const { geo, loading: geoLoading } = useRegionsGeoJSON();
   const [filters, setFilters] = useUrlFilters();
+  // 🆕 Debounce filters — prevents expensive applyFilters on every keystroke
+  const debouncedFilters = useDebounced(filters, 300);
 
   // 🆕 Map state from Zustand store (was 7 useState calls)
   const { showRiskZones, showChoropleth, densityLayer, showHeatmap, nightMode,
@@ -81,11 +84,11 @@ function HomeContent() {
   const filtered = useMemo(() => {
     if (!data) return [];
     return applyFilters(data.outbreaks, {
-      ...filters,
-      dateFrom: timelineRange.from ?? filters.dateFrom,
-      dateTo: timelineRange.to ?? filters.dateTo,
+      ...debouncedFilters,
+      dateFrom: timelineRange.from ?? debouncedFilters.dateFrom,
+      dateTo: timelineRange.to ?? debouncedFilters.dateTo,
     });
-  }, [data, filters, timelineRange]);
+  }, [data, debouncedFilters, timelineRange]);
 
   const totalRegions = geo?.features.length ?? 85;
 
@@ -116,13 +119,51 @@ function HomeContent() {
 
   if (loading || geoLoading) {
     return (
-      <main className="h-dvh flex flex-col items-center justify-center gap-4">
-        <div className="text-center space-y-3">
-          <Activity className="h-10 w-10 mx-auto animate-pulse text-primary" />
-          <div className="text-sm font-medium">Загрузка данных…</div>
-          <div className="text-xs text-muted-foreground">
-            Загружаем {data?.total_outbreaks ?? 1300}+ вспышек и {geo?.features.length ?? 85} регионов
+      <main className="h-dvh flex flex-col">
+        {/* 🆕 Skeleton header */}
+        <div className="h-14 border-b bg-muted/30 flex items-center px-4 gap-3">
+          <div className="h-6 w-32 rounded bg-muted animate-pulse" />
+          <div className="flex-1" />
+          <div className="h-8 w-8 rounded bg-muted animate-pulse" />
+          <div className="h-8 w-8 rounded bg-muted animate-pulse" />
+        </div>
+        {/* 🆕 Skeleton map area */}
+        <div className="flex-1 relative bg-muted/20">
+          <svg viewBox="0 0 1000 600" className="w-full h-full">
+            <path
+              d="M 150,200 Q 300,150 500,180 T 800,250 Q 850,300 700,350 T 400,400 Q 200,380 150,300 Z"
+              fill="none"
+              stroke="hsl(var(--muted-foreground) / 0.2)"
+              strokeWidth="2"
+              className="animate-pulse"
+            />
+            <path
+              d="M 200,250 Q 350,220 550,260 T 750,320"
+              fill="none"
+              stroke="hsl(var(--muted-foreground) / 0.15)"
+              strokeWidth="1.5"
+              className="animate-pulse"
+            />
+          </svg>
+          <div className="absolute inset-0 flex items-center justify-center">
+            <div className="flex flex-col items-center gap-3">
+              <div className="h-8 w-8 border-2 border-primary border-t-transparent rounded-full animate-spin" />
+              <div className="text-sm font-medium">Загрузка данных…</div>
+              <div className="text-xs text-muted-foreground">
+                {data?.total_outbreaks ?? 1300}+ вспышек и {geo?.features.length ?? 85} регионов
+              </div>
+            </div>
           </div>
+        </div>
+        {/* 🆕 Skeleton sidebar */}
+        <div className="hidden md:block w-80 border-l bg-muted/30 p-4 space-y-3">
+          <div className="h-6 w-24 rounded bg-muted animate-pulse" />
+          <div className="h-10 w-full rounded bg-muted animate-pulse" />
+          <div className="h-10 w-full rounded bg-muted animate-pulse" />
+          <div className="h-6 w-20 rounded bg-muted animate-pulse mt-4" />
+          <div className="h-8 w-full rounded bg-muted animate-pulse" />
+          <div className="h-8 w-full rounded bg-muted animate-pulse" />
+          <div className="h-8 w-full rounded bg-muted animate-pulse" />
         </div>
       </main>
     );

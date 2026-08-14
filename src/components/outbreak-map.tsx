@@ -778,21 +778,21 @@ export function OutbreakMap({
         features.push({
           type: "Feature",
           properties: { outbreak_id: o.id, label: "protection", color: "#dc2626", opacity: 0.25 },
-          geometry: { type: "Polygon", coordinates: [makeCircle(center, protectionR)] },
+          geometry: { type: "Point", coordinates: center } },
         });
       }
       if (showSurveillance) {
         features.push({
           type: "Feature",
           properties: { outbreak_id: o.id, label: "surveillance", color: "#f59e0b", opacity: 0.15 },
-          geometry: { type: "Polygon", coordinates: [makeCircle(center, surveillanceR)] },
+          geometry: { type: "Point", coordinates: center } },
         });
       }
       if (showRestriction) {
         features.push({
           type: "Feature",
           properties: { outbreak_id: o.id, label: "restriction", color: "#3b82f6", opacity: 0.08 },
-          geometry: { type: "Polygon", coordinates: [makeCircle(center, restrictionR)] },
+          geometry: { type: "Point", coordinates: center } },
         });
       }
     }
@@ -885,9 +885,9 @@ export function OutbreakMap({
           const surveillanceR = profile?.surveillance_zone_km ?? 10;
           const restrictionR = profile?.restriction_zone_km ?? 30;
 
-          if (showProtection) features.push({ type: "Feature", properties: { outbreak_id: o.id, label: "protection", color: "#dc2626", opacity: 0.25 }, geometry: { type: "Polygon", coordinates: [makeCircle(center, protectionR)] } });
-          if (showSurveillance) features.push({ type: "Feature", properties: { outbreak_id: o.id, label: "surveillance", color: "#f59e0b", opacity: 0.15 }, geometry: { type: "Polygon", coordinates: [makeCircle(center, surveillanceR)] } });
-          if (showRestriction) features.push({ type: "Feature", properties: { outbreak_id: o.id, label: "restriction", color: "#3b82f6", opacity: 0.08 }, geometry: { type: "Polygon", coordinates: [makeCircle(center, restrictionR)] } });
+          if (showProtection) features.push({ type: "Feature", properties: { outbreak_id: o.id, label: "protection", color: "#dc2626", opacity: 0.25 }, geometry: { type: "Point", coordinates: center } } });
+          if (showSurveillance) features.push({ type: "Feature", properties: { outbreak_id: o.id, label: "surveillance", color: "#f59e0b", opacity: 0.15 }, geometry: { type: "Point", coordinates: center } } });
+          if (showRestriction) features.push({ type: "Feature", properties: { outbreak_id: o.id, label: "restriction", color: "#3b82f6", opacity: 0.08 }, geometry: { type: "Point", coordinates: center } } });
         }
 
         if (features.length === 0) return;
@@ -943,17 +943,17 @@ export function OutbreakMap({
       {
         type: "Feature",
         properties: { zone: "restriction" },
-        geometry: { type: "Polygon", coordinates: [makeCircle(center, restR)] },
+        geometry: { type: "Point", coordinates: center } },
       },
       {
         type: "Feature",
         properties: { zone: "surveillance" },
-        geometry: { type: "Polygon", coordinates: [makeCircle(center, survR)] },
+        geometry: { type: "Point", coordinates: center } },
       },
       {
         type: "Feature",
         properties: { zone: "protection" },
-        geometry: { type: "Polygon", coordinates: [makeCircle(center, protR)] },
+        geometry: { type: "Point", coordinates: center } },
       },
     ];
 

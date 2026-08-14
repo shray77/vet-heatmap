@@ -14,6 +14,12 @@ import {
 } from "@/components/ui/popover";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Search, X, ChevronDown } from "lucide-react";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 import { speciesRu } from "@/lib/i18n-species";
 import type { Outbreak, DiseaseKey, OutbreakStatus } from "@/types/domain";
 import { DISEASE_LABELS } from "@/data/diseases-normalize";
@@ -143,7 +149,12 @@ export function FilterPanel({
       {/* Disease filter */}
       <div className="space-y-1.5">
         <div className="flex items-center justify-between">
-          <Label className="text-xs font-medium text-muted-foreground">Болезнь</Label>
+          <Accordion type="single" collapsible defaultValue="diseases" className="w-full">
+          <AccordionItem value="diseases" className="border-0">
+            <AccordionTrigger className="text-xs font-medium text-muted-foreground py-2 hover:no-underline">
+              Болезнь ({filters.diseases.length})
+            </AccordionTrigger>
+            <AccordionContent>
           {filters.diseases.length > 0 && (
             <button
               onClick={() => onChange({ ...filters, diseases: [] })}
@@ -184,7 +195,13 @@ export function FilterPanel({
       {/* Species filter */}
       <div className="space-y-1.5">
         <div className="flex items-center justify-between">
-          <Label className="text-xs font-medium text-muted-foreground">Вид животных</Label>
+              </AccordionContent>
+          </AccordionItem>
+          <AccordionItem value="species" className="border-0">
+            <AccordionTrigger className="text-xs font-medium text-muted-foreground py-2 hover:no-underline">
+              Вид животных ({filters.species.length})
+            </AccordionTrigger>
+            <AccordionContent>
           {filters.species.length > 0 && (
             <button
               onClick={() => onChange({ ...filters, species: [] })}
@@ -224,7 +241,13 @@ export function FilterPanel({
 
       {/* Status filter */}
       <div className="space-y-1.5">
-        <Label className="text-xs font-medium text-muted-foreground">Статус</Label>
+            </AccordionContent>
+          </AccordionItem>
+          <AccordionItem value="status" className="border-0">
+            <AccordionTrigger className="text-xs font-medium text-muted-foreground py-2 hover:no-underline">
+              Статус
+            </AccordionTrigger>
+            <AccordionContent>
         <div className="flex gap-1.5">
           {statuses.map((s) => {
             const active = filters.statuses.includes(s);
@@ -248,7 +271,13 @@ export function FilterPanel({
       {/* Federal district filter */}
       <div className="space-y-1.5">
         <div className="flex items-center justify-between">
-          <Label className="text-xs font-medium text-muted-foreground">Федеральный округ</Label>
+              </AccordionContent>
+          </AccordionItem>
+          <AccordionItem value="districts" className="border-0">
+            <AccordionTrigger className="text-xs font-medium text-muted-foreground py-2 hover:no-underline">
+              Федеральный округ ({filters.federalDistricts.length})
+            </AccordionTrigger>
+            <AccordionContent>
           {filters.federalDistricts.length > 0 && (
             <button
               onClick={() => onChange({ ...filters, federalDistricts: [] })}
@@ -289,7 +318,13 @@ export function FilterPanel({
 
       {/* Date range */}
       <div className="space-y-1.5">
-        <Label className="text-xs font-medium text-muted-foreground">Период</Label>
+            </AccordionContent>
+          </AccordionItem>
+          <AccordionItem value="period" className="border-0">
+            <AccordionTrigger className="text-xs font-medium text-muted-foreground py-2 hover:no-underline">
+              Период
+            </AccordionTrigger>
+            <AccordionContent>
         <div className="flex items-center gap-1.5">
           <Input
             type="date"
@@ -340,6 +375,10 @@ export function FilterPanel({
       </div>
 
       {/* Layer toggles */}
+            </AccordionContent>
+          </AccordionItem>
+        </Accordion>
+
       <div className="space-y-2 pt-2 border-t">
         <div className="flex items-center justify-between">
           <Label htmlFor="risk-zones" className="text-xs cursor-pointer">
