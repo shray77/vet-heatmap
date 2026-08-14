@@ -54,17 +54,19 @@ export function useWorkerFilter(
 
     let cancelled = false;
 
-    worker.onmessage = (e: MessageEvent) => {
+    const handleResult = (e: MessageEvent) => {
       if (!cancelled) {
         setFiltered(e.data.result);
         setVersion((v) => v + 1);
       }
     };
 
+    worker.addEventListener("message", handleResult);
     worker.postMessage({ outbreaks, filters });
 
     return () => {
       cancelled = true;
+      worker.removeEventListener("message", handleResult);
     };
   }, [worker, outbreaks, filters]);
 
