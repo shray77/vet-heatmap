@@ -64,7 +64,7 @@ export function FilterPanel({
   const allFederalDistricts = useMemo(() => {
     const counts = new Map<string, number>();
     for (const o of outbreaks) {
-      const fd = (o as any).federal_district || "";
+      const fd = o.federal_district || "";
       if (fd) counts.set(fd, (counts.get(fd) ?? 0) + 1);
     }
     return Array.from(counts.entries()).sort((a, b) => b[1] - a[1]);

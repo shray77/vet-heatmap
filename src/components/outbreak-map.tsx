@@ -244,12 +244,8 @@ export function OutbreakMap({
       (map.getSource("regions") as maplibregl.GeoJSONSource).setData(geo);
     }
 
-    // Compute outbreak density per region
-    const density = new Map<string, number>();
-    for (const o of outbreaks) {
-      if (!o.region_geo) continue;
-      density.set(o.region_geo, (density.get(o.region_geo) ?? 0) + 1);
-    }
+    // 🆕 Use memoized density (was inline O(n) on every render)
+    const density = regionDensity;
     const maxCount = Math.max(1, ...density.values());
 
     // Color stops (YlOrRd-ish)
@@ -1345,3 +1341,7 @@ function makeCircle(center: [number, number], radiusKm: number, segments = 64): 
   }
   return points;
 }
+
+// React.memo wrapper
+import { memo } from "react";
+export const OutbreakMapMemo = memo(OutbreakMap);

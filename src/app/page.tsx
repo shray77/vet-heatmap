@@ -1,6 +1,7 @@
 "use client";
 
-import { useState, useMemo, useCallback } from "react";
+import { useMemo, useCallback } from "react";
+import { useMapStore } from "@/lib/map-store";
 import { Activity, AlertTriangle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { OutbreakMap } from "@/components/outbreak-map";
@@ -27,13 +28,11 @@ function HomeContent() {
   const { geo, loading: geoLoading } = useRegionsGeoJSON();
   const [filters, setFilters] = useUrlFilters();
 
-  const [showRiskZones, setShowRiskZones] = useState(true);
-  const [showChoropleth, setShowChoropleth] = useState(true);
-  const [densityLayer, setDensityLayer] = useState<"none" | "pigs" | "cattle" | "poultry">("none");
-  const [showHeatmap, setShowHeatmap] = useState(false);
-  const [nightMode, setNightMode] = useState(false);
-  const [timelineRange, setTimelineRange] = useState<{from: string | null, to: string | null}>({from: null, to: null});
-  const [mobileSheetExpanded, setMobileSheetExpanded] = useState(false);
+  // 🆕 Map state from Zustand store (was 7 useState calls)
+  const { showRiskZones, showChoropleth, densityLayer, showHeatmap, nightMode,
+          timelineRange, mobileSheetExpanded,
+          toggleRiskZones, toggleChoropleth, toggleHeatmap, toggleNightMode,
+          setTimelineRange, setMobileSheetExpanded } = useMapStore();
 
   const {
     setDrawerDisease, setDrawerOpen, setCalcOpen, setCalcPreselect,
@@ -149,10 +148,10 @@ function HomeContent() {
       <Header
         outbreaks={data?.outbreaks ?? []} filtered={filtered} filters={filters} setFilters={setFilters as any}
         totalRegions={totalRegions} focusRegion={focusRegion} toggleDiseaseFilter={toggleDiseaseFilter}
-        resetFilters={resetFilters} nightMode={nightMode} setNightMode={setNightMode}
-        showRiskZones={showRiskZones} setShowRiskZones={setShowRiskZones}
-        showChoropleth={showChoropleth} setShowChoropleth={setShowChoropleth}
-        showHeatmap={showHeatmap} setShowHeatmap={setShowHeatmap} densityLayer={densityLayer}
+        resetFilters={resetFilters} nightMode={nightMode} setNightMode={toggleNightMode}
+        showRiskZones={showRiskZones} setShowRiskZones={(v) => useMapStore.setState({ showRiskZones: v })}
+        showChoropleth={showChoropleth} setShowChoropleth={(v) => useMapStore.setState({ showChoropleth: v })}
+        showHeatmap={showHeatmap} setShowHeatmap={(v) => useMapStore.setState({ showHeatmap: v })} densityLayer={densityLayer}
       />
 
       <div className="hidden md:block">
@@ -185,9 +184,9 @@ function HomeContent() {
 
         <Sidebar
           outbreaks={data?.outbreaks ?? []} filtered={filtered} filters={filters} setFilters={setFilters as any}
-          resetFilters={resetFilters} showRiskZones={showRiskZones} setShowRiskZones={setShowRiskZones}
-          showChoropleth={showChoropleth} setShowChoropleth={setShowChoropleth} showHeatmap={showHeatmap}
-          setShowHeatmap={setShowHeatmap} densityLayer={densityLayer}
+          resetFilters={resetFilters} showRiskZones={showRiskZones} setShowRiskZones={(v) => useMapStore.setState({ showRiskZones: v })}
+          showChoropleth={showChoropleth} setShowChoropleth={(v) => useMapStore.setState({ showChoropleth: v })} showHeatmap={showHeatmap}
+          setShowHeatmap={(v) => useMapStore.setState({ showHeatmap: v })} densityLayer={densityLayer}
           timelineRange={timelineRange} setTimelineRange={setTimelineRange} onSelectOutbreak={openOutbreak}
           mobileSheetExpanded={mobileSheetExpanded} setMobileSheetExpanded={setMobileSheetExpanded}
         />
