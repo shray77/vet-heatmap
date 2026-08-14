@@ -4,7 +4,7 @@
     "openstreetmap",
     "curated"
   ],
-  "total": 63,
+  "total": 64,
   "enterprises": [
     {
       "id": "cur-48",
@@ -369,6 +369,17 @@
         "addr:country": "RU",
         "name": "Свинокомплекс",
         "shop": "butcher"
+      }
+    },
+    {
+      "id": "osm-1927161073",
+      "name": "Свиноферма",
+      "type": "pig_farm",
+      "lat": 50.1940725,
+      "lon": 39.4697571,
+      "tags": {
+        "building": "yes",
+        "name": "Свиноферма"
       }
     },
     {
