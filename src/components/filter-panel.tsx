@@ -221,7 +221,7 @@ export function FilterPanel({
               {allFederalDistricts.map(([fd, n]) => {
                 const active = filters.federalDistricts.includes(fd);
                 return (
-                  <button key={fd} onClick={() => toggleDistrict(fd)} className={'px-2 py-0.5 rounded-full text-[11px] border transition-colors '+ (active ? "bg-foreground text-background border-foreground" : "border-border text-muted-foreground")}>
+                  <button key={fd} onClick={() => toggleFederalDistrict(fd)} className={'px-2 py-0.5 rounded-full text-[11px] border transition-colors '+ (active ? "bg-foreground text-background border-foreground" : "border-border text-muted-foreground")}>
                     {fd} ({n})
                   </button>
                 );
