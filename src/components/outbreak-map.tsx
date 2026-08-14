@@ -777,22 +777,22 @@ export function OutbreakMap({
       if (showProtection) {
         features.push({
           type: "Feature",
-          properties: { outbreak_id: o.id, label: "protection", color: "#dc2626", opacity: 0.25 },
-          geometry: { type: "Point", coordinates: center } },
+          properties: { outbreak_id: o.id, label: "protection", color: "#dc2626", opacity: 0.25, radius_km: protectionR },
+          geometry: { type: "Point", coordinates: center },
         });
       }
       if (showSurveillance) {
         features.push({
           type: "Feature",
-          properties: { outbreak_id: o.id, label: "surveillance", color: "#f59e0b", opacity: 0.15 },
-          geometry: { type: "Point", coordinates: center } },
+          properties: { outbreak_id: o.id, label: "surveillance", color: "#f59e0b", opacity: 0.15, radius_km: surveillanceR },
+          geometry: { type: "Point", coordinates: center },
         });
       }
       if (showRestriction) {
         features.push({
           type: "Feature",
-          properties: { outbreak_id: o.id, label: "restriction", color: "#3b82f6", opacity: 0.08 },
-          geometry: { type: "Point", coordinates: center } },
+          properties: { outbreak_id: o.id, label: "restriction", color: "#3b82f6", opacity: 0.08, radius_km: restrictionR },
+          geometry: { type: "Point", coordinates: center },
         });
       }
     }
@@ -803,10 +803,10 @@ export function OutbreakMap({
 
     // Draw as outline-only circles (no fill) to avoid covering markers
     const layerOrder = ["restriction", "surveillance", "protection"];
-    const zoneStyles: Record<string, { width: number; opacity: number; dash: number[] }> = {
-      restriction: { width: 1.5, opacity: 0.5, dash: [2, 2] },
-      surveillance: { width: 1.5, opacity: 0.6, dash: [3, 2] },
-      protection: { width: 2, opacity: 0.8, dash: [1, 0] }, // solid
+    const zoneStyles: Record<string, { opacity: number }> = {
+      restriction: { opacity: 0.08 },
+      surveillance: { opacity: 0.15 },
+      protection: { opacity: 0.25 },
     };
     for (const label of layerOrder) {
       const hasFeatures = features.some((f) => f.properties?.label === label);
@@ -814,15 +814,21 @@ export function OutbreakMap({
       const zs = zoneStyles[label];
       map.addLayer({
         id: `risk-zone-${label}`,
-        type: "line",
+        type: "circle",
         source: "risk-zones",
         filter: ["==", ["get", "label"], label],
-        layout: {},
         paint: {
-          "line-color": ["get", "color"],
-          "line-width": zs.width,
-          "line-opacity": zs.opacity,
-          "line-dasharray": zs.dash,
+          "circle-radius": [
+            "interpolate", ["linear"], ["zoom"],
+            7, ["*", ["get", "radius_km"], 3],
+            10, ["*", ["get", "radius_km"], 15],
+            13, ["*", ["get", "radius_km"], 80],
+          ],
+          "circle-color": ["get", "color"],
+          "circle-opacity": zs.opacity,
+          "circle-stroke-width": 1,
+          "circle-stroke-color": ["get", "color"],
+          "circle-stroke-opacity": 0.6,
         },
       });
     }
@@ -885,22 +891,22 @@ export function OutbreakMap({
           const surveillanceR = profile?.surveillance_zone_km ?? 10;
           const restrictionR = profile?.restriction_zone_km ?? 30;
 
-          if (showProtection) features.push({ type: "Feature", properties: { outbreak_id: o.id, label: "protection", color: "#dc2626", opacity: 0.25 }, geometry: { type: "Point", coordinates: center } } });
-          if (showSurveillance) features.push({ type: "Feature", properties: { outbreak_id: o.id, label: "surveillance", color: "#f59e0b", opacity: 0.15 }, geometry: { type: "Point", coordinates: center } } });
-          if (showRestriction) features.push({ type: "Feature", properties: { outbreak_id: o.id, label: "restriction", color: "#3b82f6", opacity: 0.08 }, geometry: { type: "Point", coordinates: center } } });
+          if (showProtection) features.push({ type: "Feature", properties: { outbreak_id: o.id, label: "protection", color: "#dc2626", opacity: 0.25, radius_km: protectionR }, geometry: { type: "Point", coordinates: center } } });
+          if (showSurveillance) features.push({ type: "Feature", properties: { outbreak_id: o.id, label: "surveillance", color: "#f59e0b", opacity: 0.15, radius_km: surveillanceR }, geometry: { type: "Point", coordinates: center } } });
+          if (showRestriction) features.push({ type: "Feature", properties: { outbreak_id: o.id, label: "restriction", color: "#3b82f6", opacity: 0.08, radius_km: restrictionR }, geometry: { type: "Point", coordinates: center } } });
         }
 
         if (features.length === 0) return;
         map.addSource("risk-zones", { type: "geojson", data: { type: "FeatureCollection", features } });
-        const zStyles: Record<string, { width: number; opacity: number; dash: number[] }> = {
-          restriction: { width: 1.5, opacity: 0.5, dash: [2, 2] },
-          surveillance: { width: 1.5, opacity: 0.6, dash: [3, 2] },
-          protection: { width: 2, opacity: 0.8, dash: [1, 0] },
+        const zStyles: Record<string, { opacity: number }> = {
+          restriction: { opacity: 0.08 },
+          surveillance: { opacity: 0.15 },
+          protection: { opacity: 0.25 },
         };
         for (const label of ["restriction", "surveillance", "protection"]) {
           if (!features.some((f) => f.properties?.label === label)) continue;
           const zs = zStyles[label];
-          map.addLayer({ id: `risk-zone-${label}`, type: "line", source: "risk-zones", filter: ["==", ["get", "label"], label], layout: {}, paint: { "line-color": ["get", "color"], "line-width": zs.width, "line-opacity": zs.opacity, "line-dasharray": zs.dash } });
+          map.addLayer({ id: `risk-zone-${label}`, type: "circle", source: "risk-zones", filter: ["==", ["get", "label"], label], paint: { "circle-radius": ["interpolate", ["linear"], ["zoom"], 7, ["*", ["get", "radius_km"], 3], 10, ["*", ["get", "radius_km"], 15], 13, ["*", ["get", "radius_km"], 80]], "circle-color": ["get", "color"], "circle-opacity": zs.opacity, "circle-stroke-width": 1, "circle-stroke-color": ["get", "color"], "circle-stroke-opacity": 0.6 } });
         }
       }, 300); // debounce 300ms
     };
@@ -943,17 +949,17 @@ export function OutbreakMap({
       {
         type: "Feature",
         properties: { zone: "restriction" },
-        geometry: { type: "Point", coordinates: center } },
+        geometry: { type: "Point", coordinates: center },
       },
       {
         type: "Feature",
         properties: { zone: "surveillance" },
-        geometry: { type: "Point", coordinates: center } },
+        geometry: { type: "Point", coordinates: center },
       },
       {
         type: "Feature",
         properties: { zone: "protection" },
-        geometry: { type: "Point", coordinates: center } },
+        geometry: { type: "Point", coordinates: center },
       },
     ];
 

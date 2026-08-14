@@ -147,237 +147,101 @@ export function FilterPanel({
       </div>
 
       {/* Disease filter */}
-      <div className="space-y-1.5">
-        <div className="flex items-center justify-between">
-          <Accordion type="single" collapsible defaultValue="diseases" className="w-full">
-          <AccordionItem value="diseases" className="border-0">
-            <AccordionTrigger className="text-xs font-medium text-muted-foreground py-2 hover:no-underline">
-              Болезнь ({filters.diseases.length})
-            </AccordionTrigger>
-            <AccordionContent>
-          {filters.diseases.length > 0 && (
-            <button
-              onClick={() => onChange({ ...filters, diseases: [] })}
-              className="text-[10px] text-muted-foreground hover:text-foreground"
-            >
-              сбросить
-            </button>
-          )}
-        </div>
-        <div className="flex flex-wrap gap-1 max-h-32 overflow-y-auto thin-scroll">
-          {allDiseases.map(([k, n]) => {
-            const active = filters.diseases.includes(k);
-            const labels = DISEASE_LABELS[k];
-            const color = diseaseColor(k, labels.group);
-            return (
-              <button
-                key={k}
-                onClick={() => toggleDisease(k)}
-                className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[11px] border transition-colors"
-                style={{
-                  backgroundColor: active ? color : "transparent",
-                  borderColor: color,
-                  color: active ? "#fff" : color,
-                }}
-              >
-                <span
-                  className="w-2 h-2 rounded-full"
-                  style={{ backgroundColor: color, opacity: active ? 0.5 : 1 }}
-                />
-                {labels.short_ru}
-                <span style={{ opacity: 0.7 }}>({n})</span>
-              </button>
-            );
-          })}
-        </div>
-      </div>
-
-      {/* Species filter */}
-      <div className="space-y-1.5">
-        <div className="flex items-center justify-between">
-              </AccordionContent>
-          </AccordionItem>
-          <AccordionItem value="species" className="border-0">
-            <AccordionTrigger className="text-xs font-medium text-muted-foreground py-2 hover:no-underline">
-              Вид животных ({filters.species.length})
-            </AccordionTrigger>
-            <AccordionContent>
-          {filters.species.length > 0 && (
-            <button
-              onClick={() => onChange({ ...filters, species: [] })}
-              className="text-[10px] text-muted-foreground hover:text-foreground"
-            >
-              сбросить
-            </button>
-          )}
-        </div>
-        <Popover>
-          <PopoverTrigger asChild>
-            <Button variant="outline" size="sm" className="w-full justify-between h-8 text-xs font-normal">
-              {filters.species.length === 0
-                ? "Все виды"
-                : `${filters.species.length} выбрано`}
-              <ChevronDown className="h-3 w-3" />
-            </Button>
-          </PopoverTrigger>
-          <PopoverContent className="w-72 max-h-72 overflow-y-auto" align="start">
-            <div className="space-y-1.5">
-              {allSpecies.map((s) => (
-                <label
-                  key={s}
-                  className="flex items-center gap-2 cursor-pointer py-0.5 hover:bg-accent/30 rounded px-1"
-                >
-                  <Checkbox
-                    checked={filters.species.includes(s)}
-                    onCheckedChange={() => toggleSpecies(s)}
-                  />
-                  <span className="text-xs">{speciesRu(s)}</span>
-                </label>
-              ))}
+      <Accordion type="single" collapsible defaultValue="diseases" className="w-full">
+        <AccordionItem value="diseases" className="border-0">
+          <AccordionTrigger className="text-xs font-medium text-muted-foreground py-2 hover:no-underline">
+            Болезнь ({filters.diseases.length})
+          </AccordionTrigger>
+          <AccordionContent>
+            {filters.diseases.length > 0 && (
+              <button onClick={() => onChange({ ...filters, diseases: [] })} className="text-[10px] text-muted-foreground hover:text-foreground">сбросить</button>
+            )}
+            <div className="flex flex-wrap gap-1 max-h-32 overflow-y-auto thin-scroll mt-1">
+              {allDiseases.map(([k, n]) => {
+                const active = filters.diseases.includes(k);
+                const labels = DISEASE_LABELS[k];
+                const color = diseaseColor(k, labels.group);
+                return (
+                  <button key={k} onClick={() => toggleDisease(k)} className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[11px] border transition-colors" style={{ backgroundColor: active ? color : "transparent", borderColor: color, color: active ? "#fff" : color }}>
+                    <span className="w-2 h-2 rounded-full" style={{ backgroundColor: color, opacity: active ? 0.5 : 1 }} />
+                    {labels.short_ru}<span style={{ opacity: 0.7 }}>({n})</span>
+                  </button>
+                );
+              })}
             </div>
-          </PopoverContent>
-        </Popover>
-      </div>
+          </AccordionContent>
+        </AccordionItem>
 
-      {/* Status filter */}
-      <div className="space-y-1.5">
-            </AccordionContent>
-          </AccordionItem>
-          <AccordionItem value="status" className="border-0">
-            <AccordionTrigger className="text-xs font-medium text-muted-foreground py-2 hover:no-underline">
-              Статус
-            </AccordionTrigger>
-            <AccordionContent>
-        <div className="flex gap-1.5">
-          {statuses.map((s) => {
-            const active = filters.statuses.includes(s);
-            const label =
-              s === "Ongoing" ? "Активные" : s === "Resolved" ? "Завершённые" : "Неизвестно";
-            return (
-              <Button
-                key={s}
-                size="sm"
-                variant={active ? "default" : "outline"}
-                onClick={() => toggleStatus(s)}
-                className="h-7 text-xs flex-1"
-              >
-                {label}
-              </Button>
-            );
-          })}
-        </div>
-      </div>
-
-      {/* Federal district filter */}
-      <div className="space-y-1.5">
-        <div className="flex items-center justify-between">
-              </AccordionContent>
-          </AccordionItem>
-          <AccordionItem value="districts" className="border-0">
-            <AccordionTrigger className="text-xs font-medium text-muted-foreground py-2 hover:no-underline">
-              Федеральный округ ({filters.federalDistricts.length})
-            </AccordionTrigger>
-            <AccordionContent>
-          {filters.federalDistricts.length > 0 && (
-            <button
-              onClick={() => onChange({ ...filters, federalDistricts: [] })}
-              className="text-[10px] text-muted-foreground hover:text-foreground"
-            >
-              сбросить
-            </button>
-          )}
-        </div>
-        <Popover>
-          <PopoverTrigger asChild>
-            <Button variant="outline" size="sm" className="w-full justify-between h-8 text-xs font-normal">
-              {filters.federalDistricts.length === 0
-                ? "Все округа"
-                : `${filters.federalDistricts.length} выбрано`}
-              <ChevronDown className="h-3 w-3" />
-            </Button>
-          </PopoverTrigger>
-          <PopoverContent className="w-64 max-h-64 overflow-y-auto" align="start">
-            <div className="space-y-1.5">
-              {allFederalDistricts.map(([fd, n]) => (
-                <label
-                  key={fd}
-                  className="flex items-center gap-2 cursor-pointer py-0.5 hover:bg-accent/30 rounded px-1"
-                >
-                  <Checkbox
-                    checked={filters.federalDistricts.includes(fd)}
-                    onCheckedChange={() => toggleFederalDistrict(fd)}
-                  />
-                  <span className="text-xs flex-1">{fd}</span>
-                  <span className="text-[10px] text-muted-foreground">({n})</span>
-                </label>
-              ))}
+        <AccordionItem value="species" className="border-0">
+          <AccordionTrigger className="text-xs font-medium text-muted-foreground py-2 hover:no-underline">
+            Вид животных ({filters.species.length})
+          </AccordionTrigger>
+          <AccordionContent>
+            {filters.species.length > 0 && (
+              <button onClick={() => onChange({ ...filters, species: [] })} className="text-[10px] text-muted-foreground hover:text-foreground">сбросить</button>
+            )}
+            <div className="flex flex-wrap gap-1 mt-1">
+              {allSpecies.map((s) => {
+                const active = filters.species.includes(s);
+                const ru = speciesRu(s) || s;
+                return (
+                  <button key={s} onClick={() => toggleSpecies(s)} className={\'px-2 py-0.5 rounded-full text-[11px] border transition-colors \'+ (active ? "bg-foreground text-background border-foreground" : "border-border text-muted-foreground hover:border-foreground/50")}>
+                    {ru}
+                  </button>
+                );
+              })}
             </div>
-          </PopoverContent>
-        </Popover>
-      </div>
+          </AccordionContent>
+        </AccordionItem>
 
-      {/* Date range */}
-      <div className="space-y-1.5">
-            </AccordionContent>
-          </AccordionItem>
-          <AccordionItem value="period" className="border-0">
-            <AccordionTrigger className="text-xs font-medium text-muted-foreground py-2 hover:no-underline">
-              Период
-            </AccordionTrigger>
-            <AccordionContent>
-        <div className="flex items-center gap-1.5">
-          <Input
-            type="date"
-            value={filters.dateFrom ?? ""}
-            onChange={(e) =>
-              onChange({ ...filters, dateFrom: e.target.value || null })
-            }
-            className="h-8 text-xs"
-          />
-          <span className="text-muted-foreground text-xs">—</span>
-          <Input
-            type="date"
-            value={filters.dateTo ?? ""}
-            onChange={(e) =>
-              onChange({ ...filters, dateTo: e.target.value || null })
-            }
-            className="h-8 text-xs"
-          />
-        </div>
-        {/* Quick date shortcuts */}
-        <div className="flex flex-wrap gap-1 pt-1">
-          {[
-            { label: "30д", days: 30 },
-            { label: "90д", days: 90 },
-            { label: "1 год", days: 365 },
-            { label: "2 года", days: 730 },
-            { label: "Всё время", days: null as number | null },
-          ].map((p) => (
-            <Button
-              key={p.label}
-              size="sm"
-              variant="outline"
-              className="h-6 text-[10px] px-2"
-              onClick={() => {
-                if (p.days === null) {
-                  onChange({ ...filters, dateFrom: null, dateTo: null });
-                } else {
-                  const d = new Date();
-                  d.setDate(d.getDate() - p.days);
-                  onChange({ ...filters, dateFrom: d.toISOString().slice(0, 10), dateTo: null });
-                }
-              }}
-            >
-              {p.label}
-            </Button>
-          ))}
-        </div>
-      </div>
+        <AccordionItem value="status" className="border-0">
+          <AccordionTrigger className="text-xs font-medium text-muted-foreground py-2 hover:no-underline">
+            Статус
+          </AccordionTrigger>
+          <AccordionContent>
+            <div className="flex gap-1">
+              {statuses.map((st) => {
+                const active = filters.statuses.includes(st);
+                return (
+                  <button key={st} onClick={() => toggleStatus(st)} className={\'px-2 py-0.5 rounded-full text-[11px] border transition-colors \'+ (active ? "bg-foreground text-background border-foreground" : "border-border text-muted-foreground")}>
+                    {st === "Ongoing" ? "Активные" : st === "Resolved" ? "Завершён" : "Неизвестно"}
+                  </button>
+                );
+              })}
+            </div>
+          </AccordionContent>
+        </AccordionItem>
 
-      {/* Layer toggles */}
-            </AccordionContent>
-          </AccordionItem>
-        </Accordion>
+        <AccordionItem value="districts" className="border-0">
+          <AccordionTrigger className="text-xs font-medium text-muted-foreground py-2 hover:no-underline">
+            Федеральный округ ({filters.federalDistricts.length})
+          </AccordionTrigger>
+          <AccordionContent>
+            <div className="flex flex-wrap gap-1 max-h-32 overflow-y-auto thin-scroll">
+              {allFederalDistricts.map(([fd, n]) => {
+                const active = filters.federalDistricts.includes(fd);
+                return (
+                  <button key={fd} onClick={() => toggleDistrict(fd)} className={\'px-2 py-0.5 rounded-full text-[11px] border transition-colors \'+ (active ? "bg-foreground text-background border-foreground" : "border-border text-muted-foreground")}>
+                    {fd} ({n})
+                  </button>
+                );
+              })}
+            </div>
+          </AccordionContent>
+        </AccordionItem>
+
+        <AccordionItem value="period" className="border-0">
+          <AccordionTrigger className="text-xs font-medium text-muted-foreground py-2 hover:no-underline">
+            Период
+          </AccordionTrigger>
+          <AccordionContent>
+            <div className="space-y-1.5">
+              <Input type="date" value={filters.dateFrom || ""} onChange={(e) => onChange({ ...filters, dateFrom: e.target.value || null })} className="h-8 text-xs" />
+              <Input type="date" value={filters.dateTo || ""} onChange={(e) => onChange({ ...filters, dateTo: e.target.value || null })} className="h-8 text-xs" />
+            </div>
+          </AccordionContent>
+        </AccordionItem>
+      </Accordion>
 
       <div className="space-y-2 pt-2 border-t">
         <div className="flex items-center justify-between">
