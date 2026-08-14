@@ -28,6 +28,9 @@ interface OutbreakMapProps {
   outbreaks: Outbreak[];
   selectedOutbreak?: Outbreak | null;
   geo: GeoJSON.FeatureCollection | null;
+  /** 🆕 Pre-computed region centroids (from page.tsx useMemo) — avoids
+   *  recomputing bbox for 85 regions on every outbreaks change. */
+  regionCentroids?: Map<string, [number, number]>;
   /** Show risk-zone circles around ongoing outbreaks (3/10/30 km). */
   showRiskZones: boolean;
   /** Show choropleth (density) layer. */
@@ -52,6 +55,7 @@ export function OutbreakMap({
   outbreaks,
   selectedOutbreak,
   geo,
+  regionCentroids,
   showRiskZones,
   showChoropleth,
   densityLayer,
@@ -372,14 +376,8 @@ export function OutbreakMap({
 
     if (outbreaks.length === 0) return;
 
-    // Compute centroids
-    const centroids = new Map<string, [number, number]>();
-    for (const f of geo.features) {
-      const name = (f.properties as { shapeName: string }).shapeName;
-      if (!name) continue;
-      const bbox = computeBBox(f.geometry);
-      if (bbox) centroids.set(name, [(bbox[0] + bbox[2]) / 2, (bbox[1] + bbox[3]) / 2]);
-    }
+    // 🆕 Use pre-computed centroids from page.tsx (was O(85) bbox calc on every render)
+    const centroids = regionCentroids ?? new Map<string, [number, number]>();
 
     // Build GeoJSON points for all outbreaks
     const features: GeoJSON.Feature<GeoJSON.Point>[] = [];

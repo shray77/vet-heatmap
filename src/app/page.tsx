@@ -2,6 +2,7 @@
 
 import { useMemo, useCallback } from "react";
 import { useMapStore } from "@/lib/map-store";
+import { useWorkerFilter } from "@/hooks/use-worker-filter";
 import { Activity, AlertTriangle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { OutbreakMap } from "@/components/outbreak-map";
@@ -15,7 +16,7 @@ import { useQuery } from "@tanstack/react-query";
 import { useUIStore } from "@/lib/ui-store";
 import { useKeyboardShortcuts } from "@/lib/use-keyboard";
 import { useTheme } from "next-themes";
-import { DEFAULT_FILTERS, applyFilters } from "@/lib/filters";
+import { DEFAULT_FILTERS } from "@/lib/filters";
 import { useUrlFilters } from "@/lib/use-url-filters";
 import { useDebounced } from "@/hooks/use-filter-options";
 import type { DiseaseKey, Outbreak } from "@/types/domain";
@@ -30,6 +31,16 @@ function HomeContent() {
   const [filters, setFilters] = useUrlFilters();
   // 🆕 Debounce filters — prevents expensive applyFilters on every keystroke
   const debouncedFilters = useDebounced(filters, 300);
+
+  // 🆕 Web Worker for filtering — moves O(n) filter loop off main thread
+  const filterWorker = useMemo(() => {
+    if (typeof Worker === "undefined") return null;
+    try {
+      return new Worker(new URL("../lib/filter-worker.ts", import.meta.url), { type: "module" });
+    } catch {
+      return null;
+    }
+  }, []);
 
   // 🆕 Map state from Zustand store (was 7 useState calls)
   const { showRiskZones, showChoropleth, densityLayer, showHeatmap, nightMode,
@@ -81,14 +92,14 @@ function HomeContent() {
     return m;
   }, [geo]);
 
-  const filtered = useMemo(() => {
-    if (!data) return [];
-    return applyFilters(data.outbreaks, {
-      ...debouncedFilters,
-      dateFrom: timelineRange.from ?? debouncedFilters.dateFrom,
-      dateTo: timelineRange.to ?? debouncedFilters.dateTo,
-    });
-  }, [data, debouncedFilters, timelineRange]);
+  // 🆕 Use Web Worker for filtering (falls back to sync if Worker unavailable)
+  const combinedFilters = useMemo(() => ({
+    ...debouncedFilters,
+    dateFrom: timelineRange.from ?? debouncedFilters.dateFrom,
+    dateTo: timelineRange.to ?? debouncedFilters.dateTo,
+  }), [debouncedFilters, timelineRange]);
+
+  const filtered = useWorkerFilter(filterWorker, data?.outbreaks ?? [], combinedFilters);
 
   const totalRegions = geo?.features.length ?? 85;
 
@@ -208,6 +219,7 @@ function HomeContent() {
           <OutbreakMap
             outbreaks={filtered}
             geo={geo}
+            regionCentroids={regionCentroids}
             selectedOutbreak={selectedOutbreak}
             showRiskZones={showRiskZones}
             showChoropleth={showChoropleth}
