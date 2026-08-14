@@ -71,6 +71,20 @@ export function OutbreakMap({
   const [ready, setReady] = useState(false);
   const [mapStyle, setMapStyle] = useState<"light" | "dark" | "satellite">(() => (resolvedTheme === "dark" ? "dark" : "light"));
 
+  // 🆕 Memoized region → outbreak count (used by choropleth).
+  // Previously computed inline inside the choropleth useEffect on every
+  // dependency change; memoizing avoids the O(n) pass when other deps
+  // (showChoropleth, resolvedTheme, …) change but `outbreaks` does not.
+  const regionDensity = useMemo(() => {
+    const m = new Map<string, number>();
+    for (const o of outbreaks) {
+      const key = o.region_geo;
+      if (!key) continue;
+      m.set(key, (m.get(key) ?? 0) + 1);
+    }
+    return m;
+  }, [outbreaks]);
+
   // ─── Init map ────────────────────────────────────────────────────────
   useEffect(() => {
     if (!mapContainer.current || mapRef.current) return;
@@ -322,7 +336,7 @@ export function OutbreakMap({
       map.off("click", "choropleth-fill", onClick);
       map.off("click", "choropleth-line", onClick);
     };
-  }, [geo, outbreaks, showChoropleth, ready, resolvedTheme, onSelectRegion]);
+  }, [geo, outbreaks, showChoropleth, ready, resolvedTheme, onSelectRegion, regionDensity]);
 
   // ─── Outbreak markers ──────────────────────────────────────────────
   // PERFORMANCE: Always use MapLibre circle layers + clustering.
