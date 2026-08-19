@@ -3,7 +3,7 @@
   "sources": [
     "yandex"
   ],
-  "total": 149,
+  "total": 150,
   "enterprises": [
     {
       "id": "yandex-187535263300",
@@ -1642,6 +1642,17 @@
       "address": "Санкт-Петербург, просп. Обуховской Обороны, 271",
       "city": "Санкт-Петербург",
       "rubric": "Мясная продукция оптом",
+      "source": "yandex"
+    },
+    {
+      "id": "yandex-16080061428",
+      "name": "MeatsBurg",
+      "type": "meat_plant",
+      "lat": null,
+      "lon": null,
+      "address": "Санкт-Петербург, ул. Решетникова, 12, этаж 1",
+      "city": "Санкт-Петербург",
+      "rubric": "Магазин мяса, колбас",
       "source": "yandex"
     }
   ]
