@@ -4,7 +4,7 @@
     "openstreetmap",
     "curated"
   ],
-  "total": 69,
+  "total": 64,
   "enterprises": [
     {
       "id": "cur-48",
@@ -206,18 +206,6 @@
       "lat": 55.73,
       "lon": 37.65,
       "region": "Москва"
-    },
-    {
-      "id": "osm-219233364",
-      "name": "Мясокомбинат",
-      "type": "meat_plant",
-      "lat": 56.3458559,
-      "lon": 36.74827,
-      "tags": {
-        "bus": "yes",
-        "name": "Мясокомбинат",
-        "public_transport": "stop_position"
-      }
     },
     {
       "id": "cur-40",
@@ -486,17 +474,6 @@
       "region": "Московская обл."
     },
     {
-      "id": "osm-198248192",
-      "name": "Мясоптицекомбинат",
-      "type": "poultry_farm",
-      "lat": 56.0983882,
-      "lon": 63.6894645,
-      "tags": {
-        "landuse": "industrial",
-        "name": "Мясоптицекомбинат"
-      }
-    },
-    {
       "id": "cur-29",
       "name": "Омская птицефабрика",
       "type": "poultry_farm",
@@ -512,50 +489,6 @@
       "lon": 37.51,
       "region": "Белгородская обл.",
       "capacity": "млн+ голов"
-    },
-    {
-      "id": "osm-411700058",
-      "name": "Птицекомплекс",
-      "type": "poultry_farm",
-      "lat": 53.2078935,
-      "lon": 39.256258,
-      "tags": {
-        "landuse": "farmyard",
-        "name": "Птицекомплекс"
-      }
-    },
-    {
-      "id": "osm-6985936223",
-      "name": "Птицесовхоз",
-      "type": "poultry_farm",
-      "lat": 43.6440242,
-      "lon": 44.0708841,
-      "tags": {
-        "name": "Птицесовхоз",
-        "name:en": "Poultry farm Microdistrict",
-        "name:ru": "Птицесовхоз",
-        "name:uk": "Птахорадгосп",
-        "official_name": "Государственный племенной птицезавод",
-        "place": "neighbourhood",
-        "short_name": "ГППЗ"
-      }
-    },
-    {
-      "id": "osm-243520930",
-      "name": "Птицефабрика",
-      "type": "poultry_farm",
-      "lat": 51.7568819,
-      "lon": 113.9175501,
-      "tags": {
-        "esr:user": "942726",
-        "name": "Птицефабрика",
-        "name:ru": "Птицефабрика",
-        "operator": "ОАО «РЖД»",
-        "operator:branch": "Забайкальская железная дорога",
-        "railway": "halt",
-        "train": "yes",
-        "uic_ref": "2051416"
-      }
     },
     {
       "id": "cur-28",
