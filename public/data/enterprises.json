@@ -4,7 +4,7 @@
     "openstreetmap",
     "curated"
   ],
-  "total": 63,
+  "total": 65,
   "enterprises": [
     {
       "id": "cur-48",
@@ -372,6 +372,17 @@
       }
     },
     {
+      "id": "osm-1927161073",
+      "name": "Свиноферма",
+      "type": "pig_farm",
+      "lat": 50.1940725,
+      "lon": 39.4697571,
+      "tags": {
+        "building": "yes",
+        "name": "Свиноферма"
+      }
+    },
+    {
       "id": "cur-4",
       "name": "Сибагро — свиноводство",
       "type": "pig_farm",
@@ -478,6 +489,17 @@
       "lon": 37.51,
       "region": "Белгородская обл.",
       "capacity": "млн+ голов"
+    },
+    {
+      "id": "osm-411700058",
+      "name": "Птицекомплекс",
+      "type": "poultry_farm",
+      "lat": 53.2078935,
+      "lon": 39.256258,
+      "tags": {
+        "landuse": "farmyard",
+        "name": "Птицекомплекс"
+      }
     },
     {
       "id": "cur-28",
