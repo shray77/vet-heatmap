@@ -4,7 +4,7 @@
     "openstreetmap",
     "curated"
   ],
-  "total": 63,
+  "total": 66,
   "enterprises": [
     {
       "id": "cur-48",
@@ -359,6 +359,19 @@
       "capacity": "300000+ голов"
     },
     {
+      "id": "osm-1462397908",
+      "name": "Свинокомплекс",
+      "type": "pig_farm",
+      "lat": 52.7474569,
+      "lon": 103.6345542,
+      "tags": {
+        "addr:city": "Усолье-Сибирское",
+        "addr:country": "RU",
+        "name": "Свинокомплекс",
+        "shop": "butcher"
+      }
+    },
+    {
       "id": "osm-1927161073",
       "name": "Свиноферма",
       "type": "pig_farm",
@@ -476,6 +489,39 @@
       "lon": 37.51,
       "region": "Белгородская обл.",
       "capacity": "млн+ голов"
+    },
+    {
+      "id": "osm-6985936223",
+      "name": "Птицесовхоз",
+      "type": "poultry_farm",
+      "lat": 43.6440242,
+      "lon": 44.0708841,
+      "tags": {
+        "name": "Птицесовхоз",
+        "name:en": "Poultry farm Microdistrict",
+        "name:ru": "Птицесовхоз",
+        "name:uk": "Птахорадгосп",
+        "official_name": "Государственный племенной птицезавод",
+        "place": "neighbourhood",
+        "short_name": "ГППЗ"
+      }
+    },
+    {
+      "id": "osm-243520930",
+      "name": "Птицефабрика",
+      "type": "poultry_farm",
+      "lat": 51.7568819,
+      "lon": 113.9175501,
+      "tags": {
+        "esr:user": "942726",
+        "name": "Птицефабрика",
+        "name:ru": "Птицефабрика",
+        "operator": "ОАО «РЖД»",
+        "operator:branch": "Забайкальская железная дорога",
+        "railway": "halt",
+        "train": "yes",
+        "uic_ref": "2051416"
+      }
     },
     {
       "id": "cur-28",
