@@ -1,10 +1,10 @@
 {
-  "updated": "2026-08-22",
+  "updated": "2026-08-23",
   "sources": [
     "openstreetmap",
     "curated"
   ],
-  "total": 65,
+  "total": 64,
   "enterprises": [
     {
       "id": "cur-48",
@@ -489,17 +489,6 @@
       "lon": 37.51,
       "region": "Белгородская обл.",
       "capacity": "млн+ голов"
-    },
-    {
-      "id": "osm-411700058",
-      "name": "Птицекомплекс",
-      "type": "poultry_farm",
-      "lat": 53.2078935,
-      "lon": 39.256258,
-      "tags": {
-        "landuse": "farmyard",
-        "name": "Птицекомплекс"
-      }
     },
     {
       "id": "cur-28",
