@@ -6,7 +6,7 @@
     "fsvps",
     "wahis"
   ],
-  "total_outbreaks": 2501,
+  "total_outbreaks": 2508,
   "outbreaks": [
     {
       "id": 1,
@@ -1110,10 +1110,7 @@
       "source_url": "https://wahis.woah.org/#/event/2000",
       "notes": "Anthrax  in Russia",
       "region_inferred": true,
-      "federal_district": "СФО",
-      "lat": 53.27955151281497,
-      "lon": 84.03585354839934,
-      "geocode_source": "region_centroid"
+      "federal_district": "СФО"
     },
     {
       "id": 57,
@@ -1611,10 +1608,7 @@
       "source_url": "https://wahis.woah.org/#/event/2613",
       "notes": "Anthrax  in Russia",
       "region_inferred": true,
-      "federal_district": "СФО",
-      "lat": 53.00356424826215,
-      "lon": 83.97197082789877,
-      "geocode_source": "region_centroid"
+      "federal_district": "СФО"
     },
     {
       "id": 82,
@@ -5699,10 +5693,7 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2025/01/13.01.2025г.pdf",
       "notes": "Красноярский край 2 : Манский район, д.",
       "municipality": "Манский район",
-      "federal_district": "СФО",
-      "lat": 53.7026696,
-      "lon": 91.7168942,
-      "geocode_source": "nominatim"
+      "federal_district": "СФО"
     },
     {
       "id": 282,
@@ -6129,10 +6120,7 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2024/03/13.03.2024г.pdf",
       "notes": "Красноярский край 1 : Уярский район, г.",
       "municipality": "Уярский район",
-      "federal_district": "СФО",
-      "lat": 56.27912239830564,
-      "lon": 92.92341100812631,
-      "geocode_source": "region_centroid"
+      "federal_district": "СФО"
     },
     {
       "id": 303,
@@ -6495,10 +6483,7 @@
       "source": "fsvps",
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2024/03/15.03.2024г.pdf",
       "notes": ": Ямало-Ненецкий АО (лиса), Смоленская область (Енотовидная собака), Республика Мордовия (белка), Алтайский край (собака), Красноярский край (лиса), Республика Калмыкия (лиса), Свердловская область (Енотовидная собака). o",
-      "federal_district": "УрФО",
-      "lat": 66.96731793363637,
-      "lon": 68.07762212346049,
-      "geocode_source": "region_centroid"
+      "federal_district": "УрФО"
     },
     {
       "id": 321,
@@ -6516,10 +6501,7 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2024/03/18.03.2024г.pdf",
       "notes": "Красноярский край 2 : Курагинский район, с.",
       "municipality": "Курагинский район",
-      "federal_district": "СФО",
-      "lat": 54.1228068,
-      "lon": 94.0658174,
-      "geocode_source": "nominatim"
+      "federal_district": "СФО"
     },
     {
       "id": 322,
@@ -7184,10 +7166,7 @@
       "source": "fsvps",
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2024/03/25.03.2024г.pdf",
       "notes": ": Ямало-Ненецкий АО (Северный олень).",
-      "federal_district": "УрФО",
-      "lat": 66.82832856564742,
-      "lon": 67.75199572445365,
-      "geocode_source": "region_centroid"
+      "federal_district": "УрФО"
     },
     {
       "id": 355,
@@ -7247,10 +7226,7 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2024/03/27.03.2024г.pdf",
       "notes": "Ярославская область 5 : Угличский район, с.",
       "municipality": "Угличский район",
-      "federal_district": "ЦФО",
-      "lat": 57.2253218,
-      "lon": 38.2265618,
-      "geocode_source": "nominatim"
+      "federal_district": "ЦФО"
     },
     {
       "id": 358,
@@ -7350,10 +7326,7 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2024/03/27.03.2024г.pdf",
       "notes": "Ярославская область 12 : Приказом государственной ветеринарной службы Ярославской области от 20.03.2024 № 3 установлены ограничительные мероприятия (карантин) по лейкозу крупного рогатого скота на территории животноводческого комплекса по содержанию КРС, принадлежащего ИП КФХ В.О.О., расположенного по адресу: Ярославская область, Рыбинский район, д.",
       "municipality": "Рыбинский район",
-      "federal_district": "ЦФО",
-      "lat": 57.8575791,
-      "lon": 39.1434148,
-      "geocode_source": "nominatim"
+      "federal_district": "ЦФО"
     },
     {
       "id": 363,
@@ -7392,10 +7365,7 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2024/03/27.03.2024г.pdf",
       "notes": ": Красноярский край (лиса), Ханты-Мансийский Автономный округ - Югра АО (лиса), Владимирская область (собака). o | Красноярский край 4 : Каратузский район, д.",
       "municipality": "Каратузский район",
-      "federal_district": "СФО",
-      "lat": 53.3379822,
-      "lon": 93.6574577,
-      "geocode_source": "nominatim"
+      "federal_district": "СФО"
     },
     {
       "id": 365,
@@ -7919,10 +7889,7 @@
       "source": "fsvps",
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2024/06/03.06.2024г.pdf",
       "notes": "Красноярский край 7 : Отменены ограничительные мероприятия (карантин) по заболеванию –",
-      "federal_district": "СФО",
-      "lat": 56.040429073209964,
-      "lon": 92.65319162433012,
-      "geocode_source": "region_centroid"
+      "federal_district": "СФО"
     },
     {
       "id": 391,
@@ -8486,10 +8453,7 @@
       "status": "Resolved",
       "source": "wahis",
       "notes": "Classical Swine Fever",
-      "federal_district": "ДФО",
-      "lat": 43.893555186783225,
-      "lon": 131.76780130103444,
-      "geocode_source": "region_centroid"
+      "federal_district": "ДФО"
     },
     {
       "id": 419,
@@ -8914,10 +8878,7 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2024/06/17.06.2024г.pdf",
       "notes": "Красноярский край 2 : Ермаковский район, с.",
       "municipality": "Ермаковский район",
-      "federal_district": "СФО",
-      "lat": 52.6074834,
-      "lon": 93.1319901,
-      "geocode_source": "nominatim"
+      "federal_district": "СФО"
     },
     {
       "id": 440,
@@ -9241,10 +9202,7 @@
       "source": "fsvps",
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2024/06/19.06.2024г.pdf",
       "notes": ": Красноярский край (медведь).",
-      "federal_district": "СФО",
-      "lat": 56.24372740623162,
-      "lon": 93.03559014063346,
-      "geocode_source": "region_centroid"
+      "federal_district": "СФО"
     },
     {
       "id": 456,
@@ -9262,10 +9220,7 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2024/06/24.06.2024г.pdf",
       "notes": "Красноярский край 1 : Курагинский район, п.",
       "municipality": "Курагинский район",
-      "federal_district": "СФО",
-      "lat": 54.1228068,
-      "lon": 94.0658174,
-      "geocode_source": "nominatim"
+      "federal_district": "СФО"
     },
     {
       "id": 457,
@@ -9545,10 +9500,7 @@
       "source": "fsvps",
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2024/06/21.06.2024г.pdf",
       "notes": "Красноярский край 15 : 3 случая заболевания",
-      "federal_district": "СФО",
-      "lat": 55.724763600792485,
-      "lon": 92.80764937631204,
-      "geocode_source": "region_centroid"
+      "federal_district": "СФО"
     },
     {
       "id": 471,
@@ -10427,10 +10379,7 @@
       "source": "fsvps",
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2024/07/08.07.2024г.pdf",
       "notes": ": Приморский край. o Псевдомоноз КРС: Республика Якутия /С аха /. o Х ламидио з КРС: Воронежская область.",
-      "federal_district": "ДФО",
-      "lat": 43.70987530442318,
-      "lon": 131.77906435126238,
-      "geocode_source": "region_centroid"
+      "federal_district": "ДФО"
     },
     {
       "id": 514,
@@ -10736,10 +10685,7 @@
       "source": "fsvps",
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2024/07/12.07.2024г.pdf",
       "notes": "птиц: Красноярский край (дом. перепела).",
-      "federal_district": "СФО",
-      "lat": 56.169983195021985,
-      "lon": 93.09038458529264,
-      "geocode_source": "region_centroid"
+      "federal_district": "СФО"
     },
     {
       "id": 529,
@@ -10859,10 +10805,7 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2024/07/15.07.2024г.pdf",
       "notes": "Ярославская область 9 : Установлены ограничительные мероприятия (карантин) по лейкозу крупного рогатого скота на территории эпизоотического очага, расположенного по адресу: Ярославская область, Большесельский район, деревня Новое Гостилово.",
       "municipality": "Большесельский район",
-      "federal_district": "ЦФО",
-      "lat": 57.6820531,
-      "lon": 39.359065,
-      "geocode_source": "nominatim"
+      "federal_district": "ЦФО"
     },
     {
       "id": 535,
@@ -11327,10 +11270,7 @@
       "source": "fsvps",
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2024/07/22.07.2024г.pdf",
       "notes": ": Приморский край.",
-      "federal_district": "ДФО",
-      "lat": 43.71479601936598,
-      "lon": 131.76106024538942,
-      "geocode_source": "region_centroid"
+      "federal_district": "ДФО"
     },
     {
       "id": 558,
@@ -11693,10 +11633,7 @@
       "status": "Resolved",
       "source": "fsvps",
       "notes": "Anthrax",
-      "federal_district": "СФО",
-      "lat": 52.88294384664482,
-      "lon": 84.24782126100837,
-      "geocode_source": "region_centroid"
+      "federal_district": "СФО"
     },
     {
       "id": 576,
@@ -12306,10 +12243,7 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2024/08/05.08.2024г.pdf",
       "notes": "Ярославская область 7 : Установлены ограничительные мероприятия (карантин) по лейкозу крупного рогатого скота на территории личного подсобного хозяйства Асадян З.А. по адресу: Рыбинский район, д.",
       "municipality": "Рыбинский район",
-      "federal_district": "ЦФО",
-      "lat": 57.8575791,
-      "lon": 39.1434148,
-      "geocode_source": "nominatim"
+      "federal_district": "ЦФО"
     },
     {
       "id": 606,
@@ -12367,10 +12301,7 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2024/08/07.08.2024г.pdf",
       "notes": "Красноярский край 1 : Каратузский район – КРС.",
       "municipality": "Каратузский район",
-      "federal_district": "СФО",
-      "lat": 53.3379822,
-      "lon": 93.6574577,
-      "geocode_source": "nominatim"
+      "federal_district": "СФО"
     },
     {
       "id": 609,
@@ -12603,10 +12534,7 @@
       "status": "Resolved",
       "source": "fsvps",
       "notes": "Anthrax",
-      "federal_district": "СФО",
-      "lat": 51.63404903457135,
-      "lon": 94.00458198399298,
-      "geocode_source": "region_centroid"
+      "federal_district": "СФО"
     },
     {
       "id": 621,
@@ -13114,10 +13042,7 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2024/08/21.08.2024г.pdf",
       "notes": "Ярославская область 2 : Некрасовский район, д.",
       "municipality": "Некрасовский район",
-      "federal_district": "ЦФО",
-      "lat": 57.6320403,
-      "lon": 39.8827315,
-      "geocode_source": "nominatim"
+      "federal_district": "ЦФО"
     },
     {
       "id": 646,
@@ -13254,10 +13179,7 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2024/08/23.08.2024г.pdf",
       "notes": "Красноярский край 1 : Каратузский район, с.",
       "municipality": "Каратузский район",
-      "federal_district": "СФО",
-      "lat": 53.3379822,
-      "lon": 93.6574577,
-      "geocode_source": "nominatim"
+      "federal_district": "СФО"
     },
     {
       "id": 653,
@@ -14956,10 +14878,7 @@
       "source": "fsvps",
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2024/09/11.09.2024г.pdf",
       "notes": "Красноярский край 7 : В связи с регистрацией эпизоотического очага",
-      "federal_district": "СФО",
-      "lat": 55.85179582418386,
-      "lon": 92.64259424822771,
-      "geocode_source": "region_centroid"
+      "federal_district": "СФО"
     },
     {
       "id": 737,
@@ -15237,10 +15156,7 @@
       "source": "fsvps",
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2024/09/13.09.2024г.pdf",
       "notes": "Красноярский край 9 : При проведении ветеринарно-санитарной экспертизы биологического матер",
-      "federal_district": "СФО",
-      "lat": 55.896027405979545,
-      "lon": 92.68325062241672,
-      "geocode_source": "region_centroid"
+      "federal_district": "СФО"
     },
     {
       "id": 751,
@@ -16424,10 +16340,7 @@
       "source": "fsvps",
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2024/09/30.09.2024г.pdf",
       "notes": "Красноярский край 8 : Приказом отменены ограничительные мероприятия (карантин) по заболеванию –",
-      "federal_district": "СФО",
-      "lat": 55.918628700611535,
-      "lon": 92.989977791686,
-      "geocode_source": "region_centroid"
+      "federal_district": "СФО"
     },
     {
       "id": 809,
@@ -17441,10 +17354,7 @@
       "source": "fsvps",
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2024/10/14.10.2024г.pdf",
       "notes": ": Приморский край, Самарская область.",
-      "federal_district": "ДФО",
-      "lat": 44.017513763222205,
-      "lon": 131.75305080569046,
-      "geocode_source": "region_centroid"
+      "federal_district": "ДФО"
     },
     {
       "id": 859,
@@ -17769,10 +17679,7 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2024/10/18.10.2024г.pdf",
       "notes": "Еврейская автономная область 6 Биробиджанский район, с.",
       "municipality": "Биробиджанский район",
-      "federal_district": "ДФО",
-      "lat": 48.5306897,
-      "lon": 132.7731455,
-      "geocode_source": "nominatim"
+      "federal_district": "ДФО"
     },
     {
       "id": 875,
@@ -18501,10 +18408,7 @@
       "source": "fsvps",
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2024/10/25.10.2024г.pdf",
       "notes": "северных оленей: Ямало-Ненецкий автономный округ. o",
-      "federal_district": "УрФО",
-      "lat": 67.07430906570316,
-      "lon": 67.97119452705365,
-      "geocode_source": "region_centroid"
+      "federal_district": "УрФО"
     },
     {
       "id": 911,
@@ -18687,10 +18591,7 @@
       "source": "fsvps",
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2024/10/28.10.2024г.pdf",
       "notes": ": Приморский край, Рязанская область, Самарская область. o",
-      "federal_district": "ДФО",
-      "lat": 44.10636040353707,
-      "lon": 132.14214491969446,
-      "geocode_source": "region_centroid"
+      "federal_district": "ДФО"
     },
     {
       "id": 920,
@@ -19772,10 +19673,7 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2024/11/13.11.2024г.pdf",
       "notes": "Красноярский край 4 : Манский район, с.",
       "municipality": "Манский район",
-      "federal_district": "СФО",
-      "lat": 53.7026696,
-      "lon": 91.7168942,
-      "geocode_source": "nominatim"
+      "federal_district": "СФО"
     },
     {
       "id": 973,
@@ -19854,10 +19752,7 @@
       "source": "fsvps",
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2024/11/13.11.2024г.pdf",
       "notes": "Красноярский край 9 : Установлены ограничительные мероприятия (карантин) по заболеванию –",
-      "federal_district": "СФО",
-      "lat": 56.19165042936039,
-      "lon": 93.04421952523822,
-      "geocode_source": "region_centroid"
+      "federal_district": "СФО"
     },
     {
       "id": 977,
@@ -20059,10 +19954,7 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2024/11/15.11.2024г.pdf",
       "notes": "Ярославская область 7 : Мышкинский район, д.",
       "municipality": "Мышкинский район",
-      "federal_district": "ЦФО",
-      "lat": 57.6175791,
-      "lon": 39.8456918,
-      "geocode_source": "nominatim"
+      "federal_district": "ЦФО"
     },
     {
       "id": 987,
@@ -20836,10 +20728,7 @@
       "source": "fsvps",
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2024/11/27.11.2024г.pdf",
       "notes": "Приморский край 11 :",
-      "federal_district": "ДФО",
-      "lat": 44.178230942871274,
-      "lon": 131.99009932212476,
-      "geocode_source": "region_centroid"
+      "federal_district": "ДФО"
     },
     {
       "id": 1025,
@@ -23272,10 +23161,7 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2024/12/27.12.2024г.pdf",
       "notes": "Красноярский край 4 , 5 : Ачинский район, с.",
       "municipality": "Ачинский район",
-      "federal_district": "СФО",
-      "lat": 56.0175772,
-      "lon": 92.8292545,
-      "geocode_source": "nominatim"
+      "federal_district": "СФО"
     },
     {
       "id": 1144,
@@ -24046,10 +23932,7 @@
       "status": "Resolved",
       "source": "fsvps",
       "notes": "Equine Infectious Anemia",
-      "federal_district": "ДФО",
-      "lat": 62.10472014510709,
-      "lon": 129.54484671984227,
-      "geocode_source": "region_centroid"
+      "federal_district": "ДФО"
     },
     {
       "id": 1183,
@@ -24426,10 +24309,7 @@
       "status": "Ongoing",
       "source": "fsvps",
       "notes": "African Swine Fever",
-      "federal_district": "ПФО",
-      "lat": 54.18646005379201,
-      "lon": 48.382480787109756,
-      "geocode_source": "region_centroid"
+      "federal_district": "ПФО"
     },
     {
       "id": 1203,
@@ -24464,10 +24344,7 @@
       "status": "Ongoing",
       "source": "fsvps",
       "notes": "Rabies",
-      "federal_district": "СФО",
-      "lat": 55.92823490340785,
-      "lon": 92.8339207211453,
-      "geocode_source": "region_centroid"
+      "federal_district": "СФО"
     },
     {
       "id": 1205,
@@ -25397,10 +25274,7 @@
       "source": "fsvps",
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2025/12/26.12.2025г.pdf",
       "notes": "Лейкоз КРС — Еврейская автономная область (Ленинский район)",
-      "federal_district": "ДФО",
-      "lat": 48.1128123,
-      "lon": 132.3868102,
-      "geocode_source": "nominatim"
+      "federal_district": "ДФО"
     },
     {
       "id": 1252,
@@ -25497,10 +25371,7 @@
       "source": "fsvps",
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2025/12/29.12.2025г.pdf",
       "notes": "Бруцеллёз — Красноярский край | бруцеллёз — Красноярский край",
-      "federal_district": "СФО",
-      "lat": 56.02820841722706,
-      "lon": 92.66792021785535,
-      "geocode_source": "region_centroid"
+      "federal_district": "СФО"
     },
     {
       "id": 1257,
@@ -26177,10 +26048,7 @@
       "source": "fsvps",
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/01/14.01.2026г.pdf",
       "notes": "Бешенство животных — Красноярский край (Уярский район)",
-      "federal_district": "СФО",
-      "lat": 56.21078416417773,
-      "lon": 93.19716134351442,
-      "geocode_source": "region_centroid"
+      "federal_district": "СФО"
     },
     {
       "id": 1291,
@@ -27317,10 +27185,7 @@
       "source": "fsvps",
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/01/23.01.2026г.pdf",
       "notes": "Бруцеллёз — Ямало-Ненецкий автономный округ",
-      "federal_district": "УрФО",
-      "lat": 67.28467140564847,
-      "lon": 68.13586773821956,
-      "geocode_source": "region_centroid"
+      "federal_district": "УрФО"
     },
     {
       "id": 1348,
@@ -29337,10 +29202,7 @@
       "source": "fsvps",
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/02/13.02.2026г.pdf",
       "notes": "Лейкоз КРС — Приморский край",
-      "federal_district": "ДФО",
-      "lat": 43.962298412967044,
-      "lon": 131.81984405709716,
-      "geocode_source": "region_centroid"
+      "federal_district": "ДФО"
     },
     {
       "id": 1449,
@@ -29497,10 +29359,7 @@
       "source": "fsvps",
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/02/16.02.2026г.pdf",
       "notes": "Бруцеллёз — Ямало-Ненецкий автономный округ | Бруцеллёз — Ямало-Ненецкий автономный округ",
-      "federal_district": "УрФО",
-      "lat": 66.97853862183742,
-      "lon": 67.78997278212542,
-      "geocode_source": "region_centroid"
+      "federal_district": "УрФО"
     },
     {
       "id": 1457,
@@ -30917,10 +30776,7 @@
       "source": "fsvps",
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/03/04.03.2026г.pdf",
       "notes": "бруцеллез — Красноярский край | бруцеллез — Красноярский край",
-      "federal_district": "СФО",
-      "lat": 56.07337509085307,
-      "lon": 92.92294127051834,
-      "geocode_source": "region_centroid"
+      "federal_district": "СФО"
     },
     {
       "id": 1528,
@@ -31774,10 +31630,7 @@
       "source": "fsvps",
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/03/11.03.2026г.pdf",
       "notes": "Лейкоз КРС — Приморский край",
-      "federal_district": "ДФО",
-      "lat": 43.74681404259041,
-      "lon": 132.03362872615864,
-      "geocode_source": "region_centroid"
+      "federal_district": "ДФО"
     },
     {
       "id": 1571,
@@ -32411,10 +32264,7 @@
       "source": "fsvps",
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/03/18.03.2026г.pdf",
       "notes": "Бешенство животных — Красноярский край",
-      "federal_district": "СФО",
-      "lat": 56.18471250654209,
-      "lon": 92.78523586009648,
-      "geocode_source": "region_centroid"
+      "federal_district": "СФО"
     },
     {
       "id": 1603,
@@ -32871,10 +32721,7 @@
       "source": "fsvps",
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/03/20.03.2026г.pdf",
       "notes": "Лейкоз КРС — Приморский край",
-      "federal_district": "ДФО",
-      "lat": 43.89621916078957,
-      "lon": 132.1663170198383,
-      "geocode_source": "region_centroid"
+      "federal_district": "ДФО"
     },
     {
       "id": 1626,
@@ -33551,10 +33398,7 @@
       "source": "fsvps",
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/03/27.03.2026г.pdf",
       "notes": "Бешенство животных — Красноярский край",
-      "federal_district": "СФО",
-      "lat": 55.96703381059507,
-      "lon": 93.06916806411434,
-      "geocode_source": "region_centroid"
+      "federal_district": "СФО"
     },
     {
       "id": 1660,
@@ -35288,10 +35132,7 @@
       "source": "fsvps",
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/04/10.04.2026г.pdf",
       "notes": "Бешенство животных — Красноярский край",
-      "federal_district": "СФО",
-      "lat": 55.837605365541094,
-      "lon": 92.82972115685791,
-      "geocode_source": "region_centroid"
+      "federal_district": "СФО"
     },
     {
       "id": 1747,
@@ -36522,10 +36363,7 @@
       "source": "fsvps",
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/04/20.04.2026г.pdf",
       "notes": "грипп птиц — Еврейская автономная область (Октябрьский район)",
-      "federal_district": "ДФО",
-      "lat": 48.1505368,
-      "lon": 131.1990477,
-      "geocode_source": "nominatim"
+      "federal_district": "ДФО"
     },
     {
       "id": 1809,
@@ -36702,10 +36540,7 @@
       "source": "fsvps",
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/04/22.04.2026г.pdf",
       "notes": "Бешенство животных — Красноярский край | Бешенство животных — Красноярский край",
-      "federal_district": "СФО",
-      "lat": 56.02366067149358,
-      "lon": 93.11693309374911,
-      "geocode_source": "region_centroid"
+      "federal_district": "СФО"
     },
     {
       "id": 1818,
@@ -36922,10 +36757,7 @@
       "source": "fsvps",
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/04/22.04.2026г.pdf",
       "notes": "Лейкоз КРС — Ярославская область (Некрасовский район) | Лейкоз КРС — Ярославская область",
-      "federal_district": "ЦФО",
-      "lat": 57.6320403,
-      "lon": 39.8827315,
-      "geocode_source": "nominatim"
+      "federal_district": "ЦФО"
     },
     {
       "id": 1829,
@@ -39930,10 +39762,7 @@
       "source": "fsvps",
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/05/20.05.2026г.pdf",
       "notes": "Варроатоз пчёл — Приморский край",
-      "federal_district": "ДФО",
-      "lat": 43.751962540430526,
-      "lon": 132.2648257396407,
-      "geocode_source": "region_centroid"
+      "federal_district": "ДФО"
     },
     {
       "id": 1980,
@@ -39950,10 +39779,7 @@
       "source": "fsvps",
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/05/20.05.2026г.pdf",
       "notes": "Лейкоз КРС — Приморский край",
-      "federal_district": "ДФО",
-      "lat": 43.705738361952164,
-      "lon": 131.9274803079834,
-      "geocode_source": "region_centroid"
+      "federal_district": "ДФО"
     },
     {
       "id": 1981,
@@ -40370,10 +40196,7 @@
       "source": "fsvps",
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/05/25.05.2026г.pdf",
       "notes": "Лейкоз КРС — Ярославская область (Тутаевский район)",
-      "federal_district": "ЦФО",
-      "lat": 57.682268,
-      "lon": 39.3591829,
-      "geocode_source": "nominatim"
+      "federal_district": "ЦФО"
     },
     {
       "id": 2002,
@@ -41650,10 +41473,7 @@
       "source": "fsvps",
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/06/03.06.2026.pdf",
       "notes": "Лейкоз КРС — Ярославская область (Пошехонский район)",
-      "federal_district": "ЦФО",
-      "lat": 58.0766133,
-      "lon": 38.8511081,
-      "geocode_source": "nominatim"
+      "federal_district": "ЦФО"
     },
     {
       "id": 2066,
@@ -42627,10 +42447,7 @@
       "source": "fsvps",
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/06/10.06.2026г.pdf",
       "notes": "бруцеллез — Приморский край",
-      "federal_district": "ДФО",
-      "lat": 44.29528081971886,
-      "lon": 131.83090571909725,
-      "geocode_source": "region_centroid"
+      "federal_district": "ДФО"
     },
     {
       "id": 2115,
@@ -44304,10 +44121,7 @@
       "source": "fsvps",
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/06/24.06.2026г.pdf",
       "notes": "Нозематоз пчёл — Приморский край",
-      "federal_district": "ДФО",
-      "lat": 44.13384111233382,
-      "lon": 131.73776812724924,
-      "geocode_source": "region_centroid"
+      "federal_district": "ДФО"
     },
     {
       "id": 2199,
@@ -45284,10 +45098,7 @@
       "source": "fsvps",
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/07/06.07.2026г.pdf",
       "notes": "Бешенство животных — Красноярский край",
-      "federal_district": "СФО",
-      "lat": 56.064703454699256,
-      "lon": 92.60545234499114,
-      "geocode_source": "region_centroid"
+      "federal_district": "СФО"
     },
     {
       "id": 2248,
@@ -46801,10 +46612,7 @@
       "source": "fsvps",
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/07/20.07.2026г.pdf",
       "notes": "Лейкоз КРС — Ярославская область (Ярославский район)",
-      "federal_district": "ЦФО",
-      "lat": 57.584609,
-      "lon": 39.8356454,
-      "geocode_source": "nominatim"
+      "federal_district": "ЦФО"
     },
     {
       "id": 2324,
@@ -49772,10 +49580,7 @@
       "source": "fsvps",
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/08/17.08.2026г.pdf",
       "notes": "Сальмонеллёз — Красноярский край",
-      "federal_district": "СФО",
-      "lat": 55.93770967713236,
-      "lon": 93.02033752138256,
-      "geocode_source": "region_centroid"
+      "federal_district": "СФО"
     },
     {
       "id": 2473,
@@ -49872,10 +49677,7 @@
       "source": "fsvps",
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/08/19.08.2026г.pdf",
       "notes": "Лейкоз КРС — Ярославская область (Пошехонский район)",
-      "federal_district": "ЦФО",
-      "lat": 58.0766133,
-      "lon": 38.8511081,
-      "geocode_source": "nominatim"
+      "federal_district": "ЦФО"
     },
     {
       "id": 2478,
@@ -50242,26 +50044,6 @@
       "disease_key": "leukosis",
       "disease": "Лейкоз КРС",
       "disease_group": "Ruminant",
-      "region": "Калужская область",
-      "region_geo": "Kaluga",
-      "date": "2026-08-21",
-      "species": "Cattle",
-      "cases": 0,
-      "deaths": 0,
-      "status": "Resolved",
-      "source": "fsvps",
-      "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/08/21.08.2026г.pdf",
-      "notes": "Лейкоз КРС — Калужская область (Деменский район)",
-      "federal_district": "ЦФО",
-      "lat": 54.786746201488775,
-      "lon": 36.16798632956065,
-      "geocode_source": "region_centroid"
-    },
-    {
-      "id": 2497,
-      "disease_key": "leukosis",
-      "disease": "Лейкоз КРС",
-      "disease_group": "Ruminant",
       "region": "Самарская область",
       "region_geo": "Samara",
       "date": "2026-08-21",
@@ -50273,12 +50055,12 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/08/21.08.2026г.pdf",
       "notes": "Лейкоз КРС — Самарская область | Лейкоз КРС — Самарская область",
       "federal_district": "ПФО",
-      "lat": 53.47091967370681,
-      "lon": 50.06225489671505,
+      "lat": 53.772846201488775,
+      "lon": 50.05668632956065,
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2498,
+      "id": 2497,
       "disease_key": "lepto",
       "disease": "Лептоспироз",
       "disease_group": "Multi-species",
@@ -50293,32 +50075,12 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/08/21.08.2026г.pdf",
       "notes": "Лептоспироз — Самарская область",
       "federal_district": "ПФО",
-      "lat": 53.31212779764249,
-      "lon": 49.92295827546001,
+      "lat": 53.47091967370681,
+      "lon": 50.06225489671505,
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2499,
-      "disease_key": "lepto",
-      "disease": "Лептоспироз",
-      "disease_group": "Multi-species",
-      "region": "Свердловская область",
-      "region_geo": "Sverdlovsk",
-      "date": "2026-08-21",
-      "species": "Cattle",
-      "cases": 0,
-      "deaths": 0,
-      "status": "Ongoing",
-      "source": "fsvps",
-      "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/08/21.08.2026г.pdf",
-      "notes": "Лептоспироз КРС — Свердловская область | лептоспироз — Свердловская область (Тавдинский район)",
-      "federal_district": "УрФО",
-      "lat": 58.15134175560529,
-      "lon": 60.16343309845556,
-      "geocode_source": "region_centroid"
-    },
-    {
-      "id": 2500,
+      "id": 2498,
       "disease_key": "trichinellosis",
       "disease": "Трихинеллёз",
       "disease_group": "Wildlife",
@@ -50333,12 +50095,12 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/08/21.08.2026г.pdf",
       "notes": "Трихинеллёз — Псковская область",
       "federal_district": "СЗФО",
-      "lat": 58.02073661335265,
-      "lon": 28.17635830111417,
+      "lat": 57.63152779764249,
+      "lon": 28.107458275460015,
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2501,
+      "id": 2499,
       "disease_key": "lepto",
       "disease": "Лептоспироз",
       "disease_group": "Multi-species",
@@ -50353,8 +50115,188 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/08/21.08.2026г.pdf",
       "notes": "лептоспироз — Владимирская область",
       "federal_district": "ЦФО",
-      "lat": 55.93626509214387,
-      "lon": 40.16774524608321,
+      "lat": 56.28044175560529,
+      "lon": 40.55963309845556,
+      "geocode_source": "region_centroid"
+    },
+    {
+      "id": 2500,
+      "disease_key": "rabies",
+      "disease": "Бешенство",
+      "disease_group": "Wildlife",
+      "region": "Пермский край",
+      "region_geo": "Perm'",
+      "date": "2026-08-24",
+      "species": "Wildlife",
+      "cases": 0,
+      "deaths": 0,
+      "status": "Ongoing",
+      "source": "fsvps",
+      "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/08/24.08.2026г.pdf",
+      "notes": "Бешенство животных — Пермский край (Суксунский м.о.)",
+      "federal_district": "ПФО",
+      "lat": 58.20133661335265,
+      "lon": 55.84185830111417,
+      "geocode_source": "region_centroid"
+    },
+    {
+      "id": 2501,
+      "disease_key": "rabies",
+      "disease": "Бешенство",
+      "disease_group": "Wildlife",
+      "region": "Тюменская область",
+      "region_geo": "Tyumen'",
+      "date": "2026-08-24",
+      "species": "Wildlife",
+      "cases": 0,
+      "deaths": 0,
+      "status": "Ongoing",
+      "source": "fsvps",
+      "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/08/24.08.2026г.pdf",
+      "notes": "Бешенство животных — Тюменская область (Аромашевский м.о.) | Бешенство — Тюменская область",
+      "federal_district": "УрФО",
+      "lat": 56.80716509214387,
+      "lon": 65.2715452460832,
+      "geocode_source": "region_centroid"
+    },
+    {
+      "id": 2502,
+      "disease_key": "rabies",
+      "disease": "Бешенство",
+      "disease_group": "Wildlife",
+      "region": "Владимирская область",
+      "region_geo": "Vladimir",
+      "date": "2026-08-24",
+      "species": "Wildlife",
+      "cases": 0,
+      "deaths": 0,
+      "status": "Ongoing",
+      "source": "fsvps",
+      "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/08/24.08.2026г.pdf",
+      "notes": "Бешенство животных — Владимирская область (Суздальский м.о.)",
+      "federal_district": "ЦФО",
+      "lat": 55.915219784456355,
+      "lon": 40.46972950613508,
+      "geocode_source": "region_centroid"
+    },
+    {
+      "id": 2503,
+      "disease_key": "leukosis",
+      "disease": "Лейкоз КРС",
+      "disease_group": "Ruminant",
+      "region": "Брянская область",
+      "region_geo": "Bryansk",
+      "date": "2026-08-24",
+      "species": "Cattle",
+      "cases": 0,
+      "deaths": 0,
+      "status": "Resolved",
+      "source": "fsvps",
+      "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/08/24.08.2026г.pdf",
+      "notes": "Лейкоз КРС — Брянская область",
+      "federal_district": "ЦФО",
+      "lat": 53.131145744738966,
+      "lon": 34.66882376620358,
+      "geocode_source": "region_centroid"
+    },
+    {
+      "id": 2504,
+      "disease_key": "leukosis",
+      "disease": "Лейкоз КРС",
+      "disease_group": "Ruminant",
+      "region": "Калужская область",
+      "region_geo": "Kaluga",
+      "date": "2026-08-24",
+      "species": "Cattle",
+      "cases": 0,
+      "deaths": 0,
+      "status": "Resolved",
+      "source": "fsvps",
+      "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/08/24.08.2026г.pdf",
+      "notes": "Лейкоз КРС — Калужская область (Сухиничский район) | Лейкоз КРС — Калужская область (Деменский район)",
+      "federal_district": "ЦФО",
+      "lat": 54.288586896236005,
+      "lon": 36.489981787236964,
+      "geocode_source": "region_centroid"
+    },
+    {
+      "id": 2505,
+      "disease_key": "leukosis",
+      "disease": "Лейкоз КРС",
+      "disease_group": "Ruminant",
+      "region": "Ростовская область",
+      "region_geo": "Rostov",
+      "date": "2026-08-24",
+      "species": "Cattle",
+      "cases": 0,
+      "deaths": 0,
+      "status": "Resolved",
+      "source": "fsvps",
+      "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/08/24.08.2026г.pdf",
+      "notes": "Лейкоз КРС — Ростовская область (Сальский район)",
+      "federal_district": "ЮФО",
+      "lat": 47.44754367301852,
+      "lon": 39.582476360238275,
+      "geocode_source": "region_centroid"
+    },
+    {
+      "id": 2506,
+      "disease_key": "leukosis",
+      "disease": "Лейкоз КРС",
+      "disease_group": "Ruminant",
+      "region": "Рязанская область",
+      "region_geo": "Ryazan'",
+      "date": "2026-08-24",
+      "species": "Cattle",
+      "cases": 0,
+      "deaths": 0,
+      "status": "Resolved",
+      "source": "fsvps",
+      "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/08/24.08.2026г.pdf",
+      "notes": "Лейкоз КРС — Рязанская область (Касимовский муниципальный округ)",
+      "federal_district": "ЦФО",
+      "lat": 54.78161189950792,
+      "lon": 39.709540595284004,
+      "geocode_source": "region_centroid"
+    },
+    {
+      "id": 2507,
+      "disease_key": "lepto",
+      "disease": "Лептоспироз",
+      "disease_group": "Multi-species",
+      "region": "Свердловская область",
+      "region_geo": "Sverdlovsk",
+      "date": "2026-08-24",
+      "species": "Cattle",
+      "cases": 0,
+      "deaths": 0,
+      "status": "Ongoing",
+      "source": "fsvps",
+      "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/08/24.08.2026г.pdf",
+      "notes": "Лептоспироз КРС — Свердловская область | Лептоспироз КРС — Свердловская область | лептоспироз — Свердловская область (Тавдинский район)",
+      "federal_district": "УрФО",
+      "lat": 58.04530990026762,
+      "lon": 59.94145723282783,
+      "geocode_source": "region_centroid"
+    },
+    {
+      "id": 2508,
+      "disease_key": "avian_salmonellosis",
+      "disease": "Сальмонеллёз птицы",
+      "disease_group": "Avian",
+      "region": "Кемеровская область",
+      "region_geo": "Kemerovo",
+      "date": "2026-08-24",
+      "species": "попугай",
+      "cases": 0,
+      "deaths": 0,
+      "status": "Ongoing",
+      "source": "fsvps",
+      "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/08/24.08.2026г.pdf",
+      "notes": "Сальмонеллёз — Кемеровская область",
+      "federal_district": "СФО",
+      "lat": 54.78891506711296,
+      "lon": 87.27518624070612,
       "geocode_source": "region_centroid"
     }
   ]

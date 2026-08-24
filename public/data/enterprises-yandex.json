@@ -3,7 +3,7 @@
   "sources": [
     "yandex"
   ],
-  "total": 151,
+  "total": 153,
   "enterprises": [
     {
       "id": "yandex-187535263300",
@@ -1664,6 +1664,28 @@
       "address": "Россия, Екатеринбург, ул. Ткачей, 23, офис 1401, этаж 14",
       "city": "Екатеринбург",
       "rubric": "Земельные участки",
+      "source": "yandex"
+    },
+    {
+      "id": "yandex-191219209671",
+      "name": "Супер ФУД XXI",
+      "type": "meat_plant",
+      "lat": null,
+      "lon": null,
+      "address": "Москва, Рябиновая ул., 44, стр. 28",
+      "city": "Москва",
+      "rubric": "Продукты питания оптом",
+      "source": "yandex"
+    },
+    {
+      "id": "yandex-1354048974",
+      "name": "Индюжина",
+      "type": "poultry_farm",
+      "lat": null,
+      "lon": null,
+      "address": "Казань, ул. Декабристов, 8",
+      "city": "Казань",
+      "rubric": "Яйцо и мясо птицы",
       "source": "yandex"
     }
   ]
