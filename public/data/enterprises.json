@@ -1,10 +1,10 @@
 {
-  "updated": "2026-08-24",
+  "updated": "2026-08-25",
   "sources": [
     "openstreetmap",
     "curated"
   ],
-  "total": 63,
+  "total": 68,
   "enterprises": [
     {
       "id": "cur-48",
@@ -208,6 +208,18 @@
       "region": "Москва"
     },
     {
+      "id": "osm-219233364",
+      "name": "Мясокомбинат",
+      "type": "meat_plant",
+      "lat": 56.3458559,
+      "lon": 36.74827,
+      "tags": {
+        "bus": "yes",
+        "name": "Мясокомбинат",
+        "public_transport": "stop_position"
+      }
+    },
+    {
       "id": "cur-40",
       "name": "Новосибирский мясокомбинат",
       "type": "meat_plant",
@@ -372,6 +384,17 @@
       }
     },
     {
+      "id": "osm-1927161073",
+      "name": "Свиноферма",
+      "type": "pig_farm",
+      "lat": 50.1940725,
+      "lon": 39.4697571,
+      "tags": {
+        "building": "yes",
+        "name": "Свиноферма"
+      }
+    },
+    {
       "id": "cur-4",
       "name": "Сибагро — свиноводство",
       "type": "pig_farm",
@@ -463,6 +486,17 @@
       "region": "Московская обл."
     },
     {
+      "id": "osm-198248192",
+      "name": "Мясоптицекомбинат",
+      "type": "poultry_farm",
+      "lat": 56.0983882,
+      "lon": 63.6894645,
+      "tags": {
+        "landuse": "industrial",
+        "name": "Мясоптицекомбинат"
+      }
+    },
+    {
       "id": "cur-29",
       "name": "Омская птицефабрика",
       "type": "poultry_farm",
@@ -478,6 +512,33 @@
       "lon": 37.51,
       "region": "Белгородская обл.",
       "capacity": "млн+ голов"
+    },
+    {
+      "id": "osm-411700058",
+      "name": "Птицекомплекс",
+      "type": "poultry_farm",
+      "lat": 53.2078935,
+      "lon": 39.256258,
+      "tags": {
+        "landuse": "farmyard",
+        "name": "Птицекомплекс"
+      }
+    },
+    {
+      "id": "osm-6985936223",
+      "name": "Птицесовхоз",
+      "type": "poultry_farm",
+      "lat": 43.6440242,
+      "lon": 44.0708841,
+      "tags": {
+        "name": "Птицесовхоз",
+        "name:en": "Poultry farm Microdistrict",
+        "name:ru": "Птицесовхоз",
+        "name:uk": "Птахорадгосп",
+        "official_name": "Государственный племенной птицезавод",
+        "place": "neighbourhood",
+        "short_name": "ГППЗ"
+      }
     },
     {
       "id": "cur-28",
