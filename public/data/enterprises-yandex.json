@@ -3,7 +3,7 @@
   "sources": [
     "yandex"
   ],
-  "total": 153,
+  "total": 154,
   "enterprises": [
     {
       "id": "yandex-187535263300",
@@ -1686,6 +1686,17 @@
       "address": "Казань, ул. Декабристов, 8",
       "city": "Казань",
       "rubric": "Яйцо и мясо птицы",
+      "source": "yandex"
+    },
+    {
+      "id": "yandex-125526201226",
+      "name": "Комбикорма",
+      "type": "feed_mill",
+      "lat": null,
+      "lon": null,
+      "address": "Нижний Новгород, Восточный пр., 5, корп. 20",
+      "city": "Нижний Новгород",
+      "rubric": "Комбикорма и кормовые добавки",
       "source": "yandex"
     }
   ]
