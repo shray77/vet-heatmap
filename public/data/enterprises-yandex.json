@@ -3,7 +3,7 @@
   "sources": [
     "yandex"
   ],
-  "total": 155,
+  "total": 156,
   "enterprises": [
     {
       "id": "yandex-187535263300",
@@ -1708,6 +1708,17 @@
       "address": "Новосибирск, ул. Гаранина, 29",
       "city": "Новосибирск",
       "rubric": "Магазин мяса, колбас",
+      "source": "yandex"
+    },
+    {
+      "id": "yandex-78789796510",
+      "name": "Космопет",
+      "type": "feed_mill",
+      "lat": null,
+      "lon": null,
+      "address": "Москва, 2-й Обыденский пер., 12А",
+      "city": "Москва",
+      "rubric": "Комбикорма и кормовые добавки",
       "source": "yandex"
     }
   ]

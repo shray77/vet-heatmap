@@ -4,7 +4,7 @@
     "openstreetmap",
     "curated"
   ],
-  "total": 67,
+  "total": 63,
   "enterprises": [
     {
       "id": "cur-48",
@@ -372,17 +372,6 @@
       }
     },
     {
-      "id": "osm-1927161073",
-      "name": "Свиноферма",
-      "type": "pig_farm",
-      "lat": 50.1940725,
-      "lon": 39.4697571,
-      "tags": {
-        "building": "yes",
-        "name": "Свиноферма"
-      }
-    },
-    {
       "id": "cur-4",
       "name": "Сибагро — свиноводство",
       "type": "pig_farm",
@@ -489,50 +478,6 @@
       "lon": 37.51,
       "region": "Белгородская обл.",
       "capacity": "млн+ голов"
-    },
-    {
-      "id": "osm-411700058",
-      "name": "Птицекомплекс",
-      "type": "poultry_farm",
-      "lat": 53.2078935,
-      "lon": 39.256258,
-      "tags": {
-        "landuse": "farmyard",
-        "name": "Птицекомплекс"
-      }
-    },
-    {
-      "id": "osm-6985936223",
-      "name": "Птицесовхоз",
-      "type": "poultry_farm",
-      "lat": 43.6440242,
-      "lon": 44.0708841,
-      "tags": {
-        "name": "Птицесовхоз",
-        "name:en": "Poultry farm Microdistrict",
-        "name:ru": "Птицесовхоз",
-        "name:uk": "Птахорадгосп",
-        "official_name": "Государственный племенной птицезавод",
-        "place": "neighbourhood",
-        "short_name": "ГППЗ"
-      }
-    },
-    {
-      "id": "osm-243520930",
-      "name": "Птицефабрика",
-      "type": "poultry_farm",
-      "lat": 51.7568819,
-      "lon": 113.9175501,
-      "tags": {
-        "esr:user": "942726",
-        "name": "Птицефабрика",
-        "name:ru": "Птицефабрика",
-        "operator": "ОАО «РЖД»",
-        "operator:branch": "Забайкальская железная дорога",
-        "railway": "halt",
-        "train": "yes",
-        "uic_ref": "2051416"
-      }
     },
     {
       "id": "cur-28",
