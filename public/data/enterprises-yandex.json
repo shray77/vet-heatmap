@@ -3,7 +3,7 @@
   "sources": [
     "yandex"
   ],
-  "total": 156,
+  "total": 157,
   "enterprises": [
     {
       "id": "yandex-187535263300",
@@ -1719,6 +1719,17 @@
       "address": "Москва, 2-й Обыденский пер., 12А",
       "city": "Москва",
       "rubric": "Комбикорма и кормовые добавки",
+      "source": "yandex"
+    },
+    {
+      "id": "yandex-211148592826",
+      "name": "Анком",
+      "type": "meat_plant",
+      "lat": null,
+      "lon": null,
+      "address": "Санкт-Петербург, Боткинская ул., 3, корп. 1",
+      "city": "Санкт-Петербург",
+      "rubric": "Магазин продуктов",
       "source": "yandex"
     }
   ]
