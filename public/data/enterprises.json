@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-01",
+  "updated": "2026-09-02",
   "sources": [
     "openstreetmap",
     "curated"
@@ -372,17 +372,6 @@
       }
     },
     {
-      "id": "osm-1927161073",
-      "name": "Свиноферма",
-      "type": "pig_farm",
-      "lat": 50.1940725,
-      "lon": 39.4697571,
-      "tags": {
-        "building": "yes",
-        "name": "Свиноферма"
-      }
-    },
-    {
       "id": "cur-4",
       "name": "Сибагро — свиноводство",
       "type": "pig_farm",
@@ -499,6 +488,22 @@
       "tags": {
         "landuse": "farmyard",
         "name": "Птицекомплекс"
+      }
+    },
+    {
+      "id": "osm-6985936223",
+      "name": "Птицесовхоз",
+      "type": "poultry_farm",
+      "lat": 43.6440242,
+      "lon": 44.0708841,
+      "tags": {
+        "name": "Птицесовхоз",
+        "name:en": "Poultry farm Microdistrict",
+        "name:ru": "Птицесовхоз",
+        "name:uk": "Птахорадгосп",
+        "official_name": "Государственный племенной птицезавод",
+        "place": "neighbourhood",
+        "short_name": "ГППЗ"
       }
     },
     {
