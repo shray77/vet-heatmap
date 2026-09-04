@@ -3,7 +3,7 @@
   "sources": [
     "yandex"
   ],
-  "total": 157,
+  "total": 159,
   "enterprises": [
     {
       "id": "yandex-187535263300",
@@ -1730,6 +1730,28 @@
       "address": "Санкт-Петербург, Боткинская ул., 3, корп. 1",
       "city": "Санкт-Петербург",
       "rubric": "Магазин продуктов",
+      "source": "yandex"
+    },
+    {
+      "id": "yandex-228223086725",
+      "name": "Птицефабрика Свердловская",
+      "type": "poultry_farm",
+      "lat": null,
+      "lon": null,
+      "address": "Екатеринбург, ул. Кобозева, 31",
+      "city": "Екатеринбург",
+      "rubric": "Яйцо и мясо птицы",
+      "source": "yandex"
+    },
+    {
+      "id": "yandex-143976918669",
+      "name": "Meat House",
+      "type": "poultry_farm",
+      "lat": null,
+      "lon": null,
+      "address": "Казань, ул. Мусина, 29Б",
+      "city": "Казань",
+      "rubric": "Яйцо и мясо птицы",
       "source": "yandex"
     }
   ]
