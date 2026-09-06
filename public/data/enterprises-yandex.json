@@ -3,7 +3,7 @@
   "sources": [
     "yandex"
   ],
-  "total": 159,
+  "total": 160,
   "enterprises": [
     {
       "id": "yandex-187535263300",
@@ -1752,6 +1752,17 @@
       "address": "Казань, ул. Мусина, 29Б",
       "city": "Казань",
       "rubric": "Яйцо и мясо птицы",
+      "source": "yandex"
+    },
+    {
+      "id": "yandex-190304607680",
+      "name": "Опт 24",
+      "type": "meat_plant",
+      "lat": null,
+      "lon": null,
+      "address": "Россия, Москва, Алтуфьевское ш., 37, стр. 24",
+      "city": "Москва",
+      "rubric": "Продукты питания оптом",
       "source": "yandex"
     }
   ]
