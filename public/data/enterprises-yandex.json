@@ -1,9 +1,9 @@
 {
-  "updated": "2026-09-06",
+  "updated": "2026-09-07",
   "sources": [
     "yandex"
   ],
-  "total": 160,
+  "total": 161,
   "enterprises": [
     {
       "id": "yandex-187535263300",
@@ -1763,6 +1763,17 @@
       "address": "Россия, Москва, Алтуфьевское ш., 37, стр. 24",
       "city": "Москва",
       "rubric": "Продукты питания оптом",
+      "source": "yandex"
+    },
+    {
+      "id": "yandex-1401499076",
+      "name": "Равур",
+      "type": "poultry_farm",
+      "lat": null,
+      "lon": null,
+      "address": "Россия, Москва, Южнопортовая ул., 36, стр. 7, этаж 1",
+      "city": "Москва",
+      "rubric": "Мясная продукция оптом",
       "source": "yandex"
     }
   ]
