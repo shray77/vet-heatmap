@@ -3,7 +3,7 @@
   "sources": [
     "yandex"
   ],
-  "total": 162,
+  "total": 163,
   "enterprises": [
     {
       "id": "yandex-187535263300",
@@ -1785,6 +1785,17 @@
       "address": "Берёзовский, ул. Орджоникидзе, 17А",
       "city": "Екатеринбург",
       "rubric": "Комбикорма и кормовые добавки",
+      "source": "yandex"
+    },
+    {
+      "id": "yandex-202158267749",
+      "name": "Агромикс",
+      "type": "meat_plant",
+      "lat": null,
+      "lon": null,
+      "address": "Москва, Рябиновая ул., 47, стр. 2",
+      "city": "Москва",
+      "rubric": "Продукты глубокой заморозки",
       "source": "yandex"
     }
   ]
