@@ -103,23 +103,19 @@ export function OutbreakMap({
           "osm-light": {
             type: "raster",
             tiles: [
-              "https://a.basemaps.cartocdn.com/light_all/{z}/{x}/{y}@2x.png",
-              "https://b.basemaps.cartocdn.com/light_all/{z}/{x}/{y}@2x.png",
-              "https://c.basemaps.cartocdn.com/light_all/{z}/{x}/{y}@2x.png",
+              "https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}",
             ],
             tileSize: 256,
             attribution:
-              '&copy; <a href="https://www.openstreetmap.org/copyright">OSM</a> &copy; <a href="https://carto.com/">CARTO</a>',
+              '&copy; <a href="https://www.openstreetmap.org/copyright">OSM</a> tiles &copy; <a href="https://www.esri.com/">Esri</a>',
           },
           "osm-dark": {
             type: "raster",
             tiles: [
-              "https://a.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}@2x.png",
-              "https://b.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}@2x.png",
-              "https://c.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}@2x.png",
+              "https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}",
             ],
             tileSize: 256,
-            attribution: '&copy; OSM &copy; CARTO',
+            attribution: '&copy; OSM tiles &copy; Esri',
           },
           "satellite": {
             type: "raster",

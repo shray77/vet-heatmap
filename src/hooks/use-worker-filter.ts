@@ -1,88 +1,93 @@
 "use client";
 
-import { useState, useEffect, useMemo } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
+import { applyFilters, type FilterState } from "@/lib/filters";
 import type { Outbreak } from "@/types/domain";
-import type { FilterState } from "@/lib/filters";
+import type { FilterWorkerResponse } from "@/lib/filter-worker";
 
 /**
  * Hook: useWorkerFilter
  *
- * Filters outbreaks in a Web Worker to prevent UI freezes.
- * Falls back to synchronous filtering if Worker is unavailable.
+ * Filters outbreaks in a Web Worker to keep the UI responsive.
+ * The dataset is pushed to the worker ONCE (init message); every filter
+ * change afterwards only transfers the small FilterState. Falls back to
+ * synchronous filtering when Worker is unavailable or while the first
+ * response is still in flight.
  *
  * Usage:
- *   const worker = useMemo(() =>
- *     typeof Worker !== 'undefined'
- *       ? new Worker(new URL('../lib/filter-worker.ts', import.meta.url), { type: 'module' })
- *       : null
- *   , []);
- *   const filtered = useWorkerFilter(worker, allOutbreaks, debouncedFilters);
+ *   const filtered = useWorkerFilter(data?.outbreaks ?? [], debouncedFilters);
  */
+export function useWorkerFilter(outbreaks: Outbreak[], filters: FilterState): Outbreak[] {
+  const [worker, setWorker] = useState<Worker | null>(null);
+  const [filtered, setFiltered] = useState<Outbreak[] | null>(null);
+  const [filteredVersion, setFilteredVersion] = useState(-1);
+  // Dataset instance currently held by the worker; bumped version lets us
+  // drop responses that belong to a stale dataset.
+  const datasetRef = useRef<Outbreak[] | null>(null);
+  const versionRef = useRef(0);
 
-export function useWorkerFilter(
-  worker: Worker | null,
-  outbreaks: Outbreak[],
-  filters: FilterState
-): Outbreak[] {
-  const [filtered, setFiltered] = useState<Outbreak[]>([]);
-  const [version, setVersion] = useState(0);
+  useEffect(() => {
+    if (typeof Worker === "undefined") return;
+    let w: Worker | null = null;
+    try {
+      w = new Worker(new URL("../lib/filter-worker.ts", import.meta.url), { type: "module" });
+    } catch {
+      return; // sync fallback below
+    }
+    setWorker(w);
+    return () => {
+      // Free the worker thread (it otherwise lives for the lifetime of the tab)
+      w!.terminate();
+      setWorker(null);
+      datasetRef.current = null;
+      versionRef.current = 0;
+    };
+  }, []);
 
-  // Fallback: synchronous filter (used when Worker is unavailable, or while
-  // waiting for the Worker's first response on the initial render).
-  const syncFiltered = useMemo(() => {
-    if (worker) return filtered; // Worker handles it
-    const qLower = filters.query.trim().toLowerCase();
-    return outbreaks.filter((o) => {
-      if (filters.diseases.length && !filters.diseases.includes(o.disease_key)) return false;
-      if (filters.species.length && !filters.species.includes(o.species)) return false;
-      if (filters.statuses.length && !filters.statuses.includes(o.status)) return false;
-      if (filters.federalDistricts.length && !filters.federalDistricts.includes(o.federal_district || "")) return false;
-      if (filters.dateFrom && o.date < filters.dateFrom) return false;
-      if (filters.dateTo && o.date > filters.dateTo) return false;
-      if (qLower) {
-        const hay = `${o.disease} ${o.region} ${o.species}`.toLowerCase();
-        if (!hay.includes(qLower)) return false;
-      }
-      return true;
-    });
-  }, [outbreaks, filters, worker, filtered]);
-
-  // Only post to the Worker when there is actual work to do. The empty-
-  // outbreaks case is handled directly in the render body (below), so we
-  // never need to call setState synchronously inside this effect.
   useEffect(() => {
     if (!worker) return;
-    if (outbreaks.length === 0) return;
+
+    if (outbreaks.length === 0) {
+      datasetRef.current = null;
+      setFiltered([]);
+      return;
+    }
+
+    // New dataset instance → push it once before filtering on it
+    if (datasetRef.current !== outbreaks) {
+      datasetRef.current = outbreaks;
+      versionRef.current += 1;
+      worker.postMessage({ type: "init", outbreaks, version: versionRef.current });
+    }
 
     let cancelled = false;
-
-    const handleResult = (e: MessageEvent) => {
-      if (!cancelled) {
+    const onMessage = (e: MessageEvent<FilterWorkerResponse>) => {
+      if (cancelled) return;
+      if (e.data.version === versionRef.current) {
         setFiltered(e.data.result);
-        setVersion((v) => v + 1);
+        setFilteredVersion(e.data.version);
       }
     };
 
-    worker.addEventListener("message", handleResult);
-    worker.postMessage({ outbreaks, filters });
-
+    worker.addEventListener("message", onMessage);
+    worker.postMessage({ type: "filter", filters, version: versionRef.current });
     return () => {
       cancelled = true;
-      worker.removeEventListener("message", handleResult);
+      worker.removeEventListener("message", onMessage);
     };
   }, [worker, outbreaks, filters]);
 
-  // No Worker available — use the synchronous filter result.
-  if (!worker) return syncFiltered;
+  // Synchronous fallback: used while there is no worker, and until the
+  // worker's first response for the current dataset+filters arrives.
+  const syncFiltered = useMemo(() => applyFilters(outbreaks, filters), [outbreaks, filters]);
 
-  // Empty outbreaks — result is always empty. Return [] directly instead of
-  // falling through to the (potentially stale) `filtered` state from a
-  // previous non-empty run.
+  if (!worker) return syncFiltered;
   if (outbreaks.length === 0) return [];
 
-  // Worker is active but hasn't responded yet (first render) — fall back
-  // to the synchronous result so the UI shows something immediately.
-  if (version === 0) return syncFiltered;
+  const workerCaughtUp =
+    filtered !== null &&
+    filteredVersion === versionRef.current &&
+    datasetRef.current === outbreaks;
 
-  return filtered;
+  return workerCaughtUp ? filtered : syncFiltered;
 }

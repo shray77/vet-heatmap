@@ -115,7 +115,7 @@ export type SusceptibleSpecies =
   | "Other";
 
 /** Where this outbreak record came from. */
-export type SourceKey = "fsvps" | "wahis" | "efsa" | "curated";
+export type SourceKey = "fsvps" | "wahis" | "efsa" | "telegram" | "curated";
 
 export interface Outbreak {
   /** Stable id (assigned by merge step). */
@@ -130,8 +130,10 @@ export interface Outbreak {
   region: string;
   /** GeoJSON-matched region name (English transliteration). */
   region_geo: string;
-  /** ISO date (YYYY-MM-DD) — start of outbreak per source. */
+  /** ISO date (YYYY-MM-DD) — first observation of the outbreak. */
   date: string;
+  /** ISO date of the most recent mention (re-published quarantine orders etc.). */
+  last_seen?: string;
   /** Susceptible species (free-form). */
   species: string;
   /** Number of detected cases. */
@@ -270,6 +272,9 @@ export interface RawArticle {
   detected_species?: string;
   detected_cases?: number;
   detected_deaths?: number;
+  /** Status as reported by the source (section header / message context).
+   * Authoritative — downstream code must NOT re-guess from body text. */
+  detected_status?: OutbreakStatus;
   /** Feature 4: Advanced metadata from FSVPS parser. */
   detected_farm_type?: string | null;
   detected_municipality?: string | null;

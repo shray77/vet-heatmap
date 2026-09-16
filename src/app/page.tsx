@@ -1,9 +1,9 @@
 "use client";
 
-import { useMemo, useCallback } from "react";
+import { useMemo, useCallback, useState } from "react";
 import { useMapStore } from "@/lib/map-store";
 import { useWorkerFilter } from "@/hooks/use-worker-filter";
-import { Activity, AlertTriangle } from "lucide-react";
+import { Activity, AlertTriangle, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { OutbreakMap } from "@/components/outbreak-map";
 import { TodaySummary } from "@/components/today-summary";
@@ -29,20 +29,10 @@ function HomeContent() {
   const { data, loading, error } = useOutbreaks();
   const { geo, loading: geoLoading } = useRegionsGeoJSON();
   const [filters, setFilters] = useUrlFilters();
-  // 🆕 Debounce filters — prevents expensive applyFilters on every keystroke
+  // Debounce filters — prevents expensive applyFilters on every keystroke
   const debouncedFilters = useDebounced(filters, 300);
 
-  // 🆕 Web Worker for filtering — moves O(n) filter loop off main thread
-  const filterWorker = useMemo(() => {
-    if (typeof Worker === "undefined") return null;
-    try {
-      return new Worker(new URL("../lib/filter-worker.ts", import.meta.url), { type: "module" });
-    } catch {
-      return null;
-    }
-  }, []);
-
-  // 🆕 Map state from Zustand store (was 7 useState calls)
+  // Map state from Zustand store
   const { showRiskZones, showChoropleth, densityLayer, showHeatmap, nightMode,
           timelineRange, mobileSheetExpanded,
           toggleRiskZones, toggleChoropleth, toggleHeatmap, toggleNightMode,
@@ -92,14 +82,15 @@ function HomeContent() {
     return m;
   }, [geo]);
 
-  // 🆕 Use Web Worker for filtering (falls back to sync if Worker unavailable)
+  // Combine debounce filters with the map's timeline range
   const combinedFilters = useMemo(() => ({
     ...debouncedFilters,
     dateFrom: timelineRange.from ?? debouncedFilters.dateFrom,
     dateTo: timelineRange.to ?? debouncedFilters.dateTo,
   }), [debouncedFilters, timelineRange]);
 
-  const filtered = useWorkerFilter(filterWorker, data?.outbreaks ?? [], combinedFilters);
+  // Web Worker filtering with sync fallback (Worker created inside the hook)
+  const filtered = useWorkerFilter(data?.outbreaks ?? [], combinedFilters);
 
   const totalRegions = geo?.features.length ?? 85;
 
@@ -214,7 +205,7 @@ function HomeContent() {
         />
       </div>
 
-      <div className="flex min-h-0 flex-1 overflow-hidden">
+      <div className="flex min-h-0 flex-1 flex-col overflow-hidden lg:flex-row">
         <section className="relative min-h-0 flex-1 overflow-hidden">
           <OutbreakMap
             outbreaks={filtered}
@@ -271,15 +262,38 @@ function MobileFloatingStats({ filtered }: { filtered: Outbreak[] }) {
 }
 
 function MapLegend({ densityLayer, updated, sources }: { densityLayer: string, updated?: string, sources?: string[] }) {
+  const [collapsed, setCollapsed] = useState(false);
+
+  // Collapsed: a small tappable chip so the legend never permanently
+  // covers the (already tiny) map on phones.
+  if (collapsed) {
+    return (
+      <button
+        onClick={() => setCollapsed(false)}
+        aria-label="Показать легенду"
+        className="absolute bottom-3 right-3 z-20 flex items-center gap-1.5 rounded-full border border-white/15 bg-card/70 px-3 py-1.5 text-[10px] font-medium text-foreground shadow-lg backdrop-blur-xl pointer-events-auto"
+      >
+        <span aria-hidden>🗺️</span> Зоны риска
+      </button>
+    );
+  }
+
   return (
-    <div className="absolute bottom-3 right-3 z-20 max-w-[220px] rounded-2xl border border-white/15 bg-card/60 p-3 text-[10px] shadow-2xl backdrop-blur-xl pointer-events-auto">
-      <div className="font-semibold text-foreground mb-1.5">Зоны риска</div>
+    <div className="absolute bottom-3 right-3 z-20 max-w-[44vw] sm:max-w-[220px] rounded-2xl border border-white/15 bg-card/60 p-3 text-[10px] shadow-2xl backdrop-blur-xl pointer-events-auto">
+      <button
+        onClick={() => setCollapsed(true)}
+        aria-label="Свернуть легенду"
+        className="absolute right-2 top-2 rounded p-0.5 text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
+      >
+        <X className="h-3 w-3" />
+      </button>
+      <div className="font-semibold text-foreground mb-1.5 pr-4">Зоны риска</div>
       <LegendRow color="#D32F2F" label="Защита (3 км)" />
       <LegendRow color="#F57C00" label="Наблюдение (10 км)" />
       <LegendRow color="#1565C0" label="Ограничение (30 км)" />
       <div className="pt-1.5 mt-1.5 border-t border-white/10">
         <div className="font-semibold text-foreground mb-1">Плотность</div>
-        <div className="flex gap-1">
+        <div className="flex flex-wrap gap-1">
           {[
             { v: "none", label: "Нет", color: "var(--muted)" },
             { v: "pigs", label: "Св.", color: "#fb6a4a" },

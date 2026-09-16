@@ -144,10 +144,27 @@ export function Header({
                 <span className="text-xs">Инстр.</span>
               </Button>
             </DropdownMenuTrigger>
-            <DropdownMenuContent align="end" className="w-56">
-              <DropdownMenuItem onClick={() => setSirOpen(true)}>SIR модель</DropdownMenuItem>
-              <DropdownMenuItem onClick={() => setPdfReportOpen(true)}>Отчёт PDF</DropdownMenuItem>
-              <DropdownMenuItem onClick={() => setAboutOpen(true)}>О проекте</DropdownMenuItem>
+            <DropdownMenuContent align="end" className="w-56 max-h-[72vh] overflow-y-auto thin-scroll">
+              <DropdownMenuLabel>Действия</DropdownMenuLabel>
+              <DropdownMenuItem onClick={() => openCalculator()}><Calculator className="h-4 w-4 mr-2" />Карантин</DropdownMenuItem>
+              <DropdownMenuItem onClick={() => setNearbyOpen(true)}><LocateFixed className="h-4 w-4 mr-2" />Рядом</DropdownMenuItem>
+              <DropdownMenuSeparator />
+              <DropdownMenuLabel>Аналитика</DropdownMenuLabel>
+              <DropdownMenuItem onClick={() => setSirOpen(true)}><Beaker className="h-4 w-4 mr-2" />SIR модель</DropdownMenuItem>
+              <DropdownMenuItem onClick={() => setSpatialOpen(true)}><Zap className="h-4 w-4 mr-2" />Распространение</DropdownMenuItem>
+              <DropdownMenuItem onClick={() => setSourceTrackerOpen(true)}><Radio className="h-4 w-4 mr-2" />Источник вспышки</DropdownMenuItem>
+              <DropdownMenuItem onClick={() => setTransportOpen(true)}><Truck className="h-4 w-4 mr-2" />Транспорт</DropdownMenuItem>
+              <DropdownMenuItem onClick={() => setSpreadAnimOpen(true)}><Play className="h-4 w-4 mr-2" />Анимация</DropdownMenuItem>
+              <DropdownMenuSeparator />
+              <DropdownMenuLabel>Данные</DropdownMenuLabel>
+              <DropdownMenuItem onClick={() => setRegionCardOpen(true)}><MapPin className="h-4 w-4 mr-2" />Карточка региона</DropdownMenuItem>
+              <DropdownMenuItem onClick={() => setComparisonOpen(true)}><ArrowLeftRight className="h-4 w-4 mr-2" />Сравнение регионов</DropdownMenuItem>
+              <DropdownMenuItem onClick={() => setEnterpriseRiskOpen(true)}><Factory className="h-4 w-4 mr-2" />Предприятия</DropdownMenuItem>
+              <DropdownMenuItem onClick={() => setPdfReportOpen(true)}><FileText className="h-4 w-4 mr-2" />Отчёт PDF</DropdownMenuItem>
+              <DropdownMenuItem onClick={() => setCustomImportOpen(true)}><Upload className="h-4 w-4 mr-2" />Импорт данных</DropdownMenuItem>
+              <DropdownMenuItem onClick={() => setAlertOpen(true)}><Bell className="h-4 w-4 mr-2" />Уведомления</DropdownMenuItem>
+              <DropdownMenuSeparator />
+              <DropdownMenuItem onClick={() => setAboutOpen(true)}><Info className="h-4 w-4 mr-2" />О проекте</DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
           <ThemeToggle />
@@ -170,6 +187,18 @@ export function Header({
             </SheetContent>
           </Sheet>
         </div>
+      </div>
+
+      {/* 🆕 Mobile-only full-width search — desktop kept it hidden md:block,
+          so phones had no search at all. Reused SearchBox in compact mode. */}
+      <div className="relative flex md:hidden items-center gap-2 px-4 pb-2">
+        <SearchBox
+          outbreaks={outbreaks}
+          onFocusRegion={focusRegion}
+          onSelectDisease={(k) => { setDrawerDisease(k); setDrawerOpen(true); }}
+          onToggleDiseaseFilter={toggleDiseaseFilter}
+          compact
+        />
       </div>
 
       <div className="relative hidden md:flex items-center gap-3 overflow-hidden px-4 pb-2">

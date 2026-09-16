@@ -82,11 +82,10 @@ export function RegionMiniMap({
           "osm-light": {
             type: "raster",
             tiles: [
-              "https://a.basemaps.cartocdn.com/light_all/{z}/{x}/{y}@2x.png",
-              "https://b.basemaps.cartocdn.com/light_all/{z}/{x}/{y}@2x.png",
+              "https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}",
             ],
             tileSize: 256,
-            attribution: "&copy; OSM &copy; CARTO",
+            attribution: "&copy; OSM tiles &copy; Esri",
           },
         },
         layers: [{

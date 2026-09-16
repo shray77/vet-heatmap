@@ -304,6 +304,51 @@ export function getRegionProperties(shapeName: string): RegionProperties | undef
   return REGION_PROPERTIES[shapeName];
 }
 
+/** Stem of a canonical RU region name for inflection matching:
+ *  "Иркутская область" → "Иркутск", okrug/oblast suffixes dropped, adjective
+ *  gender endings (ая/ий/ое/ой) stripped. */
+function regionStem(name: string): string {
+  let s = name
+    .replace(/^Республика\s+/i, "")
+    .replace(/\s+(автономная область|автономный округ|область|край|АО)/i, "")
+    .trim();
+  s = s.replace(/(ая|ий|ое|ой)$/i, "");
+  return s;
+}
+
+/**
+ * Find a recognizable Russian region name mentioned anywhere in free text
+ * (Telegram posts, news snippets, PDF notes). Handles both verbatim names
+ * and inflected forms ("Иркутской области", "в Москве"). Returns the
+ * LONGEST matching canonical RU name ("Алтайский край" wins over "Алтай");
+ * null if none found.
+ */
+export function findRegionInText(text: string): string | null {
+  if (!text) return null;
+  const keys = Object.keys(REGION_MAP);
+  let bestKey: string | null = null;
+
+  for (const ru of keys) {
+    let matched = text.includes(ru);
+    if (!matched) {
+      let stem = regionStem(ru);
+      // Drop the stem's final vowel to catch oblique forms ("в Москве" vs
+      // "Москва") — but never shorten below a safe length.
+      if (stem.length > 4 && /[аеёиоуыэюя]$/i.test(stem)) stem = stem.slice(0, -1);
+      if (stem.length < 3) continue;
+      const escaped = stem.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+      // Long stems: allow any word continuation; short stems: one case
+      // ending max (so "Коми" does not match "Комитет").
+      const tail = stem.length > 4 ? "[а-яё]*" : "[еыуаи]?";
+      const re = new RegExp(`(?<![а-яё])${escaped}${tail}(?![а-яё])`, "i");
+      matched = re.test(text);
+    }
+    if (matched && (bestKey === null || ru.length > bestKey.length)) bestKey = ru;
+  }
+  return bestKey;
+}
+
+
 /**
  * Region centroids: shapeName → [lon, lat].
  *
