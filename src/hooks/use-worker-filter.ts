@@ -84,10 +84,12 @@ export function useWorkerFilter(outbreaks: Outbreak[], filters: FilterState): Ou
   if (!worker) return syncFiltered;
   if (outbreaks.length === 0) return [];
 
+  /* eslint-disable react-hooks/refs -- intentional: read refs during render to detect whether the async worker result still matches the current inputs (worker setState re-renders this component) */
   const workerCaughtUp =
     filtered !== null &&
     filteredVersion === versionRef.current &&
     datasetRef.current === outbreaks;
+  /* eslint-enable react-hooks/refs */
 
   return workerCaughtUp ? filtered : syncFiltered;
 }

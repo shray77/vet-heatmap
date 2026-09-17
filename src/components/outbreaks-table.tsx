@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo, useEffect } from "react";
+import { useState, useMemo } from "react";
 import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
@@ -95,7 +95,6 @@ export function OutbreaksTable({ outbreaks, onSelectOutbreak }: OutbreaksTablePr
   // Cap rendered rows. Rendering all 2k+ outbreaks as DOM nodes makes every
   // filter toggle reconcile thousands of nodes (multi-second main-thread block).
   const [visibleCount, setVisibleCount] = useState(200);
-  useEffect(() => { setVisibleCount(200); }, [filtered]);
   const visible = filtered.slice(0, visibleCount);
   const hiddenCount = filtered.length - visible.length;
 
