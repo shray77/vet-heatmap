@@ -3,7 +3,7 @@
   "sources": [
     "yandex"
   ],
-  "total": 177,
+  "total": 178,
   "enterprises": [
     {
       "id": "yandex-187535263300",
@@ -1950,6 +1950,17 @@
       "address": "Луговая ул., 1/1, посёлок Солонцы",
       "city": "Красноярск",
       "rubric": "Комбикорма и кормовые добавки",
+      "source": "yandex"
+    },
+    {
+      "id": "yandex-1006668401",
+      "name": "Чебаркульская птица",
+      "type": "poultry_farm",
+      "lat": null,
+      "lon": null,
+      "address": "Челябинск, ул. Сони Кривой, 42/1",
+      "city": "Челябинск",
+      "rubric": "Магазин мяса, колбас",
       "source": "yandex"
     }
   ]
