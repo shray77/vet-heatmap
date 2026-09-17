@@ -99,6 +99,11 @@ function HomeContent() {
     window.dispatchEvent(new CustomEvent("vet:focusRegion", { detail: shapeName }));
   }, [openRegion]);
 
+  // Stable ref so OutbreakMap (memoized) doesn't re-render on every parent render.
+  const handleMapMove = useCallback((center: [number, number], zoom: number) => {
+    setFilters((f) => ({ ...f, mapLng: center[0], mapLat: center[1], mapZoom: zoom }));
+  }, [setFilters]);
+
   const toggleDiseaseFilter = useCallback((key: DiseaseKey) => {
     setFilters((f) => {
       const isActive = f.diseases.includes(key);
@@ -220,7 +225,7 @@ function HomeContent() {
             onSelectRegion={openRegion}
             initialCenter={filters.mapLng != null && filters.mapLat != null ? [filters.mapLng, filters.mapLat] : undefined}
             initialZoom={filters.mapZoom}
-            onMapMove={(center, zoom) => setFilters((f) => ({ ...f, mapLng: center[0], mapLat: center[1], mapZoom: zoom }))}
+            onMapMove={handleMapMove}
           />
           <MobileFloatingStats filtered={filtered} />
           <MapLegend densityLayer={densityLayer} updated={data?.updated} sources={data?.sources} />

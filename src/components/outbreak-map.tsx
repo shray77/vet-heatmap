@@ -359,18 +359,17 @@ export function OutbreakMap({
     markersRef.current = {};
     popupsRef.current = {};
 
-    // Remove old circle layers if switching from mobile to desktop or vice versa
-    const layers = map.getStyle()?.layers ?? [];
-    for (const l of layers) {
-      if (l.id === "outbreaks-circle" || l.id === "outbreaks-circle-active" || l.id === "outbreaks-clusters" || l.id === "outbreaks-clusters-count") {
-        map.removeLayer(l.id);
-      }
-    }
-    if (map.getSource("outbreaks-points")) {
-      map.removeSource("outbreaks-points");
-    }
+    // PERF: avoid tearing down + rebuilding the source & 4 circle layers on
+    // every filter toggle (was the main map jank). If the source already
+    // exists, just push new data via setData(); otherwise add it once.
+    const sourceExists = !!map.getSource("outbreaks-points");
 
-    if (outbreaks.length === 0) return;
+    if (outbreaks.length === 0) {
+      if (sourceExists) {
+        (map.getSource("outbreaks-points") as maplibregl.GeoJSONSource).setData({ type: "FeatureCollection", features: [] });
+      }
+      return;
+    }
 
     // 🆕 Use pre-computed centroids from page.tsx (was O(85) bbox calc on every render)
     const centroids = regionCentroids ?? new Map<string, [number, number]>();
@@ -419,9 +418,20 @@ export function OutbreakMap({
       });
     }
 
-    if (features.length === 0) return;
+    if (features.length === 0) {
+      if (sourceExists) {
+        (map.getSource("outbreaks-points") as maplibregl.GeoJSONSource).setData({ type: "FeatureCollection", features: [] });
+      }
+      return;
+    }
 
     const geojson: GeoJSON.FeatureCollection = { type: "FeatureCollection", features };
+
+    // Fast path: update existing source instead of removing/re-adding it.
+    const existingSrc = map.getSource("outbreaks-points") as maplibregl.GeoJSONSource | undefined;
+    if (existingSrc) {
+      existingSrc.setData(geojson);
+    }
 
     if (useHtmlMarkers) {
       // ─── Desktop with small dataset: use HTML markers (best popup UX) ─
@@ -480,7 +490,7 @@ export function OutbreakMap({
     }
 
     // ─── Default: clustered circle layers (mobile OR large dataset) ────
-    map.addSource("outbreaks-points", {
+    if (!sourceExists) map.addSource("outbreaks-points", {
       type: "geojson",
       data: geojson,
       cluster: true,
@@ -493,7 +503,7 @@ export function OutbreakMap({
     });
 
       // Cluster count circles
-      map.addLayer({
+      if (!sourceExists) map.addLayer({
         id: "outbreaks-clusters",
         type: "circle",
         source: "outbreaks-points",
@@ -509,7 +519,7 @@ export function OutbreakMap({
       });
 
       // Cluster count text
-      map.addLayer({
+      if (!sourceExists) map.addLayer({
         id: "outbreaks-clusters-count",
         type: "symbol",
         source: "outbreaks-points",
@@ -623,7 +633,7 @@ export function OutbreakMap({
       map.on("mouseleave", "outbreaks-clusters", onClusterLeave);
 
       // Resolved outbreaks (smaller, dimmer) — unclustered only
-      map.addLayer({
+      if (!sourceExists) map.addLayer({
         id: "outbreaks-circle",
         type: "circle",
         source: "outbreaks-points",
@@ -639,7 +649,7 @@ export function OutbreakMap({
       });
 
       // Ongoing outbreaks (bigger, brighter) — unclustered only
-      map.addLayer({
+      if (!sourceExists) map.addLayer({
         id: "outbreaks-circle-active",
         type: "circle",
         source: "outbreaks-points",
@@ -705,7 +715,7 @@ export function OutbreakMap({
         popup.remove();
         clusterPopup.remove();
       };
-  }, [outbreaks, geo, ready, onSelectOutbreak]);
+  }, [outbreaks, geo, ready, onSelectOutbreak, regionCentroids]);
 
   // ─── Risk zones (only visible when zoomed in) ──────────────────────
   useEffect(() => {

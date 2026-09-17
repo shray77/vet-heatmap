@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
@@ -91,6 +91,13 @@ export function OutbreaksTable({ outbreaks, onSelectOutbreak }: OutbreaksTablePr
     });
     return sorted;
   }, [outbreaks, sortBy, sortDir, search, statusFilter]);
+
+  // Cap rendered rows. Rendering all 2k+ outbreaks as DOM nodes makes every
+  // filter toggle reconcile thousands of nodes (multi-second main-thread block).
+  const [visibleCount, setVisibleCount] = useState(200);
+  useEffect(() => { setVisibleCount(200); }, [filtered]);
+  const visible = filtered.slice(0, visibleCount);
+  const hiddenCount = filtered.length - visible.length;
 
   const toggleSort = (key: SortKey) => {
     if (sortBy === key) {
@@ -204,7 +211,8 @@ export function OutbreaksTable({ outbreaks, onSelectOutbreak }: OutbreaksTablePr
                 </TableCell>
               </TableRow>
             ) : (
-              filtered.map((o) => {
+              <>
+                {visible.map((o) => {
                 const labels = DISEASE_LABELS[o.disease_key as DiseaseKey];
                 const color = diseaseColor(o.disease_key, o.disease_group);
                 return (
@@ -258,7 +266,21 @@ export function OutbreaksTable({ outbreaks, onSelectOutbreak }: OutbreaksTablePr
                     </TableCell>
                   </TableRow>
                 );
-              })
+                })}
+                {hiddenCount > 0 && (
+                  <TableRow>
+                    <TableCell colSpan={7} className="text-center py-2">
+                      <button
+                        type="button"
+                        onClick={() => setVisibleCount((c) => c + 200)}
+                        className="text-xs text-primary hover:underline font-medium"
+                      >
+                        Показать ещё {Math.min(200, hiddenCount)} из {filtered.length}…
+                      </button>
+                    </TableCell>
+                  </TableRow>
+                )}
+              </>
             )}
           </TableBody>
         </Table>
