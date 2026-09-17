@@ -39,6 +39,7 @@ const SOURCE_RU: Record<SourceKey, string> = {
   fsvps: "Россельхознадзор",
   wahis: "WOAH WAHIS",
   efsa: "EFSA ADIS",
+  telegram: "Telegram",
   curated: "Кураторская база",
 };
 
