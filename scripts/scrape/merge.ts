@@ -40,8 +40,8 @@ function isCountryLevel(o: Outbreak): boolean {
   return r === "" || r === "russia" || r === "russian federation" || r === "россия" || r === "рф";
 }
 
-/** Get the effective region key for dedup. */
-function dedupeKey(o: Outbreak): string {
+/** Get the effective region key for dedup. Exported for incremental upsert. */
+export function dedupeKey(o: Outbreak): string {
   const region = isCountryLevel(o) ? "__country__" : (o.region_geo || o.region);
   return `${o.disease_key}|${region}|${dateBucket(o.date)}`;
 }

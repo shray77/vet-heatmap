@@ -36,10 +36,25 @@ import { scrapeWahis } from "./sources/wahis";
 import { normalizeDisease, getDiseaseLabels } from "../../src/data/diseases-normalize";
 import { normalizeRegion } from "../../src/data/regions";
 import { scrapeEfsa } from "./sources/efsa";
-import { mergeOutbreaks, buildDataset } from "./merge";
+import { mergeOutbreaks, buildDataset, dedupeKey } from "./merge";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const OUT_PATH = resolve(__dirname, "..", "..", "public", "data", "outbreaks.json");
+
+/**
+ * Load the previously committed dataset so we can preserve full history.
+ * The weekly run only refreshes a recent window; older entries survive by
+ * being upserted (not re-fetched). Returns [] if the file is missing.
+ */
+async function loadBaseline(): Promise<Outbreak[]> {
+  try {
+    const raw = await readFile(OUT_PATH, "utf-8");
+    const data = JSON.parse(raw);
+    return Array.isArray(data.outbreaks) ? (data.outbreaks as Outbreak[]) : [];
+  } catch {
+    return [];
+  }
+}
 
 async function main() {
   console.log("=".repeat(70));
@@ -64,7 +79,7 @@ async function main() {
 
   // Run external scrapers; if any fail, log warning and continue
   const results = await Promise.allSettled([
-    scrapeFsvps({ lookbackDays: 1000, maxReports: 1000 }),
+    scrapeFsvps({ lookbackDays: 35, maxReports: 45 }),
     scrapeWahis(),
     scrapeEfsa(),
   ]);
@@ -82,8 +97,8 @@ async function main() {
   // Scrape older fsvps reports from the archive page, parse PDFs,
   // and add to the outbreak list.
   try {
-    console.log("\n      ─── Historical archive (2024) ───");
-    const histResult = await scrapeHistoricalArchive({ maxReports: 100, yearFilter: 2024 });
+    console.log("\n      ─── Historical archive (recent window) ───");
+    const histResult = await scrapeHistoricalArchive({ lookbackDays: 30, maxReports: 60 });
     console.log(`      Found ${histResult.totalFound} historical reports, processing ${histResult.reports.length}`);
 
     const histOutbreaks: any[] = [];
@@ -161,7 +176,7 @@ async function main() {
         };
       });
       sources.push({ source: "fsvps", outbreaks: histOutbreaksConverted });
-      console.log(`      ✓ Historical: ${histOutbreaksConverted.length} outbreaks added from 2024`);
+      console.log(`      ✓ Historical: ${histOutbreaksConverted.length} outbreaks added from recent window`);
     }
   } catch (e) {
     console.log(`      ⚠ Historical archive failed:`, e instanceof Error ? e.message : e);
@@ -207,21 +222,51 @@ async function main() {
     console.log(`      ✗ efsa FAILED: ${efsaResult.reason?.message ?? efsaResult.reason}`);
   }
 
-  // 3. Merge + dedupe
+  // 3. Merge recent sources (curated + fsvps + wahis + recent archive)
   console.log("\n" + "─".repeat(70));
-  console.log("[3/4] Merging + deduping…");
-  const totalBefore = sources.reduce((s, x) => s + x.outbreaks.length, 0);
-  const merged = mergeOutbreaks(sources.map((s) => ({ source: s.source, outbreaks: s.outbreaks })));
-  console.log(`      ${totalBefore} → ${merged.length} (after dedupe)`);
+  console.log("[3/5] Merging recent sources…");
+  const totalRecent = sources.reduce((s, x) => s + x.outbreaks.length, 0);
+  const recentMerged = mergeOutbreaks(
+    sources.map((s) => ({ source: s.source, outbreaks: s.outbreaks })),
+  );
+  console.log(`      ${totalRecent} recent → ${recentMerged.length} (deduped)`);
 
-  const contributingSources: SourceKey[] = sources
-    .filter((s) => s.outbreaks.length > 0)
-    .map((s) => s.source);
-
-  // 4. Build dataset + write
+  // 4. Incremental upsert into previous committed dataset (preserves full history;
+  //    we no longer re-fetch the whole archive every run — only a recent window).
   console.log("\n" + "─".repeat(70));
-  console.log("[4/4] Writing final dataset…");
-  const dataset = buildDataset(merged, contributingSources);
+  console.log("[4/5] Upserting into committed baseline…");
+  const baseline = await loadBaseline();
+  console.log(`      Baseline (previous commit): ${baseline.length} outbreaks`);
+
+  const map = new Map<string, Outbreak>();
+  for (const o of baseline) map.set(dedupeKey(o), o);
+
+  let addedNew = 0;
+  let resolvedExisting = 0;
+  for (const o of recentMerged) {
+    const key = dedupeKey(o);
+    const existing = map.get(key);
+    // Don't invent brand-new "Resolved" records from a single incremental parse;
+    // we only ever flip an existing Ongoing → Resolved when a closure is seen.
+    if (!existing && o.status === "Resolved") continue;
+    if (existing && existing.status === "Ongoing" && o.status === "Resolved") resolvedExisting++;
+    if (!existing) addedNew++;
+    map.set(key, o);
+  }
+
+  const finalOutbreaks = [...map.values()].sort((a, b) => a.date.localeCompare(b.date));
+  finalOutbreaks.forEach((o, i) => {
+    o.id = i + 1;
+  });
+  console.log(`      +${addedNew} new, ${resolvedExisting} resolved, total ${finalOutbreaks.length}`);
+
+  // 5. Build dataset + write
+  console.log("\n" + "─".repeat(70));
+  console.log("[5/5] Writing final dataset…");
+  const contributingSources = Array.from(
+    new Set(finalOutbreaks.map((o) => o.source)),
+  ) as SourceKey[];
+  const dataset = buildDataset(finalOutbreaks, contributingSources);
 
   await writeFile(OUT_PATH, JSON.stringify(dataset, null, 2), "utf-8");
   console.log(`      ✓ Written ${dataset.total_outbreaks} outbreaks to ${OUT_PATH}`);

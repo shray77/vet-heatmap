@@ -271,12 +271,19 @@ function extractSpecies(text: string): string {
   return "Other";
 }
 
-/** Extract number from text by keyword (пало, заражено, выявлено, etc.). */
+/** Extract number from text by keyword (пало, заражено, выявлено, etc.).
+ *  Tolerates punctuation/colon/dash between keyword and number, and also
+ *  matches a number that precedes the keyword (e.g. "15 голов пало"). */
 function extractNumber(text: string, keywords: string[]): number | undefined {
   for (const kw of keywords) {
-    const re = new RegExp(`${kw}\\s+(\\d+)`, "i");
-    const m = text.match(re);
-    if (m) return parseInt(m[1], 10);
+    // keyword → number, with optional ":", "-", "–", "—" or whitespace
+    const reFwd = new RegExp(`${kw}\\s*[:\\-–—]?\\s*(\\d+)`, "i");
+    const mFwd = text.match(reFwd);
+    if (mFwd) return parseInt(mFwd[1], 10);
+    // number → keyword (e.g. "пало 12 голов" already caught above; "12 голов пало")
+    const reRev = new RegExp(`(\\d+)\\s*(?:голов|особей|животных|птиц)?\\s*${kw}`, "i");
+    const mRev = text.match(reRev);
+    if (mRev) return parseInt(mRev[1], 10);
   }
   return undefined;
 }
@@ -336,8 +343,14 @@ function itemToArticle(
     else if (/бешенств/.test(dl)) species = "Wildlife";
   }
 
-  const cases = extractNumber(itemText, ["заражено", "выявлено", "заболело", "инфицировано"]);
-  const deaths = extractNumber(itemText, ["пало", "погибло", "усыпано"]);
+  const cases = extractNumber(itemText, [
+    "заражено", "выявлено", "заболело", "инфицировано",
+    "заболевших", "выявленных", "инфицированных", "больн", "поражено",
+  ]);
+  const deaths = extractNumber(itemText, [
+    "пало", "погибло", "усыпано", "павших", "погибших", "с пало",
+    "пало всего", "случаев гибели", "павше",
+  ]);
 
   // Feature 4: Advanced metadata extraction
   const farmType = extractFarmType(itemText);

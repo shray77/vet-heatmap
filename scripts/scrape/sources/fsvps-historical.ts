@@ -133,7 +133,13 @@ async function extractPdfUrl(pageUrl: string): Promise<string | null> {
  * @param opts.maxReports Maximum number of report pages to process (default: 50)
  * @param opts.yearFilter Only process reports from this year (e.g., 2024)
  */
-export async function scrapeHistoricalArchive(opts: { maxReports?: number; yearFilter?: number } = {}): Promise<{
+export async function scrapeHistoricalArchive(opts: {
+  maxReports?: number;
+  yearFilter?: number;
+  /** Only process report pages newer than this many days (default 30).
+   *  Replaces the old "hammer the whole archive" behaviour. */
+  lookbackDays?: number;
+} = {}): Promise<{
   reports: HistoricalReport[];
   totalFound: number;
 }> {
@@ -144,10 +150,20 @@ export async function scrapeHistoricalArchive(opts: { maxReports?: number; yearF
   const reportPages = extractReportPages(html);
   console.log(`[fsvps-hist] Found ${reportPages.length} report page links`);
 
-  // Filter by year if requested
+  // Filter by recency first (the important one) — only recent pages by default.
   let filtered = reportPages;
+  const lookback = opts.lookbackDays ?? 30;
+  const cutoff = new Date();
+  cutoff.setDate(cutoff.getDate() - lookback);
+  filtered = filtered.filter((r) => {
+    const iso = parseDate(r.dateStr);
+    return iso ? new Date(iso) >= cutoff : false;
+  });
+  console.log(`[fsvps-hist] After lookback filter (${lookback}d): ${filtered.length}`);
+
+  // Optional year filter (kept for one-off backfills)
   if (opts.yearFilter) {
-    filtered = reportPages.filter((r) => {
+    filtered = filtered.filter((r) => {
       const iso = parseDate(r.dateStr);
       return iso && iso.startsWith(String(opts.yearFilter));
     });
