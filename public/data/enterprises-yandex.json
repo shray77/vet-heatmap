@@ -3,7 +3,7 @@
   "sources": [
     "yandex"
   ],
-  "total": 178,
+  "total": 179,
   "enterprises": [
     {
       "id": "yandex-187535263300",
@@ -1961,6 +1961,17 @@
       "address": "Челябинск, ул. Сони Кривой, 42/1",
       "city": "Челябинск",
       "rubric": "Магазин мяса, колбас",
+      "source": "yandex"
+    },
+    {
+      "id": "yandex-1386552946",
+      "name": "Скарабей",
+      "type": "meat_plant",
+      "lat": null,
+      "lon": null,
+      "address": "Россия, Москва, МКАД, 8-й километр, 3, корп. 2",
+      "city": "Москва",
+      "rubric": "Торговый центр",
       "source": "yandex"
     }
   ]
