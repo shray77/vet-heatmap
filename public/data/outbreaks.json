@@ -6,7 +6,7 @@
     "fsvps",
     "wahis"
   ],
-  "total_outbreaks": 2618,
+  "total_outbreaks": 2633,
   "outbreaks": [
     {
       "id": 1,
@@ -273,7 +273,7 @@
       "disease_key": "asf",
       "disease": "Африканская чума свиней",
       "disease_group": "Swine",
-      "region": "Омская область",
+      "region": "Челябинская область",
       "region_geo": "",
       "date": "2007-11-05",
       "species": "Other",
@@ -284,9 +284,9 @@
       "source_url": "https://wahis.woah.org/#/event/421",
       "notes": "African swine fever virus (Inf. with)  in Russia",
       "region_inferred": true,
-      "federal_district": "СФО",
+      "federal_district": "УрФО",
       "lat": 54.764097122620996,
-      "lon": 73.4215513143921,
+      "lon": 61.52155131439211,
       "geocode_source": "region_centroid"
     },
     {
@@ -388,7 +388,7 @@
       "disease_key": "asf",
       "disease": "Африканская чума свиней",
       "disease_group": "Swine",
-      "region": "Омская область",
+      "region": "Челябинская область",
       "region_geo": "",
       "date": "2009-09-11",
       "species": "Other",
@@ -399,9 +399,9 @@
       "source_url": "https://wahis.woah.org/#/event/724",
       "notes": "African swine fever virus (Inf. with)  in Russia",
       "region_inferred": true,
-      "federal_district": "СФО",
+      "federal_district": "УрФО",
       "lat": 55.24338380570471,
-      "lon": 73.41175249421602,
+      "lon": 61.51175249421602,
       "geocode_source": "region_centroid"
     },
     {
@@ -744,7 +744,7 @@
       "disease_key": "asf",
       "disease": "Африканская чума свиней",
       "disease_group": "Swine",
-      "region": "Омская область",
+      "region": "Челябинская область",
       "region_geo": "",
       "date": "2014-01-01",
       "species": "Other",
@@ -755,9 +755,9 @@
       "source_url": "https://wahis.woah.org/#/event/1493",
       "notes": "African swine fever virus (Inf. with)  in Russia",
       "region_inferred": true,
-      "federal_district": "СФО",
+      "federal_district": "УрФО",
       "lat": 55.08368421683219,
-      "lon": 73.25741259047913,
+      "lon": 61.35741259047914,
       "geocode_source": "region_centroid"
     },
     {
@@ -765,7 +765,7 @@
       "disease_key": "asf",
       "disease": "Африканская чума свиней",
       "disease_group": "Swine",
-      "region": "Омская область",
+      "region": "Челябинская область",
       "region_geo": "",
       "date": "2014-01-14",
       "species": "Other",
@@ -776,9 +776,9 @@
       "source_url": "https://wahis.woah.org/#/event/1494",
       "notes": "African swine fever virus (Inf. with)  in Russia",
       "region_inferred": true,
-      "federal_district": "СФО",
+      "federal_district": "УрФО",
       "lat": 54.82591074672191,
-      "lon": 73.23123874675902,
+      "lon": 61.33123874675902,
       "geocode_source": "region_centroid"
     },
     {
@@ -1110,10 +1110,7 @@
       "source_url": "https://wahis.woah.org/#/event/2000",
       "notes": "Anthrax  in Russia",
       "region_inferred": true,
-      "federal_district": "СФО",
-      "lat": 53.27955151281497,
-      "lon": 84.03585354839934,
-      "geocode_source": "region_centroid"
+      "federal_district": "СФО"
     },
     {
       "id": 57,
@@ -1274,7 +1271,7 @@
       "disease_key": "asf",
       "disease": "Африканская чума свиней",
       "disease_group": "Swine",
-      "region": "Омская область",
+      "region": "Челябинская область",
       "region_geo": "",
       "date": "2017-03-18",
       "species": "Other",
@@ -1285,9 +1282,9 @@
       "source_url": "https://wahis.woah.org/#/event/2241",
       "notes": "African swine fever virus (Inf. with)  in Russia",
       "region_inferred": true,
-      "federal_district": "СФО",
+      "federal_district": "УрФО",
       "lat": 54.94884639958521,
-      "lon": 73.17262010357189,
+      "lon": 61.27262010357189,
       "geocode_source": "region_centroid"
     },
     {
@@ -1316,7 +1313,7 @@
       "disease_key": "asf",
       "disease": "Африканская чума свиней",
       "disease_group": "Swine",
-      "region": "Омская область",
+      "region": "Челябинская область",
       "region_geo": "",
       "date": "2017-07-06",
       "species": "Other",
@@ -1327,9 +1324,9 @@
       "source_url": "https://wahis.woah.org/#/event/2319",
       "notes": "African swine fever virus (Inf. with)  in Russia",
       "region_inferred": true,
-      "federal_district": "СФО",
+      "federal_district": "УрФО",
       "lat": 54.74487625412387,
-      "lon": 73.45960044149332,
+      "lon": 61.55960044149333,
       "geocode_source": "region_centroid"
     },
     {
@@ -1379,7 +1376,7 @@
       "disease_key": "asf",
       "disease": "Африканская чума свиней",
       "disease_group": "Swine",
-      "region": "Омская область",
+      "region": "Челябинская область",
       "region_geo": "",
       "date": "2017-10-02",
       "species": "Other",
@@ -1390,9 +1387,9 @@
       "source_url": "https://wahis.woah.org/#/event/2378",
       "notes": "African swine fever virus (Inf. with)  in Russia",
       "region_inferred": true,
-      "federal_district": "СФО",
+      "federal_district": "УрФО",
       "lat": 55.24586154275433,
-      "lon": 73.1764474244552,
+      "lon": 61.276447424455206,
       "geocode_source": "region_centroid"
     },
     {
@@ -1400,7 +1397,7 @@
       "disease_key": "asf",
       "disease": "Африканская чума свиней",
       "disease_group": "Swine",
-      "region": "Омская область",
+      "region": "Челябинская область",
       "region_geo": "",
       "date": "2017-10-30",
       "species": "Other",
@@ -1411,9 +1408,9 @@
       "source_url": "https://wahis.woah.org/#/event/2396",
       "notes": "African swine fever virus (Inf. with)  in Russia",
       "region_inferred": true,
-      "federal_district": "СФО",
+      "federal_district": "УрФО",
       "lat": 54.89425200749246,
-      "lon": 73.37201769112933,
+      "lon": 61.472017691129324,
       "geocode_source": "region_centroid"
     },
     {
@@ -1421,7 +1418,7 @@
       "disease_key": "asf",
       "disease": "Африканская чума свиней",
       "disease_group": "Swine",
-      "region": "Омская область",
+      "region": "Челябинская область",
       "region_geo": "",
       "date": "2017-11-02",
       "species": "Other",
@@ -1432,9 +1429,9 @@
       "source_url": "https://wahis.woah.org/#/event/2397",
       "notes": "African swine fever virus (Inf. with)  in Russia | African swine fever virus (Inf. with)  in Russia",
       "region_inferred": true,
-      "federal_district": "СФО",
+      "federal_district": "УрФО",
       "lat": 54.7440559928814,
-      "lon": 73.35661715748174,
+      "lon": 61.456617157481745,
       "geocode_source": "region_centroid"
     },
     {
@@ -1519,7 +1516,7 @@
       "disease_key": "asf",
       "disease": "Африканская чума свиней",
       "disease_group": "Swine",
-      "region": "Омская область",
+      "region": "Челябинская область",
       "region_geo": "",
       "date": "2018-06-05",
       "species": "Other",
@@ -1530,9 +1527,9 @@
       "source_url": "https://wahis.woah.org/#/event/2569",
       "notes": "African swine fever virus (Inf. with)  in Russia",
       "region_inferred": true,
-      "federal_district": "СФО",
+      "federal_district": "УрФО",
       "lat": 55.179469221470036,
-      "lon": 73.19554368643752,
+      "lon": 61.29554368643752,
       "geocode_source": "region_centroid"
     },
     {
@@ -1611,10 +1608,7 @@
       "source_url": "https://wahis.woah.org/#/event/2613",
       "notes": "Anthrax  in Russia",
       "region_inferred": true,
-      "federal_district": "СФО",
-      "lat": 53.00356424826215,
-      "lon": 83.97197082789877,
-      "geocode_source": "region_centroid"
+      "federal_district": "СФО"
     },
     {
       "id": 82,
@@ -1757,7 +1751,7 @@
       "disease_key": "asf",
       "disease": "Африканская чума свиней",
       "disease_group": "Swine",
-      "region": "Омская область",
+      "region": "Челябинская область",
       "region_geo": "",
       "date": "2019-02-20",
       "species": "Other",
@@ -1768,9 +1762,9 @@
       "source_url": "https://wahis.woah.org/#/event/2820",
       "notes": "African swine fever virus (Inf. with)  in Russia",
       "region_inferred": true,
-      "federal_district": "СФО",
+      "federal_district": "УрФО",
       "lat": 54.74865439877433,
-      "lon": 73.36408167348756,
+      "lon": 61.464081673487556,
       "geocode_source": "region_centroid"
     },
     {
@@ -1778,7 +1772,7 @@
       "disease_key": "asf",
       "disease": "Африканская чума свиней",
       "disease_group": "Swine",
-      "region": "Омская область",
+      "region": "Челябинская область",
       "region_geo": "",
       "date": "2019-02-22",
       "species": "Other",
@@ -1789,9 +1783,9 @@
       "source_url": "https://wahis.woah.org/#/event/2821",
       "notes": "African swine fever virus (Inf. with)  in Russia",
       "region_inferred": true,
-      "federal_district": "СФО",
+      "federal_district": "УрФО",
       "lat": 54.82220226845263,
-      "lon": 73.05561605310899,
+      "lon": 61.155616053109,
       "geocode_source": "region_centroid"
     },
     {
@@ -1921,7 +1915,7 @@
       "disease_key": "asf",
       "disease": "Африканская чума свиней",
       "disease_group": "Swine",
-      "region": "Омская область",
+      "region": "Челябинская область",
       "region_geo": "",
       "date": "2019-07-30",
       "species": "Other",
@@ -1932,9 +1926,9 @@
       "source_url": "https://wahis.woah.org/#/event/2983",
       "notes": "African swine fever virus (Inf. with)  in Russia",
       "region_inferred": true,
-      "federal_district": "СФО",
+      "federal_district": "УрФО",
       "lat": 54.81672234875991,
-      "lon": 73.48364638087965,
+      "lon": 61.58364638087965,
       "geocode_source": "region_centroid"
     },
     {
@@ -2089,7 +2083,7 @@
       "disease_key": "asf",
       "disease": "Африканская чума свиней",
       "disease_group": "Swine",
-      "region": "Омская область",
+      "region": "Челябинская область",
       "region_geo": "",
       "date": "2020-01-03",
       "species": "Other",
@@ -2100,9 +2094,9 @@
       "source_url": "https://wahis.woah.org/#/event/3093",
       "notes": "African swine fever virus (Inf. with)  in Russia",
       "region_inferred": true,
-      "federal_district": "СФО",
+      "federal_district": "УрФО",
       "lat": 55.226859609445896,
-      "lon": 73.20947118810142,
+      "lon": 61.30947118810142,
       "geocode_source": "region_centroid"
     },
     {
@@ -2215,7 +2209,7 @@
       "disease_key": "asf",
       "disease": "Африканская чума свиней",
       "disease_group": "Swine",
-      "region": "Омская область",
+      "region": "Челябинская область",
       "region_geo": "",
       "date": "2020-07-09",
       "species": "Other",
@@ -2226,9 +2220,9 @@
       "source_url": "https://wahis.woah.org/#/event/3241",
       "notes": "African swine fever virus (Inf. with)  in Russia",
       "region_inferred": true,
-      "federal_district": "СФО",
+      "federal_district": "УрФО",
       "lat": 55.19630233920539,
-      "lon": 73.1276578691057,
+      "lon": 61.227657869105705,
       "geocode_source": "region_centroid"
     },
     {
@@ -2434,7 +2428,7 @@
       "disease_key": "asf",
       "disease": "Африканская чума свиней",
       "disease_group": "Swine",
-      "region": "Омская область",
+      "region": "Челябинская область",
       "region_geo": "",
       "date": "2020-11-24",
       "species": "Other",
@@ -2445,9 +2439,9 @@
       "source_url": "https://wahis.woah.org/#/event/3443",
       "notes": "African swine fever virus (Inf. with)  in Russia",
       "region_inferred": true,
-      "federal_district": "СФО",
+      "federal_district": "УрФО",
       "lat": 55.00601110404609,
-      "lon": 73.35819885226455,
+      "lon": 61.458198852264545,
       "geocode_source": "region_centroid"
     },
     {
@@ -2514,7 +2508,7 @@
       "disease_key": "asf",
       "disease": "Африканская чума свиней",
       "disease_group": "Swine",
-      "region": "Омская область",
+      "region": "Челябинская область",
       "region_geo": "",
       "date": "2021-02-24",
       "species": "Other",
@@ -2525,9 +2519,9 @@
       "source_url": "https://wahis.woah.org/#/event/3583",
       "notes": "African swine fever virus (Inf. with)  in Russia",
       "region_inferred": true,
-      "federal_district": "СФО",
+      "federal_district": "УрФО",
       "lat": 55.04354604360559,
-      "lon": 73.34683833686475,
+      "lon": 61.44683833686475,
       "geocode_source": "region_centroid"
     },
     {
@@ -2535,7 +2529,7 @@
       "disease_key": "asf",
       "disease": "Африканская чума свиней",
       "disease_group": "Swine",
-      "region": "Омская область",
+      "region": "Челябинская область",
       "region_geo": "",
       "date": "2021-03-05",
       "species": "Other",
@@ -2546,9 +2540,9 @@
       "source_url": "https://wahis.woah.org/#/event/3620",
       "notes": "African swine fever virus (Inf. with)  in Russia",
       "region_inferred": true,
-      "federal_district": "СФО",
+      "federal_district": "УрФО",
       "lat": 54.72674547692701,
-      "lon": 73.37434173485859,
+      "lon": 61.474341734858584,
       "geocode_source": "region_centroid"
     },
     {
@@ -2598,7 +2592,7 @@
       "disease_key": "asf",
       "disease": "Африканская чума свиней",
       "disease_group": "Swine",
-      "region": "Омская область",
+      "region": "Челябинская область",
       "region_geo": "",
       "date": "2021-04-03",
       "species": "Other",
@@ -2609,9 +2603,9 @@
       "source_url": "https://wahis.woah.org/#/event/3647",
       "notes": "African swine fever virus (Inf. with)  in Russia | African swine fever virus (Inf. with)  in Russia",
       "region_inferred": true,
-      "federal_district": "СФО",
+      "federal_district": "УрФО",
       "lat": 55.01186676513611,
-      "lon": 73.16399301194183,
+      "lon": 61.263993011941835,
       "geocode_source": "region_centroid"
     },
     {
@@ -2636,7 +2630,7 @@
       "disease_key": "asf",
       "disease": "Африканская чума свиней",
       "disease_group": "Swine",
-      "region": "Омская область",
+      "region": "Челябинская область",
       "region_geo": "",
       "date": "2021-04-21",
       "species": "Other",
@@ -2647,9 +2641,9 @@
       "source_url": "https://wahis.woah.org/#/event/3690",
       "notes": "African swine fever virus (Inf. with)  in Russia | African swine fever virus (Inf. with)  in Russia",
       "region_inferred": true,
-      "federal_district": "СФО",
+      "federal_district": "УрФО",
       "lat": 54.94745729635257,
-      "lon": 73.24463326064757,
+      "lon": 61.34463326064758,
       "geocode_source": "region_centroid"
     },
     {
@@ -2657,7 +2651,7 @@
       "disease_key": "asf",
       "disease": "Африканская чума свиней",
       "disease_group": "Swine",
-      "region": "Омская область",
+      "region": "Челябинская область",
       "region_geo": "",
       "date": "2021-04-26",
       "species": "Other",
@@ -2668,9 +2662,9 @@
       "source_url": "https://wahis.woah.org/#/event/3692",
       "notes": "African swine fever virus (Inf. with)  in Russia | African swine fever virus (Inf. with)  in Russia | African swine fever virus (Inf. with)  in Russia",
       "region_inferred": true,
-      "federal_district": "СФО",
+      "federal_district": "УрФО",
       "lat": 54.99629959026494,
-      "lon": 73.28941234792319,
+      "lon": 61.3894123479232,
       "geocode_source": "region_centroid"
     },
     {
@@ -2678,7 +2672,7 @@
       "disease_key": "asf",
       "disease": "Африканская чума свиней",
       "disease_group": "Swine",
-      "region": "Омская область",
+      "region": "Челябинская область",
       "region_geo": "",
       "date": "2021-04-29",
       "species": "Other",
@@ -2689,9 +2683,9 @@
       "source_url": "https://wahis.woah.org/#/event/3771",
       "notes": "African swine fever virus (Inf. with)  in Russia",
       "region_inferred": true,
-      "federal_district": "СФО",
+      "federal_district": "УрФО",
       "lat": 54.990471253647485,
-      "lon": 73.11926093127938,
+      "lon": 61.21926093127938,
       "geocode_source": "region_centroid"
     },
     {
@@ -2699,7 +2693,7 @@
       "disease_key": "asf",
       "disease": "Африканская чума свиней",
       "disease_group": "Swine",
-      "region": "Омская область",
+      "region": "Челябинская область",
       "region_geo": "",
       "date": "2021-05-08",
       "species": "Other",
@@ -2710,9 +2704,9 @@
       "source_url": "https://wahis.woah.org/#/event/3713",
       "notes": "African swine fever virus (Inf. with)  in Russia | African swine fever virus (Inf. with)  in Russia",
       "region_inferred": true,
-      "federal_district": "СФО",
+      "federal_district": "УрФО",
       "lat": 55.10172102171295,
-      "lon": 73.37528122802063,
+      "lon": 61.47528122802063,
       "geocode_source": "region_centroid"
     },
     {
@@ -2762,7 +2756,7 @@
       "disease_key": "asf",
       "disease": "Африканская чума свиней",
       "disease_group": "Swine",
-      "region": "Омская область",
+      "region": "Челябинская область",
       "region_geo": "",
       "date": "2021-06-12",
       "species": "Other",
@@ -2773,9 +2767,9 @@
       "source_url": "https://wahis.woah.org/#/event/3852",
       "notes": "African swine fever virus (Inf. with)  in Russia | African swine fever virus (Inf. with)  in Russia",
       "region_inferred": true,
-      "federal_district": "СФО",
+      "federal_district": "УрФО",
       "lat": 54.81606180093543,
-      "lon": 73.27006377107014,
+      "lon": 61.37006377107014,
       "geocode_source": "region_centroid"
     },
     {
@@ -2804,7 +2798,7 @@
       "disease_key": "asf",
       "disease": "Африканская чума свиней",
       "disease_group": "Swine",
-      "region": "Омская область",
+      "region": "Челябинская область",
       "region_geo": "",
       "date": "2021-06-30",
       "species": "Other",
@@ -2815,9 +2809,9 @@
       "source_url": "https://wahis.woah.org/#/event/3803",
       "notes": "African swine fever virus (Inf. with)  in Russia | African swine fever virus (Inf. with)  in Russia | African swine fever virus (Inf. with)  in Russia",
       "region_inferred": true,
-      "federal_district": "СФО",
+      "federal_district": "УрФО",
       "lat": 55.162954563819,
-      "lon": 73.05700746937184,
+      "lon": 61.15700746937184,
       "geocode_source": "region_centroid"
     },
     {
@@ -2825,7 +2819,7 @@
       "disease_key": "asf",
       "disease": "Африканская чума свиней",
       "disease_group": "Swine",
-      "region": "Омская область",
+      "region": "Челябинская область",
       "region_geo": "",
       "date": "2021-07-01",
       "species": "Other",
@@ -2836,9 +2830,9 @@
       "source_url": "https://wahis.woah.org/#/event/3804",
       "notes": "African swine fever virus (Inf. with)  in Russia | African swine fever virus (Inf. with)  in Russia",
       "region_inferred": true,
-      "federal_district": "СФО",
+      "federal_district": "УрФО",
       "lat": 55.010392539704036,
-      "lon": 73.01811253091847,
+      "lon": 61.118112530918474,
       "geocode_source": "region_centroid"
     },
     {
@@ -2884,7 +2878,7 @@
       "disease_key": "asf",
       "disease": "Африканская чума свиней",
       "disease_group": "Swine",
-      "region": "Омская область",
+      "region": "Челябинская область",
       "region_geo": "",
       "date": "2021-07-13",
       "species": "Other",
@@ -2895,9 +2889,9 @@
       "source_url": "https://wahis.woah.org/#/event/3811",
       "notes": "African swine fever virus (Inf. with)  in Russia | African swine fever virus (Inf. with)  in Russia | African swine fever virus (Inf. with)  in Russia | African swine fever virus (Inf. with)  in Russia | African swine fever virus (Inf. with)  in Russia | African swine fever virus (Inf. with)  in Russia",
       "region_inferred": true,
-      "federal_district": "СФО",
+      "federal_district": "УрФО",
       "lat": 54.9689603330282,
-      "lon": 73.2726371813484,
+      "lon": 61.372637181348395,
       "geocode_source": "region_centroid"
     },
     {
@@ -2905,7 +2899,7 @@
       "disease_key": "asf",
       "disease": "Африканская чума свиней",
       "disease_group": "Swine",
-      "region": "Омская область",
+      "region": "Челябинская область",
       "region_geo": "",
       "date": "2021-07-18",
       "species": "Other",
@@ -2916,9 +2910,9 @@
       "source_url": "https://wahis.woah.org/#/event/3821",
       "notes": "African swine fever virus (Inf. with)  in Russia | African swine fever virus (Inf. with)  in Russia",
       "region_inferred": true,
-      "federal_district": "СФО",
+      "federal_district": "УрФО",
       "lat": 55.222285433519495,
-      "lon": 73.48364468852921,
+      "lon": 61.58364468852921,
       "geocode_source": "region_centroid"
     },
     {
@@ -2926,7 +2920,7 @@
       "disease_key": "asf",
       "disease": "Африканская чума свиней",
       "disease_group": "Swine",
-      "region": "Омская область",
+      "region": "Челябинская область",
       "region_geo": "",
       "date": "2021-07-26",
       "species": "Other",
@@ -2937,9 +2931,9 @@
       "source_url": "https://wahis.woah.org/#/event/3847",
       "notes": "African swine fever virus (Inf. with)  in Russia | African swine fever virus (Inf. with)  in Russia",
       "region_inferred": true,
-      "federal_district": "СФО",
+      "federal_district": "УрФО",
       "lat": 54.780001100032784,
-      "lon": 73.37399290350743,
+      "lon": 61.47399290350743,
       "geocode_source": "region_centroid"
     },
     {
@@ -2947,7 +2941,7 @@
       "disease_key": "asf",
       "disease": "Африканская чума свиней",
       "disease_group": "Swine",
-      "region": "Омская область",
+      "region": "Челябинская область",
       "region_geo": "",
       "date": "2021-08-04",
       "species": "Other",
@@ -2958,9 +2952,9 @@
       "source_url": "https://wahis.woah.org/#/event/3853",
       "notes": "African swine fever virus (Inf. with)  in Russia",
       "region_inferred": true,
-      "federal_district": "СФО",
+      "federal_district": "УрФО",
       "lat": 55.06314392824114,
-      "lon": 73.08927853819873,
+      "lon": 61.189278538198735,
       "geocode_source": "region_centroid"
     },
     {
@@ -2989,7 +2983,7 @@
       "disease_key": "asf",
       "disease": "Африканская чума свиней",
       "disease_group": "Swine",
-      "region": "Омская область",
+      "region": "Челябинская область",
       "region_geo": "",
       "date": "2021-08-07",
       "species": "Other",
@@ -3000,9 +2994,9 @@
       "source_url": "https://wahis.woah.org/#/event/3869",
       "notes": "African swine fever virus (Inf. with)  in Russia | African swine fever virus (Inf. with)  in Russia",
       "region_inferred": true,
-      "federal_district": "СФО",
+      "federal_district": "УрФО",
       "lat": 54.74266450448978,
-      "lon": 73.15103244652099,
+      "lon": 61.25103244652098,
       "geocode_source": "region_centroid"
     },
     {
@@ -3031,7 +3025,7 @@
       "disease_key": "asf",
       "disease": "Африканская чума свиней",
       "disease_group": "Swine",
-      "region": "Омская область",
+      "region": "Челябинская область",
       "region_geo": "",
       "date": "2021-08-18",
       "species": "Other",
@@ -3042,9 +3036,9 @@
       "source_url": "https://wahis.woah.org/#/event/3890",
       "notes": "African swine fever virus (Inf. with)  in Russia",
       "region_inferred": true,
-      "federal_district": "СФО",
+      "federal_district": "УрФО",
       "lat": 55.1239442411495,
-      "lon": 73.50758879276354,
+      "lon": 61.607588792763536,
       "geocode_source": "region_centroid"
     },
     {
@@ -3091,7 +3085,7 @@
       "disease_key": "asf",
       "disease": "Африканская чума свиней",
       "disease_group": "Swine",
-      "region": "Омская область",
+      "region": "Челябинская область",
       "region_geo": "",
       "date": "2021-08-28",
       "species": "Other",
@@ -3102,9 +3096,9 @@
       "source_url": "https://wahis.woah.org/#/event/3908",
       "notes": "African swine fever virus (Inf. with)  in Russia",
       "region_inferred": true,
-      "federal_district": "СФО",
+      "federal_district": "УрФО",
       "lat": 54.82188538382532,
-      "lon": 73.55329872573981,
+      "lon": 61.6532987257398,
       "geocode_source": "region_centroid"
     },
     {
@@ -3133,7 +3127,7 @@
       "disease_key": "asf",
       "disease": "Африканская чума свиней",
       "disease_group": "Swine",
-      "region": "Омская область",
+      "region": "Челябинская область",
       "region_geo": "",
       "date": "2021-09-08",
       "species": "Other",
@@ -3144,9 +3138,9 @@
       "source_url": "https://wahis.woah.org/#/event/3942",
       "notes": "African swine fever virus (Inf. with)  in Russia",
       "region_inferred": true,
-      "federal_district": "СФО",
+      "federal_district": "УрФО",
       "lat": 54.99266768731597,
-      "lon": 73.53336832556255,
+      "lon": 61.63336832556254,
       "geocode_source": "region_centroid"
     },
     {
@@ -3154,7 +3148,7 @@
       "disease_key": "asf",
       "disease": "Африканская чума свиней",
       "disease_group": "Swine",
-      "region": "Омская область",
+      "region": "Челябинская область",
       "region_geo": "",
       "date": "2021-09-12",
       "species": "Other",
@@ -3165,9 +3159,9 @@
       "source_url": "https://wahis.woah.org/#/event/3976",
       "notes": "African swine fever virus (Inf. with)  in Russia",
       "region_inferred": true,
-      "federal_district": "СФО",
+      "federal_district": "УрФО",
       "lat": 55.06698603551493,
-      "lon": 73.13488025886092,
+      "lon": 61.23488025886092,
       "geocode_source": "region_centroid"
     },
     {
@@ -3175,7 +3169,7 @@
       "disease_key": "asf",
       "disease": "Африканская чума свиней",
       "disease_group": "Swine",
-      "region": "Омская область",
+      "region": "Челябинская область",
       "region_geo": "",
       "date": "2021-09-21",
       "species": "Other",
@@ -3186,9 +3180,9 @@
       "source_url": "https://wahis.woah.org/#/event/3965",
       "notes": "African swine fever virus (Inf. with)  in Russia",
       "region_inferred": true,
-      "federal_district": "СФО",
+      "federal_district": "УрФО",
       "lat": 55.11055138384185,
-      "lon": 73.59729432264189,
+      "lon": 61.697294322641895,
       "geocode_source": "region_centroid"
     },
     {
@@ -3196,7 +3190,7 @@
       "disease_key": "asf",
       "disease": "Африканская чума свиней",
       "disease_group": "Swine",
-      "region": "Омская область",
+      "region": "Челябинская область",
       "region_geo": "",
       "date": "2021-09-26",
       "species": "Other",
@@ -3207,9 +3201,9 @@
       "source_url": "https://wahis.woah.org/#/event/3988",
       "notes": "African swine fever virus (Inf. with)  in Russia | African swine fever virus (Inf. with)  in Russia",
       "region_inferred": true,
-      "federal_district": "СФО",
+      "federal_district": "УрФО",
       "lat": 54.936711929011125,
-      "lon": 73.40352242938586,
+      "lon": 61.50352242938587,
       "geocode_source": "region_centroid"
     },
     {
@@ -3294,7 +3288,7 @@
       "disease_key": "asf",
       "disease": "Африканская чума свиней",
       "disease_group": "Swine",
-      "region": "Омская область",
+      "region": "Челябинская область",
       "region_geo": "",
       "date": "2021-10-06",
       "species": "Other",
@@ -3305,9 +3299,9 @@
       "source_url": "https://wahis.woah.org/#/event/3992",
       "notes": "African swine fever virus (Inf. with)  in Russia | African swine fever virus (Inf. with)  in Russia",
       "region_inferred": true,
-      "federal_district": "СФО",
+      "federal_district": "УрФО",
       "lat": 54.75720094028702,
-      "lon": 73.180621877287,
+      "lon": 61.280621877287,
       "geocode_source": "region_centroid"
     },
     {
@@ -3354,7 +3348,7 @@
       "disease_key": "asf",
       "disease": "Африканская чума свиней",
       "disease_group": "Swine",
-      "region": "Омская область",
+      "region": "Челябинская область",
       "region_geo": "",
       "date": "2021-10-13",
       "species": "Other",
@@ -3365,9 +3359,9 @@
       "source_url": "https://wahis.woah.org/#/event/4009",
       "notes": "African swine fever virus (Inf. with)  in Russia | African swine fever virus (Inf. with)  in Russia",
       "region_inferred": true,
-      "federal_district": "СФО",
+      "federal_district": "УрФО",
       "lat": 54.83729734340625,
-      "lon": 73.05273178366558,
+      "lon": 61.15273178366559,
       "geocode_source": "region_centroid"
     },
     {
@@ -3375,7 +3369,7 @@
       "disease_key": "asf",
       "disease": "Африканская чума свиней",
       "disease_group": "Swine",
-      "region": "Омская область",
+      "region": "Челябинская область",
       "region_geo": "",
       "date": "2021-10-21",
       "species": "Other",
@@ -3386,9 +3380,9 @@
       "source_url": "https://wahis.woah.org/#/event/4032",
       "notes": "African swine fever virus (Inf. with)  in Russia",
       "region_inferred": true,
-      "federal_district": "СФО",
+      "federal_district": "УрФО",
       "lat": 55.147335775710104,
-      "lon": 73.31022173927467,
+      "lon": 61.410221739274675,
       "geocode_source": "region_centroid"
     },
     {
@@ -3435,7 +3429,7 @@
       "disease_key": "asf",
       "disease": "Африканская чума свиней",
       "disease_group": "Swine",
-      "region": "Омская область",
+      "region": "Челябинская область",
       "region_geo": "",
       "date": "2021-11-09",
       "species": "Other",
@@ -3446,9 +3440,9 @@
       "source_url": "https://wahis.woah.org/#/event/4078",
       "notes": "African swine fever virus (Inf. with)  in Russia",
       "region_inferred": true,
-      "federal_district": "СФО",
+      "federal_district": "УрФО",
       "lat": 55.16893497767046,
-      "lon": 73.3370956318999,
+      "lon": 61.4370956318999,
       "geocode_source": "region_centroid"
     },
     {
@@ -3456,7 +3450,7 @@
       "disease_key": "asf",
       "disease": "Африканская чума свиней",
       "disease_group": "Swine",
-      "region": "Омская область",
+      "region": "Челябинская область",
       "region_geo": "",
       "date": "2021-11-17",
       "species": "Other",
@@ -3467,9 +3461,9 @@
       "source_url": "https://wahis.woah.org/#/event/4109",
       "notes": "African swine fever virus (Inf. with)  in Russia | African swine fever virus (Inf. with)  in Russia | African swine fever virus (Inf. with)  in Russia | African swine fever virus (Inf. with)  in Russia",
       "region_inferred": true,
-      "federal_district": "СФО",
+      "federal_district": "УрФО",
       "lat": 54.91151191380695,
-      "lon": 73.12839256807986,
+      "lon": 61.22839256807986,
       "geocode_source": "region_centroid"
     },
     {
@@ -3516,7 +3510,7 @@
       "disease_key": "asf",
       "disease": "Африканская чума свиней",
       "disease_group": "Swine",
-      "region": "Омская область",
+      "region": "Челябинская область",
       "region_geo": "",
       "date": "2021-11-23",
       "species": "Other",
@@ -3527,9 +3521,9 @@
       "source_url": "https://wahis.woah.org/#/event/4163",
       "notes": "African swine fever virus (Inf. with)  in Russia",
       "region_inferred": true,
-      "federal_district": "СФО",
+      "federal_district": "УрФО",
       "lat": 54.96637563661326,
-      "lon": 73.03108998860903,
+      "lon": 61.13108998860903,
       "geocode_source": "region_centroid"
     },
     {
@@ -3537,7 +3531,7 @@
       "disease_key": "asf",
       "disease": "Африканская чума свиней",
       "disease_group": "Swine",
-      "region": "Омская область",
+      "region": "Челябинская область",
       "region_geo": "",
       "date": "2021-11-30",
       "species": "Other",
@@ -3548,9 +3542,9 @@
       "source_url": "https://wahis.woah.org/#/event/4134",
       "notes": "African swine fever virus (Inf. with)  in Russia | African swine fever virus (Inf. with)  in Russia",
       "region_inferred": true,
-      "federal_district": "СФО",
+      "federal_district": "УрФО",
       "lat": 54.71781950170794,
-      "lon": 73.4604618666046,
+      "lon": 61.560461866604605,
       "geocode_source": "region_centroid"
     },
     {
@@ -3594,7 +3588,7 @@
       "disease_key": "asf",
       "disease": "Африканская чума свиней",
       "disease_group": "Swine",
-      "region": "Омская область",
+      "region": "Челябинская область",
       "region_geo": "",
       "date": "2021-12-13",
       "species": "Other",
@@ -3605,9 +3599,9 @@
       "source_url": "https://wahis.woah.org/#/event/4182",
       "notes": "African swine fever virus (Inf. with)  in Russia",
       "region_inferred": true,
-      "federal_district": "СФО",
+      "federal_district": "УрФО",
       "lat": 55.24090084518423,
-      "lon": 73.11890677418427,
+      "lon": 61.21890677418426,
       "geocode_source": "region_centroid"
     },
     {
@@ -3657,7 +3651,7 @@
       "disease_key": "asf",
       "disease": "Африканская чума свиней",
       "disease_group": "Swine",
-      "region": "Омская область",
+      "region": "Челябинская область",
       "region_geo": "",
       "date": "2022-01-02",
       "species": "Other",
@@ -3668,9 +3662,9 @@
       "source_url": "https://wahis.woah.org/#/event/4281",
       "notes": "African swine fever virus (Inf. with)  in Russia",
       "region_inferred": true,
-      "federal_district": "СФО",
+      "federal_district": "УрФО",
       "lat": 54.97123951920943,
-      "lon": 73.14007037386342,
+      "lon": 61.24007037386342,
       "geocode_source": "region_centroid"
     },
     {
@@ -3678,7 +3672,7 @@
       "disease_key": "asf",
       "disease": "Африканская чума свиней",
       "disease_group": "Swine",
-      "region": "Омская область",
+      "region": "Челябинская область",
       "region_geo": "",
       "date": "2022-01-12",
       "species": "Other",
@@ -3689,9 +3683,9 @@
       "source_url": "https://wahis.woah.org/#/event/4241",
       "notes": "African swine fever virus (Inf. with)  in Russia",
       "region_inferred": true,
-      "federal_district": "СФО",
+      "federal_district": "УрФО",
       "lat": 54.76476661305686,
-      "lon": 73.44846497112277,
+      "lon": 61.548464971122776,
       "geocode_source": "region_centroid"
     },
     {
@@ -3737,7 +3731,7 @@
       "disease_key": "asf",
       "disease": "Африканская чума свиней",
       "disease_group": "Swine",
-      "region": "Омская область",
+      "region": "Челябинская область",
       "region_geo": "",
       "date": "2022-01-24",
       "species": "Other",
@@ -3748,9 +3742,9 @@
       "source_url": "https://wahis.woah.org/#/event/4282",
       "notes": "African swine fever virus (Inf. with)  in Russia | African swine fever virus (Inf. with)  in Russia",
       "region_inferred": true,
-      "federal_district": "СФО",
+      "federal_district": "УрФО",
       "lat": 54.90537979153226,
-      "lon": 73.2487545454366,
+      "lon": 61.3487545454366,
       "geocode_source": "region_centroid"
     },
     {
@@ -3797,7 +3791,7 @@
       "disease_key": "asf",
       "disease": "Африканская чума свиней",
       "disease_group": "Swine",
-      "region": "Омская область",
+      "region": "Челябинская область",
       "region_geo": "",
       "date": "2022-02-15",
       "species": "Other",
@@ -3808,9 +3802,9 @@
       "source_url": "https://wahis.woah.org/#/event/4327",
       "notes": "African swine fever virus (Inf. with)  in Russia | African swine fever virus (Inf. with)  in Russia",
       "region_inferred": true,
-      "federal_district": "СФО",
+      "federal_district": "УрФО",
       "lat": 54.99005977729,
-      "lon": 73.44644383016883,
+      "lon": 61.54644383016883,
       "geocode_source": "region_centroid"
     },
     {
@@ -3839,7 +3833,7 @@
       "disease_key": "asf",
       "disease": "Африканская чума свиней",
       "disease_group": "Swine",
-      "region": "Омская область",
+      "region": "Челябинская область",
       "region_geo": "",
       "date": "2022-03-23",
       "species": "Other",
@@ -3850,9 +3844,9 @@
       "source_url": "https://wahis.woah.org/#/event/4373",
       "notes": "African swine fever virus (Inf. with)  in Russia | African swine fever virus (Inf. with)  in Russia | African swine fever virus (Inf. with)  in Russia",
       "region_inferred": true,
-      "federal_district": "СФО",
+      "federal_district": "УрФО",
       "lat": 55.15550511566199,
-      "lon": 73.47223929264938,
+      "lon": 61.57223929264938,
       "geocode_source": "region_centroid"
     },
     {
@@ -3860,7 +3854,7 @@
       "disease_key": "asf",
       "disease": "Африканская чума свиней",
       "disease_group": "Swine",
-      "region": "Омская область",
+      "region": "Челябинская область",
       "region_geo": "",
       "date": "2022-04-07",
       "species": "Other",
@@ -3871,9 +3865,9 @@
       "source_url": "https://wahis.woah.org/#/event/4401",
       "notes": "African swine fever virus (Inf. with)  in Russia",
       "region_inferred": true,
-      "federal_district": "СФО",
+      "federal_district": "УрФО",
       "lat": 54.924001712348655,
-      "lon": 73.1796181861479,
+      "lon": 61.279618186147914,
       "geocode_source": "region_centroid"
     },
     {
@@ -3902,7 +3896,7 @@
       "disease_key": "asf",
       "disease": "Африканская чума свиней",
       "disease_group": "Swine",
-      "region": "Омская область",
+      "region": "Челябинская область",
       "region_geo": "",
       "date": "2022-05-07",
       "species": "Other",
@@ -3913,9 +3907,9 @@
       "source_url": "https://wahis.woah.org/#/event/4453",
       "notes": "African swine fever virus (Inf. with)  in Russia | African swine fever virus (Inf. with)  in Russia",
       "region_inferred": true,
-      "federal_district": "СФО",
+      "federal_district": "УрФО",
       "lat": 55.188934921931896,
-      "lon": 73.0403284680011,
+      "lon": 61.1403284680011,
       "geocode_source": "region_centroid"
     },
     {
@@ -3944,7 +3938,7 @@
       "disease_key": "asf",
       "disease": "Африканская чума свиней",
       "disease_group": "Swine",
-      "region": "Омская область",
+      "region": "Челябинская область",
       "region_geo": "",
       "date": "2022-06-09",
       "species": "Other",
@@ -3955,9 +3949,9 @@
       "source_url": "https://wahis.woah.org/#/event/4494",
       "notes": "African swine fever virus (Inf. with)  in Russia",
       "region_inferred": true,
-      "federal_district": "СФО",
+      "federal_district": "УрФО",
       "lat": 55.089639668945075,
-      "lon": 73.4266426338941,
+      "lon": 61.5266426338941,
       "geocode_source": "region_centroid"
     },
     {
@@ -3965,7 +3959,7 @@
       "disease_key": "asf",
       "disease": "Африканская чума свиней",
       "disease_group": "Swine",
-      "region": "Омская область",
+      "region": "Челябинская область",
       "region_geo": "",
       "date": "2022-06-24",
       "species": "Other",
@@ -3976,9 +3970,9 @@
       "source_url": "https://wahis.woah.org/#/event/4513",
       "notes": "African swine fever virus (Inf. with)  in Russia",
       "region_inferred": true,
-      "federal_district": "СФО",
+      "federal_district": "УрФО",
       "lat": 55.023925979504014,
-      "lon": 73.07951853050284,
+      "lon": 61.17951853050285,
       "geocode_source": "region_centroid"
     },
     {
@@ -3986,7 +3980,7 @@
       "disease_key": "asf",
       "disease": "Африканская чума свиней",
       "disease_group": "Swine",
-      "region": "Омская область",
+      "region": "Челябинская область",
       "region_geo": "",
       "date": "2022-07-03",
       "species": "Other",
@@ -3997,9 +3991,9 @@
       "source_url": "https://wahis.woah.org/#/event/4522",
       "notes": "African swine fever virus (Inf. with)  in Russia",
       "region_inferred": true,
-      "federal_district": "СФО",
+      "federal_district": "УрФО",
       "lat": 54.731787178989144,
-      "lon": 73.42688283390021,
+      "lon": 61.52688283390021,
       "geocode_source": "region_centroid"
     },
     {
@@ -4028,7 +4022,7 @@
       "disease_key": "asf",
       "disease": "Африканская чума свиней",
       "disease_group": "Swine",
-      "region": "Омская область",
+      "region": "Челябинская область",
       "region_geo": "",
       "date": "2022-07-17",
       "species": "Other",
@@ -4039,9 +4033,9 @@
       "source_url": "https://wahis.woah.org/#/event/4532",
       "notes": "African swine fever virus (Inf. with)  in Russia | African swine fever virus (Inf. with)  in Russia | African swine fever virus (Inf. with)  in Russia",
       "region_inferred": true,
-      "federal_district": "СФО",
+      "federal_district": "УрФО",
       "lat": 54.727365581251235,
-      "lon": 73.12206818491744,
+      "lon": 61.22206818491744,
       "geocode_source": "region_centroid"
     },
     {
@@ -4067,7 +4061,7 @@
       "disease_key": "asf",
       "disease": "Африканская чума свиней",
       "disease_group": "Swine",
-      "region": "Омская область",
+      "region": "Челябинская область",
       "region_geo": "",
       "date": "2022-07-25",
       "species": "Other",
@@ -4078,9 +4072,9 @@
       "source_url": "https://wahis.woah.org/#/event/4546",
       "notes": "African swine fever virus (Inf. with)  in Russia | African swine fever virus (Inf. with)  in Russia | African swine fever virus (Inf. with)  in Russia",
       "region_inferred": true,
-      "federal_district": "СФО",
+      "federal_district": "УрФО",
       "lat": 55.15832894467804,
-      "lon": 73.38686845065178,
+      "lon": 61.486868450651784,
       "geocode_source": "region_centroid"
     },
     {
@@ -4109,7 +4103,7 @@
       "disease_key": "asf",
       "disease": "Африканская чума свиней",
       "disease_group": "Swine",
-      "region": "Омская область",
+      "region": "Челябинская область",
       "region_geo": "",
       "date": "2022-08-03",
       "species": "Other",
@@ -4120,9 +4114,9 @@
       "source_url": "https://wahis.woah.org/#/event/4576",
       "notes": "African swine fever virus (Inf. with)  in Russia | African swine fever virus (Inf. with)  in Russia | African swine fever virus (Inf. with)  in Russia",
       "region_inferred": true,
-      "federal_district": "СФО",
+      "federal_district": "УрФО",
       "lat": 54.93814389196132,
-      "lon": 73.05127512779138,
+      "lon": 61.151275127791386,
       "geocode_source": "region_centroid"
     },
     {
@@ -4130,7 +4124,7 @@
       "disease_key": "asf",
       "disease": "Африканская чума свиней",
       "disease_group": "Swine",
-      "region": "Омская область",
+      "region": "Челябинская область",
       "region_geo": "",
       "date": "2022-08-09",
       "species": "Other",
@@ -4141,9 +4135,9 @@
       "source_url": "https://wahis.woah.org/#/event/4572",
       "notes": "African swine fever virus (Inf. with)  in Russia",
       "region_inferred": true,
-      "federal_district": "СФО",
+      "federal_district": "УрФО",
       "lat": 54.96065008706647,
-      "lon": 73.43472504808844,
+      "lon": 61.53472504808843,
       "geocode_source": "region_centroid"
     },
     {
@@ -4169,7 +4163,7 @@
       "disease_key": "asf",
       "disease": "Африканская чума свиней",
       "disease_group": "Swine",
-      "region": "Омская область",
+      "region": "Челябинская область",
       "region_geo": "",
       "date": "2022-08-15",
       "species": "Other",
@@ -4180,9 +4174,9 @@
       "source_url": "https://wahis.woah.org/#/event/4589",
       "notes": "African swine fever virus (Inf. with)  in Russia",
       "region_inferred": true,
-      "federal_district": "СФО",
+      "federal_district": "УрФО",
       "lat": 55.0035860001699,
-      "lon": 73.4014391270585,
+      "lon": 61.5014391270585,
       "geocode_source": "region_centroid"
     },
     {
@@ -4211,7 +4205,7 @@
       "disease_key": "asf",
       "disease": "Африканская чума свиней",
       "disease_group": "Swine",
-      "region": "Омская область",
+      "region": "Челябинская область",
       "region_geo": "",
       "date": "2022-08-23",
       "species": "Other",
@@ -4222,9 +4216,9 @@
       "source_url": "https://wahis.woah.org/#/event/4592",
       "notes": "African swine fever virus (Inf. with)  in Russia | African swine fever virus (Inf. with)  in Russia | African swine fever virus (Inf. with)  in Russia | African swine fever virus (Inf. with)  in Russia",
       "region_inferred": true,
-      "federal_district": "СФО",
+      "federal_district": "УрФО",
       "lat": 55.03422288890421,
-      "lon": 73.01401659027923,
+      "lon": 61.11401659027922,
       "geocode_source": "region_centroid"
     },
     {
@@ -4232,7 +4226,7 @@
       "disease_key": "asf",
       "disease": "Африканская чума свиней",
       "disease_group": "Swine",
-      "region": "Омская область",
+      "region": "Челябинская область",
       "region_geo": "",
       "date": "2022-08-31",
       "species": "Other",
@@ -4243,9 +4237,9 @@
       "source_url": "https://wahis.woah.org/#/event/4609",
       "notes": "African swine fever virus (Inf. with)  in Russia | African swine fever virus (Inf. with)  in Russia",
       "region_inferred": true,
-      "federal_district": "СФО",
+      "federal_district": "УрФО",
       "lat": 54.930822749467545,
-      "lon": 73.4083409530294,
+      "lon": 61.508340953029396,
       "geocode_source": "region_centroid"
     },
     {
@@ -4253,7 +4247,7 @@
       "disease_key": "asf",
       "disease": "Африканская чума свиней",
       "disease_group": "Swine",
-      "region": "Омская область",
+      "region": "Челябинская область",
       "region_geo": "",
       "date": "2022-09-04",
       "species": "Other",
@@ -4264,9 +4258,9 @@
       "source_url": "https://wahis.woah.org/#/event/4608",
       "notes": "African swine fever virus (Inf. with)  in Russia",
       "region_inferred": true,
-      "federal_district": "СФО",
+      "federal_district": "УрФО",
       "lat": 55.038937585163275,
-      "lon": 73.44446802992564,
+      "lon": 61.544468029925646,
       "geocode_source": "region_centroid"
     },
     {
@@ -4337,7 +4331,7 @@
       "disease_key": "asf",
       "disease": "Африканская чума свиней",
       "disease_group": "Swine",
-      "region": "Омская область",
+      "region": "Челябинская область",
       "region_geo": "",
       "date": "2022-10-16",
       "species": "Other",
@@ -4348,9 +4342,9 @@
       "source_url": "https://wahis.woah.org/#/event/4665",
       "notes": "African swine fever virus (Inf. with)  in Russia",
       "region_inferred": true,
-      "federal_district": "СФО",
+      "federal_district": "УрФО",
       "lat": 54.72642834021801,
-      "lon": 73.55148656962602,
+      "lon": 61.651486569626016,
       "geocode_source": "region_centroid"
     },
     {
@@ -4397,7 +4391,7 @@
       "disease_key": "asf",
       "disease": "Африканская чума свиней",
       "disease_group": "Swine",
-      "region": "Омская область",
+      "region": "Челябинская область",
       "region_geo": "",
       "date": "2022-10-29",
       "species": "Other",
@@ -4408,9 +4402,9 @@
       "source_url": "https://wahis.woah.org/#/event/4691",
       "notes": "African swine fever virus (Inf. with)  in Russia",
       "region_inferred": true,
-      "federal_district": "СФО",
+      "federal_district": "УрФО",
       "lat": 54.880217423378866,
-      "lon": 73.06527871234582,
+      "lon": 61.165278712345824,
       "geocode_source": "region_centroid"
     },
     {
@@ -4418,7 +4412,7 @@
       "disease_key": "asf",
       "disease": "Африканская чума свиней",
       "disease_group": "Swine",
-      "region": "Омская область",
+      "region": "Челябинская область",
       "region_geo": "",
       "date": "2022-11-06",
       "species": "Other",
@@ -4429,9 +4423,9 @@
       "source_url": "https://wahis.woah.org/#/event/4715",
       "notes": "African swine fever virus (Inf. with)  in Russia",
       "region_inferred": true,
-      "federal_district": "СФО",
+      "federal_district": "УрФО",
       "lat": 55.11893403219028,
-      "lon": 73.20414606419513,
+      "lon": 61.30414606419514,
       "geocode_source": "region_centroid"
     },
     {
@@ -4460,7 +4454,7 @@
       "disease_key": "asf",
       "disease": "Африканская чума свиней",
       "disease_group": "Swine",
-      "region": "Омская область",
+      "region": "Челябинская область",
       "region_geo": "",
       "date": "2022-11-16",
       "species": "Other",
@@ -4471,9 +4465,9 @@
       "source_url": "https://wahis.woah.org/#/event/4734",
       "notes": "African swine fever virus (Inf. with)  in Russia | African swine fever virus (Inf. with)  in Russia",
       "region_inferred": true,
-      "federal_district": "СФО",
+      "federal_district": "УрФО",
       "lat": 54.84728084992773,
-      "lon": 73.05615620088032,
+      "lon": 61.156156200880325,
       "geocode_source": "region_centroid"
     },
     {
@@ -4481,7 +4475,7 @@
       "disease_key": "asf",
       "disease": "Африканская чума свиней",
       "disease_group": "Swine",
-      "region": "Омская область",
+      "region": "Челябинская область",
       "region_geo": "",
       "date": "2022-11-29",
       "species": "Other",
@@ -4492,9 +4486,9 @@
       "source_url": "https://wahis.woah.org/#/event/4758",
       "notes": "African swine fever virus (Inf. with)  in Russia",
       "region_inferred": true,
-      "federal_district": "СФО",
+      "federal_district": "УрФО",
       "lat": 55.16728985953882,
-      "lon": 73.14114723183484,
+      "lon": 61.24114723183484,
       "geocode_source": "region_centroid"
     },
     {
@@ -4523,7 +4517,7 @@
       "disease_key": "asf",
       "disease": "Африканская чума свиней",
       "disease_group": "Swine",
-      "region": "Омская область",
+      "region": "Челябинская область",
       "region_geo": "",
       "date": "2022-12-02",
       "species": "Other",
@@ -4534,9 +4528,9 @@
       "source_url": "https://wahis.woah.org/#/event/4773",
       "notes": "African swine fever virus (Inf. with)  in Russia | African swine fever virus (Inf. with)  in Russia",
       "region_inferred": true,
-      "federal_district": "СФО",
+      "federal_district": "УрФО",
       "lat": 54.73827008833272,
-      "lon": 73.1140188744578,
+      "lon": 61.21401887445781,
       "geocode_source": "region_centroid"
     },
     {
@@ -4603,7 +4597,7 @@
       "disease_key": "asf",
       "disease": "Африканская чума свиней",
       "disease_group": "Swine",
-      "region": "Омская область",
+      "region": "Челябинская область",
       "region_geo": "",
       "date": "2023-01-13",
       "species": "Other",
@@ -4614,9 +4608,9 @@
       "source_url": "https://wahis.woah.org/#/event/4845",
       "notes": "African swine fever virus (Inf. with)  in Russia",
       "region_inferred": true,
-      "federal_district": "СФО",
+      "federal_district": "УрФО",
       "lat": 55.251770979563084,
-      "lon": 73.41725577856556,
+      "lon": 61.51725577856556,
       "geocode_source": "region_centroid"
     },
     {
@@ -4645,7 +4639,7 @@
       "disease_key": "asf",
       "disease": "Африканская чума свиней",
       "disease_group": "Swine",
-      "region": "Омская область",
+      "region": "Челябинская область",
       "region_geo": "",
       "date": "2023-02-10",
       "species": "Other",
@@ -4656,9 +4650,9 @@
       "source_url": "https://wahis.woah.org/#/event/4944",
       "notes": "African swine fever virus (Inf. with)  in Russia | African swine fever virus (Inf. with)  in Russia | African swine fever virus (Inf. with)  in Russia",
       "region_inferred": true,
-      "federal_district": "СФО",
+      "federal_district": "УрФО",
       "lat": 55.12299744261128,
-      "lon": 73.1811627439797,
+      "lon": 61.2811627439797,
       "geocode_source": "region_centroid"
     },
     {
@@ -4666,7 +4660,7 @@
       "disease_key": "asf",
       "disease": "Африканская чума свиней",
       "disease_group": "Swine",
-      "region": "Омская область",
+      "region": "Челябинская область",
       "region_geo": "",
       "date": "2023-03-08",
       "species": "Other",
@@ -4677,9 +4671,9 @@
       "source_url": "https://wahis.woah.org/#/event/4973",
       "notes": "African swine fever virus (Inf. with)  in Russia | African swine fever virus (Inf. with)  in Russia",
       "region_inferred": true,
-      "federal_district": "СФО",
+      "federal_district": "УрФО",
       "lat": 55.212705795564325,
-      "lon": 73.57725527938639,
+      "lon": 61.677255279386394,
       "geocode_source": "region_centroid"
     },
     {
@@ -4687,7 +4681,7 @@
       "disease_key": "asf",
       "disease": "Африканская чума свиней",
       "disease_group": "Swine",
-      "region": "Омская область",
+      "region": "Челябинская область",
       "region_geo": "",
       "date": "2023-03-14",
       "species": "Other",
@@ -4698,9 +4692,9 @@
       "source_url": "https://wahis.woah.org/#/event/4974",
       "notes": "African swine fever virus (Inf. with)  in Russia",
       "region_inferred": true,
-      "federal_district": "СФО",
+      "federal_district": "УрФО",
       "lat": 54.868611576213226,
-      "lon": 73.13992673996783,
+      "lon": 61.239926739967835,
       "geocode_source": "region_centroid"
     },
     {
@@ -4750,7 +4744,7 @@
       "disease_key": "asf",
       "disease": "Африканская чума свиней",
       "disease_group": "Swine",
-      "region": "Омская область",
+      "region": "Челябинская область",
       "region_geo": "",
       "date": "2023-05-10",
       "species": "Other",
@@ -4761,9 +4755,9 @@
       "source_url": "https://wahis.woah.org/#/event/5063",
       "notes": "African swine fever virus (Inf. with)  in Russia | African swine fever virus (Inf. with)  in Russia",
       "region_inferred": true,
-      "federal_district": "СФО",
+      "federal_district": "УрФО",
       "lat": 54.908090919517264,
-      "lon": 73.30882432804876,
+      "lon": 61.408824328048766,
       "geocode_source": "region_centroid"
     },
     {
@@ -4810,7 +4804,7 @@
       "disease_key": "asf",
       "disease": "Африканская чума свиней",
       "disease_group": "Swine",
-      "region": "Омская область",
+      "region": "Челябинская область",
       "region_geo": "",
       "date": "2023-05-13",
       "species": "Other",
@@ -4821,9 +4815,9 @@
       "source_url": "https://wahis.woah.org/#/event/5075",
       "notes": "African swine fever virus (Inf. with)  in Russia",
       "region_inferred": true,
-      "federal_district": "СФО",
+      "federal_district": "УрФО",
       "lat": 55.17751862125603,
-      "lon": 73.05395763859894,
+      "lon": 61.153957638598946,
       "geocode_source": "region_centroid"
     },
     {
@@ -4852,7 +4846,7 @@
       "disease_key": "asf",
       "disease": "Африканская чума свиней",
       "disease_group": "Swine",
-      "region": "Омская область",
+      "region": "Челябинская область",
       "region_geo": "",
       "date": "2023-05-29",
       "species": "Other",
@@ -4863,9 +4857,9 @@
       "source_url": "https://wahis.woah.org/#/event/5080",
       "notes": "African swine fever virus (Inf. with)  in Russia",
       "region_inferred": true,
-      "federal_district": "СФО",
+      "federal_district": "УрФО",
       "lat": 55.218351016713996,
-      "lon": 73.03519613461359,
+      "lon": 61.13519613461359,
       "geocode_source": "region_centroid"
     },
     {
@@ -4933,7 +4927,7 @@
       "disease_key": "asf",
       "disease": "Африканская чума свиней",
       "disease_group": "Swine",
-      "region": "Омская область",
+      "region": "Челябинская область",
       "region_geo": "",
       "date": "2023-07-04",
       "species": "Other",
@@ -4944,9 +4938,9 @@
       "source_url": "https://wahis.woah.org/#/event/5109",
       "notes": "African swine fever virus (Inf. with)  in Russia | African swine fever virus (Inf. with)  in Russia | African swine fever virus (Inf. with)  in Russia",
       "region_inferred": true,
-      "federal_district": "СФО",
+      "federal_district": "УрФО",
       "lat": 55.26771311797893,
-      "lon": 73.47314324283195,
+      "lon": 61.573143242831954,
       "geocode_source": "region_centroid"
     },
     {
@@ -4971,7 +4965,7 @@
       "disease_key": "asf",
       "disease": "Африканская чума свиней",
       "disease_group": "Swine",
-      "region": "Омская область",
+      "region": "Челябинская область",
       "region_geo": "",
       "date": "2023-07-10",
       "species": "Other",
@@ -4982,9 +4976,9 @@
       "source_url": "https://wahis.woah.org/#/event/5120",
       "notes": "African swine fever virus (Inf. with)  in Russia",
       "region_inferred": true,
-      "federal_district": "СФО",
+      "federal_district": "УрФО",
       "lat": 55.256244865329265,
-      "lon": 73.31000608975206,
+      "lon": 61.41000608975207,
       "geocode_source": "region_centroid"
     },
     {
@@ -4992,7 +4986,7 @@
       "disease_key": "asf",
       "disease": "Африканская чума свиней",
       "disease_group": "Swine",
-      "region": "Омская область",
+      "region": "Челябинская область",
       "region_geo": "",
       "date": "2023-07-16",
       "species": "Other",
@@ -5003,9 +4997,9 @@
       "source_url": "https://wahis.woah.org/#/event/5138",
       "notes": "African swine fever virus (Inf. with)  in Russia | African swine fever virus (Inf. with)  in Russia | African swine fever virus (Inf. with)  in Russia",
       "region_inferred": true,
-      "federal_district": "СФО",
+      "federal_district": "УрФО",
       "lat": 54.97495260389754,
-      "lon": 73.01268350190712,
+      "lon": 61.11268350190712,
       "geocode_source": "region_centroid"
     },
     {
@@ -5052,7 +5046,7 @@
       "disease_key": "asf",
       "disease": "Африканская чума свиней",
       "disease_group": "Swine",
-      "region": "Омская область",
+      "region": "Челябинская область",
       "region_geo": "",
       "date": "2023-07-25",
       "species": "Other",
@@ -5063,9 +5057,9 @@
       "source_url": "https://wahis.woah.org/#/event/5157",
       "notes": "African swine fever virus (Inf. with)  in Russia | African swine fever virus (Inf. with)  in Russia",
       "region_inferred": true,
-      "federal_district": "СФО",
+      "federal_district": "УрФО",
       "lat": 54.93253377706628,
-      "lon": 73.55981118451261,
+      "lon": 61.65981118451261,
       "geocode_source": "region_centroid"
     },
     {
@@ -5073,7 +5067,7 @@
       "disease_key": "asf",
       "disease": "Африканская чума свиней",
       "disease_group": "Swine",
-      "region": "Омская область",
+      "region": "Челябинская область",
       "region_geo": "",
       "date": "2023-07-30",
       "species": "Other",
@@ -5084,9 +5078,9 @@
       "source_url": "https://wahis.woah.org/#/event/5168",
       "notes": "African swine fever virus (Inf. with)  in Russia",
       "region_inferred": true,
-      "federal_district": "СФО",
+      "federal_district": "УрФО",
       "lat": 54.96687143591113,
-      "lon": 73.22946706146324,
+      "lon": 61.32946706146324,
       "geocode_source": "region_centroid"
     },
     {
@@ -5094,7 +5088,7 @@
       "disease_key": "asf",
       "disease": "Африканская чума свиней",
       "disease_group": "Swine",
-      "region": "Омская область",
+      "region": "Челябинская область",
       "region_geo": "",
       "date": "2023-08-07",
       "species": "Other",
@@ -5105,9 +5099,9 @@
       "source_url": "https://wahis.woah.org/#/event/5169",
       "notes": "African swine fever virus (Inf. with)  in Russia",
       "region_inferred": true,
-      "federal_district": "СФО",
+      "federal_district": "УрФО",
       "lat": 55.166156919100395,
-      "lon": 73.00973242203764,
+      "lon": 61.109732422037645,
       "geocode_source": "region_centroid"
     },
     {
@@ -5175,7 +5169,7 @@
       "disease_key": "asf",
       "disease": "Африканская чума свиней",
       "disease_group": "Swine",
-      "region": "Омская область",
+      "region": "Челябинская область",
       "region_geo": "",
       "date": "2023-08-23",
       "species": "Other",
@@ -5186,9 +5180,9 @@
       "source_url": "https://wahis.woah.org/#/event/5202",
       "notes": "African swine fever virus (Inf. with)  in Russia",
       "region_inferred": true,
-      "federal_district": "СФО",
+      "federal_district": "УрФО",
       "lat": 54.99331027259088,
-      "lon": 73.25935571059287,
+      "lon": 61.359355710592865,
       "geocode_source": "region_centroid"
     },
     {
@@ -5214,7 +5208,7 @@
       "disease_key": "asf",
       "disease": "Африканская чума свиней",
       "disease_group": "Swine",
-      "region": "Омская область",
+      "region": "Челябинская область",
       "region_geo": "",
       "date": "2023-08-27",
       "species": "Other",
@@ -5225,9 +5219,9 @@
       "source_url": "https://wahis.woah.org/#/event/5221",
       "notes": "African swine fever virus (Inf. with)  in Russia | African swine fever virus (Inf. with)  in Russia | African swine fever virus (Inf. with)  in Russia",
       "region_inferred": true,
-      "federal_district": "СФО",
+      "federal_district": "УрФО",
       "lat": 55.09219475624269,
-      "lon": 73.04373395959102,
+      "lon": 61.14373395959103,
       "geocode_source": "region_centroid"
     },
     {
@@ -5235,7 +5229,7 @@
       "disease_key": "asf",
       "disease": "Африканская чума свиней",
       "disease_group": "Swine",
-      "region": "Омская область",
+      "region": "Челябинская область",
       "region_geo": "",
       "date": "2023-09-11",
       "species": "Other",
@@ -5246,9 +5240,9 @@
       "source_url": "https://wahis.woah.org/#/event/5235",
       "notes": "African swine fever virus (Inf. with)  in Russia",
       "region_inferred": true,
-      "federal_district": "СФО",
+      "federal_district": "УрФО",
       "lat": 54.72373778583402,
-      "lon": 73.32969424466934,
+      "lon": 61.42969424466934,
       "geocode_source": "region_centroid"
     },
     {
@@ -5316,7 +5310,7 @@
       "disease_key": "asf",
       "disease": "Африканская чума свиней",
       "disease_group": "Swine",
-      "region": "Омская область",
+      "region": "Челябинская область",
       "region_geo": "",
       "date": "2023-10-18",
       "species": "Other",
@@ -5327,9 +5321,9 @@
       "source_url": "https://wahis.woah.org/#/event/5309",
       "notes": "African swine fever virus (Inf. with)  in Russia | African swine fever virus (Inf. with)  in Russia",
       "region_inferred": true,
-      "federal_district": "СФО",
+      "federal_district": "УрФО",
       "lat": 55.145270366462064,
-      "lon": 73.49675627986367,
+      "lon": 61.59675627986368,
       "geocode_source": "region_centroid"
     },
     {
@@ -5358,7 +5352,7 @@
       "disease_key": "asf",
       "disease": "Африканская чума свиней",
       "disease_group": "Swine",
-      "region": "Омская область",
+      "region": "Челябинская область",
       "region_geo": "",
       "date": "2023-10-20",
       "species": "Other",
@@ -5369,9 +5363,9 @@
       "source_url": "https://wahis.woah.org/#/event/5310",
       "notes": "African swine fever virus (Inf. with)  in Russia",
       "region_inferred": true,
-      "federal_district": "СФО",
+      "federal_district": "УрФО",
       "lat": 55.18558935698377,
-      "lon": 73.28683873487675,
+      "lon": 61.38683873487676,
       "geocode_source": "region_centroid"
     },
     {
@@ -5379,7 +5373,7 @@
       "disease_key": "asf",
       "disease": "Африканская чума свиней",
       "disease_group": "Swine",
-      "region": "Омская область",
+      "region": "Челябинская область",
       "region_geo": "",
       "date": "2023-10-30",
       "species": "Other",
@@ -5390,9 +5384,9 @@
       "source_url": "https://wahis.woah.org/#/event/5316",
       "notes": "African swine fever virus (Inf. with)  in Russia",
       "region_inferred": true,
-      "federal_district": "СФО",
+      "federal_district": "УрФО",
       "lat": 55.279635958685574,
-      "lon": 73.32510398633026,
+      "lon": 61.42510398633027,
       "geocode_source": "region_centroid"
     },
     {
@@ -5400,7 +5394,7 @@
       "disease_key": "asf",
       "disease": "Африканская чума свиней",
       "disease_group": "Swine",
-      "region": "Омская область",
+      "region": "Челябинская область",
       "region_geo": "",
       "date": "2023-11-12",
       "species": "Other",
@@ -5411,9 +5405,9 @@
       "source_url": "https://wahis.woah.org/#/event/5343",
       "notes": "African swine fever virus (Inf. with)  in Russia",
       "region_inferred": true,
-      "federal_district": "СФО",
+      "federal_district": "УрФО",
       "lat": 54.81861048797614,
-      "lon": 73.26688190233382,
+      "lon": 61.36688190233382,
       "geocode_source": "region_centroid"
     },
     {
@@ -5421,7 +5415,7 @@
       "disease_key": "asf",
       "disease": "Африканская чума свиней",
       "disease_group": "Swine",
-      "region": "Омская область",
+      "region": "Челябинская область",
       "region_geo": "",
       "date": "2023-12-01",
       "species": "Other",
@@ -5432,9 +5426,9 @@
       "source_url": "https://wahis.woah.org/#/event/5386",
       "notes": "African swine fever virus (Inf. with)  in Russia | African swine fever virus (Inf. with)  in Russia",
       "region_inferred": true,
-      "federal_district": "СФО",
+      "federal_district": "УрФО",
       "lat": 55.153222329432396,
-      "lon": 73.32064662379437,
+      "lon": 61.420646623794376,
       "geocode_source": "region_centroid"
     },
     {
@@ -5699,10 +5693,7 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2025/01/13.01.2025г.pdf",
       "notes": "Красноярский край 2 : Манский район, д.",
       "municipality": "Манский район",
-      "federal_district": "СФО",
-      "lat": 53.7026696,
-      "lon": 91.7168942,
-      "geocode_source": "nominatim"
+      "federal_district": "СФО"
     },
     {
       "id": 282,
@@ -6129,10 +6120,7 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2024/03/13.03.2024г.pdf",
       "notes": "Красноярский край 1 : Уярский район, г.",
       "municipality": "Уярский район",
-      "federal_district": "СФО",
-      "lat": 56.27912239830564,
-      "lon": 92.92341100812631,
-      "geocode_source": "region_centroid"
+      "federal_district": "СФО"
     },
     {
       "id": 303,
@@ -6495,10 +6483,7 @@
       "source": "fsvps",
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2024/03/15.03.2024г.pdf",
       "notes": ": Ямало-Ненецкий АО (лиса), Смоленская область (Енотовидная собака), Республика Мордовия (белка), Алтайский край (собака), Красноярский край (лиса), Республика Калмыкия (лиса), Свердловская область (Енотовидная собака). o",
-      "federal_district": "УрФО",
-      "lat": 66.96731793363637,
-      "lon": 68.07762212346049,
-      "geocode_source": "region_centroid"
+      "federal_district": "УрФО"
     },
     {
       "id": 321,
@@ -6516,10 +6501,7 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2024/03/18.03.2024г.pdf",
       "notes": "Красноярский край 2 : Курагинский район, с.",
       "municipality": "Курагинский район",
-      "federal_district": "СФО",
-      "lat": 54.1228068,
-      "lon": 94.0658174,
-      "geocode_source": "nominatim"
+      "federal_district": "СФО"
     },
     {
       "id": 322,
@@ -7184,10 +7166,7 @@
       "source": "fsvps",
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2024/03/25.03.2024г.pdf",
       "notes": ": Ямало-Ненецкий АО (Северный олень).",
-      "federal_district": "УрФО",
-      "lat": 66.82832856564742,
-      "lon": 67.75199572445365,
-      "geocode_source": "region_centroid"
+      "federal_district": "УрФО"
     },
     {
       "id": 355,
@@ -7247,10 +7226,7 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2024/03/27.03.2024г.pdf",
       "notes": "Ярославская область 5 : Угличский район, с.",
       "municipality": "Угличский район",
-      "federal_district": "ЦФО",
-      "lat": 57.2253218,
-      "lon": 38.2265618,
-      "geocode_source": "nominatim"
+      "federal_district": "ЦФО"
     },
     {
       "id": 358,
@@ -7350,10 +7326,7 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2024/03/27.03.2024г.pdf",
       "notes": "Ярославская область 12 : Приказом государственной ветеринарной службы Ярославской области от 20.03.2024 № 3 установлены ограничительные мероприятия (карантин) по лейкозу крупного рогатого скота на территории животноводческого комплекса по содержанию КРС, принадлежащего ИП КФХ В.О.О., расположенного по адресу: Ярославская область, Рыбинский район, д.",
       "municipality": "Рыбинский район",
-      "federal_district": "ЦФО",
-      "lat": 57.8575791,
-      "lon": 39.1434148,
-      "geocode_source": "nominatim"
+      "federal_district": "ЦФО"
     },
     {
       "id": 363,
@@ -7392,10 +7365,7 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2024/03/27.03.2024г.pdf",
       "notes": ": Красноярский край (лиса), Ханты-Мансийский Автономный округ - Югра АО (лиса), Владимирская область (собака). o | Красноярский край 4 : Каратузский район, д.",
       "municipality": "Каратузский район",
-      "federal_district": "СФО",
-      "lat": 53.3379822,
-      "lon": 93.6574577,
-      "geocode_source": "nominatim"
+      "federal_district": "СФО"
     },
     {
       "id": 365,
@@ -7919,10 +7889,7 @@
       "source": "fsvps",
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2024/06/03.06.2024г.pdf",
       "notes": "Красноярский край 7 : Отменены ограничительные мероприятия (карантин) по заболеванию –",
-      "federal_district": "СФО",
-      "lat": 56.040429073209964,
-      "lon": 92.65319162433012,
-      "geocode_source": "region_centroid"
+      "federal_district": "СФО"
     },
     {
       "id": 391,
@@ -8486,10 +8453,7 @@
       "status": "Resolved",
       "source": "wahis",
       "notes": "Classical Swine Fever",
-      "federal_district": "ДФО",
-      "lat": 43.893555186783225,
-      "lon": 131.76780130103444,
-      "geocode_source": "region_centroid"
+      "federal_district": "ДФО"
     },
     {
       "id": 419,
@@ -8914,10 +8878,7 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2024/06/17.06.2024г.pdf",
       "notes": "Красноярский край 2 : Ермаковский район, с.",
       "municipality": "Ермаковский район",
-      "federal_district": "СФО",
-      "lat": 52.6074834,
-      "lon": 93.1319901,
-      "geocode_source": "nominatim"
+      "federal_district": "СФО"
     },
     {
       "id": 440,
@@ -9241,10 +9202,7 @@
       "source": "fsvps",
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2024/06/19.06.2024г.pdf",
       "notes": ": Красноярский край (медведь).",
-      "federal_district": "СФО",
-      "lat": 56.24372740623162,
-      "lon": 93.03559014063346,
-      "geocode_source": "region_centroid"
+      "federal_district": "СФО"
     },
     {
       "id": 456,
@@ -9262,10 +9220,7 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2024/06/24.06.2024г.pdf",
       "notes": "Красноярский край 1 : Курагинский район, п.",
       "municipality": "Курагинский район",
-      "federal_district": "СФО",
-      "lat": 54.1228068,
-      "lon": 94.0658174,
-      "geocode_source": "nominatim"
+      "federal_district": "СФО"
     },
     {
       "id": 457,
@@ -9545,10 +9500,7 @@
       "source": "fsvps",
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2024/06/21.06.2024г.pdf",
       "notes": "Красноярский край 15 : 3 случая заболевания",
-      "federal_district": "СФО",
-      "lat": 55.724763600792485,
-      "lon": 92.80764937631204,
-      "geocode_source": "region_centroid"
+      "federal_district": "СФО"
     },
     {
       "id": 471,
@@ -10427,10 +10379,7 @@
       "source": "fsvps",
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2024/07/08.07.2024г.pdf",
       "notes": ": Приморский край. o Псевдомоноз КРС: Республика Якутия /С аха /. o Х ламидио з КРС: Воронежская область.",
-      "federal_district": "ДФО",
-      "lat": 43.70987530442318,
-      "lon": 131.77906435126238,
-      "geocode_source": "region_centroid"
+      "federal_district": "ДФО"
     },
     {
       "id": 514,
@@ -10736,10 +10685,7 @@
       "source": "fsvps",
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2024/07/12.07.2024г.pdf",
       "notes": "птиц: Красноярский край (дом. перепела).",
-      "federal_district": "СФО",
-      "lat": 56.169983195021985,
-      "lon": 93.09038458529264,
-      "geocode_source": "region_centroid"
+      "federal_district": "СФО"
     },
     {
       "id": 529,
@@ -10859,10 +10805,7 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2024/07/15.07.2024г.pdf",
       "notes": "Ярославская область 9 : Установлены ограничительные мероприятия (карантин) по лейкозу крупного рогатого скота на территории эпизоотического очага, расположенного по адресу: Ярославская область, Большесельский район, деревня Новое Гостилово.",
       "municipality": "Большесельский район",
-      "federal_district": "ЦФО",
-      "lat": 57.6820531,
-      "lon": 39.359065,
-      "geocode_source": "nominatim"
+      "federal_district": "ЦФО"
     },
     {
       "id": 535,
@@ -11327,10 +11270,7 @@
       "source": "fsvps",
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2024/07/22.07.2024г.pdf",
       "notes": ": Приморский край.",
-      "federal_district": "ДФО",
-      "lat": 43.71479601936598,
-      "lon": 131.76106024538942,
-      "geocode_source": "region_centroid"
+      "federal_district": "ДФО"
     },
     {
       "id": 558,
@@ -11693,10 +11633,7 @@
       "status": "Resolved",
       "source": "fsvps",
       "notes": "Anthrax",
-      "federal_district": "СФО",
-      "lat": 52.88294384664482,
-      "lon": 84.24782126100837,
-      "geocode_source": "region_centroid"
+      "federal_district": "СФО"
     },
     {
       "id": 576,
@@ -12306,10 +12243,7 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2024/08/05.08.2024г.pdf",
       "notes": "Ярославская область 7 : Установлены ограничительные мероприятия (карантин) по лейкозу крупного рогатого скота на территории личного подсобного хозяйства Асадян З.А. по адресу: Рыбинский район, д.",
       "municipality": "Рыбинский район",
-      "federal_district": "ЦФО",
-      "lat": 57.8575791,
-      "lon": 39.1434148,
-      "geocode_source": "nominatim"
+      "federal_district": "ЦФО"
     },
     {
       "id": 606,
@@ -12367,10 +12301,7 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2024/08/07.08.2024г.pdf",
       "notes": "Красноярский край 1 : Каратузский район – КРС.",
       "municipality": "Каратузский район",
-      "federal_district": "СФО",
-      "lat": 53.3379822,
-      "lon": 93.6574577,
-      "geocode_source": "nominatim"
+      "federal_district": "СФО"
     },
     {
       "id": 609,
@@ -12603,10 +12534,7 @@
       "status": "Resolved",
       "source": "fsvps",
       "notes": "Anthrax",
-      "federal_district": "СФО",
-      "lat": 51.63404903457135,
-      "lon": 94.00458198399298,
-      "geocode_source": "region_centroid"
+      "federal_district": "СФО"
     },
     {
       "id": 621,
@@ -13114,10 +13042,7 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2024/08/21.08.2024г.pdf",
       "notes": "Ярославская область 2 : Некрасовский район, д.",
       "municipality": "Некрасовский район",
-      "federal_district": "ЦФО",
-      "lat": 57.6320403,
-      "lon": 39.8827315,
-      "geocode_source": "nominatim"
+      "federal_district": "ЦФО"
     },
     {
       "id": 646,
@@ -13254,10 +13179,7 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2024/08/23.08.2024г.pdf",
       "notes": "Красноярский край 1 : Каратузский район, с.",
       "municipality": "Каратузский район",
-      "federal_district": "СФО",
-      "lat": 53.3379822,
-      "lon": 93.6574577,
-      "geocode_source": "nominatim"
+      "federal_district": "СФО"
     },
     {
       "id": 653,
@@ -14956,10 +14878,7 @@
       "source": "fsvps",
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2024/09/11.09.2024г.pdf",
       "notes": "Красноярский край 7 : В связи с регистрацией эпизоотического очага",
-      "federal_district": "СФО",
-      "lat": 55.85179582418386,
-      "lon": 92.64259424822771,
-      "geocode_source": "region_centroid"
+      "federal_district": "СФО"
     },
     {
       "id": 737,
@@ -15237,10 +15156,7 @@
       "source": "fsvps",
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2024/09/13.09.2024г.pdf",
       "notes": "Красноярский край 9 : При проведении ветеринарно-санитарной экспертизы биологического матер",
-      "federal_district": "СФО",
-      "lat": 55.896027405979545,
-      "lon": 92.68325062241672,
-      "geocode_source": "region_centroid"
+      "federal_district": "СФО"
     },
     {
       "id": 751,
@@ -16424,10 +16340,7 @@
       "source": "fsvps",
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2024/09/30.09.2024г.pdf",
       "notes": "Красноярский край 8 : Приказом отменены ограничительные мероприятия (карантин) по заболеванию –",
-      "federal_district": "СФО",
-      "lat": 55.918628700611535,
-      "lon": 92.989977791686,
-      "geocode_source": "region_centroid"
+      "federal_district": "СФО"
     },
     {
       "id": 809,
@@ -17441,10 +17354,7 @@
       "source": "fsvps",
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2024/10/14.10.2024г.pdf",
       "notes": ": Приморский край, Самарская область.",
-      "federal_district": "ДФО",
-      "lat": 44.017513763222205,
-      "lon": 131.75305080569046,
-      "geocode_source": "region_centroid"
+      "federal_district": "ДФО"
     },
     {
       "id": 859,
@@ -17769,10 +17679,7 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2024/10/18.10.2024г.pdf",
       "notes": "Еврейская автономная область 6 Биробиджанский район, с.",
       "municipality": "Биробиджанский район",
-      "federal_district": "ДФО",
-      "lat": 48.53064,
-      "lon": 132.7740626,
-      "geocode_source": "nominatim"
+      "federal_district": "ДФО"
     },
     {
       "id": 875,
@@ -18501,10 +18408,7 @@
       "source": "fsvps",
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2024/10/25.10.2024г.pdf",
       "notes": "северных оленей: Ямало-Ненецкий автономный округ. o",
-      "federal_district": "УрФО",
-      "lat": 67.07430906570316,
-      "lon": 67.97119452705365,
-      "geocode_source": "region_centroid"
+      "federal_district": "УрФО"
     },
     {
       "id": 911,
@@ -18687,10 +18591,7 @@
       "source": "fsvps",
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2024/10/28.10.2024г.pdf",
       "notes": ": Приморский край, Рязанская область, Самарская область. o",
-      "federal_district": "ДФО",
-      "lat": 44.10636040353707,
-      "lon": 132.14214491969446,
-      "geocode_source": "region_centroid"
+      "federal_district": "ДФО"
     },
     {
       "id": 920,
@@ -19772,10 +19673,7 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2024/11/13.11.2024г.pdf",
       "notes": "Красноярский край 4 : Манский район, с.",
       "municipality": "Манский район",
-      "federal_district": "СФО",
-      "lat": 53.7026696,
-      "lon": 91.7168942,
-      "geocode_source": "nominatim"
+      "federal_district": "СФО"
     },
     {
       "id": 973,
@@ -19854,10 +19752,7 @@
       "source": "fsvps",
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2024/11/13.11.2024г.pdf",
       "notes": "Красноярский край 9 : Установлены ограничительные мероприятия (карантин) по заболеванию –",
-      "federal_district": "СФО",
-      "lat": 56.19165042936039,
-      "lon": 93.04421952523822,
-      "geocode_source": "region_centroid"
+      "federal_district": "СФО"
     },
     {
       "id": 977,
@@ -20059,10 +19954,7 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2024/11/15.11.2024г.pdf",
       "notes": "Ярославская область 7 : Мышкинский район, д.",
       "municipality": "Мышкинский район",
-      "federal_district": "ЦФО",
-      "lat": 57.6175791,
-      "lon": 39.8456918,
-      "geocode_source": "nominatim"
+      "federal_district": "ЦФО"
     },
     {
       "id": 987,
@@ -20836,10 +20728,7 @@
       "source": "fsvps",
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2024/11/27.11.2024г.pdf",
       "notes": "Приморский край 11 :",
-      "federal_district": "ДФО",
-      "lat": 44.178230942871274,
-      "lon": 131.99009932212476,
-      "geocode_source": "region_centroid"
+      "federal_district": "ДФО"
     },
     {
       "id": 1025,
@@ -23272,10 +23161,7 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2024/12/27.12.2024г.pdf",
       "notes": "Красноярский край 4 , 5 : Ачинский район, с.",
       "municipality": "Ачинский район",
-      "federal_district": "СФО",
-      "lat": 56.0175772,
-      "lon": 92.8292545,
-      "geocode_source": "nominatim"
+      "federal_district": "СФО"
     },
     {
       "id": 1144,
@@ -24046,10 +23932,7 @@
       "status": "Resolved",
       "source": "fsvps",
       "notes": "Equine Infectious Anemia",
-      "federal_district": "ДФО",
-      "lat": 62.10472014510709,
-      "lon": 129.54484671984227,
-      "geocode_source": "region_centroid"
+      "federal_district": "ДФО"
     },
     {
       "id": 1183,
@@ -24426,10 +24309,7 @@
       "status": "Ongoing",
       "source": "fsvps",
       "notes": "African Swine Fever",
-      "federal_district": "ПФО",
-      "lat": 54.18646005379201,
-      "lon": 48.382480787109756,
-      "geocode_source": "region_centroid"
+      "federal_district": "ПФО"
     },
     {
       "id": 1203,
@@ -24464,10 +24344,7 @@
       "status": "Ongoing",
       "source": "fsvps",
       "notes": "Rabies",
-      "federal_district": "СФО",
-      "lat": 55.92823490340785,
-      "lon": 92.8339207211453,
-      "geocode_source": "region_centroid"
+      "federal_district": "СФО"
     },
     {
       "id": 1205,
@@ -25397,10 +25274,7 @@
       "source": "fsvps",
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2025/12/26.12.2025г.pdf",
       "notes": "Лейкоз КРС — Еврейская автономная область (Ленинский район)",
-      "federal_district": "ДФО",
-      "lat": 48.1128123,
-      "lon": 132.3865259,
-      "geocode_source": "nominatim"
+      "federal_district": "ДФО"
     },
     {
       "id": 1252,
@@ -25497,10 +25371,7 @@
       "source": "fsvps",
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2025/12/29.12.2025г.pdf",
       "notes": "Бруцеллёз — Красноярский край | бруцеллёз — Красноярский край",
-      "federal_district": "СФО",
-      "lat": 56.02820841722706,
-      "lon": 92.66792021785535,
-      "geocode_source": "region_centroid"
+      "federal_district": "СФО"
     },
     {
       "id": 1257,
@@ -26177,10 +26048,7 @@
       "source": "fsvps",
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/01/14.01.2026г.pdf",
       "notes": "Бешенство животных — Красноярский край (Уярский район)",
-      "federal_district": "СФО",
-      "lat": 56.21078416417773,
-      "lon": 93.19716134351442,
-      "geocode_source": "region_centroid"
+      "federal_district": "СФО"
     },
     {
       "id": 1291,
@@ -27317,10 +27185,7 @@
       "source": "fsvps",
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/01/23.01.2026г.pdf",
       "notes": "Бруцеллёз — Ямало-Ненецкий автономный округ",
-      "federal_district": "УрФО",
-      "lat": 67.28467140564847,
-      "lon": 68.13586773821956,
-      "geocode_source": "region_centroid"
+      "federal_district": "УрФО"
     },
     {
       "id": 1348,
@@ -29337,10 +29202,7 @@
       "source": "fsvps",
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/02/13.02.2026г.pdf",
       "notes": "Лейкоз КРС — Приморский край",
-      "federal_district": "ДФО",
-      "lat": 43.962298412967044,
-      "lon": 131.81984405709716,
-      "geocode_source": "region_centroid"
+      "federal_district": "ДФО"
     },
     {
       "id": 1449,
@@ -29497,10 +29359,7 @@
       "source": "fsvps",
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/02/16.02.2026г.pdf",
       "notes": "Бруцеллёз — Ямало-Ненецкий автономный округ | Бруцеллёз — Ямало-Ненецкий автономный округ",
-      "federal_district": "УрФО",
-      "lat": 66.97853862183742,
-      "lon": 67.78997278212542,
-      "geocode_source": "region_centroid"
+      "federal_district": "УрФО"
     },
     {
       "id": 1457,
@@ -30917,10 +30776,7 @@
       "source": "fsvps",
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/03/04.03.2026г.pdf",
       "notes": "бруцеллез — Красноярский край | бруцеллез — Красноярский край",
-      "federal_district": "СФО",
-      "lat": 56.07337509085307,
-      "lon": 92.92294127051834,
-      "geocode_source": "region_centroid"
+      "federal_district": "СФО"
     },
     {
       "id": 1528,
@@ -31774,10 +31630,7 @@
       "source": "fsvps",
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/03/11.03.2026г.pdf",
       "notes": "Лейкоз КРС — Приморский край",
-      "federal_district": "ДФО",
-      "lat": 43.74681404259041,
-      "lon": 132.03362872615864,
-      "geocode_source": "region_centroid"
+      "federal_district": "ДФО"
     },
     {
       "id": 1571,
@@ -32411,10 +32264,7 @@
       "source": "fsvps",
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/03/18.03.2026г.pdf",
       "notes": "Бешенство животных — Красноярский край",
-      "federal_district": "СФО",
-      "lat": 56.18471250654209,
-      "lon": 92.78523586009648,
-      "geocode_source": "region_centroid"
+      "federal_district": "СФО"
     },
     {
       "id": 1603,
@@ -32871,10 +32721,7 @@
       "source": "fsvps",
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/03/20.03.2026г.pdf",
       "notes": "Лейкоз КРС — Приморский край",
-      "federal_district": "ДФО",
-      "lat": 43.89621916078957,
-      "lon": 132.1663170198383,
-      "geocode_source": "region_centroid"
+      "federal_district": "ДФО"
     },
     {
       "id": 1626,
@@ -33551,10 +33398,7 @@
       "source": "fsvps",
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/03/27.03.2026г.pdf",
       "notes": "Бешенство животных — Красноярский край",
-      "federal_district": "СФО",
-      "lat": 55.96703381059507,
-      "lon": 93.06916806411434,
-      "geocode_source": "region_centroid"
+      "federal_district": "СФО"
     },
     {
       "id": 1660,
@@ -35288,10 +35132,7 @@
       "source": "fsvps",
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/04/10.04.2026г.pdf",
       "notes": "Бешенство животных — Красноярский край",
-      "federal_district": "СФО",
-      "lat": 55.837605365541094,
-      "lon": 92.82972115685791,
-      "geocode_source": "region_centroid"
+      "federal_district": "СФО"
     },
     {
       "id": 1747,
@@ -36522,10 +36363,7 @@
       "source": "fsvps",
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/04/20.04.2026г.pdf",
       "notes": "грипп птиц — Еврейская автономная область (Октябрьский район)",
-      "federal_district": "ДФО",
-      "lat": 48.1505368,
-      "lon": 131.1987634,
-      "geocode_source": "nominatim"
+      "federal_district": "ДФО"
     },
     {
       "id": 1809,
@@ -36702,10 +36540,7 @@
       "source": "fsvps",
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/04/22.04.2026г.pdf",
       "notes": "Бешенство животных — Красноярский край | Бешенство животных — Красноярский край",
-      "federal_district": "СФО",
-      "lat": 56.02366067149358,
-      "lon": 93.11693309374911,
-      "geocode_source": "region_centroid"
+      "federal_district": "СФО"
     },
     {
       "id": 1818,
@@ -36922,10 +36757,7 @@
       "source": "fsvps",
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/04/22.04.2026г.pdf",
       "notes": "Лейкоз КРС — Ярославская область (Некрасовский район) | Лейкоз КРС — Ярославская область",
-      "federal_district": "ЦФО",
-      "lat": 57.6320403,
-      "lon": 39.8827315,
-      "geocode_source": "nominatim"
+      "federal_district": "ЦФО"
     },
     {
       "id": 1829,
@@ -39930,10 +39762,7 @@
       "source": "fsvps",
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/05/20.05.2026г.pdf",
       "notes": "Варроатоз пчёл — Приморский край",
-      "federal_district": "ДФО",
-      "lat": 43.751962540430526,
-      "lon": 132.2648257396407,
-      "geocode_source": "region_centroid"
+      "federal_district": "ДФО"
     },
     {
       "id": 1980,
@@ -39950,10 +39779,7 @@
       "source": "fsvps",
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/05/20.05.2026г.pdf",
       "notes": "Лейкоз КРС — Приморский край",
-      "federal_district": "ДФО",
-      "lat": 43.705738361952164,
-      "lon": 131.9274803079834,
-      "geocode_source": "region_centroid"
+      "federal_district": "ДФО"
     },
     {
       "id": 1981,
@@ -40370,10 +40196,7 @@
       "source": "fsvps",
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/05/25.05.2026г.pdf",
       "notes": "Лейкоз КРС — Ярославская область (Тутаевский район)",
-      "federal_district": "ЦФО",
-      "lat": 57.682268,
-      "lon": 39.3591829,
-      "geocode_source": "nominatim"
+      "federal_district": "ЦФО"
     },
     {
       "id": 2002,
@@ -41650,10 +41473,7 @@
       "source": "fsvps",
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/06/03.06.2026.pdf",
       "notes": "Лейкоз КРС — Ярославская область (Пошехонский район)",
-      "federal_district": "ЦФО",
-      "lat": 58.0785122,
-      "lon": 38.8522103,
-      "geocode_source": "nominatim"
+      "federal_district": "ЦФО"
     },
     {
       "id": 2066,
@@ -42627,10 +42447,7 @@
       "source": "fsvps",
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/06/10.06.2026г.pdf",
       "notes": "бруцеллез — Приморский край",
-      "federal_district": "ДФО",
-      "lat": 44.29528081971886,
-      "lon": 131.83090571909725,
-      "geocode_source": "region_centroid"
+      "federal_district": "ДФО"
     },
     {
       "id": 2115,
@@ -44304,10 +44121,7 @@
       "source": "fsvps",
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/06/24.06.2026г.pdf",
       "notes": "Нозематоз пчёл — Приморский край",
-      "federal_district": "ДФО",
-      "lat": 44.13384111233382,
-      "lon": 131.73776812724924,
-      "geocode_source": "region_centroid"
+      "federal_district": "ДФО"
     },
     {
       "id": 2199,
@@ -45284,10 +45098,7 @@
       "source": "fsvps",
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/07/06.07.2026г.pdf",
       "notes": "Бешенство животных — Красноярский край",
-      "federal_district": "СФО",
-      "lat": 56.064703454699256,
-      "lon": 92.60545234499114,
-      "geocode_source": "region_centroid"
+      "federal_district": "СФО"
     },
     {
       "id": 2248,
@@ -46801,10 +46612,7 @@
       "source": "fsvps",
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/07/20.07.2026г.pdf",
       "notes": "Лейкоз КРС — Ярославская область (Ярославский район)",
-      "federal_district": "ЦФО",
-      "lat": 57.584609,
-      "lon": 39.8356454,
-      "geocode_source": "nominatim"
+      "federal_district": "ЦФО"
     },
     {
       "id": 2324,
@@ -49772,10 +49580,7 @@
       "source": "fsvps",
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/08/17.08.2026г.pdf",
       "notes": "Сальмонеллёз — Красноярский край",
-      "federal_district": "СФО",
-      "lat": 55.93770967713236,
-      "lon": 93.02033752138256,
-      "geocode_source": "region_centroid"
+      "federal_district": "СФО"
     },
     {
       "id": 2473,
@@ -49872,10 +49677,7 @@
       "source": "fsvps",
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/08/19.08.2026г.pdf",
       "notes": "Лейкоз КРС — Ярославская область (Пошехонский район)",
-      "federal_district": "ЦФО",
-      "lat": 58.0785122,
-      "lon": 38.8522103,
-      "geocode_source": "nominatim"
+      "federal_district": "ЦФО"
     },
     {
       "id": 2478,
@@ -50792,10 +50594,7 @@
       "source": "fsvps",
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/08/31.08.2026г.pdf",
       "notes": "Бешенство животных — Ярославская область (Некрасовский район) | Бешенство животных — Ярославская область (Некрасовский район)",
-      "federal_district": "ЦФО",
-      "lat": 57.6320403,
-      "lon": 39.8827315,
-      "geocode_source": "nominatim"
+      "federal_district": "ЦФО"
     },
     {
       "id": 2524,
@@ -51592,10 +51391,7 @@
       "source": "fsvps",
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/09/09.09.2026г_.pdf",
       "notes": "Бешенство животных — Красноярский край (Новосёловский район) | Бешенство животных — Красноярский край (Канский муниципальный округ)",
-      "federal_district": "СФО",
-      "lat": 55.0010133,
-      "lon": 90.9265738,
-      "geocode_source": "nominatim"
+      "federal_district": "СФО"
     },
     {
       "id": 2564,
@@ -51792,10 +51588,7 @@
       "source": "fsvps",
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/09/09.09.2026г_.pdf",
       "notes": "Лейкоз КРС — Приморский край",
-      "federal_district": "ДФО",
-      "lat": 44.231482550993235,
-      "lon": 131.79355515313185,
-      "geocode_source": "region_centroid"
+      "federal_district": "ДФО"
     },
     {
       "id": 2574,
@@ -52312,10 +52105,7 @@
       "source": "fsvps",
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/09/16.09.2026г.pdf",
       "notes": "Бешенство животных — Красноярский край | Бешенство животных — Красноярский край",
-      "federal_district": "СФО",
-      "lat": 56.00439454499677,
-      "lon": 92.80003591277874,
-      "geocode_source": "region_centroid"
+      "federal_district": "СФО"
     },
     {
       "id": 2600,
@@ -52352,10 +52142,7 @@
       "source": "fsvps",
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/09/16.09.2026г.pdf",
       "notes": "Бешенство животных — Ярославская область (Тутаевский район)",
-      "federal_district": "ЦФО",
-      "lat": 57.682268,
-      "lon": 39.3591829,
-      "geocode_source": "nominatim"
+      "federal_district": "ЦФО"
     },
     {
       "id": 2602,
@@ -52659,26 +52446,6 @@
     },
     {
       "id": 2617,
-      "disease_key": "leukosis",
-      "disease": "Лейкоз КРС",
-      "disease_group": "Ruminant",
-      "region": "Самарская область",
-      "region_geo": "Samara",
-      "date": "2026-09-17",
-      "species": "Cattle",
-      "cases": 0,
-      "deaths": 0,
-      "status": "Ongoing",
-      "source": "fsvps",
-      "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/09/11.09-17.09.2026.pdf",
-      "notes": "Лейкоз КРС — Самарская область | Лейкоз КРС — Самарская область",
-      "federal_district": "ПФО",
-      "lat": 53.68379187319235,
-      "lon": 49.965100911920985,
-      "geocode_source": "region_centroid"
-    },
-    {
-      "id": 2618,
       "disease_key": "trichinellosis",
       "disease": "Трихинеллёз",
       "disease_group": "Wildlife",
@@ -52693,8 +52460,328 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/09/11.09-17.09.2026.pdf",
       "notes": "Трихинеллез — Кировская область",
       "federal_district": "ПФО",
-      "lat": 58.740940219778174,
-      "lon": 49.78266898021676,
+      "lat": 58.78379187319235,
+      "lon": 49.51510091192099,
+      "geocode_source": "region_centroid"
+    },
+    {
+      "id": 2618,
+      "disease_key": "rabies",
+      "disease": "Бешенство",
+      "disease_group": "Wildlife",
+      "region": "Алтайский край",
+      "region_geo": "Altay",
+      "date": "2026-09-18",
+      "species": "Wildlife",
+      "cases": 0,
+      "deaths": 0,
+      "status": "Ongoing",
+      "source": "fsvps",
+      "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/09/18.09.2026г.pdf",
+      "notes": "Бешенство животных — Алтайский край (Петропавловский район)",
+      "federal_district": "СФО",
+      "lat": 52.64094021977817,
+      "lon": 83.08266898021677,
+      "geocode_source": "region_centroid"
+    },
+    {
+      "id": 2619,
+      "disease_key": "rabies",
+      "disease": "Бешенство",
+      "disease_group": "Wildlife",
+      "region": "Белгородская область",
+      "region_geo": "Belgorod",
+      "date": "2026-09-18",
+      "species": "Wildlife",
+      "cases": 0,
+      "deaths": 0,
+      "status": "Ongoing",
+      "source": "fsvps",
+      "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/09/18.09.2026г.pdf",
+      "notes": "Бешенство животных — Белгородская область (Борисовский муниципальный округ)",
+      "federal_district": "ЦФО",
+      "lat": 50.883518161531576,
+      "lon": 36.57884179534208,
+      "geocode_source": "region_centroid"
+    },
+    {
+      "id": 2620,
+      "disease_key": "rabies",
+      "disease": "Бешенство",
+      "disease_group": "Wildlife",
+      "region": "Курская область",
+      "region_geo": "Kursk",
+      "date": "2026-09-18",
+      "species": "Wildlife",
+      "cases": 0,
+      "deaths": 0,
+      "status": "Ongoing",
+      "source": "fsvps",
+      "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/09/18.09.2026г.pdf",
+      "notes": "Бешенство животных — Курская область (Горшеченский район)",
+      "federal_district": "ЦФО",
+      "lat": 51.85668442463412,
+      "lon": 36.183879271799604,
+      "geocode_source": "region_centroid"
+    },
+    {
+      "id": 2621,
+      "disease_key": "rabies",
+      "disease": "Бешенство",
+      "disease_group": "Wildlife",
+      "region": "Московская область",
+      "region_geo": "Moskovskaya",
+      "date": "2026-09-18",
+      "species": "Wildlife",
+      "cases": 0,
+      "deaths": 0,
+      "status": "Ongoing",
+      "source": "fsvps",
+      "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/09/18.09.2026г.pdf",
+      "notes": "Бешенство животных — Московская область (Можайский муниципальный округ)",
+      "federal_district": "ЦФО",
+      "lat": 55.43938482693941,
+      "lon": 37.702548726970896,
+      "geocode_source": "region_centroid"
+    },
+    {
+      "id": 2622,
+      "disease_key": "rabies",
+      "disease": "Бешенство",
+      "disease_group": "Wildlife",
+      "region": "Нижегородская область",
+      "region_geo": "Nizhegorod",
+      "date": "2026-09-18",
+      "species": "Wildlife",
+      "cases": 0,
+      "deaths": 0,
+      "status": "Ongoing",
+      "source": "fsvps",
+      "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/09/18.09.2026г.pdf",
+      "notes": "Бешенство животных — Нижегородская область (Дальнеконстантиновский муниципальный округ) | Бешенство животных — Нижегородская область (Ардатовский муниципальный округ)",
+      "federal_district": "ПФО",
+      "lat": 56.154554012580384,
+      "lon": 43.76771317070645,
+      "geocode_source": "region_centroid"
+    },
+    {
+      "id": 2623,
+      "disease_key": "rabies",
+      "disease": "Бешенство",
+      "disease_group": "Wildlife",
+      "region": "Тюменская область",
+      "region_geo": "Tyumen'",
+      "date": "2026-09-18",
+      "species": "Wildlife",
+      "cases": 0,
+      "deaths": 0,
+      "status": "Ongoing",
+      "source": "fsvps",
+      "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/09/18.09.2026г.pdf",
+      "notes": "Бешенство животных — Тюменская область (Ярковский муниципальный округ)",
+      "federal_district": "УрФО",
+      "lat": 57.21242257665486,
+      "lon": 65.34644828797228,
+      "geocode_source": "region_centroid"
+    },
+    {
+      "id": 2624,
+      "disease_key": "asf",
+      "disease": "Африканская чума свиней",
+      "disease_group": "Swine",
+      "region": "Тюменская область",
+      "region_geo": "Tyumen'",
+      "date": "2026-09-18",
+      "species": "Swine (domestic)",
+      "cases": 0,
+      "deaths": 0,
+      "status": "Ongoing",
+      "source": "fsvps",
+      "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/09/18.09.2026г.pdf",
+      "notes": "ачс — Тюменская область (Ишимский муниципальный округ)",
+      "federal_district": "УрФО",
+      "lat": 57.15365356260188,
+      "lon": 65.24580401006092,
+      "geocode_source": "region_centroid"
+    },
+    {
+      "id": 2625,
+      "disease_key": "asf",
+      "disease": "Африканская чума свиней",
+      "disease_group": "Swine",
+      "region": "Челябинская область",
+      "region_geo": "Chelyabinsk",
+      "date": "2026-09-18",
+      "species": "Swine (domestic)",
+      "cases": 0,
+      "deaths": 0,
+      "status": "Ongoing",
+      "source": "fsvps",
+      "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/09/18.09.2026г.pdf",
+      "notes": "ачс — Челябинская область",
+      "federal_district": "УрФО",
+      "lat": 54.75020856530395,
+      "lon": 61.244785361376785,
+      "geocode_source": "region_centroid"
+    },
+    {
+      "id": 2626,
+      "disease_key": "brucellosis",
+      "disease": "Бруцеллёз",
+      "disease_group": "Ruminant",
+      "region": "Оренбургская область",
+      "region_geo": "Orenburg",
+      "date": "2026-09-18",
+      "species": "Cattle",
+      "cases": 0,
+      "deaths": 0,
+      "status": "Resolved",
+      "source": "fsvps",
+      "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/09/18.09.2026г.pdf",
+      "notes": "Бруцеллёз — Оренбургская область",
+      "federal_district": "ПФО",
+      "lat": 51.98372134254987,
+      "lon": 54.97703642247199,
+      "geocode_source": "region_centroid"
+    },
+    {
+      "id": 2627,
+      "disease_key": "leukosis",
+      "disease": "Лейкоз КРС",
+      "disease_group": "Ruminant",
+      "region": "Краснодарский край",
+      "region_geo": "Krasnodar",
+      "date": "2026-09-18",
+      "species": "Cattle",
+      "cases": 0,
+      "deaths": 0,
+      "status": "Ongoing",
+      "source": "fsvps",
+      "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/09/18.09.2026г.pdf",
+      "notes": "Лейкоз КРС — Краснодарский край",
+      "federal_district": "ЮФО",
+      "lat": 45.107909557870364,
+      "lon": 38.81331869833312,
+      "geocode_source": "region_centroid"
+    },
+    {
+      "id": 2628,
+      "disease_key": "leukosis",
+      "disease": "Лейкоз КРС",
+      "disease_group": "Ruminant",
+      "region": "Алтайский край",
+      "region_geo": "Altay",
+      "date": "2026-09-18",
+      "species": "Cattle",
+      "cases": 0,
+      "deaths": 0,
+      "status": "Ongoing",
+      "source": "fsvps",
+      "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/09/18.09.2026г.pdf",
+      "notes": "Лейкоз КРС — Алтайский край | Лейкоз КРС — Алтайский край",
+      "federal_district": "СФО",
+      "lat": 52.375973590371714,
+      "lon": 83.10044822242544,
+      "geocode_source": "region_centroid"
+    },
+    {
+      "id": 2629,
+      "disease_key": "leukosis",
+      "disease": "Лейкоз КРС",
+      "disease_group": "Ruminant",
+      "region": "Самарская область",
+      "region_geo": "Samara",
+      "date": "2026-09-18",
+      "species": "Cattle",
+      "cases": 0,
+      "deaths": 0,
+      "status": "Ongoing",
+      "source": "fsvps",
+      "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/09/18.09.2026г.pdf",
+      "notes": "Лейкоз КРС — Самарская область | Лейкоз КРС — Самарская область | Лейкоз КРС — Самарская область",
+      "federal_district": "ПФО",
+      "lat": 53.75736827872816,
+      "lon": 50.15601579686891,
+      "geocode_source": "region_centroid"
+    },
+    {
+      "id": 2630,
+      "disease_key": "leukosis",
+      "disease": "Лейкоз КРС",
+      "disease_group": "Ruminant",
+      "region": "Тюменская область",
+      "region_geo": "Tyumen'",
+      "date": "2026-09-18",
+      "species": "Cattle",
+      "cases": 0,
+      "deaths": 0,
+      "status": "Resolved",
+      "source": "fsvps",
+      "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/09/18.09.2026г.pdf",
+      "notes": "Лейкоз КРС — Тюменская область (Заводоуковский муниципальный округ)",
+      "federal_district": "УрФО",
+      "lat": 57.156121609989,
+      "lon": 65.75297848534413,
+      "geocode_source": "region_centroid"
+    },
+    {
+      "id": 2631,
+      "disease_key": "other",
+      "disease": "Прочее",
+      "disease_group": "Multi-species",
+      "region": "Смоленская область",
+      "region_geo": "Smolensk",
+      "date": "2026-09-18",
+      "species": "Other",
+      "cases": 0,
+      "deaths": 0,
+      "status": "Ongoing",
+      "source": "fsvps",
+      "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/09/18.09.2026г.pdf",
+      "notes": "иал — Смоленская область",
+      "federal_district": "ЦФО",
+      "lat": 54.86634297433113,
+      "lon": 31.96215222351018,
+      "geocode_source": "region_centroid"
+    },
+    {
+      "id": 2632,
+      "disease_key": "rabies",
+      "disease": "Бешенство",
+      "disease_group": "Wildlife",
+      "region": "Смоленская область",
+      "region_geo": "Smolensk",
+      "date": "2026-09-18",
+      "species": "Wildlife",
+      "cases": 0,
+      "deaths": 0,
+      "status": "Ongoing",
+      "source": "fsvps",
+      "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/09/18.09.2026г.pdf",
+      "notes": "Бешенство — Смоленская область",
+      "federal_district": "ЦФО",
+      "lat": 54.62928248715465,
+      "lon": 32.162799788789165,
+      "geocode_source": "region_centroid"
+    },
+    {
+      "id": 2633,
+      "disease_key": "trichinellosis",
+      "disease": "Трихинеллёз",
+      "disease_group": "Wildlife",
+      "region": "Кемеровская область",
+      "region_geo": "Kemerovo",
+      "date": "2026-09-18",
+      "species": "Wildlife",
+      "cases": 0,
+      "deaths": 0,
+      "status": "Ongoing",
+      "source": "fsvps",
+      "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/09/18.09.2026г.pdf",
+      "notes": "Трихинеллез — Кемеровская область",
+      "federal_district": "СФО",
+      "lat": 55.004699736693134,
+      "lon": 87.03207021656611,
       "geocode_source": "region_centroid"
     }
   ]
