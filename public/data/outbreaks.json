@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-18",
+  "updated": "2026-09-19",
   "sources": [
     "wahis",
     "fsvps"
@@ -49871,8 +49871,8 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/08/19.08.2026г.pdf",
       "notes": "Лейкоз КРС — Ярославская область (Пошехонский район)",
       "federal_district": "ЦФО",
-      "lat": 58.0766133,
-      "lon": 38.8511081,
+      "lat": 58.0785122,
+      "lon": 38.8522103,
       "geocode_source": "nominatim"
     },
     {
