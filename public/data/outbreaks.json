@@ -50971,9 +50971,9 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/09/02.09.2026г.pdf",
       "notes": "Бешенство животных — Нижегородская область (Ардатовский муниципальный округ) | Бешенство животных — Нижегородская область (Дальнеконстантиновский муниципальный округ)",
       "federal_district": "ПФО",
-      "lat": 56.14518595534213,
-      "lon": 43.71371584781129,
-      "geocode_source": "region_centroid"
+      "lat": 55.329637,
+      "lon": 43.1582672,
+      "geocode_source": "nominatim"
     },
     {
       "id": 2533,
@@ -51071,9 +51071,9 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/09/02.09.2026г.pdf",
       "notes": "Бешенство животных — Омская область (Большереченский район)",
       "federal_district": "СФО",
-      "lat": 54.72700716963848,
-      "lon": 73.07954148759674,
-      "geocode_source": "region_centroid"
+      "lat": 56.1909836,
+      "lon": 74.3959818,
+      "geocode_source": "nominatim"
     },
     {
       "id": 2538,
@@ -51911,9 +51911,9 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/09/11.09.2026г.pdf",
       "notes": "Бешенство животных — Тамбовская область (Тамбовский муниципальный округ) | Бешенство животных — Тамбовская область (Уваровский муниципальный округ)",
       "federal_district": "ЦФО",
-      "lat": 52.8385453651198,
-      "lon": 41.55228280717391,
-      "geocode_source": "region_centroid"
+      "lat": 52.7921725,
+      "lon": 41.6353285,
+      "geocode_source": "nominatim"
     },
     {
       "id": 2580,
@@ -52631,9 +52631,9 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/09/18.09.2026г.pdf",
       "notes": "Бешенство животных — Тюменская область (Ярковский муниципальный округ)",
       "federal_district": "УрФО",
-      "lat": 57.2357802315395,
-      "lon": 65.43931999220524,
-      "geocode_source": "region_centroid"
+      "lat": 57.6168489,
+      "lon": 67.1766769,
+      "geocode_source": "nominatim"
     },
     {
       "id": 2616,
@@ -53008,9 +53008,9 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/09/23.09.2026г.pdf",
       "notes": "Бешенство животных — Курская область (Хомутовский район) | Бешенство животных — Курская область (Горшеченский район)",
       "federal_district": "ЦФО",
-      "lat": 51.91906726382206,
-      "lon": 36.1360808980765,
-      "geocode_source": "region_centroid"
+      "lat": 51.8755554,
+      "lon": 34.6631707,
+      "geocode_source": "nominatim"
     },
     {
       "id": 2635,
