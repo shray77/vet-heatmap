@@ -3,7 +3,7 @@
   "sources": [
     "yandex"
   ],
-  "total": 182,
+  "total": 183,
   "enterprises": [
     {
       "id": "yandex-187535263300",
@@ -2005,6 +2005,17 @@
       "address": "Челябинск, ул. Первой Пятилетки, 13В",
       "city": "Челябинск",
       "rubric": "Комбикорма и кормовые добавки",
+      "source": "yandex"
+    },
+    {
+      "id": "yandex-37535136183",
+      "name": "Иней",
+      "type": "meat_plant",
+      "lat": null,
+      "lon": null,
+      "address": "просп. Непокорённых, 63, корп. 46, Санкт-Петербург",
+      "city": "Санкт-Петербург",
+      "rubric": "Склад",
       "source": "yandex"
     }
   ]
