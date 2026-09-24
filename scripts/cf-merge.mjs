@@ -18,7 +18,9 @@ import { execSync } from 'node:child_process';
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..', '..');
+// cf-merge.mjs лежит в scripts/ → репо-корень на ОДИН уровень выше
+// (в отличие от run-all.ts, который в scripts/scrape/ и поднимается на два)
+const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const OUT = resolve(ROOT, 'public', 'data', 'outbreaks.json');
 const API = (process.env.VET_API_URL ?? '').replace(/\/+$/, '');
 const TOKEN = process.env.VET_API_TOKEN ?? '';
