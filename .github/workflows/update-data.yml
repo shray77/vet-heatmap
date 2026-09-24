@@ -54,6 +54,17 @@ jobs:
         env:
           SCRAPE_TIMEOUT: "240"
 
+      - name: CF merge через vet-api (опционально)
+        # Вычисление merge+upsert уезжает на Cloudflare Worker vet-api (репо shray77/vet-api).
+        # Вход: .cache/sources.json (дамп из run-all.ts) + baseline из git HEAD.
+        # При ошибке CF — локальный merge уже на диске, пайплайн не страдает.
+        id: cfmerge
+        continue-on-error: true
+        env:
+          VET_API_URL: ${{ vars.VET_API_URL }}
+          VET_API_TOKEN: ${{ secrets.VET_API_TOKEN }}
+        run: node scripts/cf-merge.mjs
+
       - name: Post-process (infer regions + federal districts)
         run: python3 scripts/post-process.py || true
 

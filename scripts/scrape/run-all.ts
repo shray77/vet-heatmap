@@ -20,7 +20,7 @@
  *   1 — fatal error, no data produced
  */
 
-import { writeFile } from "node:fs/promises";
+import { writeFile, mkdir } from "node:fs/promises";
 import { resolve } from "node:path";
 import { dirname } from "node:path";
 import { fileURLToPath } from "node:url";
@@ -230,6 +230,21 @@ async function main() {
     sources.map((s) => ({ source: s.source, outbreaks: s.outbreaks })),
   );
   console.log(`      ${totalRecent} recent → ${recentMerged.length} (deduped)`);
+
+  // 3.5 Dump per-source recent arrays for optional CF merge (vet-api).
+  //     .cache/ is gitignored — the dump never lands in the repo.
+  try {
+    const cacheDir = resolve(__dirname, ".cache");
+    await mkdir(cacheDir, { recursive: true });
+    await writeFile(
+      resolve(cacheDir, "sources.json"),
+      JSON.stringify(sources.map((s) => ({ source: s.source, outbreaks: s.outbreaks }))),
+      "utf-8",
+    );
+    console.log(`      sources.json: dumped ${sources.map((s) => `${s.source}=${s.outbreaks.length}`).join(", ")}`);
+  } catch (e) {
+    console.log(`      (sources.json dump failed — CF merge will skip this run: ${e})`);
+  }
 
   // 4. Incremental upsert into previous committed dataset (preserves full history;
   //    we no longer re-fetch the whole archive every run — only a recent window).
