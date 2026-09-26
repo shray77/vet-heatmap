@@ -51591,9 +51591,9 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/09/09.09.2026г_.pdf",
       "notes": "Бешенство животных — Красноярский край (Новосёловский район) | Бешенство животных — Красноярский край (Канский муниципальный округ)",
       "federal_district": "СФО",
-      "lat": 56.030551477145266,
-      "lon": 92.94588572140044,
-      "geocode_source": "region_centroid"
+      "lat": 55.0010133,
+      "lon": 90.9265738,
+      "geocode_source": "nominatim"
     },
     {
       "id": 2564,
