@@ -51633,9 +51633,9 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/09/09.09.2026г_.pdf",
       "notes": "Бешенство животных — Красноярский край (Новосёловский район) | Бешенство животных — Красноярский край (Канский муниципальный округ)",
       "federal_district": "СФО",
-      "lat": 55.76262791273746,
-      "lon": 92.79282835788857,
-      "geocode_source": "region_centroid"
+      "lat": 55.0010133,
+      "lon": 90.9265738,
+      "geocode_source": "nominatim"
     },
     {
       "id": 2566,
@@ -51653,9 +51653,9 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/09/09.09.2026г_.pdf",
       "notes": "Бешенство животных — Курская область (Дмитриевский район)",
       "federal_district": "ЦФО",
-      "lat": 52.140752,
-      "lon": 34.9845358,
-      "geocode_source": "nominatim"
+      "lat": 51.50227093204165,
+      "lon": 36.023154636037,
+      "geocode_source": "region_centroid"
     },
     {
       "id": 2567,
@@ -51693,9 +51693,9 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/09/09.09.2026г_.pdf",
       "notes": "Бешенство животных — Омская область (Нижнеомский район) | Бешенство животных — Омская область (Таврический район) | Бешенство животных — Омская область (Марьяновский район)",
       "federal_district": "СФО",
-      "lat": 55.5873293,
-      "lon": 74.7665651,
-      "geocode_source": "nominatim"
+      "lat": 55.27300351967325,
+      "lon": 73.29423178701066,
+      "geocode_source": "region_centroid"
     },
     {
       "id": 2569,
@@ -51953,9 +51953,9 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/09/11.09.2026г.pdf",
       "notes": "Бешенство животных — Тамбовская область (Тамбовский муниципальный округ) | Бешенство животных — Тамбовская область (Уваровский муниципальный округ)",
       "federal_district": "ЦФО",
-      "lat": 52.7921725,
-      "lon": 41.6353285,
-      "geocode_source": "nominatim"
+      "lat": 52.505313428101374,
+      "lon": 41.297969758827456,
+      "geocode_source": "region_centroid"
     },
     {
       "id": 2582,
@@ -51993,9 +51993,9 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/09/11.09.2026г.pdf",
       "notes": "Бешенство животных — Новгородская область (Новгородский муниципальный округ)",
       "federal_district": "СЗФО",
-      "lat": 58.6484822,
-      "lon": 31.6566139,
-      "geocode_source": "nominatim"
+      "lat": 58.71136310395782,
+      "lon": 31.24810967125738,
+      "geocode_source": "region_centroid"
     },
     {
       "id": 2584,
@@ -52033,9 +52033,9 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/09/11.09.2026г.pdf",
       "notes": "Бешенство животных — Тюменская область (Заводоуковский муниципальный округ)",
       "federal_district": "УрФО",
-      "lat": 56.5644037,
-      "lon": 66.7474969,
-      "geocode_source": "nominatim"
+      "lat": 56.96355895740816,
+      "lon": 65.74621107508088,
+      "geocode_source": "region_centroid"
     },
     {
       "id": 2586,
@@ -52173,9 +52173,9 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/09/14.09.2026г.pdf",
       "notes": "Бешенство животных — Челябинская область (Брединский муниципальный округ)",
       "federal_district": "УрФО",
-      "lat": 52.3910903,
-      "lon": 60.5935636,
-      "geocode_source": "nominatim"
+      "lat": 55.2505542392311,
+      "lon": 61.304478603136594,
+      "geocode_source": "region_centroid"
     },
     {
       "id": 2593,
@@ -52833,9 +52833,9 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/09/21.09.2026г.pdf",
       "notes": "Бешенство животных — Челябинская область (Брединский муниципальный округ) | Бешенство животных — Челябинская область",
       "federal_district": "УрФО",
-      "lat": 52.3910903,
-      "lon": 60.5935636,
-      "geocode_source": "nominatim"
+      "lat": 54.75020856530395,
+      "lon": 61.244785361376785,
+      "geocode_source": "region_centroid"
     },
     {
       "id": 2626,
