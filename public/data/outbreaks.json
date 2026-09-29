@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-28",
+  "updated": "2026-09-29",
   "sources": [
     "wahis",
     "fsvps"
@@ -51252,8 +51252,8 @@
       "notes": "Lumpy skin disease virus (Inf. with)  in Russia",
       "region_inferred": true,
       "federal_district": "СФО",
-      "lat": 52.199267298163235,
-      "lon": 104.23402304984381,
+      "lat": 52.19427974972903,
+      "lon": 104.47228277120078,
       "geocode_source": "region_centroid"
     },
     {
