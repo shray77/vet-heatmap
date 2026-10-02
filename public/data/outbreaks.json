@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-01",
+  "updated": "2026-10-02",
   "sources": [
     "wahis",
     "fsvps"
@@ -50789,7 +50789,7 @@
       "status": "Ongoing",
       "source": "fsvps",
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/08/31.08.2026г.pdf",
-      "notes": "Бешенство животных — Ярославская область (Некрасовский район) | Бешенство животных — Ярославская область (Некрасовский район)",
+      "notes": "Бешенство животных — Ярославская область (Некрасовский район)",
       "federal_district": "ЦФО",
       "lat": 57.6320403,
       "lon": 39.8827315,
@@ -50846,14 +50846,14 @@
       "species": "Cattle",
       "cases": 0,
       "deaths": 0,
-      "status": "Ongoing",
+      "status": "Resolved",
       "source": "fsvps",
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/08/31.08.2026г.pdf",
-      "notes": "Лейкоз КРС — Иркутская область | Лейкоз КРС — Иркутская область (Шелеховский район) | Лейкоз КРС — Иркутская область",
+      "notes": "Лейкоз КРС — Иркутская область",
       "federal_district": "СФО",
-      "lat": 52.054798,
-      "lon": 103.8724117,
-      "geocode_source": "nominatim"
+      "lat": 52.55335626106265,
+      "lon": 104.24311994679745,
+      "geocode_source": "region_centroid"
     },
     {
       "id": 2527,
@@ -50949,7 +50949,7 @@
       "status": "Ongoing",
       "source": "fsvps",
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/09/02.09.2026г.pdf",
-      "notes": "Бешенство животных — Алтайский край (Смоленский район) | Бешенство — Алтайский край",
+      "notes": "Бешенство животных — Алтайский край (Смоленский район)",
       "federal_district": "СФО",
       "lat": 52.1301967,
       "lon": 84.9493333,
