@@ -3,6 +3,7 @@ import { FilterPanel } from "@/components/filter-panel";
 import { TimelineSlider } from "@/components/timeline-slider";
 import { HotspotList } from "@/components/hotspot-list";
 import { EpiCurve } from "@/components/epi-curve";
+import { CusumCard } from "@/components/cusum-card";
 import { DiseaseComparison } from "@/components/disease-comparison";
 import { RiskScoreMap } from "@/components/risk-score-map";
 import { OutbreaksTable } from "@/components/outbreaks-table";
@@ -64,6 +65,7 @@ export function Sidebar({
           <TimelineSlider outbreaks={outbreaks} onDateRangeChange={(from, to) => setTimelineRange({ from, to })} />
           <HotspotList outbreaks={filtered} onSelectRegion={(r) => { setRegionDrillDown(r); setRegionDrillDownOpen(true); }} />
           <EpiCurve outbreaks={filtered} />
+          <CusumCard outbreaks={filtered} />
           <DiseaseComparison outbreaks={filtered} />
           <RiskScoreMap outbreaks={filtered} />
           <OutbreaksTable outbreaks={filtered} onSelectOutbreak={onSelectOutbreak} />
@@ -96,6 +98,7 @@ export function Sidebar({
             <TimelineSlider outbreaks={outbreaks} onDateRangeChange={(from, to) => setTimelineRange({ from, to })} />
             <HotspotList outbreaks={filtered} onSelectRegion={(r) => { setRegionDrillDown(r); setRegionDrillDownOpen(true); }} />
             <EpiCurve outbreaks={filtered} />
+            <CusumCard outbreaks={filtered} />
             <DiseaseComparison outbreaks={filtered} />
             <SeasonalHeatmap outbreaks={filtered} />
             <RiskScoreMap outbreaks={filtered} />
