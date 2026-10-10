@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-09",
+  "updated": "2026-10-10",
   "sources": [
     "openstreetmap",
     "curated"
@@ -491,6 +491,17 @@
       "capacity": "млн+ голов"
     },
     {
+      "id": "osm-411700058",
+      "name": "Птицекомплекс",
+      "type": "poultry_farm",
+      "lat": 53.2078935,
+      "lon": 39.256258,
+      "tags": {
+        "landuse": "farmyard",
+        "name": "Птицекомплекс"
+      }
+    },
+    {
       "id": "osm-6985936223",
       "name": "Птицесовхоз",
       "type": "poultry_farm",
@@ -504,23 +515,6 @@
         "official_name": "Государственный племенной птицезавод",
         "place": "neighbourhood",
         "short_name": "ГППЗ"
-      }
-    },
-    {
-      "id": "osm-243520930",
-      "name": "Птицефабрика",
-      "type": "poultry_farm",
-      "lat": 51.7568819,
-      "lon": 113.9175501,
-      "tags": {
-        "esr:user": "942726",
-        "name": "Птицефабрика",
-        "name:ru": "Птицефабрика",
-        "operator": "ОАО «РЖД»",
-        "operator:branch": "Забайкальская железная дорога",
-        "railway": "halt",
-        "train": "yes",
-        "uic_ref": "2051416"
       }
     },
     {
