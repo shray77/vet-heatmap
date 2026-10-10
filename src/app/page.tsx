@@ -245,6 +245,14 @@ function HomeContent() {
         outbreaks={data?.outbreaks ?? []} filtered={filtered} geo={geo}
         enterprises={enterprises} regionCentroids={regionCentroids}
       />
+
+      {/* юридический чип: не ветеринарная консультация, условия использования */}
+      <a
+        href={`${basePath}/terms.html`}
+        className="fixed bottom-1 left-1 z-[999] rounded bg-background/70 px-2 py-0.5 text-[10px] text-muted-foreground opacity-40 backdrop-blur-sm transition-opacity hover:opacity-100 md:bottom-1.5 md:left-1.5"
+      >
+        не ветсовет · условия
+      </a>
     </main>
   );
 }
