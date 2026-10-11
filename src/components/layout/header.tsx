@@ -125,6 +125,16 @@ export function Header({
             </DropdownMenuContent>
           </DropdownMenu>
 
+          <Button variant="ghost" size="icon" asChild aria-label="VetFlu — окна риска ВПГП">
+            <a
+              href="https://shray77.github.io/vetflu-site/"
+              target="_blank"
+              rel="noopener"
+              title="VetFlu — окна риска ВПГП по флайвеям РФ (родственный инструмент экосистемы)"
+            >
+              🦆
+            </a>
+          </Button>
           <Button variant="ghost" size="icon" asChild aria-label="GitHub">
             <a href="https://github.com/shray77/vet-heatmap" target="_blank" rel="noopener">
               <Github className="h-4 w-4" />
