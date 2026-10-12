@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-11",
+  "updated": "2026-10-12",
   "sources": [
     "wahis",
     "fsvps"
@@ -51691,7 +51691,7 @@
       "status": "Ongoing",
       "source": "fsvps",
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/09/09.09.2026г_.pdf",
-      "notes": "Бешенство животных — Омская область (Нижнеомский район) | Бешенство животных — Омская область (Таврический район)",
+      "notes": "Бешенство животных — Омская область (Нижнеомский район)",
       "federal_district": "СФО",
       "lat": 55.5873293,
       "lon": 74.7665651,
@@ -51811,11 +51811,11 @@
       "status": "Ongoing",
       "source": "fsvps",
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/09/09.09.2026г_.pdf",
-      "notes": "Бешенство — Смоленская область | Бешенство животных — Смоленская область (Монастырщинский район)",
+      "notes": "Бешенство — Смоленская область",
       "federal_district": "ЦФО",
-      "lat": 54.327496,
-      "lon": 31.7687352,
-      "geocode_source": "nominatim"
+      "lat": 54.50577105746507,
+      "lon": 31.82199338678268,
+      "geocode_source": "region_centroid"
     },
     {
       "id": 2575,
