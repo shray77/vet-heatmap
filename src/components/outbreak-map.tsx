@@ -150,6 +150,10 @@ export function OutbreakMap({
       maxBounds: RUSSIA_BOUNDS,
       attributionControl: { compact: true },
     });
+    // Отладочный хэндл для e2e-проверок (playwright/агентные тесты).
+    if (typeof window !== "undefined") {
+      (window as unknown as Record<string, unknown>).__vetMap = map;
+    }
 
     map.on("load", () => {
       setReady(true);
@@ -1252,7 +1256,6 @@ export function OutbreakMap({
     const cleanup = () => {
       if (map.getLayer("forecast-circles")) map.removeLayer("forecast-circles");
       if (map.getSource("forecast-districts")) map.removeSource("forecast-districts");
-      if (map.getLayer("forecast-hit")) map.removeLayer("forecast-hit");
     };
 
     if (!showForecast || forecastRows.length === 0) {
@@ -1295,20 +1298,14 @@ export function OutbreakMap({
           "circle-stroke-opacity": 0.85,
         },
       });
-      map.addLayer({
-        id: "forecast-hit",
-        type: "circle",
-        source: "forecast-districts",
-        paint: { "circle-opacity": 0, "circle-stroke-width": 0 },
-      });
     }
 
     const onEnter = () => { map.getCanvas().style.cursor = "pointer"; };
     const onLeave = () => { map.getCanvas().style.cursor = ""; };
-    map.on("mouseenter", "forecast-hit", onEnter);
-    map.on("mouseleave", "forecast-hit", onLeave);
+    map.on("mouseenter", "forecast-circles", onEnter);
+    map.on("mouseleave", "forecast-circles", onLeave);
 
-    map.on("click", "forecast-hit", (e) => {
+    map.on("click", "forecast-circles", (e) => {
       const f = e.features?.[0];
       if (!f) return;
       const p = (f.properties ?? {}) as Record<string, number | string>;
@@ -1321,8 +1318,8 @@ export function OutbreakMap({
     });
 
     return () => {
-      map.off("mouseenter", "forecast-hit", onEnter);
-      map.off("mouseleave", "forecast-hit", onLeave);
+      map.off("mouseenter", "forecast-circles", onEnter);
+      map.off("mouseleave", "forecast-circles", onLeave);
       cleanup();
     };
   }, [showForecast, forecastRows, ready]);
