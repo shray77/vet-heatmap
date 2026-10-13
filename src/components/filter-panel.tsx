@@ -37,6 +37,9 @@ interface FilterPanelProps {
   onShowChoroplethChange: (v: boolean) => void;
   showHeatmap?: boolean;
   onShowHeatmapChange?: (v: boolean) => void;
+  /** Слой прогноза TimesFM (+4 нед, округа РФ). */
+  showForecast?: boolean;
+  onShowForecastChange?: (v: boolean) => void;
   /** Livestock density layer toggle (passed from page.tsx but not used in panel UI — kept for prop compatibility). */
   densityLayer?: "none" | "pigs" | "cattle" | "poultry";
 }
@@ -52,6 +55,8 @@ export function FilterPanel({
   onShowChoroplethChange,
   showHeatmap = false,
   onShowHeatmapChange,
+  showForecast = false,
+  onShowForecastChange,
   densityLayer: _densityLayer,
 }: FilterPanelProps) {
   // Compute available filter options from the data
@@ -273,6 +278,18 @@ export function FilterPanel({
               id="heatmap"
               checked={showHeatmap}
               onCheckedChange={onShowHeatmapChange}
+            />
+          </div>
+        )}
+        {onShowForecastChange && (
+          <div className="flex items-center justify-between">
+            <Label htmlFor="forecast" className="text-xs cursor-pointer">
+              Прогноз +4 нед (TimesFM)
+            </Label>
+            <Switch
+              id="forecast"
+              checked={showForecast}
+              onCheckedChange={onShowForecastChange}
             />
           </div>
         )}

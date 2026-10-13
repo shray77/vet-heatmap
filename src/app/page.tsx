@@ -11,7 +11,7 @@ import { PwaBanners } from "@/components/pwa-banners";
 import { Header } from "@/components/layout/header";
 import { Sidebar } from "@/components/layout/sidebar";
 import { DialogManager } from "@/components/layout/dialog-manager";
-import { useOutbreaks, useRegionsGeoJSON } from "@/lib/use-data";
+import { useOutbreaks, useRegionsGeoJSON, useRegionsForecast } from "@/lib/use-data";
 import { useQuery } from "@tanstack/react-query";
 import { useUIStore } from "@/lib/ui-store";
 import { useKeyboardShortcuts } from "@/lib/use-keyboard";
@@ -20,6 +20,7 @@ import { DEFAULT_FILTERS } from "@/lib/filters";
 import { useUrlFilters } from "@/lib/use-url-filters";
 import { useDebounced } from "@/hooks/use-filter-options";
 import type { DiseaseKey, Outbreak } from "@/types/domain";
+import type { RegionsForecast } from "@/types/forecast";
 
 export default function Home() {
   return <HomeContent />;
@@ -28,12 +29,13 @@ export default function Home() {
 function HomeContent() {
   const { data, loading, error } = useOutbreaks();
   const { geo, loading: geoLoading } = useRegionsGeoJSON();
+  const { forecast } = useRegionsForecast();
   const [filters, setFilters] = useUrlFilters();
   // Debounce filters — prevents expensive applyFilters on every keystroke
   const debouncedFilters = useDebounced(filters, 300);
 
   // Map state from Zustand store
-  const { showRiskZones, showChoropleth, densityLayer, showHeatmap, nightMode,
+  const { showRiskZones, showChoropleth, densityLayer, showHeatmap, showForecast, nightMode,
           timelineRange, mobileSheetExpanded,
           toggleRiskZones, toggleChoropleth, toggleHeatmap, toggleNightMode,
           setTimelineRange, setMobileSheetExpanded } = useMapStore();
@@ -200,6 +202,7 @@ function HomeContent() {
         showRiskZones={showRiskZones} setShowRiskZones={(v) => useMapStore.setState({ showRiskZones: v })}
         showChoropleth={showChoropleth} setShowChoropleth={(v) => useMapStore.setState({ showChoropleth: v })}
         showHeatmap={showHeatmap} setShowHeatmap={(v) => useMapStore.setState({ showHeatmap: v })} densityLayer={densityLayer}
+        showForecast={showForecast} setShowForecast={(v) => useMapStore.setState({ showForecast: v })}
       />
 
       <div className="hidden md:block">
@@ -221,6 +224,8 @@ function HomeContent() {
             showChoropleth={showChoropleth}
             densityLayer={densityLayer}
             showHeatmap={showHeatmap}
+            showForecast={showForecast}
+            forecast={forecast}
             onSelectOutbreak={openOutbreak}
             onSelectRegion={openRegion}
             initialCenter={filters.mapLng != null && filters.mapLat != null ? [filters.mapLng, filters.mapLat] : undefined}
@@ -228,7 +233,8 @@ function HomeContent() {
             onMapMove={handleMapMove}
           />
           <MobileFloatingStats filtered={filtered} />
-          <MapLegend densityLayer={densityLayer} updated={data?.updated} sources={data?.sources} />
+          <MapLegend densityLayer={densityLayer} updated={data?.updated} sources={data?.sources}
+                     showForecast={showForecast} forecast={forecast} />
         </section>
 
         <Sidebar
@@ -236,6 +242,7 @@ function HomeContent() {
           resetFilters={resetFilters} showRiskZones={showRiskZones} setShowRiskZones={(v) => useMapStore.setState({ showRiskZones: v })}
           showChoropleth={showChoropleth} setShowChoropleth={(v) => useMapStore.setState({ showChoropleth: v })} showHeatmap={showHeatmap}
           setShowHeatmap={(v) => useMapStore.setState({ showHeatmap: v })} densityLayer={densityLayer}
+          showForecast={showForecast} setShowForecast={(v) => useMapStore.setState({ showForecast: v })}
           timelineRange={timelineRange} setTimelineRange={setTimelineRange} onSelectOutbreak={openOutbreak}
           mobileSheetExpanded={mobileSheetExpanded} setMobileSheetExpanded={setMobileSheetExpanded}
         />
@@ -274,7 +281,10 @@ function MobileFloatingStats({ filtered }: { filtered: Outbreak[] }) {
   );
 }
 
-function MapLegend({ densityLayer, updated, sources }: { densityLayer: string, updated?: string, sources?: string[] }) {
+function MapLegend({ densityLayer, updated, sources, showForecast, forecast }: {
+  densityLayer: string, updated?: string, sources?: string[],
+  showForecast?: boolean, forecast?: RegionsForecast | null,
+}) {
   const [collapsed, setCollapsed] = useState(false);
 
   // Collapsed: a small tappable chip so the legend never permanently
@@ -318,6 +328,20 @@ function MapLegend({ densityLayer, updated, sources }: { densityLayer: string, u
         </div>
       </div>
       <div className="pt-1.5 mt-1.5 border-t border-white/10 text-muted-foreground">
+        {showForecast && forecast && (
+          <div className="mb-1.5 pb-1.5 border-b border-white/10">
+            <div className="font-semibold text-foreground mb-1">Прогноз +{forecast.horizon_weeks} нед (TimesFM)</div>
+            <LegendRow color="#D32F2F" label="Рост" />
+            <LegendRow color="#F57C00" label="Стабильно" />
+            <LegendRow color="#1565C0" label="Спад" />
+            <div className="text-[9px] mt-1 text-muted-foreground">
+              Сглаженные ряды, ориентировочно. Не ветсовет.
+              {forecast.verdict?.status === "value" && " Модель бьёт базу в ретроспективе."}
+              {forecast.verdict?.status === "parity" && " Паритет с базой в ретроспективе."}
+              {forecast.verdict?.status === "no_value" && " На этих рядах модель не лучше наивной — слой только для ориентира."}
+            </div>
+          </div>
+        )}
         <div>Данные актуальны на: <span className="text-foreground font-medium">{updated ?? "—"}</span></div>
         <div className="text-[9px] mt-0.5">Источники: {sources?.join(", ")}</div>
       </div>

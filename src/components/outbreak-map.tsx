@@ -11,6 +11,8 @@ import { DISEASE_LABELS } from "@/data/diseases-normalize";
 import { DISEASE_PROFILES_BY_KEY } from "@/data/disease-profiles";
 import { REGION_PROPERTIES } from "@/data/regions";
 import { speciesRu, sourceRu } from "@/lib/i18n-species";
+import { districtsForecast } from "@/lib/forecast-utils";
+import type { RegionsForecast } from "@/types/forecast";
 
 /** Safe color lookup that accepts string keys (cluster properties). */
 function diseaseColorSafe(key: string): string {
@@ -39,6 +41,9 @@ interface OutbreakMapProps {
   densityLayer: "none" | "pigs" | "cattle" | "poultry";
   /** Show outbreak heatmap (replaces markers with density heatmap). */
   showHeatmap?: boolean;
+  /** TimesFM forecast layer (+4 нед, округа РФ): данные vetflu-forecast. */
+  showForecast?: boolean;
+  forecast?: RegionsForecast | null;
   /** Called when user clicks an outbreak marker. */
   onSelectOutbreak?: (o: Outbreak) => void;
   /** Called when user clicks a region. */
@@ -60,6 +65,8 @@ export function OutbreakMap({
   showChoropleth,
   densityLayer,
   showHeatmap = false,
+  showForecast = false,
+  forecast = null,
   onSelectOutbreak,
   onSelectRegion,
   initialCenter,
@@ -1226,6 +1233,100 @@ export function OutbreakMap({
     });
   }, [showHeatmap, outbreaks, geo, ready]);
 
+  // ─── TimesFM forecast layer (+4 нед, округа РФ) ─────────────────────
+  // Кружки по центроидам округов: размер = суммарный прогноз на 4-ю неделю,
+  // цвет = тренд против текущего сглаженного уровня. Учитывает фильтр болезней
+  // (группы берём из отфильтрованных вспышек). Данные — vetflu-forecast.
+  const forecastRows = useMemo(() => {
+    if (!forecast) return [];
+    const groups = new Set<string>();
+    for (const o of outbreaks) groups.add(o.disease_group);
+    // пустой фильтр = все группы; districtsForecast сам суммирует по округам
+    return districtsForecast(forecast, groups.size > 0 ? groups : null);
+  }, [forecast, outbreaks]);
+
+  useEffect(() => {
+    const map = mapRef.current;
+    if (!map || !ready) return;
+
+    const cleanup = () => {
+      if (map.getLayer("forecast-circles")) map.removeLayer("forecast-circles");
+      if (map.getSource("forecast-districts")) map.removeSource("forecast-districts");
+      if (map.getLayer("forecast-hit")) map.removeLayer("forecast-hit");
+    };
+
+    if (!showForecast || forecastRows.length === 0) {
+      cleanup();
+      return;
+    }
+
+    const features: GeoJSON.Feature[] = forecastRows.map((r) => ({
+      type: "Feature",
+      geometry: { type: "Point", coordinates: [r.lon, r.lat] },
+      properties: {
+        code: r.code, label: r.label, value: r.value, last: r.last,
+        q10: r.q10, q90: r.q90, trend: r.trend, color: r.color,
+        radius: r.radius, n_series: r.nSeries, n_events: r.nEvents,
+      },
+    }));
+
+    if (!map.getSource("forecast-districts")) {
+      map.addSource("forecast-districts", {
+        type: "geojson",
+        data: { type: "FeatureCollection", features },
+      });
+    } else {
+      (map.getSource("forecast-districts") as maplibregl.GeoJSONSource).setData({
+        type: "FeatureCollection", features,
+      });
+    }
+
+    if (!map.getLayer("forecast-circles")) {
+      map.addLayer({
+        id: "forecast-circles",
+        type: "circle",
+        source: "forecast-districts",
+        paint: {
+          "circle-radius": ["get", "radius"],
+          "circle-color": ["get", "color"],
+          "circle-opacity": 0.28,
+          "circle-stroke-width": 1.6,
+          "circle-stroke-color": ["get", "color"],
+          "circle-stroke-opacity": 0.85,
+        },
+      });
+      map.addLayer({
+        id: "forecast-hit",
+        type: "circle",
+        source: "forecast-districts",
+        paint: { "circle-opacity": 0, "circle-stroke-width": 0 },
+      });
+    }
+
+    const onEnter = () => { map.getCanvas().style.cursor = "pointer"; };
+    const onLeave = () => { map.getCanvas().style.cursor = ""; };
+    map.on("mouseenter", "forecast-hit", onEnter);
+    map.on("mouseleave", "forecast-hit", onLeave);
+
+    map.on("click", "forecast-hit", (e) => {
+      const f = e.features?.[0];
+      if (!f) return;
+      const p = (f.properties ?? {}) as Record<string, number | string>;
+      const trendWord = p.trend === "up" ? "Рост" : p.trend === "down" ? "Спад" : "Стабильно";
+      const ll = (f.geometry as GeoJSON.Point).coordinates as [number, number];
+      new maplibregl.Popup({ maxWidth: "270px" })
+        .setLngLat(ll)
+        .setHTML(forecastPopupHTML(p, trendWord))
+        .addTo(map);
+    });
+
+    return () => {
+      map.off("mouseenter", "forecast-hit", onEnter);
+      map.off("mouseleave", "forecast-hit", onLeave);
+      cleanup();
+    };
+  }, [showForecast, forecastRows, ready]);
+
   return (
     <div className="relative w-full h-full">
       <div ref={mapContainer} className="w-full h-full" />
@@ -1291,6 +1392,32 @@ function buildPopupHTML(o: Outbreak): string {
       </table>
     </div>
   `;
+}
+
+/** Попап слоя прогноза: свойства фичи forecast-circles -> HTML. */
+function forecastPopupHTML(p: Record<string, number | string>, trendWord: string): string {
+  const fmt = (v: number | string) => Number(v).toLocaleString("ru-RU", { maximumFractionDigits: 1 });
+  return `
+    <div style="font-family: inherit; padding: 4px 0; min-width: 190px;">
+      <div style="display:flex;align-items:center;gap:6px;margin-bottom:6px;">
+        <div style="width:10px;height:10px;border-radius:50%;background:${p.color};"></div>
+        <strong style="font-size:13px;">${escapeHTML(String(p.label))}</strong>
+      </div>
+      <table style="font-size:12px;width:100%;border-spacing:0;">
+        <tr><td style="color:#888;padding:2px 8px 2px 0;">Прогноз +4 нед:</td>
+            <td><strong>${fmt(p.value)}</strong> <span style="color:#888;">(q10–q90: ${fmt(p.q10)}–${fmt(p.q90)})</span></td></tr>
+        <tr><td style="color:#888;padding:2px 8px 2px 0;">Текущий уровень:</td>
+            <td>${fmt(p.last)} <span style="color:#888;">соб./нед (сглаж.)</span></td></tr>
+        <tr><td style="color:#888;padding:2px 8px 2px 0;">Тренд:</td>
+            <td><strong style="color:${p.color};">${trendWord}</strong></td></tr>
+        <tr><td style="color:#888;padding:2px 8px 2px 0;">Ряды:</td>
+            <td>${p.n_series} (${Number(p.n_events).toLocaleString("ru-RU")} соб.)</td></tr>
+      </table>
+      <div style="font-size:10px;color:#888;margin-top:6px;">
+        TimesFM 2.5 · сглаженные ряды · ориентировочно, не ветсовет.<br/>
+        Витрина: shray77.github.io/vetflu-forecast
+      </div>
+    </div>`;
 }
 
 function escapeHTML(s: string): string {

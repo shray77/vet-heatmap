@@ -21,6 +21,8 @@ interface MapState {
   showRiskZones: boolean;
   showChoropleth: boolean;
   showHeatmap: boolean;
+  /** Слой прогноза TimesFM (+4 нед, округа РФ) — данные vetflu-forecast. */
+  showForecast: boolean;
   nightMode: boolean;
 
   // ─── Density layer ──────────────────────────────────────────────────
@@ -36,6 +38,7 @@ interface MapState {
   toggleRiskZones: () => void;
   toggleChoropleth: () => void;
   toggleHeatmap: () => void;
+  toggleForecast: () => void;
   toggleNightMode: () => void;
   setDensityLayer: (layer: DensityLayer) => void;
   setTimelineRange: (range: { from: string | null; to: string | null }) => void;
@@ -49,6 +52,7 @@ const DEFAULTS = {
   showRiskZones: true,
   showChoropleth: true,
   showHeatmap: false,
+  showForecast: false,
   nightMode: false,
   densityLayer: "none" as DensityLayer,
   timelineRange: { from: null, to: null },
@@ -61,6 +65,7 @@ export const useMapStore = create<MapState>((set) => ({
   toggleRiskZones: () => set((s) => ({ showRiskZones: !s.showRiskZones })),
   toggleChoropleth: () => set((s) => ({ showChoropleth: !s.showChoropleth })),
   toggleHeatmap: () => set((s) => ({ showHeatmap: !s.showHeatmap })),
+  toggleForecast: () => set((s) => ({ showForecast: !s.showForecast })),
   toggleNightMode: () => set((s) => ({ nightMode: !s.nightMode })),
   setDensityLayer: (densityLayer) => set({ densityLayer }),
   setTimelineRange: (timelineRange) => set({ timelineRange }),

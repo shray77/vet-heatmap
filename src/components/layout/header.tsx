@@ -37,13 +37,15 @@ interface HeaderProps {
   setShowChoropleth: (v: boolean) => void;
   showHeatmap: boolean;
   setShowHeatmap: (v: boolean) => void;
+  showForecast: boolean;
+  setShowForecast: (v: boolean) => void;
   densityLayer: "none" | "pigs" | "cattle" | "poultry";
 }
 
 export function Header({
   outbreaks, filtered, filters, setFilters, totalRegions, focusRegion, toggleDiseaseFilter, resetFilters,
   nightMode, setNightMode, showRiskZones, setShowRiskZones, showChoropleth, setShowChoropleth,
-  showHeatmap, setShowHeatmap, densityLayer
+  showHeatmap, setShowHeatmap, showForecast, setShowForecast, densityLayer
 }: HeaderProps) {
   const { theme } = useTheme();
   const {
@@ -192,6 +194,7 @@ export function Header({
                   showRiskZones={showRiskZones} onShowRiskZonesChange={setShowRiskZones}
                   showChoropleth={showChoropleth} onShowChoroplethChange={setShowChoropleth}
                   densityLayer={densityLayer} showHeatmap={showHeatmap} onShowHeatmapChange={setShowHeatmap}
+                  showForecast={showForecast} onShowForecastChange={setShowForecast}
                 />
               </div>
             </SheetContent>

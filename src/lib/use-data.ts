@@ -2,6 +2,7 @@
 
 import { useQuery } from "@tanstack/react-query";
 import type { OutbreakDataset, DiseaseProfile } from "@/types/domain";
+import type { RegionsForecast } from "@/types/forecast";
 import { DISEASE_PROFILES } from "@/data/disease-profiles";
 
 /**
@@ -93,6 +94,33 @@ export function useRegionsGeoJSON() {
 
   return {
     geo: query.data ?? null,
+    loading: query.isLoading,
+    error: query.error?.message ?? null,
+  };
+}
+
+/**
+ * TimesFM regional forecast (+4 weeks) from the vetflu-forecast worker.
+ *
+ * Optional layer: if the worker/Pages is unreachable we degrade gracefully —
+ * the map just won't offer the forecast toggle state (component checks for null).
+ */
+export function useRegionsForecast() {
+  const query = useQuery({
+    queryKey: ["regions-forecast"],
+    queryFn: async () => {
+      const res = await fetch(
+        "https://shray77.github.io/vetflu-forecast/data/forecast_regions.json",
+      );
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      return (await res.json()) as RegionsForecast;
+    },
+    staleTime: 30 * 60 * 1000, // воркер обновляет раз в неделю + dispatch
+    retry: 1,
+  });
+
+  return {
+    forecast: query.data ?? null,
     loading: query.isLoading,
     error: query.error?.message ?? null,
   };

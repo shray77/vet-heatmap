@@ -24,6 +24,8 @@ interface SidebarProps {
   setShowChoropleth: (v: boolean) => void;
   showHeatmap: boolean;
   setShowHeatmap: (v: boolean) => void;
+  showForecast: boolean;
+  setShowForecast: (v: boolean) => void;
   densityLayer: "none" | "pigs" | "cattle" | "poultry";
   timelineRange: { from: string | null; to: string | null };
   setTimelineRange: (r: { from: string | null; to: string | null }) => void;
@@ -35,7 +37,7 @@ interface SidebarProps {
 export function Sidebar({
   outbreaks, filtered, filters, setFilters, resetFilters,
   showRiskZones, setShowRiskZones, showChoropleth, setShowChoropleth,
-  showHeatmap, setShowHeatmap, densityLayer,
+  showHeatmap, setShowHeatmap, showForecast, setShowForecast, densityLayer,
   timelineRange, setTimelineRange, onSelectOutbreak,
   mobileSheetExpanded, setMobileSheetExpanded
 }: SidebarProps) {
@@ -61,6 +63,7 @@ export function Sidebar({
             showRiskZones={showRiskZones} onShowRiskZonesChange={setShowRiskZones}
             showChoropleth={showChoropleth} onShowChoroplethChange={setShowChoropleth}
             densityLayer={densityLayer} showHeatmap={showHeatmap} onShowHeatmapChange={setShowHeatmap}
+            showForecast={showForecast} onShowForecastChange={setShowForecast}
           />
           <TimelineSlider outbreaks={outbreaks} onDateRangeChange={(from, to) => setTimelineRange({ from, to })} />
           <HotspotList outbreaks={filtered} onSelectRegion={(r) => { setRegionDrillDown(r); setRegionDrillDownOpen(true); }} />
