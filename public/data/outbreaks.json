@@ -54230,9 +54230,9 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/10/05.10.2026г.pdf",
       "notes": "Лейкоз КРС — Алтайский край (Пристанский район) | Лейкоз КРС — Алтайский край | Лейкоз КРС — Алтайский край",
       "federal_district": "СФО",
-      "lat": 53.11089398536144,
-      "lon": 84.2543303372524,
-      "geocode_source": "region_centroid"
+      "lat": 52.3137165,
+      "lon": 83.5913399,
+      "geocode_source": "nominatim"
     },
     {
       "id": 2696,
