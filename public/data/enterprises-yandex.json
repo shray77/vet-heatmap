@@ -3,7 +3,7 @@
   "sources": [
     "yandex"
   ],
-  "total": 190,
+  "total": 192,
   "enterprises": [
     {
       "id": "yandex-187535263300",
@@ -2092,6 +2092,28 @@
       "lon": null,
       "address": "Нижний Новгород, просп. Ленина, 62",
       "city": "Нижний Новгород",
+      "rubric": "Магазин мяса, колбас",
+      "source": "yandex"
+    },
+    {
+      "id": "yandex-59828079265",
+      "name": "Козелки",
+      "type": "meat_plant",
+      "lat": null,
+      "lon": null,
+      "address": "Самара, Ташкентская ул., 121К",
+      "city": "Самара",
+      "rubric": "Магазин мяса, колбас",
+      "source": "yandex"
+    },
+    {
+      "id": "yandex-14297941140",
+      "name": "Мяшлык",
+      "type": "meat_plant",
+      "lat": null,
+      "lon": null,
+      "address": "ул. Силина, 7В, Самара",
+      "city": "Самара",
       "rubric": "Магазин мяса, колбас",
       "source": "yandex"
     }
