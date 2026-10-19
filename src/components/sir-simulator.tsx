@@ -69,7 +69,7 @@ interface SIRSimulatorProps {
 //   β  = transmission rate (R0 = β / (γ + μ))
 //   σ  = 1 / incubation_days (rate E → I)
 //   γ  = 1 / infectious_days (rate I → R)
-//   μ  = case fatality rate / infectious_days (rate I → D)
+//   μ  = CFR·γ/(1−CFR) so that μ/(γ+μ) = CFR (rate I → D)
 //
 // Interventions (toggleable, with start day):
 //   - Quarantine: reduces β by quarantine efficacy (e.g., 60% reduction)
@@ -118,7 +118,11 @@ function runSEIR(p: SimParams): SimPoint[] {
   const dt = 0.5;
   const sigma = 1 / p.incubationDays;
   const gamma = 1 / p.infectiousDays;
-  const mu = p.caseFatalityRate * gamma; // per-day mortality rate
+  // μ/(γ+μ) must equal CFR  ⇒  μ = CFR·γ/(1−CFR).
+  // (The naive μ = CFR·γ understates mortality: it yields CFR/(1+CFR),
+  // e.g. 33% actual deaths for a 50% CFR, 47% for a 90% CFR.)
+  const cfr = Math.min(p.caseFatalityRate, 0.999);
+  const mu = (cfr * gamma) / (1 - cfr); // per-day mortality rate
   const baseBeta = p.r0 * (gamma + mu);
 
   let S = p.N - p.initialInfected;
