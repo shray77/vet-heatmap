@@ -5,6 +5,19 @@ All notable changes to **ВетКарта** are documented here.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.1.0] — 2026-10-20
+
+### Fixed
+- 🧮 SIR-симулятор: скорость смертности μ теперь CFR·γ/(1−CFR) — ранее μ=CFR·γ занижала фактическую летальность до CFR/(1+CFR) (при CFR 90% фактически умирало 47%)
+
+### Security
+- 🔑 Удалён закоммиченный приватный VAPID-ключ (мёртвый модуль push-уведомлений); ключу считать скомпрометированным — при реализации push генерировать новую пару
+
+### Removed
+- 🧹 Мёртвый код: 28 неиспользуемых shadcn/ui компонентов, geocode.ts, pdf-export.ts, push-notifications.ts, use-mobile.ts, osint-enterprises.ts, dump-pdf-text.ts, test-pdf-parse.ts, wahis-playwright.ts, scratch-test.js
+- 📦 Зависимости: 68 → 26 runtime-пакетов (все версии запинены под lockfile); удалён двойной lockfile package-lock.json, мёртвый tailwind.config.ts (TW3 при TW4 CSS-first)
+- 🗃 Артефакты сборки выведены из git: tsconfig.tsbuildinfo, version.json (перегенерируются билдом)
+
 ## [1.0.0] — 2026-06-19
 
 ### Added

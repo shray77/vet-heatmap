@@ -76,3 +76,8 @@ scripts/scrape/raw-html
 # Misc
 .zscripts/
 worklog.md
+
+# Build artifacts & lockfiles (bun.lock is canonical)
+tsconfig.tsbuildinfo
+public/version.json
+package-lock.json
