@@ -3,7 +3,7 @@
   "sources": [
     "yandex"
   ],
-  "total": 192,
+  "total": 193,
   "enterprises": [
     {
       "id": "yandex-187535263300",
@@ -2115,6 +2115,17 @@
       "address": "ул. Силина, 7В, Самара",
       "city": "Самара",
       "rubric": "Магазин мяса, колбас",
+      "source": "yandex"
+    },
+    {
+      "id": "yandex-76259156083",
+      "name": "БалтАгро",
+      "type": "feed_mill",
+      "lat": null,
+      "lon": null,
+      "address": "Санкт-Петербург, Софийская ул., 93Д",
+      "city": "Санкт-Петербург",
+      "rubric": "Комбикорма и кормовые добавки",
       "source": "yandex"
     }
   ]
