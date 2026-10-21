@@ -13,7 +13,7 @@ permissions:
 jobs:
   scrape:
     runs-on: ubuntu-latest
-    timeout-minutes: 25
+    timeout-minutes: 40
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -41,7 +41,7 @@ jobs:
       - name: Run scraper pipeline (FSVPS + WAHIS + curated)
         run: |
           # Запускаем парсер и сохраняем вывод
-          timeout 300 bun run scripts/scrape/run-all.ts | tee scraper.log || true
+          timeout 240 bun run scripts/scrape/run-all.ts | tee scraper.log || true
           
           # Публикуем красивую сводку на главную страницу экшена
           if [ -n "$GITHUB_STEP_SUMMARY" ]; then
@@ -69,7 +69,7 @@ jobs:
         run: python3 scripts/post-process.py || true
 
       - name: Geocode (Nominatim + region centroids)
-        run: timeout 240 python3 scripts/geocode.py || true
+        run: timeout 180 python3 scripts/geocode.py || true
 
       - name: Fast-geocode fallback (region centroid + jitter)
         # Always runs — assigns coords to any outbreaks that still don't
@@ -78,22 +78,28 @@ jobs:
         # deterministic jitter so points don't stack at exact region center.
         run: python3 scripts/fast-geocode.py
 
-      - name: Scrape enterprises (Overpass + curated)
-        # Use Python version — Bun version crashed on long-running Overpass
-        # queries (fetch failed, AbortController issues). Python's urllib is
-        # stable. Script saves partial results after each category, so even
-        # if it dies mid-run we still get a usable enterprises.json.
-        run: timeout 240 python3 scripts/scrape/osint-enterprises.py || true
+      - name: Scrape enterprises (Overpass regex + curated)
+        # v2: case-insensitive regex name matching (old exact-match found
+        # only 2 generically-named objects in all of Russia) + day-rotation
+        # of keywords + upsert-merge so partial runs accumulate.
+        run: timeout 180 python3 scripts/scrape/osint-enterprises.py || true
+
+      - name: Scrape enterprises (Photon grid harvest)
+        # Same OSM data via the Photon search API (keyless, verified fast).
+        # Grid-walk with adaptive subdivision (Photon caps at 50 hits per
+        # request); 2 keywords per run rotate by day — full cycle in 4 runs.
+        # Upsert-merges into enterprises.json — composes with the Overpass
+        # step above.
+        run: timeout 300 python3 scripts/scrape/photon-enterprises.py --keywords-per-run 2 || true
 
       - name: Scrape Yandex.Maps enterprises (Playwright)
-        # Yandex has much better coverage of Russian businesses than OSM —
-        # many small/medium farms, meat plants, and feed mills are listed
-        # in Yandex Business but not tagged in OSM at all.
-        # Uses Playwright (headless Chromium) to bypass JS-heavy Yandex UI.
-        # Searches top-30 cities × 5 categories = 150 searches.
-        # 540s timeout = 9 min (150 × ~3.5s avg per search).
-        # Saves partial results after each city×category.
-        run: timeout 540 python3 scripts/scrape/yandex-enterprises.py --cities 30 --categories 5 --scroll-pages 3 || true
+        # v3: coords come from org-page URLs (?ll=lon,lat — the map centers
+        # on the org), so entries are map-visible immediately; the old
+        # keyless Yandex geocoder returned 403 for 95% of entries and the
+        # frontend silently dropped them. Day-rotated city order + upsert
+        # merge: each CI run covers part of the 30 cities, coverage
+        # accumulates. Retail shops are filtered out by rubric.
+        run: timeout 420 python3 scripts/scrape/yandex-enterprises.py --cities 30 --categories 5 --scroll-pages 2 --org-budget 100 || true
 
       - name: Check for changes
         id: changes
