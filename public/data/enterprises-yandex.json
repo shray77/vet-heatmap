@@ -3,7 +3,7 @@
   "sources": [
     "yandex"
   ],
-  "total": 232,
+  "total": 233,
   "enterprises": [
     {
       "id": "yandex-1111942529",
@@ -1147,7 +1147,20 @@
       "address": "Новосибирск, Большая ул., 274",
       "city": "Новосибирск",
       "rubric": "Мясная продукция оптом",
-      "source": "yandex"
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/bars/235243433737/"
+    },
+    {
+      "id": "yandex-77545123477",
+      "name": "Браво",
+      "type": "meat_plant",
+      "lat": 55.001907,
+      "lon": 82.971768,
+      "address": "Новосибирск, ул. Декабристов, 247, корп. 2, этаж 2",
+      "city": "Новосибирск",
+      "rubric": "Мясная продукция оптом",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/bravo/77545123477/"
     },
     {
       "id": "yandex-77327330692",
@@ -1243,12 +1256,13 @@
       "id": "yandex-127652751856",
       "name": "Кудряшовский мясокомбинат",
       "type": "meat_plant",
-      "lat": null,
-      "lon": null,
+      "lat": 54.992405,
+      "lon": 82.911213,
       "address": "Новосибирск, просп. Карла Маркса, 57, офис 861, этаж 8",
       "city": "Новосибирск",
       "rubric": "Мясная продукция оптом",
-      "source": "yandex"
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/sibagro/127652751856/"
     },
     {
       "id": "yandex-141651210517",
@@ -1359,7 +1373,8 @@
       "address": "Новосибирск, Серебренниковская ул., 2/1",
       "city": "Новосибирск",
       "rubric": "Мясная продукция оптом",
-      "source": "yandex"
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/myasnoy_dvor_nsk/90080257975/"
     },
     {
       "id": "yandex-143691364565",
@@ -1426,7 +1441,8 @@
       "address": "Новосибирск, Красный просп., 82",
       "city": "Новосибирск",
       "rubric": "Мясная продукция оптом",
-      "source": "yandex"
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/myasokombinat_obskoy/1231166592/"
     },
     {
       "id": "yandex-72677230802",
@@ -1710,7 +1726,8 @@
       "address": "Новосибирский район, Криводановский сельсовет, Промышленная улица, 19",
       "city": "Новосибирск",
       "rubric": "Мясная продукция оптом",
-      "source": "yandex"
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/sibagro/1239514824/"
     },
     {
       "id": "yandex-1235157034",
