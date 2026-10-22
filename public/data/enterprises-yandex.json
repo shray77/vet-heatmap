@@ -3,7 +3,7 @@
   "sources": [
     "yandex"
   ],
-  "total": 231,
+  "total": 232,
   "enterprises": [
     {
       "id": "yandex-1111942529",
@@ -2501,6 +2501,18 @@
       "rubric": "Яйцо и мясо птицы",
       "source": "yandex",
       "org_href": "https://yandex.ru/maps/org/saianskii_broiler/166390432036/"
+    },
+    {
+      "id": "yandex-32170286187",
+      "name": "Саянский Бройлер",
+      "type": "poultry_farm",
+      "lat": 52.291957,
+      "lon": 104.342536,
+      "address": "Иркутск, Зимняя ул., 1, этаж 1",
+      "city": "Иркутск",
+      "rubric": "Яйцо и мясо птицы",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/saianskii_broiler/32170286187/"
     },
     {
       "id": "yandex-165483140010",
