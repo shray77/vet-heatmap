@@ -3,7 +3,7 @@
   "sources": [
     "yandex"
   ],
-  "total": 233,
+  "total": 297,
   "enterprises": [
     {
       "id": "yandex-1111942529",
@@ -29,6 +29,18 @@
       "source": "yandex"
     },
     {
+      "id": "yandex-30691773654",
+      "name": "Тульский перепел",
+      "type": "cattle_farm",
+      "lat": 54.295805,
+      "lon": 37.660979,
+      "address": "село Архангельское, Промышленная ул., 4",
+      "city": "Тула",
+      "rubric": "Животноводческое хозяйство",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/tulskiy_perepel/30691773654/"
+    },
+    {
       "id": "yandex-105950464671",
       "name": "УПНП и КРС",
       "type": "cattle_farm",
@@ -39,6 +51,30 @@
       "rubric": "4",
       "source": "yandex",
       "org_href": "https://yandex.ru/maps/org/upnp_i_krs/105950464671/"
+    },
+    {
+      "id": "yandex-98808277966",
+      "name": "Energy",
+      "type": "feed_mill",
+      "lat": 47.210174,
+      "lon": 39.598887,
+      "address": "Ростов-на-Дону, просп. Стачки, 253Б",
+      "city": "Ростов-на-Дону",
+      "rubric": "Комбикорма и кормовые добавки",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/energy/98808277966/"
+    },
+    {
+      "id": "yandex-4251626851",
+      "name": "Purina комбикорма",
+      "type": "feed_mill",
+      "lat": 53.244726,
+      "lon": 45.016394,
+      "address": "Пенза, ул. Аустрина, 139, корп. 1",
+      "city": "Пенза",
+      "rubric": "Комбикорма и кормовые добавки",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/purina_kombikorma/4251626851/"
     },
     {
       "id": "yandex-112175075721",
@@ -75,6 +111,18 @@
       "source": "yandex"
     },
     {
+      "id": "yandex-241663402072",
+      "name": "АгроСоюз",
+      "type": "feed_mill",
+      "lat": 54.599744,
+      "lon": 39.767272,
+      "address": "Рязань, Куйбышевское ш., 25, стр. 10",
+      "city": "Рязань",
+      "rubric": "Комбикорма и кормовые добавки",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/agrosoyuz/241663402072/"
+    },
+    {
       "id": "yandex-1380090157",
       "name": "АгроСоякомплект",
       "type": "feed_mill",
@@ -84,6 +132,30 @@
       "city": "Москва",
       "rubric": "Сельскохозяйственная продукция",
       "source": "yandex"
+    },
+    {
+      "id": "yandex-83857604397",
+      "name": "Агрозооцентр",
+      "type": "feed_mill",
+      "lat": 54.659224,
+      "lon": 39.622541,
+      "address": "Рязань, посёлок Элеватор, 18А, стр. 1",
+      "city": "Рязань",
+      "rubric": "Комбикорма и кормовые добавки",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/agrozootsentr/83857604397/"
+    },
+    {
+      "id": "yandex-193269112001",
+      "name": "Агросоюз",
+      "type": "feed_mill",
+      "lat": 54.612368,
+      "lon": 39.643498,
+      "address": "Рязань, Ситниковская ул., 126",
+      "city": "Рязань",
+      "rubric": "Комбикорма и кормовые добавки",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/agrosoyuz/193269112001/"
     },
     {
       "id": "yandex-156291005535",
@@ -106,6 +178,30 @@
       "city": "Санкт-Петербург",
       "rubric": "Тара и упаковочные материалы",
       "source": "yandex"
+    },
+    {
+      "id": "yandex-33558602938",
+      "name": "Амбар_Ростов",
+      "type": "feed_mill",
+      "lat": 47.29953,
+      "lon": 39.784004,
+      "address": "Ростов-на-Дону, Орская ул., 50/143",
+      "city": "Ростов-на-Дону",
+      "rubric": "Комбикорма и кормовые добавки",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/ambar_rostov/33558602938/"
+    },
+    {
+      "id": "yandex-1044908635",
+      "name": "АнтарЕС",
+      "type": "feed_mill",
+      "lat": 47.281898,
+      "lon": 39.751957,
+      "address": "Ростов-на-Дону, посёлок Чкаловский, Сальский пер., 101, офис 303, этаж 3",
+      "city": "Ростов-на-Дону",
+      "rubric": "Комбикорма и кормовые добавки",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/antares/1044908635/"
     },
     {
       "id": "yandex-76259156083",
@@ -276,6 +372,18 @@
       "source": "yandex"
     },
     {
+      "id": "yandex-30920175079",
+      "name": "Зерно-Комбикорм",
+      "type": "feed_mill",
+      "lat": 54.568059,
+      "lon": 39.824055,
+      "address": "Рязань, район Восточный Промышленный узел",
+      "city": "Рязань",
+      "rubric": "Комбикорма и кормовые добавки",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/zerno_kombikorm/30920175079/"
+    },
+    {
       "id": "yandex-160388870849",
       "name": "ЗерноКорма",
       "type": "feed_mill",
@@ -339,7 +447,8 @@
       "address": "посёлок Большой Исток, ул. Победы, 2",
       "city": "Екатеринбург",
       "rubric": "Комбикорма и кормовые добавки",
-      "source": "yandex"
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/koltsovskiy_kombikormoviy_zavod/179168030439/"
     },
     {
       "id": "yandex-3562803201",
@@ -424,6 +533,18 @@
       "org_href": "https://yandex.ru/maps/org/kfkh_kobrusov_s_g_/1712331157/"
     },
     {
+      "id": "yandex-136686321342",
+      "name": "Комбикорм Sbt",
+      "type": "feed_mill",
+      "lat": 53.247964,
+      "lon": 45.009953,
+      "address": "Пенза, Сумская ул., 6А",
+      "city": "Пенза",
+      "rubric": "Комбикорма и кормовые добавки",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/kombikorm_sbt/136686321342/"
+    },
+    {
       "id": "yandex-31103811494",
       "name": "Комбикорм Зерно",
       "type": "feed_mill",
@@ -433,6 +554,18 @@
       "city": "Москва",
       "rubric": "Комбикорма и кормовые добавки",
       "source": "yandex"
+    },
+    {
+      "id": "yandex-202338009825",
+      "name": "Комбикорм и зерно",
+      "type": "feed_mill",
+      "lat": 54.151665,
+      "lon": 37.708042,
+      "address": "Новотульская ул., 20, Тула",
+      "city": "Тула",
+      "rubric": "Комбикорма и кормовые добавки",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/kombikorm_i_zerno/202338009825/"
     },
     {
       "id": "yandex-89017185737",
@@ -477,7 +610,8 @@
       "address": "Берёзовский, ул. Орджоникидзе, 17А",
       "city": "Екатеринбург",
       "rubric": "Комбикорма и кормовые добавки",
-      "source": "yandex"
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/kombikorm66_rf/238548477898/"
     },
     {
       "id": "yandex-125526201226",
@@ -527,6 +661,18 @@
       "org_href": "https://yandex.ru/maps/org/kombikorma/224893030230/"
     },
     {
+      "id": "yandex-160939317132",
+      "name": "Комбикорма и добавки для животных",
+      "type": "feed_mill",
+      "lat": 54.664354,
+      "lon": 39.82423,
+      "address": "Рязанский муниципальный округ, Солотчинское шоссе, 6-й километр, 6/1",
+      "city": "Рязань",
+      "rubric": "Комбикорма и кормовые добавки",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/kombikorma_i_dobavki_dlya_zhivotnykh/160939317132/"
+    },
+    {
       "id": "yandex-95360923780",
       "name": "Комбикорма и добавки от Технокорма",
       "type": "feed_mill",
@@ -568,7 +714,8 @@
       "address": "Петергоф, ул. Первого Мая, 89",
       "city": "Санкт-Петербург",
       "rubric": "Комбикорма и кормовые добавки",
-      "source": "yandex"
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/kombikorma_petergof/137249674647/"
     },
     {
       "id": "yandex-1088610031",
@@ -590,18 +737,20 @@
       "address": "Санкт-Петербург, просп. Обуховской Обороны, 45БР",
       "city": "Санкт-Петербург",
       "rubric": "Комбикорма и кормовые добавки",
-      "source": "yandex"
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/kombikormovy_zavod_imeni_s_m_kirova/4141916127/"
     },
     {
       "id": "yandex-75610573211",
       "name": "Комбикормопт",
       "type": "feed_mill",
-      "lat": null,
-      "lon": null,
+      "lat": 56.694252,
+      "lon": 60.533748,
       "address": "село Горный Щит, ул. Будённого, 80, склад. 2",
       "city": "Екатеринбург",
       "rubric": "Комбикорма и кормовые добавки",
-      "source": "yandex"
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/kombikormopt/75610573211/"
     },
     {
       "id": "yandex-1014555099",
@@ -614,6 +763,18 @@
       "rubric": "Комбикорма и кормовые добавки",
       "source": "yandex",
       "org_href": "https://yandex.ru/maps/org/zernovaya_kompaniya_kombikormtsentr55/1014555099/"
+    },
+    {
+      "id": "yandex-234573062855",
+      "name": "Компания по продаже комбикорма",
+      "type": "feed_mill",
+      "lat": 53.185508,
+      "lon": 45.038896,
+      "address": "Пенза, Стрельбищенская ул., 58А",
+      "city": "Пенза",
+      "rubric": "Комбикорма и кормовые добавки",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/kompaniya_po_prodazhe_kombikorma/234573062855/"
     },
     {
       "id": "yandex-73740888376",
@@ -648,6 +809,18 @@
       "rubric": "Комбикорма и кормовые добавки",
       "source": "yandex",
       "org_href": "https://yandex.ru/maps/org/korma_57/59367542100/"
+    },
+    {
+      "id": "yandex-64904655278",
+      "name": "Корма для животных",
+      "type": "feed_mill",
+      "lat": 53.131558,
+      "lon": 44.999874,
+      "address": "Пенза, улица Рябова",
+      "city": "Пенза",
+      "rubric": "Зерно и зерноотходы",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/korma_dlya_zhivotnykh/64904655278/"
     },
     {
       "id": "yandex-192572083139",
@@ -704,7 +877,20 @@
       "address": "Екатеринбург, ул. Халтурина, 37/3",
       "city": "Екатеринбург",
       "rubric": "Комбикорма и кормовые добавки",
-      "source": "yandex"
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/kormovoy_dvorik/35735125803/"
+    },
+    {
+      "id": "yandex-1748817385",
+      "name": "Кормодом",
+      "type": "feed_mill",
+      "lat": 53.248632,
+      "lon": 45.018864,
+      "address": "Пенза, ул. Аустрина, 143Б, склад 5",
+      "city": "Пенза",
+      "rubric": "Зерно и зерноотходы",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/kormodom/1748817385/"
     },
     {
       "id": "yandex-78789796510",
@@ -739,6 +925,18 @@
       "rubric": "Комбикорма и кормовые добавки",
       "source": "yandex",
       "org_href": "https://yandex.ru/maps/org/magazin_kombikorma/1919539246/"
+    },
+    {
+      "id": "yandex-29608756138",
+      "name": "Магазин комбикормов",
+      "type": "feed_mill",
+      "lat": 54.615559,
+      "lon": 39.811698,
+      "address": "Рязань, Большая ул., 86",
+      "city": "Рязань",
+      "rubric": "Комбикорма и кормовые добавки",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/magazin_kombikormov/29608756138/"
     },
     {
       "id": "yandex-13354096575",
@@ -778,12 +976,13 @@
       "id": "yandex-109915562435",
       "name": "Мегамикс",
       "type": "feed_mill",
-      "lat": null,
-      "lon": null,
+      "lat": 59.924406,
+      "lon": 30.385784,
       "address": "Санкт-Петербург, площадь Александра Невского, 2, 1108, БЦ Москва, этаж 11",
       "city": "Санкт-Петербург",
       "rubric": "Комбикорма и кормовые добавки",
-      "source": "yandex"
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/megamix/109915562435/"
     },
     {
       "id": "yandex-4145174559",
@@ -796,6 +995,30 @@
       "rubric": "Комбикорма и кормовые добавки",
       "source": "yandex",
       "org_href": "https://yandex.ru/maps/org/mir_kormov/4145174559/"
+    },
+    {
+      "id": "yandex-116092906354",
+      "name": "Мир Кормов",
+      "type": "feed_mill",
+      "lat": 54.623149,
+      "lon": 39.692879,
+      "address": "Рязань, ул. Чкалова, 38, стр. 5",
+      "city": "Рязань",
+      "rubric": "Комбикорма и кормовые добавки",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/mir_kormov/116092906354/"
+    },
+    {
+      "id": "yandex-4690660872",
+      "name": "Мои комбикорма",
+      "type": "feed_mill",
+      "lat": 47.278083,
+      "lon": 39.776987,
+      "address": "Ростов-на-Дону, Вятская ул., 122",
+      "city": "Ростов-на-Дону",
+      "rubric": "Комбикорма и кормовые добавки",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/moi_kombikorma/4690660872/"
     },
     {
       "id": "yandex-213783939474",
@@ -842,6 +1065,18 @@
       "source": "yandex"
     },
     {
+      "id": "yandex-1157182807",
+      "name": "НоваКорм",
+      "type": "feed_mill",
+      "lat": 56.765454,
+      "lon": 60.565835,
+      "address": "посёлок Совхозный, Городская ул., 20, офис 307, этаж 3",
+      "city": "Екатеринбург",
+      "rubric": "Комбикорма и кормовые добавки",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/novakorm/1157182807/"
+    },
+    {
       "id": "yandex-98240135719",
       "name": "Новабиотик",
       "type": "feed_mill",
@@ -861,7 +1096,8 @@
       "address": "Санкт-Петербург, Невский просп., 55",
       "city": "Санкт-Петербург",
       "rubric": "Комбикорма и кормовые добавки",
-      "source": "yandex"
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/noreg/166822541612/"
     },
     {
       "id": "yandex-1047571363",
@@ -872,7 +1108,8 @@
       "address": "Санкт-Петербург, просп. Обуховской Обороны, 45БР",
       "city": "Санкт-Петербург",
       "rubric": "Мука и крупы",
-      "source": "yandex"
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/leningradsky_kombinat_khleboproduktov_imeni_s_m_kirova/1047571363/"
     },
     {
       "id": "yandex-160456160318",
@@ -895,6 +1132,18 @@
       "city": "Москва",
       "rubric": "Грузовые автомобили, грузовая техника",
       "source": "yandex"
+    },
+    {
+      "id": "yandex-1097645981",
+      "name": "Пензенский комбинат хлебопродуктов",
+      "type": "feed_mill",
+      "lat": 53.220524,
+      "lon": 45.176671,
+      "address": "Пенза, Сибирский пр., 11",
+      "city": "Пенза",
+      "rubric": "Комбикорма и кормовые добавки",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/penzenskiy_kombinat_khleboproduktov/1097645981/"
     },
     {
       "id": "yandex-37133860223",
@@ -990,6 +1239,18 @@
       "source": "yandex"
     },
     {
+      "id": "yandex-22637678389",
+      "name": "Ростовский Комбикормовый завод",
+      "type": "feed_mill",
+      "lat": 47.351948,
+      "lon": 39.571372,
+      "address": "село Султан-Салы, Фермерский пер., 1",
+      "city": "Ростов-на-Дону",
+      "rubric": "Производственное предприятие",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/rostovskiy_kombikormovy_zavod/22637678389/"
+    },
+    {
       "id": "yandex-202601215944",
       "name": "Росток",
       "type": "feed_mill",
@@ -1000,6 +1261,30 @@
       "rubric": "Комбикорма и кормовые добавки",
       "source": "yandex",
       "org_href": "https://yandex.ru/maps/org/rostok/202601215944/"
+    },
+    {
+      "id": "yandex-59564717049",
+      "name": "СКЗ БУиВОЛ",
+      "type": "feed_mill",
+      "lat": 53.160637,
+      "lon": 44.950709,
+      "address": "Пенза, ул. Мереняшева, 32",
+      "city": "Пенза",
+      "rubric": "Комбикорма и кормовые добавки",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/skz_buivol/59564717049/"
+    },
+    {
+      "id": "yandex-117894053575",
+      "name": "Сагро",
+      "type": "feed_mill",
+      "lat": 47.22848,
+      "lon": 39.688459,
+      "address": "Ростов-на-Дону, пер. Скрыпника, 16, офис 41, этаж 2",
+      "city": "Ростов-на-Дону",
+      "rubric": "Комбикорма и кормовые добавки",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/sagro/117894053575/"
     },
     {
       "id": "yandex-1036965379",
@@ -1022,7 +1307,8 @@
       "address": "Свердловская область, Екатеринбург, Хлебная улица",
       "city": "Екатеринбург",
       "rubric": "Комбикорма и кормовые добавки",
-      "source": "yandex"
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/sverdlovskiy_kombinat_khleboproduktov/59489446233/"
     },
     {
       "id": "yandex-1009678134",
@@ -1033,7 +1319,8 @@
       "address": "Екатеринбург, Хлебная ул., 15",
       "city": "Екатеринбург",
       "rubric": "Комбикорма и кормовые добавки",
-      "source": "yandex"
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/sverdlovsky_kombinat_khleboproduktov/1009678134/"
     },
     {
       "id": "yandex-164533845886",
@@ -1083,6 +1370,18 @@
       "org_href": "https://yandex.ru/maps/org/titan_agro/114813025024/"
     },
     {
+      "id": "yandex-1085449143",
+      "name": "Тульский комбинат хлебопродуктов",
+      "type": "feed_mill",
+      "lat": 54.183397,
+      "lon": 37.713189,
+      "address": "Тула, Дачная ул., 26",
+      "city": "Тула",
+      "rubric": "Производственное предприятие",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/tulsky_kombinat_khleboproduktov/1085449143/"
+    },
+    {
       "id": "yandex-1142839551",
       "name": "Фаворит-Агро",
       "type": "feed_mill",
@@ -1093,6 +1392,54 @@
       "rubric": "Комбикорма и кормовые добавки",
       "source": "yandex",
       "org_href": "https://yandex.ru/maps/org/pk_favorit_agro/1142839551/"
+    },
+    {
+      "id": "yandex-66712448321",
+      "name": "Фураж",
+      "type": "feed_mill",
+      "lat": 60.091348,
+      "lon": 30.257083,
+      "address": "посёлок Парголово, Выборгское ш., 342",
+      "city": "Санкт-Петербург",
+      "rubric": "Комбикорма и кормовые добавки",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/furazh/66712448321/"
+    },
+    {
+      "id": "yandex-23136638158",
+      "name": "Южные корма",
+      "type": "feed_mill",
+      "lat": 47.197642,
+      "lon": 39.620313,
+      "address": "Ростов-на-Дону, Каширская ул., 9, стр. 33",
+      "city": "Ростов-на-Дону",
+      "rubric": "Комбикорма и кормовые добавки",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/southern_feeds/23136638158/"
+    },
+    {
+      "id": "yandex-1198406150",
+      "name": "Южные корма",
+      "type": "feed_mill",
+      "lat": 47.209941,
+      "lon": 39.598483,
+      "address": "Ростов-на-Дону, просп. Стачки, 253А",
+      "city": "Ростов-на-Дону",
+      "rubric": "Комбикорма и кормовые добавки",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/southern_feeds/1198406150/"
+    },
+    {
+      "id": "yandex-74643151101",
+      "name": "Агро-опт",
+      "type": "meat_plant",
+      "lat": 53.245233,
+      "lon": 45.021326,
+      "address": "Пенза, Совхозная ул., 12",
+      "city": "Пенза",
+      "rubric": "Мясная продукция оптом",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/agro_opt/74643151101/"
     },
     {
       "id": "yandex-202158267749",
@@ -1220,6 +1567,18 @@
       "source": "yandex"
     },
     {
+      "id": "yandex-46291918301",
+      "name": "Дубки",
+      "type": "meat_plant",
+      "lat": 53.170024,
+      "lon": 44.967085,
+      "address": "Пенза, Окружная ул., 106",
+      "city": "Пенза",
+      "rubric": "Мясная продукция оптом",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/rossiysky_kontsern_dubki/46291918301/"
+    },
+    {
       "id": "yandex-94759958621",
       "name": "Зилантия",
       "type": "meat_plant",
@@ -1250,7 +1609,32 @@
       "address": "Екатеринбург, ул. Бориса Ельцина, 1А",
       "city": "Екатеринбург",
       "rubric": "Мясная продукция оптом",
-      "source": "yandex"
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/istraproduct/183034119994/"
+    },
+    {
+      "id": "yandex-1084149573",
+      "name": "Каменка-мясо",
+      "type": "meat_plant",
+      "lat": 53.167039,
+      "lon": 45.014274,
+      "address": "Пенза, ул. Металлистов, 7, корп. 1",
+      "city": "Пенза",
+      "rubric": "Производство продуктов питания",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/td_kamenka_myaso/1084149573/"
+    },
+    {
+      "id": "yandex-1066102405",
+      "name": "Крестьянское хозяйство Макарова И. М.",
+      "type": "meat_plant",
+      "lat": 53.142832,
+      "lon": 45.011956,
+      "address": "Пенза, Нагорный пр., 2А",
+      "city": "Пенза",
+      "rubric": "Мясная продукция оптом",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/krestyanskoye_khozyaystvo/1066102405/"
     },
     {
       "id": "yandex-127652751856",
@@ -1273,7 +1657,8 @@
       "address": "Екатеринбург, Комсомольская ул., 72А, стр. Д",
       "city": "Екатеринбург",
       "rubric": "Оптовая компания",
-      "source": "yandex"
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/kungurskiy_myasokombinat/141651210517/"
     },
     {
       "id": "yandex-232818823046",
@@ -1296,6 +1681,18 @@
       "city": "Новосибирск",
       "rubric": "Мясная продукция оптом",
       "source": "yandex"
+    },
+    {
+      "id": "yandex-173175018439",
+      "name": "Лопатинский Бекон",
+      "type": "meat_plant",
+      "lat": 53.184445,
+      "lon": 45.054635,
+      "address": "Пенза, ул. Антонова, 47, этаж 1",
+      "city": "Пенза",
+      "rubric": "Мясная продукция оптом",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/lopatinskii_bekon/173175018439/"
     },
     {
       "id": "yandex-1226487149",
@@ -1343,6 +1740,30 @@
       "source": "yandex"
     },
     {
+      "id": "yandex-203580711971",
+      "name": "Мяско",
+      "type": "meat_plant",
+      "lat": 56.852027,
+      "lon": 60.604679,
+      "address": "Екатеринбург, ул. Свердлова, 11",
+      "city": "Екатеринбург",
+      "rubric": "Мясная продукция оптом",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/myasko/203580711971/"
+    },
+    {
+      "id": "yandex-188479261604",
+      "name": "Мяско",
+      "type": "meat_plant",
+      "lat": 56.841532,
+      "lon": 60.655972,
+      "address": "Екатеринбург, ул. Софьи Ковалевской, 3, офис 305, этаж 3",
+      "city": "Екатеринбург",
+      "rubric": "Мясная продукция оптом",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/myasko/188479261604/"
+    },
+    {
       "id": "yandex-163434786818",
       "name": "Мясная Антрекот Лавка",
       "type": "meat_plant",
@@ -1351,7 +1772,8 @@
       "address": "Санкт-Петербург, Московский просп., 4АА",
       "city": "Санкт-Петербург",
       "rubric": "Мясная продукция оптом",
-      "source": "yandex"
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/myasnaya_antrekot_lavka/163434786818/"
     },
     {
       "id": "yandex-117934706634",
@@ -1715,7 +2137,8 @@
       "address": "Екатеринбург, ул. Вилонова, 35",
       "city": "Екатеринбург",
       "rubric": "Мясная продукция оптом",
-      "source": "yandex"
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/sibagro/27606535455/"
     },
     {
       "id": "yandex-1239514824",
@@ -1763,6 +2186,18 @@
       "source": "yandex"
     },
     {
+      "id": "yandex-1028299797",
+      "name": "Тульский мясокомбинат",
+      "type": "meat_plant",
+      "lat": 54.191563,
+      "lon": 37.541476,
+      "address": "Тула, Одоевское ш., 69",
+      "city": "Тула",
+      "rubric": "Производство продуктов питания",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/tulskiy_myasokombinat/1028299797/"
+    },
+    {
       "id": "yandex-25362739042",
       "name": "Уральская региональная мясная компания",
       "type": "meat_plant",
@@ -1774,15 +2209,16 @@
       "source": "yandex"
     },
     {
-      "id": "yandex-5051473093",
-      "name": "УткаХаус",
+      "id": "yandex-1703282761",
+      "name": "Черкасский",
       "type": "meat_plant",
-      "lat": 59.960033,
-      "lon": 30.298703,
-      "address": "Санкт-Петербург, Стрельнинская ул., 2Б",
-      "city": "Санкт-Петербург",
+      "lat": 53.228358,
+      "lon": 45.014552,
+      "address": "Пенза, ул. Литвинова, 29",
+      "city": "Пенза",
       "rubric": "Мясная продукция оптом",
-      "source": "yandex"
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/torgovy_dom_cherkassky/1703282761/"
     },
     {
       "id": "yandex-179144725872",
@@ -1794,6 +2230,18 @@
       "city": "Москва",
       "rubric": "Производственное предприятие",
       "source": "yandex"
+    },
+    {
+      "id": "yandex-233650306206",
+      "name": "Черкизовский мясоперерабатывающий завод",
+      "type": "meat_plant",
+      "lat": 53.265364,
+      "lon": 45.016869,
+      "address": "Пенза, ул. Аустрина, 178Б",
+      "city": "Пенза",
+      "rubric": "Производство продуктов питания",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/cherkizovskiy_myasopererabatyvayushchiy_zavod/233650306206/"
     },
     {
       "id": "yandex-1132648536",
@@ -1843,16 +2291,52 @@
       "org_href": "https://yandex.ru/maps/org/permsky_svinokompleks/41895709038/"
     },
     {
+      "id": "yandex-153746669718",
+      "name": "Рязанский свинокомплекс",
+      "type": "pig_farm",
+      "lat": 54.396577,
+      "lon": 39.82631,
+      "address": "Рязанская область, Рязанский район, посёлок Искра",
+      "city": "Рязань",
+      "rubric": "21",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/ryazanskiy_svinokompleks/153746669718/"
+    },
+    {
+      "id": "yandex-38678527159",
+      "name": "Свиноводческий комплекс",
+      "type": "pig_farm",
+      "lat": 53.129567,
+      "lon": 44.475167,
+      "address": "Пензенский район, Ермоловский сельсовет",
+      "city": "Пенза",
+      "rubric": "Добавить фото или видео",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/svinovodcheskiy_kompleks/38678527159/"
+    },
+    {
       "id": "yandex-187535263300",
       "name": "Свиноводческий комплекс (Московская область  Можайский городской округ)",
       "type": "pig_farm",
       "lat": 55.342273,
       "lon": 35.720133,
       "address": "Московская область, Можайский городской округ, сельское поселение Юрловское",
-      "city": "Москва",
+      "city": "Тула",
       "rubric": "Животноводческое хозяйство",
       "source": "yandex",
       "org_href": "https://yandex.ru/maps/org/svinovodcheskiy_kompleks/187535263300/"
+    },
+    {
+      "id": "yandex-197503318931",
+      "name": "Свиноводческий комплекс Charoen Pokphand Foods",
+      "type": "pig_farm",
+      "lat": 54.698315,
+      "lon": 36.070952,
+      "address": "Калужская область, Дзержинский район",
+      "city": "Тула",
+      "rubric": "Животноводческое хозяйство",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/svinovodcheskiy_kompleks_charoen_pokphand_foods/197503318931/"
     },
     {
       "id": "yandex-176822971634",
@@ -1958,6 +2442,18 @@
       "org_href": "https://yandex.ru/maps/org/sibagro_svinokompleks_kudryashovskoye/31213775974/"
     },
     {
+      "id": "yandex-1349813644",
+      "name": "Damate",
+      "type": "poultry_farm",
+      "lat": 53.188519,
+      "lon": 45.015288,
+      "address": "Пенза, Московская ул., 27, этаж 3, 5, 7",
+      "city": "Пенза",
+      "rubric": "Офис организации",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/damate/1349813644/"
+    },
+    {
       "id": "yandex-143976918669",
       "name": "Meat House",
       "type": "poultry_farm",
@@ -2016,6 +2512,18 @@
       "org_href": "https://yandex.ru/maps/org/azovskij_brojler/148282620712/"
     },
     {
+      "id": "yandex-27313313493",
+      "name": "Аксайская птицефабрика",
+      "type": "poultry_farm",
+      "lat": 47.120119,
+      "lon": 39.831933,
+      "address": "Ростовская область, Аксайский район, М-4 Дон, 1083-й километр, 3",
+      "city": "Ростов-на-Дону",
+      "rubric": "Яйцо и мясо птицы",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/aksayskaya_ptitsefabrika/27313313493/"
+    },
+    {
       "id": "yandex-157728865472",
       "name": "Ангарская курочка",
       "type": "poultry_farm",
@@ -2026,6 +2534,42 @@
       "rubric": "Яйцо и мясо птицы",
       "source": "yandex",
       "org_href": "https://yandex.ru/maps/org/angarskaya_kurochka/157728865472/"
+    },
+    {
+      "id": "yandex-1105566461",
+      "name": "Благодатское",
+      "type": "poultry_farm",
+      "lat": 53.164918,
+      "lon": 45.006315,
+      "address": "Пенза, ул. Калинина, 114, офис 6, этаж 2",
+      "city": "Пенза",
+      "rubric": "Яйцо и мясо птицы",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/blagodatskoye/1105566461/"
+    },
+    {
+      "id": "yandex-56410833023",
+      "name": "Благодатское",
+      "type": "poultry_farm",
+      "lat": 53.185336,
+      "lon": 44.982158,
+      "address": "Пенза, ул. Попова, 3В",
+      "city": "Пенза",
+      "rubric": "Яйцо и мясо птицы",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/blagodatskoye/56410833023/"
+    },
+    {
+      "id": "yandex-1701235054",
+      "name": "Благодатское",
+      "type": "poultry_farm",
+      "lat": 53.163787,
+      "lon": 44.977267,
+      "address": "Пенза, ул. Кижеватова, 1",
+      "city": "Пенза",
+      "rubric": "Яйцо и мясо птицы",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/magazin_kamenka/1701235054/"
     },
     {
       "id": "yandex-1668957633",
@@ -2074,6 +2618,18 @@
       "rubric": "Яйцо и мясо птицы",
       "source": "yandex",
       "org_href": "https://yandex.ru/maps/org/vostok/128009370092/"
+    },
+    {
+      "id": "yandex-1070746155",
+      "name": "Восход",
+      "type": "poultry_farm",
+      "lat": 45.07286,
+      "lon": 42.000318,
+      "address": "Ставрополь, Пригородная ул., 193А",
+      "city": "Ставрополь",
+      "rubric": "Яйцо и мясо птицы",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/voskhod/1070746155/"
     },
     {
       "id": "yandex-1065485281",
@@ -2146,6 +2702,18 @@
       "source": "yandex"
     },
     {
+      "id": "yandex-1609511669",
+      "name": "Инкубатор",
+      "type": "poultry_farm",
+      "lat": 45.05597,
+      "lon": 42.047812,
+      "address": "Ставрополь, Старомарьевское ш., 40",
+      "city": "Ставрополь",
+      "rubric": "Яйцо и мясо птицы",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/inkubator/1609511669/"
+    },
+    {
       "id": "yandex-1688165144",
       "name": "Иртышская птицефабрика",
       "type": "poultry_farm",
@@ -2182,6 +2750,18 @@
       "org_href": "https://yandex.ru/maps/org/irtyshskoye/71957703711/"
     },
     {
+      "id": "yandex-1765535512",
+      "name": "Колышлейская птицефабрика",
+      "type": "poultry_farm",
+      "lat": 53.20909,
+      "lon": 45.006453,
+      "address": "Пенза, улица Луначарского",
+      "city": "Пенза",
+      "rubric": "Яйцо и мясо птицы",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/kolyshleyskaya_ptitsefabrika/1765535512/"
+    },
+    {
       "id": "yandex-1043616312",
       "name": "Краснобор",
       "type": "poultry_farm",
@@ -2191,6 +2771,30 @@
       "city": "Москва",
       "rubric": "Яйцо и мясо птицы",
       "source": "yandex"
+    },
+    {
+      "id": "yandex-84440582304",
+      "name": "Краснобор",
+      "type": "poultry_farm",
+      "lat": 54.173955,
+      "lon": 37.433661,
+      "address": "посёлок Рассвет, 1А",
+      "city": "Тула",
+      "rubric": "Яйцо и мясо птицы",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/krasnobor/84440582304/"
+    },
+    {
+      "id": "yandex-159139017948",
+      "name": "Кубань-м",
+      "type": "poultry_farm",
+      "lat": 45.064537,
+      "lon": 41.981482,
+      "address": "Ставрополь, улица Трунова",
+      "city": "Ставрополь",
+      "rubric": "Яйцо и мясо птицы",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/kuban_m/159139017948/"
     },
     {
       "id": "yandex-192864292376",
@@ -2239,6 +2843,30 @@
       "source": "yandex"
     },
     {
+      "id": "yandex-188251058585",
+      "name": "Нижнетагильская птицефабрика",
+      "type": "poultry_farm",
+      "lat": 56.837775,
+      "lon": 60.627631,
+      "address": "Свердловская область, Екатеринбург, Восточная улица",
+      "city": "Екатеринбург",
+      "rubric": "Яйцо и мясо птицы",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/nizhnetagilskaya_ptitsefabrika/188251058585/"
+    },
+    {
+      "id": "yandex-58472652553",
+      "name": "Новодеревенская птицефабрика",
+      "type": "poultry_farm",
+      "lat": 54.577973,
+      "lon": 39.812929,
+      "address": "Рязань, Новосёлковская ул., 3",
+      "city": "Рязань",
+      "rubric": "Яйцо и мясо птицы",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/novoderevenskaya_ptitsefabrika/58472652553/"
+    },
+    {
       "id": "yandex-114868963155",
       "name": "Новосибирская птицефабрика",
       "type": "poultry_farm",
@@ -2272,6 +2900,30 @@
       "city": "Казань",
       "rubric": "Производство продуктов питания",
       "source": "yandex"
+    },
+    {
+      "id": "yandex-1026728349",
+      "name": "Окское",
+      "type": "poultry_farm",
+      "lat": 54.443738,
+      "lon": 39.809991,
+      "address": "Рязанский район, Окское сельское поселение",
+      "city": "Рязань",
+      "rubric": "Яйцо и мясо птицы",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/okskaya_ptitsefabrika/1026728349/"
+    },
+    {
+      "id": "yandex-1010384178",
+      "name": "Онтарис",
+      "type": "poultry_farm",
+      "lat": 54.199727,
+      "lon": 37.688899,
+      "address": "Тула, ул. Гастелло, 18А",
+      "city": "Тула",
+      "rubric": "Яйцо и мясо птицы",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/ontaris/1010384178/"
     },
     {
       "id": "yandex-1237215883",
@@ -2333,6 +2985,18 @@
       "org_href": "https://yandex.ru/maps/org/ptitsefabrika_bely_fregat/15186047174/"
     },
     {
+      "id": "yandex-178010714923",
+      "name": "Птицефабрика Колышлейская",
+      "type": "poultry_farm",
+      "lat": 53.246763,
+      "lon": 45.016924,
+      "address": "Пенза, ул. Аустрина, 141",
+      "city": "Пенза",
+      "rubric": "Яйцо и мясо птицы",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/ptitsefabrika_kolyshleyskaya/178010714923/"
+    },
+    {
       "id": "yandex-1859611425",
       "name": "Птицефабрика Любинская",
       "type": "poultry_farm",
@@ -2389,7 +3053,8 @@
       "address": "Екатеринбург, Сажинская ул., 6",
       "city": "Екатеринбург",
       "rubric": "Яйцо и мясо птицы",
-      "source": "yandex"
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/ptitsefabrika_sverdlovskaya/1015711146/"
     },
     {
       "id": "yandex-228223086725",
@@ -2400,7 +3065,8 @@
       "address": "Екатеринбург, ул. Кобозева, 31",
       "city": "Екатеринбург",
       "rubric": "Яйцо и мясо птицы",
-      "source": "yandex"
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/ptitsefabrika_sverdlovskaya/228223086725/"
     },
     {
       "id": "yandex-55656081495",
@@ -2422,7 +3088,20 @@
       "address": "Екатеринбург, Заводская ул., 16",
       "city": "Екатеринбург",
       "rubric": "Яйцо и мясо птицы",
-      "source": "yandex"
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/ptitsefabrika_sredneuralskaya/169028308613/"
+    },
+    {
+      "id": "yandex-1113782226",
+      "name": "Птицефабрика Тульская",
+      "type": "poultry_farm",
+      "lat": 54.253339,
+      "lon": 37.82918,
+      "address": "посёлок Молодёжный, ул. Карбышева, 17",
+      "city": "Тула",
+      "rubric": "Яйцо и мясо птицы",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/poultry_farm_tulskaya/1113782226/"
     },
     {
       "id": "yandex-155602607323",
@@ -2447,6 +3126,18 @@
       "rubric": "Яйцо и мясо птицы",
       "source": "yandex",
       "org_href": "https://yandex.ru/maps/org/ptitsefabrika_chikskaya/206726945616/"
+    },
+    {
+      "id": "yandex-25509602323",
+      "name": "Птицефабрика Шпаковская",
+      "type": "poultry_farm",
+      "lat": 45.137536,
+      "lon": 42.055048,
+      "address": "Михайловск, ул. Константинова, 8",
+      "city": "Ставрополь",
+      "rubric": "Яйцо и мясо птицы",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/ptitsefabrika_shpakovskaya/25509602323/"
     },
     {
       "id": "yandex-80683802731",
@@ -2551,7 +3242,8 @@
       "address": "Екатеринбург, Восточная ул., 15А, этаж 1",
       "city": "Екатеринбург",
       "rubric": "Яйцо и мясо птицы",
-      "source": "yandex"
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/sverdlovskaya_ptitsefabrika/38721423772/"
     },
     {
       "id": "yandex-1759047019",
@@ -2562,7 +3254,20 @@
       "address": "Екатеринбург, Рощинская ул., 72А, этаж цокольный",
       "city": "Екатеринбург",
       "rubric": "Яйцо и мясо птицы",
-      "source": "yandex"
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/magazin_sverdlovskaya_ptitsefabrika/1759047019/"
+    },
+    {
+      "id": "yandex-1743097843",
+      "name": "Свердловская птицефабрика",
+      "type": "poultry_farm",
+      "lat": 56.753533,
+      "lon": 60.703799,
+      "address": "Екатеринбург, ул. Многостаночников, 13, этаж 1",
+      "city": "Екатеринбург",
+      "rubric": "Яйцо и мясо птицы",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/ptitsefabrika_sverdlovskaya/1743097843/"
     },
     {
       "id": "yandex-1093143071",
@@ -2575,6 +3280,18 @@
       "rubric": "Мясная продукция оптом",
       "source": "yandex",
       "org_href": "https://yandex.ru/maps/org/sibirsko_uralskiy_broyler/1093143071/"
+    },
+    {
+      "id": "yandex-1046360368",
+      "name": "Ставропольский бройлер, офис",
+      "type": "poultry_farm",
+      "lat": 45.080842,
+      "lon": 41.997111,
+      "address": "Ставропольский край, Шпаковский район, Бройлерная промзона, 1",
+      "city": "Ставрополь",
+      "rubric": "Яйцо и мясо птицы",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/stavropolsky_broyler/1046360368/"
     },
     {
       "id": "yandex-4772451460",
@@ -2600,6 +3317,30 @@
       "org_href": "https://yandex.ru/maps/org/tolyattinskaya_ptitsefabrika/46489661277/"
     },
     {
+      "id": "yandex-1182766364",
+      "name": "Тульская птицефабрика",
+      "type": "poultry_farm",
+      "lat": 54.264713,
+      "lon": 37.704803,
+      "address": "Тульская область, городской округ Тула, посёлок Молодёжный, улица Мира",
+      "city": "Тула",
+      "rubric": "Яйцо и мясо птицы",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/ptitsefabrika_tulskaya/1182766364/"
+    },
+    {
+      "id": "yandex-5051473093",
+      "name": "УткаХаус",
+      "type": "poultry_farm",
+      "lat": 59.960033,
+      "lon": 30.298703,
+      "address": "Санкт-Петербург, Стрельнинская ул., 2Б",
+      "city": "Санкт-Петербург",
+      "rubric": "Яйцо и мясо птицы",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/utkahouse/5051473093/"
+    },
+    {
       "id": "yandex-1007797321",
       "name": "Фрегат-юг",
       "type": "poultry_farm",
@@ -2612,6 +3353,18 @@
       "org_href": "https://yandex.ru/maps/org/fregat_yug/1007797321/"
     },
     {
+      "id": "yandex-122019297718",
+      "name": "ФрешФудСистем",
+      "type": "poultry_farm",
+      "lat": 54.173211,
+      "lon": 37.617177,
+      "address": "Тула, ул. Михеева, 11Б",
+      "city": "Тула",
+      "rubric": "Производственное предприятие",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/freshfudsistem/122019297718/"
+    },
+    {
       "id": "yandex-1260720923",
       "name": "Челябинская птицефабрика",
       "type": "poultry_farm",
@@ -2621,6 +3374,18 @@
       "city": "Челябинск",
       "rubric": "Животноводческое хозяйство",
       "source": "yandex"
+    },
+    {
+      "id": "yandex-1195067586",
+      "name": "Шсв-дон",
+      "type": "poultry_farm",
+      "lat": 47.197427,
+      "lon": 39.609263,
+      "address": "Ростов-на-Дону, Красноярский пер., 23А",
+      "city": "Ростов-на-Дону",
+      "rubric": "Продукты глубокой заморозки",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/shsv/1195067586/"
     },
     {
       "id": "yandex-1704261998",
@@ -2645,6 +3410,30 @@
       "rubric": "Яйцо и мясо птицы",
       "source": "yandex",
       "org_href": "https://yandex.ru/maps/org/yaytso/36380716643/"
+    },
+    {
+      "id": "yandex-91895340148",
+      "name": "Яйцо",
+      "type": "poultry_farm",
+      "lat": 45.067392,
+      "lon": 41.937112,
+      "address": "Ставрополь, Октябрьский район, микрорайон № 18, 373-й квартал",
+      "city": "Ставрополь",
+      "rubric": "Яйцо и мясо птицы",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/yaytso/91895340148/"
+    },
+    {
+      "id": "yandex-153246520051",
+      "name": "Яйцо благодатское",
+      "type": "poultry_farm",
+      "lat": 53.168038,
+      "lon": 45.00414,
+      "address": "Пенза, улица Лобачевского",
+      "city": "Пенза",
+      "rubric": "Яйцо и мясо птицы",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/yaytso_blagodatskoye/153246520051/"
     },
     {
       "id": "yandex-1023213581",
