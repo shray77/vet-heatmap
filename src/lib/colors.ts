@@ -85,3 +85,66 @@ export const DISEASE_COLORS: Partial<Record<DiseaseKey, string>> = {
 export function diseaseColor(key: DiseaseKey, group: DiseaseGroup): string {
   return DISEASE_COLORS[key] ?? GROUP_COLORS[group] ?? GROUP_COLORS["Multi-species"];
 }
+
+/**
+ * readableInk — цвет болезни как ЧЕРНИЛО для текста на текущей теме.
+ * Палитра заточена под маркеры карты (тёмные — на светлую подложку), но в
+ * чипах фильтра неактивный текст тем же цветом на тёмной панели не читается
+ * (#3E2723 на #0F1419 ≈ 1.5:1). Подмешиваем белый в dark / чёрный в light,
+ * пока относительная светимость не выйдет в читаемый диапазон; оттенок сохраняется.
+ */
+function relLum(r: number, g: number, b: number): number {
+  const f = (v: number) => {
+    const c = v / 255;
+    return c <= 0.03928 ? c / 12.92 : Math.pow((c + 0.055) / 1.055, 2.4);
+  };
+  return 0.2126 * f(r) + 0.7152 * f(g) + 0.0722 * f(b);
+}
+
+export function readableInk(hex: string, dark: boolean, minL = 0.3, maxL = 0.18): string {
+  const m = /^#([0-9a-fA-F]{6})$/.exec(hex);
+  if (!m) return hex;
+  let r = parseInt(m[1].slice(0, 2), 16);
+  let g = parseInt(m[1].slice(2, 4), 16);
+  let b = parseInt(m[1].slice(4, 6), 16);
+  let mixed = false;
+  if (dark) {
+    while (relLum(r, g, b) < minL) {
+      r += (255 - r) * 0.08;
+      g += (255 - g) * 0.08;
+      b += (255 - b) * 0.08;
+      mixed = true;
+      if (r > 254 && g > 254 && b > 254) break;
+    }
+  } else {
+    while (relLum(r, g, b) > maxL) {
+      r *= 0.9;
+      g *= 0.9;
+      b *= 0.9;
+      mixed = true;
+      if (r < 1 && g < 1 && b < 1) break;
+    }
+  }
+  if (!mixed) return hex; // исходная строка (регистр сохранён)
+  const to = (v: number) => Math.round(v).toString(16).padStart(2, "0");
+  return `#${to(r)}${to(g)}${to(b)}`;
+}
+
+/**
+ * inkOn — белый или тёмный чернила поверх цветной заливки (бейджи со счётчиком):
+ * белый на жёлтом #eab308 = 1.9:1. Выбираем контрастный вариант по WCAG.
+ */
+export function inkOn(bg: string): string {
+  const m = /^#([0-9a-fA-F]{6})$/.exec(bg);
+  if (!m) return "#ffffff";
+  const L = relLum(
+    parseInt(m[1].slice(0, 2), 16),
+    parseInt(m[1].slice(2, 4), 16),
+    parseInt(m[1].slice(4, 6), 16),
+  );
+  const crWhite = 1.05 / (L + 0.05);
+  const crDark = (L + 0.05) / 0.05;
+  if (crWhite >= 4.5) return "#ffffff";
+  if (crDark >= 4.5) return "#0f172a";
+  return crWhite >= crDark ? "#ffffff" : "#0f172a";
+}

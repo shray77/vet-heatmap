@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo } from "react";
+import { useTheme } from "next-themes";
 import { Card } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
@@ -23,7 +24,7 @@ import {
 import { speciesRu } from "@/lib/i18n-species";
 import type { Outbreak, DiseaseKey, OutbreakStatus } from "@/types/domain";
 import { DISEASE_LABELS } from "@/data/diseases-normalize";
-import { diseaseColor } from "@/lib/colors";
+import { diseaseColor, readableInk } from "@/lib/colors";
 import type { FilterState } from "@/lib/filters";
 
 interface FilterPanelProps {
@@ -59,6 +60,7 @@ export function FilterPanel({
   onShowForecastChange,
   densityLayer: _densityLayer,
 }: FilterPanelProps) {
+  const { resolvedTheme } = useTheme();
   // Compute available filter options from the data
   const allDiseases = useMemo(() => {
     const counts = new Map<DiseaseKey, number>();
@@ -166,9 +168,12 @@ export function FilterPanel({
                 const active = filters.diseases.includes(k);
                 const labels = DISEASE_LABELS[k];
                 const color = diseaseColor(k, labels.group);
+                // чернило/бордер — цвет болезни, подмешанный под тему:
+                // тёмные цвета палитры (#3E2723…) на тёмной панели не читаются (1.5:1)
+                const ink = readableInk(color, resolvedTheme === "dark");
                 return (
-                  <button key={k} onClick={() => toggleDisease(k)} className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[11px] border transition-colors" style={{ backgroundColor: active ? color : "transparent", borderColor: color, color: active ? "#fff" : color }}>
-                    <span className="w-2 h-2 rounded-full" style={{ backgroundColor: color, opacity: active ? 0.5 : 1 }} />
+                  <button key={k} onClick={() => toggleDisease(k)} className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[11px] border transition-colors" style={{ backgroundColor: active ? color : "transparent", borderColor: active ? color : ink, color: active ? "#fff" : ink }}>
+                    <span className="w-2 h-2 rounded-full" style={{ backgroundColor: active ? "#fff" : ink, opacity: active ? 0.5 : 1 }} />
                     {labels.short_ru}<span style={{ opacity: 0.7 }}>({n})</span>
                   </button>
                 );

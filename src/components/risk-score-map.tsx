@@ -6,7 +6,7 @@ import { Badge } from "@/components/ui/badge";
 import type { Outbreak, DiseaseKey } from "@/types/domain";
 import { REGION_PROPERTIES } from "@/data/regions";
 import { DISEASE_PROFILES_BY_KEY } from "@/data/disease-profiles";
-import { diseaseColor } from "@/lib/colors";
+import { diseaseColor, inkOn } from "@/lib/colors";
 
 interface RiskScoreProps {
   outbreaks: Outbreak[];
@@ -104,9 +104,10 @@ export function RiskScoreMap({ outbreaks }: RiskScoreProps) {
               <span className="text-xs font-bold w-6 text-muted-foreground">#{i + 1}</span>
               <span className="text-sm font-medium flex-1 truncate">{r.name_ru}</span>
               <span className="text-xs text-muted-foreground">{r.federal_district}</span>
-              <span className="text-sm font-bold px-2 py-0.5 rounded-full text-white"
+              <span className="text-sm font-bold px-2 py-0.5 rounded-full"
                 style={{
-                  backgroundColor: r.score > maxScore * 0.7 ? "#dc2626" : r.score > maxScore * 0.4 ? "#eab308" : "#16a34a",
+                  backgroundColor: r.score > maxScore * 0.7 ? "#dc2626" : r.score > maxScore * 0.4 ? "#eab308" : "#15803d",
+                  color: inkOn(r.score > maxScore * 0.7 ? "#dc2626" : r.score > maxScore * 0.4 ? "#eab308" : "#15803d"),
                 }}>
                 {r.score}
               </span>
@@ -115,7 +116,7 @@ export function RiskScoreMap({ outbreaks }: RiskScoreProps) {
               <div className="h-full rounded-full transition-all"
                 style={{
                   width: `${(r.score / maxScore) * 100}%`,
-                  backgroundColor: r.score > maxScore * 0.7 ? "#dc2626" : r.score > maxScore * 0.4 ? "#eab308" : "#16a34a",
+                  backgroundColor: r.score > maxScore * 0.7 ? "#dc2626" : r.score > maxScore * 0.4 ? "#eab308" : "#15803d",
                 }}
               />
             </div>
