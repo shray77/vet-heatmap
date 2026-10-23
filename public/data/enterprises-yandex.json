@@ -3,7 +3,7 @@
   "sources": [
     "yandex"
   ],
-  "total": 300,
+  "total": 303,
   "enterprises": [
     {
       "id": "yandex-1111942529",
@@ -2478,6 +2478,18 @@
       "org_href": "https://yandex.ru/maps/org/sibagro_svinokompleks_kudryashovskoye/31213775974/"
     },
     {
+      "id": "yandex-23860946598",
+      "name": "BelBird",
+      "type": "poultry_farm",
+      "lat": 50.686886,
+      "lon": 36.558315,
+      "address": "рабочий посёлок Северный, Дорожный пер., 1А",
+      "city": "Белгород",
+      "rubric": "Птицефабрика",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/belbird/23860946598/"
+    },
+    {
       "id": "yandex-1349813644",
       "name": "Damate",
       "type": "poultry_farm",
@@ -2570,6 +2582,18 @@
       "rubric": "Яйцо и мясо птицы",
       "source": "yandex",
       "org_href": "https://yandex.ru/maps/org/angarskaya_kurochka/157728865472/"
+    },
+    {
+      "id": "yandex-1794863843",
+      "name": "Белая птица",
+      "type": "poultry_farm",
+      "lat": 50.590062,
+      "lon": 36.634168,
+      "address": "Белгород, Производственная ул., 4",
+      "city": "Белгород",
+      "rubric": "Яйцо и мясо птицы",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/belaya_ptitsa/1794863843/"
     },
     {
       "id": "yandex-1105566461",
@@ -2725,6 +2749,18 @@
       "city": "Красноярск",
       "rubric": "Яйцо и мясо птицы",
       "source": "yandex"
+    },
+    {
+      "id": "yandex-1719533041",
+      "name": "Живая птица",
+      "type": "poultry_farm",
+      "lat": 50.611708,
+      "lon": 36.638669,
+      "address": "Белгород, Корочанская ул., 359",
+      "city": "Белгород",
+      "rubric": "Комбикорма и кормовые добавки",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/magazin_kombikorma_i_zhivoy_ptitsy/1719533041/"
     },
     {
       "id": "yandex-1354048974",
