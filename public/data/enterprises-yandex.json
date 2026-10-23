@@ -3,7 +3,7 @@
   "sources": [
     "yandex"
   ],
-  "total": 297,
+  "total": 300,
   "enterprises": [
     {
       "id": "yandex-1111942529",
@@ -144,6 +144,18 @@
       "rubric": "Комбикорма и кормовые добавки",
       "source": "yandex",
       "org_href": "https://yandex.ru/maps/org/agrozootsentr/83857604397/"
+    },
+    {
+      "id": "yandex-118636638000",
+      "name": "Агрокормсервис Плюс",
+      "type": "feed_mill",
+      "lat": 44.081144,
+      "lon": 42.969061,
+      "address": "Подгорная ул., 2К, село Винсады",
+      "city": "Ставрополь",
+      "rubric": "Комбикорма и кормовые добавки",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/agrokormservis_plyus/118636638000/"
     },
     {
       "id": "yandex-193269112001",
@@ -962,6 +974,18 @@
       "source": "yandex"
     },
     {
+      "id": "yandex-73291707864",
+      "name": "МегаМикс",
+      "type": "feed_mill",
+      "lat": 44.009357,
+      "lon": 43.104321,
+      "address": "Ставропольский край, городской округ Пятигорск, Нальчикское шоссе, 13",
+      "city": "Ставрополь",
+      "rubric": "Комбикорма и кормовые добавки",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/megamix/73291707864/"
+    },
+    {
       "id": "yandex-230529937360",
       "name": "Мегамикс",
       "type": "feed_mill",
@@ -983,6 +1007,18 @@
       "rubric": "Комбикорма и кормовые добавки",
       "source": "yandex",
       "org_href": "https://yandex.ru/maps/org/megamix/109915562435/"
+    },
+    {
+      "id": "yandex-1045799145",
+      "name": "Минводский Комбикормовый завод",
+      "type": "feed_mill",
+      "lat": 44.246154,
+      "lon": 43.124047,
+      "address": "посёлок Загорский, Солнечная ул., 26",
+      "city": "Ставрополь",
+      "rubric": "Комбикорма и кормовые добавки",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/minvodsky_kombikormovy_zavod/1045799145/"
     },
     {
       "id": "yandex-4145174559",
