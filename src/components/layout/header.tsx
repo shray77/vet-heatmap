@@ -134,7 +134,7 @@ export function Header({
               rel="noopener"
               title="VetFlu — окна риска ВПГП по флайвеям РФ (родственный инструмент экосистемы)"
             >
-              🦆
+              ВетКарта
             </a>
           </Button>
           <Button variant="ghost" size="icon" asChild aria-label="GitHub">
@@ -143,7 +143,7 @@ export function Header({
             </a>
           </Button>
           <Button variant="ghost" size="icon" onClick={() => setNightMode(!nightMode)} title="Ночной режим">
-            {nightMode ? "☀️" : "🌙"}
+            {nightMode ? "☀" : "☾"}
           </Button>
           <ThemeToggle />
         </div>

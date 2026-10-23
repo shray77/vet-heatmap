@@ -318,7 +318,7 @@ export function OutbreakSourceTracker({ open, onOpenChange, outbreaks }: Props) 
               <Separator />
 
               <p className="text-xs text-muted-foreground">
-                ⚠️ Результаты основаны на инкубационном периоде и географической
+                ⚠ Результаты основаны на инкубационном периоде и географической
                 близости. Не является официальным эпизоотологическим заключением.
               </p>
             </>

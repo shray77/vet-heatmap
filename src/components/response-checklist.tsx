@@ -31,7 +31,7 @@ const CATEGORY_COLORS: Record<string, string> = {
   cull: "#7c2d12",          // dark red-brown
   surveillance: "#2563eb",  // blue
   vaccination: "#16a34a",   // green
-  disinfection: "#7c3aed",  // purple
+  disinfection: "#0891b2",  // cyan
   documentation: "#6b7280", // grey
   other: "#9ca3af",
 };
@@ -98,12 +98,12 @@ export function ResponseChecklist({ items, outbreak }: ResponseChecklistProps) {
     const region = outbreak.region;
     const date = detectionDate.toLocaleDateString("ru-RU");
     const lines = [
-      `📋 Чек-лист реагирования: ${diseaseName}`,
-      `📍 ${region} · обнаружено ${date}`,
+      `Чек-лист реагирования: ${diseaseName}`,
+      `${region} · обнаружено ${date}`,
       ``,
       ...items.map((item, idx) => {
-        const done = checked.has(idx) ? "✅" : "⬜";
-        const mandatory = item.mandatory ? "⚠️" : "";
+        const done = checked.has(idx) ? "✓" : "☐";
+        const mandatory = item.mandatory ? "⚠" : "";
         return `${done} День ${item.day} (${formatDate(item.day)}) ${mandatory} ${item.action}`;
       }),
       ``,

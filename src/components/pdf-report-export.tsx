@@ -124,7 +124,7 @@ export function PdfReportExport({ open, onOpenChange, outbreaks, filters }: Prop
 <tr><td>Наименование болезни</td><td><strong>${o.disease}</strong></td></tr>
 <tr><td>Субъект РФ / Регион</td><td>${o.region}</td></tr>
 <tr><td>Дата выявления</td><td>${o.date}</td></tr>
-<tr><td>Эпизоотический статус</td><td><strong>${o.status === "Ongoing" ? "🔴 ОЧАГ АКТИВЕН (Карантин)" : "🟢 ЛИКВИДИРОВАН"}</strong></td></tr>
+<tr><td>Эпизоотический статус</td><td><strong>${o.status === "Ongoing" ? "ОЧАГ АКТИВЕН (Карантин)" : "🟢 ЛИКВИДИРОВАН"}</strong></td></tr>
 <tr><td>Восприимчивое поголовье</td><td>${o.species}</td></tr>
 <tr><td>Количество заболевших голов</td><td><strong>${o.cases || "—"}</strong></td></tr>
 <tr><td>Количество павших голов</td><td><strong style="color:#c62828">${o.deaths || "—"}</strong></td></tr>
@@ -133,7 +133,7 @@ export function PdfReportExport({ open, onOpenChange, outbreaks, filters }: Prop
 ${p ? `<h2>II. Противоэпизоотический профиль</h2><table>
 <tr><td>Инкубационный период</td><td>${p.incubation_min}–${p.incubation_max} сут.</td></tr>
 <tr><td>Индекс репродукции (R₀)</td><td>${p.r0_min}–${p.r0_max}</td></tr>
-<tr><td>Опасность для человека (зооноз)</td><td><strong>${p.zoonotic ? "⚠️ ДА (Опасное заболевание)" : "Нет"}</strong></td></tr>
+<tr><td>Опасность для человека (зооноз)</td><td><strong>${p.zoonotic ? "ДА (опасное заболевание)" : "Нет"}</strong></td></tr>
 <tr><td>Установленная зона защиты</td><td>${p.protection_zone_km} км</td></tr>
 <tr><td>Установленная зона наблюдения</td><td>${p.surveillance_zone_km} км</td></tr>
 </table>

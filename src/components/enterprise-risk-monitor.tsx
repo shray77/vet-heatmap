@@ -39,10 +39,10 @@ interface Props {
 }
 
 const ENTERPRISE_ICONS: Record<string, string> = {
-  farm: "🏭",
-  meat_plant: "🔪",
-  market: "🏪",
-  dairy: "🥛",
+  farm: "Ф",
+  meat_plant: "МПК",
+  market: "Р",
+  dairy: "Мл",
 };
 
 const ENTERPRISE_LABELS: Record<string, string> = {
@@ -219,7 +219,7 @@ export function EnterpriseRiskMonitor({ open, onOpenChange, outbreaks, enterpris
           </Button>
           <Button size="sm" variant={filter === "critical" ? "default" : "outline"} onClick={() => setFilter("critical")}
             className={counts.critical > 0 ? "border-red-300" : ""}>
-            🔴 Критично ({counts.critical})
+            Критично ({counts.critical})
           </Button>
           <Button size="sm" variant={filter === "high" ? "default" : "outline"} onClick={() => setFilter("high")}
             className={counts.high > 0 ? "border-orange-300" : ""}>

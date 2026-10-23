@@ -98,14 +98,14 @@ export function AlertSettings({ open, onOpenChange, outbreaks }: Props) {
     const reg = navigator.serviceWorker?.controller;
     if (reg) {
       navigator.serviceWorker.getRegistration().then((r) => {
-        r?.showNotification("🚨 Тестовое уведомление VetKarta", {
+        r?.showNotification("Тестовое уведомление VetKarta", {
           body: "Если вы видите это — уведомления работают!",
           icon: "/vet-heatmap/icons/icon-192.png",
           tag: "test",
         });
       });
     } else {
-      new Notification("🚨 Тестовое уведомление VetKarta", {
+      new Notification("Тестовое уведомление VetKarta", {
         body: "Если вы видите это — уведомления работают!",
         icon: "/vet-heatmap/icons/icon-192.png",
       });
@@ -295,7 +295,7 @@ export function AlertSettings({ open, onOpenChange, outbreaks }: Props) {
               )}
 
               <p className="text-xs text-muted-foreground">
-                ⚠️ Проверка выполняется только при открытии приложения.
+                ⚠ Проверка выполняется только при открытии приложения.
                 Для push-уведомлений в реальном времени нужен сервер.
               </p>
             </>

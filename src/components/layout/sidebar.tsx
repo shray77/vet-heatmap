@@ -88,7 +88,7 @@ export function Sidebar({
           <div className="flex items-center gap-2 min-w-0">
             <div className="mx-0.5 h-1.5 w-8 rounded-full bg-muted-foreground/40 shrink-0" />
             <span className="text-xs font-semibold tracking-tight text-foreground truncate">
-              📊 Аналитика и данные ({filtered.length})
+              Аналитика и данные ({filtered.length})
             </span>
           </div>
           <div className="flex items-center gap-1.5 text-xs text-primary font-medium shrink-0">

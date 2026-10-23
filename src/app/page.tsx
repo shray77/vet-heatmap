@@ -296,7 +296,7 @@ function MapLegend({ densityLayer, updated, sources, showForecast, forecast }: {
         aria-label="Показать легенду"
         className="absolute bottom-3 right-3 z-20 flex items-center gap-1.5 rounded-full border border-white/15 bg-card/70 px-3 py-1.5 text-[10px] font-medium text-foreground shadow-lg backdrop-blur-xl pointer-events-auto"
       >
-        <span aria-hidden>🗺️</span> Зоны риска
+        Зоны риска
       </button>
     );
   }

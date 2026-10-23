@@ -21,8 +21,8 @@ interface TodaySummaryProps {
  * Compact daily snapshot shown above the map.
  *
  * Layout:
- *   🔴 886 активных · 19 регионов · 8 болезней
- *   ⚠️ Топ-3: АЧС (412)  Грипп птиц (234)  Ящур (98)
+ *   886 активных · 19 регионов · 8 болезней
+ *   Топ-3: АЧС (412)  Грипп птиц (234)  Ящур (98)
  *
  * Updates instantly with filter changes — gives a 1-second snapshot
  * without requiring clicks.

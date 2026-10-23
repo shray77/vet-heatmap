@@ -733,7 +733,7 @@ export function SIRSimulator({ open, onOpenChange, preselectDisease }: SIRSimula
             </Card>
 
             <p className="text-[10px] text-muted-foreground leading-relaxed">
-              ⚠️ SEIR-модель упрощённая: не учитывает пространственное распределение,
+              ⚠ SEIR-модель упрощённая: не учитывает пространственное распределение,
               неоднородность популяции, возрастные группы, скрытые случаи. Для реального
               планирования обратитесь к эпизоотологу.
             </p>

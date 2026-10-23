@@ -1331,9 +1331,9 @@ export function OutbreakMap({
       {/* Floating base map style switcher pill */}
       <div className="absolute top-3 left-3 z-20 hidden sm:flex gap-1 rounded-full border border-white/15 bg-card/75 p-1 shadow-lg backdrop-blur-xl pointer-events-auto">
         {[
-          { id: "dark", label: "🌙 Тёмная" },
-          { id: "light", label: "☀️ Светлая" },
-          { id: "satellite", label: "🛰️ Спутник" },
+          { id: "dark", label: "Тёмная" },
+          { id: "light", label: "Светлая" },
+          { id: "satellite", label: "Спутник" },
         ].map((st) => (
           <button
             key={st.id}
