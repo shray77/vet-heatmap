@@ -51,16 +51,16 @@ export function Header({
   const {
     setDrawerDisease, setDrawerOpen, setNearbyOpen, setSirOpen, setSpatialOpen, setSourceTrackerOpen,
     setTransportOpen, setSpreadAnimOpen, setRegionCardOpen, setComparisonOpen, setEnterpriseRiskOpen,
-    setPdfReportOpen, setCustomImportOpen, setAlertOpen, setAboutOpen, setCalcOpen, setCalcPreselect,
+    setPdfReportOpen, setCustomImportOpen, setAlertOpen, setAboutOpen, setCalcOpen,
+    openDisease,
     mobileFiltersOpen, setMobileFiltersOpen
   } = useUIStore();
 
   const openCalculator = () => setCalcOpen(true);
 
   return (
-    <header className="z-50 shrink-0 border-b bg-background/80 backdrop-blur-xl pt-safe">
-      <div className="relative flex items-center gap-2 px-4 py-2 md:py-3">
-        <div className="pointer-events-none absolute inset-0 opacity-[0.04] [background:conic-gradient(from_0deg,transparent,var(--primary),transparent)] [animation:spin_18s_linear_infinite] blur-2xl" />
+    <header className="z-50 shrink-0 border-b bg-background/95 pt-safe">
+      <div className="relative flex items-center gap-2 px-4 py-2 md:py-2.5">
 
         <div className="relative flex items-center gap-2 flex-1 min-w-0">
           <Stethoscope className="h-5 w-5 md:h-6 md:w-6 text-primary shrink-0" />
@@ -127,14 +127,14 @@ export function Header({
             </DropdownMenuContent>
           </DropdownMenu>
 
-          <Button variant="ghost" size="icon" asChild aria-label="VetFlu — окна риска ВПГП">
+          <Button variant="ghost" size="sm" className="h-9 px-2 text-xs" asChild aria-label="VetFlu — окна риска ВПГП">
             <a
               href="https://shray77.github.io/vetflu-site/"
               target="_blank"
               rel="noopener"
               title="VetFlu — окна риска ВПГП по флайвеям РФ (родственный инструмент экосистемы)"
             >
-              ВетКарта
+              VetFlu
             </a>
           </Button>
           <Button variant="ghost" size="icon" asChild aria-label="GitHub">
@@ -215,7 +215,7 @@ export function Header({
       </div>
 
       <div className="relative hidden md:flex items-center gap-3 overflow-hidden px-4 pb-2">
-        <StatsBar outbreaks={filtered} totalRegions={totalRegions} />
+        <StatsBar outbreaks={filtered} totalRegions={totalRegions} onSelectDisease={openDisease} />
         <div className="flex gap-1 overflow-x-auto thin-scroll ml-auto">
           <Button
             variant={filters.diseases.length === 0 ? "default" : "outline"}

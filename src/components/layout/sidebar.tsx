@@ -75,9 +75,10 @@ export function Sidebar({
         </div>
       </aside>
 
-      {/* MOBILE BOTTOM SHEET */}
+      {/* MOBILE BOTTOM SHEET — solid bg: backdrop-blur over the map canvas
+          forces a GPU re-composite every frame while the map animates */}
       <div
-        className={`transition-all duration-300 ease-in-out border-t bg-card/95 backdrop-blur-xl shadow-[0_-8px_30px_rgba(0,0,0,0.15)] rounded-t-3xl flex flex-col shrink-0 lg:hidden ${
+        className={`transition-all duration-300 ease-in-out border-t bg-card shadow-[0_-8px_30px_rgba(0,0,0,0.15)] rounded-t-3xl flex flex-col shrink-0 lg:hidden ${
           mobileSheetExpanded ? "h-[65vh]" : "h-14"
         }`}
       >

@@ -347,7 +347,7 @@ export function OutbreakMap({
       map.off("click", "choropleth-fill", onClick);
       map.off("click", "choropleth-line", onClick);
     };
-  }, [geo, outbreaks, showChoropleth, ready, resolvedTheme, onSelectRegion, regionDensity]);
+  }, [geo, showChoropleth, ready, resolvedTheme, onSelectRegion, regionDensity]);
 
   // ─── Outbreak markers ──────────────────────────────────────────────
   // PERFORMANCE: Always use MapLibre circle layers + clustering.
@@ -732,136 +732,12 @@ export function OutbreakMap({
   useEffect(() => {
     const map = mapRef.current;
     if (!map || !ready) return;
-
-    // Remove existing risk zone layers
-    const layers = map.getStyle()?.layers ?? [];
-    for (const l of layers) {
-      if (l.id.startsWith("risk-zone-")) {
-        map.removeLayer(l.id);
-      }
+    if (!showRiskZones) {
+      removeRiskZoneLayers(map);
+      return;
     }
-    if (map.getSource("risk-zones")) {
-      map.removeSource("risk-zones");
-    }
-
-    if (!showRiskZones) return;
-
-    // PERFORMANCE: only show risk zones when zoomed in (zoom > 7 ≈ district level).
-    // Was 6 — too low, drew 2658+ polygons for 886 ongoing outbreaks at
-    // country-level zoom where they overlap into meaningless noise.
-    const currentZoom = map.getZoom();
-    if (currentZoom < 7) return;
-
-    // Scale zone visibility based on zoom level
-    // zoom 7-9:  only protection (3-5km) — barely visible, small dots
-    // zoom 9-11: protection + surveillance
-    // zoom 11+:  all three zones
-    const showProtection = currentZoom >= 7;
-    const showSurveillance = currentZoom >= 9;
-    const showRestriction = currentZoom >= 11;
-
-    // Build circles for ongoing outbreaks only
-    const ongoing = outbreaks.filter((o) => o.status === "Ongoing");
-    if (ongoing.length === 0) return;
-
-    // Limit to visible area for performance
-    const bounds = map.getBounds();
-    let visible = ongoing.filter((o) => {
-      const center = getOutbreakCenter(o, geo);
-      if (!center) return false;
-      return center[0] >= bounds.getWest() - 2 && center[0] <= bounds.getEast() + 2 &&
-             center[1] >= bounds.getSouth() - 2 && center[1] <= bounds.getNorth() + 2;
-    });
-
-    // PERFORMANCE: cap at 60 nearest outbreaks to avoid drawing 180+ polygons
-    // when zoomed out at region level. 60 × 3 zones = 180 polygons max.
-    const MAX_RISK_ZONE_OUTBREAKS = 60;
-    if (visible.length > MAX_RISK_ZONE_OUTBREAKS) {
-      // Sort by distance to map center (closer first)
-      const center = map.getCenter();
-      visible.sort((a, b) => {
-        const ca = getOutbreakCenter(a, geo);
-        const cb = getOutbreakCenter(b, geo);
-        if (!ca) return 1;
-        if (!cb) return -1;
-        const da = (ca[0] - center.lng) ** 2 + (ca[1] - center.lat) ** 2;
-        const db = (cb[0] - center.lng) ** 2 + (cb[1] - center.lat) ** 2;
-        return da - db;
-      });
-      visible = visible.slice(0, MAX_RISK_ZONE_OUTBREAKS);
-    }
-
-    const features: GeoJSON.Feature[] = [];
-    for (const o of visible) {
-      const center = getOutbreakCenter(o, geo);
-      if (!center) continue;
-      const profile = DISEASE_PROFILES_BY_KEY[o.disease_key];
-
-      // Zone radii — use real values from disease profiles
-      const protectionR = profile?.protection_zone_km ?? 3;
-      const surveillanceR = profile?.surveillance_zone_km ?? 10;
-      const restrictionR = profile?.restriction_zone_km ?? 30;
-
-      // Only add zones that should be visible at current zoom
-      if (showProtection) {
-        features.push({
-          type: "Feature",
-          properties: { outbreak_id: o.id, label: "protection", color: "#dc2626", opacity: 0.25, radius_km: protectionR },
-          geometry: { type: "Point", coordinates: center },
-        });
-      }
-      if (showSurveillance) {
-        features.push({
-          type: "Feature",
-          properties: { outbreak_id: o.id, label: "surveillance", color: "#f59e0b", opacity: 0.15, radius_km: surveillanceR },
-          geometry: { type: "Point", coordinates: center },
-        });
-      }
-      if (showRestriction) {
-        features.push({
-          type: "Feature",
-          properties: { outbreak_id: o.id, label: "restriction", color: "#3b82f6", opacity: 0.08, radius_km: restrictionR },
-          geometry: { type: "Point", coordinates: center },
-        });
-      }
-    }
-
-    if (features.length === 0) return;
-
-    map.addSource("risk-zones", { type: "geojson", data: { type: "FeatureCollection", features } });
-
-    // Draw as outline-only circles (no fill) to avoid covering markers
-    const layerOrder = ["restriction", "surveillance", "protection"];
-    const zoneStyles: Record<string, { opacity: number }> = {
-      restriction: { opacity: 0.08 },
-      surveillance: { opacity: 0.15 },
-      protection: { opacity: 0.25 },
-    };
-    for (const label of layerOrder) {
-      const hasFeatures = features.some((f) => f.properties?.label === label);
-      if (!hasFeatures) continue;
-      const zs = zoneStyles[label];
-      map.addLayer({
-        id: `risk-zone-${label}`,
-        type: "circle",
-        source: "risk-zones",
-        filter: ["==", ["get", "label"], label],
-        paint: {
-          "circle-radius": [
-            "interpolate", ["linear"], ["zoom"],
-            7, ["*", ["get", "radius_km"], 3],
-            10, ["*", ["get", "radius_km"], 15],
-            13, ["*", ["get", "radius_km"], 80],
-          ],
-          "circle-color": ["get", "color"],
-          "circle-opacity": zs.opacity,
-          "circle-stroke-width": 1,
-          "circle-stroke-color": ["get", "color"],
-          "circle-stroke-opacity": 0.6,
-        },
-      });
-    }
-  }, [outbreaks, geo, showRiskZones, ready]);
+    rebuildRiskZones(map, outbreaks, regionCentroids ?? null);
+  }, [outbreaks, showRiskZones, ready, regionCentroids]);
 
   // Re-render risk zones on zoom change
   useEffect(() => {
@@ -872,77 +748,13 @@ export function OutbreakMap({
     const onZoom = () => {
       if (zoomTimer) clearTimeout(zoomTimer);
       zoomTimer = setTimeout(() => {
-        // Trigger re-render of risk zones by toggling showRiskZones
-        const layers = map.getStyle()?.layers ?? [];
-        for (const l of layers) {
-          if (l.id.startsWith("risk-zone-")) map.removeLayer(l.id);
-        }
-        if (map.getSource("risk-zones")) map.removeSource("risk-zones");
-
-        const currentZoom = map.getZoom();
-        if (currentZoom < 7) return;
-
-        const showProtection = currentZoom >= 7;
-        const showSurveillance = currentZoom >= 9;
-        const showRestriction = currentZoom >= 11;
-
-        const ongoing = outbreaks.filter((o) => o.status === "Ongoing");
-        const bounds = map.getBounds();
-        let visible = ongoing.filter((o) => {
-          const center = getOutbreakCenter(o, geo);
-          if (!center) return false;
-          return center[0] >= bounds.getWest() - 2 && center[0] <= bounds.getEast() + 2 &&
-                 center[1] >= bounds.getSouth() - 2 && center[1] <= bounds.getNorth() + 2;
-        });
-
-        // PERFORMANCE: cap at 60 nearest outbreaks (same as initial render)
-        const MAX_RISK_ZONE_OUTBREAKS = 60;
-        if (visible.length > MAX_RISK_ZONE_OUTBREAKS) {
-          const mapCenter = map.getCenter();
-          visible.sort((a, b) => {
-            const ca = getOutbreakCenter(a, geo);
-            const cb = getOutbreakCenter(b, geo);
-            if (!ca) return 1;
-            if (!cb) return -1;
-            const da = (ca[0] - mapCenter.lng) ** 2 + (ca[1] - mapCenter.lat) ** 2;
-            const db = (cb[0] - mapCenter.lng) ** 2 + (cb[1] - mapCenter.lat) ** 2;
-            return da - db;
-          });
-          visible = visible.slice(0, MAX_RISK_ZONE_OUTBREAKS);
-        }
-
-        const features: GeoJSON.Feature[] = [];
-        for (const o of visible) {
-          const center = getOutbreakCenter(o, geo);
-          if (!center) continue;
-          const profile = DISEASE_PROFILES_BY_KEY[o.disease_key];
-          const protectionR = profile?.protection_zone_km ?? 3;
-          const surveillanceR = profile?.surveillance_zone_km ?? 10;
-          const restrictionR = profile?.restriction_zone_km ?? 30;
-
-          if (showProtection) features.push({ type: "Feature", properties: { outbreak_id: o.id, label: "protection", color: "#dc2626", opacity: 0.25, radius_km: protectionR }, geometry: { type: "Point", coordinates: center } });
-          if (showSurveillance) features.push({ type: "Feature", properties: { outbreak_id: o.id, label: "surveillance", color: "#f59e0b", opacity: 0.15, radius_km: surveillanceR }, geometry: { type: "Point", coordinates: center } });
-          if (showRestriction) features.push({ type: "Feature", properties: { outbreak_id: o.id, label: "restriction", color: "#3b82f6", opacity: 0.08, radius_km: restrictionR }, geometry: { type: "Point", coordinates: center } });
-        }
-
-        if (features.length === 0) return;
-        map.addSource("risk-zones", { type: "geojson", data: { type: "FeatureCollection", features } });
-        const zStyles: Record<string, { opacity: number }> = {
-          restriction: { opacity: 0.08 },
-          surveillance: { opacity: 0.15 },
-          protection: { opacity: 0.25 },
-        };
-        for (const label of ["restriction", "surveillance", "protection"]) {
-          if (!features.some((f) => f.properties?.label === label)) continue;
-          const zs = zStyles[label];
-          map.addLayer({ id: `risk-zone-${label}`, type: "circle", source: "risk-zones", filter: ["==", ["get", "label"], label], paint: { "circle-radius": ["interpolate", ["linear"], ["zoom"], 7, ["*", ["get", "radius_km"], 3], 10, ["*", ["get", "radius_km"], 15], 13, ["*", ["get", "radius_km"], 80]], "circle-color": ["get", "color"], "circle-opacity": zs.opacity, "circle-stroke-width": 1, "circle-stroke-color": ["get", "color"], "circle-stroke-opacity": 0.6 } });
-        }
+        rebuildRiskZones(map, outbreaks, regionCentroids ?? null);
       }, 300); // debounce 300ms
     };
 
     map.on("zoomend", onZoom);
     return () => { map.off("zoomend", onZoom); if (zoomTimer) clearTimeout(zoomTimer); };
-  }, [outbreaks, geo, showRiskZones, ready]);
+  }, [outbreaks, showRiskZones, ready, regionCentroids]);
 
   // ─── Selected Outbreak Highlight, Buffer Zones & Contact Links ───────
   useEffect(() => {
@@ -966,7 +778,7 @@ export function OutbreakMap({
 
     if (!selectedOutbreak) return;
 
-    const center = getOutbreakCenter(selectedOutbreak, geo);
+    const center = getOutbreakCenter(selectedOutbreak, regionCentroids ?? null);
     if (!center) return;
 
     const profile = DISEASE_PROFILES_BY_KEY[selectedOutbreak.disease_key];
@@ -1022,7 +834,7 @@ export function OutbreakMap({
     // Epidemiological contact links (same disease within 100km)
     const nearbySameDisease = outbreaks.filter((o) => {
       if (o.id === selectedOutbreak.id || o.disease_key !== selectedOutbreak.disease_key) return false;
-      const c = getOutbreakCenter(o, geo);
+      const c = getOutbreakCenter(o, regionCentroids ?? null);
       if (!c) return false;
       const dist = Math.hypot((c[0] - center[0]) * 111 * Math.cos((center[1] * Math.PI) / 180), (c[1] - center[1]) * 111);
       return dist <= 100;
@@ -1030,7 +842,7 @@ export function OutbreakMap({
 
     if (nearbySameDisease.length > 0) {
       const lineFeatures: GeoJSON.Feature[] = nearbySameDisease.map((o) => {
-        const c = getOutbreakCenter(o, geo)!;
+        const c = getOutbreakCenter(o, regionCentroids ?? null)!;
         return {
           type: "Feature",
           properties: {},
@@ -1092,7 +904,7 @@ export function OutbreakMap({
       if (map.getSource("selected-connections-src")) map.removeSource("selected-connections-src");
       if (map.getSource("selected-pulse-src")) map.removeSource("selected-pulse-src");
     };
-  }, [selectedOutbreak, outbreaks, geo, ready]);
+  }, [selectedOutbreak, outbreaks, regionCentroids, ready]);
 
   // ─── Livestock density layer ─────────────────────────────────────────
   useEffect(() => {
@@ -1176,14 +988,9 @@ export function OutbreakMap({
 
     if (!showHeatmap) return;
 
-    // Build point GeoJSON from outbreaks
-    const centroids = new Map<string, [number, number]>();
-    for (const f of geo.features) {
-      const name = (f.properties as { shapeName?: string }).shapeName;
-      if (!name) continue;
-      const bbox = computeBBox(f.geometry);
-      if (bbox) centroids.set(name, [(bbox[0] + bbox[2]) / 2, (bbox[1] + bbox[3]) / 2]);
-    }
+    // Use pre-computed centroids from page.tsx (was a full O(85 regions)
+    // bbox recompute here on every outbreaks change).
+    const centroids = regionCentroids ?? new Map<string, [number, number]>();
 
     const features: GeoJSON.Feature<GeoJSON.Point>[] = [];
     for (const o of outbreaks) {
@@ -1328,8 +1135,9 @@ export function OutbreakMap({
     <div className="relative w-full h-full">
       <div ref={mapContainer} className="w-full h-full" />
 
-      {/* Floating base map style switcher pill */}
-      <div className="absolute top-3 left-3 z-20 hidden sm:flex gap-1 rounded-full border border-white/15 bg-card/75 p-1 shadow-lg backdrop-blur-xl pointer-events-auto">
+      {/* Floating base map style switcher pill (solid bg — backdrop-blur over
+          a panning canvas forces a GPU re-composite every frame) */}
+      <div className="absolute top-3 left-3 z-20 hidden sm:flex gap-1 rounded-full border border-white/15 bg-card/95 p-1 shadow-lg pointer-events-auto">
         {[
           { id: "dark", label: "Тёмная" },
           { id: "light", label: "Светлая" },
@@ -1429,65 +1237,126 @@ function formatDate(iso: string): string {
   return d.toLocaleDateString("ru-RU", { day: "numeric", month: "long", year: "numeric" });
 }
 
-/** Compute bounding box of a geometry — used as rough centroid source. */
-function computeBBox(geom: GeoJSON.Geometry): [number, number, number, number] | null {
-  let minX = Infinity, minY = Infinity, maxX = -Infinity, maxY = -Infinity;
-  const visit = (coords: unknown) => {
-    if (typeof (coords as number[])[0] === "number") {
-      const [x, y] = coords as number[];
-      minX = Math.min(minX, x);
-      minY = Math.min(minY, y);
-      maxX = Math.max(maxX, x);
-      maxY = Math.max(maxY, y);
-    } else if (Array.isArray(coords)) {
-      for (const c of coords) visit(c);
-    }
-  };
-  visit((geom as { coordinates: unknown }).coordinates);
-  if (minX === Infinity) return null;
-  return [minX, minY, maxX, maxY];
-}
-
-function getOutbreakCenter(o: Outbreak, geo: GeoJSON.FeatureCollection | null): [number, number] | null {
+/** O(1) outbreak center: precise coords or region centroid from the
+ *  pre-computed Map. Previously this did a linear scan over all 85 region
+ *  features + a recursive bbox per call — and it was called inside sort()
+ *  comparators during risk-zone rebuilds (~1.5M iterations on the main
+ *  thread per zoomend: the "map freezes when zooming" bug). */
+function getOutbreakCenter(o: Outbreak, centroids: Map<string, [number, number]> | null): [number, number] | null {
   if (typeof o.lon === "number" && typeof o.lat === "number"
       && Number.isFinite(o.lon) && Number.isFinite(o.lat)
       && !(o.lon === 0 && o.lat === 0)) {
     return [o.lon, o.lat];
   }
-  if (geo && o.region_geo) {
-    for (const f of geo.features) {
-      if ((f.properties as { shapeName?: string }).shapeName === o.region_geo) {
-        const bbox = computeBBox(f.geometry);
-        if (bbox) {
-          const cx = (bbox[0] + bbox[2]) / 2;
-          const cy = (bbox[1] + bbox[3]) / 2;
-          // For Russia, cx=0 always means anti-meridian wraparound bug
-          // (Chukotka spans -180..+180, midpoint = 0 = Atlantic Ocean).
-          // Filter these out — outbreak won't render, but won't appear in
-          // the wrong place either.
-          if (Number.isFinite(cx) && Number.isFinite(cy) && cx !== 0) {
-            return [cx, cy];
-          }
-        }
-      }
-    }
+  const c = o.region_geo ? centroids?.get(o.region_geo) : undefined;
+  // cx === 0 is the anti-meridian wraparound midpoint (Chukotka spans
+  // -180..+180, midpoint = 0 = Atlantic Ocean) — filtered at centroid build
+  // time too; double guard here.
+  if (c && Number.isFinite(c[0]) && Number.isFinite(c[1]) && c[0] !== 0) {
+    return c;
   }
   return null;
 }
 
-/** Build a circle polygon (lat/lng, rough — uses spherical-to-planar approximation). */
-function makeCircle(center: [number, number], radiusKm: number, segments = 64): [number, number][] {
-  const [lng, lat] = center;
-  const latRad = (lat * Math.PI) / 180;
-  const radiusDeg = radiusKm / 111; // 1 deg ≈ 111km (rough, ignores lat)
-  const points: [number, number][] = [];
-  for (let i = 0; i <= segments; i++) {
-    const angle = (i / segments) * 2 * Math.PI;
-    const dLng = (radiusDeg * Math.cos(angle)) / Math.cos(latRad || 0.0001);
-    const dLat = radiusDeg * Math.sin(angle);
-    points.push([lng + dLng, lat + dLat]);
+/** Remove all risk-zone layers + source (no-op when absent). */
+function removeRiskZoneLayers(map: MLMap) {
+  const layers = map.getStyle()?.layers ?? [];
+  for (const l of layers) {
+    if (l.id.startsWith("risk-zone-")) map.removeLayer(l.id);
   }
-  return points;
+  if (map.getSource("risk-zones")) map.removeSource("risk-zones");
+}
+
+/** Shared risk-zone builder — used both on filter/data changes and on
+ *  zoomend (debounced by the caller). Centers are derived ONCE per rebuild
+ *  (O(n) on the centroids map); the sort works on pre-computed pairs, never
+ *  inside a comparator. */
+function rebuildRiskZones(
+  map: MLMap,
+  outbreaks: Outbreak[],
+  centroids: Map<string, [number, number]> | null,
+) {
+  removeRiskZoneLayers(map);
+
+  // PERFORMANCE: only show risk zones when zoomed in (zoom > 7 ≈ district
+  // level). At country zoom 886 ongoing × 3 zones overlap into noise.
+  const currentZoom = map.getZoom();
+  if (currentZoom < 7) return;
+
+  // Scale zone visibility based on zoom level:
+  // zoom 7-9: protection only; 9-11: + surveillance; 11+: all three.
+  const showProtection = currentZoom >= 7;
+  const showSurveillance = currentZoom >= 9;
+  const showRestriction = currentZoom >= 11;
+
+  const centered: { o: Outbreak; c: [number, number] }[] = [];
+  for (const o of outbreaks) {
+    if (o.status !== "Ongoing") continue;
+    const c = getOutbreakCenter(o, centroids);
+    if (c) centered.push({ o, c });
+  }
+  if (centered.length === 0) return;
+
+  // Limit to visible area for performance
+  const bounds = map.getBounds();
+  const west = bounds.getWest() - 2, east = bounds.getEast() + 2;
+  const south = bounds.getSouth() - 2, north = bounds.getNorth() + 2;
+  const visible = centered.filter(({ c }) =>
+    c[0] >= west && c[0] <= east && c[1] >= south && c[1] <= north);
+
+  // PERFORMANCE: cap at 60 nearest outbreaks — 60 × 3 zones = 180 polygons max.
+  const MAX_RISK_ZONE_OUTBREAKS = 60;
+  if (visible.length > MAX_RISK_ZONE_OUTBREAKS) {
+    const center = map.getCenter();
+    visible.sort((a, b) =>
+      (a.c[0] - center.lng) ** 2 + (a.c[1] - center.lat) ** 2
+      - (b.c[0] - center.lng) ** 2 - (b.c[1] - center.lat) ** 2);
+    visible.length = MAX_RISK_ZONE_OUTBREAKS;
+  }
+
+  const features: GeoJSON.Feature[] = [];
+  for (const { o, c } of visible) {
+    const profile = DISEASE_PROFILES_BY_KEY[o.disease_key];
+    const protectionR = profile?.protection_zone_km ?? 3;
+    const surveillanceR = profile?.surveillance_zone_km ?? 10;
+    const restrictionR = profile?.restriction_zone_km ?? 30;
+
+    if (showProtection) features.push({ type: "Feature", properties: { outbreak_id: o.id, label: "protection", color: "#dc2626", opacity: 0.25, radius_km: protectionR }, geometry: { type: "Point", coordinates: c } });
+    if (showSurveillance) features.push({ type: "Feature", properties: { outbreak_id: o.id, label: "surveillance", color: "#f59e0b", opacity: 0.15, radius_km: surveillanceR }, geometry: { type: "Point", coordinates: c } });
+    if (showRestriction) features.push({ type: "Feature", properties: { outbreak_id: o.id, label: "restriction", color: "#3b82f6", opacity: 0.08, radius_km: restrictionR }, geometry: { type: "Point", coordinates: c } });
+  }
+  if (features.length === 0) return;
+
+  map.addSource("risk-zones", { type: "geojson", data: { type: "FeatureCollection", features } });
+
+  const zoneStyles: Record<string, { opacity: number }> = {
+    restriction: { opacity: 0.08 },
+    surveillance: { opacity: 0.15 },
+    protection: { opacity: 0.25 },
+  };
+  for (const label of ["restriction", "surveillance", "protection"]) {
+    if (!features.some((f) => f.properties?.label === label)) continue;
+    const zs = zoneStyles[label];
+    map.addLayer({
+      id: `risk-zone-${label}`,
+      type: "circle",
+      source: "risk-zones",
+      filter: ["==", ["get", "label"], label],
+      paint: {
+        "circle-radius": [
+          "interpolate", ["linear"], ["zoom"],
+          7, ["*", ["get", "radius_km"], 3],
+          10, ["*", ["get", "radius_km"], 15],
+          13, ["*", ["get", "radius_km"], 80],
+        ],
+        "circle-color": ["get", "color"],
+        "circle-opacity": zs.opacity,
+        "circle-stroke-width": 1,
+        "circle-stroke-color": ["get", "color"],
+        "circle-stroke-opacity": 0.6,
+      },
+    });
+  }
 }
 
 // React.memo wrapper

@@ -3,10 +3,9 @@
 import { useMemo, useCallback, useState } from "react";
 import { useMapStore } from "@/lib/map-store";
 import { useWorkerFilter } from "@/hooks/use-worker-filter";
-import { Activity, AlertTriangle, X } from "lucide-react";
+import { AlertTriangle, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { OutbreakMap } from "@/components/outbreak-map";
-import { TodaySummary } from "@/components/today-summary";
+import { OutbreakMapMemo as OutbreakMap } from "@/components/outbreak-map";
 import { PwaBanners } from "@/components/pwa-banners";
 import { Header } from "@/components/layout/header";
 import { Sidebar } from "@/components/layout/sidebar";
@@ -41,7 +40,7 @@ function HomeContent() {
           setTimelineRange, setMobileSheetExpanded } = useMapStore();
 
   const {
-    setDrawerDisease, setDrawerOpen, setCalcOpen, setCalcPreselect,
+    setCalcOpen,
     setMobileFiltersOpen, setAboutOpen, setNearbyOpen, setSirOpen,
     openRegion, openOutbreak, selectedOutbreak
   } = useUIStore();
@@ -79,7 +78,12 @@ function HomeContent() {
         }
       };
       visit((f.geometry as { coordinates: unknown }).coordinates);
-      if (minX !== Infinity) m.set(name, [(minX + maxX) / 2, (minY + maxY) / 2]);
+      if (minX !== Infinity) {
+        // cx === 0 on Russia bounds [19..180] can only be anti-meridian
+        // wraparound (Chukotka) — the midpoint would land in the Atlantic.
+        const cx = (minX + maxX) / 2;
+        if (cx !== 0) m.set(name, [cx, (minY + maxY) / 2]);
+      }
     }
     return m;
   }, [geo]);
@@ -102,9 +106,19 @@ function HomeContent() {
   }, [openRegion]);
 
   // Stable ref so OutbreakMap (memoized) doesn't re-render on every parent render.
+  // PERF: writes viewport straight to the URL — a map pan must NOT go through
+  // React state. Previously every moveend → setFilters → new filters object →
+  // sync applyFilters on the main thread + worker round-trip + new `filtered`
+  // identity → full subtree re-render + GeoJSON rebuild. The viewport has zero
+  // effect on filtering, so all of that work was pure waste (the "map freezes
+  // when panning" bug).
   const handleMapMove = useCallback((center: [number, number], zoom: number) => {
-    setFilters((f) => ({ ...f, mapLng: center[0], mapLat: center[1], mapZoom: zoom }));
-  }, [setFilters]);
+    const p = new URLSearchParams(window.location.search);
+    p.set("lat", center[1].toFixed(4));
+    p.set("lng", center[0].toFixed(4));
+    p.set("z", String(Math.round(zoom)));
+    window.history.replaceState(null, "", `?${p.toString()}`);
+  }, []);
 
   const toggleDiseaseFilter = useCallback((key: DiseaseKey) => {
     setFilters((f) => {
@@ -205,14 +219,6 @@ function HomeContent() {
         showForecast={showForecast} setShowForecast={(v) => useMapStore.setState({ showForecast: v })}
       />
 
-      <div className="hidden md:block">
-        <TodaySummary
-          outbreaks={filtered}
-          totalRegionsWithOutbreaks={totalRegions}
-          onSelectDisease={(k) => { setDrawerDisease(k); setDrawerOpen(true); }}
-        />
-      </div>
-
       <div className="flex min-h-0 flex-1 flex-col overflow-hidden lg:flex-row">
         <section className="relative min-h-0 flex-1 overflow-hidden">
           <OutbreakMap
@@ -265,16 +271,17 @@ function HomeContent() {
 }
 
 function MobileFloatingStats({ filtered }: { filtered: Outbreak[] }) {
+  const ongoing = useMemo(() => filtered.filter((o) => o.status === "Ongoing").length, [filtered]);
   return (
     <div className="pointer-events-none absolute left-3 top-3 z-20 flex gap-2 md:hidden">
-      <div className="flex h-12 w-12 flex-col items-center justify-center rounded-full border border-white/15 bg-card/60 shadow-lg backdrop-blur-xl">
+      {/* Solid background, no backdrop-blur: a blur over the panning map
+          canvas forces a GPU re-composite every frame (mobile jank). */}
+      <div className="flex h-12 w-12 flex-col items-center justify-center rounded-full border border-white/15 bg-card/90 shadow-lg">
         <span className="text-sm font-bold tabular-nums leading-none text-foreground">{filtered.length}</span>
         <span className="mt-0.5 text-[7px] uppercase text-muted-foreground">всего</span>
       </div>
-      <div className="flex h-12 w-12 flex-col items-center justify-center rounded-full border border-white/15 bg-card/60 shadow-lg backdrop-blur-xl">
-        <span className="text-sm font-bold tabular-nums leading-none text-destructive">
-          {filtered.filter((o) => o.status === "Ongoing").length}
-        </span>
+      <div className="flex h-12 w-12 flex-col items-center justify-center rounded-full border border-white/15 bg-card/90 shadow-lg">
+        <span className="text-sm font-bold tabular-nums leading-none text-destructive">{ongoing}</span>
         <span className="mt-0.5 text-[7px] uppercase text-muted-foreground">активн.</span>
       </div>
     </div>
@@ -302,7 +309,7 @@ function MapLegend({ densityLayer, updated, sources, showForecast, forecast }: {
   }
 
   return (
-    <div className="absolute bottom-3 right-3 z-20 max-w-[44vw] sm:max-w-[220px] rounded-2xl border border-white/15 bg-card/60 p-3 text-[10px] shadow-2xl backdrop-blur-xl pointer-events-auto">
+    <div className="absolute bottom-3 right-3 z-20 max-w-[44vw] sm:max-w-[220px] rounded-xl border border-white/15 bg-card/95 p-2.5 text-[10px] shadow-2xl pointer-events-auto">
       <button
         onClick={() => setCollapsed(true)}
         aria-label="Свернуть легенду"
