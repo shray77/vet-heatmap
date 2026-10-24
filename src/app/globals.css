@@ -43,9 +43,9 @@
   --radius-xl: calc(var(--radius) + 4px);
 }
 
-/* ─── Veterinary palette v6 — dark-first, Linear-inspired ────────────
- * Light: clinical, with green-tinted warmth
- * Dark: tinted dark green-black, card surfaces pop
+/* ─── vet-ds v2.0 C «Прибор» — дашборды с картой (Task 145) ──────────
+ * Графит + приборная бирюза. Маппинг из vet-ds/README (Tailwind-таблица).
+ * Light остаётся ветеринарной v6 (клиническая) — прибор по определению тёмный.
  */
 :root {
   --radius: 0.5rem;
@@ -82,39 +82,39 @@
   --sidebar-ring: oklch(0.5 0.12 150);
 }
 
-/* Dark theme: tinted green-black, card lifts */
+/* Dark theme = vet-ds v2.0 C «Прибор» (графит #14161A + бирюза #35C29A) */
 .dark {
-  --background: oklch(0.135 0.012 160);
-  --foreground: oklch(0.95 0 0);
-  --card: oklch(0.185 0.014 160);
-  --card-foreground: oklch(0.95 0 0);
-  --popover: oklch(0.205 0.015 160);
-  --popover-foreground: oklch(0.95 0 0);
-  --primary: oklch(0.7 0.16 150);
-  --primary-foreground: oklch(0.13 0.005 240);
-  --secondary: oklch(0.22 0.01 160);
-  --secondary-foreground: oklch(0.95 0 0);
-  --muted: oklch(0.22 0.01 160);
-  --muted-foreground: oklch(0.65 0.01 160);
-  --accent: oklch(0.55 0.22 25);
-  --accent-foreground: oklch(0.99 0 0);
-  --destructive: oklch(0.6 0.22 25);
-  --border: oklch(1 0 0 / 8%);
-  --input: oklch(1 0 0 / 12%);
-  --ring: oklch(0.7 0.17 150);
-  --chart-1: oklch(0.7 0.16 150);
-  --chart-2: oklch(0.65 0.22 25);
-  --chart-3: oklch(0.8 0.17 70);
-  --chart-4: oklch(0.65 0.18 240);
-  --chart-5: oklch(0.7 0.2 300);
-  --sidebar: oklch(0.17 0.008 160);
-  --sidebar-foreground: oklch(0.95 0 0);
-  --sidebar-primary: oklch(0.7 0.16 150);
-  --sidebar-primary-foreground: oklch(0.13 0.005 240);
-  --sidebar-accent: oklch(0.55 0.22 25);
-  --sidebar-accent-foreground: oklch(0.99 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.7 0.17 150);
+  --background: #14161a;
+  --foreground: #e8eaed;
+  --card: #1a1d22;
+  --card-foreground: #e8eaed;
+  --popover: #20242b;
+  --popover-foreground: #e8eaed;
+  --primary: #35c29a;
+  --primary-foreground: #0c1210;
+  --secondary: #20242b;
+  --secondary-foreground: #e8eaed;
+  --muted: #20242b;
+  --muted-foreground: #aab5c0;
+  --accent: #e2604f;
+  --accent-foreground: #fff5f2;
+  --destructive: #e2604f;
+  --border: #262a31;
+  --input: #353b44;
+  --ring: #35c29a;
+  --chart-1: #35c29a;
+  --chart-2: #e2604f;
+  --chart-3: #e0a438;
+  --chart-4: #6fa8dc;
+  --chart-5: #a78bfa;
+  --sidebar: #1a1d22;
+  --sidebar-foreground: #e8eaed;
+  --sidebar-primary: #35c29a;
+  --sidebar-primary-foreground: #0c1210;
+  --sidebar-accent: #e2604f;
+  --sidebar-accent-foreground: #fff5f2;
+  --sidebar-border: #262a31;
+  --sidebar-ring: #35c29a;
 }
 
 @layer base {
