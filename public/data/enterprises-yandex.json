@@ -1,9 +1,9 @@
 {
-  "updated": "2026-10-23",
+  "updated": "2026-10-24",
   "sources": [
     "yandex"
   ],
-  "total": 303,
+  "total": 343,
   "enterprises": [
     {
       "id": "yandex-1111942529",
@@ -63,6 +63,18 @@
       "rubric": "Комбикорма и кормовые добавки",
       "source": "yandex",
       "org_href": "https://yandex.ru/maps/org/energy/98808277966/"
+    },
+    {
+      "id": "yandex-32637053798",
+      "name": "Kombikormi",
+      "type": "feed_mill",
+      "lat": 51.720861,
+      "lon": 39.143253,
+      "address": "Воронеж, ул. Независимости, 55В",
+      "city": "Воронеж",
+      "rubric": "Комбикорма и кормовые добавки",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/kombikormi/32637053798/"
     },
     {
       "id": "yandex-4251626851",
@@ -134,6 +146,18 @@
       "source": "yandex"
     },
     {
+      "id": "yandex-43981598993",
+      "name": "Агровита",
+      "type": "feed_mill",
+      "lat": 57.205074,
+      "lon": 65.611925,
+      "address": "Тюмень, Велижанский тракт, 4-й километр, с3",
+      "city": "Тюмень",
+      "rubric": "Комбикорма и кормовые добавки",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/agrovita/43981598993/"
+    },
+    {
       "id": "yandex-83857604397",
       "name": "Агрозооцентр",
       "type": "feed_mill",
@@ -168,6 +192,18 @@
       "rubric": "Комбикорма и кормовые добавки",
       "source": "yandex",
       "org_href": "https://yandex.ru/maps/org/agrosoyuz/193269112001/"
+    },
+    {
+      "id": "yandex-65651483456",
+      "name": "Алейскзернопродукт",
+      "type": "feed_mill",
+      "lat": 57.158076,
+      "lon": 65.481974,
+      "address": "Тюмень, Ямская ул., 101",
+      "city": "Тюмень",
+      "rubric": "Офис организации",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/aleyskzernoprodukt/65651483456/"
     },
     {
       "id": "yandex-156291005535",
@@ -317,6 +353,30 @@
       "org_href": "https://yandex.ru/maps/org/vesyolaya_ferma/131553131000/"
     },
     {
+      "id": "yandex-206652915295",
+      "name": "Воронежский комбикормовый завод",
+      "type": "feed_mill",
+      "lat": 51.624865,
+      "lon": 39.231746,
+      "address": "Воронеж, ул. Лебедева, 6",
+      "city": "Воронеж",
+      "rubric": "Комбикорма и кормовые добавки",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/voronezhskiy_kombikormovy_zavod/206652915295/"
+    },
+    {
+      "id": "yandex-1778544650",
+      "name": "Всероссийский научно-исследовательский институт комбикормовой промышленности",
+      "type": "feed_mill",
+      "lat": 51.67698,
+      "lon": 39.174119,
+      "address": "Воронеж, просп. Труда, 91, этаж 2",
+      "city": "Воронеж",
+      "rubric": "Комбикорма и кормовые добавки",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/vserossiysky_nauchno_issledovatelsky_institut_kombikormovoy_promyshlennosti/1778544650/"
+    },
+    {
       "id": "yandex-1521605645",
       "name": "ГК Апекс Плюс",
       "type": "feed_mill",
@@ -418,6 +478,18 @@
       "source": "yandex"
     },
     {
+      "id": "yandex-45939302907",
+      "name": "Зернокорм",
+      "type": "feed_mill",
+      "lat": 51.671567,
+      "lon": 39.199964,
+      "address": "Воронеж, ул. Комиссаржевской, 15Б, офис 402, этаж 4",
+      "city": "Воронеж",
+      "rubric": "Зерно и зерноотходы",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/zernokorm/45939302907/"
+    },
+    {
       "id": "yandex-1012102093",
       "name": "Зернопродукт 32",
       "type": "feed_mill",
@@ -427,6 +499,18 @@
       "city": "Новосибирск",
       "rubric": "Комбикорма и кормовые добавки",
       "source": "yandex"
+    },
+    {
+      "id": "yandex-21011181756",
+      "name": "Инвар",
+      "type": "feed_mill",
+      "lat": 51.664993,
+      "lon": 39.218505,
+      "address": "Воронеж, Детский пер., 24",
+      "city": "Воронеж",
+      "rubric": "Комбикорма и кормовые добавки",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/invar/21011181756/"
     },
     {
       "id": "yandex-169461439221",
@@ -543,6 +627,30 @@
       "rubric": "Комбикорма и кормовые добавки",
       "source": "yandex",
       "org_href": "https://yandex.ru/maps/org/kfkh_kobrusov_s_g_/1712331157/"
+    },
+    {
+      "id": "yandex-223928086251",
+      "name": "Комбикорм",
+      "type": "feed_mill",
+      "lat": 57.105427,
+      "lon": 65.428713,
+      "address": "посёлок Московский, ул. Бурлаки, 19, стр. 5, с ул. Бурлаки",
+      "city": "Тюмень",
+      "rubric": "Комбикорма и кормовые добавки",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/kombikorm/223928086251/"
+    },
+    {
+      "id": "yandex-217331397527",
+      "name": "Комбикорм 72",
+      "type": "feed_mill",
+      "lat": 57.177461,
+      "lon": 65.588199,
+      "address": "Тюмень, ул. Дружбы, 128/1с5",
+      "city": "Тюмень",
+      "rubric": "Комбикорма и кормовые добавки",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/kombikorm_72/217331397527/"
     },
     {
       "id": "yandex-136686321342",
@@ -857,6 +965,18 @@
       "source": "yandex"
     },
     {
+      "id": "yandex-1073622471",
+      "name": "КормоРесурс",
+      "type": "feed_mill",
+      "lat": 51.693513,
+      "lon": 39.182276,
+      "address": "Воронеж, Московский просп., 19Б, офис 525, этаж 5",
+      "city": "Воронеж",
+      "rubric": "Комбикорма и кормовые добавки",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/kormoresurs/1073622471/"
+    },
+    {
       "id": "yandex-133408168356",
       "name": "Кормовая база",
       "type": "feed_mill",
@@ -1009,6 +1129,30 @@
       "org_href": "https://yandex.ru/maps/org/megamix/109915562435/"
     },
     {
+      "id": "yandex-1583242803",
+      "name": "Медвежинские комбикорма",
+      "type": "feed_mill",
+      "lat": 57.19205,
+      "lon": 65.615446,
+      "address": "Тюмень, ул. Тимофея Чаркова, 18",
+      "city": "Тюмень",
+      "rubric": "Комбикорма и кормовые добавки",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/muka_i_kombikorma/1583242803/"
+    },
+    {
+      "id": "yandex-240523364456",
+      "name": "Мельница",
+      "type": "feed_mill",
+      "lat": 57.13349,
+      "lon": 65.485684,
+      "address": "Тюмень, ул. Московский Тракт, 134, стр. 4, 1",
+      "city": "Тюмень",
+      "rubric": "Комбикорма и кормовые добавки",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/melnitsa/240523364456/"
+    },
+    {
       "id": "yandex-1045799145",
       "name": "Минводский Комбикормовый завод",
       "type": "feed_mill",
@@ -1157,6 +1301,18 @@
       "city": "Челябинск",
       "rubric": "Комбикорма и кормовые добавки",
       "source": "yandex"
+    },
+    {
+      "id": "yandex-78020837976",
+      "name": "Ольховатский комбикормовый завод",
+      "type": "feed_mill",
+      "lat": 51.687093,
+      "lon": 39.16483,
+      "address": "Воронеж, Солнечная ул., 31А, офис 434/1, этаж 4",
+      "city": "Воронеж",
+      "rubric": "Офис организации",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/olkhovatskiy_kombikormovy_zavod/78020837976/"
     },
     {
       "id": "yandex-1036050049",
@@ -1418,6 +1574,18 @@
       "org_href": "https://yandex.ru/maps/org/tulsky_kombinat_khleboproduktov/1085449143/"
     },
     {
+      "id": "yandex-1077000930",
+      "name": "Тюменский комбинат хлебопродуктов",
+      "type": "feed_mill",
+      "lat": 57.175275,
+      "lon": 65.494146,
+      "address": "Тюмень, Мельзаводская ул., 19",
+      "city": "Тюмень",
+      "rubric": "Хлебозавод",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/tyumensky_kombinat_khleboproduktov/1077000930/"
+    },
+    {
       "id": "yandex-1142839551",
       "name": "Фаворит-Агро",
       "type": "feed_mill",
@@ -1581,6 +1749,18 @@
       "source": "yandex"
     },
     {
+      "id": "yandex-62321099258",
+      "name": "Гурманыч",
+      "type": "meat_plant",
+      "lat": 51.642536,
+      "lon": 39.108856,
+      "address": "Воронеж, просп. Патриотов, 49, лит.З",
+      "city": "Воронеж",
+      "rubric": "Мясная продукция оптом",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/gurmanych/62321099258/"
+    },
+    {
       "id": "yandex-71149123310",
       "name": "Дело Вкуса",
       "type": "meat_plant",
@@ -1613,6 +1793,18 @@
       "rubric": "Мясная продукция оптом",
       "source": "yandex",
       "org_href": "https://yandex.ru/maps/org/rossiysky_kontsern_dubki/46291918301/"
+    },
+    {
+      "id": "yandex-1318006030",
+      "name": "Заречное",
+      "type": "meat_plant",
+      "lat": 51.654589,
+      "lon": 39.193689,
+      "address": "Воронеж, Красноармейская ул., 52Д",
+      "city": "Воронеж",
+      "rubric": "Производство продуктов питания",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/zarechnoe/1318006030/"
     },
     {
       "id": "yandex-94759958621",
@@ -1706,6 +1898,18 @@
       "city": "Красноярск",
       "rubric": "Мясная продукция оптом",
       "source": "yandex"
+    },
+    {
+      "id": "yandex-181210935363",
+      "name": "Курников",
+      "type": "meat_plant",
+      "lat": 51.532675,
+      "lon": 46.020641,
+      "address": "Саратов, ул. имени В.И. Чапаева, 59",
+      "city": "Саратов",
+      "rubric": "31",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/spk_kurnikov/181210935363/"
     },
     {
       "id": "yandex-55666563687",
@@ -2131,6 +2335,18 @@
       "source": "yandex"
     },
     {
+      "id": "yandex-208609100105",
+      "name": "Сагуны",
+      "type": "meat_plant",
+      "lat": 51.673512,
+      "lon": 39.246506,
+      "address": "Воронеж, ул. Ильича, 53",
+      "city": "Воронеж",
+      "rubric": "Мясная продукция оптом",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/saguny/208609100105/"
+    },
+    {
       "id": "yandex-1670636258",
       "name": "Сантана",
       "type": "meat_plant",
@@ -2209,6 +2425,18 @@
       "city": "Москва",
       "rubric": "Торговый центр",
       "source": "yandex"
+    },
+    {
+      "id": "yandex-1309200178",
+      "name": "Сомовомясопродукт",
+      "type": "meat_plant",
+      "lat": 51.743435,
+      "lon": 39.35848,
+      "address": "Воронеж, Речная ул., 34",
+      "city": "Воронеж",
+      "rubric": "Производство продуктов питания",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/somovomyasoprodukt/1309200178/"
     },
     {
       "id": "yandex-14721882371",
@@ -2398,6 +2626,42 @@
       "org_href": "https://yandex.ru/maps/org/svinokompleks/30031429060/"
     },
     {
+      "id": "yandex-148966832439",
+      "name": "Свинокомплекс",
+      "type": "pig_farm",
+      "lat": 51.880707,
+      "lon": 48.238669,
+      "address": "Саратовская область, Балаковский район, Быково-Отрогское муниципальное образование, село Сухой Отрог",
+      "city": "Саратов",
+      "rubric": "Животноводческое хозяйство",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/svinokompleks/148966832439/"
+    },
+    {
+      "id": "yandex-137780415929",
+      "name": "Свинокомплекс",
+      "type": "pig_farm",
+      "lat": 56.390332,
+      "lon": 66.891862,
+      "address": "Тюменская область, Заводоуковский муниципальный округ, село Сединкино",
+      "city": "Тюмень",
+      "rubric": "Добавить фото или видео",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/svinokompleks/137780415929/"
+    },
+    {
+      "id": "yandex-133448175730",
+      "name": "Свинокомплекс Агроэко",
+      "type": "pig_farm",
+      "lat": 50.51142,
+      "lon": 40.268568,
+      "address": "Воронежская область, Павловский район, Петровское сельское поселение",
+      "city": "Воронеж",
+      "rubric": "1",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/svinokompleks_agroeko/133448175730/"
+    },
+    {
       "id": "yandex-47944090314",
       "name": "Свинокомплекс Берёзовский",
       "type": "pig_farm",
@@ -2464,6 +2728,30 @@
       "rubric": "Добавить фото или видео",
       "source": "yandex",
       "org_href": "https://yandex.ru/maps/org/svinokompleks_povolzhskiy/98609177962/"
+    },
+    {
+      "id": "yandex-48639672969",
+      "name": "Свинокомплекс Хвалынский",
+      "type": "pig_farm",
+      "lat": 51.181235,
+      "lon": 46.489837,
+      "address": "Саратовская область, Энгельсский район",
+      "city": "Саратов",
+      "rubric": "Животноводческое хозяйство",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/svinokompleks_khvalynskiy/48639672969/"
+    },
+    {
+      "id": "yandex-234636243063",
+      "name": "Свинокомплекс Хвалынский",
+      "type": "pig_farm",
+      "lat": 52.448224,
+      "lon": 47.653586,
+      "address": "село Акатная Маза, Садовая ул., 7",
+      "city": "Саратов",
+      "rubric": "Животноводческое хозяйство",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/svinokompleks_khvalynskiy/234636243063/"
     },
     {
       "id": "yandex-31213775974",
@@ -2763,6 +3051,30 @@
       "org_href": "https://yandex.ru/maps/org/magazin_kombikorma_i_zhivoy_ptitsy/1719533041/"
     },
     {
+      "id": "yandex-15898806342",
+      "name": "Ив. Курников",
+      "type": "poultry_farm",
+      "lat": 51.546676,
+      "lon": 46.017575,
+      "address": "Саратов, Большая Горная ул., 310А, этаж 1",
+      "city": "Саратов",
+      "rubric": "Яйцо и мясо птицы",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/spk_kurnikov/15898806342/"
+    },
+    {
+      "id": "yandex-1698982318",
+      "name": "Ив. Курников",
+      "type": "poultry_farm",
+      "lat": 51.476502,
+      "lon": 46.123155,
+      "address": "Саратовская область, Энгельс, микрорайон Текстильный",
+      "city": "Саратов",
+      "rubric": "Яйцо и мясо птицы",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/spk_kurnikov/1698982318/"
+    },
+    {
       "id": "yandex-1354048974",
       "name": "Индюжина",
       "type": "poultry_farm",
@@ -2784,6 +3096,18 @@
       "rubric": "Яйцо и мясо птицы",
       "source": "yandex",
       "org_href": "https://yandex.ru/maps/org/inkubator/1609511669/"
+    },
+    {
+      "id": "yandex-1089553824",
+      "name": "Инкубаторно-птицеводческая станция Саратовская",
+      "type": "poultry_farm",
+      "lat": 51.563711,
+      "lon": 46.016874,
+      "address": "Саратов, Зенитная ул., 14В/1",
+      "city": "Саратов",
+      "rubric": "Сельскохозяйственное предприятие",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/hatchery_poultry_station_saratovskaya/1089553824/"
     },
     {
       "id": "yandex-1688165144",
@@ -2878,6 +3202,18 @@
       "city": "Москва",
       "rubric": "Яйцо и мясо птицы",
       "source": "yandex"
+    },
+    {
+      "id": "yandex-63118276890",
+      "name": "Лиско Бройлер",
+      "type": "poultry_farm",
+      "lat": 51.674651,
+      "lon": 39.160797,
+      "address": "Воронеж, ул. 9 Января, 134, павильон 17",
+      "city": "Воронеж",
+      "rubric": "Яйцо и мясо птицы",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/lisko_broyler/63118276890/"
     },
     {
       "id": "yandex-230037178794",
@@ -3010,6 +3346,18 @@
       "org_href": "https://yandex.ru/maps/org/prioskolye/1237215883/"
     },
     {
+      "id": "yandex-1115545282",
+      "name": "Приосколье",
+      "type": "poultry_farm",
+      "lat": 51.666177,
+      "lon": 39.148167,
+      "address": "Воронеж, ул. Космонавтов, 2, корп. 2, офис 6-8, этаж 1",
+      "city": "Воронеж",
+      "rubric": "Яйцо и мясо птицы",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/prioskolye/1115545282/"
+    },
+    {
       "id": "yandex-1378820736",
       "name": "Птица Опт",
       "type": "poultry_farm",
@@ -3055,6 +3403,18 @@
       "rubric": "Панорама",
       "source": "yandex",
       "org_href": "https://yandex.ru/maps/org/ptitsefabrika_bely_fregat/15186047174/"
+    },
+    {
+      "id": "yandex-11848867623",
+      "name": "Птицефабрика Боровская",
+      "type": "poultry_farm",
+      "lat": 57.129631,
+      "lon": 65.551962,
+      "address": "Тюмень, Молодёжная ул., 80, стр. 1",
+      "city": "Тюмень",
+      "rubric": "Яйцо и мясо птицы",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/ptitsefabrika_borovskaya/11848867623/"
     },
     {
       "id": "yandex-178010714923",
@@ -3235,6 +3595,42 @@
       "source": "yandex"
     },
     {
+      "id": "yandex-229404775679",
+      "name": "Ряба Хохольская Птицефабрика",
+      "type": "poultry_farm",
+      "lat": 51.559741,
+      "lon": 38.741787,
+      "address": "село Хохол, ул. Верхняя Слобода, 4",
+      "city": "Воронеж",
+      "rubric": "Птицефабрика",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/ryaba/229404775679/"
+    },
+    {
+      "id": "yandex-1087974706",
+      "name": "Саратов птица",
+      "type": "poultry_farm",
+      "lat": 51.533921,
+      "lon": 46.006131,
+      "address": "Саратов, Железнодорожная ул., 58А, этаж 1",
+      "city": "Саратов",
+      "rubric": "Офис организации",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/saratovptitsa/1087974706/"
+    },
+    {
+      "id": "yandex-185354225566",
+      "name": "Саратовский птицекомбинат Курников",
+      "type": "poultry_farm",
+      "lat": 51.614643,
+      "lon": 45.91594,
+      "address": "Саратов, микрорайон Латухино, 1/1",
+      "city": "Саратов",
+      "rubric": "Мясная продукция оптом",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/spk_kurnikov/185354225566/"
+    },
+    {
       "id": "yandex-1733375125",
       "name": "Саянский Бройлер",
       "type": "poultry_farm",
@@ -3389,6 +3785,18 @@
       "org_href": "https://yandex.ru/maps/org/tolyattinskaya_ptitsefabrika/46489661277/"
     },
     {
+      "id": "yandex-184212487045",
+      "name": "Троекурово",
+      "type": "poultry_farm",
+      "lat": 57.183563,
+      "lon": 65.583699,
+      "address": "Тюмень, микрорайон Ватутина, Юганский пр., 4, корп. 1, этаж 1",
+      "city": "Тюмень",
+      "rubric": "Яйцо и мясо птицы",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/troyekurovo/184212487045/"
+    },
+    {
       "id": "yandex-1182766364",
       "name": "Тульская птицефабрика",
       "type": "poultry_farm",
@@ -3399,6 +3807,54 @@
       "rubric": "Яйцо и мясо птицы",
       "source": "yandex",
       "org_href": "https://yandex.ru/maps/org/ptitsefabrika_tulskaya/1182766364/"
+    },
+    {
+      "id": "yandex-204693023179",
+      "name": "Тюменский бройлер",
+      "type": "poultry_farm",
+      "lat": 57.148039,
+      "lon": 65.543221,
+      "address": "Тюмень, ул. Герцена, 95, павильон 16м, этаж 1",
+      "city": "Тюмень",
+      "rubric": "Яйцо и мясо птицы",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/tyumenskiy_broyler/204693023179/"
+    },
+    {
+      "id": "yandex-119144681854",
+      "name": "Тюменский бройлер",
+      "type": "poultry_farm",
+      "lat": 57.158989,
+      "lon": 65.479926,
+      "address": "Тюмень, ул. Бакинских Комиссаров, 7, этаж 1",
+      "city": "Тюмень",
+      "rubric": "Яйцо и мясо птицы",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/tyumenskiy_broyler/119144681854/"
+    },
+    {
+      "id": "yandex-149150818605",
+      "name": "Тюменский бройлер",
+      "type": "poultry_farm",
+      "lat": 57.129118,
+      "lon": 65.55136,
+      "address": "Тюмень, Молодёжная ул., 80А, стр. 1, ТЦ Большая Ярмарка",
+      "city": "Тюмень",
+      "rubric": "Яйцо и мясо птицы",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/tyumensky_broyler/149150818605/"
+    },
+    {
+      "id": "yandex-149831129869",
+      "name": "Тюменский бройлер",
+      "type": "poultry_farm",
+      "lat": 57.158989,
+      "lon": 65.479926,
+      "address": "Тюмень, ул. Бакинских Комиссаров, 7",
+      "city": "Тюмень",
+      "rubric": "Яйцо и мясо птицы",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/tyumenskiy_broyler/149831129869/"
     },
     {
       "id": "yandex-5051473093",
@@ -3460,6 +3916,18 @@
       "org_href": "https://yandex.ru/maps/org/shsv/1195067586/"
     },
     {
+      "id": "yandex-1076446932",
+      "name": "Энгельсская инкубаторно-Птицеводческая Станция",
+      "type": "poultry_farm",
+      "lat": 51.498275,
+      "lon": 46.135596,
+      "address": "Энгельс, Московская ул., 31",
+      "city": "Саратов",
+      "rubric": "Сельскохозяйственное предприятие",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/engelsskaya_inkubatorno_ptitsevodcheskaya_stantsiya/1076446932/"
+    },
+    {
       "id": "yandex-1704261998",
       "name": "Яйцо",
       "type": "poultry_farm",
@@ -3494,6 +3962,18 @@
       "rubric": "Яйцо и мясо птицы",
       "source": "yandex",
       "org_href": "https://yandex.ru/maps/org/yaytso/91895340148/"
+    },
+    {
+      "id": "yandex-34961007624",
+      "name": "Яйцо",
+      "type": "poultry_farm",
+      "lat": 51.664138,
+      "lon": 39.187764,
+      "address": "Воронеж, Кольцовская ул., 64, корп. 3, павильон 18б",
+      "city": "Воронеж",
+      "rubric": "Яйцо и мясо птицы",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/yaytso/34961007624/"
     },
     {
       "id": "yandex-153246520051",

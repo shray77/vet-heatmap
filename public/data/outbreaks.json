@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-23",
+  "updated": "2026-10-24",
   "sources": [
     "wahis",
     "fsvps"
@@ -55527,8 +55527,8 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/10/16.10.2026г-1.pdf",
       "notes": "ЯЩУР — г. Москва (г. Москва)",
       "federal_district": "ЦФО",
-      "lat": 55.7516212,
-      "lon": 37.618122,
+      "lat": 55.5987388,
+      "lon": 38.1198943,
       "geocode_source": "nominatim"
     },
     {
