@@ -544,12 +544,13 @@
       "id": "yandex-87072346966",
       "name": "Зернокорм",
       "type": "feed_mill",
-      "lat": null,
-      "lon": null,
+      "lat": 55.537714,
+      "lon": 37.763683,
       "address": "Видное, Южная промзона, 10Ю",
       "city": "Москва",
       "rubric": "Комбикорма и кормовые добавки",
-      "source": "yandex"
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/zernokorm/87072346966/"
     },
     {
       "id": "yandex-45939302907",
