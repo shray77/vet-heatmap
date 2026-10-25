@@ -3,7 +3,7 @@
   "sources": [
     "yandex"
   ],
-  "total": 368,
+  "total": 380,
   "enterprises": [
     {
       "id": "yandex-1111942529",
@@ -296,6 +296,30 @@
       "city": "Казань",
       "rubric": "Комбикорма и кормовые добавки",
       "source": "yandex"
+    },
+    {
+      "id": "yandex-136895522239",
+      "name": "Белгородский комбикормовый завод",
+      "type": "feed_mill",
+      "lat": 50.602407,
+      "lon": 36.672868,
+      "address": "Белгород, ул. Константина Заслонова, 201А",
+      "city": "Белгород",
+      "rubric": "Комбикорма и кормовые добавки",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/belgorod_feed_mill/136895522239/"
+    },
+    {
+      "id": "yandex-1020875189",
+      "name": "Белгородский комбинат хлебопродуктов",
+      "type": "feed_mill",
+      "lat": 50.575821,
+      "lon": 36.665124,
+      "address": "Белгород, ул. Макаренко, 14, этаж 1",
+      "city": "Белгород",
+      "rubric": "Комбикорма и кормовые добавки",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/belgorodsky_kombinat_khleboproduktov/1020875189/"
     },
     {
       "id": "yandex-174035078363",
@@ -703,6 +727,18 @@
       "org_href": "https://yandex.ru/maps/org/magazin_sklad/1640148309/"
     },
     {
+      "id": "yandex-184390742069",
+      "name": "Комбикорм",
+      "type": "feed_mill",
+      "lat": 50.600949,
+      "lon": 36.62974,
+      "address": "Белгород, Корочанская ул., 158А",
+      "city": "Белгород",
+      "rubric": "Комбикорма и кормовые добавки",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/kombikorm/184390742069/"
+    },
+    {
       "id": "yandex-217331397527",
       "name": "Комбикорм 72",
       "type": "feed_mill",
@@ -886,6 +922,18 @@
       "city": "Нижний Новгород",
       "rubric": "Комбикорма и кормовые добавки",
       "source": "yandex"
+    },
+    {
+      "id": "yandex-18558509169",
+      "name": "Комбикорма и кормовые добавки",
+      "type": "feed_mill",
+      "lat": 50.610707,
+      "lon": 36.661019,
+      "address": "Белгород, ул. Константина Заслонова, 173",
+      "city": "Белгород",
+      "rubric": "Комбикорма и кормовые добавки",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/compound_feed_and_feed_additives/18558509169/"
     },
     {
       "id": "yandex-137249674647",
@@ -1357,6 +1405,18 @@
       "org_href": "https://yandex.ru/maps/org/noreg/166822541612/"
     },
     {
+      "id": "yandex-144406361407",
+      "name": "Норма корма",
+      "type": "feed_mill",
+      "lat": 50.59355,
+      "lon": 36.598919,
+      "address": "Белгород, Гражданский просп., 23",
+      "city": "Белгород",
+      "rubric": "Производственное предприятие",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/norma_korma/144406361407/"
+    },
+    {
       "id": "yandex-1047571363",
       "name": "ОАО Ленинградский комбинат хлебопродуктов имени С.М. Кирова",
       "type": "feed_mill",
@@ -1507,6 +1567,18 @@
       "city": "Новосибирск",
       "rubric": "Комбикорма и кормовые добавки",
       "source": "yandex"
+    },
+    {
+      "id": "yandex-76385465172",
+      "name": "Пять звёзд",
+      "type": "feed_mill",
+      "lat": null,
+      "lon": null,
+      "address": "Белгород, Железнодорожная ул., 79А",
+      "city": "Белгород",
+      "rubric": "Комбикорма и кормовые добавки",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/pyat_zvyozd/76385465172/"
     },
     {
       "id": "yandex-13011946304",
@@ -1849,6 +1921,18 @@
       "rubric": "Производство продуктов питания",
       "source": "yandex",
       "org_href": "https://yandex.ru/maps/org/proizvodstvennaya_kompaniya_bashkirsky_kupets/1374169322/"
+    },
+    {
+      "id": "yandex-1134012948",
+      "name": "Бирюлевский мясоперерабатывающий комбинат",
+      "type": "meat_plant",
+      "lat": 55.588537,
+      "lon": 37.662982,
+      "address": "Москва, Бирюлёвская ул., 38",
+      "city": "Москва",
+      "rubric": "Мясная продукция оптом",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/biryulevskiy_myasopererabatyvayushchiy_kombinat/1134012948/"
     },
     {
       "id": "yandex-77545123477",
@@ -2625,6 +2709,18 @@
       "source": "yandex"
     },
     {
+      "id": "yandex-39467488211",
+      "name": "Торговый дом Агро-Белогорье",
+      "type": "meat_plant",
+      "lat": 50.579161,
+      "lon": 36.586945,
+      "address": "Белгород, ул. Костюкова, 34Б",
+      "city": "Белгород",
+      "rubric": "Мясная продукция оптом",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/agro_belogorye/39467488211/"
+    },
+    {
       "id": "yandex-1028299797",
       "name": "Тульский мясокомбинат",
       "type": "meat_plant",
@@ -2658,6 +2754,18 @@
       "rubric": "Производство продуктов питания",
       "source": "yandex",
       "org_href": "https://yandex.ru/maps/org/umkk/18838084280/"
+    },
+    {
+      "id": "yandex-1074711783",
+      "name": "Царицынский мясоперерабатывающий завод",
+      "type": "meat_plant",
+      "lat": 55.629537,
+      "lon": 37.633203,
+      "address": "Москва, Кавказский бул., 58, стр. 1",
+      "city": "Москва",
+      "rubric": "Производственное предприятие",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/tsaritsynsky_myasopererabatyvayushchy_zavod/1074711783/"
     },
     {
       "id": "yandex-1703282761",
@@ -3716,6 +3824,18 @@
       "org_href": "https://yandex.ru/maps/org/ptitsefabrika_kolyshleyskaya/178010714923/"
     },
     {
+      "id": "yandex-222824356616",
+      "name": "Птицефабрика Липецкая",
+      "type": "poultry_farm",
+      "lat": null,
+      "lon": null,
+      "address": "д. Копцевы Хутора, ул. Котовского, 2Б",
+      "city": "Липецк",
+      "rubric": "Сельскохозяйственное предприятие",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/ptitsefabrika_lipetskaya/222824356616/"
+    },
+    {
       "id": "yandex-1859611425",
       "name": "Птицефабрика Любинская",
       "type": "poultry_farm",
@@ -4215,6 +4335,18 @@
       "source": "yandex"
     },
     {
+      "id": "yandex-16325820225",
+      "name": "Черкизово",
+      "type": "poultry_farm",
+      "lat": null,
+      "lon": null,
+      "address": "Липецк, Советская ул., 32",
+      "city": "Липецк",
+      "rubric": "Производство продуктов питания",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/cherkizovo/16325820225/"
+    },
+    {
       "id": "yandex-1195067586",
       "name": "Шсв-дон",
       "type": "poultry_farm",
@@ -4225,6 +4357,18 @@
       "rubric": "Продукты глубокой заморозки",
       "source": "yandex",
       "org_href": "https://yandex.ru/maps/org/shsv/1195067586/"
+    },
+    {
+      "id": "yandex-31141198545",
+      "name": "Экоптица",
+      "type": "poultry_farm",
+      "lat": null,
+      "lon": null,
+      "address": "Липецк, площадь Победы, 6",
+      "city": "Липецк",
+      "rubric": "Яйцо и мясо птицы",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/ekoptitsa/31141198545/"
     },
     {
       "id": "yandex-1076446932",
