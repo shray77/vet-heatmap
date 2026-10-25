@@ -1,9 +1,9 @@
 {
-  "updated": "2026-10-24",
+  "updated": "2026-10-25",
   "sources": [
     "yandex"
   ],
-  "total": 343,
+  "total": 368,
   "enterprises": [
     {
       "id": "yandex-1111942529",
@@ -75,6 +75,18 @@
       "rubric": "Комбикорма и кормовые добавки",
       "source": "yandex",
       "org_href": "https://yandex.ru/maps/org/kombikormi/32637053798/"
+    },
+    {
+      "id": "yandex-68093466689",
+      "name": "PROкорм",
+      "type": "feed_mill",
+      "lat": 54.685857,
+      "lon": 56.126905,
+      "address": "Республика Башкортостан, Уфа, жилой район Елкибаево-Фёдоровка-Самохваловка",
+      "city": "Уфа",
+      "rubric": "Комбикорма и кормовые добавки",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/prokorm/68093466689/"
     },
     {
       "id": "yandex-4251626851",
@@ -252,6 +264,18 @@
       "org_href": "https://yandex.ru/maps/org/antares/1044908635/"
     },
     {
+      "id": "yandex-56728381714",
+      "name": "Аскор",
+      "type": "feed_mill",
+      "lat": 55.740737,
+      "lon": 37.67178,
+      "address": "Москва, Большая Андроньевская ул., 23",
+      "city": "Москва",
+      "rubric": "Комбикорма и кормовые добавки",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/askor/56728381714/"
+    },
+    {
       "id": "yandex-76259156083",
       "name": "БалтАгро",
       "type": "feed_mill",
@@ -300,12 +324,13 @@
       "id": "yandex-1208123595",
       "name": "Биорост",
       "type": "feed_mill",
-      "lat": null,
-      "lon": null,
+      "lat": 55.763417,
+      "lon": 37.607826,
       "address": "Москва, Тверская ул., 12, стр. 1, офис 28, этаж 6",
       "city": "Москва",
       "rubric": "Комбикорма и кормовые добавки",
-      "source": "yandex"
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/biorost/1208123595/"
     },
     {
       "id": "yandex-139222844089",
@@ -339,6 +364,18 @@
       "city": "Новосибирск",
       "rubric": "Комбикорма и кормовые добавки",
       "source": "yandex"
+    },
+    {
+      "id": "yandex-1074084772",
+      "name": "Велес",
+      "type": "feed_mill",
+      "lat": 54.695154,
+      "lon": 56.003355,
+      "address": "Уфа, ул. Авроры, 3/1, подъезд 1",
+      "city": "Уфа",
+      "rubric": "Комбикорма и кормовые добавки",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/kompaniya_veles/1074084772/"
     },
     {
       "id": "yandex-131553131000",
@@ -396,7 +433,8 @@
       "address": "Москва, Малый Знаменский пер., 3/5с6",
       "city": "Москва",
       "rubric": "Комбикорма и кормовые добавки",
-      "source": "yandex"
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/danzim/1050101784/"
     },
     {
       "id": "yandex-91183685016",
@@ -442,6 +480,18 @@
       "city": "Москва",
       "rubric": "Комбикорма и кормовые добавки",
       "source": "yandex"
+    },
+    {
+      "id": "yandex-50680019087",
+      "name": "Зерно Комбикорма",
+      "type": "feed_mill",
+      "lat": 55.444839,
+      "lon": 37.282186,
+      "address": "Москва, поселение Краснопахорское, квартал № 91",
+      "city": "Москва",
+      "rubric": "Комбикорма и кормовые добавки",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/zerno_kombikorma/50680019087/"
     },
     {
       "id": "yandex-30920175079",
@@ -639,6 +689,18 @@
       "rubric": "Комбикорма и кормовые добавки",
       "source": "yandex",
       "org_href": "https://yandex.ru/maps/org/kombikorm/223928086251/"
+    },
+    {
+      "id": "yandex-1640148309",
+      "name": "Комбикорм",
+      "type": "feed_mill",
+      "lat": 54.768282,
+      "lon": 55.960138,
+      "address": "Уфа, Базисный пр., 4, корп. 5, Бокс 12",
+      "city": "Уфа",
+      "rubric": "Комбикорма и кормовые добавки",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/magazin_sklad/1640148309/"
     },
     {
       "id": "yandex-217331397527",
@@ -1083,15 +1145,28 @@
       "org_href": "https://yandex.ru/maps/org/magazin_selskokhozyaystvennykh_kormov/13354096575/"
     },
     {
+      "id": "yandex-240559514686",
+      "name": "Мега Корма",
+      "type": "feed_mill",
+      "lat": 54.682414,
+      "lon": 55.802465,
+      "address": "Уфа, Чебоксарская ул., 25/2, микрорайон Дёма",
+      "city": "Уфа",
+      "rubric": "Комбикорма и кормовые добавки",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/mega_korma/240559514686/"
+    },
+    {
       "id": "yandex-118155850392",
       "name": "МегаМикс",
       "type": "feed_mill",
-      "lat": null,
-      "lon": null,
+      "lat": 55.772375,
+      "lon": 37.584551,
       "address": "Москва, Большая Грузинская ул., 61, стр. 2, этаж 7",
       "city": "Москва",
       "rubric": "Комбикорма и кормовые добавки",
-      "source": "yandex"
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/megamix/118155850392/"
     },
     {
       "id": "yandex-73291707864",
@@ -1109,12 +1184,13 @@
       "id": "yandex-230529937360",
       "name": "Мегамикс",
       "type": "feed_mill",
-      "lat": null,
-      "lon": null,
+      "lat": 55.43901,
+      "lon": 36.909403,
       "address": "Москва, Троицкий административный округ, район Бекасово, квартал № 170",
       "city": "Москва",
       "rubric": "Комбикорма и кормовые добавки",
-      "source": "yandex"
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/megamix/230529937360/"
     },
     {
       "id": "yandex-109915562435",
@@ -1220,7 +1296,8 @@
       "address": "Москва, Ленинский просп., 137, корп. 1, помещение 3/1",
       "city": "Москва",
       "rubric": "Комбикорма и кормовые добавки",
-      "source": "yandex"
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/mustang/108008361071/"
     },
     {
       "id": "yandex-108093313862",
@@ -1292,6 +1369,18 @@
       "org_href": "https://yandex.ru/maps/org/leningradsky_kombinat_khleboproduktov_imeni_s_m_kirova/1047571363/"
     },
     {
+      "id": "yandex-1021079930",
+      "name": "ОАО Уфимский комбинат хлебопродуктов",
+      "type": "feed_mill",
+      "lat": 54.668588,
+      "lon": 55.942377,
+      "address": "Уфа, посёлок Мелькомбинат, Элеваторная ул., 1",
+      "city": "Уфа",
+      "rubric": "Комбикорма и кормовые добавки",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/oao_ufimskiy_kombinat_khleboproduktov/1021079930/"
+    },
+    {
       "id": "yandex-160456160318",
       "name": "Объединенная комбикормовая компания",
       "type": "feed_mill",
@@ -1301,6 +1390,18 @@
       "city": "Челябинск",
       "rubric": "Комбикорма и кормовые добавки",
       "source": "yandex"
+    },
+    {
+      "id": "yandex-220366924394",
+      "name": "Оллтек",
+      "type": "feed_mill",
+      "lat": 55.755362,
+      "lon": 37.653545,
+      "address": "Москва, Подсосенский пер., 26, стр. 3",
+      "city": "Москва",
+      "rubric": "Комбикорма и кормовые добавки",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/olltek/220366924394/"
     },
     {
       "id": "yandex-78020837976",
@@ -1586,6 +1687,30 @@
       "org_href": "https://yandex.ru/maps/org/tyumensky_kombinat_khleboproduktov/1077000930/"
     },
     {
+      "id": "yandex-8488594832",
+      "name": "УфаАгроКорм",
+      "type": "feed_mill",
+      "lat": 54.790283,
+      "lon": 55.948252,
+      "address": "Уфа, ул. Надежды, 1/3, офис 219",
+      "city": "Уфа",
+      "rubric": "Комбикорма и кормовые добавки",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/ufaagrokorm/8488594832/"
+    },
+    {
+      "id": "yandex-210804013911",
+      "name": "Уфимский селекционно-гибридный центр",
+      "type": "feed_mill",
+      "lat": 54.763109,
+      "lon": 55.991039,
+      "address": "Республика Башкортостан, городской округ Уфа, Октябрьский район, Парковая улица, 9",
+      "city": "Уфа",
+      "rubric": "Комбикорма и кормовые добавки",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/ufimskiy_selektsionno_gibridny_tsentr/210804013911/"
+    },
+    {
       "id": "yandex-1142839551",
       "name": "Фаворит-Агро",
       "type": "feed_mill",
@@ -1608,6 +1733,18 @@
       "rubric": "Комбикорма и кормовые добавки",
       "source": "yandex",
       "org_href": "https://yandex.ru/maps/org/furazh/66712448321/"
+    },
+    {
+      "id": "yandex-1155156162",
+      "name": "Экопрод",
+      "type": "feed_mill",
+      "lat": 54.741291,
+      "lon": 55.967998,
+      "address": "Уфа, ул. Пархоменко, 156/3, 1115, этаж 11",
+      "city": "Уфа",
+      "rubric": "Комбикорма и кормовые добавки",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/td_ekoprod/1155156162/"
     },
     {
       "id": "yandex-23136638158",
@@ -1702,6 +1839,18 @@
       "org_href": "https://yandex.ru/maps/org/bars/235243433737/"
     },
     {
+      "id": "yandex-1374169322",
+      "name": "Башкирский Купец",
+      "type": "meat_plant",
+      "lat": 54.792421,
+      "lon": 56.092603,
+      "address": "Уфа, Кирпичная ул., 44",
+      "city": "Уфа",
+      "rubric": "Производство продуктов питания",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/proizvodstvennaya_kompaniya_bashkirsky_kupets/1374169322/"
+    },
+    {
       "id": "yandex-77545123477",
       "name": "Браво",
       "type": "meat_plant",
@@ -1712,6 +1861,18 @@
       "rubric": "Мясная продукция оптом",
       "source": "yandex",
       "org_href": "https://yandex.ru/maps/org/bravo/77545123477/"
+    },
+    {
+      "id": "yandex-224046285374",
+      "name": "БурайМясо",
+      "type": "meat_plant",
+      "lat": 54.739456,
+      "lon": 55.992988,
+      "address": "Комсомольская ул., 8, Уфа",
+      "city": "Уфа",
+      "rubric": "Мясная продукция оптом",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/buraymyaso/224046285374/"
     },
     {
       "id": "yandex-77327330692",
@@ -1781,6 +1942,18 @@
       "city": "Новосибирск",
       "rubric": "Производство продуктов питания",
       "source": "yandex"
+    },
+    {
+      "id": "yandex-1173529193",
+      "name": "ДобрынинЪ",
+      "type": "meat_plant",
+      "lat": 54.724162,
+      "lon": 55.922498,
+      "address": "Уфа, ул. Степана Разина, 30",
+      "city": "Уфа",
+      "rubric": "Мясная продукция оптом",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/dobrynin/1173529193/"
     },
     {
       "id": "yandex-46291918301",
@@ -1977,7 +2150,8 @@
       "address": "Москва, просп. Андропова, 36, корп. 3",
       "city": "Москва",
       "rubric": "Производство продуктов питания",
-      "source": "yandex"
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/moskovsky_myasopererabatyvayushchy_zavod_kolomenskoye/1235084092/"
     },
     {
       "id": "yandex-203580711971",
@@ -2366,7 +2540,8 @@
       "address": "Москва, Ленинградское ш., 64, корп. 3, этаж 3",
       "city": "Москва",
       "rubric": "Мясная продукция оптом",
-      "source": "yandex"
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/sedmoy_legion/234944826021/"
     },
     {
       "id": "yandex-171728835430",
@@ -2473,6 +2648,18 @@
       "source": "yandex"
     },
     {
+      "id": "yandex-18838084280",
+      "name": "Уфимский мясоконсервный комбинат",
+      "type": "meat_plant",
+      "lat": 54.798011,
+      "lon": 56.093977,
+      "address": "Уфа, Трамвайная ул., 4А",
+      "city": "Уфа",
+      "rubric": "Производство продуктов питания",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/umkk/18838084280/"
+    },
+    {
       "id": "yandex-1703282761",
       "name": "Черкасский",
       "type": "meat_plant",
@@ -2493,7 +2680,8 @@
       "address": "Москва, Пермская ул., 5, стр. 1",
       "city": "Москва",
       "rubric": "Производственное предприятие",
-      "source": "yandex"
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/cherkizovskiy_myasopererabatyvayushchiy_zavod/179144725872/"
     },
     {
       "id": "yandex-233650306206",
@@ -2585,7 +2773,7 @@
       "lat": 55.342273,
       "lon": 35.720133,
       "address": "Московская область, Можайский городской округ, сельское поселение Юрловское",
-      "city": "Тула",
+      "city": "Москва",
       "rubric": "Животноводческое хозяйство",
       "source": "yandex",
       "org_href": "https://yandex.ru/maps/org/svinovodcheskiy_kompleks/187535263300/"
@@ -2673,6 +2861,30 @@
       "source": "yandex"
     },
     {
+      "id": "yandex-102406743048",
+      "name": "Свинокомплекс Ивановский",
+      "type": "pig_farm",
+      "lat": 50.73213,
+      "lon": 36.472665,
+      "address": "Белгородская область, Яковлевский городской округ",
+      "city": "Белгород",
+      "rubric": "Животноводческое хозяйство",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/svinokompleks_ivanovskiy/102406743048/"
+    },
+    {
+      "id": "yandex-203896889278",
+      "name": "Свинокомплекс Казацкий",
+      "type": "pig_farm",
+      "lat": 50.940035,
+      "lon": 36.744221,
+      "address": "Белгородская область, Прохоровский район",
+      "city": "Белгород",
+      "rubric": "Животноводческое хозяйство",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/svinokompleks_kazatskiy/203896889278/"
+    },
+    {
       "id": "yandex-181801804099",
       "name": "Свинокомплекс Ключи",
       "type": "pig_farm",
@@ -2730,6 +2942,42 @@
       "org_href": "https://yandex.ru/maps/org/svinokompleks_povolzhskiy/98609177962/"
     },
     {
+      "id": "yandex-222735113522",
+      "name": "Свинокомплекс Прохоровский",
+      "type": "pig_farm",
+      "lat": 50.866766,
+      "lon": 36.747307,
+      "address": "Белгородская область, Прохоровский район",
+      "city": "Белгород",
+      "rubric": "Животноводческое хозяйство",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/svinokompleks_prokhorovskiy/222735113522/"
+    },
+    {
+      "id": "yandex-107998200170",
+      "name": "Свинокомплекс Прохоровский",
+      "type": "pig_farm",
+      "lat": 50.866766,
+      "lon": 36.747307,
+      "address": "Белгородская область, Прохоровский район, Шаховское сельское поселение",
+      "city": "Белгород",
+      "rubric": "Животноводческое хозяйство",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/svinokompleks_prokhorovskiy/107998200170/"
+    },
+    {
+      "id": "yandex-186023913351",
+      "name": "Свинокомплекс Сафоновский",
+      "type": "pig_farm",
+      "lat": 51.055177,
+      "lon": 36.088186,
+      "address": "Белгородская область, Ивнянский район",
+      "city": "Белгород",
+      "rubric": "Животноводческое хозяйство",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/svinokompleks_safonovskiy/186023913351/"
+    },
+    {
       "id": "yandex-48639672969",
       "name": "Свинокомплекс Хвалынский",
       "type": "pig_farm",
@@ -2764,6 +3012,18 @@
       "rubric": "Добавить фото или видео",
       "source": "yandex",
       "org_href": "https://yandex.ru/maps/org/sibagro_svinokompleks_kudryashovskoye/31213775974/"
+    },
+    {
+      "id": "yandex-80045600582",
+      "name": "Стригуновский свинокомплекс",
+      "type": "pig_farm",
+      "lat": 50.596258,
+      "lon": 36.129598,
+      "address": "Белгородская область, Борисовский район, Стригуновское сельское поселение",
+      "city": "Белгород",
+      "rubric": "Животноводческое хозяйство",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/strigunovskiy_svinokompleks/80045600582/"
     },
     {
       "id": "yandex-23860946598",
@@ -2872,6 +3132,18 @@
       "rubric": "Яйцо и мясо птицы",
       "source": "yandex",
       "org_href": "https://yandex.ru/maps/org/angarskaya_kurochka/157728865472/"
+    },
+    {
+      "id": "yandex-29259683979",
+      "name": "Башкирский Бройлер",
+      "type": "poultry_farm",
+      "lat": 54.750448,
+      "lon": 56.032371,
+      "address": "Уфа, ул. Менделеева, 170, этаж 4",
+      "city": "Уфа",
+      "rubric": "Животноводческое хозяйство",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/bashkirskiy_broyler/29259683979/"
     },
     {
       "id": "yandex-1794863843",
@@ -3385,6 +3657,18 @@
       "org_href": "https://yandex.ru/maps/org/ptitsa_tolyattinskoy_ptitsefabriki/1725800053/"
     },
     {
+      "id": "yandex-62805262126",
+      "name": "Птицефабрика (Республика Башкортостан  Уфимский район)",
+      "type": "poultry_farm",
+      "lat": 54.859766,
+      "lon": 55.682388,
+      "address": "Республика Башкортостан, Уфимский район, Дмитриевский сельсовет",
+      "city": "Уфа",
+      "rubric": "Животноводческое хозяйство",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/ptitsefabrika/62805262126/"
+    },
+    {
       "id": "yandex-1057162739",
       "name": "Птицефабрика Бархатовская",
       "type": "poultry_farm",
@@ -3575,12 +3859,36 @@
       "org_href": "https://yandex.ru/maps/org/ptitsefabrika_shpakovskaya/25509602323/"
     },
     {
+      "id": "yandex-1194612882",
+      "name": "Птичий двор",
+      "type": "poultry_farm",
+      "lat": 54.727895,
+      "lon": 55.971537,
+      "address": "Уфа, ул. Кирова, 89, этаж 1",
+      "city": "Уфа",
+      "rubric": "Яйцо и мясо птицы",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/ptichiy_dvor/1194612882/"
+    },
+    {
+      "id": "yandex-172971850093",
+      "name": "Птичий двор",
+      "type": "poultry_farm",
+      "lat": 54.780476,
+      "lon": 56.036467,
+      "address": "Уфа, Российская ул., 76",
+      "city": "Уфа",
+      "rubric": "Яйцо и мясо птицы",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/ptichiy_dvor/172971850093/"
+    },
+    {
       "id": "yandex-80683802731",
       "name": "Птичное",
       "type": "poultry_farm",
       "lat": 55.518535,
       "lon": 37.225413,
-      "address": "посёлок Птичное, ул. Центральная Усадьба, 23Б, этаж 2",
+      "address": "ул. Центральная Усадьба, 23Б, посёлок Птичное, этаж 2",
       "city": "Москва",
       "rubric": "Яйцо и мясо птицы",
       "source": "yandex",
