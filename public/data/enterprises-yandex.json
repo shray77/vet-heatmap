@@ -1,9 +1,9 @@
 {
-  "updated": "2026-10-25",
+  "updated": "2026-10-26",
   "sources": [
     "yandex"
   ],
-  "total": 380,
+  "total": 399,
   "enterprises": [
     {
       "id": "yandex-1111942529",
@@ -140,7 +140,7 @@
       "type": "feed_mill",
       "lat": 54.599744,
       "lon": 39.767272,
-      "address": "Рязань, Куйбышевское ш., 25, стр. 10",
+      "address": "Куйбышевское ш., 25, стр. 10, Рязань",
       "city": "Рязань",
       "rubric": "Комбикорма и кормовые добавки",
       "source": "yandex",
@@ -229,6 +229,30 @@
       "source": "yandex"
     },
     {
+      "id": "yandex-74227730288",
+      "name": "АлтайКорм",
+      "type": "feed_mill",
+      "lat": 53.331919,
+      "lon": 83.615995,
+      "address": "Барнаул, Трактовая ул., 7Д",
+      "city": "Барнаул",
+      "rubric": "Комбикорма и кормовые добавки",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/altaykorm/74227730288/"
+    },
+    {
+      "id": "yandex-1759053778",
+      "name": "Алтайский комбикормовый завод",
+      "type": "feed_mill",
+      "lat": 53.354111,
+      "lon": 83.760758,
+      "address": "Барнаул, Привокзальная ул., 11, офис 407, этаж 4",
+      "city": "Барнаул",
+      "rubric": "Комбикорма и кормовые добавки",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/altayskiy_kombikormovy_zavod/1759053778/"
+    },
+    {
       "id": "yandex-203598866229",
       "name": "Амбар",
       "type": "feed_mill",
@@ -262,6 +286,18 @@
       "rubric": "Комбикорма и кормовые добавки",
       "source": "yandex",
       "org_href": "https://yandex.ru/maps/org/antares/1044908635/"
+    },
+    {
+      "id": "yandex-190035126391",
+      "name": "Арсал",
+      "type": "feed_mill",
+      "lat": 53.348048,
+      "lon": 83.767963,
+      "address": "Барнаул, Социалистический просп., 109, офис 312, этаж 3",
+      "city": "Барнаул",
+      "rubric": "Комбикорма и кормовые добавки",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/arsal/190035126391/"
     },
     {
       "id": "yandex-56728381714",
@@ -365,7 +401,8 @@
       "address": "Челябинск, Моховая ул., 7/25",
       "city": "Челябинск",
       "rubric": "Комбикорма и кормовые добавки",
-      "source": "yandex"
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/bolshoy_fermer/139222844089/"
     },
     {
       "id": "yandex-197009229966",
@@ -376,7 +413,20 @@
       "address": "Челябинск, ул. Первой Пятилетки, 13В",
       "city": "Челябинск",
       "rubric": "Комбикорма и кормовые добавки",
-      "source": "yandex"
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/bolshoy_fermer/197009229966/"
+    },
+    {
+      "id": "yandex-73730182019",
+      "name": "Ваш Корм",
+      "type": "feed_mill",
+      "lat": 53.334065,
+      "lon": 83.786891,
+      "address": "Барнаул, ул. Никитина, 69, офис 206, этаж 2",
+      "city": "Барнаул",
+      "rubric": "Комбикорма и кормовые добавки",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/vash_korm/73730182019/"
     },
     {
       "id": "yandex-147709598579",
@@ -654,7 +704,8 @@
       "address": "Челябинск, ул. Доватора, 1Г/3",
       "city": "Челябинск",
       "rubric": "Комбикорма и кормовые добавки",
-      "source": "yandex"
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/kombikorm/41022271947/"
     },
     {
       "id": "yandex-47515549790",
@@ -665,7 +716,8 @@
       "address": "Челябинск, Свердловский тракт, 1Г/7",
       "city": "Челябинск",
       "rubric": "Комбикорма и кормовые добавки",
-      "source": "yandex"
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/kombikorm/47515549790/"
     },
     {
       "id": "yandex-229522446752",
@@ -878,6 +930,18 @@
       "rubric": "Комбикорма и кормовые добавки",
       "source": "yandex",
       "org_href": "https://yandex.ru/maps/org/kombikorma/224893030230/"
+    },
+    {
+      "id": "yandex-1676836345",
+      "name": "Комбикорма",
+      "type": "feed_mill",
+      "lat": 53.318769,
+      "lon": 83.643448,
+      "address": "Барнаул, ул. Попова, 179Л",
+      "city": "Барнаул",
+      "rubric": "Комбикорма и кормовые добавки",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/kombikorma/1676836345/"
     },
     {
       "id": "yandex-160939317132",
@@ -1337,6 +1401,18 @@
       "source": "yandex"
     },
     {
+      "id": "yandex-1314301901",
+      "name": "Муковозов",
+      "type": "feed_mill",
+      "lat": 55.149537,
+      "lon": 61.388666,
+      "address": "Челябинск, ул. Курчатова, 19, корп. 2, офис 301, этаж 3",
+      "city": "Челябинск",
+      "rubric": "Мука и крупы",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/td_mukovozov/1314301901/"
+    },
+    {
       "id": "yandex-108008361071",
       "name": "Мустанг",
       "type": "feed_mill",
@@ -1450,7 +1526,8 @@
       "address": "Челябинск, ул. Рылеева, 16",
       "city": "Челябинск",
       "rubric": "Комбикорма и кормовые добавки",
-      "source": "yandex"
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/obyedinennaya_kombikormovaya_kompaniya/160456160318/"
     },
     {
       "id": "yandex-220366924394",
@@ -1509,6 +1586,18 @@
       "city": "Санкт-Петербург",
       "rubric": "Комбикорма и кормовые добавки",
       "source": "yandex"
+    },
+    {
+      "id": "yandex-73202477496",
+      "name": "Привес",
+      "type": "feed_mill",
+      "lat": 55.233111,
+      "lon": 61.367295,
+      "address": "Челябинск, Свердловский тракт, 8/4, Бокс 103",
+      "city": "Челябинск",
+      "rubric": "Комбикорма и кормовые добавки",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/kombikorm_na_orbite/73202477496/"
     },
     {
       "id": "yandex-49992255248",
@@ -1592,6 +1681,18 @@
       "rubric": "Комбикорма и кормовые добавки",
       "source": "yandex",
       "org_href": "https://yandex.ru/maps/org/regionkorma/13011946304/"
+    },
+    {
+      "id": "yandex-35902554219",
+      "name": "Родное подворье",
+      "type": "feed_mill",
+      "lat": 53.394069,
+      "lon": 83.723433,
+      "address": "Барнаул, 9-й Заводской пр., 34А",
+      "city": "Барнаул",
+      "rubric": "Сельскохозяйственная продукция",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/podvorye/35902554219/"
     },
     {
       "id": "yandex-69484238001",
@@ -1721,7 +1822,8 @@
       "address": "Челябинск, Свердловский просп., 40А/2",
       "city": "Челябинск",
       "rubric": "Производство продуктов питания",
-      "source": "yandex"
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/soyuzpishcheprom/1036569983/"
     },
     {
       "id": "yandex-114813025024",
@@ -1758,6 +1860,18 @@
       "rubric": "Хлебозавод",
       "source": "yandex",
       "org_href": "https://yandex.ru/maps/org/tyumensky_kombinat_khleboproduktov/1077000930/"
+    },
+    {
+      "id": "yandex-1779105713",
+      "name": "Убойный Корм",
+      "type": "feed_mill",
+      "lat": 53.329488,
+      "lon": 83.78133,
+      "address": "Барнаул, ул. Гоголя, 87, офис 506-508, 701-712, этаж 5, 7",
+      "city": "Барнаул",
+      "rubric": "Комбикорма и кормовые добавки",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/uboyny_korm/1779105713/"
     },
     {
       "id": "yandex-8488594832",
@@ -1897,7 +2011,8 @@
       "address": "Челябинск, Копейское ш., 48/3",
       "city": "Челябинск",
       "rubric": "Мясная продукция оптом",
-      "source": "yandex"
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/ariant/180807680959/"
     },
     {
       "id": "yandex-235243433737",
@@ -1936,6 +2051,18 @@
       "org_href": "https://yandex.ru/maps/org/biryulevskiy_myasopererabatyvayushchiy_kombinat/1134012948/"
     },
     {
+      "id": "yandex-1129263566",
+      "name": "Бмпз",
+      "type": "meat_plant",
+      "lat": 53.366847,
+      "lon": 83.761415,
+      "address": "Барнаул, просп. Калинина, 15/17",
+      "city": "Барнаул",
+      "rubric": "Производство продуктов питания",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/bmpz/1129263566/"
+    },
+    {
       "id": "yandex-77545123477",
       "name": "Браво",
       "type": "meat_plant",
@@ -1972,6 +2099,18 @@
       "org_href": "https://yandex.ru/maps/org/burgomistr_meat_city/77327330692/"
     },
     {
+      "id": "yandex-1235884487",
+      "name": "Вкусная жизнь",
+      "type": "meat_plant",
+      "lat": 53.363994,
+      "lon": 83.754561,
+      "address": "Барнаул, ул. Матросова, 9Д",
+      "city": "Барнаул",
+      "rubric": "Мясная продукция оптом",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/kompaniya_vkusnaya_zhizn/1235884487/"
+    },
+    {
       "id": "yandex-1211596429",
       "name": "Вкусно по Сибирски",
       "type": "meat_plant",
@@ -1992,7 +2131,8 @@
       "address": "Челябинск, ул. Калинов Двор, 24",
       "city": "Челябинск",
       "rubric": "Производственное предприятие",
-      "source": "yandex"
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/gk_kalinka/1015525661/"
     },
     {
       "id": "yandex-62321099258",
@@ -2298,6 +2438,18 @@
       "org_href": "https://yandex.ru/maps/org/myasnoy_dvor_nsk/90080257975/"
     },
     {
+      "id": "yandex-168246437445",
+      "name": "Мясной комбинат № 1",
+      "type": "meat_plant",
+      "lat": 53.388613,
+      "lon": 83.651613,
+      "address": "Барнаул, просп. Космонавтов, 48Е",
+      "city": "Барнаул",
+      "rubric": "Мясная продукция оптом",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/myasnoy_kombinat_1/168246437445/"
+    },
+    {
       "id": "yandex-143691364565",
       "name": "Мясной рынок",
       "type": "meat_plant",
@@ -2409,6 +2561,18 @@
       "city": "Санкт-Петербург",
       "rubric": "Производство продуктов питания",
       "source": "yandex"
+    },
+    {
+      "id": "yandex-1032364702",
+      "name": "ООО Помарк",
+      "type": "meat_plant",
+      "lat": 53.389896,
+      "lon": 83.74282,
+      "address": "Барнаул, просп. Калинина, 69",
+      "city": "Барнаул",
+      "rubric": "Производство продуктов питания",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/pomark/1032364702/"
     },
     {
       "id": "yandex-170703735856",
@@ -2707,7 +2871,8 @@
       "address": "Челябинск, Копейское ш., 36Д",
       "city": "Челябинск",
       "rubric": "Быстрое питание",
-      "source": "yandex"
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/tavriya_magazin_perekusochnaya/14721882371/"
     },
     {
       "id": "yandex-39467488211",
@@ -2825,7 +2990,8 @@
       "address": "Челябинская область, Еткульский муниципальный округ, Еманжелинское сельское поселение",
       "city": "Челябинск",
       "rubric": "Животноводческое хозяйство",
-      "source": "yandex"
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/agrofirma_ariant_svinokompleks_klyuchi/49457538515/"
     },
     {
       "id": "yandex-1163168216",
@@ -2908,7 +3074,8 @@
       "address": "Челябинская область, Увельский муниципальный округ, Рождественское сельское поселение",
       "city": "Челябинск",
       "rubric": "Животноводческое хозяйство",
-      "source": "yandex"
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/svinokompleks/176822971634/"
     },
     {
       "id": "yandex-30031429060",
@@ -2945,6 +3112,18 @@
       "rubric": "Добавить фото или видео",
       "source": "yandex",
       "org_href": "https://yandex.ru/maps/org/svinokompleks/137780415929/"
+    },
+    {
+      "id": "yandex-214661509766",
+      "name": "Свинокомплекс",
+      "type": "pig_farm",
+      "lat": 52.769421,
+      "lon": 83.008833,
+      "address": "Алтайский край, Топчихинский район",
+      "city": "Барнаул",
+      "rubric": "Добавить фото или видео",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/svinokompleks/214661509766/"
     },
     {
       "id": "yandex-133448175730",
@@ -3229,6 +3408,18 @@
       "rubric": "Яйцо и мясо птицы",
       "source": "yandex",
       "org_href": "https://yandex.ru/maps/org/aksayskaya_ptitsefabrika/27313313493/"
+    },
+    {
+      "id": "yandex-1110741860",
+      "name": "Алтайский птицевод",
+      "type": "poultry_farm",
+      "lat": 53.298864,
+      "lon": 83.626784,
+      "address": "посёлок Лесной, 1",
+      "city": "Барнаул",
+      "rubric": "Сельскохозяйственное предприятие",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/altayskiy_ptitsevod/1110741860/"
     },
     {
       "id": "yandex-157728865472",
@@ -3718,6 +3909,18 @@
       "org_href": "https://yandex.ru/maps/org/ontaris/1010384178/"
     },
     {
+      "id": "yandex-39085623365",
+      "name": "Павловская птицефабрика",
+      "type": "poultry_farm",
+      "lat": 53.361538,
+      "lon": 83.766616,
+      "address": "Барнаул, ул. Пионеров, 13",
+      "city": "Барнаул",
+      "rubric": "Яйцо и мясо птицы",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/pavlovskaya_ptitsefabrika/39085623365/"
+    },
+    {
       "id": "yandex-1237215883",
       "name": "Приосколье",
       "type": "poultry_farm",
@@ -3849,6 +4052,18 @@
       "org_href": "https://yandex.ru/maps/org/ptitsefabrika_lyubinskaya/1859611425/"
     },
     {
+      "id": "yandex-1786499540",
+      "name": "Птицефабрика Молодежная",
+      "type": "poultry_farm",
+      "lat": 53.361538,
+      "lon": 83.766616,
+      "address": "Барнаул, ул. Пионеров, 13, павильон 38, этаж 1",
+      "city": "Барнаул",
+      "rubric": "Яйцо и мясо птицы",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/kiosk_ptitsefabrika_molodyozhnaya/1786499540/"
+    },
+    {
       "id": "yandex-75379243099",
       "name": "Птицефабрика Октябрьская",
       "type": "poultry_farm",
@@ -3978,6 +4193,18 @@
       "rubric": "Яйцо и мясо птицы",
       "source": "yandex",
       "org_href": "https://yandex.ru/maps/org/ptitsefabrika_shpakovskaya/25509602323/"
+    },
+    {
+      "id": "yandex-1792984913",
+      "name": "Птицефабрика молодёжная",
+      "type": "poultry_farm",
+      "lat": 53.375298,
+      "lon": 83.754336,
+      "address": "Барнаул, Северо-Западная ул., 6, павильон 91",
+      "city": "Барнаул",
+      "rubric": "Яйцо и мясо птицы",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/ptitsefabrika_molodyozhnaya/1792984913/"
     },
     {
       "id": "yandex-1194612882",
@@ -4170,6 +4397,18 @@
       "org_href": "https://yandex.ru/maps/org/ptitsefabrika_sverdlovskaya/1743097843/"
     },
     {
+      "id": "yandex-179015709498",
+      "name": "Сибирская Птица",
+      "type": "poultry_farm",
+      "lat": 53.571447,
+      "lon": 83.775219,
+      "address": "посёлок Сибирский, Советская ул., 1",
+      "city": "Барнаул",
+      "rubric": "Животноводческое хозяйство",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/sibirskaya_pticza/179015709498/"
+    },
+    {
       "id": "yandex-1093143071",
       "name": "Сибирско-Уральский Бройлер",
       "type": "poultry_farm",
@@ -4333,7 +4572,8 @@
       "address": "Челябинская область, Копейск, посёлок Октябрьский",
       "city": "Челябинск",
       "rubric": "Животноводческое хозяйство",
-      "source": "yandex"
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/ptitsefabrika_chelyabinskaya/1260720923/"
     },
     {
       "id": "yandex-16325820225",
