@@ -8484,10 +8484,7 @@
       "status": "Resolved",
       "source": "wahis",
       "notes": "Classical Swine Fever",
-      "federal_district": "ДФО",
-      "lat": 43.893555186783225,
-      "lon": 131.76780130103444,
-      "geocode_source": "region_centroid"
+      "federal_district": "ДФО"
     },
     {
       "id": 419,
@@ -11691,10 +11688,7 @@
       "status": "Resolved",
       "source": "fsvps",
       "notes": "Anthrax",
-      "federal_district": "СФО",
-      "lat": 52.88294384664482,
-      "lon": 84.24782126100837,
-      "geocode_source": "region_centroid"
+      "federal_district": "СФО"
     },
     {
       "id": 576,
@@ -12203,8 +12197,8 @@
       "source": "fsvps",
       "notes": "Anthrax",
       "federal_district": "ДФО",
-      "lat": 52.464336885204574,
-      "lon": 107.5064034564749,
+      "lat": 52.26433688520457,
+      "lon": 106.9064034564749,
       "geocode_source": "region_centroid"
     },
     {
@@ -12601,10 +12595,7 @@
       "status": "Resolved",
       "source": "fsvps",
       "notes": "Anthrax",
-      "federal_district": "СФО",
-      "lat": 51.63404903457135,
-      "lon": 94.00458198399298,
-      "geocode_source": "region_centroid"
+      "federal_district": "СФО"
     },
     {
       "id": 621,
@@ -19995,8 +19986,8 @@
       "source": "wahis",
       "notes": "African Swine Fever",
       "federal_district": "ПФО",
-      "lat": 53.29776526925107,
-      "lon": 50.35527336374155,
+      "lat": 53.59776526925107,
+      "lon": 50.30527336374155,
       "geocode_source": "region_centroid"
     },
     {
@@ -23836,8 +23827,8 @@
       "source": "fsvps",
       "notes": "Enzootic Bovine Leukosis",
       "federal_district": "УрФО",
-      "lat": 56.93434548555223,
-      "lon": 60.54425152895593,
+      "lat": 58.13434548555223,
+      "lon": 59.94425152895593,
       "geocode_source": "region_centroid"
     },
     {
@@ -23856,7 +23847,7 @@
       "notes": "Classical Swine Fever",
       "federal_district": "ДФО",
       "lat": 50.32820700743001,
-      "lon": 128.07439010365047,
+      "lon": 127.57439010365047,
       "geocode_source": "region_centroid"
     },
     {
@@ -23893,8 +23884,8 @@
       "source": "fsvps",
       "notes": "Rabies",
       "federal_district": "ДФО",
-      "lat": 46.73193664735067,
-      "lon": 142.58446732796406,
+      "lat": 49.83193664735067,
+      "lon": 142.88446732796407,
       "geocode_source": "region_centroid"
     },
     {
@@ -24044,10 +24035,7 @@
       "status": "Resolved",
       "source": "fsvps",
       "notes": "Equine Infectious Anemia",
-      "federal_district": "ДФО",
-      "lat": 62.10472014510709,
-      "lon": 129.54484671984227,
-      "geocode_source": "region_centroid"
+      "federal_district": "ДФО"
     },
     {
       "id": 1183,
@@ -24064,8 +24052,8 @@
       "source": "fsvps",
       "notes": "Avian Influenza (HPAI H5)",
       "federal_district": "ПФО",
-      "lat": 53.12342795616148,
-      "lon": 43.728758143150955,
+      "lat": 52.923427956161476,
+      "lon": 44.728758143150955,
       "geocode_source": "region_centroid"
     },
     {
@@ -24159,8 +24147,8 @@
       "source": "fsvps",
       "notes": "African Swine Fever",
       "federal_district": "ПФО",
-      "lat": 53.24962511143183,
-      "lon": 44.24539495441388,
+      "lat": 53.04962511143183,
+      "lon": 45.24539495441388,
       "geocode_source": "region_centroid"
     },
     {
@@ -24178,7 +24166,7 @@
       "source": "fsvps",
       "notes": "Avian Influenza (HPAI H5)",
       "federal_district": "УрФО",
-      "lat": 57.240250326565025,
+      "lat": 57.04025032656502,
       "lon": 65.51558260770744,
       "geocode_source": "region_centroid"
     },
@@ -24217,7 +24205,7 @@
       "notes": "Rabies",
       "federal_district": "СФО",
       "lat": 56.448393028587,
-      "lon": 84.7723230436801,
+      "lon": 84.8423230436801,
       "geocode_source": "region_centroid"
     },
     {
@@ -24312,7 +24300,7 @@
       "notes": "Rabies",
       "federal_district": "ДФО",
       "lat": 50.100034743180345,
-      "lon": 127.98326794030605,
+      "lon": 127.48326794030605,
       "geocode_source": "region_centroid"
     },
     {
@@ -24424,10 +24412,7 @@
       "status": "Ongoing",
       "source": "fsvps",
       "notes": "African Swine Fever",
-      "federal_district": "ПФО",
-      "lat": 54.18646005379201,
-      "lon": 48.382480787109756,
-      "geocode_source": "region_centroid"
+      "federal_district": "ПФО"
     },
     {
       "id": 1203,
@@ -24444,8 +24429,8 @@
       "source": "fsvps",
       "notes": "Avian Influenza (HPAI H5)",
       "federal_district": "СФО",
-      "lat": 53.188331775322126,
-      "lon": 83.82254392219265,
+      "lat": 52.688331775322126,
+      "lon": 82.82254392219265,
       "geocode_source": "region_centroid"
     },
     {
@@ -24462,10 +24447,7 @@
       "status": "Ongoing",
       "source": "fsvps",
       "notes": "Rabies",
-      "federal_district": "СФО",
-      "lat": 55.92823490340785,
-      "lon": 92.8339207211453,
-      "geocode_source": "region_centroid"
+      "federal_district": "СФО"
     },
     {
       "id": 1205,
@@ -24521,7 +24503,7 @@
       "notes": "Rabies",
       "federal_district": "ДФО",
       "lat": 48.62785768342037,
-      "lon": 134.71705458936717,
+      "lon": 135.11705458936717,
       "geocode_source": "region_centroid"
     },
     {
@@ -52990,9 +52972,9 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/09/23.09.2026г.pdf",
       "notes": "Бешенство животных — Омская область (Полтавский район)",
       "federal_district": "СФО",
-      "lat": 54.3881543,
-      "lon": 71.6394442,
-      "geocode_source": "nominatim"
+      "lat": 55.004699736693134,
+      "lon": 73.33207021656611,
+      "geocode_source": "region_centroid"
     },
     {
       "id": 2634,
@@ -53010,9 +52992,9 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/09/23.09.2026г.pdf",
       "notes": "Бруцеллёз — Калужская область | бруцеллез — Калужская область (Хвастовичский муниципальный округ)",
       "federal_district": "ЦФО",
-      "lat": 53.4981708,
-      "lon": 35.1820052,
-      "geocode_source": "nominatim"
+      "lat": 54.69566726382206,
+      "lon": 36.2047808980765,
+      "geocode_source": "region_centroid"
     },
     {
       "id": 2635,
@@ -53030,8 +53012,8 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/09/23.09.2026г.pdf",
       "notes": "Бешенство — Алтайский край",
       "federal_district": "СФО",
-      "lat": 53.12289388276514,
-      "lon": 83.95068735841944,
+      "lat": 52.62289388276514,
+      "lon": 82.95068735841944,
       "geocode_source": "region_centroid"
     },
     {
@@ -53050,9 +53032,9 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/09/23.09.2026г.pdf",
       "notes": "Бешенство животных — Курская область (Хомутовский район)",
       "federal_district": "ЦФО",
-      "lat": 51.8755554,
-      "lon": 34.6631707,
-      "geocode_source": "nominatim"
+      "lat": 51.801672119735784,
+      "lon": 36.3765854889548,
+      "geocode_source": "region_centroid"
     },
     {
       "id": 2637,
@@ -53070,8 +53052,8 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/09/23.09.2026г.pdf",
       "notes": "Лейкоз КРС — Самарская область",
       "federal_district": "ПФО",
-      "lat": 53.05447185845347,
-      "lon": 50.42190023634496,
+      "lat": 53.354471858453465,
+      "lon": 50.371900236344956,
       "geocode_source": "region_centroid"
     },
     {
@@ -53090,9 +53072,9 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/09/23.09.2026г.pdf",
       "notes": "Бешенство животных — Самарская область (Красноярский район) | Бешенство животных — Самарская область (Красноармейский район)",
       "federal_district": "ПФО",
-      "lat": 53.5720512,
-      "lon": 50.3653105,
-      "geocode_source": "nominatim"
+      "lat": 53.50641784974815,
+      "lon": 50.15359408984425,
+      "geocode_source": "region_centroid"
     },
     {
       "id": 2639,
@@ -53110,9 +53092,9 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/09/23.09.2026г.pdf",
       "notes": "Трихинеллёз — Томская область | трихинеллёз — Томская область (Томский район)",
       "federal_district": "СФО",
-      "lat": 56.6467764,
-      "lon": 85.6221801,
-      "geocode_source": "nominatim"
+      "lat": 56.53596891587024,
+      "lon": 84.82565786825154,
+      "geocode_source": "region_centroid"
     },
     {
       "id": 2640,
@@ -53190,9 +53172,9 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/09/23.09.2026г.pdf",
       "notes": "Бешенство животных — Ростовская область (Куйбышевский район)",
       "federal_district": "ЮФО",
-      "lat": 47.7495328,
-      "lon": 39.0799392,
-      "geocode_source": "nominatim"
+      "lat": 47.50341261778875,
+      "lon": 39.46192661236484,
+      "geocode_source": "region_centroid"
     },
     {
       "id": 2644,
@@ -53210,9 +53192,9 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/09/23.09.2026г.pdf",
       "notes": "бруцеллез — Краснодарский край | бруцеллез — Краснодарский край (Лабинский район)",
       "federal_district": "ЮФО",
-      "lat": 44.4409223,
-      "lon": 40.9850383,
-      "geocode_source": "nominatim"
+      "lat": 45.231919463589236,
+      "lon": 39.11961123916187,
+      "geocode_source": "region_centroid"
     },
     {
       "id": 2645,
@@ -53230,9 +53212,9 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/09/23.09.2026г.pdf",
       "notes": "Лептоспироз КРС — Алтайский край | лептоспироз — Алтайский край (Кытмановский район)",
       "federal_district": "СФО",
-      "lat": 53.4901958,
-      "lon": 85.3230362,
-      "geocode_source": "nominatim"
+      "lat": 52.7478385607595,
+      "lon": 82.81356059599153,
+      "geocode_source": "region_centroid"
     },
     {
       "id": 2646,
@@ -53291,7 +53273,7 @@
       "notes": "Инфекционная анемия лошадей — Томская область",
       "federal_district": "СФО",
       "lat": 56.73802663255454,
-      "lon": 84.87654886877036,
+      "lon": 84.94654886877035,
       "geocode_source": "region_centroid"
     },
     {
@@ -53330,8 +53312,8 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/09/18.09-24.09.2026.pdf",
       "notes": "Лептоспироз КРС — Алтайский край",
       "federal_district": "СФО",
-      "lat": 53.1127247506202,
-      "lon": 83.85249488889968,
+      "lat": 52.6127247506202,
+      "lon": 82.85249488889968,
       "geocode_source": "region_centroid"
     },
     {
@@ -53351,7 +53333,7 @@
       "notes": "Трихинеллёз — Томская область",
       "federal_district": "СФО",
       "lat": 56.55591631518921,
-      "lon": 84.88965096837802,
+      "lon": 84.95965096837801,
       "geocode_source": "region_centroid"
     },
     {
@@ -53410,9 +53392,9 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/09/25.09.2026г.pdf",
       "notes": "Бешенство животных — Самарская область (Большечерниговский район)",
       "federal_district": "ПФО",
-      "lat": 52.0570568,
-      "lon": 50.7605632,
-      "geocode_source": "nominatim"
+      "lat": 53.460049851744934,
+      "lon": 50.181525584894274,
+      "geocode_source": "region_centroid"
     },
     {
       "id": 2655,
@@ -53430,9 +53412,9 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/09/25.09.2026г.pdf",
       "notes": "Лейкоз КРС — Алтайский край (Первомайский район)",
       "federal_district": "СФО",
-      "lat": 53.4240375,
-      "lon": 84.1669867,
-      "geocode_source": "nominatim"
+      "lat": 52.276050843702144,
+      "lon": 82.87775524385377,
+      "geocode_source": "region_centroid"
     },
     {
       "id": 2656,
@@ -53450,9 +53432,9 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/09/25.09.2026г.pdf",
       "notes": "Лейкоз КРС — Астраханская область (Ахтубинский район)",
       "federal_district": "ЮФО",
-      "lat": 48.1424849,
-      "lon": 46.6424952,
-      "geocode_source": "nominatim"
+      "lat": 46.12496349460747,
+      "lon": 47.932563290968545,
+      "geocode_source": "region_centroid"
     },
     {
       "id": 2657,
@@ -53510,8 +53492,8 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/09/25.09.2026г.pdf",
       "notes": "Трихинеллёз — Кемеровская область",
       "federal_district": "СФО",
-      "lat": 54.703108287154336,
-      "lon": 85.75250886850907,
+      "lat": 55.00310828715433,
+      "lon": 86.75250886850907,
       "geocode_source": "region_centroid"
     },
     {
@@ -53550,9 +53532,9 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/09/28.09.2026г.pdf",
       "notes": "Бешенство животных — Орловская область (Сосковский район) | Бешенство — Орловская область",
       "federal_district": "ЦФО",
-      "lat": 52.742656,
-      "lon": 35.3808815,
-      "geocode_source": "nominatim"
+      "lat": 53.20560090549402,
+      "lon": 35.98309486611174,
+      "geocode_source": "region_centroid"
     },
     {
       "id": 2662,
@@ -53569,10 +53551,7 @@
       "source": "fsvps",
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/09/28.09.2026г.pdf",
       "notes": "Бешенство животных — Красноярский край",
-      "federal_district": "СФО",
-      "lat": 56.1062640210265,
-      "lon": 92.6610633460029,
-      "geocode_source": "region_centroid"
+      "federal_district": "СФО"
     },
     {
       "id": 2663,
@@ -53590,9 +53569,9 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/09/28.09.2026г.pdf",
       "notes": "Бешенство животных — Омская область (Горьковский район)",
       "federal_district": "СФО",
-      "lat": 55.4668104,
-      "lon": 73.9319575,
-      "geocode_source": "nominatim"
+      "lat": 55.05547827631778,
+      "lon": 73.0839167702703,
+      "geocode_source": "region_centroid"
     },
     {
       "id": 2664,
@@ -53610,9 +53589,9 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/09/28.09.2026г.pdf",
       "notes": "Бешенство животных — Курганская область (Шадринский район)",
       "federal_district": "УрФО",
-      "lat": 56.114036,
-      "lon": 64.1008754,
-      "geocode_source": "nominatim"
+      "lat": 55.766016579911415,
+      "lon": 63.932579262853,
+      "geocode_source": "region_centroid"
     },
     {
       "id": 2665,
@@ -53630,7 +53609,7 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/09/28.09.2026г.pdf",
       "notes": "Бешенство животных — Тюменская область (Голышмановский м.о.)",
       "federal_district": "УрФО",
-      "lat": 57.31133293023812,
+      "lat": 57.11133293023812,
       "lon": 65.764146467994,
       "geocode_source": "region_centroid"
     },
@@ -53650,9 +53629,9 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/09/28.09.2026г.pdf",
       "notes": "Лептоспироз КРС — Свердловская область | Лептоспироз КРС — Свердловская область | лептоспироз — Свердловская область (Талицкий район) | Лептоспироз КРС — Свердловская область",
       "federal_district": "УрФО",
-      "lat": 57.1013796,
-      "lon": 64.1798316,
-      "geocode_source": "nominatim"
+      "lat": 58.18731653369889,
+      "lon": 60.02954543930374,
+      "geocode_source": "region_centroid"
     },
     {
       "id": 2667,
@@ -53730,9 +53709,9 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/09/30.09.2026г.pdf",
       "notes": "Бешенство животных — Смоленская область (Монастырщинский район) | Бешенство животных — Смоленская область (Смоленский район)",
       "federal_district": "ЦФО",
-      "lat": 54.327496,
-      "lon": 31.7687352,
-      "geocode_source": "nominatim"
+      "lat": 54.84465384710796,
+      "lon": 32.20172257694818,
+      "geocode_source": "region_centroid"
     },
     {
       "id": 2671,
@@ -53749,10 +53728,7 @@
       "source": "fsvps",
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/09/30.09.2026г.pdf",
       "notes": "Трихинеллёз — Красноярский край | Трихинеллёз — Красноярский край",
-      "federal_district": "СФО",
-      "lat": 55.76573623292334,
-      "lon": 92.7500500062877,
-      "geocode_source": "region_centroid"
+      "federal_district": "СФО"
     },
     {
       "id": 2672,
@@ -53770,9 +53746,9 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/09/30.09.2026г.pdf",
       "notes": "Лейкоз КРС — Самарская область | Лейкоз КРС — Самарская область | Лейкоз КРС — Самарская область | Лейкоз КРС — Самарская область | Лейкоз КРС — Самарская область (Исаклинский район) | Лейкоз КРС — Самарская область",
       "federal_district": "ПФО",
-      "lat": 53.9938441,
-      "lon": 51.6345291,
-      "geocode_source": "nominatim"
+      "lat": 53.78046903173658,
+      "lon": 50.09652870695607,
+      "geocode_source": "region_centroid"
     },
     {
       "id": 2673,
@@ -53790,9 +53766,9 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/09/30.09.2026г.pdf",
       "notes": "Бешенство животных — Воронежская область (Новохопёрский район) | Бешенство животных — Воронежская область | Бешенство — Воронежская область | Бешенство животных — Воронежская область (Верхнемамонский район)",
       "federal_district": "ЦФО",
-      "lat": 51.1126588,
-      "lon": 41.4538007,
-      "geocode_source": "nominatim"
+      "lat": 51.48806851384585,
+      "lon": 39.2384307950216,
+      "geocode_source": "region_centroid"
     },
     {
       "id": 2674,
@@ -53810,9 +53786,9 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/09/30.09.2026г.pdf",
       "notes": "Бешенство животных — Алтайский край | Бешенство животных — Алтайский край (Бийский район)",
       "federal_district": "СФО",
-      "lat": 52.604579,
-      "lon": 85.5604112,
-      "geocode_source": "nominatim"
+      "lat": 52.65842333451316,
+      "lon": 83.08814674148742,
+      "geocode_source": "region_centroid"
     },
     {
       "id": 2675,
@@ -53850,9 +53826,9 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/09/30.09.2026г.pdf",
       "notes": "Бешенство животных — Саратовская область (Озинский район) | Бешенство животных — Саратовская область",
       "federal_district": "ПФО",
-      "lat": 51.3671786,
-      "lon": 49.8210861,
-      "geocode_source": "nominatim"
+      "lat": 51.35105116209716,
+      "lon": 45.98419187587847,
+      "geocode_source": "region_centroid"
     },
     {
       "id": 2677,
@@ -53890,8 +53866,8 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/09/30.09.2026г.pdf",
       "notes": "Трихинеллёз — Алтайский край | Трихинеллёз — Алтайский край",
       "federal_district": "СФО",
-      "lat": 52.77042842306531,
-      "lon": 83.83553588839003,
+      "lat": 52.27042842306531,
+      "lon": 82.83553588839003,
       "geocode_source": "region_centroid"
     },
     {
@@ -53911,7 +53887,7 @@
       "notes": "Бешенство — Амурская область",
       "federal_district": "ДФО",
       "lat": 50.49272578607084,
-      "lon": 128.04471030918268,
+      "lon": 127.54471030918268,
       "geocode_source": "region_centroid"
     },
     {
@@ -53950,8 +53926,8 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/10/25.09-01.10.2026.pdf",
       "notes": "Лептоспироз КРС — Свердловская область | Лептоспироз КРС — Свердловская область",
       "federal_district": "УрФО",
-      "lat": 56.53654119554674,
-      "lon": 60.70362990116827,
+      "lat": 57.73654119554674,
+      "lon": 60.10362990116827,
       "geocode_source": "region_centroid"
     },
     {
@@ -53970,9 +53946,9 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/10/02.10.2026г.pdf",
       "notes": "Бешенство животных — Самарская область | Бешенство животных — Самарская область (Фрунзенский район) | Бешенство животных — Самарская область",
       "federal_district": "ПФО",
-      "lat": 52.3971094,
-      "lon": 50.8064287,
-      "geocode_source": "nominatim"
+      "lat": 53.23257031157939,
+      "lon": 50.14375641480552,
+      "geocode_source": "region_centroid"
     },
     {
       "id": 2683,
@@ -54030,9 +54006,9 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/10/02.10.2026г.pdf",
       "notes": "Инфекционная анемия лошадей — Омская область (Любинский район)",
       "federal_district": "СФО",
-      "lat": 55.3050422,
-      "lon": 72.4695162,
-      "geocode_source": "nominatim"
+      "lat": 55.252667197114086,
+      "lon": 73.2733691211319,
+      "geocode_source": "region_centroid"
     },
     {
       "id": 2686,
@@ -54050,9 +54026,9 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/10/02.10.2026г.pdf",
       "notes": "Лейкоз КРС — Калужская область (Бабынинский муниципальный округ)",
       "federal_district": "ЦФО",
-      "lat": 54.4017825,
-      "lon": 35.7914785,
-      "geocode_source": "nominatim"
+      "lat": 54.348801924923265,
+      "lon": 36.27073245888363,
+      "geocode_source": "region_centroid"
     },
     {
       "id": 2687,
@@ -54090,9 +54066,9 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/10/02.10.2026г.pdf",
       "notes": "Лейкоз КРС — Тюменская область (Казанский муниципальный округ)",
       "federal_district": "УрФО",
-      "lat": 55.6004754,
-      "lon": 69.2668714,
-      "geocode_source": "nominatim"
+      "lat": 57.076517125051474,
+      "lon": 65.34227055249356,
+      "geocode_source": "region_centroid"
     },
     {
       "id": 2689,
@@ -54110,8 +54086,8 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/10/02.10.2026г.pdf",
       "notes": "Лептоспироз КРС — Самарская область",
       "federal_district": "ПФО",
-      "lat": 52.92205947538874,
-      "lon": 49.96429288461792,
+      "lat": 53.22205947538874,
+      "lon": 49.914292884617915,
       "geocode_source": "region_centroid"
     },
     {
@@ -54210,8 +54186,8 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/10/05.10.2026г.pdf",
       "notes": "Лейкоз КРС — Самарская область | Лейкоз КРС — Самарская область",
       "federal_district": "ПФО",
-      "lat": 53.081497196360914,
-      "lon": 50.05432470351829,
+      "lat": 53.38149719636091,
+      "lon": 50.004324703518286,
       "geocode_source": "region_centroid"
     },
     {
@@ -54230,9 +54206,9 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/10/05.10.2026г.pdf",
       "notes": "Лейкоз КРС — Алтайский край (Пристанский район) | Лейкоз КРС — Алтайский край | Лейкоз КРС — Алтайский край",
       "federal_district": "СФО",
-      "lat": 52.3137165,
-      "lon": 83.5913399,
-      "geocode_source": "nominatim"
+      "lat": 52.61089398536144,
+      "lon": 83.2543303372524,
+      "geocode_source": "region_centroid"
     },
     {
       "id": 2696,
@@ -54249,10 +54225,7 @@
       "source": "fsvps",
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/10/05.10.2026г.pdf",
       "notes": "Трихинеллёз — Красноярский край | трихинеллёз — Красноярский край (Минусинский район) | Трихинеллёз — Красноярский край | Трихинеллёз — Красноярский край",
-      "federal_district": "СФО",
-      "lat": 53.7531742,
-      "lon": 91.9961854,
-      "geocode_source": "nominatim"
+      "federal_district": "СФО"
     },
     {
       "id": 2697,
@@ -54271,7 +54244,7 @@
       "notes": "Бешенство животных — Амурская область (Серышевский м.о.) | Бешенство животных — Амурская область",
       "federal_district": "ДФО",
       "lat": 50.4475716382447,
-      "lon": 127.89962565582117,
+      "lon": 127.39962565582117,
       "geocode_source": "region_centroid"
     },
     {
@@ -54290,7 +54263,7 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/10/05.10.2026г.pdf",
       "notes": "Бешенство животных — Тюменская область | Бешенство животных — Тюменская область",
       "federal_district": "УрФО",
-      "lat": 57.03241303533654,
+      "lat": 56.832413035336536,
       "lon": 65.54351661074486,
       "geocode_source": "region_centroid"
     },
@@ -54310,8 +54283,8 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/10/05.10.2026г.pdf",
       "notes": "Бешенство животных — Кемеровская область (Прокопьевский м.о.)",
       "federal_district": "СФО",
-      "lat": 54.716288324049515,
-      "lon": 85.845882075755,
+      "lat": 55.01628832404951,
+      "lon": 86.845882075755,
       "geocode_source": "region_centroid"
     },
     {
@@ -54330,9 +54303,9 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/10/05.10.2026г.pdf",
       "notes": "Бешенство животных — Саратовская область | Бешенство животных — Саратовская область (Калининский район)",
       "federal_district": "ПФО",
-      "lat": 51.443285,
-      "lon": 44.2509472,
-      "geocode_source": "nominatim"
+      "lat": 51.76614777850886,
+      "lon": 46.110709614055274,
+      "geocode_source": "region_centroid"
     },
     {
       "id": 2701,
@@ -54370,8 +54343,8 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/10/05.10.2026г.pdf",
       "notes": "трихинеллёз — Свердловская область",
       "federal_district": "УрФО",
-      "lat": 56.60229635576106,
-      "lon": 60.573553688936386,
+      "lat": 57.802296355761065,
+      "lon": 59.973553688936384,
       "geocode_source": "region_centroid"
     },
     {
@@ -54410,9 +54383,9 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/10/07.10.2026г.pdf",
       "notes": "Бешенство животных — Воронежская область (Аннинский район) | Бешенство животных — Воронежская область (Семилукский район)",
       "federal_district": "ЦФО",
-      "lat": 51.4555287,
-      "lon": 40.6291488,
-      "geocode_source": "nominatim"
+      "lat": 51.711287573009294,
+      "lon": 39.23526807569878,
+      "geocode_source": "region_centroid"
     },
     {
       "id": 2705,
@@ -54430,8 +54403,8 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/10/07.10.2026г.pdf",
       "notes": "Трихинеллёз — Алтайский край | Трихинеллёз — Алтайский край | Трихинеллёз — Алтайский край",
       "federal_district": "СФО",
-      "lat": 52.80541753525911,
-      "lon": 84.25197279564125,
+      "lat": 52.30541753525911,
+      "lon": 83.25197279564125,
       "geocode_source": "region_centroid"
     },
     {
@@ -54450,9 +54423,9 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/10/07.10.2026г.pdf",
       "notes": "Бешенство — Алтайский край | Бешенство животных — Алтайский край (Первомайский район) | Бешенство — Алтайский край",
       "federal_district": "СФО",
-      "lat": 53.4240375,
-      "lon": 84.1669867,
-      "geocode_source": "nominatim"
+      "lat": 52.587608710212486,
+      "lon": 82.83651393074202,
+      "geocode_source": "region_centroid"
     },
     {
       "id": 2707,
@@ -54470,9 +54443,9 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/10/07.10.2026г.pdf",
       "notes": "Бешенство животных — Омская область (Таврический район)",
       "federal_district": "СФО",
-      "lat": 54.5246797,
-      "lon": 73.7171406,
-      "geocode_source": "nominatim"
+      "lat": 54.912881636143894,
+      "lon": 73.49771299906881,
+      "geocode_source": "region_centroid"
     },
     {
       "id": 2708,
@@ -54570,9 +54543,9 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/10/07.10.2026г.pdf",
       "notes": "Лептоспироз — Тюменская область | лептоспироз — Тюменская область (Юргинский муниципальный округ) | лептоспироз — Тюменская область",
       "federal_district": "УрФО",
-      "lat": 56.9408777,
-      "lon": 67.7594278,
-      "geocode_source": "nominatim"
+      "lat": 57.231778904549394,
+      "lon": 65.7291978848327,
+      "geocode_source": "region_centroid"
     },
     {
       "id": 2713,
@@ -54608,7 +54581,7 @@
       "notes": "Бешенство животных — Амурская область",
       "federal_district": "ДФО",
       "lat": 50.266189001387495,
-      "lon": 128.10050910674096,
+      "lon": 127.60050910674096,
       "geocode_source": "region_centroid"
     },
     {
@@ -54687,8 +54660,8 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/10/02.10-08.10.2026.pdf",
       "notes": "Лептоспироз — Самарская область",
       "federal_district": "ПФО",
-      "lat": 53.03032993531123,
-      "lon": 50.08881557554937,
+      "lat": 53.33032993531123,
+      "lon": 50.038815575549364,
       "geocode_source": "region_centroid"
     },
     {
@@ -54707,7 +54680,7 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/10/02.10-08.10.2026.pdf",
       "notes": "Лептоспироз — Тюменская область",
       "federal_district": "УрФО",
-      "lat": 57.380259679152005,
+      "lat": 57.180259679152,
       "lon": 65.52831749288788,
       "geocode_source": "region_centroid"
     },
@@ -54727,9 +54700,9 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/10/09.10.2026г.pdf",
       "notes": "Бешенство животных — Воронежская область (Репьёвский район) | Бешенство животных — Воронежская область",
       "federal_district": "ЦФО",
-      "lat": 51.1646691,
-      "lon": 38.7476643,
-      "geocode_source": "nominatim"
+      "lat": 51.4789999899107,
+      "lon": 39.2103087201594,
+      "geocode_source": "region_centroid"
     },
     {
       "id": 2721,
@@ -54747,9 +54720,9 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/10/09.10.2026г.pdf",
       "notes": "Бешенство животных — Алтайский край (Первомайский район)",
       "federal_district": "СФО",
-      "lat": 53.4240375,
-      "lon": 84.1669867,
-      "geocode_source": "nominatim"
+      "lat": 52.52490176470604,
+      "lon": 83.04547544210662,
+      "geocode_source": "region_centroid"
     },
     {
       "id": 2722,
@@ -54787,9 +54760,9 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/10/09.10.2026г.pdf",
       "notes": "Бешенство животных — Самарская область (Ставропольский район)",
       "federal_district": "ПФО",
-      "lat": 53.4995586,
-      "lon": 49.6856752,
-      "geocode_source": "nominatim"
+      "lat": 53.70924350027215,
+      "lon": 49.91746496074695,
+      "geocode_source": "region_centroid"
     },
     {
       "id": 2724,
@@ -54807,7 +54780,7 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/10/09.10.2026г.pdf",
       "notes": "Бешенство животных — Тюменская область (Абатский м.о.)",
       "federal_district": "УрФО",
-      "lat": 57.30900428497751,
+      "lat": 57.10900428497751,
       "lon": 65.5920244588748,
       "geocode_source": "region_centroid"
     },
@@ -54827,9 +54800,9 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/10/09.10.2026г.pdf",
       "notes": "Бешенство животных — Краснодарский край (Курганинский район)",
       "federal_district": "ЮФО",
-      "lat": 44.9586041,
-      "lon": 40.6331595,
-      "geocode_source": "nominatim"
+      "lat": 45.00100292893606,
+      "lon": 39.05949530054069,
+      "geocode_source": "region_centroid"
     },
     {
       "id": 2726,
@@ -54887,9 +54860,9 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/10/09.10.2026г.pdf",
       "notes": "Лептоспироз КРС — Алтайский край | лептоспироз — Алтайский край (Кытмановский район)",
       "federal_district": "СФО",
-      "lat": 53.4901958,
-      "lon": 85.3230362,
-      "geocode_source": "nominatim"
+      "lat": 52.22476828928338,
+      "lon": 82.88816667030146,
+      "geocode_source": "region_centroid"
     },
     {
       "id": 2729,
@@ -54907,8 +54880,8 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/10/12.10.2026г.pdf",
       "notes": "Трихинеллёз — Алтайский край | Трихинеллёз — Алтайский край | Трихинеллёз — Алтайский край",
       "federal_district": "СФО",
-      "lat": 52.78322897329032,
-      "lon": 83.71342514245242,
+      "lat": 52.28322897329032,
+      "lon": 82.71342514245242,
       "geocode_source": "region_centroid"
     },
     {
@@ -54987,8 +54960,8 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/10/12.10.2026г.pdf",
       "notes": "Лептоспироз КРС — Свердловская область | Лептоспироз КРС — Свердловская область",
       "federal_district": "УрФО",
-      "lat": 56.931469807422246,
-      "lon": 60.50678887030683,
+      "lat": 58.13146980742225,
+      "lon": 59.906788870306826,
       "geocode_source": "region_centroid"
     },
     {
@@ -55067,8 +55040,8 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/10/12.10.2026г.pdf",
       "notes": "иал — Свердловская область",
       "federal_district": "УрФО",
-      "lat": 56.70727375258117,
-      "lon": 60.66546278931214,
+      "lat": 57.907273752581176,
+      "lon": 60.065462789312136,
       "geocode_source": "region_centroid"
     },
     {
@@ -55107,8 +55080,8 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/10/14.10.2026г.pdf",
       "notes": "Бруцеллёз — Алтайский край | Бруцеллёз — Алтайский край",
       "federal_district": "СФО",
-      "lat": 53.283646765632135,
-      "lon": 83.96161050938593,
+      "lat": 52.783646765632135,
+      "lon": 82.96161050938593,
       "geocode_source": "region_centroid"
     },
     {
@@ -55127,8 +55100,8 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/10/14.10.2026г.pdf",
       "notes": "Лейкоз КРС — Самарская область | Лейкоз КРС — Самарская область | Лейкоз КРС — Самарская область",
       "federal_district": "ПФО",
-      "lat": 53.282467710541745,
-      "lon": 50.178031121357414,
+      "lat": 53.58246771054174,
+      "lon": 50.12803112135741,
       "geocode_source": "region_centroid"
     },
     {
@@ -55147,9 +55120,9 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/10/14.10.2026г.pdf",
       "notes": "Лейкоз КРС — Алтайский край | Лейкоз КРС — Алтайский край (Мамонтовский район) | Лейкоз КРС — Алтайский край",
       "federal_district": "СФО",
-      "lat": 52.7077236,
-      "lon": 81.8192499,
-      "geocode_source": "nominatim"
+      "lat": 52.72599137774116,
+      "lon": 82.75153250233339,
+      "geocode_source": "region_centroid"
     },
     {
       "id": 2742,
@@ -55166,10 +55139,7 @@
       "source": "fsvps",
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/10/14.10.2026г.pdf",
       "notes": "Трихинеллёз — Красноярский край | трихинеллез — Красноярский край",
-      "federal_district": "СФО",
-      "lat": 55.92712823277268,
-      "lon": 93.11465515849768,
-      "geocode_source": "region_centroid"
+      "federal_district": "СФО"
     },
     {
       "id": 2743,
@@ -55206,10 +55176,7 @@
       "source": "fsvps",
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/10/14.10.2026г.pdf",
       "notes": "Бешенство животных — Красноярский край",
-      "federal_district": "СФО",
-      "lat": 56.20244281143841,
-      "lon": 93.19661901118248,
-      "geocode_source": "region_centroid"
+      "federal_district": "СФО"
     },
     {
       "id": 2745,
@@ -55247,9 +55214,9 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/10/14.10.2026г.pdf",
       "notes": "Бешенство животных — Смоленская область (Вяземский район)",
       "federal_district": "ЦФО",
-      "lat": 55.1963662,
-      "lon": 34.3310982,
-      "geocode_source": "nominatim"
+      "lat": 54.561425296338534,
+      "lon": 31.985413642301953,
+      "geocode_source": "region_centroid"
     },
     {
       "id": 2747,
@@ -55267,9 +55234,9 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/10/14.10.2026г.pdf",
       "notes": "Лейкоз КРС — Тюменская область (Ярковский муниципальный округ) | Лейкоз КРС — Тюменская область (Исетский муниципальный округ)",
       "federal_district": "УрФО",
-      "lat": 57.6168489,
-      "lon": 67.1766769,
-      "geocode_source": "nominatim"
+      "lat": 56.84330647221613,
+      "lon": 65.37636978409908,
+      "geocode_source": "region_centroid"
     },
     {
       "id": 2748,
@@ -55308,7 +55275,7 @@
       "notes": "трихинеллёз — Томская область",
       "federal_district": "СФО",
       "lat": 56.27622771325293,
-      "lon": 85.08253753701676,
+      "lon": 85.15253753701676,
       "geocode_source": "region_centroid"
     },
     {
@@ -55347,8 +55314,8 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/10/09.10-15.10.2026.pdf",
       "notes": "Бруцеллёз — Алтайский край",
       "federal_district": "СФО",
-      "lat": 53.18040587305849,
-      "lon": 83.77354564374217,
+      "lat": 52.68040587305849,
+      "lon": 82.77354564374217,
       "geocode_source": "region_centroid"
     },
     {
@@ -55387,8 +55354,8 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/10/09.10-15.10.2026.pdf",
       "notes": "Трихинеллёз — Алтайский край",
       "federal_district": "СФО",
-      "lat": 52.826896843324334,
-      "lon": 84.10578427726554,
+      "lat": 52.326896843324334,
+      "lon": 83.10578427726554,
       "geocode_source": "region_centroid"
     },
     {
@@ -55427,9 +55394,9 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/10/16.10.2026г-1.pdf",
       "notes": "Бешенство животных — Саратовская область (Самойловский район)",
       "federal_district": "ПФО",
-      "lat": 51.2494111,
-      "lon": 43.7086216,
-      "geocode_source": "nominatim"
+      "lat": 51.747499270987596,
+      "lon": 45.97690153072143,
+      "geocode_source": "region_centroid"
     },
     {
       "id": 2756,
@@ -55468,7 +55435,7 @@
       "notes": "Лейкоз КРС — Амурская область",
       "federal_district": "ДФО",
       "lat": 50.21117341532892,
-      "lon": 127.89364908790533,
+      "lon": 127.39364908790533,
       "geocode_source": "region_centroid"
     },
     {
@@ -55507,7 +55474,7 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/10/16.10.2026г-1.pdf",
       "notes": "Лейкоз КРС — Тюменская область",
       "federal_district": "УрФО",
-      "lat": 57.02118904396182,
+      "lat": 56.821189043961816,
       "lon": 65.38573922276714,
       "geocode_source": "region_centroid"
     },
@@ -55527,9 +55494,9 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/10/16.10.2026г-1.pdf",
       "notes": "ЯЩУР — г. Москва (г. Москва)",
       "federal_district": "ЦФО",
-      "lat": 55.5987388,
-      "lon": 38.1198943,
-      "geocode_source": "nominatim"
+      "lat": 56.03414579773346,
+      "lon": 37.70664002919055,
+      "geocode_source": "region_centroid"
     },
     {
       "id": 2761,
@@ -55547,9 +55514,9 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/10/19.10.2026г.pdf",
       "notes": "Лейкоз КРС — Алтайский край (Мамонтовский район) | Лейкоз КРС — Алтайский край",
       "federal_district": "СФО",
-      "lat": 52.7077236,
-      "lon": 81.8192499,
-      "geocode_source": "nominatim"
+      "lat": 52.300118817506316,
+      "lon": 82.8535762795191,
+      "geocode_source": "region_centroid"
     },
     {
       "id": 2762,
@@ -55567,8 +55534,8 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/10/19.10.2026г.pdf",
       "notes": "Лептоспироз КРС — Свердловская область | Лептоспироз КРС — Свердловская область | Лептоспироз — Свердловская область | Лептоспироз КРС — Свердловская область",
       "federal_district": "УрФО",
-      "lat": 56.996459025869925,
-      "lon": 60.58789726912548,
+      "lat": 58.19645902586993,
+      "lon": 59.987897269125476,
       "geocode_source": "region_centroid"
     },
     {
@@ -55627,9 +55594,9 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/10/19.10.2026г.pdf",
       "notes": "Бешенство животных — Нижегородская область (Кстовский район) | Бешенство животных — Нижегородская область (Большеболдинский м.о.) | Бешенство — Нижегородская область",
       "federal_district": "ПФО",
-      "lat": 55.9574829,
-      "lon": 44.2103796,
-      "geocode_source": "nominatim"
+      "lat": 56.04175204140324,
+      "lon": 43.81007064492485,
+      "geocode_source": "region_centroid"
     },
     {
       "id": 2766,
@@ -55647,9 +55614,9 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/10/19.10.2026г.pdf",
       "notes": "Бешенство животных — Омская область (Кормиловский район)",
       "federal_district": "СФО",
-      "lat": 54.9329884,
-      "lon": 74.1360196,
-      "geocode_source": "nominatim"
+      "lat": 54.991988452011384,
+      "lon": 73.25998520744282,
+      "geocode_source": "region_centroid"
     },
     {
       "id": 2767,
@@ -55787,9 +55754,9 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/10/21.10.2026г.pdf",
       "notes": "Бешенство — Астраханская область | Бешенство животных — Астраханская область (Камызякский район) | Бешенство животных — Астраханская область",
       "federal_district": "ЮФО",
-      "lat": 45.8612778,
-      "lon": 48.2193521,
-      "geocode_source": "nominatim"
+      "lat": 46.608118621472364,
+      "lon": 48.071853671106254,
+      "geocode_source": "region_centroid"
     },
     {
       "id": 2774,
@@ -55807,9 +55774,9 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/10/21.10.2026г.pdf",
       "notes": "Бешенство животных — Воронежская область (Новоусманский район) | Бешенство животных — Воронежская область",
       "federal_district": "ЦФО",
-      "lat": 51.6472696,
-      "lon": 39.6164831,
-      "geocode_source": "nominatim"
+      "lat": 51.710272284679775,
+      "lon": 39.18610122963987,
+      "geocode_source": "region_centroid"
     },
     {
       "id": 2775,
@@ -55827,8 +55794,8 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/10/21.10.2026г.pdf",
       "notes": "Лейкоз КРС — Самарская область | Лейкоз КРС — Самарская область | Лейкоз КРС — Самарская область | Лейкоз КРС — Самарская область",
       "federal_district": "ПФО",
-      "lat": 53.29288517736377,
-      "lon": 50.27775366096295,
+      "lat": 53.59288517736377,
+      "lon": 50.22775366096295,
       "geocode_source": "region_centroid"
     },
     {
@@ -55847,9 +55814,9 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/10/21.10.2026г.pdf",
       "notes": "Лейкоз КРС — Ростовская область (Азовский район) | Лейкоз КРС — Ростовская область",
       "federal_district": "ЮФО",
-      "lat": 46.8996123,
-      "lon": 39.2767155,
-      "geocode_source": "nominatim"
+      "lat": 47.144011858172135,
+      "lon": 39.81599725052968,
+      "geocode_source": "region_centroid"
     },
     {
       "id": 2777,
@@ -55887,9 +55854,9 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/10/21.10.2026г.pdf",
       "notes": "Бешенство животных — Самарская область | Бешенство животных — Самарская область (Волжский район) | Бешенство животных — Самарская область (Красноярский район)",
       "federal_district": "ПФО",
-      "lat": 53.1232606,
-      "lon": 50.4352156,
-      "geocode_source": "nominatim"
+      "lat": 53.77678357352666,
+      "lon": 50.41102415902232,
+      "geocode_source": "region_centroid"
     },
     {
       "id": 2779,
@@ -55906,10 +55873,7 @@
       "source": "fsvps",
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/10/21.10.2026г.pdf",
       "notes": "Бешенство животных — Ярославская область (Некрасовский район) | Бешенство животных — Ярославская область",
-      "federal_district": "ЦФО",
-      "lat": 57.6320403,
-      "lon": 39.8827315,
-      "geocode_source": "nominatim"
+      "federal_district": "ЦФО"
     },
     {
       "id": 2780,
@@ -55927,9 +55891,9 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/10/21.10.2026г.pdf",
       "notes": "Бешенство животных — Смоленская область (Шумячский район)",
       "federal_district": "ЦФО",
-      "lat": 53.8994212,
-      "lon": 32.2079322,
-      "geocode_source": "nominatim"
+      "lat": 54.82916489505206,
+      "lon": 31.883757458085697,
+      "geocode_source": "region_centroid"
     },
     {
       "id": 2781,
@@ -55947,9 +55911,9 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/10/21.10.2026г.pdf",
       "notes": "Бешенство животных — Томская область (Кожевниковский район)",
       "federal_district": "СФО",
-      "lat": 56.0544718,
-      "lon": 83.6407086,
-      "geocode_source": "nominatim"
+      "lat": 56.36650551265421,
+      "lon": 84.84593259988806,
+      "geocode_source": "region_centroid"
     },
     {
       "id": 2782,
@@ -55967,7 +55931,7 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/10/21.10.2026г.pdf",
       "notes": "Бешенство животных — Тюменская область (Аромашевский м.о.)",
       "federal_district": "УрФО",
-      "lat": 57.10325558547884,
+      "lat": 56.90325558547884,
       "lon": 65.54068248523633,
       "geocode_source": "region_centroid"
     },
@@ -56007,9 +55971,9 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/10/21.10.2026г.pdf",
       "notes": "Бруцеллёз — Брянская область | бруцеллез — Брянская область (Жирятинский район)",
       "federal_district": "ЦФО",
-      "lat": 53.2206546,
-      "lon": 33.646144,
-      "geocode_source": "nominatim"
+      "lat": 53.01242211919513,
+      "lon": 34.082024476092236,
+      "geocode_source": "region_centroid"
     },
     {
       "id": 2785,
@@ -56027,9 +55991,9 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/10/21.10.2026г.pdf",
       "notes": "Лептоспироз — Иркутская область | лептоспироз — Иркутская область (Тулунский район)",
       "federal_district": "СФО",
-      "lat": 54.1595452,
-      "lon": 100.1636348,
-      "geocode_source": "nominatim"
+      "lat": 52.20081184066007,
+      "lon": 104.37564899439809,
+      "geocode_source": "region_centroid"
     },
     {
       "id": 2786,
@@ -56124,9 +56088,9 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/10/23.10.2026г.pdf",
       "notes": "Бешенство животных — Астраханская область (Красноярский муниципальный округ)",
       "federal_district": "ЮФО",
-      "lat": 46.9876036,
-      "lon": 48.3804572,
-      "geocode_source": "nominatim"
+      "lat": 46.094089645940464,
+      "lon": 48.20299508298035,
+      "geocode_source": "region_centroid"
     },
     {
       "id": 2791,
@@ -56143,10 +56107,7 @@
       "source": "fsvps",
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/10/23.10.2026г.pdf",
       "notes": "Бешенство животных — Красноярский край (Сосновоборский м.о.) | Бешенство — Красноярский край",
-      "federal_district": "СФО",
-      "lat": 56.124762253180315,
-      "lon": 93.15695400971643,
-      "geocode_source": "region_centroid"
+      "federal_district": "СФО"
     },
     {
       "id": 2792,
@@ -56164,9 +56125,9 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/10/23.10.2026г.pdf",
       "notes": "Бешенство животных — Саратовская область (Лысогорский район)",
       "federal_district": "ПФО",
-      "lat": 51.3975195,
-      "lon": 45.0755926,
-      "geocode_source": "nominatim"
+      "lat": 51.276810231687755,
+      "lon": 45.868725039707996,
+      "geocode_source": "region_centroid"
     },
     {
       "id": 2793,
@@ -56184,9 +56145,9 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/10/23.10.2026г.pdf",
       "notes": "Бруцеллёз — Брянская область | бруцеллез — Брянская область (Дубровский район)",
       "federal_district": "ЦФО",
-      "lat": 53.643502,
-      "lon": 33.3911624,
-      "geocode_source": "nominatim"
+      "lat": 52.97853409748838,
+      "lon": 34.424943422631465,
+      "geocode_source": "region_centroid"
     },
     {
       "id": 2794,
@@ -56204,9 +56165,9 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/10/23.10.2026г.pdf",
       "notes": "Инфекционная анемия лошадей — Тюменская область (Казанский муниципальный округ)",
       "federal_district": "УрФО",
-      "lat": 55.6004754,
-      "lon": 69.2668714,
-      "geocode_source": "nominatim"
+      "lat": 56.72359104564431,
+      "lon": 65.27709799636654,
+      "geocode_source": "region_centroid"
     },
     {
       "id": 2795,
@@ -56225,7 +56186,7 @@
       "notes": "Лейкоз КРС — Амурская область",
       "federal_district": "ДФО",
       "lat": 50.398511713963366,
-      "lon": 128.12249155310784,
+      "lon": 127.62249155310782,
       "geocode_source": "region_centroid"
     },
     {
@@ -56324,8 +56285,8 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/10/26.10.2026г.pdf",
       "notes": "Бешенство животных — Самарская область | Бешенство животных — Самарская область",
       "federal_district": "ПФО",
-      "lat": 53.31809134872835,
-      "lon": 50.378861922079295,
+      "lat": 53.61809134872835,
+      "lon": 50.32886192207929,
       "geocode_source": "region_centroid"
     },
     {
@@ -56344,9 +56305,9 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/10/26.10.2026г.pdf",
       "notes": "Лейкоз КРС — Тюменская область (Ишимский муниципальный округ) | Лейкоз КРС — Тюменская область",
       "federal_district": "УрФО",
-      "lat": 56.2246044,
-      "lon": 69.2605018,
-      "geocode_source": "nominatim"
+      "lat": 56.980265432751146,
+      "lon": 65.41536803268504,
+      "geocode_source": "region_centroid"
     },
     {
       "id": 2802,
@@ -56384,8 +56345,8 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/10/26.10.2026г.pdf",
       "notes": "Лейкоз КРС — Самарская область | Лейкоз КРС — Самарская область | Лейкоз КРС — Самарская область",
       "federal_district": "ПФО",
-      "lat": 53.34004987314301,
-      "lon": 49.946599970444815,
+      "lat": 53.640049873143006,
+      "lon": 49.89659997044481,
       "geocode_source": "region_centroid"
     },
     {
@@ -56424,9 +56385,9 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/10/26.10.2026г.pdf",
       "notes": "Лептоспироз КРС — Московская область | лептоспироз — Московская область (Рузский муниципальный округ) | Лептоспироз — Московская область",
       "federal_district": "ЦФО",
-      "lat": 55.6973772,
-      "lon": 36.2833954,
-      "geocode_source": "nominatim"
+      "lat": 55.28287628605999,
+      "lon": 37.68845139049857,
+      "geocode_source": "region_centroid"
     },
     {
       "id": 2806,
@@ -56484,9 +56445,9 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/10/26.10.2026г.pdf",
       "notes": "Бешенство животных — Смоленская область (Починковский район)",
       "federal_district": "ЦФО",
-      "lat": 54.359728,
-      "lon": 32.1169197,
-      "geocode_source": "nominatim"
+      "lat": 54.575499234601416,
+      "lon": 31.749375553931607,
+      "geocode_source": "region_centroid"
     },
     {
       "id": 2809,
@@ -56504,8 +56465,8 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/10/26.10.2026г.pdf",
       "notes": "Бешенство животных — Кемеровская область (Беловский городской округ)",
       "federal_district": "СФО",
-      "lat": 54.89131727929804,
-      "lon": 86.09896183913041,
+      "lat": 55.19131727929804,
+      "lon": 87.09896183913041,
       "geocode_source": "region_centroid"
     },
     {
@@ -56564,9 +56525,9 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/10/26.10.2026г.pdf",
       "notes": "лептоспироз — Свердловская область | лептоспироз — Свердловская область (Ирбитский район) | Лептоспироз КРС — Свердловская область",
       "federal_district": "УрФО",
-      "lat": 57.586242,
-      "lon": 62.6591979,
-      "geocode_source": "nominatim"
+      "lat": 58.08608121625694,
+      "lon": 60.12257397967361,
+      "geocode_source": "region_centroid"
     },
     {
       "id": 2813,
@@ -56583,10 +56544,7 @@
       "source": "fsvps",
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/10/26.10.2026г.pdf",
       "notes": "Лейкоз КРС — Приморский край",
-      "federal_district": "ДФО",
-      "lat": 44.04399697558118,
-      "lon": 132.05915498916,
-      "geocode_source": "region_centroid"
+      "federal_district": "ДФО"
     }
   ]
 }

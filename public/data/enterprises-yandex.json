@@ -3,7 +3,7 @@
   "sources": [
     "yandex"
   ],
-  "total": 410,
+  "total": 411,
   "enterprises": [
     {
       "id": "yandex-1111942529",
@@ -393,6 +393,18 @@
       "rubric": "Комбикорма и кормовые добавки",
       "source": "yandex",
       "org_href": "https://yandex.ru/maps/org/biorost/1208123595/"
+    },
+    {
+      "id": "yandex-1746578253",
+      "name": "Биосистемы",
+      "type": "feed_mill",
+      "lat": 56.290809,
+      "lon": 43.987921,
+      "address": "Нижний Новгород, ул. Бекетова, 3Б, э, этаж 1",
+      "city": "Нижний Новгород",
+      "rubric": "Комбикорма и кормовые добавки",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/biosistemy/1746578253/"
     },
     {
       "id": "yandex-139222844089",
