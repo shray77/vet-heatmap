@@ -1,9 +1,9 @@
 {
-  "updated": "2026-10-26",
+  "updated": "2026-10-27",
   "sources": [
     "yandex"
   ],
-  "total": 399,
+  "total": 410,
   "enterprises": [
     {
       "id": "yandex-1111942529",
@@ -226,7 +226,8 @@
       "address": "Нижний Новгород, Восточный пр., 5, склад № 20",
       "city": "Нижний Новгород",
       "rubric": "Комбикорма и кормовые добавки",
-      "source": "yandex"
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/aligo/156291005535/"
     },
     {
       "id": "yandex-74227730288",
@@ -373,12 +374,13 @@
       "id": "yandex-1038297083",
       "name": "БиоПро",
       "type": "feed_mill",
-      "lat": null,
-      "lon": null,
+      "lat": 55.029575,
+      "lon": 82.908366,
       "address": "Новосибирск, просп. Димитрова, 4/1, этаж 2, офис 2D, 2E",
       "city": "Новосибирск",
       "rubric": "Комбикорма и кормовые добавки",
-      "source": "yandex"
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/biopro/1038297083/"
     },
     {
       "id": "yandex-1208123595",
@@ -437,7 +439,8 @@
       "address": "городской округ Новосибирск, Северный проезд, 13к2",
       "city": "Новосибирск",
       "rubric": "Комбикорма и кормовые добавки",
-      "source": "yandex"
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/vega/147709598579/"
     },
     {
       "id": "yandex-1074084772",
@@ -585,10 +588,11 @@
       "type": "feed_mill",
       "lat": 56.245,
       "lon": 43.96469,
-      "address": "просп. Гагарина, 69, корп. 2, Нижний Новгород",
+      "address": "Нижний Новгород, просп. Гагарина, 69, корп. 2",
       "city": "Нижний Новгород",
       "rubric": "Комбикорма и кормовые добавки",
-      "source": "yandex"
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/zernokorma/160388870849/"
     },
     {
       "id": "yandex-87072346966",
@@ -623,7 +627,8 @@
       "address": "городской округ Новосибирск, Северный проезд, 10Б",
       "city": "Новосибирск",
       "rubric": "Комбикорма и кормовые добавки",
-      "source": "yandex"
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/npk_zernoprodukt/1012102093/"
     },
     {
       "id": "yandex-21011181756",
@@ -853,12 +858,13 @@
       "id": "yandex-154599188020",
       "name": "Комбикорм+",
       "type": "feed_mill",
-      "lat": null,
-      "lon": null,
-      "address": "",
+      "lat": 56.362491,
+      "lon": 44.068563,
+      "address": "Бор, ул. Сергея Везломцева, 3А",
       "city": "Нижний Новгород",
-      "rubric": "комбикормовый завод",
-      "source": "yandex"
+      "rubric": "Комбикорма и кормовые добавки",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/kombikorm_/154599188020/"
     },
     {
       "id": "yandex-118300914272",
@@ -893,7 +899,8 @@
       "address": "Нижний Новгород, Восточный пр., 5, корп. 20",
       "city": "Нижний Новгород",
       "rubric": "Комбикорма и кормовые добавки",
-      "source": "yandex"
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/kombikorma/125526201226/"
     },
     {
       "id": "yandex-131266874201",
@@ -975,7 +982,8 @@
       "address": "Нижний Новгород, ул. Коновалова, 10А",
       "city": "Нижний Новгород",
       "rubric": "Комбикорма и кормовые добавки",
-      "source": "yandex"
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/kombikorm/189705634308/"
     },
     {
       "id": "yandex-1732808743",
@@ -1157,7 +1165,7 @@
       "type": "feed_mill",
       "lat": 54.977992,
       "lon": 73.450525,
-      "address": "Омск, ул. 20 лет РККА, 302А",
+      "address": "ул. 20 лет РККА, 302А, Омск",
       "city": "Омск",
       "rubric": "Комбикорма и кормовые добавки",
       "source": "yandex",
@@ -1219,7 +1227,8 @@
       "address": "Новосибирский район, Верх-Тулинский сельсовет, Промышленная улица, 1",
       "city": "Новосибирск",
       "rubric": "Комбикорма и кормовые добавки",
-      "source": "yandex"
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/kudryashovskiy_kombikormovy_zavod/1133602542/"
     },
     {
       "id": "yandex-1919539246",
@@ -1256,6 +1265,18 @@
       "rubric": "Комбикорма и кормовые добавки",
       "source": "yandex",
       "org_href": "https://yandex.ru/maps/org/magazin_selskokhozyaystvennykh_kormov/13354096575/"
+    },
+    {
+      "id": "yandex-210256297558",
+      "name": "Марусинская фабрика комбикормов",
+      "type": "feed_mill",
+      "lat": null,
+      "lon": null,
+      "address": "село Марусино, ул. Горького, 38",
+      "city": "Новосибирск",
+      "rubric": "Комбикорма и кормовые добавки",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/marusinskaya_fabrika_kombikormov/210256297558/"
     },
     {
       "id": "yandex-240559514686",
@@ -1444,7 +1465,8 @@
       "address": "Нижний Новгород, Комсомольский микрорайон",
       "city": "Нижний Новгород",
       "rubric": "Комбикорма и кормовые добавки",
-      "source": "yandex"
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/nizhkorm/1289514319/"
     },
     {
       "id": "yandex-1157182807",
@@ -1577,6 +1599,18 @@
       "org_href": "https://yandex.ru/maps/org/penzenskiy_kombinat_khleboproduktov/1097645981/"
     },
     {
+      "id": "yandex-1103881600",
+      "name": "Премикс",
+      "type": "feed_mill",
+      "lat": 45.619105,
+      "lon": 38.9719,
+      "address": "Тимашевск, Транспортная ул., 5А",
+      "city": "Краснодар",
+      "rubric": "Комбикорма и кормовые добавки",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/premiks/1103881600/"
+    },
+    {
       "id": "yandex-37133860223",
       "name": "ПремиксСнаб",
       "type": "feed_mill",
@@ -1656,7 +1690,8 @@
       "address": "Новосибирск, Варшавская ул., 1Б",
       "city": "Новосибирск",
       "rubric": "Комбикорма и кормовые добавки",
-      "source": "yandex"
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/proizvodstvennaya_kompaniya_reviks_doktor_farmer_korma/115710572143/"
     },
     {
       "id": "yandex-76385465172",
@@ -1703,7 +1738,8 @@
       "address": "Нижний Новгород, Комсомольское ш., 4, корп. 10",
       "city": "Нижний Новгород",
       "rubric": "Комбикорма и кормовые добавки",
-      "source": "yandex"
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/roskorm_nn/69484238001/"
     },
     {
       "id": "yandex-22637678389",
@@ -1764,6 +1800,18 @@
       "rubric": "25",
       "source": "yandex",
       "org_href": "https://yandex.ru/maps/org/samarsky_kombikormovy_zavod/1036965379/"
+    },
+    {
+      "id": "yandex-144969098964",
+      "name": "Сан Саныч",
+      "type": "feed_mill",
+      "lat": null,
+      "lon": null,
+      "address": "Новосибирск, Гусинобродское ш., 66, корп. 1",
+      "city": "Новосибирск",
+      "rubric": "Комбикорма и кормовые добавки",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/san_sanych/144969098964/"
     },
     {
       "id": "yandex-59489446233",
@@ -1922,6 +1970,18 @@
       "org_href": "https://yandex.ru/maps/org/furazh/66712448321/"
     },
     {
+      "id": "yandex-1089755477",
+      "name": "Хлеб Кубани",
+      "type": "feed_mill",
+      "lat": 45.634811,
+      "lon": 38.944312,
+      "address": "Тимашевск, Гибридная ул., 1",
+      "city": "Краснодар",
+      "rubric": "Комбикорма и кормовые добавки",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/khleb_kubani/1089755477/"
+    },
+    {
       "id": "yandex-1155156162",
       "name": "Экопрод",
       "type": "feed_mill",
@@ -1932,6 +1992,18 @@
       "rubric": "Комбикорма и кормовые добавки",
       "source": "yandex",
       "org_href": "https://yandex.ru/maps/org/td_ekoprod/1155156162/"
+    },
+    {
+      "id": "yandex-1886144876",
+      "name": "Южная Корона",
+      "type": "feed_mill",
+      "lat": 45.801827,
+      "lon": 38.986236,
+      "address": "станица Брюховецкая, Привокзальная ул., 2",
+      "city": "Краснодар",
+      "rubric": "Комбикорма и кормовые добавки",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/yuzhnaya_korona/1886144876/"
     },
     {
       "id": "yandex-23136638158",
@@ -2155,7 +2227,8 @@
       "address": "Нижний Новгород, ул. Лейтенанта Шмидта, 1А, корп. 4",
       "city": "Нижний Новгород",
       "rubric": "Мясная продукция оптом",
-      "source": "yandex"
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/delo_vkusa/71149123310/"
     },
     {
       "id": "yandex-1069119290",
@@ -2415,6 +2488,18 @@
       "org_href": "https://yandex.ru/maps/org/myasnaya_antrekot_lavka/163434786818/"
     },
     {
+      "id": "yandex-79720345527",
+      "name": "Мясная продукция оптом",
+      "type": "meat_plant",
+      "lat": 45.038362,
+      "lon": 38.946019,
+      "address": "Краснодар, Западный внутригородской округ, Кожевенная ул., 36",
+      "city": "Краснодар",
+      "rubric": "18",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/myasnaya_produktsiya_optom/79720345527/"
+    },
+    {
       "id": "yandex-117934706634",
       "name": "Мясное раздолье",
       "type": "meat_plant",
@@ -2630,7 +2715,8 @@
       "address": "Нижний Новгород, Молодёжный просп., 92",
       "city": "Нижний Новгород",
       "rubric": "Производство продуктов питания",
-      "source": "yandex"
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/pervyi_myasokombinat/1109159061/"
     },
     {
       "id": "yandex-14183051353",
@@ -2641,7 +2727,8 @@
       "address": "Нижний Новгород, ул. Героя Советского Союза Поющева, 22А",
       "city": "Нижний Новгород",
       "rubric": "Мясная продукция оптом",
-      "source": "yandex"
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/pervy_myasokombinat/14183051353/"
     },
     {
       "id": "yandex-61213309931",
@@ -2698,7 +2785,8 @@
       "address": "Нижний Новгород, Комсомольское ш., 3, корп. 18",
       "city": "Нижний Новгород",
       "rubric": "Мясная продукция оптом",
-      "source": "yandex"
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/prodbaza/225656122162/"
     },
     {
       "id": "yandex-1401499076",
@@ -2908,6 +2996,18 @@
       "city": "Челябинск",
       "rubric": "Мясная продукция оптом",
       "source": "yandex"
+    },
+    {
+      "id": "yandex-176326729180",
+      "name": "Утиная ферма",
+      "type": "meat_plant",
+      "lat": 56.319834,
+      "lon": 44.001585,
+      "address": "Нижний Новгород, Холодный пер., 10А",
+      "city": "Нижний Новгород",
+      "rubric": "Мясная продукция оптом",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/utinaya_ferma/176326729180/"
     },
     {
       "id": "yandex-18838084280",
@@ -3288,6 +3388,18 @@
       "rubric": "Животноводческое хозяйство",
       "source": "yandex",
       "org_href": "https://yandex.ru/maps/org/svinokompleks_khvalynskiy/234636243063/"
+    },
+    {
+      "id": "yandex-159528581100",
+      "name": "Свиноферма",
+      "type": "pig_farm",
+      "lat": 45.126134,
+      "lon": 37.311076,
+      "address": "Краснодарский край, городской округ Анапа, Джигинский сельский округ",
+      "city": "Краснодар",
+      "rubric": "8",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/svinoferma/159528581100/"
     },
     {
       "id": "yandex-31213775974",
@@ -3945,6 +4057,18 @@
       "org_href": "https://yandex.ru/maps/org/prioskolye/1115545282/"
     },
     {
+      "id": "yandex-1020634460",
+      "name": "Приосколье-К",
+      "type": "poultry_farm",
+      "lat": 45.101592,
+      "lon": 39.117275,
+      "address": "посёлок Индустриальный, ул. Евгения Осокина, 7",
+      "city": "Краснодар",
+      "rubric": "Яйцо и мясо птицы",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/prioskolye_k/1020634460/"
+    },
+    {
       "id": "yandex-1378820736",
       "name": "Птица Опт",
       "type": "poultry_farm",
@@ -4145,6 +4269,18 @@
       "rubric": "Яйцо и мясо птицы",
       "source": "yandex",
       "org_href": "https://yandex.ru/maps/org/ptitsefabrika_sredneuralskaya/169028308613/"
+    },
+    {
+      "id": "yandex-174285699707",
+      "name": "Птицефабрика Тихорецкая",
+      "type": "poultry_farm",
+      "lat": 45.059886,
+      "lon": 38.944447,
+      "address": "Краснодар, Фестивальный микрорайон, ул. Атарбекова, 1",
+      "city": "Краснодар",
+      "rubric": "Яйцо и мясо птицы",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/torgovy_dom_ptitsefabrika_tikhoretskaya/174285699707/"
     },
     {
       "id": "yandex-1113782226",
@@ -4670,6 +4806,18 @@
       "rubric": "Яйцо и мясо птицы",
       "source": "yandex",
       "org_href": "https://yandex.ru/maps/org/yaytso/34961007624/"
+    },
+    {
+      "id": "yandex-1041616813",
+      "name": "Яйцо",
+      "type": "poultry_farm",
+      "lat": 45.029907,
+      "lon": 39.039475,
+      "address": "Краснодар, микрорайон Хлопчато-бумажный Комбинат, ул. Лизы Чайкиной, 22",
+      "city": "Краснодар",
+      "rubric": "Яйцо и мясо птицы",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/yaytso/1041616813/"
     },
     {
       "id": "yandex-153246520051",
