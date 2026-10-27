@@ -6,7 +6,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import {
   Filter, Calculator, Github, Stethoscope, LocateFixed, Beaker, Radio,
-  Truck, FileText, Upload, Factory, Play, MapPin, Zap, Bell, ChevronDown, ArrowLeftRight, Info
+  Truck, FileText, Upload, Factory, Play, MapPin, Zap, Bell, ChevronDown, ArrowLeftRight, Info, Globe
 } from "lucide-react";
 import { SearchBox } from "@/components/search-box";
 import { UserRegionBadgeContainer } from "@/components/user-region";
@@ -57,6 +57,18 @@ export function Header({
   } = useUIStore();
 
   const openCalculator = () => setCalcOpen(true);
+
+  // QA Task 181: ВетКарта была тупиком сети — на неё ссылались все хабы,
+  // а с неё самой исходящих ссылок не было вовсе (кроме VetFlu и только
+  // на десктопе). Секция «Экосистема» — те же сёстры, что в хабах витрин.
+  const ECOSYSTEM_LINKS: { label: string; url: string; title: string }[] = [
+    { label: "Дайджест науки", url: "https://shray77.github.io/vetdigest-site/", title: "VetDigest — дайджест ветеринарной науки" },
+    { label: "Отзывы и вспышки РФ", url: "https://shray77.github.io/vetrecall-site/", title: "VetRecall — радар брака, фальсификата и вспышек" },
+    { label: "Биоугрозы мира", url: "https://shray77.github.io/biothreat-site/", title: "BioThreat — международные биоугрозы" },
+    { label: "Окна риска ВПГП", url: "https://shray77.github.io/vetflu-site/", title: "VetFlu — окна риска гриппа птиц по флайвеям РФ" },
+    { label: "ФЭКРТ", url: "https://shray77.github.io/vetfecrt-site/", title: "ФЭКРТ — тест снижения числа яиц гельминтов (WAAVP-2023)" },
+    { label: "Статус ядра RSS", url: "https://shray77.github.io/rss-core-site/", title: "RSS-ядро — статус инжеста лент" },
+  ];
 
   return (
     <header className="z-50 shrink-0 border-b bg-background/95 pt-safe">
@@ -127,16 +139,22 @@ export function Header({
             </DropdownMenuContent>
           </DropdownMenu>
 
-          <Button variant="ghost" size="sm" className="h-9 px-2 text-xs" asChild aria-label="VetFlu — окна риска ВПГП">
-            <a
-              href="https://shray77.github.io/vetflu-site/"
-              target="_blank"
-              rel="noopener"
-              title="VetFlu — окна риска ВПГП по флайвеям РФ (родственный инструмент экосистемы)"
-            >
-              VetFlu
-            </a>
-          </Button>
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button variant="ghost" size="sm" className="h-9 px-2 text-xs gap-1" aria-label="Сеть проектов экосистемы">
+                <Globe className="h-4 w-4" />
+                <span className="hidden lg:inline">Сеть</span>
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end" className="w-64">
+              <DropdownMenuLabel>Экосистема вет-витрин</DropdownMenuLabel>
+              {ECOSYSTEM_LINKS.map((l) => (
+                <DropdownMenuItem key={l.url} asChild>
+                  <a href={l.url} target="_blank" rel="noopener" title={l.title}>{l.label}</a>
+                </DropdownMenuItem>
+              ))}
+            </DropdownMenuContent>
+          </DropdownMenu>
           <Button variant="ghost" size="icon" asChild aria-label="GitHub">
             <a href="https://github.com/shray77/vet-heatmap" target="_blank" rel="noopener">
               <Github className="h-4 w-4" />
@@ -175,6 +193,13 @@ export function Header({
               <DropdownMenuItem onClick={() => setPdfReportOpen(true)}><FileText className="h-4 w-4 mr-2" />Отчёт PDF</DropdownMenuItem>
               <DropdownMenuItem onClick={() => setCustomImportOpen(true)}><Upload className="h-4 w-4 mr-2" />Импорт данных</DropdownMenuItem>
               <DropdownMenuItem onClick={() => setAlertOpen(true)}><Bell className="h-4 w-4 mr-2" />Уведомления</DropdownMenuItem>
+              <DropdownMenuSeparator />
+              <DropdownMenuLabel>Экосистема</DropdownMenuLabel>
+              {ECOSYSTEM_LINKS.map((l) => (
+                <DropdownMenuItem key={l.url} asChild>
+                  <a href={l.url} target="_blank" rel="noopener" title={l.title}>{l.label}</a>
+                </DropdownMenuItem>
+              ))}
               <DropdownMenuSeparator />
               <DropdownMenuItem onClick={() => setAboutOpen(true)}><Info className="h-4 w-4 mr-2" />О проекте</DropdownMenuItem>
             </DropdownMenuContent>
