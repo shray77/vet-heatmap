@@ -61,7 +61,9 @@ export function Header({
   // QA Task 181: ВетКарта была тупиком сети — на неё ссылались все хабы,
   // а с неё самой исходящих ссылок не было вовсе (кроме VetFlu и только
   // на десктопе). Секция «Экосистема» — те же сёстры, что в хабах витрин.
+  // Task 183: + Визитка-каталог первой строкой — выход на каталог семьи.
   const ECOSYSTEM_LINKS: { label: string; url: string; title: string }[] = [
+    { label: "Визитка", url: "https://shray77.github.io/", title: "Каталог витрин и инструментов разработчика-ветеринара" },
     { label: "Дайджест науки", url: "https://shray77.github.io/vetdigest-site/", title: "VetDigest — дайджест ветеринарной науки" },
     { label: "Отзывы и вспышки РФ", url: "https://shray77.github.io/vetrecall-site/", title: "VetRecall — радар брака, фальсификата и вспышек" },
     { label: "Биоугрозы мира", url: "https://shray77.github.io/biothreat-site/", title: "BioThreat — международные биоугрозы" },
