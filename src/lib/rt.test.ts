@@ -88,7 +88,7 @@ describe("calculateRt (Cori 2013, фиксированный SI)", () => {
     expect(lastActive!.rt).toBeLessThan(1);
   });
 
-  it("нет прошлых случаев (λ=0) → prior mean 1 с широким CI; после скачка Rt взлетает и возвращается к 1", () => {
+  it("нет прошлых случаев (λ=0) → Rt неизмерим: null-контракт «н/д»; после скачка Rt взлетает и возвращается к 1", () => {
     // 30 дней нулей, затем 10/день 15 дней
     const series: { date: string; cases: number }[] = [];
     for (let i = 0; i < 30; i++)
@@ -96,13 +96,14 @@ describe("calculateRt (Cori 2013, фиксированный SI)", () => {
     for (let i = 30; i < 45; i++)
       series.push({ date: new Date(Date.UTC(2026, 8, 1 + i)).toISOString().slice(0, 10), cases: 10 });
     const rt = calculateRt(series, P);
-    // точка на границе скачка: окно нулевое в прошлом → λ=0 ветка prior'а
+    // Task 184: λ=0 -> rt/ci = null (заглушка rt=1 с CI [0.3-3] выглядела
+    // как настоящее измерение на графике — контракт: потребитель рисует «н/д»)
     const firstRt = rt[0];
-    expect(firstRt.rt).toBe(1);
-    expect(firstRt.ciLower).toBeCloseTo(0.3);
-    expect(firstRt.ciUpper).toBeCloseTo(3.0);
+    expect(firstRt.rt).toBeNull();
+    expect(firstRt.ciLower).toBeNull();
+    expect(firstRt.ciUpper).toBeNull();
     // пик роста — в переходной зоне (окно свежих 10-к при малой λ)
-    const peak = Math.max(...rt.map((p) => p.rt));
+    const peak = Math.max(...rt.map((p) => p.rt ?? 0));
     expect(peak).toBeGreaterThan(1.5);
     // установившийся режим 10/день → Rt возвращается к 1 (равновесие)
     expect(rt[rt.length - 1].rt).toBeCloseTo(1, 1);

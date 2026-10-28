@@ -89,11 +89,16 @@ describe("cusumDetect", () => {
     expect(r.sNow).toBeGreaterThan(0.5);
   });
 
-  it("enoughData: любая активность → true (s>0 или ≥4 недель), пусто → false", () => {
-    // семантика: enoughData = weeksWithData ≥ 4 ИЛИ sNow > 0 —
-    // одна вспышка уже даёт s>0 (артефакт старта, см. выше)
-    const r = cusumDetect(at("2026-10-05", 2));
-    expect(r.enoughData).toBe(true);
+  it("enoughData: честная семантика — 4+ недель данных или активный сигнал (s≥h); иначе false", () => {
+    // Task 184 убрал «|| s > 0»: артефакт старта данных (s>0 на молодых
+    // данных) больше не заявляет «достаточно данных»
+    expect(cusumDetect(at("2026-10-05", 2)).enoughData).toBe(false);
     expect(cusumDetect([]).enoughData).toBe(false);
+    // 5 недель фона — уже достаточно
+    expect(cusumDetect(background("2026-09-01", 5, 2)).enoughData).toBe(true);
+    // 2 недели фона + мощный всплеск до сигнала — s≥h тоже достаточно
+    const spike = [...background("2026-09-28", 2, 1), ...background("2026-10-19", 2, 20)];
+    const r = cusumDetect(spike);
+    expect(r.enoughData).toBe(r.signal || r.weeks.filter((w) => w.n > 0).length >= 4);
   });
 });
