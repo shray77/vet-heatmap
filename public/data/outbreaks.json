@@ -12466,7 +12466,7 @@
       "source": "fsvps",
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2024/08/07.08.2024г.pdf",
       "notes": ": Еврейская Автономная область (лиса), Рязанская область (лиса), Белгородская область (собака) Волгоградская область (собака), Смоленская область (енотовидная собака), Воронежская область (собака).",
-      "federal_district": ""
+      "federal_district": "ДФО"
     },
     {
       "id": 614,
@@ -14126,7 +14126,10 @@
       "source": "fsvps",
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2024/09/02.09.2024г.pdf",
       "notes": "Ленобласть увеличит производство куриного мяса на 10 тыс тонн в год.",
-      "federal_district": ""
+      "federal_district": "СЗФО",
+      "lat": 59.598854407660944,
+      "lon": 30.637179015185247,
+      "geocode_source": "region_centroid"
     },
     {
       "id": 696,
@@ -22206,7 +22209,7 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2024/12/16.12.2024г.pdf",
       "notes": "Ханты-Мансийский автономный округ 9 : Ханты-Мансийский район, урочище Таволожное.",
       "municipality": "Мансийский район",
-      "federal_district": "",
+      "federal_district": "УрФО",
       "lat": 60.91572243923801,
       "lon": 73.2049054034997,
       "geocode_source": "region_centroid"
@@ -30995,7 +30998,10 @@
       "source": "fsvps",
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/03/04.03.2026г.pdf",
       "notes": "лептоспироз — Свердловской область (Талицкий район)",
-      "federal_district": ""
+      "federal_district": "УрФО",
+      "lat": 56.931199127598475,
+      "lon": 60.42412377944623,
+      "geocode_source": "region_centroid"
     },
     {
       "id": 1532,
@@ -42145,7 +42151,7 @@
       "source": "fsvps",
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/06/05.06.2026г.pdf",
       "notes": "Трихинеллез — Ханты-Мансийский автономный округ",
-      "federal_district": "",
+      "federal_district": "УрФО",
       "lat": 60.8497226057726,
       "lon": 73.07210879040393,
       "geocode_source": "region_centroid"
@@ -52112,7 +52118,7 @@
       "source": "fsvps",
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/09/11.09.2026г.pdf",
       "notes": "Трихинеллез — Югра АО",
-      "federal_district": "",
+      "federal_district": "УрФО",
       "lat": 60.76097681040824,
       "lon": 73.08653050932504,
       "geocode_source": "region_centroid"
@@ -54410,9 +54416,9 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/10/07.10.2026г.pdf",
       "notes": "Бешенство животных — Воронежская область (Аннинский район) | Бешенство животных — Воронежская область (Семилукский район)",
       "federal_district": "ЦФО",
-      "lat": 51.4555287,
-      "lon": 40.6291488,
-      "geocode_source": "nominatim"
+      "lat": 51.711287573009294,
+      "lon": 39.23526807569878,
+      "geocode_source": "region_centroid"
     },
     {
       "id": 2705,
@@ -55247,9 +55253,9 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/10/14.10.2026г.pdf",
       "notes": "Бешенство животных — Смоленская область (Вяземский район)",
       "federal_district": "ЦФО",
-      "lat": 55.1963662,
-      "lon": 34.3310982,
-      "geocode_source": "nominatim"
+      "lat": 54.561425296338534,
+      "lon": 31.985413642301953,
+      "geocode_source": "region_centroid"
     },
     {
       "id": 2747,
@@ -55527,8 +55533,8 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/10/16.10.2026г-1.pdf",
       "notes": "ЯЩУР — г. Москва (г. Москва)",
       "federal_district": "ЦФО",
-      "lat": 55.7516212,
-      "lon": 37.618122,
+      "lat": 55.5987388,
+      "lon": 38.1198943,
       "geocode_source": "nominatim"
     },
     {

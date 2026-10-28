@@ -4550,11 +4550,11 @@
       "type": "poultry_farm",
       "lat": 53.571447,
       "lon": 83.775219,
-      "address": "посёлок Сибирский, Советская ул., 1",
+      "address": "Советская ул., 1, посёлок Сибирский",
       "city": "Барнаул",
       "rubric": "Животноводческое хозяйство",
       "source": "yandex",
-      "org_href": "https://yandex.ru/maps/org/sibirskaya_pticza/179015709498/"
+      "org_href": "https://yandex.ru/maps/org/sibirskaya_ptitsa/179015709498/"
     },
     {
       "id": "yandex-1093143071",
