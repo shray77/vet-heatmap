@@ -70,6 +70,15 @@ export function paramsToFilters(params: URLSearchParams | Record<string, string>
   const st = get("st");
   const fd = get("fd");
 
+  // Гвард от мусора в URL (lat=abc): parseFloat("abc") → NaN, который
+  // filtersToParams потом сериализует как «lat=NaN» — вырезаем на входе.
+  const num = (k: string, parse: (raw: string) => number): number | undefined => {
+    const raw = get(k);
+    if (raw == null || raw === "") return undefined;
+    const v = parse(raw);
+    return Number.isFinite(v) ? v : undefined;
+  };
+
   return {
     diseases: d ? (d.split(",").filter(Boolean) as DiseaseKey[]) : [],
     species: sp ? sp.split(",").filter(Boolean) : [],
@@ -78,10 +87,10 @@ export function paramsToFilters(params: URLSearchParams | Record<string, string>
     dateFrom: get("from"),
     dateTo: get("to"),
     query: get("q") ?? "",
-    mapLat: get("lat") ? parseFloat(get("lat")!) : undefined,
-    mapLng: get("lng") ? parseFloat(get("lng")!) : undefined,
-    mapZoom: get("z") ? parseFloat(get("z")!) : undefined,
-    outbreakId: get("oid") ? parseInt(get("oid")!, 10) : undefined,
+    mapLat: num("lat", parseFloat),
+    mapLng: num("lng", parseFloat),
+    mapZoom: num("z", parseFloat),
+    outbreakId: num("oid", (raw) => parseInt(raw, 10)),
   };
 }
 

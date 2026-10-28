@@ -45,11 +45,16 @@ export interface CusumResult {
 function isoWeekKey(d: Date): { key: string; monday: Date } {
   const dt = new Date(Date.UTC(d.getFullYear(), d.getMonth(), d.getDate()));
   const day = (dt.getUTCDay() + 6) % 7; // 0 = понедельник
-  dt.setUTCDate(dt.getUTCDate() - day);
-  const onejan = new Date(Date.UTC(dt.getUTCFullYear(), 0, 1));
-  const week = Math.ceil(((dt.getTime() - onejan.getTime()) / 86400000 + onejan.getUTCDay() + 1) / 7);
+  dt.setUTCDate(dt.getUTCDate() - day); // понедельник недели
+  // Канонический ISO 8601 («четверговое правило»): неделя относится к тому
+  // году, в котором лежит её четверг; неделя 1 содержит 4 января.
+  const thursday = new Date(dt);
+  thursday.setUTCDate(dt.getUTCDate() + 3);
+  const firstThursday = new Date(Date.UTC(thursday.getUTCFullYear(), 0, 4));
+  firstThursday.setUTCDate(firstThursday.getUTCDate() - ((firstThursday.getUTCDay() + 6) % 7) + 3);
+  const week = 1 + Math.round((thursday.getTime() - firstThursday.getTime()) / (7 * 86400000));
   return {
-    key: `${dt.getUTCFullYear()}-W${String(week).padStart(2, "0")}`,
+    key: `${thursday.getUTCFullYear()}-W${String(week).padStart(2, "0")}`,
     monday: dt,
   };
 }
@@ -128,6 +133,9 @@ export function cusumDetect(
     sNow: +s.toFixed(3),
     signal,
     signalSince,
-    enoughData: weeksWithData >= 4 || s > 0,
+    // Достаточность данных: либо 4+ недель со вспышками, либо уже пересечён
+    // порог сигнала (s ≥ h). Раньше достаточно считался любой s > 0 — при
+    // единственной вспышке модуль врал «данных достаточно».
+    enoughData: weeksWithData >= 4 || s >= h,
   };
 }

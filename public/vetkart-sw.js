@@ -44,6 +44,37 @@ const TILE_HOSTS = [
   "tile.openstreetmap.org",
 ];
 
+// LRU-лимит тайлового кэша: свыше TILE_CACHE_LIMIT записей удаляем старейшие
+// (cache.keys() перечисляет записи в порядке вставки). Полевая оффлайн-фича
+// важна, но квота хранилища не бесконечна.
+const TILE_CACHE_LIMIT = 300;
+
+// Записать тайл в кэш с catch (QuotaExceeded не должен давать unhandled
+// rejection в SW) и последующей эвикцией при превышении лимита.
+async function putTile(cache, req, res) {
+  try {
+    await cache.put(req, res);
+  } catch {
+    // Ошибка записи (квота и пр.) — кэш не должен ронять fetch-обработчик.
+  }
+  try {
+    const keys = await cache.keys();
+    const tiles = keys.filter((k) => {
+      try {
+        return TILE_HOSTS.some((h) => new URL(k.url).hostname.includes(h));
+      } catch {
+        return false;
+      }
+    });
+    const excess = tiles.length - TILE_CACHE_LIMIT;
+    for (let i = 0; i < excess; i++) {
+      await cache.delete(tiles[i]);
+    }
+  } catch {
+    // Эвикция — best effort.
+  }
+}
+
 // ─── Helper: fetch current build version from version.json ──────────────
 // Called during install. Result is stored in CACHE_VERSION and used to
 // name the cache. If the version differs from any existing cache, activate()
@@ -147,7 +178,7 @@ self.addEventListener("fetch", (event) => {
         if (cached) return cached;
         try {
           const fresh = await fetch(req);
-          if (fresh.ok) cache.put(req, fresh.clone());
+          if (fresh.ok) event.waitUntil(putTile(cache, req, fresh.clone()));
           return fresh;
         } catch {
           return cached || new Response("", { status: 504 });
@@ -158,7 +189,9 @@ self.addEventListener("fetch", (event) => {
       const networkPromise = fetch(req)
         .then((fresh) => {
           if (fresh && fresh.ok && fresh.type === "basic") {
-            cache.put(req, fresh.clone());
+            // fire-and-forget с catch: QuotaExceeded не должен давать
+            // unhandled rejection в SW.
+            cache.put(req, fresh.clone()).catch(() => {});
           }
           return fresh;
         })

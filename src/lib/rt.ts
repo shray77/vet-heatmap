@@ -22,12 +22,14 @@
 export interface RtDataPoint {
   /** ISO date string. */
   date: string;
-  /** Point estimate of Rt. */
-  rt: number;
-  /** 95% confidence interval lower bound. */
-  ciLower: number;
-  /** 95% confidence interval upper bound. */
-  ciUpper: number;
+  /** Point estimate of Rt. null — Rt неизмерим (пустое прошлое окно, Λ=0):
+   * ранее здесь была заглушка rt=1, которая на графике выглядела как
+   * измерение; UI обязан рисовать null как «н/д». */
+  rt: number | null;
+  /** 95% confidence interval lower bound (null, если Rt неизмерим). */
+  ciLower: number | null;
+  /** 95% confidence interval upper bound (null, если Rt неизмерим). */
+  ciUpper: number | null;
   /** Number of new cases on this day. */
   cases: number;
 }
@@ -59,9 +61,11 @@ export function buildDailyCases(
 ): { date: string; cases: number }[] {
   if (outbreaks.length === 0) return [];
 
-  // Group by date and sum cases
+  // Group by date and sum cases (мусорные даты пропускаем — иначе тихо
+  // получается пустой ряд; ср. фильтр в cusum.ts)
   const byDate = new Map<string, number>();
   for (const o of outbreaks) {
+    if (Number.isNaN(new Date(o.date).getTime())) continue;
     const d = o.date.slice(0, 10); // YYYY-MM-DD
     byDate.set(d, (byDate.get(d) ?? 0) + (o.cases || 0));
   }
@@ -145,19 +149,23 @@ export function calculateRt(
     const beta = 1 / epsilon + lambda;
 
     if (lambda === 0) {
-      // No past cases → can't estimate Rt, use prior mean
+      // Пустое прошлое окно (Λ=0) — Rt неизмерим: возвращаем null, а не
+      // заглушку rt=1 с зашитым CI [0.3, 3.0] — «prior mean» на графике
+      // выглядел как настоящее измерение. Потребитель рисует «н/д».
       result.push({
         date: cases[t].date,
-        rt: 1,
-        ciLower: 0.3,
-        ciUpper: 3.0,
+        rt: null,
+        ciLower: null,
+        ciUpper: null,
         cases: cases[t].cases,
       });
       continue;
     }
 
     const rt = alpha / beta;
-    // 95% CI from Gamma quantiles (approximation using normal for speed)
+    // 95% CI: нормальное приближение гамма-апостериори (точные гамма-
+    // квантили дороже). При windowCases 0–2 нижняя граница уходит в минус —
+    // клампим нулём; для вопроса дашборда «растёт/затухает» достаточно.
     const variance = alpha / (beta * beta);
     const stdDev = Math.sqrt(variance);
     const ciLower = Math.max(0, rt - 1.96 * stdDev);

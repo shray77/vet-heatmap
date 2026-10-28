@@ -68,8 +68,9 @@ function mergePair(a: Outbreak, b: Outbreak): Outbreak {
     lon: a.lon ?? b.lon,
     // Ongoing beats Resolved (more recent info)
     status: a.status === "Ongoing" || b.status === "Ongoing" ? "Ongoing" : winner.status,
-    // Combine notes
-    notes: [a.notes, b.notes].filter(Boolean).join(" | ") || winner.notes,
+    // Combine notes (без дублей: идентичные notes одного события из двух
+    // источников не должны склеиваться в «A | A»; пустые в вывод не идут)
+    notes: Array.from(new Set([a.notes, b.notes].filter(Boolean))).join(" | ") || winner.notes,
     // Take the most recent date if sources disagree
     date: a.date > b.date ? a.date : b.date,
     // Municipality/settlements from FSVPS (if available)

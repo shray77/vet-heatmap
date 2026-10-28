@@ -64,28 +64,42 @@ export function RtChart({ outbreaks, diseaseKey, compact = false }: RtChartProps
     );
   }
 
-  // Latest Rt value for interpretation
-  const latest = data[data.length - 1];
-  const interpretation = interpretRt(latest.rt);
+  // Последняя ИЗМЕРИМАЯ точка (rt≠null): при пустом прошлом окне (Λ=0) Rt
+  // неизмерим и приходит как null — раньше там была заглушка rt=1, теперь
+  // честное «н/д» (и разрыв линии на графике).
+  const latestMeasured = [...data].reverse().find((p) => p.rt != null) ?? null;
+  const interpretation = latestMeasured?.rt != null ? interpretRt(latestMeasured.rt) : null;
 
   return (
     <div className="space-y-2">
       {/* Rt summary badge */}
       <div className="flex items-center justify-between gap-2">
         <div className="flex items-center gap-2">
-          <span className="text-lg">{interpretation.emoji}</span>
+          {interpretation ? <span className="text-lg">{interpretation.emoji}</span> : null}
           <div>
             <div className="text-xs text-muted-foreground">Текущий Rt</div>
-            <div className="text-sm font-bold" style={{ color: interpretation.color }}>
-              {latest.rt.toFixed(2)}{" "}
-              <span className="text-[10px] font-normal text-muted-foreground">
-                (95% ДИ: {latest.ciLower.toFixed(2)}–{latest.ciUpper.toFixed(2)})
-              </span>
-            </div>
+            {latestMeasured && latestMeasured.rt != null ? (
+              <div className="text-sm font-bold" style={{ color: interpretation?.color }}>
+                {latestMeasured.rt.toFixed(2)}{" "}
+                <span className="text-[10px] font-normal text-muted-foreground">
+                  (95% ДИ: {latestMeasured.ciLower?.toFixed(2)}–{latestMeasured.ciUpper?.toFixed(2)})
+                </span>
+              </div>
+            ) : (
+              <div className="text-sm font-bold text-muted-foreground">
+                н/д{" "}
+                <span className="text-[10px] font-normal text-muted-foreground">
+                  (нет случаев в прошлом окне)
+                </span>
+              </div>
+            )}
           </div>
         </div>
-        <div className="text-xs font-medium" style={{ color: interpretation.color }}>
-          {interpretation.label}
+        <div
+          className="text-xs font-medium"
+          style={{ color: interpretation?.color ?? "var(--muted-foreground)" }}
+        >
+          {interpretation?.label ?? "Rt не измерим"}
         </div>
       </div>
 
@@ -130,15 +144,16 @@ export function RtChart({ outbreaks, diseaseKey, compact = false }: RtChartProps
               const dt = new Date(d);
               return dt.toLocaleDateString("ru-RU", { day: "numeric", month: "long", year: "numeric" });
             }}
-            formatter={((v: number) => {
-              const point = data.find((p) => p.rt === v);
-              if (point) {
+            formatter={((v: number | null) => {
+              const point = v == null ? null : data.find((p) => p.rt === v);
+              if (point && point.rt != null) {
                 return [
-                  `Rt: ${point.rt.toFixed(2)} (ДИ: ${point.ciLower.toFixed(2)}–${point.ciUpper.toFixed(2)})`,
+                  `Rt: ${point.rt.toFixed(2)} (ДИ: ${point.ciLower?.toFixed(2)}–${point.ciUpper?.toFixed(2)})`,
                   `Случаев: ${point.cases}`,
                 ];
               }
-              return [v?.toFixed(2) ?? "", "Rt"];
+              if (v == null) return ["Rt: н/д", "Нет данных"];
+              return [v.toFixed(2), "Rt"];
             }) as any}
           />
           {/* Rt = 1 threshold line */}

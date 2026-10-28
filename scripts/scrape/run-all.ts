@@ -149,8 +149,6 @@ async function main() {
 
     // Convert RawArticles to Outbreaks (reuse fsvps.ts convertRawToOutbreak)
     if (histOutbreaks.length > 0) {
-      const { normalizeDisease, getDiseaseLabels } = await import("../../src/data/diseases-normalize");
-      const { normalizeRegion } = await import("../../src/data/regions");
       const histOutbreaksConverted = histOutbreaks.map((raw: any, i: number) => {
         const disease_key = normalizeDisease(raw.detected_disease ?? "");
         const labels = getDiseaseLabels(disease_key);
@@ -187,7 +185,7 @@ async function main() {
     // Convert WAHIS RawArticles to Outbreaks
     const wahisRaw = wahisResult.value.raw;
     const wahisOutbreaks = wahisRaw.map((raw: any, i: number) => {
-                  const disease_key = normalizeDisease(raw.detected_disease ?? "");
+      const disease_key = normalizeDisease(raw.detected_disease ?? "");
       const labels = getDiseaseLabels(disease_key);
       return {
         id: 20000 + i,

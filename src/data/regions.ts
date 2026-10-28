@@ -89,6 +89,7 @@ export const REGION_MAP: Record<string, string> = {
   "Челябинская область": "Chelyabinsk",
   "Новосибирская область": "Novosibirsk",
   "Ленинградская область": "Leningrad",
+  "Ленобласть": "Leningrad",
   "Саратовская область": "Saratov",
   "Владимирская область": "Vladimir",
   "Тверская область": "Tver'",
@@ -111,6 +112,7 @@ export const REGION_MAP: Record<string, string> = {
   "Псковская область": "Pskov",
   "Новгородская область": "Novgorod",
   "Свердловская область": "Sverdlovsk",
+  "Свердловской область": "Sverdlovsk", // падежная форма источника («в Свердловской области»)
   "Оренбургская область": "Orenburg",
   "Тюменская область": "Tyumen'",
   "Брянская область": "Bryansk",
@@ -135,16 +137,23 @@ export const REGION_MAP: Record<string, string> = {
   "Чукотка": "Chukchi Autonomous Okrug",
   "Ненецкий автономный округ": "Nenets",
   "Ханты-Мансийский автономный округ — Югра": "Khanty-Mansiy",
+  "Ханты-Мансийский автономный округ": "Khanty-Mansiy",
   "Ханты-Мансийский АО": "Khanty-Mansiy",
   "Югра": "Khanty-Mansiy",
+  "Югра АО": "Khanty-Mansiy",
   "Ямало-Ненецкий автономный округ": "Yamal-Nenets",
   "Ямало-Ненецкий АО": "Yamal-Nenets",
   "Еврейская автономная область": "Yevrey",
   "Еврейская АО": "Yevrey",
+  "Автономная область": "Yevrey", // единственная АО в РФ — Еврейская; источники обрезают прилагательное
 
   // Crimea (covered by source as Crimea, sensitive politically — Natural Earth has it)
   "Республика Крым": "Crimea",
   "Крым": "Crimea",
+
+  // Осознанно НЕ мапим (нет геометрии в russia_regions.geojson):
+  // «Херсонская область» (нет в Natural Earth ADM1) и
+  // «Россия (без указания региона)» (легитимно без геометрии).
 };
 
 /** Reverse lookup: GeoJSON shapeName -> canonical Russian name. */

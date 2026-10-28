@@ -69,7 +69,7 @@ export function Header({
     { label: "Биоугрозы мира", url: "https://shray77.github.io/biothreat-site/", title: "BioThreat — международные биоугрозы" },
     { label: "Окна риска ВПГП", url: "https://shray77.github.io/vetflu-site/", title: "VetFlu — окна риска гриппа птиц по флайвеям РФ" },
     { label: "ФЭКРТ", url: "https://shray77.github.io/vetfecrt-site/", title: "ФЭКРТ — тест снижения числа яиц гельминтов (WAAVP-2023)" },
-    { label: "Статус ядра RSS", url: "https://shray77.github.io/rss-core-site/", title: "RSS-ядро — статус инжеста лент" },
+    { label: "Статус ядра", url: "https://shray77.github.io/rss-core-site/", title: "RSS-ядро — статус инжеста лент" },
   ];
 
   return (
@@ -145,7 +145,7 @@ export function Header({
             <DropdownMenuTrigger asChild>
               <Button variant="ghost" size="sm" className="h-9 px-2 text-xs gap-1" aria-label="Сеть проектов экосистемы">
                 <Globe className="h-4 w-4" />
-                <span className="hidden lg:inline">Сеть</span>
+                <span className="hidden md:inline">Сеть</span>
               </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end" className="w-64">
