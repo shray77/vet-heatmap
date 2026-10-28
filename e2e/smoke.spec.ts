@@ -10,15 +10,19 @@ test.describe("ВетКарта smoke tests", () => {
   test("page loads with title and map", async ({ page }) => {
     await page.goto("/");
     await expect(page).toHaveTitle(/ВетКарта/);
-    // Map container should be visible
-    await expect(page.locator("[role='region'][aria-label='Map'], .maplibregl-map, canvas")).toBeVisible({ timeout: 15000 });
+    // Map container should be visible (container div или canvas — берём первый:
+    // strict mode требует один элемент, а матчится и div, и canvas)
+    await expect(
+      page.locator("[role='region'][aria-label='Map'], .maplibregl-map, canvas").first(),
+    ).toBeVisible({ timeout: 15000 });
   });
 
   test("header shows app name and search box", async ({ page }) => {
     await page.goto("/");
     await expect(page.locator("h1")).toContainText("Вет");
-    // Search box should be visible on desktop
-    await expect(page.locator('input[aria-label="Поиск"]')).toBeVisible({ timeout: 10000 });
+    // Search box should be visible on desktop (в разметке два инпута —
+    // десктоп и мобайл; strict mode — берём первый видимый)
+    await expect(page.locator('input[aria-label="Поиск"]').first()).toBeVisible({ timeout: 10000 });
   });
 
   test("disease filter chips are clickable", async ({ page }) => {
@@ -47,8 +51,14 @@ test.describe("ВетКарта smoke tests", () => {
     await page.goto("/");
     // Wait for stats bar to show numbers (not loading state)
     await page.waitForTimeout(5000); // give data time to load
-    // The "Всего" stat should show a number > 0
-    const statsText = await page.locator("text=Всего").textContent();
-    expect(statsText).toBeTruthy();
+    // Структура статус-бара: <span bold>ЧИСЛО</span><span>Всего</span> —
+    // значение это предыдущий брат метки (desktop-бар, md+ вьюпорт)
+    const totalLabel = page.locator('span:text-is("Всего")').first();
+    await expect(totalLabel).toBeVisible();
+    const valueSpan = totalLabel.locator("xpath=preceding-sibling::span[1]");
+    const valueText = await valueSpan.textContent();
+    expect(valueText).toBeTruthy();
+    const num = valueText!.replace(/[^0-9]/g, "");
+    expect(num.length).toBeGreaterThan(0);
   });
 });

@@ -36,6 +36,16 @@ jobs:
         # (wrong field names) before they reach production.
         run: bun run test
 
+      - name: Run E2E smoke tests (Playwright)
+        # Task 191: e2e-гейт деплоя — приложение обязано ЗАГРУЗИТЬСЯ:
+        # заголовок, карта, поиск, фильтры болезней. Раньше e2e были
+        # «ручной» опцией и не блокировали выкладку.
+        env:
+          CI: "true"
+        run: |
+          bunx playwright install --with-deps chromium
+          bunx playwright test
+
       - name: Lint
         run: bun run lint
 
