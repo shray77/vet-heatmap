@@ -62,14 +62,19 @@ export function Header({
   // а с неё самой исходящих ссылок не было вовсе (кроме VetFlu и только
   // на десктопе). Секция «Экосистема» — те же сёстры, что в хабах витрин.
   // Task 183: + Визитка-каталог первой строкой — выход на каталог семьи.
+  // Task 195: +ВетМетео/ВетТулс/ВетХаб — сеть полная, порядок пилюль
+  // как в хабах витрин (ВетРадар/ФЭКРТ).
   const ECOSYSTEM_LINKS: { label: string; url: string; title: string }[] = [
     { label: "Визитка", url: "https://shray77.github.io/", title: "Каталог витрин и инструментов разработчика-ветеринара" },
     { label: "Дайджест науки", url: "https://shray77.github.io/vetdigest-site/", title: "VetDigest — дайджест ветеринарной науки" },
     { label: "Отзывы и вспышки РФ", url: "https://shray77.github.io/vetrecall-site/", title: "VetRecall — радар брака, фальсификата и вспышек" },
     { label: "Биоугрозы мира", url: "https://shray77.github.io/biothreat-site/", title: "BioThreat — международные биоугрозы" },
     { label: "Окна риска ВПГП", url: "https://shray77.github.io/vetflu-site/", title: "VetFlu — окна риска гриппа птиц по флайвеям РФ" },
-    { label: "ФЭКРТ", url: "https://shray77.github.io/vetfecrt-site/", title: "ФЭКРТ — тест снижения числа яиц гельминтов (WAAVP-2023)" },
+    { label: "ВетМетео", url: "https://shray77.github.io/vet-meteo/", title: "ВетРадар-61 — пост диспетчера: метео, THI КРС, BRD телят" },
     { label: "Статус ядра", url: "https://shray77.github.io/rss-core-site/", title: "RSS-ядро — статус инжеста лент" },
+    { label: "ФЭКРТ", url: "https://shray77.github.io/vetfecrt-site/", title: "ФЭКРТ — тест снижения числа яиц гельминтов (WAAVP-2023)" },
+    { label: "ВетТулс", url: "https://shray77.github.io/vettools/", title: "ВетТулс — набор ветеринарных калькуляторов" },
+    { label: "ВетХаб", url: "https://shray77.github.io/vet-hub/", title: "ВетХаб — центр экосистемы: сводка, карта, прогноз, инструменты" },
   ];
 
   return (
