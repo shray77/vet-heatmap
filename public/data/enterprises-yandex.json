@@ -1,10 +1,22 @@
 {
-  "updated": "2026-10-29",
+  "updated": "2026-10-30",
   "sources": [
     "yandex"
   ],
-  "total": 411,
+  "total": 419,
   "enterprises": [
+    {
+      "id": "yandex-45878683269",
+      "name": "Автосервис",
+      "type": "cattle_farm",
+      "lat": 52.559821,
+      "lon": 39.6824,
+      "address": "Липецк, Левобережный округ",
+      "city": "Липецк",
+      "rubric": "8",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/krs_avto/45878683269/"
+    },
     {
       "id": "yandex-1111942529",
       "name": "Орловский дворик",
@@ -65,6 +77,18 @@
       "org_href": "https://yandex.ru/maps/org/energy/98808277966/"
     },
     {
+      "id": "yandex-2538305143",
+      "name": "Kemin",
+      "type": "feed_mill",
+      "lat": 52.514007,
+      "lon": 39.799319,
+      "address": "Липецкая область, городское поселение Грязи, территория Особая экономическая зона промышленно-производственного типа Липецк, 18",
+      "city": "Липецк",
+      "rubric": "Производственное предприятие",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/kemin_industries_lipetsk/2538305143/"
+    },
+    {
       "id": "yandex-32637053798",
       "name": "Kombikormi",
       "type": "feed_mill",
@@ -75,6 +99,18 @@
       "rubric": "Комбикорма и кормовые добавки",
       "source": "yandex",
       "org_href": "https://yandex.ru/maps/org/kombikormi/32637053798/"
+    },
+    {
+      "id": "yandex-49720165319",
+      "name": "Max Weeg",
+      "type": "feed_mill",
+      "lat": 52.628525,
+      "lon": 39.540488,
+      "address": "Липецк, Опытная ул., 1Д",
+      "city": "Липецк",
+      "rubric": "Комбикорма и кормовые добавки",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/max_weeg/49720165319/"
     },
     {
       "id": "yandex-68093466689",
@@ -140,7 +176,7 @@
       "type": "feed_mill",
       "lat": 54.599744,
       "lon": 39.767272,
-      "address": "Куйбышевское ш., 25, стр. 10, Рязань",
+      "address": "Рязань, Куйбышевское ш., 25, стр. 10",
       "city": "Рязань",
       "rubric": "Комбикорма и кормовые добавки",
       "source": "yandex",
@@ -588,7 +624,7 @@
       "type": "feed_mill",
       "lat": 54.568059,
       "lon": 39.824055,
-      "address": "Рязань, район Восточный Промышленный узел",
+      "address": "Новосёлковская ул., 3Б, Рязань",
       "city": "Рязань",
       "rubric": "Комбикорма и кормовые добавки",
       "source": "yandex",
@@ -849,11 +885,11 @@
       "type": "feed_mill",
       "lat": 54.151665,
       "lon": 37.708042,
-      "address": "Новотульская ул., 20, Тула",
+      "address": "Тула, Новотульская ул., 20",
       "city": "Тула",
       "rubric": "Комбикорма и кормовые добавки",
       "source": "yandex",
-      "org_href": "https://yandex.ru/maps/org/kombikorm_i_zerno/202338009825/"
+      "org_href": "https://yandex.ru/maps/org/kombikorm_v_tule/202338009825/"
     },
     {
       "id": "yandex-89017185737",
@@ -961,6 +997,18 @@
       "rubric": "Комбикорма и кормовые добавки",
       "source": "yandex",
       "org_href": "https://yandex.ru/maps/org/kombikorma/1676836345/"
+    },
+    {
+      "id": "yandex-167920400984",
+      "name": "Комбикорма",
+      "type": "feed_mill",
+      "lat": 52.577819,
+      "lon": 39.719495,
+      "address": "Липецк, Речная ул., 1",
+      "city": "Липецк",
+      "rubric": "Комбикорма и кормовые добавки",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/kombikorma/167920400984/"
     },
     {
       "id": "yandex-160939317132",
@@ -1218,6 +1266,30 @@
       "rubric": "Зерно и зерноотходы",
       "source": "yandex",
       "org_href": "https://yandex.ru/maps/org/kormodom/1748817385/"
+    },
+    {
+      "id": "yandex-13296649207",
+      "name": "Кормушка",
+      "type": "feed_mill",
+      "lat": 52.548416,
+      "lon": 39.496399,
+      "address": "село Подгорное, Прогонная ул., 79Б",
+      "city": "Липецк",
+      "rubric": "Комбикорма и кормовые добавки",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/kormushka/13296649207/"
+    },
+    {
+      "id": "yandex-164458464889",
+      "name": "Кормушка",
+      "type": "feed_mill",
+      "lat": 52.54903,
+      "lon": 39.744675,
+      "address": "Липецк, железнодорожная станция Казинка, Асфальтная ул., 115А",
+      "city": "Липецк",
+      "rubric": "Комбикорма и кормовые добавки",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/kormushka/164458464889/"
     },
     {
       "id": "yandex-78789796510",
@@ -1992,6 +2064,18 @@
       "rubric": "Комбикорма и кормовые добавки",
       "source": "yandex",
       "org_href": "https://yandex.ru/maps/org/khleb_kubani/1089755477/"
+    },
+    {
+      "id": "yandex-2480771920",
+      "name": "Черноземье",
+      "type": "feed_mill",
+      "lat": 52.633565,
+      "lon": 39.659452,
+      "address": "Липецк, Заводская площадь, 3",
+      "city": "Липецк",
+      "rubric": "Комбикорма и кормовые добавки",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/chernozemye/2480771920/"
     },
     {
       "id": "yandex-1155156162",
@@ -3160,7 +3244,7 @@
       "lat": 55.342273,
       "lon": 35.720133,
       "address": "Московская область, Можайский городской округ, сельское поселение Юрловское",
-      "city": "Москва",
+      "city": "Тула",
       "rubric": "Животноводческое хозяйство",
       "source": "yandex",
       "org_href": "https://yandex.ru/maps/org/svinovodcheskiy_kompleks/187535263300/"
@@ -3176,6 +3260,18 @@
       "rubric": "Животноводческое хозяйство",
       "source": "yandex",
       "org_href": "https://yandex.ru/maps/org/svinovodcheskiy_kompleks_charoen_pokphand_foods/197503318931/"
+    },
+    {
+      "id": "yandex-167752528935",
+      "name": "Свиноводческий комплекс Быково",
+      "type": "pig_farm",
+      "lat": 52.525703,
+      "lon": 37.891514,
+      "address": "д. Слобода-Заречье, 1",
+      "city": "Липецк",
+      "rubric": "Добавить фото или видео",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/svinovodcheskiy_kompleks_bykovo/167752528935/"
     },
     {
       "id": "yandex-176822971634",
@@ -4167,8 +4263,8 @@
       "id": "yandex-222824356616",
       "name": "Птицефабрика Липецкая",
       "type": "poultry_farm",
-      "lat": null,
-      "lon": null,
+      "lat": 52.676955,
+      "lon": 39.481253,
       "address": "д. Копцевы Хутора, ул. Котовского, 2Б",
       "city": "Липецк",
       "rubric": "Сельскохозяйственное предприятие",
@@ -4727,8 +4823,8 @@
       "id": "yandex-16325820225",
       "name": "Черкизово",
       "type": "poultry_farm",
-      "lat": null,
-      "lon": null,
+      "lat": 52.604785,
+      "lon": 39.582062,
       "address": "Липецк, Советская ул., 32",
       "city": "Липецк",
       "rubric": "Производство продуктов питания",
@@ -4751,8 +4847,8 @@
       "id": "yandex-31141198545",
       "name": "Экоптица",
       "type": "poultry_farm",
-      "lat": null,
-      "lon": null,
+      "lat": 52.604577,
+      "lon": 39.572468,
       "address": "Липецк, площадь Победы, 6",
       "city": "Липецк",
       "rubric": "Яйцо и мясо птицы",
@@ -4825,7 +4921,7 @@
       "type": "poultry_farm",
       "lat": 45.029907,
       "lon": 39.039475,
-      "address": "Краснодар, микрорайон Хлопчато-бумажный Комбинат, ул. Лизы Чайкиной, 22",
+      "address": "ул. Лизы Чайкиной, 22, микрорайон Хлопчато-бумажный Комбинат, Краснодар",
       "city": "Краснодар",
       "rubric": "Яйцо и мясо птицы",
       "source": "yandex",
