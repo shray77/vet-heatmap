@@ -3,7 +3,7 @@
   "sources": [
     "yandex"
   ],
-  "total": 419,
+  "total": 420,
   "enterprises": [
     {
       "id": "yandex-45878683269",
@@ -1067,6 +1067,18 @@
       "rubric": "Комбикорма и кормовые добавки",
       "source": "yandex",
       "org_href": "https://yandex.ru/maps/org/compound_feed_and_feed_additives/18558509169/"
+    },
+    {
+      "id": "yandex-220379776922",
+      "name": "Комбикорма и кормовые добавки",
+      "type": "feed_mill",
+      "lat": 54.582478,
+      "lon": 39.787255,
+      "address": "Рязань, район Соколовка",
+      "city": "Рязань",
+      "rubric": "Комбикорма и кормовые добавки",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/kombikorma_i_kormovyye_dobavki/220379776922/"
     },
     {
       "id": "yandex-137249674647",
@@ -4921,7 +4933,7 @@
       "type": "poultry_farm",
       "lat": 45.029907,
       "lon": 39.039475,
-      "address": "ул. Лизы Чайкиной, 22, микрорайон Хлопчато-бумажный Комбинат, Краснодар",
+      "address": "Краснодар, микрорайон Хлопчато-бумажный Комбинат, ул. Лизы Чайкиной, 22",
       "city": "Краснодар",
       "rubric": "Яйцо и мясо птицы",
       "source": "yandex",
