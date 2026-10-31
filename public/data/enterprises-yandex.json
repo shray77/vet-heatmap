@@ -1,9 +1,9 @@
 {
-  "updated": "2026-10-30",
+  "updated": "2026-10-31",
   "sources": [
     "yandex"
   ],
-  "total": 420,
+  "total": 430,
   "enterprises": [
     {
       "id": "yandex-45878683269",
@@ -158,6 +158,18 @@
       "rubric": "Комбикорма и кормовые добавки",
       "source": "yandex",
       "org_href": "https://yandex.ru/maps/org/avangard/217665379467/"
+    },
+    {
+      "id": "yandex-1060110638",
+      "name": "Автодизельмаш",
+      "type": "feed_mill",
+      "lat": 47.222739,
+      "lon": 39.726467,
+      "address": "Ростов-на-Дону, Социалистическая ул., 132/37, офис 6",
+      "city": "Ростов-на-Дону",
+      "rubric": "Комбикорма и кормовые добавки",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/avtodizelmash/1060110638/"
     },
     {
       "id": "yandex-29760158000",
@@ -629,6 +641,18 @@
       "rubric": "Комбикорма и кормовые добавки",
       "source": "yandex",
       "org_href": "https://yandex.ru/maps/org/zerno_kombikorm/30920175079/"
+    },
+    {
+      "id": "yandex-6918578708",
+      "name": "Зерно-Комбикорм ИП Нистратов К.В.",
+      "type": "feed_mill",
+      "lat": 53.248821,
+      "lon": 40.268627,
+      "address": "рабочий посёлок Первомайский, Шоссейная ул., 8",
+      "city": "Тамбов",
+      "rubric": "Комбикорма и кормовые добавки",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/zerno_kombikorm/6918578708/"
     },
     {
       "id": "yandex-160388870849",
@@ -1970,6 +1994,18 @@
       "org_href": "https://yandex.ru/maps/org/soyuzpishcheprom/1036569983/"
     },
     {
+      "id": "yandex-78844957169",
+      "name": "Тамбовская индейка, комбикормовый завод",
+      "type": "feed_mill",
+      "lat": 53.312365,
+      "lon": 40.266026,
+      "address": "Тамбовская область, Первомайский район",
+      "city": "Тамбов",
+      "rubric": "Пищевое сырьё",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/tambovskaya_indeyka_kombikormovy_zavod/78844957169/"
+    },
+    {
       "id": "yandex-114813025024",
       "name": "Титан-Агро",
       "type": "feed_mill",
@@ -2432,6 +2468,18 @@
       "org_href": "https://yandex.ru/maps/org/td_kamenka_myaso/1084149573/"
     },
     {
+      "id": "yandex-146187979655",
+      "name": "КлассМяс",
+      "type": "meat_plant",
+      "lat": 52.725048,
+      "lon": 41.425944,
+      "address": "Тамбов, Фабричная ул., 6",
+      "city": "Тамбов",
+      "rubric": "Мясная продукция оптом",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/klassmyas/146187979655/"
+    },
+    {
       "id": "yandex-1066102405",
       "name": "Крестьянское хозяйство Макарова И. М.",
       "type": "meat_plant",
@@ -2512,6 +2560,18 @@
       "rubric": "Мясная продукция оптом",
       "source": "yandex",
       "org_href": "https://yandex.ru/maps/org/lopatinskii_bekon/173175018439/"
+    },
+    {
+      "id": "yandex-63549948005",
+      "name": "МПК на Ипподромной",
+      "type": "meat_plant",
+      "lat": 52.733424,
+      "lon": 41.415191,
+      "address": "Тамбов, Ипподромная ул., 5Б",
+      "city": "Тамбов",
+      "rubric": "Мясная продукция оптом",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/mpk_na_ippodromnoy/63549948005/"
     },
     {
       "id": "yandex-1226487149",
@@ -2885,6 +2945,18 @@
       "source": "yandex"
     },
     {
+      "id": "yandex-231793732989",
+      "name": "ПродРесурс",
+      "type": "meat_plant",
+      "lat": 52.689113,
+      "lon": 41.475378,
+      "address": "Тамбов, Клубная ул., 1",
+      "city": "Тамбов",
+      "rubric": "Продукты глубокой заморозки",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/prodresurs/231793732989/"
+    },
+    {
       "id": "yandex-225656122162",
       "name": "Продбаза",
       "type": "meat_plant",
@@ -3071,6 +3143,18 @@
       "org_href": "https://yandex.ru/maps/org/tavriya_magazin_perekusochnaya/14721882371/"
     },
     {
+      "id": "yandex-1460452033",
+      "name": "Тамбовский мясокомбинат",
+      "type": "meat_plant",
+      "lat": 52.733577,
+      "lon": 41.385493,
+      "address": "Тамбов, Бастионная ул., 1",
+      "city": "Тамбов",
+      "rubric": "Производство продуктов питания",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/tambovsky_myasokombinat/1460452033/"
+    },
+    {
       "id": "yandex-39467488211",
       "name": "Торговый дом Агро-Белогорье",
       "type": "meat_plant",
@@ -3226,6 +3310,18 @@
       "org_href": "https://yandex.ru/maps/org/permsky_svinokompleks/41895709038/"
     },
     {
+      "id": "yandex-56126066828",
+      "name": "Рассказовский свиноводческий комплекс",
+      "type": "pig_farm",
+      "lat": 52.624808,
+      "lon": 41.89658,
+      "address": "село Верхнеспасское, Новая ул., 14",
+      "city": "Тамбов",
+      "rubric": "6",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/rasskazovsky_pig_breeding_complex/56126066828/"
+    },
+    {
       "id": "yandex-153746669718",
       "name": "Рязанский свинокомплекс",
       "type": "pig_farm",
@@ -3256,7 +3352,7 @@
       "lat": 55.342273,
       "lon": 35.720133,
       "address": "Московская область, Можайский городской округ, сельское поселение Юрловское",
-      "city": "Тула",
+      "city": "Москва",
       "rubric": "Животноводческое хозяйство",
       "source": "yandex",
       "org_href": "https://yandex.ru/maps/org/svinovodcheskiy_kompleks/187535263300/"
@@ -3796,6 +3892,18 @@
       "rubric": "Яйцо и мясо птицы",
       "source": "yandex",
       "org_href": "https://yandex.ru/maps/org/gap_resurs/1065485281/"
+    },
+    {
+      "id": "yandex-106605512325",
+      "name": "ГАП Ресурс",
+      "type": "poultry_farm",
+      "lat": 52.719457,
+      "lon": 41.451438,
+      "address": "Тамбов, ул. Карла Маркса, 130",
+      "city": "Тамбов",
+      "rubric": "Сельскохозяйственная продукция",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/gap_resurs/106605512325/"
     },
     {
       "id": "yandex-1057005497",
@@ -4687,6 +4795,18 @@
       "rubric": "Яйцо и мясо птицы",
       "source": "yandex",
       "org_href": "https://yandex.ru/maps/org/stavropolsky_broyler/1046360368/"
+    },
+    {
+      "id": "yandex-1784932429",
+      "name": "Тамбовский бройлер",
+      "type": "poultry_farm",
+      "lat": 52.721808,
+      "lon": 41.445052,
+      "address": "Тамбов, Базарная улица",
+      "city": "Тамбов",
+      "rubric": "Яйцо и мясо птицы",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/tambovsky_broyler/1784932429/"
     },
     {
       "id": "yandex-4772451460",
