@@ -250,3 +250,24 @@
     user-select: none;
   }
 }
+
+/* ─── Доступность (QA sw32: З1/П2, Н4/П4) ─────────────────────────────
+   З1: Tailwind v4 оставлял кнопкам cursor:default (81/83 кликабельных)
+   при pointer-курсоре на строках таблицы — два поведения в одном сайте.
+   Н4: 0 правил prefers-reduced-motion при 206 анимированных элементах
+   (ping/pulse/ripple/shimmer) — WCAG 2.3.3, вестибулярные нарушения.
+*/
+button:not(:disabled) {
+  cursor: pointer;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

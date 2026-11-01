@@ -38,6 +38,24 @@ interface RiskAssessment {
 }
 
 /**
+ * QA sw32 (Н2): точки с координатами вне земных диапазонов (lat=99999,
+ * lon=99999) проходили в расчёт дистанций и давали «ближайшая вспышка
+ * 11 217 188 км», а NaN-мусор отбрасывался — валидация была непоследовательной.
+ * Единая проверка на входе: конечные числа в диапазоне ±90/±180.
+ * (0,0) по-прежнему отбрасывается — точка в океане, прежнее поведение.)
+ */
+export function isValidCustomPoint(p: { lat: number; lon: number }): boolean {
+  return (
+    Number.isFinite(p.lat) &&
+    Number.isFinite(p.lon) &&
+    Math.abs(p.lat) <= 90 &&
+    Math.abs(p.lon) <= 180 &&
+    p.lat !== 0 &&
+    p.lon !== 0
+  );
+}
+
+/**
  * Feature 5: Local CSV/JSON import — privacy-first custom data overlay.
  *
  * Users (commercial farms, agricultural companies) can import their own
@@ -92,9 +110,21 @@ export function CustomDataImport({ open, onOpenChange, outbreaks }: Props) {
             });
           }
 
-          // Filter valid
-          parsed = parsed.filter((p) => p.lat !== 0 && p.lon !== 0);
-          if (parsed.length === 0) throw new Error("Нет валидных точек с координатами");
+          // Filter valid — земные диапазоны (QA sw32, Н2), см. isValidCustomPoint
+          const valid = parsed.filter(isValidCustomPoint);
+          const droppedRows = parsed.length - valid.length;
+          if (valid.length === 0) {
+            throw new Error(
+              "Нет валидных точек с координатами (широта −90…90, долгота −180…180)",
+            );
+          }
+          if (droppedRows > 0) {
+            setError(
+              `Отброшено строк с некорректными координатами: ${droppedRows}. ` +
+                "Координаты должны быть в земном диапазоне: широта −90…90, долгота −180…180.",
+            );
+          }
+          parsed = valid;
 
           setPoints(parsed);
           computeRisk(parsed, outbreaks);

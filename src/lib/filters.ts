@@ -79,6 +79,12 @@ export function paramsToFilters(params: URLSearchParams | Record<string, string>
     return Number.isFinite(v) ? v : undefined;
   };
 
+  // QA sw32 К1: lat=999 доходил до MapLibre как есть и ронял всё приложение
+  // («Invalid LngLat latitude value: must be between -90 and 90», белый экран).
+  // Клампим к земным диапазонам — мусор/NaN отбрасывает num() выше.
+  const clamp = (v: number | undefined, min: number, max: number): number | undefined =>
+    v == null ? undefined : Math.min(max, Math.max(min, v));
+
   return {
     diseases: d ? (d.split(",").filter(Boolean) as DiseaseKey[]) : [],
     species: sp ? sp.split(",").filter(Boolean) : [],
@@ -87,8 +93,8 @@ export function paramsToFilters(params: URLSearchParams | Record<string, string>
     dateFrom: get("from"),
     dateTo: get("to"),
     query: get("q") ?? "",
-    mapLat: num("lat", parseFloat),
-    mapLng: num("lng", parseFloat),
+    mapLat: clamp(num("lat", parseFloat), -90, 90),
+    mapLng: clamp(num("lng", parseFloat), -180, 180),
     mapZoom: num("z", parseFloat),
     outbreakId: num("oid", (raw) => parseInt(raw, 10)),
   };

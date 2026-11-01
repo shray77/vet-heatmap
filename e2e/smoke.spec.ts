@@ -61,4 +61,27 @@ test.describe("ВетКарта smoke tests", () => {
     const num = valueText!.replace(/[^0-9]/g, "");
     expect(num.length).toBeGreaterThan(0);
   });
+
+  // QA sw32 К1: ?lat=999&lng=999 ронял приложение белым экраном
+  // («Invalid LngLat latitude value» в MapLibre) — клампим диапазоны.
+  test("garbage map coords in URL do not crash the app", async ({ page }) => {
+    const errors: string[] = [];
+    page.on("pageerror", (e) => errors.push(String(e)));
+    await page.goto("/?d=asf&lat=999&lng=999");
+    await expect(page).toHaveTitle(/ВетКарта/);
+    await expect(
+      page.locator("[role='region'][aria-label='Map'], .maplibregl-map, canvas").first(),
+    ).toBeVisible({ timeout: 15000 });
+    // Не белый экран «Application error»
+    expect(errors.filter((e) => e.includes("Invalid LngLat"))).toHaveLength(0);
+  });
+
+  // QA sw32 Н1: PWA-ярлык манифеста ведёт на ?action=calculator —
+  // параметр должен открывать калькулятор карантина.
+  test("?action=calculator opens the quarantine calculator dialog", async ({ page }) => {
+    await page.goto("/?action=calculator");
+    await expect(page.locator("[role='dialog']")).toBeVisible({ timeout: 15000 });
+    // Параметр вычищается из URL, чтобы F5 не переоткрывал диалог
+    expect(page.url()).not.toContain("action=calculator");
+  });
 });

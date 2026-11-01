@@ -92,6 +92,40 @@ describe("applyFilters", () => {
   });
 });
 
+describe("paramsToFilters: клампинг координат из URL (QA sw32, К1)", () => {
+  it("клампит lat=999/lng=999 к земным диапазонам вместо краша MapLibre", () => {
+    const f = paramsToFilters(new URLSearchParams("d=asf&lat=999&lng=999"));
+    expect(f.mapLat).toBe(90);
+    expect(f.mapLng).toBe(180);
+  });
+
+  it("клампит отрицательные выходы за диапазон", () => {
+    const f = paramsToFilters(new URLSearchParams("lat=-120.5&lng=-200"));
+    expect(f.mapLat).toBe(-90);
+    expect(f.mapLng).toBe(-180);
+  });
+
+  it("валидные координаты проходят без изменений", () => {
+    const f = paramsToFilters(new URLSearchParams("lat=55.7558&lng=37.6173&z=4.7"));
+    expect(f.mapLat).toBe(55.7558);
+    expect(f.mapLng).toBe(37.6173);
+    expect(f.mapZoom).toBe(4.7);
+  });
+
+  it("мусорные значения отбрасываются (abc, пусто, Infinity)", () => {
+    const f = paramsToFilters(new URLSearchParams("lat=abc&lng=&lat2=x"));
+    expect(f.mapLat).toBeUndefined();
+    expect(f.mapLng).toBeUndefined();
+    expect(paramsToFilters(new URLSearchParams("lat=1e999")).mapLat).toBeUndefined();
+  });
+
+  it("граничные значения диапазона валидны", () => {
+    const f = paramsToFilters(new URLSearchParams("lat=90&lng=-180"));
+    expect(f.mapLat).toBe(90);
+    expect(f.mapLng).toBe(-180);
+  });
+});
+
 describe("filtersToParams / paramsToFilters", () => {
   it("round-trips empty filters", () => {
     const f = makeFilters({ diseases: [], species: [], statuses: [], federalDistricts: [], dateFrom: null, dateTo: null, query: "" });

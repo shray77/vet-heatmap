@@ -98,7 +98,9 @@ export function StatsBar({ outbreaks, totalRegions, onSelectDisease }: StatsBarP
                   >
                     <span className="h-1.5 w-1.5 rounded-full" style={{ backgroundColor: color }} />
                     <span className="font-medium text-foreground">{labels.short_ru}</span>
-                    <span className="text-muted-foreground tabular-nums">{count}</span>
+                    {/* QA sw32 (П3): цифра активных без подписи рядом с фильтром
+                        «Бешенство (1048)» — те же сущности, разные метрики. */}
+                    <span className="text-muted-foreground tabular-nums">{count} акт.</span>
                   </button>
                 );
               })}

@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useCallback, useState } from "react";
+import { useMemo, useCallback, useEffect, useRef, useState } from "react";
 import { useMapStore } from "@/lib/map-store";
 import { useWorkerFilter } from "@/hooks/use-worker-filter";
 import { AlertTriangle, X } from "lucide-react";
@@ -33,6 +33,14 @@ function HomeContent() {
   // Debounce filters — prevents expensive applyFilters on every keystroke
   const debouncedFilters = useDebounced(filters, 300);
 
+  // QA sw32 (Н1): PWA-ярлык «Калькулятор карантина» из manifest.webmanifest
+  // ведёт на ?action=calculator, но параметр никем не обрабатывался —
+  // URL-синхронизация фильтров (useUrlFilters) вычищала его уже на первом
+  // эффекте. Поэтому читаем его в первом рендере, до любых эффектов.
+  const initialUrlAction = useRef(
+    typeof window === "undefined" ? null : new URLSearchParams(window.location.search).get("action"),
+  );
+
   // Map state from Zustand store
   const { showRiskZones, showChoropleth, densityLayer, showHeatmap, showForecast, nightMode,
           timelineRange, mobileSheetExpanded,
@@ -44,6 +52,16 @@ function HomeContent() {
     setMobileFiltersOpen, setAboutOpen, setNearbyOpen, setSirOpen,
     openRegion, openOutbreak, selectedOutbreak
   } = useUIStore();
+
+  useEffect(() => {
+    if (initialUrlAction.current !== "calculator") return;
+    setCalcOpen(true);
+    // Вычистить параметр: F5/шеринг ссылки не должны переоткрывать диалог.
+    const p = new URLSearchParams(window.location.search);
+    p.delete("action");
+    const qs = p.toString();
+    window.history.replaceState(null, "", qs ? `?${qs}` : window.location.pathname);
+  }, [setCalcOpen]);
 
   const basePath = process.env.NODE_ENV === "production" ? "/vet-heatmap" : "";
   const enterprisesQuery = useQuery({
@@ -278,11 +296,11 @@ function MobileFloatingStats({ filtered }: { filtered: Outbreak[] }) {
           canvas forces a GPU re-composite every frame (mobile jank). */}
       <div className="flex h-12 w-12 flex-col items-center justify-center rounded-full border border-white/15 bg-card/90 shadow-lg">
         <span className="text-sm font-bold tabular-nums leading-none text-foreground">{filtered.length}</span>
-        <span className="mt-0.5 text-[7px] uppercase text-muted-foreground">всего</span>
+        <span className="mt-0.5 text-[10px] uppercase text-muted-foreground">всего</span>
       </div>
       <div className="flex h-12 w-12 flex-col items-center justify-center rounded-full border border-white/15 bg-card/90 shadow-lg">
         <span className="text-sm font-bold tabular-nums leading-none text-destructive">{ongoing}</span>
-        <span className="mt-0.5 text-[7px] uppercase text-muted-foreground">активн.</span>
+        <span className="mt-0.5 text-[10px] uppercase text-muted-foreground">активн.</span>
       </div>
     </div>
   );
@@ -313,9 +331,9 @@ function MapLegend({ densityLayer, updated, sources, showForecast, forecast }: {
       <button
         onClick={() => setCollapsed(true)}
         aria-label="Свернуть легенду"
-        className="absolute right-2 top-2 rounded p-0.5 text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
+        className="absolute right-2 top-2 rounded p-2 text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
       >
-        <X className="h-3 w-3" />
+        <X className="h-4 w-4" />
       </button>
       <div className="font-semibold text-foreground mb-1.5 pr-4">Зоны риска</div>
       <LegendRow color="#D32F2F" label="Защита (3 км)" />
