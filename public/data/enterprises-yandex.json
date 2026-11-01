@@ -1,9 +1,9 @@
 {
-  "updated": "2026-10-31",
+  "updated": "2026-11-01",
   "sources": [
     "yandex"
   ],
-  "total": 430,
+  "total": 449,
   "enterprises": [
     {
       "id": "yandex-45878683269",
@@ -16,6 +16,18 @@
       "rubric": "8",
       "source": "yandex",
       "org_href": "https://yandex.ru/maps/org/krs_avto/45878683269/"
+    },
+    {
+      "id": "yandex-71094848608",
+      "name": "Глянец",
+      "type": "cattle_farm",
+      "lat": 51.722886,
+      "lon": 36.157019,
+      "address": "Курск, ул. Пирогова, 3/2",
+      "city": "Курск",
+      "rubric": "Животноводческое хозяйство",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/glyanets/71094848608/"
     },
     {
       "id": "yandex-1111942529",
@@ -703,6 +715,18 @@
       "org_href": "https://yandex.ru/maps/org/npk_zernoprodukt/1012102093/"
     },
     {
+      "id": "yandex-63435659410",
+      "name": "Зернышко",
+      "type": "feed_mill",
+      "lat": 51.764398,
+      "lon": 36.252519,
+      "address": "Курск, ул. Ильича, 104Б",
+      "city": "Курск",
+      "rubric": "Комбикорма и кормовые добавки",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/zernyshko/63435659410/"
+    },
+    {
       "id": "yandex-21011181756",
       "name": "Инвар",
       "type": "feed_mill",
@@ -904,6 +928,18 @@
       "source": "yandex"
     },
     {
+      "id": "yandex-168658972289",
+      "name": "Комбикорм зерно крупы",
+      "type": "feed_mill",
+      "lat": 51.669339,
+      "lon": 36.134971,
+      "address": "городской округ Курск, Сеймский округ",
+      "city": "Курск",
+      "rubric": "Комбикорма и кормовые добавки",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/kombikorm_zerno_krupy/168658972289/"
+    },
+    {
       "id": "yandex-202338009825",
       "name": "Комбикорм и зерно",
       "type": "feed_mill",
@@ -1033,6 +1069,30 @@
       "rubric": "Комбикорма и кормовые добавки",
       "source": "yandex",
       "org_href": "https://yandex.ru/maps/org/kombikorma/167920400984/"
+    },
+    {
+      "id": "yandex-f8109a383690",
+      "name": "Комбикорма",
+      "type": "feed_mill",
+      "lat": 51.748507,
+      "lon": 36.139322,
+      "address": "Курск, ул. 50 лет Октября, 112А",
+      "city": "Курск",
+      "rubric": "Комбикорма и кормовые добавки",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/151851393342/"
+    },
+    {
+      "id": "yandex-19462956541",
+      "name": "Комбикорма",
+      "type": "feed_mill",
+      "lat": 51.752841,
+      "lon": 36.137912,
+      "address": "Курск, ул. 50 лет Октября, 116Е/4",
+      "city": "Курск",
+      "rubric": "Комбикорма и кормовые добавки",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/kombikorma/19462956541/"
     },
     {
       "id": "yandex-160939317132",
@@ -1349,6 +1409,18 @@
       "rubric": "Комбикорма и кормовые добавки",
       "source": "yandex",
       "org_href": "https://yandex.ru/maps/org/kudryashovskiy_kombikormovy_zavod/1133602542/"
+    },
+    {
+      "id": "yandex-1019112626",
+      "name": "Курский комбинат хлебопродуктов",
+      "type": "feed_mill",
+      "lat": 51.652959,
+      "lon": 36.153256,
+      "address": "Курск, Магистральный пр., 22Г",
+      "city": "Курск",
+      "rubric": "Мука и крупы",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/kurskiy_kombinat_khleboproduktov/1019112626/"
     },
     {
       "id": "yandex-1919539246",
@@ -1719,6 +1791,18 @@
       "org_href": "https://yandex.ru/maps/org/penzenskiy_kombinat_khleboproduktov/1097645981/"
     },
     {
+      "id": "yandex-171856030121",
+      "name": "Прайм-М",
+      "type": "feed_mill",
+      "lat": 51.737819,
+      "lon": 36.199519,
+      "address": "Курск, ул. Володарского, 44, помещение 4",
+      "city": "Курск",
+      "rubric": "Комбикорма и кормовые добавки",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/prime_m_llc/171856030121/"
+    },
+    {
       "id": "yandex-1103881600",
       "name": "Премикс",
       "type": "feed_mill",
@@ -2016,6 +2100,18 @@
       "rubric": "Комбикорма и кормовые добавки",
       "source": "yandex",
       "org_href": "https://yandex.ru/maps/org/titan_agro/114813025024/"
+    },
+    {
+      "id": "yandex-1044798897",
+      "name": "Трейдер",
+      "type": "feed_mill",
+      "lat": 51.72818,
+      "lon": 36.17265,
+      "address": "Курск, ул. Большевиков, 42, офис 208, этаж 2",
+      "city": "Курск",
+      "rubric": "Комбикорма и кормовые добавки",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/treyder/1044798897/"
     },
     {
       "id": "yandex-1085449143",
@@ -2539,6 +2635,30 @@
       "org_href": "https://yandex.ru/maps/org/spk_kurnikov/181210935363/"
     },
     {
+      "id": "yandex-1914622955",
+      "name": "Курский Мясокомбинат Лико",
+      "type": "meat_plant",
+      "lat": 51.815146,
+      "lon": 36.135312,
+      "address": "д. Татаренкова, Трудовая ул., 23",
+      "city": "Курск",
+      "rubric": "Мясная продукция оптом",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/kursky_myasokombinat_liko/1914622955/"
+    },
+    {
+      "id": "yandex-87891280572",
+      "name": "Курский продукт",
+      "type": "meat_plant",
+      "lat": 51.753343,
+      "lon": 36.29315,
+      "address": "Курский район, аэропорт Курск (Восточный) имени М.И. Гуревича",
+      "city": "Курск",
+      "rubric": "Мясная продукция оптом",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/kurskij_produkt/87891280572/"
+    },
+    {
       "id": "yandex-55666563687",
       "name": "Куш",
       "type": "meat_plant",
@@ -2668,6 +2788,18 @@
       "org_href": "https://yandex.ru/maps/org/myasnaya_produktsiya_optom/79720345527/"
     },
     {
+      "id": "yandex-121166636801",
+      "name": "Мясная продукция оптом",
+      "type": "meat_plant",
+      "lat": 51.655581,
+      "lon": 36.047596,
+      "address": "Курский район, Ворошневский сельсовет, деревня Ворошнево",
+      "city": "Курск",
+      "rubric": "Мясная продукция оптом",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/myasnaya_produktsiya_optom/121166636801/"
+    },
+    {
       "id": "yandex-117934706634",
       "name": "Мясное раздолье",
       "type": "meat_plant",
@@ -2714,6 +2846,18 @@
       "source": "yandex"
     },
     {
+      "id": "yandex-245654606586",
+      "name": "Мясо комбинат",
+      "type": "meat_plant",
+      "lat": 51.74961,
+      "lon": 36.044173,
+      "address": "село Полянское, 217",
+      "city": "Курск",
+      "rubric": "Мясная продукция оптом",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/myaso_kombinat/245654606586/"
+    },
+    {
       "id": "yandex-61997941027",
       "name": "Мясо-полуфабрикаты оптом",
       "type": "meat_plant",
@@ -2723,6 +2867,18 @@
       "city": "Санкт-Петербург",
       "rubric": "Мясная продукция оптом",
       "source": "yandex"
+    },
+    {
+      "id": "yandex-14793855842",
+      "name": "Мясо46",
+      "type": "meat_plant",
+      "lat": 51.725843,
+      "lon": 36.187265,
+      "address": "Курск, ул. Александра Невского, 7",
+      "city": "Курск",
+      "rubric": "Мясная продукция оптом",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/myaso46/14793855842/"
     },
     {
       "id": "yandex-197480212817",
@@ -3131,6 +3287,18 @@
       "org_href": "https://yandex.ru/maps/org/somovomyasoprodukt/1309200178/"
     },
     {
+      "id": "yandex-1262089703",
+      "name": "ТК Подлесный",
+      "type": "meat_plant",
+      "lat": 51.732682,
+      "lon": 36.32169,
+      "address": "посёлок Подлесный, 76",
+      "city": "Курск",
+      "rubric": "Мясная продукция оптом",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/tk_podlesnoye/1262089703/"
+    },
+    {
       "id": "yandex-14721882371",
       "name": "Таврия магазин-перекусочная",
       "type": "meat_plant",
@@ -3262,6 +3430,18 @@
       "org_href": "https://yandex.ru/maps/org/cherkizovskiy_myasopererabatyvayushchiy_zavod/233650306206/"
     },
     {
+      "id": "yandex-54957118157",
+      "name": "ЭкоМит",
+      "type": "meat_plant",
+      "lat": 51.700266,
+      "lon": 36.193644,
+      "address": "Курск, 1-я Прогонная ул., 48А",
+      "city": "Курск",
+      "rubric": "Мясная продукция оптом",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/ecomeat/54957118157/"
+    },
+    {
       "id": "yandex-1132648536",
       "name": "Агро-Альянс",
       "type": "pig_farm",
@@ -3380,6 +3560,18 @@
       "rubric": "Добавить фото или видео",
       "source": "yandex",
       "org_href": "https://yandex.ru/maps/org/svinovodcheskiy_kompleks_bykovo/167752528935/"
+    },
+    {
+      "id": "yandex-64942436203",
+      "name": "Свиноводческий комплекс ПромАгро Сибагро",
+      "type": "pig_farm",
+      "lat": 51.948763,
+      "lon": 36.465209,
+      "address": "Курская область, Золотухинский район, Будановский сельсовет",
+      "city": "Курск",
+      "rubric": "Добавить фото или видео",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/svinovodcheskiy_kompleks_promagro_sibagro/64942436203/"
     },
     {
       "id": "yandex-176822971634",
@@ -3965,6 +4157,18 @@
       "org_href": "https://yandex.ru/maps/org/magazin_kombikorma_i_zhivoy_ptitsy/1719533041/"
     },
     {
+      "id": "yandex-1686060080",
+      "name": "Живая птица",
+      "type": "poultry_farm",
+      "lat": 51.721864,
+      "lon": 36.078915,
+      "address": "Курский район, Моковский сельсовет, деревня 1-я Моква",
+      "city": "Курск",
+      "rubric": "Животноводческое хозяйство",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/zhivaya_ptitsa/1686060080/"
+    },
+    {
       "id": "yandex-15898806342",
       "name": "Ив. Курников",
       "type": "poultry_farm",
@@ -4116,6 +4320,18 @@
       "city": "Москва",
       "rubric": "Яйцо и мясо птицы",
       "source": "yandex"
+    },
+    {
+      "id": "yandex-1748229254",
+      "name": "Курская птицефабрика",
+      "type": "poultry_farm",
+      "lat": 51.671808,
+      "lon": 36.151144,
+      "address": "Курск, Резиновая ул., 11",
+      "city": "Курск",
+      "rubric": "Яйцо и мясо птицы",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/kurskaya_ptitsefabrika/1748229254/"
     },
     {
       "id": "yandex-63118276890",
@@ -4319,6 +4535,18 @@
       "rubric": "Яйцо и мясо птицы",
       "source": "yandex",
       "org_href": "https://yandex.ru/maps/org/ptitsa_tolyattinskoy_ptitsefabriki/1725800053/"
+    },
+    {
+      "id": "yandex-196757916133",
+      "name": "Птица у Василича",
+      "type": "poultry_farm",
+      "lat": 51.741873,
+      "lon": 35.98187,
+      "address": "Курский район, Полянский сельсовет, село Полянское",
+      "city": "Курск",
+      "rubric": "Животноводческое хозяйство",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/ptitsa_u_vasilicha/196757916133/"
     },
     {
       "id": "yandex-62805262126",
@@ -4766,11 +4994,11 @@
       "type": "poultry_farm",
       "lat": 53.571447,
       "lon": 83.775219,
-      "address": "Советская ул., 1, посёлок Сибирский",
+      "address": "посёлок Сибирский, Советская ул., 1",
       "city": "Барнаул",
       "rubric": "Животноводческое хозяйство",
       "source": "yandex",
-      "org_href": "https://yandex.ru/maps/org/sibirskaya_ptitsa/179015709498/"
+      "org_href": "https://yandex.ru/maps/org/sibirskaya_pticza/179015709498/"
     },
     {
       "id": "yandex-1093143071",
