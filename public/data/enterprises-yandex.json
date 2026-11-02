@@ -1,9 +1,9 @@
 {
-  "updated": "2026-11-01",
+  "updated": "2026-11-02",
   "sources": [
     "yandex"
   ],
-  "total": 449,
+  "total": 452,
   "enterprises": [
     {
       "id": "yandex-45878683269",
@@ -392,7 +392,8 @@
       "address": "Казань, ул. Журналистов, 97",
       "city": "Казань",
       "rubric": "Комбикорма и кормовые добавки",
-      "source": "yandex"
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/basan_grupp/146988589246/"
     },
     {
       "id": "yandex-136895522239",
@@ -758,7 +759,8 @@
       "address": "Казань, Хлебозаводская ул., 3, корп. 1",
       "city": "Казань",
       "rubric": "Зерно и зерноотходы",
-      "source": "yandex"
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/kazanskaya_melnitsa/1123107706/"
     },
     {
       "id": "yandex-179168030439",
@@ -893,6 +895,30 @@
       "org_href": "https://yandex.ru/maps/org/kombikorm/184390742069/"
     },
     {
+      "id": "yandex-10914697075",
+      "name": "Комбикорм",
+      "type": "feed_mill",
+      "lat": 55.826766,
+      "lon": 49.033174,
+      "address": "Казань, ул. Горьковское Шоссе, 113В",
+      "city": "Казань",
+      "rubric": "Комбикорма и кормовые добавки",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/kombikorm/10914697075/"
+    },
+    {
+      "id": "yandex-15564207841",
+      "name": "Комбикорм",
+      "type": "feed_mill",
+      "lat": 55.868445,
+      "lon": 49.090128,
+      "address": "Казань, ул. Айдарова, 8Г",
+      "city": "Казань",
+      "rubric": "Комбикорма и кормовые добавки",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/kombikorm/15564207841/"
+    },
+    {
       "id": "yandex-217331397527",
       "name": "Комбикорм 72",
       "type": "feed_mill",
@@ -960,7 +986,8 @@
       "address": "Казань, Тэцевская ул., 175Б",
       "city": "Казань",
       "rubric": "Комбикорма и кормовые добавки",
-      "source": "yandex"
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/kombikorm_v_kazani/89017185737/"
     },
     {
       "id": "yandex-154599188020",
@@ -1115,7 +1142,8 @@
       "address": "Казань, ул. Васильченко, 9/9, офис 102",
       "city": "Казань",
       "rubric": "Комбикорма и кормовые добавки",
-      "source": "yandex"
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/animal_feed_from_tekhnokorm/95360923780/"
     },
     {
       "id": "yandex-189705634308",
@@ -1244,7 +1272,8 @@
       "address": "Казань, Техническая ул., 15",
       "city": "Казань",
       "rubric": "Комбикорма и кормовые добавки",
-      "source": "yandex"
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/korma/73740888376/"
     },
     {
       "id": "yandex-46797635124",
@@ -2521,12 +2550,13 @@
       "id": "yandex-94759958621",
       "name": "Зилантия",
       "type": "meat_plant",
-      "lat": null,
-      "lon": null,
+      "lat": 55.797686,
+      "lon": 49.057069,
       "address": "Казань, ул. Клары Цеткин, 19, этаж 2, офис 18",
       "city": "Казань",
       "rubric": "Мясная продукция оптом",
-      "source": "yandex"
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/zilantia/94759958621/"
     },
     {
       "id": "yandex-37535136183",
@@ -2621,18 +2651,6 @@
       "city": "Красноярск",
       "rubric": "Мясная продукция оптом",
       "source": "yandex"
-    },
-    {
-      "id": "yandex-181210935363",
-      "name": "Курников",
-      "type": "meat_plant",
-      "lat": 51.532675,
-      "lon": 46.020641,
-      "address": "Саратов, ул. имени В.И. Чапаева, 59",
-      "city": "Саратов",
-      "rubric": "31",
-      "source": "yandex",
-      "org_href": "https://yandex.ru/maps/org/spk_kurnikov/181210935363/"
     },
     {
       "id": "yandex-1914622955",
@@ -2843,7 +2861,8 @@
       "address": "Казань, ул. Мартына Межлаука, 13, этаж 1",
       "city": "Казань",
       "rubric": "Мясная продукция оптом",
-      "source": "yandex"
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/myasnoy_rynok/143691364565/"
     },
     {
       "id": "yandex-245654606586",
@@ -2889,7 +2908,8 @@
       "address": "Казань, ул. Рахимова, 59Д",
       "city": "Казань",
       "rubric": "Мясная продукция оптом",
-      "source": "yandex"
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/myasorybka/197480212817/"
     },
     {
       "id": "yandex-118536678306",
@@ -2912,7 +2932,8 @@
       "address": "Казань, Гвардейская ул., 43, корп. 4",
       "city": "Казань",
       "rubric": "Мясная продукция оптом",
-      "source": "yandex"
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/myasokombinat_kazanskiy/88032826577/"
     },
     {
       "id": "yandex-1231166592",
@@ -3082,12 +3103,13 @@
       "id": "yandex-116536789042",
       "name": "Премьер",
       "type": "meat_plant",
-      "lat": null,
-      "lon": null,
+      "lat": 55.835483,
+      "lon": 49.057447,
       "address": "Казань, ул. Васильченко, 1, корп. 153Б, офис 340",
       "city": "Казань",
       "rubric": "Мясная продукция оптом",
-      "source": "yandex"
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/premyer/116536789042/"
     },
     {
       "id": "yandex-1397890621",
@@ -3490,6 +3512,18 @@
       "org_href": "https://yandex.ru/maps/org/permsky_svinokompleks/41895709038/"
     },
     {
+      "id": "yandex-1102388191",
+      "name": "Промышленный Свиноводческий комплекс Салман",
+      "type": "pig_farm",
+      "lat": 54.969597,
+      "lon": 49.773561,
+      "address": "Республика Татарстан, Алькеевский район, село Салманы",
+      "city": "Казань",
+      "rubric": "Добавить фото или видео",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/promyshlenny_svinovodchesky_komplekc_salman/1102388191/"
+    },
+    {
       "id": "yandex-56126066828",
       "name": "Рассказовский свиноводческий комплекс",
       "type": "pig_farm",
@@ -3532,7 +3566,7 @@
       "lat": 55.342273,
       "lon": 35.720133,
       "address": "Московская область, Можайский городской округ, сельское поселение Юрловское",
-      "city": "Москва",
+      "city": "Тула",
       "rubric": "Животноводческое хозяйство",
       "source": "yandex",
       "org_href": "https://yandex.ru/maps/org/svinovodcheskiy_kompleks/187535263300/"
@@ -4320,6 +4354,18 @@
       "city": "Москва",
       "rubric": "Яйцо и мясо птицы",
       "source": "yandex"
+    },
+    {
+      "id": "yandex-181210935363",
+      "name": "Курников",
+      "type": "poultry_farm",
+      "lat": 51.532675,
+      "lon": 46.020641,
+      "address": "Саратов, ул. имени В.И. Чапаева, 59, этаж 1",
+      "city": "Саратов",
+      "rubric": "Яйцо и мясо птицы",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/spk_kurnikov/181210935363/"
     },
     {
       "id": "yandex-1748229254",
