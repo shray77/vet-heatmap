@@ -1,9 +1,9 @@
 {
-  "updated": "2026-11-02",
+  "updated": "2026-11-03",
   "sources": [
     "yandex"
   ],
-  "total": 452,
+  "total": 453,
   "enterprises": [
     {
       "id": "yandex-45878683269",
@@ -521,11 +521,11 @@
       "type": "feed_mill",
       "lat": 54.695154,
       "lon": 56.003355,
-      "address": "Уфа, ул. Авроры, 3/1, подъезд 1",
+      "address": "ул. Авроры, 3/1, Уфа, подъезд 1",
       "city": "Уфа",
       "rubric": "Комбикорма и кормовые добавки",
       "source": "yandex",
-      "org_href": "https://yandex.ru/maps/org/kompaniya_veles/1074084772/"
+      "org_href": "https://yandex.ru/maps/org/veles/1074084772/"
     },
     {
       "id": "yandex-131553131000",
@@ -2428,6 +2428,18 @@
       "org_href": "https://yandex.ru/maps/org/buraymyaso/224046285374/"
     },
     {
+      "id": "yandex-d7b5b4c1702d",
+      "name": "БурайМясо",
+      "type": "meat_plant",
+      "lat": 54.739456,
+      "lon": 55.992988,
+      "address": "Уфа, Комсомольская ул., 8",
+      "city": "Уфа",
+      "rubric": "Мясная продукция оптом",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/224046285374/"
+    },
+    {
       "id": "yandex-77327330692",
       "name": "Бургомистр Мясной город",
       "type": "meat_plant",
@@ -3566,7 +3578,7 @@
       "lat": 55.342273,
       "lon": 35.720133,
       "address": "Московская область, Можайский городской округ, сельское поселение Юрловское",
-      "city": "Тула",
+      "city": "Москва",
       "rubric": "Животноводческое хозяйство",
       "source": "yandex",
       "org_href": "https://yandex.ru/maps/org/svinovodcheskiy_kompleks/187535263300/"
