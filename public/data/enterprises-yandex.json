@@ -1872,11 +1872,11 @@
       "type": "feed_mill",
       "lat": 57.953213,
       "lon": 56.25271,
-      "address": "Пермь, ул. Василия Васильева, 37",
+      "address": "ул. Василия Васильева, 37, Пермь",
       "city": "Пермь",
       "rubric": "Комбикорма и кормовые добавки",
       "source": "yandex",
-      "org_href": "https://yandex.ru/maps/org/prikamskiekorma/49992255248/"
+      "org_href": "https://yandex.ru/maps/org/prikamskiye_korma/49992255248/"
     },
     {
       "id": "yandex-1731054280",
