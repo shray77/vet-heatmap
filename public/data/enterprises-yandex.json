@@ -3,7 +3,7 @@
   "sources": [
     "yandex"
   ],
-  "total": 453,
+  "total": 454,
   "enterprises": [
     {
       "id": "yandex-45878683269",
@@ -1297,6 +1297,18 @@
       "rubric": "Комбикорма и кормовые добавки",
       "source": "yandex",
       "org_href": "https://yandex.ru/maps/org/korma_57/59367542100/"
+    },
+    {
+      "id": "yandex-37661915608",
+      "name": "Корма 59",
+      "type": "feed_mill",
+      "lat": 55.690159,
+      "lon": 49.175814,
+      "address": "Республика Татарстан (Татарстан), Казань, Приволжский район",
+      "city": "Казань",
+      "rubric": "Комбикорма и кормовые добавки",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/kompanija_po_prodazhe_kombikorma_zerna_i_otrubej/37661915608/"
     },
     {
       "id": "yandex-64904655278",
