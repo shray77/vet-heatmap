@@ -1,9 +1,9 @@
 {
-  "updated": "2026-11-04",
+  "updated": "2026-11-05",
   "sources": [
     "yandex"
   ],
-  "total": 454,
+  "total": 455,
   "enterprises": [
     {
       "id": "yandex-45878683269",
@@ -587,15 +587,28 @@
       "org_href": "https://yandex.ru/maps/org/danzim/1050101784/"
     },
     {
+      "id": "yandex-77749852219",
+      "name": "Диалог-Агро-2",
+      "type": "feed_mill",
+      "lat": 56.054407,
+      "lon": 92.745977,
+      "address": "Красноярск, ул. Калинина, 169/5",
+      "city": "Красноярск",
+      "rubric": "Комбикорма и кормовые добавки",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/dialog_agro_2/77749852219/"
+    },
+    {
       "id": "yandex-91183685016",
       "name": "Доставка кормов Цыпа",
       "type": "feed_mill",
       "lat": 56.069243,
       "lon": 92.852568,
-      "address": "Луговая ул., 1/1, посёлок Солонцы",
+      "address": "посёлок Солонцы, Луговая ул., 1/1",
       "city": "Красноярск",
       "rubric": "Комбикорма и кормовые добавки",
-      "source": "yandex"
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/dostavka_kormov_tsypa/91183685016/"
     },
     {
       "id": "yandex-205585116864",
@@ -748,7 +761,8 @@
       "address": "Красноярск, ул. Калинина, 49, скл.10/4",
       "city": "Красноярск",
       "rubric": "Сельскохозяйственная продукция",
-      "source": "yandex"
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/inkubiruyem_sami/169461439221/"
     },
     {
       "id": "yandex-1123107706",
@@ -1208,12 +1222,13 @@
       "id": "yandex-1088610031",
       "name": "Комбикормовый завод (Красноярск  ул. Энергетиков)",
       "type": "feed_mill",
-      "lat": null,
-      "lon": null,
+      "lat": 56.000457,
+      "lon": 93.008016,
       "address": "Красноярск, ул. Энергетиков, 73А, стр. 2, этаж 2, помещение 4",
       "city": "Красноярск",
       "rubric": "Комбикорма и кормовые добавки",
-      "source": "yandex"
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/krasnoyarsky_kombikormovy_zavod/1088610031/"
     },
     {
       "id": "yandex-4141916127",
@@ -1284,7 +1299,8 @@
       "address": "Красноярск, ул. Калинина, 98/13",
       "city": "Красноярск",
       "rubric": "Комбикорма и кормовые добавки",
-      "source": "yandex"
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/korma/46797635124/"
     },
     {
       "id": "yandex-59367542100",
@@ -1331,7 +1347,8 @@
       "address": "Красноярск, ул. Шахтёров, 35/2с11",
       "city": "Красноярск",
       "rubric": "Комбикорма и кормовые добавки",
-      "source": "yandex"
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/korma_dlya_pitomtsev/192572083139/"
     },
     {
       "id": "yandex-128169072828",
@@ -1342,7 +1359,8 @@
       "address": "Красноярск, ул. Калинина, 49, корп. 8",
       "city": "Красноярск",
       "rubric": "Комбикорма и кормовые добавки",
-      "source": "yandex"
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/kormilets/128169072828/"
     },
     {
       "id": "yandex-1073622471",
@@ -2342,7 +2360,8 @@
       "address": "городской округ Красноярск, Железнодорожный район, Дорожная улица, 20/1",
       "city": "Красноярск",
       "rubric": "Мясная продукция оптом",
-      "source": "yandex"
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/agroyar/76253470770/"
     },
     {
       "id": "yandex-1001230151",
@@ -2669,12 +2688,13 @@
       "id": "yandex-232818823046",
       "name": "Купец Сибири",
       "type": "meat_plant",
-      "lat": null,
-      "lon": null,
+      "lat": 56.034788,
+      "lon": 92.833052,
       "address": "Красноярск, Брянская ул., 280, офис 1-3, этаж 1",
       "city": "Красноярск",
       "rubric": "Мясная продукция оптом",
-      "source": "yandex"
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/merchant_siberia/232818823046/"
     },
     {
       "id": "yandex-1914622955",
@@ -2767,7 +2787,8 @@
       "address": "Красноярск, Брянская ул., 145",
       "city": "Красноярск",
       "rubric": "Мясная продукция оптом",
-      "source": "yandex"
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/mnogo_myasa/96536544185/"
     },
     {
       "id": "yandex-1235084092",
@@ -2992,7 +3013,8 @@
       "address": "посёлок Солонцы, просп. Котельникова, 11В, стр. 1",
       "city": "Красноярск",
       "rubric": "Производство продуктов питания",
-      "source": "yandex"
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/myasopererabatyvayushchiy_zavod/21078594345/"
     },
     {
       "id": "yandex-1248058714",
@@ -3248,7 +3270,8 @@
       "address": "Красноярск, Большегвардейская ул., 4",
       "city": "Красноярск",
       "rubric": "Производство продуктов питания",
-      "source": "yandex"
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/santana_wholesale_manufacturing_company/1670636258/"
     },
     {
       "id": "yandex-234944826021",
@@ -3758,7 +3781,8 @@
       "address": "Красноярский край, Большемуртинский район",
       "city": "Красноярск",
       "rubric": "Аграрная инфраструктура",
-      "source": "yandex"
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/svinokompleks_krasnoyarskiy_korpus_1/165695625365/"
     },
     {
       "id": "yandex-73621844747",
@@ -3769,7 +3793,8 @@
       "address": "Красноярский край, Большемуртинский район",
       "city": "Красноярск",
       "rubric": "Аграрная инфраструктура",
-      "source": "yandex"
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/svinokompleks_krasnoyarskiy_korpus_2/73621844747/"
     },
     {
       "id": "yandex-183390151543",
@@ -4200,7 +4225,8 @@
       "address": "Красноярск, микрорайон Северный, Светлогорский пер., 20, стр. 4, этаж 2",
       "city": "Красноярск",
       "rubric": "Яйцо и мясо птицы",
-      "source": "yandex"
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/yenisei_broiler/202342159942/"
     },
     {
       "id": "yandex-1719533041",
@@ -4639,7 +4665,8 @@
       "address": "село Бархатово, ул. Чкалова, 2Б",
       "city": "Красноярск",
       "rubric": "Яйцо и мясо птицы",
-      "source": "yandex"
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/ptitsefabrika_barkhatovskaya/1057162739/"
     },
     {
       "id": "yandex-15186047174",
