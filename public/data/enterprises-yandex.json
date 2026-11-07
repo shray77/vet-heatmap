@@ -4368,7 +4368,8 @@
       "address": "Москва, Большой Саввинский пер., 11",
       "city": "Москва",
       "rubric": "Яйцо и мясо птицы",
-      "source": "yandex"
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/krasnobor/1043616312/"
     },
     {
       "id": "yandex-84440582304",
