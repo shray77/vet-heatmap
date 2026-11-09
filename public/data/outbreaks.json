@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-08",
+  "updated": "2026-11-09",
   "sources": [
     "wahis",
     "fsvps"
@@ -54434,7 +54434,7 @@
       "status": "Ongoing",
       "source": "fsvps",
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/10/07.10.2026г.pdf",
-      "notes": "Трихинеллёз — Алтайский край | Трихинеллёз — Алтайский край",
+      "notes": "Трихинеллёз — Алтайский край",
       "federal_district": "СФО",
       "lat": 52.80541753525911,
       "lon": 84.25197279564125,
@@ -54454,11 +54454,11 @@
       "status": "Ongoing",
       "source": "fsvps",
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/10/07.10.2026г.pdf",
-      "notes": "Бешенство — Алтайский край | Бешенство животных — Алтайский край (Первомайский район)",
+      "notes": "Бешенство — Алтайский край",
       "federal_district": "СФО",
-      "lat": 53.4240375,
-      "lon": 84.1669867,
-      "geocode_source": "nominatim"
+      "lat": 53.087608710212486,
+      "lon": 83.83651393074202,
+      "geocode_source": "region_centroid"
     },
     {
       "id": 2707,
@@ -55533,8 +55533,8 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/10/16.10.2026г-1.pdf",
       "notes": "ЯЩУР — г. Москва (г. Москва)",
       "federal_district": "ЦФО",
-      "lat": 55.7516212,
-      "lon": 37.618122,
+      "lat": 55.5987388,
+      "lon": 38.1198943,
       "geocode_source": "nominatim"
     },
     {
