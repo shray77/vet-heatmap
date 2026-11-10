@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-09",
+  "updated": "2026-11-10",
   "sources": [
     "yandex"
   ],
@@ -1212,7 +1212,7 @@
       "type": "feed_mill",
       "lat": 59.882406,
       "lon": 29.836233,
-      "address": "ул. Первого Мая, 89, Петергоф",
+      "address": "Петергоф, ул. Первого Мая, 89",
       "city": "Санкт-Петербург",
       "rubric": "Комбикорма и кормовые добавки",
       "source": "yandex",
@@ -2695,6 +2695,18 @@
       "rubric": "Мясная продукция оптом",
       "source": "yandex",
       "org_href": "https://yandex.ru/maps/org/merchant_siberia/232818823046/"
+    },
+    {
+      "id": "yandex-181210935363",
+      "name": "Курников",
+      "type": "meat_plant",
+      "lat": 51.532675,
+      "lon": 46.020641,
+      "address": "Саратов, ул. имени В.И. Чапаева, 59",
+      "city": "Саратов",
+      "rubric": "31",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/spk_kurnikov/181210935363/"
     },
     {
       "id": "yandex-1914622955",
@@ -4405,18 +4417,6 @@
       "city": "Москва",
       "rubric": "Яйцо и мясо птицы",
       "source": "yandex"
-    },
-    {
-      "id": "yandex-181210935363",
-      "name": "Курников",
-      "type": "poultry_farm",
-      "lat": 51.532675,
-      "lon": 46.020641,
-      "address": "Саратов, ул. имени В.И. Чапаева, 59, этаж 1",
-      "city": "Саратов",
-      "rubric": "Яйцо и мясо птицы",
-      "source": "yandex",
-      "org_href": "https://yandex.ru/maps/org/spk_kurnikov/181210935363/"
     },
     {
       "id": "yandex-1748229254",
