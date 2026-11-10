@@ -66,6 +66,7 @@ export function Header({
   // как в хабах витрин (ВетРадар/ФЭКРТ).
   const ECOSYSTEM_LINKS: { label: string; url: string; title: string }[] = [
     { label: "Визитка", url: "https://shray77.github.io/", title: "Каталог витрин и инструментов разработчика-ветеринара" },
+    { label: "Атлас предрасположенностей", url: "https://shray77.github.io/vetpredis-site/", title: "VetPredisp — что вшито в породу: атлас предрасположенностей с градацией доказательности" },
     { label: "Дайджест науки", url: "https://shray77.github.io/vetdigest-site/", title: "VetDigest — дайджест ветеринарной науки" },
     { label: "Отзывы и вспышки РФ", url: "https://shray77.github.io/vetrecall-site/", title: "VetRecall — радар брака, фальсификата и вспышек" },
     { label: "Биоугрозы мира", url: "https://shray77.github.io/biothreat-site/", title: "BioThreat — международные биоугрозы" },
