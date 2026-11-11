@@ -68,6 +68,7 @@ export function Header({
     { label: "Визитка", url: "https://shray77.github.io/", title: "Каталог витрин и инструментов разработчика-ветеринара" },
     { label: "Атлас предрасположенностей", url: "https://shray77.github.io/vetpredis-site/", title: "VetPredisp — что вшито в породу: атлас предрасположенностей с градацией доказательности" },
     { label: "БиоБарьер", url: "https://shray77.github.io/biobarrier-site/", title: "БиоБарьер — анкета биобезопасности хозяйства со скорингом 0–100" },
+    { label: "Шкалы боли", url: "https://shray77.github.io/vetpain-site/", title: "Шкалы боли — CMPS-SF Глазго для собак и FGS для кошек: живой балл и порог анальгезии" },
     { label: "Дайджест науки", url: "https://shray77.github.io/vetdigest-site/", title: "VetDigest — дайджест ветеринарной науки" },
     { label: "Отзывы и вспышки РФ", url: "https://shray77.github.io/vetrecall-site/", title: "VetRecall — радар брака, фальсификата и вспышек" },
     { label: "Биоугрозы мира", url: "https://shray77.github.io/biothreat-site/", title: "BioThreat — международные биоугрозы" },
