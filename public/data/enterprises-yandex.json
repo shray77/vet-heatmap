@@ -1,9 +1,9 @@
 {
-  "updated": "2026-11-10",
+  "updated": "2026-11-11",
   "sources": [
     "yandex"
   ],
-  "total": 455,
+  "total": 457,
   "enterprises": [
     {
       "id": "yandex-45878683269",
@@ -746,7 +746,7 @@
       "type": "feed_mill",
       "lat": 51.664993,
       "lon": 39.218505,
-      "address": "Детский пер., 24, Воронеж",
+      "address": "Воронеж, Детский пер., 24",
       "city": "Воронеж",
       "rubric": "Комбикорма и кормовые добавки",
       "source": "yandex",
@@ -2243,6 +2243,18 @@
       "rubric": "Комбикорма и кормовые добавки",
       "source": "yandex",
       "org_href": "https://yandex.ru/maps/org/pk_favorit_agro/1142839551/"
+    },
+    {
+      "id": "yandex-101458563728",
+      "name": "Фидимпорт",
+      "type": "feed_mill",
+      "lat": null,
+      "lon": null,
+      "address": "Москва, пер. Капранова, 3, стр. 2",
+      "city": "Москва",
+      "rubric": "Комбикорма и кормовые добавки",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/feedimport/101458563728/"
     },
     {
       "id": "yandex-66712448321",
@@ -4706,6 +4718,18 @@
       "org_href": "https://yandex.ru/maps/org/ptitsefabrika_kolyshleyskaya/178010714923/"
     },
     {
+      "id": "yandex-20195534606",
+      "name": "Птицефабрика Комсомольская",
+      "type": "poultry_farm",
+      "lat": 53.248826,
+      "lon": 83.429487,
+      "address": "посёлок Новые Зори, Шоссейная ул., 2",
+      "city": "Барнаул",
+      "rubric": "Производство продуктов питания",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/ptitsefabrika_komsomolskaya/20195534606/"
+    },
+    {
       "id": "yandex-222824356616",
       "name": "Птицефабрика Липецкая",
       "type": "poultry_farm",
@@ -5092,11 +5116,11 @@
       "type": "poultry_farm",
       "lat": 53.571447,
       "lon": 83.775219,
-      "address": "посёлок Сибирский, Советская ул., 1",
+      "address": "Советская ул., 1, посёлок Сибирский",
       "city": "Барнаул",
       "rubric": "Животноводческое хозяйство",
       "source": "yandex",
-      "org_href": "https://yandex.ru/maps/org/sibirskaya_pticza/179015709498/"
+      "org_href": "https://yandex.ru/maps/org/sibirskaya_ptitsa/179015709498/"
     },
     {
       "id": "yandex-1093143071",
