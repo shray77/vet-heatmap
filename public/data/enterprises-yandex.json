@@ -1,9 +1,9 @@
 {
-  "updated": "2026-11-11",
+  "updated": "2026-11-12",
   "sources": [
     "yandex"
   ],
-  "total": 457,
+  "total": 459,
   "enterprises": [
     {
       "id": "yandex-45878683269",
@@ -200,7 +200,7 @@
       "type": "feed_mill",
       "lat": 54.599744,
       "lon": 39.767272,
-      "address": "Рязань, Куйбышевское ш., 25, стр. 10",
+      "address": "Куйбышевское ш., 25, стр. 10, Рязань",
       "city": "Рязань",
       "rubric": "Комбикорма и кормовые добавки",
       "source": "yandex",
@@ -1902,11 +1902,11 @@
       "type": "feed_mill",
       "lat": 57.953213,
       "lon": 56.25271,
-      "address": "ул. Василия Васильева, 37, Пермь",
+      "address": "Пермь, ул. Василия Васильева, 37",
       "city": "Пермь",
       "rubric": "Комбикорма и кормовые добавки",
       "source": "yandex",
-      "org_href": "https://yandex.ru/maps/org/prikamskiye_korma/49992255248/"
+      "org_href": "https://yandex.ru/maps/org/prikamskiekorma/49992255248/"
     },
     {
       "id": "yandex-1731054280",
@@ -3739,6 +3739,18 @@
       "org_href": "https://yandex.ru/maps/org/svinokompleks/214661509766/"
     },
     {
+      "id": "yandex-157332001992",
+      "name": "Свинокомплекс",
+      "type": "pig_farm",
+      "lat": 53.874561,
+      "lon": 87.559154,
+      "address": "Кемеровская область, Новокузнецкий район",
+      "city": "Новосибирск",
+      "rubric": "Животноводческое хозяйство",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/svinokompleks/157332001992/"
+    },
+    {
       "id": "yandex-133448175730",
       "name": "Свинокомплекс Агроэко",
       "type": "pig_farm",
@@ -3998,7 +4010,7 @@
       "city": "Пермь",
       "rubric": "Сельскохозяйственное предприятие",
       "source": "yandex",
-      "org_href": "https://yandex.ru/maps/org/agrosila_ptitsefabrika_permskaya/234096939434/"
+      "org_href": "https://yandex.ru/maps/org/agrosila_pticefabrika_permskaya/234096939434/"
     },
     {
       "id": "yandex-202349064648",
@@ -4382,6 +4394,18 @@
       "rubric": "Яйцо и мясо птицы",
       "source": "yandex",
       "org_href": "https://yandex.ru/maps/org/kolyshleyskaya_ptitsefabrika/1765535512/"
+    },
+    {
+      "id": "yandex-2832182542",
+      "name": "Компания по продаже вяленых гусей Башкирский гусь",
+      "type": "poultry_farm",
+      "lat": 54.736461,
+      "lon": 55.956241,
+      "address": "Уфа, ул. Цюрупы, 97, корп. 6, этаж 1",
+      "city": "Уфа",
+      "rubric": "Яйцо и мясо птицы",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/kompaniya_po_prodazhe_vyalenykh_gusey_bashkirskiy_gus/2832182542/"
     },
     {
       "id": "yandex-1043616312",
