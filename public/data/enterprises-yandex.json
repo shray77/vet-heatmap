@@ -3,7 +3,7 @@
   "sources": [
     "yandex"
   ],
-  "total": 461,
+  "total": 462,
   "enterprises": [
     {
       "id": "yandex-45878683269",
@@ -830,7 +830,7 @@
       "type": "feed_mill",
       "lat": 55.222507,
       "lon": 61.380244,
-      "address": "Свердловский тракт, 1Г/7, Челябинск",
+      "address": "Челябинск, Свердловский тракт, 1Г/7",
       "city": "Челябинск",
       "rubric": "Комбикорма и кормовые добавки",
       "source": "yandex",
@@ -1655,7 +1655,7 @@
       "type": "feed_mill",
       "lat": 54.623149,
       "lon": 39.692879,
-      "address": "ул. Чкалова, 38, стр. 5, Рязань",
+      "address": "Рязань, ул. Чкалова, 38, стр. 5",
       "city": "Рязань",
       "rubric": "Комбикорма и кормовые добавки",
       "source": "yandex",
@@ -4646,6 +4646,18 @@
       "org_href": "https://yandex.ru/maps/org/prioskolye/1115545282/"
     },
     {
+      "id": "yandex-53971834525",
+      "name": "Приосколье",
+      "type": "poultry_farm",
+      "lat": 51.655283,
+      "lon": 39.187109,
+      "address": "Воронеж, ул. 20-летия Октября, 119А, этаж 1",
+      "city": "Воронеж",
+      "rubric": "Яйцо и мясо птицы",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/prioskolye/53971834525/"
+    },
+    {
       "id": "yandex-1020634460",
       "name": "Приосколье-К",
       "type": "poultry_farm",
@@ -5331,7 +5343,7 @@
       "type": "poultry_farm",
       "lat": 54.173211,
       "lon": 37.617177,
-      "address": "ул. Михеева, 11Б, Тула",
+      "address": "Тула, ул. Михеева, 11Б",
       "city": "Тула",
       "rubric": "Производственное предприятие",
       "source": "yandex",
@@ -5345,7 +5357,7 @@
       "lon": 61.474804,
       "address": "Челябинская область, Копейск, посёлок Октябрьский",
       "city": "Челябинск",
-      "rubric": "Животноводческое хозяйство",
+      "rubric": "42",
       "source": "yandex",
       "org_href": "https://yandex.ru/maps/org/ptitsefabrika_chelyabinskaya/1260720923/"
     },
