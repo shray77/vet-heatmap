@@ -1,9 +1,9 @@
 {
-  "updated": "2026-11-12",
+  "updated": "2026-11-13",
   "sources": [
     "yandex"
   ],
-  "total": 459,
+  "total": 461,
   "enterprises": [
     {
       "id": "yandex-45878683269",
@@ -200,7 +200,7 @@
       "type": "feed_mill",
       "lat": 54.599744,
       "lon": 39.767272,
-      "address": "Куйбышевское ш., 25, стр. 10, Рязань",
+      "address": "Рязань, Куйбышевское ш., 25, стр. 10",
       "city": "Рязань",
       "rubric": "Комбикорма и кормовые добавки",
       "source": "yandex",
@@ -830,7 +830,7 @@
       "type": "feed_mill",
       "lat": 55.222507,
       "lon": 61.380244,
-      "address": "Челябинск, Свердловский тракт, 1Г/7",
+      "address": "Свердловский тракт, 1Г/7, Челябинск",
       "city": "Челябинск",
       "rubric": "Комбикорма и кормовые добавки",
       "source": "yandex",
@@ -931,6 +931,18 @@
       "rubric": "Комбикорма и кормовые добавки",
       "source": "yandex",
       "org_href": "https://yandex.ru/maps/org/kombikorm/15564207841/"
+    },
+    {
+      "id": "yandex-174467308828",
+      "name": "Комбикорм",
+      "type": "feed_mill",
+      "lat": 51.633788,
+      "lon": 39.333534,
+      "address": "село Нечаевка, Рубежная ул., 64",
+      "city": "Воронеж",
+      "rubric": "Комбикорма и кормовые добавки",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/kombikorm/174467308828/"
     },
     {
       "id": "yandex-217331397527",
@@ -1914,9 +1926,9 @@
       "type": "feed_mill",
       "lat": 43.113154,
       "lon": 131.880796,
-      "address": "Владивосток, Алеутская ул., 11, офис 908В, этаж 9",
+      "address": "Владивосток, Алеутская ул., 11",
       "city": "Владивосток",
-      "rubric": "Комбикорма и кормовые добавки",
+      "rubric": "38",
       "source": "yandex",
       "org_href": "https://yandex.ru/maps/org/primagroservis/1731054280/"
     },
@@ -3637,7 +3649,7 @@
       "lat": 55.342273,
       "lon": 35.720133,
       "address": "Московская область, Можайский городской округ, сельское поселение Юрловское",
-      "city": "Москва",
+      "city": "Тула",
       "rubric": "Животноводческое хозяйство",
       "source": "yandex",
       "org_href": "https://yandex.ru/maps/org/svinovodcheskiy_kompleks/187535263300/"
@@ -5218,6 +5230,18 @@
       "org_href": "https://yandex.ru/maps/org/troyekurovo/184212487045/"
     },
     {
+      "id": "yandex-42704057323",
+      "name": "Тульская индейка",
+      "type": "poultry_farm",
+      "lat": 54.219505,
+      "lon": 37.615955,
+      "address": "Тула, ул. Пузакова, 11, этаж 1",
+      "city": "Тула",
+      "rubric": "Яйцо и мясо птицы",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/tulskaya_indeyka/42704057323/"
+    },
+    {
       "id": "yandex-1182766364",
       "name": "Тульская птицефабрика",
       "type": "poultry_farm",
@@ -5307,7 +5331,7 @@
       "type": "poultry_farm",
       "lat": 54.173211,
       "lon": 37.617177,
-      "address": "Тула, ул. Михеева, 11Б",
+      "address": "ул. Михеева, 11Б, Тула",
       "city": "Тула",
       "rubric": "Производственное предприятие",
       "source": "yandex",
