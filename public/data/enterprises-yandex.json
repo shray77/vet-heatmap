@@ -1,9 +1,9 @@
 {
-  "updated": "2026-11-13",
+  "updated": "2026-11-14",
   "sources": [
     "yandex"
   ],
-  "total": 462,
+  "total": 465,
   "enterprises": [
     {
       "id": "yandex-45878683269",
@@ -381,7 +381,8 @@
       "address": "Санкт-Петербург, Софийская ул., 93Д",
       "city": "Санкт-Петербург",
       "rubric": "Комбикорма и кормовые добавки",
-      "source": "yandex"
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/baltagro/76259156083/"
     },
     {
       "id": "yandex-146988589246",
@@ -418,6 +419,18 @@
       "rubric": "Комбикорма и кормовые добавки",
       "source": "yandex",
       "org_href": "https://yandex.ru/maps/org/belgorodsky_kombinat_khleboproduktov/1020875189/"
+    },
+    {
+      "id": "yandex-1733632210",
+      "name": "Бест",
+      "type": "feed_mill",
+      "lat": 45.646797,
+      "lon": 38.902684,
+      "address": "Тимашевск, Лучистая ул., 7",
+      "city": "Краснодар",
+      "rubric": "Комбикорма и кормовые добавки",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/best/1733632210/"
     },
     {
       "id": "yandex-174035078363",
@@ -945,6 +958,18 @@
       "org_href": "https://yandex.ru/maps/org/kombikorm/174467308828/"
     },
     {
+      "id": "yandex-153663366239",
+      "name": "Комбикорм",
+      "type": "feed_mill",
+      "lat": 56.087073,
+      "lon": 44.345343,
+      "address": "городской округ Нижний Новгород, административно-территориальное образование Кстовский район",
+      "city": "Нижний Новгород",
+      "rubric": "Комбикорма и кормовые добавки",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/kombikorm/153663366239/"
+    },
+    {
       "id": "yandex-217331397527",
       "name": "Комбикорм 72",
       "type": "feed_mill",
@@ -1440,7 +1465,7 @@
       "type": "feed_mill",
       "lat": 52.548416,
       "lon": 39.496399,
-      "address": "Прогонная ул., 79Б, село Подгорное",
+      "address": "Россия, село Подгорное, Прогонная ул., 79Б",
       "city": "Липецк",
       "rubric": "Комбикорма и кормовые добавки",
       "source": "yandex",
@@ -1452,7 +1477,7 @@
       "type": "feed_mill",
       "lat": 52.54903,
       "lon": 39.744675,
-      "address": "Асфальтная ул., 115А, железнодорожная станция Казинка, Липецк",
+      "address": "Липецк, железнодорожная станция Казинка, Асфальтная ул., 115А",
       "city": "Липецк",
       "rubric": "Комбикорма и кормовые добавки",
       "source": "yandex",
@@ -2396,7 +2421,8 @@
       "address": "Санкт-Петербург, просп. Обуховской Обороны, 119Б",
       "city": "Санкт-Петербург",
       "rubric": "Производство продуктов питания",
-      "source": "yandex"
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/ancom/1001230151/"
     },
     {
       "id": "yandex-180807680959",
@@ -3061,7 +3087,8 @@
       "address": "Санкт-Петербург, 8-й Верхний пер., 4Б",
       "city": "Санкт-Петербург",
       "rubric": "Мясная продукция оптом",
-      "source": "yandex"
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/obosoblennoye_podrazdeleniye_myasopererabatyvayushchy_kombinat_norilsky_v_gorode_sankt_peterburge/1248058714/"
     },
     {
       "id": "yandex-1193755130",
@@ -3072,7 +3099,8 @@
       "address": "Санкт-Петербург, Партизанская ул., 11Д",
       "city": "Санкт-Петербург",
       "rubric": "Производство продуктов питания",
-      "source": "yandex"
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/nevsky_trest/1193755130/"
     },
     {
       "id": "yandex-1032364702",
@@ -4752,6 +4780,18 @@
       "rubric": "Яйцо и мясо птицы",
       "source": "yandex",
       "org_href": "https://yandex.ru/maps/org/ptitsefabrika_borovskaya/11848867623/"
+    },
+    {
+      "id": "yandex-39425401544",
+      "name": "Птицефабрика Боровская",
+      "type": "poultry_farm",
+      "lat": 56.831079,
+      "lon": 60.664049,
+      "address": "Екатеринбург, Комсомольская ул., 71А, стр. 13",
+      "city": "Екатеринбург",
+      "rubric": "Яйцо и мясо птицы",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/ptitsefabrika_borovskaya/39425401544/"
     },
     {
       "id": "yandex-178010714923",
