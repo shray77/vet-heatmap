@@ -3,7 +3,7 @@
   "sources": [
     "yandex"
   ],
-  "total": 465,
+  "total": 466,
   "enterprises": [
     {
       "id": "yandex-45878683269",
@@ -1465,7 +1465,7 @@
       "type": "feed_mill",
       "lat": 52.548416,
       "lon": 39.496399,
-      "address": "Россия, село Подгорное, Прогонная ул., 79Б",
+      "address": "село Подгорное, Прогонная ул., 79Б",
       "city": "Липецк",
       "rubric": "Комбикорма и кормовые добавки",
       "source": "yandex",
@@ -3089,6 +3089,18 @@
       "rubric": "Мясная продукция оптом",
       "source": "yandex",
       "org_href": "https://yandex.ru/maps/org/obosoblennoye_podrazdeleniye_myasopererabatyvayushchy_kombinat_norilsky_v_gorode_sankt_peterburge/1248058714/"
+    },
+    {
+      "id": "yandex-1689998808",
+      "name": "Мясоперерабатывающий комбинат Тосненский",
+      "type": "meat_plant",
+      "lat": 59.716869,
+      "lon": 30.621582,
+      "address": "г. Тельмана, Красноборская дорога, 6",
+      "city": "Санкт-Петербург",
+      "rubric": "Мясная продукция оптом",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/tosnensky_myasopererabatyvayushchy_kombinat/1689998808/"
     },
     {
       "id": "yandex-1193755130",
