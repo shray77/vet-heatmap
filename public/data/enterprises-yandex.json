@@ -1,9 +1,9 @@
 {
-  "updated": "2026-11-14",
+  "updated": "2026-11-15",
   "sources": [
     "yandex"
   ],
-  "total": 466,
+  "total": 467,
   "enterprises": [
     {
       "id": "yandex-45878683269",
@@ -1417,7 +1417,7 @@
       "type": "feed_mill",
       "lat": 54.977992,
       "lon": 73.450525,
-      "address": "ул. 20 лет РККА, 302А, Омск",
+      "address": "Омск, ул. 20 лет РККА, 302А",
       "city": "Омск",
       "rubric": "Комбикорма и кормовые добавки",
       "source": "yandex",
@@ -2546,7 +2546,7 @@
     },
     {
       "id": "yandex-1211596429",
-      "name": "Вкусно по Сибирски",
+      "name": "Вкусно по-Сибирски",
       "type": "meat_plant",
       "lat": 52.303341,
       "lon": 104.302193,
@@ -4482,6 +4482,18 @@
       "rubric": "Яйцо и мясо птицы",
       "source": "yandex",
       "org_href": "https://yandex.ru/maps/org/krasnobor/84440582304/"
+    },
+    {
+      "id": "yandex-89248802607",
+      "name": "Кубань-М",
+      "type": "poultry_farm",
+      "lat": 45.023323,
+      "lon": 41.931866,
+      "address": "Ставрополь, ул. Доваторцев, 21, корп. 1",
+      "city": "Ставрополь",
+      "rubric": "Яйцо и мясо птицы",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/kuban_m/89248802607/"
     },
     {
       "id": "yandex-159139017948",
