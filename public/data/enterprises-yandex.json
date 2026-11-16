@@ -3,7 +3,7 @@
   "sources": [
     "yandex"
   ],
-  "total": 470,
+  "total": 471,
   "enterprises": [
     {
       "id": "yandex-45878683269",
@@ -2625,7 +2625,8 @@
       "address": "Новосибирск, Олимпийская ул., 37/1к1",
       "city": "Новосибирск",
       "rubric": "Производство продуктов питания",
-      "source": "yandex"
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/dobrich/1069119290/"
     },
     {
       "id": "yandex-1173529193",
@@ -3196,6 +3197,18 @@
       "rubric": "Мясная продукция оптом",
       "source": "yandex",
       "org_href": "https://yandex.ru/maps/org/ostankino_perm/21402082623/"
+    },
+    {
+      "id": "yandex-60867644542",
+      "name": "Паритрейд",
+      "type": "meat_plant",
+      "lat": 51.689974,
+      "lon": 39.184935,
+      "address": "Россия, Воронеж, Рабочий просп., 101/7, этаж 3",
+      "city": "Воронеж",
+      "rubric": "Промышленная химия",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/paritreyd/60867644542/"
     },
     {
       "id": "yandex-1109159061",
