@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-15",
+  "updated": "2026-11-16",
   "sources": [
     "wahis",
     "fsvps"
@@ -55148,14 +55148,14 @@
       "species": "Cattle",
       "cases": 0,
       "deaths": 0,
-      "status": "Ongoing",
+      "status": "Resolved",
       "source": "fsvps",
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/10/14.10.2026г.pdf",
-      "notes": "Лейкоз КРС — Алтайский край | Лейкоз КРС — Алтайский край (Мамонтовский район)",
+      "notes": "Лейкоз КРС — Алтайский край",
       "federal_district": "СФО",
-      "lat": 52.7077236,
-      "lon": 81.8230802,
-      "geocode_source": "nominatim"
+      "lat": 53.22599137774116,
+      "lon": 83.75153250233339,
+      "geocode_source": "region_centroid"
     },
     {
       "id": 2742,
@@ -55171,7 +55171,7 @@
       "status": "Ongoing",
       "source": "fsvps",
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/10/14.10.2026г.pdf",
-      "notes": "Трихинеллёз — Красноярский край | трихинеллез — Красноярский край",
+      "notes": "Трихинеллёз — Красноярский край",
       "federal_district": "СФО",
       "lat": 55.92712823277268,
       "lon": 93.11465515849768,
@@ -55533,8 +55533,8 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/10/16.10.2026г-1.pdf",
       "notes": "ЯЩУР — г. Москва (г. Москва)",
       "federal_district": "ЦФО",
-      "lat": 55.5987388,
-      "lon": 38.1198943,
+      "lat": 55.7516212,
+      "lon": 37.618122,
       "geocode_source": "nominatim"
     },
     {

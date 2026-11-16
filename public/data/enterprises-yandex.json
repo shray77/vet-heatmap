@@ -1,9 +1,9 @@
 {
-  "updated": "2026-11-15",
+  "updated": "2026-11-16",
   "sources": [
     "yandex"
   ],
-  "total": 467,
+  "total": 470,
   "enterprises": [
     {
       "id": "yandex-45878683269",
@@ -266,6 +266,18 @@
       "org_href": "https://yandex.ru/maps/org/agrosoyuz/193269112001/"
     },
     {
+      "id": "yandex-144371376983",
+      "name": "Алгрейн",
+      "type": "feed_mill",
+      "lat": 53.334839,
+      "lon": 83.639612,
+      "address": "Барнаул, просп. Энергетиков, 25",
+      "city": "Барнаул",
+      "rubric": "Комбикорма и кормовые добавки",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/algrain/144371376983/"
+    },
+    {
       "id": "yandex-65651483456",
       "name": "Алейскзернопродукт",
       "type": "feed_mill",
@@ -300,6 +312,18 @@
       "rubric": "Комбикорма и кормовые добавки",
       "source": "yandex",
       "org_href": "https://yandex.ru/maps/org/altaykorm/74227730288/"
+    },
+    {
+      "id": "yandex-92562765161",
+      "name": "АлтайПродукт",
+      "type": "feed_mill",
+      "lat": 53.329741,
+      "lon": 83.693681,
+      "address": "Барнаул, ул. Малахова, 179, стр. 1",
+      "city": "Барнаул",
+      "rubric": "Сельскохозяйственная продукция",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/altayproduct/92562765161/"
     },
     {
       "id": "yandex-1759053778",
@@ -2490,7 +2514,7 @@
       "type": "meat_plant",
       "lat": 55.001907,
       "lon": 82.971768,
-      "address": "ул. Декабристов, 247, корп. 2, Новосибирск, этаж 2",
+      "address": "Новосибирск, ул. Декабристов, 247, корп. 2, этаж 2",
       "city": "Новосибирск",
       "rubric": "Мясная продукция оптом",
       "source": "yandex",
@@ -4626,6 +4650,18 @@
       "org_href": "https://yandex.ru/maps/org/novosibirskaya_ptitsefabrika/75702092684/"
     },
     {
+      "id": "yandex-78931962142",
+      "name": "Новосибирская птицефабрика",
+      "type": "poultry_farm",
+      "lat": 55.032454,
+      "lon": 82.972127,
+      "address": "Новосибирск, ул. Федосеева, 24, этаж цокольный",
+      "city": "Новосибирск",
+      "rubric": "Продукты глубокой заморозки",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/novosibirskaya_ptitsefabrika/78931962142/"
+    },
+    {
       "id": "yandex-125246134653",
       "name": "ООО Пестречинка",
       "type": "poultry_farm",
@@ -5228,11 +5264,11 @@
       "type": "poultry_farm",
       "lat": 53.571447,
       "lon": 83.775219,
-      "address": "Советская ул., 1, посёлок Сибирский",
+      "address": "посёлок Сибирский, Советская ул., 1",
       "city": "Барнаул",
       "rubric": "Животноводческое хозяйство",
       "source": "yandex",
-      "org_href": "https://yandex.ru/maps/org/sibirskaya_ptitsa/179015709498/"
+      "org_href": "https://yandex.ru/maps/org/sibirskaya_pticza/179015709498/"
     },
     {
       "id": "yandex-1093143071",
