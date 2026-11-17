@@ -1,9 +1,9 @@
 {
-  "updated": "2026-11-16",
+  "updated": "2026-11-17",
   "sources": [
     "yandex"
   ],
-  "total": 471,
+  "total": 473,
   "enterprises": [
     {
       "id": "yandex-45878683269",
@@ -3505,6 +3505,18 @@
       "org_href": "https://yandex.ru/maps/org/tambovsky_myasokombinat/1460452033/"
     },
     {
+      "id": "yandex-236907006327",
+      "name": "Терминал",
+      "type": "meat_plant",
+      "lat": 53.167023,
+      "lon": 45.021693,
+      "address": "Пенза, ул. Баумана, 40Б",
+      "city": "Пенза",
+      "rubric": "Мясная продукция оптом",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/terminal/236907006327/"
+    },
+    {
       "id": "yandex-39467488211",
       "name": "Торговый дом Агро-Белогорье",
       "type": "meat_plant",
@@ -3574,6 +3586,18 @@
       "rubric": "Производственное предприятие",
       "source": "yandex",
       "org_href": "https://yandex.ru/maps/org/tsaritsynsky_myasopererabatyvayushchy_zavod/1074711783/"
+    },
+    {
+      "id": "yandex-1053065162",
+      "name": "ЧМПЗ Екатеринбургский филиал",
+      "type": "meat_plant",
+      "lat": 56.885525,
+      "lon": 60.549289,
+      "address": "Екатеринбург, Никольский пер., 1, стр. 17",
+      "city": "Екатеринбург",
+      "rubric": "Мясная продукция оптом",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/chmpz_yekaterinburgskiy_filial/1053065162/"
     },
     {
       "id": "yandex-1703282761",
