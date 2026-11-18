@@ -1,9 +1,9 @@
 {
-  "updated": "2026-11-17",
+  "updated": "2026-11-18",
   "sources": [
     "yandex"
   ],
-  "total": 473,
+  "total": 474,
   "enterprises": [
     {
       "id": "yandex-45878683269",
@@ -992,6 +992,18 @@
       "rubric": "Комбикорма и кормовые добавки",
       "source": "yandex",
       "org_href": "https://yandex.ru/maps/org/kombikorm/153663366239/"
+    },
+    {
+      "id": "yandex-123414284061",
+      "name": "Комбикорм",
+      "type": "feed_mill",
+      "lat": 57.953213,
+      "lon": 56.25271,
+      "address": "Пермь, ул. Василия Васильева, 37",
+      "city": "Пермь",
+      "rubric": "Пищевое сырьё",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/kombikorm/123414284061/"
     },
     {
       "id": "yandex-217331397527",
