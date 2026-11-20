@@ -1,9 +1,9 @@
 {
-  "updated": "2026-11-19",
+  "updated": "2026-11-20",
   "sources": [
     "yandex"
   ],
-  "total": 474,
+  "total": 477,
   "enterprises": [
     {
       "id": "yandex-45878683269",
@@ -2119,7 +2119,7 @@
       "type": "feed_mill",
       "lat": 47.22848,
       "lon": 39.688459,
-      "address": "пер. Скрыпника, 16, Ростов-на-Дону, офис 41, этаж 2",
+      "address": "Ростов-на-Дону, пер. Скрыпника, 16, офис 41, этаж 2",
       "city": "Ростов-на-Дону",
       "rubric": "Комбикорма и кормовые добавки",
       "source": "yandex",
@@ -2784,18 +2784,6 @@
       "org_href": "https://yandex.ru/maps/org/merchant_siberia/232818823046/"
     },
     {
-      "id": "yandex-181210935363",
-      "name": "Курников",
-      "type": "meat_plant",
-      "lat": 51.532675,
-      "lon": 46.020641,
-      "address": "Саратов, ул. имени В.И. Чапаева, 59",
-      "city": "Саратов",
-      "rubric": "31",
-      "source": "yandex",
-      "org_href": "https://yandex.ru/maps/org/spk_kurnikov/181210935363/"
-    },
-    {
       "id": "yandex-1914622955",
       "name": "Курский Мясокомбинат Лико",
       "type": "meat_plant",
@@ -2895,7 +2883,7 @@
       "type": "meat_plant",
       "lat": 55.676234,
       "lon": 37.659347,
-      "address": "Москва, просп. Андропова, 36, корп. 3",
+      "address": "Москва, просп. Андропова, 36, корп. 3, стр. 5",
       "city": "Москва",
       "rubric": "Производство продуктов питания",
       "source": "yandex",
@@ -2945,7 +2933,7 @@
       "lon": 38.946019,
       "address": "Краснодар, Западный внутригородской округ, Кожевенная ул., 36",
       "city": "Краснодар",
-      "rubric": "18",
+      "rubric": "23",
       "source": "yandex",
       "org_href": "https://yandex.ru/maps/org/myasnaya_produktsiya_optom/79720345527/"
     },
@@ -3762,7 +3750,7 @@
       "lat": 55.342273,
       "lon": 35.720133,
       "address": "Московская область, Можайский городской округ, сельское поселение Юрловское",
-      "city": "Тула",
+      "city": "Москва",
       "rubric": "Животноводческое хозяйство",
       "source": "yandex",
       "org_href": "https://yandex.ru/maps/org/svinovodcheskiy_kompleks/187535263300/"
@@ -4294,6 +4282,18 @@
       "org_href": "https://yandex.ru/maps/org/vesenniy_dvorik/215879590898/"
     },
     {
+      "id": "yandex-1305387257",
+      "name": "Вип Ферма",
+      "type": "poultry_farm",
+      "lat": 55.895888,
+      "lon": 37.738413,
+      "address": "Мытищи, Ульяновская ул., 15, Мытищи Ульяновская 15",
+      "city": "Москва",
+      "rubric": "Птицефабрика",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/vip_ferma/1305387257/"
+    },
+    {
       "id": "yandex-128009370092",
       "name": "Восток",
       "type": "poultry_farm",
@@ -4590,6 +4590,18 @@
       "city": "Москва",
       "rubric": "Яйцо и мясо птицы",
       "source": "yandex"
+    },
+    {
+      "id": "yandex-181210935363",
+      "name": "Курников",
+      "type": "poultry_farm",
+      "lat": 51.532675,
+      "lon": 46.020641,
+      "address": "Саратов, ул. имени В.И. Чапаева, 59, этаж 1",
+      "city": "Саратов",
+      "rubric": "Яйцо и мясо птицы",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/spk_kurnikov/181210935363/"
     },
     {
       "id": "yandex-1748229254",
@@ -4901,6 +4913,30 @@
       "rubric": "Яйцо и мясо птицы",
       "source": "yandex",
       "org_href": "https://yandex.ru/maps/org/ptitsefabrika_borovskaya/39425401544/"
+    },
+    {
+      "id": "yandex-1026296294",
+      "name": "Птицефабрика Боровская",
+      "type": "poultry_farm",
+      "lat": 57.052499,
+      "lon": 65.714829,
+      "address": "п. г. т. Боровский, ул. Островского, 1А, стр. 1",
+      "city": "Тюмень",
+      "rubric": "Яйцо и мясо птицы",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/borovskaya_ptitsefabrika/1026296294/"
+    },
+    {
+      "id": "yandex-238639117004",
+      "name": "Птицефабрика Боровская имени А. А Созонова, площадка № 2",
+      "type": "poultry_farm",
+      "lat": 57.044063,
+      "lon": 65.71298,
+      "address": "Тюменский муниципальный округ, рабочий посёлок Боровский",
+      "city": "Тюмень",
+      "rubric": "Птицефабрика",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/ptitsefabrika_borovskaya_imeni_a_a_sozonova_ploshchadka_2/238639117004/"
     },
     {
       "id": "yandex-178010714923",
