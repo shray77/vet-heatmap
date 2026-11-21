@@ -1,9 +1,9 @@
 {
-  "updated": "2026-11-20",
+  "updated": "2026-11-21",
   "sources": [
     "yandex"
   ],
-  "total": 477,
+  "total": 478,
   "enterprises": [
     {
       "id": "yandex-45878683269",
@@ -276,6 +276,18 @@
       "rubric": "Комбикорма и кормовые добавки",
       "source": "yandex",
       "org_href": "https://yandex.ru/maps/org/algrain/144371376983/"
+    },
+    {
+      "id": "yandex-195013265237",
+      "name": "АлейскЗерноПродукт",
+      "type": "feed_mill",
+      "lat": 57.157691,
+      "lon": 65.602447,
+      "address": "Тюмень, Барабинская ул., 3, стр. 25",
+      "city": "Тюмень",
+      "rubric": "Оптовая компания",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/aleyskzernoprodukt/195013265237/"
     },
     {
       "id": "yandex-65651483456",
