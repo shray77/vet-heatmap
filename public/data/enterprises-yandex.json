@@ -1,9 +1,9 @@
 {
-  "updated": "2026-11-21",
+  "updated": "2026-11-22",
   "sources": [
     "yandex"
   ],
-  "total": 478,
+  "total": 479,
   "enterprises": [
     {
       "id": "yandex-45878683269",
@@ -4204,7 +4204,7 @@
       "type": "poultry_farm",
       "lat": 54.750448,
       "lon": 56.032371,
-      "address": "ул. Менделеева, 170, Уфа, этаж 4",
+      "address": "Уфа, ул. Менделеева, 170, этаж 4",
       "city": "Уфа",
       "rubric": "Животноводческое хозяйство",
       "source": "yandex",
@@ -4257,6 +4257,18 @@
       "rubric": "Яйцо и мясо птицы",
       "source": "yandex",
       "org_href": "https://yandex.ru/maps/org/magazin_kamenka/1701235054/"
+    },
+    {
+      "id": "yandex-165221661083",
+      "name": "Благодатское",
+      "type": "poultry_farm",
+      "lat": 53.219527,
+      "lon": 45.052852,
+      "address": "Пенза, ул. Клары Цеткин, 55",
+      "city": "Пенза",
+      "rubric": "Яйцо и мясо птицы",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/blagodatskoye/165221661083/"
     },
     {
       "id": "yandex-1668957633",
