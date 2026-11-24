@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-23",
+  "updated": "2026-11-24",
   "sources": [
     "yandex"
   ],
@@ -3800,7 +3800,7 @@
       "lon": 36.465209,
       "address": "Курская область, Золотухинский район, Будановский сельсовет",
       "city": "Курск",
-      "rubric": "свиноводческий комплекс",
+      "rubric": "Добавить фото или видео",
       "source": "yandex",
       "org_href": "https://yandex.ru/maps/org/svinovodcheskiy_kompleks_promagro_sibagro/64942436203/"
     },
@@ -4693,7 +4693,7 @@
       "type": "poultry_farm",
       "lat": 56.837775,
       "lon": 60.627631,
-      "address": "Свердловская область, Екатеринбург, Восточная улица",
+      "address": "Екатеринбург, Восточная ул., 15А",
       "city": "Екатеринбург",
       "rubric": "Яйцо и мясо птицы",
       "source": "yandex",
@@ -5567,7 +5567,7 @@
       "lon": 61.474804,
       "address": "Челябинская область, Копейск, посёлок Октябрьский",
       "city": "Челябинск",
-      "rubric": "42",
+      "rubric": "Животноводческое хозяйство",
       "source": "yandex",
       "org_href": "https://yandex.ru/maps/org/ptitsefabrika_chelyabinskaya/1260720923/"
     },
