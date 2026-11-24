@@ -4,7 +4,7 @@
     "wahis",
     "fsvps"
   ],
-  "total_outbreaks": 2943,
+  "total_outbreaks": 2942,
   "outbreaks": [
     {
       "id": 1,
@@ -51264,27 +51264,6 @@
     },
     {
       "id": 2547,
-      "disease_key": "lsd",
-      "disease": "Узелковый дерматит",
-      "disease_group": "Ruminant",
-      "region": "Иркутская область",
-      "region_geo": "",
-      "date": "2026-09-02",
-      "species": "Other",
-      "cases": 0,
-      "deaths": 0,
-      "status": "Ongoing",
-      "source": "wahis",
-      "source_url": "https://wahis.woah.org/#/event/7859",
-      "notes": "Lumpy skin disease virus (Inf. with)  in Russia",
-      "region_inferred": true,
-      "federal_district": "СФО",
-      "lat": 52.19427974972903,
-      "lon": 104.47228277120078,
-      "geocode_source": "region_centroid"
-    },
-    {
-      "id": 2548,
       "disease_key": "brucellosis",
       "disease": "Бруцеллёз",
       "disease_group": "Ruminant",
@@ -51304,7 +51283,7 @@
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2549,
+      "id": 2548,
       "disease_key": "trichinellosis",
       "disease": "Трихинеллёз",
       "disease_group": "Wildlife",
@@ -51324,7 +51303,7 @@
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2550,
+      "id": 2549,
       "disease_key": "brucellosis",
       "disease": "Бруцеллёз",
       "disease_group": "Ruminant",
@@ -51344,7 +51323,7 @@
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2551,
+      "id": 2550,
       "disease_key": "brucellosis",
       "disease": "Бруцеллёз",
       "disease_group": "Ruminant",
@@ -51364,7 +51343,7 @@
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2552,
+      "id": 2551,
       "disease_key": "leukosis",
       "disease": "Лейкоз КРС",
       "disease_group": "Ruminant",
@@ -51384,7 +51363,7 @@
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2553,
+      "id": 2552,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -51404,7 +51383,7 @@
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2554,
+      "id": 2553,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -51424,7 +51403,7 @@
       "geocode_source": "nominatim"
     },
     {
-      "id": 2555,
+      "id": 2554,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -51444,7 +51423,7 @@
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2556,
+      "id": 2555,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -51464,7 +51443,7 @@
       "geocode_source": "nominatim"
     },
     {
-      "id": 2557,
+      "id": 2556,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -51484,7 +51463,7 @@
       "geocode_source": "nominatim"
     },
     {
-      "id": 2558,
+      "id": 2557,
       "disease_key": "leukosis",
       "disease": "Лейкоз КРС",
       "disease_group": "Ruminant",
@@ -51504,7 +51483,7 @@
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2559,
+      "id": 2558,
       "disease_key": "leukosis",
       "disease": "Лейкоз КРС",
       "disease_group": "Ruminant",
@@ -51524,7 +51503,7 @@
       "geocode_source": "nominatim"
     },
     {
-      "id": 2560,
+      "id": 2559,
       "disease_key": "other",
       "disease": "Прочее",
       "disease_group": "Multi-species",
@@ -51544,7 +51523,7 @@
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2561,
+      "id": 2560,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -51564,7 +51543,7 @@
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2562,
+      "id": 2561,
       "disease_key": "leukosis",
       "disease": "Лейкоз КРС",
       "disease_group": "Ruminant",
@@ -51584,7 +51563,7 @@
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2563,
+      "id": 2562,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -51604,7 +51583,7 @@
       "geocode_source": "nominatim"
     },
     {
-      "id": 2564,
+      "id": 2563,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -51624,7 +51603,7 @@
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2565,
+      "id": 2564,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -51644,7 +51623,7 @@
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2566,
+      "id": 2565,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -51664,7 +51643,7 @@
       "geocode_source": "nominatim"
     },
     {
-      "id": 2567,
+      "id": 2566,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -51684,7 +51663,7 @@
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2568,
+      "id": 2567,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -51704,7 +51683,7 @@
       "geocode_source": "nominatim"
     },
     {
-      "id": 2569,
+      "id": 2568,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -51724,7 +51703,7 @@
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2570,
+      "id": 2569,
       "disease_key": "lepto",
       "disease": "Лептоспироз",
       "disease_group": "Multi-species",
@@ -51744,7 +51723,7 @@
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2571,
+      "id": 2570,
       "disease_key": "leukosis",
       "disease": "Лейкоз КРС",
       "disease_group": "Ruminant",
@@ -51764,7 +51743,7 @@
       "geocode_source": "nominatim"
     },
     {
-      "id": 2572,
+      "id": 2571,
       "disease_key": "trichinellosis",
       "disease": "Трихинеллёз",
       "disease_group": "Wildlife",
@@ -51784,7 +51763,7 @@
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2573,
+      "id": 2572,
       "disease_key": "brucellosis",
       "disease": "Бруцеллёз",
       "disease_group": "Ruminant",
@@ -51804,7 +51783,7 @@
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2574,
+      "id": 2573,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -51824,7 +51803,7 @@
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2575,
+      "id": 2574,
       "disease_key": "leukosis",
       "disease": "Лейкоз КРС",
       "disease_group": "Ruminant",
@@ -51844,7 +51823,7 @@
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2576,
+      "id": 2575,
       "disease_key": "leukosis",
       "disease": "Лейкоз КРС",
       "disease_group": "Ruminant",
@@ -51864,7 +51843,7 @@
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2577,
+      "id": 2576,
       "disease_key": "brucellosis",
       "disease": "Бруцеллёз",
       "disease_group": "Ruminant",
@@ -51884,7 +51863,7 @@
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2578,
+      "id": 2577,
       "disease_key": "lepto",
       "disease": "Лептоспироз",
       "disease_group": "Multi-species",
@@ -51904,7 +51883,7 @@
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2579,
+      "id": 2578,
       "disease_key": "leukosis",
       "disease": "Лейкоз КРС",
       "disease_group": "Ruminant",
@@ -51924,7 +51903,7 @@
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2580,
+      "id": 2579,
       "disease_key": "trichinellosis",
       "disease": "Трихинеллёз",
       "disease_group": "Wildlife",
@@ -51944,7 +51923,7 @@
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2581,
+      "id": 2580,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -51964,7 +51943,7 @@
       "geocode_source": "nominatim"
     },
     {
-      "id": 2582,
+      "id": 2581,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -51984,7 +51963,7 @@
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2583,
+      "id": 2582,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -52004,7 +51983,7 @@
       "geocode_source": "nominatim"
     },
     {
-      "id": 2584,
+      "id": 2583,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -52024,7 +52003,7 @@
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2585,
+      "id": 2584,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -52044,7 +52023,7 @@
       "geocode_source": "nominatim"
     },
     {
-      "id": 2586,
+      "id": 2585,
       "disease_key": "brucellosis",
       "disease": "Бруцеллёз",
       "disease_group": "Ruminant",
@@ -52064,7 +52043,7 @@
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2587,
+      "id": 2586,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -52084,7 +52063,7 @@
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2588,
+      "id": 2587,
       "disease_key": "brucellosis",
       "disease": "Бруцеллёз",
       "disease_group": "Ruminant",
@@ -52104,7 +52083,7 @@
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2589,
+      "id": 2588,
       "disease_key": "trichinellosis",
       "disease": "Трихинеллёз",
       "disease_group": "Wildlife",
@@ -52124,7 +52103,7 @@
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2590,
+      "id": 2589,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -52144,7 +52123,7 @@
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2591,
+      "id": 2590,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -52164,7 +52143,7 @@
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2592,
+      "id": 2591,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -52184,7 +52163,7 @@
       "geocode_source": "nominatim"
     },
     {
-      "id": 2593,
+      "id": 2592,
       "disease_key": "brucellosis",
       "disease": "Бруцеллёз",
       "disease_group": "Ruminant",
@@ -52204,7 +52183,7 @@
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2594,
+      "id": 2593,
       "disease_key": "leukosis",
       "disease": "Лейкоз КРС",
       "disease_group": "Ruminant",
@@ -52224,7 +52203,7 @@
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2595,
+      "id": 2594,
       "disease_key": "leukosis",
       "disease": "Лейкоз КРС",
       "disease_group": "Ruminant",
@@ -52244,7 +52223,7 @@
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2596,
+      "id": 2595,
       "disease_key": "trichinellosis",
       "disease": "Трихинеллёз",
       "disease_group": "Wildlife",
@@ -52264,7 +52243,7 @@
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2597,
+      "id": 2596,
       "disease_key": "lepto",
       "disease": "Лептоспироз",
       "disease_group": "Multi-species",
@@ -52284,7 +52263,7 @@
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2598,
+      "id": 2597,
       "disease_key": "brucellosis",
       "disease": "Бруцеллёз",
       "disease_group": "Ruminant",
@@ -52304,7 +52283,7 @@
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2599,
+      "id": 2598,
       "disease_key": "leukosis",
       "disease": "Лейкоз КРС",
       "disease_group": "Ruminant",
@@ -52324,7 +52303,7 @@
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2600,
+      "id": 2599,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -52344,7 +52323,7 @@
       "geocode_source": "nominatim"
     },
     {
-      "id": 2601,
+      "id": 2600,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -52364,7 +52343,7 @@
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2602,
+      "id": 2601,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -52384,7 +52363,7 @@
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2603,
+      "id": 2602,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -52404,7 +52383,7 @@
       "geocode_source": "nominatim"
     },
     {
-      "id": 2604,
+      "id": 2603,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -52424,7 +52403,7 @@
       "geocode_source": "nominatim"
     },
     {
-      "id": 2605,
+      "id": 2604,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -52444,7 +52423,7 @@
       "geocode_source": "nominatim"
     },
     {
-      "id": 2606,
+      "id": 2605,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -52464,7 +52443,7 @@
       "geocode_source": "nominatim"
     },
     {
-      "id": 2607,
+      "id": 2606,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -52484,7 +52463,7 @@
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2608,
+      "id": 2607,
       "disease_key": "brucellosis",
       "disease": "Бруцеллёз",
       "disease_group": "Ruminant",
@@ -52504,7 +52483,7 @@
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2609,
+      "id": 2608,
       "disease_key": "leukosis",
       "disease": "Лейкоз КРС",
       "disease_group": "Ruminant",
@@ -52524,7 +52503,7 @@
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2610,
+      "id": 2609,
       "disease_key": "leukosis",
       "disease": "Лейкоз КРС",
       "disease_group": "Ruminant",
@@ -52544,7 +52523,7 @@
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2611,
+      "id": 2610,
       "disease_key": "leukosis",
       "disease": "Лейкоз КРС",
       "disease_group": "Ruminant",
@@ -52564,7 +52543,7 @@
       "geocode_source": "nominatim"
     },
     {
-      "id": 2612,
+      "id": 2611,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -52584,7 +52563,7 @@
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2613,
+      "id": 2612,
       "disease_key": "leukosis",
       "disease": "Лейкоз КРС",
       "disease_group": "Ruminant",
@@ -52604,7 +52583,7 @@
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2614,
+      "id": 2613,
       "disease_key": "trichinellosis",
       "disease": "Трихинеллёз",
       "disease_group": "Wildlife",
@@ -52624,7 +52603,7 @@
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2615,
+      "id": 2614,
       "disease_key": "brucellosis",
       "disease": "Бруцеллёз",
       "disease_group": "Ruminant",
@@ -52644,7 +52623,7 @@
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2616,
+      "id": 2615,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -52664,7 +52643,7 @@
       "geocode_source": "nominatim"
     },
     {
-      "id": 2617,
+      "id": 2616,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -52684,7 +52663,7 @@
       "geocode_source": "nominatim"
     },
     {
-      "id": 2618,
+      "id": 2617,
       "disease_key": "asf",
       "disease": "Африканская чума свиней",
       "disease_group": "Swine",
@@ -52704,7 +52683,7 @@
       "geocode_source": "nominatim"
     },
     {
-      "id": 2619,
+      "id": 2618,
       "disease_key": "asf",
       "disease": "Африканская чума свиней",
       "disease_group": "Swine",
@@ -52724,7 +52703,7 @@
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2620,
+      "id": 2619,
       "disease_key": "brucellosis",
       "disease": "Бруцеллёз",
       "disease_group": "Ruminant",
@@ -52744,7 +52723,7 @@
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2621,
+      "id": 2620,
       "disease_key": "leukosis",
       "disease": "Лейкоз КРС",
       "disease_group": "Ruminant",
@@ -52764,7 +52743,7 @@
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2622,
+      "id": 2621,
       "disease_key": "other",
       "disease": "Прочее",
       "disease_group": "Multi-species",
@@ -52784,7 +52763,7 @@
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2623,
+      "id": 2622,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -52804,7 +52783,7 @@
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2624,
+      "id": 2623,
       "disease_key": "trichinellosis",
       "disease": "Трихинеллёз",
       "disease_group": "Wildlife",
@@ -52824,7 +52803,7 @@
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2625,
+      "id": 2624,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -52844,7 +52823,7 @@
       "geocode_source": "nominatim"
     },
     {
-      "id": 2626,
+      "id": 2625,
       "disease_key": "trichinellosis",
       "disease": "Трихинеллёз",
       "disease_group": "Wildlife",
@@ -52864,7 +52843,7 @@
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2627,
+      "id": 2626,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -52884,7 +52863,7 @@
       "geocode_source": "nominatim"
     },
     {
-      "id": 2628,
+      "id": 2627,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -52904,7 +52883,7 @@
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2629,
+      "id": 2628,
       "disease_key": "leukosis",
       "disease": "Лейкоз КРС",
       "disease_group": "Ruminant",
@@ -52924,7 +52903,7 @@
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2630,
+      "id": 2629,
       "disease_key": "leukosis",
       "disease": "Лейкоз КРС",
       "disease_group": "Ruminant",
@@ -52944,7 +52923,7 @@
       "geocode_source": "nominatim"
     },
     {
-      "id": 2631,
+      "id": 2630,
       "disease_key": "other",
       "disease": "Прочее",
       "disease_group": "Multi-species",
@@ -52961,7 +52940,7 @@
       "federal_district": "ДФО"
     },
     {
-      "id": 2632,
+      "id": 2631,
       "disease_key": "lepto",
       "disease": "Лептоспироз",
       "disease_group": "Multi-species",
@@ -52981,7 +52960,7 @@
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2633,
+      "id": 2632,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -53001,7 +52980,7 @@
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2634,
+      "id": 2633,
       "disease_key": "brucellosis",
       "disease": "Бруцеллёз",
       "disease_group": "Ruminant",
@@ -53021,7 +53000,7 @@
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2635,
+      "id": 2634,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -53041,7 +53020,7 @@
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2636,
+      "id": 2635,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -53061,7 +53040,7 @@
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2637,
+      "id": 2636,
       "disease_key": "leukosis",
       "disease": "Лейкоз КРС",
       "disease_group": "Ruminant",
@@ -53081,7 +53060,7 @@
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2638,
+      "id": 2637,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -53101,7 +53080,7 @@
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2639,
+      "id": 2638,
       "disease_key": "trichinellosis",
       "disease": "Трихинеллёз",
       "disease_group": "Wildlife",
@@ -53121,7 +53100,7 @@
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2640,
+      "id": 2639,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -53141,7 +53120,7 @@
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2641,
+      "id": 2640,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -53161,7 +53140,7 @@
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2642,
+      "id": 2641,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -53181,7 +53160,7 @@
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2643,
+      "id": 2642,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -53201,7 +53180,7 @@
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2644,
+      "id": 2643,
       "disease_key": "brucellosis",
       "disease": "Бруцеллёз",
       "disease_group": "Ruminant",
@@ -53221,7 +53200,7 @@
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2645,
+      "id": 2644,
       "disease_key": "lepto",
       "disease": "Лептоспироз",
       "disease_group": "Multi-species",
@@ -53241,7 +53220,7 @@
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2646,
+      "id": 2645,
       "disease_key": "leukosis",
       "disease": "Лейкоз КРС",
       "disease_group": "Ruminant",
@@ -53261,7 +53240,7 @@
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2647,
+      "id": 2646,
       "disease_key": "trichinellosis",
       "disease": "Трихинеллёз",
       "disease_group": "Wildlife",
@@ -53281,7 +53260,7 @@
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2648,
+      "id": 2647,
       "disease_key": "eia",
       "disease": "Инфекционная анемия лошадей",
       "disease_group": "Equine/Wildlife",
@@ -53301,7 +53280,7 @@
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2649,
+      "id": 2648,
       "disease_key": "leukosis",
       "disease": "Лейкоз КРС",
       "disease_group": "Ruminant",
@@ -53321,7 +53300,7 @@
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2650,
+      "id": 2649,
       "disease_key": "lepto",
       "disease": "Лептоспироз",
       "disease_group": "Multi-species",
@@ -53341,7 +53320,7 @@
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2651,
+      "id": 2650,
       "disease_key": "trichinellosis",
       "disease": "Трихинеллёз",
       "disease_group": "Wildlife",
@@ -53361,7 +53340,7 @@
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2652,
+      "id": 2651,
       "disease_key": "trichinellosis",
       "disease": "Трихинеллёз",
       "disease_group": "Wildlife",
@@ -53381,7 +53360,7 @@
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2653,
+      "id": 2652,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -53401,7 +53380,7 @@
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2654,
+      "id": 2653,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -53421,7 +53400,7 @@
       "geocode_source": "nominatim"
     },
     {
-      "id": 2655,
+      "id": 2654,
       "disease_key": "leukosis",
       "disease": "Лейкоз КРС",
       "disease_group": "Ruminant",
@@ -53441,7 +53420,7 @@
       "geocode_source": "nominatim"
     },
     {
-      "id": 2656,
+      "id": 2655,
       "disease_key": "leukosis",
       "disease": "Лейкоз КРС",
       "disease_group": "Ruminant",
@@ -53461,7 +53440,7 @@
       "geocode_source": "nominatim"
     },
     {
-      "id": 2657,
+      "id": 2656,
       "disease_key": "brucellosis",
       "disease": "Бруцеллёз",
       "disease_group": "Ruminant",
@@ -53481,7 +53460,7 @@
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2658,
+      "id": 2657,
       "disease_key": "leukosis",
       "disease": "Лейкоз КРС",
       "disease_group": "Ruminant",
@@ -53501,7 +53480,7 @@
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2659,
+      "id": 2658,
       "disease_key": "trichinellosis",
       "disease": "Трихинеллёз",
       "disease_group": "Wildlife",
@@ -53521,7 +53500,7 @@
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2660,
+      "id": 2659,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -53541,7 +53520,7 @@
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2661,
+      "id": 2660,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -53561,7 +53540,7 @@
       "geocode_source": "nominatim"
     },
     {
-      "id": 2662,
+      "id": 2661,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -53581,7 +53560,7 @@
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2663,
+      "id": 2662,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -53601,7 +53580,7 @@
       "geocode_source": "nominatim"
     },
     {
-      "id": 2664,
+      "id": 2663,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -53621,7 +53600,7 @@
       "geocode_source": "nominatim"
     },
     {
-      "id": 2665,
+      "id": 2664,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -53641,7 +53620,7 @@
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2666,
+      "id": 2665,
       "disease_key": "lepto",
       "disease": "Лептоспироз",
       "disease_group": "Multi-species",
@@ -53661,7 +53640,7 @@
       "geocode_source": "nominatim"
     },
     {
-      "id": 2667,
+      "id": 2666,
       "disease_key": "lepto",
       "disease": "Лептоспироз",
       "disease_group": "Multi-species",
@@ -53681,7 +53660,7 @@
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2668,
+      "id": 2667,
       "disease_key": "leukosis",
       "disease": "Лейкоз КРС",
       "disease_group": "Ruminant",
@@ -53701,7 +53680,7 @@
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2669,
+      "id": 2668,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -53721,7 +53700,7 @@
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2670,
+      "id": 2669,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -53741,7 +53720,7 @@
       "geocode_source": "nominatim"
     },
     {
-      "id": 2671,
+      "id": 2670,
       "disease_key": "trichinellosis",
       "disease": "Трихинеллёз",
       "disease_group": "Wildlife",
@@ -53761,7 +53740,7 @@
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2672,
+      "id": 2671,
       "disease_key": "leukosis",
       "disease": "Лейкоз КРС",
       "disease_group": "Ruminant",
@@ -53781,7 +53760,7 @@
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2673,
+      "id": 2672,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -53801,7 +53780,7 @@
       "geocode_source": "nominatim"
     },
     {
-      "id": 2674,
+      "id": 2673,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -53821,7 +53800,7 @@
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2675,
+      "id": 2674,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -53841,7 +53820,7 @@
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2676,
+      "id": 2675,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -53861,7 +53840,7 @@
       "geocode_source": "nominatim"
     },
     {
-      "id": 2677,
+      "id": 2676,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -53881,7 +53860,7 @@
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2678,
+      "id": 2677,
       "disease_key": "trichinellosis",
       "disease": "Трихинеллёз",
       "disease_group": "Wildlife",
@@ -53901,7 +53880,7 @@
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2679,
+      "id": 2678,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -53921,7 +53900,7 @@
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2680,
+      "id": 2679,
       "disease_key": "lsd",
       "disease": "Узелковый дерматит",
       "disease_group": "Ruminant",
@@ -53941,7 +53920,7 @@
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2681,
+      "id": 2680,
       "disease_key": "lepto",
       "disease": "Лептоспироз",
       "disease_group": "Multi-species",
@@ -53961,7 +53940,7 @@
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2682,
+      "id": 2681,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -53981,7 +53960,7 @@
       "geocode_source": "nominatim"
     },
     {
-      "id": 2683,
+      "id": 2682,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -54001,7 +53980,7 @@
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2684,
+      "id": 2683,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -54021,7 +54000,7 @@
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2685,
+      "id": 2684,
       "disease_key": "eia",
       "disease": "Инфекционная анемия лошадей",
       "disease_group": "Equine/Wildlife",
@@ -54041,7 +54020,7 @@
       "geocode_source": "nominatim"
     },
     {
-      "id": 2686,
+      "id": 2685,
       "disease_key": "leukosis",
       "disease": "Лейкоз КРС",
       "disease_group": "Ruminant",
@@ -54061,7 +54040,7 @@
       "geocode_source": "nominatim"
     },
     {
-      "id": 2687,
+      "id": 2686,
       "disease_key": "leukosis",
       "disease": "Лейкоз КРС",
       "disease_group": "Ruminant",
@@ -54081,7 +54060,7 @@
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2688,
+      "id": 2687,
       "disease_key": "leukosis",
       "disease": "Лейкоз КРС",
       "disease_group": "Ruminant",
@@ -54101,7 +54080,7 @@
       "geocode_source": "nominatim"
     },
     {
-      "id": 2689,
+      "id": 2688,
       "disease_key": "lepto",
       "disease": "Лептоспироз",
       "disease_group": "Multi-species",
@@ -54121,7 +54100,7 @@
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2690,
+      "id": 2689,
       "disease_key": "lepto",
       "disease": "Лептоспироз",
       "disease_group": "Multi-species",
@@ -54141,7 +54120,7 @@
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2691,
+      "id": 2690,
       "disease_key": "lepto",
       "disease": "Лептоспироз",
       "disease_group": "Multi-species",
@@ -54161,7 +54140,7 @@
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2692,
+      "id": 2691,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -54181,7 +54160,7 @@
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2693,
+      "id": 2692,
       "disease_key": "brucellosis",
       "disease": "Бруцеллёз",
       "disease_group": "Ruminant",
@@ -54201,7 +54180,7 @@
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2694,
+      "id": 2693,
       "disease_key": "leukosis",
       "disease": "Лейкоз КРС",
       "disease_group": "Ruminant",
@@ -54221,7 +54200,7 @@
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2695,
+      "id": 2694,
       "disease_key": "leukosis",
       "disease": "Лейкоз КРС",
       "disease_group": "Ruminant",
@@ -54241,7 +54220,7 @@
       "geocode_source": "nominatim"
     },
     {
-      "id": 2696,
+      "id": 2695,
       "disease_key": "trichinellosis",
       "disease": "Трихинеллёз",
       "disease_group": "Wildlife",
@@ -54261,7 +54240,7 @@
       "geocode_source": "nominatim"
     },
     {
-      "id": 2697,
+      "id": 2696,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -54281,7 +54260,7 @@
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2698,
+      "id": 2697,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -54301,7 +54280,7 @@
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2699,
+      "id": 2698,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -54321,7 +54300,7 @@
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2700,
+      "id": 2699,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -54341,7 +54320,7 @@
       "geocode_source": "nominatim"
     },
     {
-      "id": 2701,
+      "id": 2700,
       "disease_key": "brucellosis",
       "disease": "Бруцеллёз",
       "disease_group": "Ruminant",
@@ -54361,7 +54340,7 @@
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2702,
+      "id": 2701,
       "disease_key": "trichinellosis",
       "disease": "Трихинеллёз",
       "disease_group": "Wildlife",
@@ -54381,7 +54360,7 @@
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2703,
+      "id": 2702,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -54401,7 +54380,7 @@
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2704,
+      "id": 2703,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -54421,7 +54400,7 @@
       "geocode_source": "nominatim"
     },
     {
-      "id": 2705,
+      "id": 2704,
       "disease_key": "trichinellosis",
       "disease": "Трихинеллёз",
       "disease_group": "Wildlife",
@@ -54441,7 +54420,7 @@
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2706,
+      "id": 2705,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -54461,7 +54440,7 @@
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2707,
+      "id": 2706,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -54481,7 +54460,7 @@
       "geocode_source": "nominatim"
     },
     {
-      "id": 2708,
+      "id": 2707,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -54501,7 +54480,7 @@
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2709,
+      "id": 2708,
       "disease_key": "brucellosis",
       "disease": "Бруцеллёз",
       "disease_group": "Ruminant",
@@ -54521,7 +54500,7 @@
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2710,
+      "id": 2709,
       "disease_key": "brucellosis",
       "disease": "Бруцеллёз",
       "disease_group": "Ruminant",
@@ -54541,7 +54520,7 @@
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2711,
+      "id": 2710,
       "disease_key": "leukosis",
       "disease": "Лейкоз КРС",
       "disease_group": "Ruminant",
@@ -54561,7 +54540,7 @@
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2712,
+      "id": 2711,
       "disease_key": "lepto",
       "disease": "Лептоспироз",
       "disease_group": "Multi-species",
@@ -54581,7 +54560,7 @@
       "geocode_source": "nominatim"
     },
     {
-      "id": 2713,
+      "id": 2712,
       "disease_key": "lepto",
       "disease": "Лептоспироз",
       "disease_group": "Multi-species",
@@ -54598,7 +54577,7 @@
       "federal_district": "ЦФО"
     },
     {
-      "id": 2714,
+      "id": 2713,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -54618,7 +54597,7 @@
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2715,
+      "id": 2714,
       "disease_key": "eia",
       "disease": "Инфекционная анемия лошадей",
       "disease_group": "Equine/Wildlife",
@@ -54638,7 +54617,7 @@
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2716,
+      "id": 2715,
       "disease_key": "brucellosis",
       "disease": "Бруцеллёз",
       "disease_group": "Ruminant",
@@ -54658,7 +54637,7 @@
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2717,
+      "id": 2716,
       "disease_key": "leukosis",
       "disease": "Лейкоз КРС",
       "disease_group": "Ruminant",
@@ -54678,7 +54657,7 @@
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2718,
+      "id": 2717,
       "disease_key": "lepto",
       "disease": "Лептоспироз",
       "disease_group": "Multi-species",
@@ -54698,7 +54677,7 @@
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2719,
+      "id": 2718,
       "disease_key": "lepto",
       "disease": "Лептоспироз",
       "disease_group": "Multi-species",
@@ -54718,7 +54697,7 @@
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2720,
+      "id": 2719,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -54738,7 +54717,7 @@
       "geocode_source": "nominatim"
     },
     {
-      "id": 2721,
+      "id": 2720,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -54758,7 +54737,7 @@
       "geocode_source": "nominatim"
     },
     {
-      "id": 2722,
+      "id": 2721,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -54778,7 +54757,7 @@
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2723,
+      "id": 2722,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -54798,7 +54777,7 @@
       "geocode_source": "nominatim"
     },
     {
-      "id": 2724,
+      "id": 2723,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -54818,7 +54797,7 @@
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2725,
+      "id": 2724,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -54838,7 +54817,7 @@
       "geocode_source": "nominatim"
     },
     {
-      "id": 2726,
+      "id": 2725,
       "disease_key": "leukosis",
       "disease": "Лейкоз КРС",
       "disease_group": "Ruminant",
@@ -54858,7 +54837,7 @@
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2727,
+      "id": 2726,
       "disease_key": "leukosis",
       "disease": "Лейкоз КРС",
       "disease_group": "Ruminant",
@@ -54878,7 +54857,7 @@
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2728,
+      "id": 2727,
       "disease_key": "lepto",
       "disease": "Лептоспироз",
       "disease_group": "Multi-species",
@@ -54898,7 +54877,7 @@
       "geocode_source": "nominatim"
     },
     {
-      "id": 2729,
+      "id": 2728,
       "disease_key": "trichinellosis",
       "disease": "Трихинеллёз",
       "disease_group": "Wildlife",
@@ -54918,7 +54897,7 @@
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2730,
+      "id": 2729,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -54938,7 +54917,7 @@
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2731,
+      "id": 2730,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -54958,7 +54937,7 @@
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2732,
+      "id": 2731,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -54978,7 +54957,7 @@
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2733,
+      "id": 2732,
       "disease_key": "lepto",
       "disease": "Лептоспироз",
       "disease_group": "Multi-species",
@@ -54998,7 +54977,7 @@
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2734,
+      "id": 2733,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -55018,7 +54997,7 @@
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2735,
+      "id": 2734,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -55038,7 +55017,7 @@
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2736,
+      "id": 2735,
       "disease_key": "leukosis",
       "disease": "Лейкоз КРС",
       "disease_group": "Ruminant",
@@ -55058,7 +55037,7 @@
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2737,
+      "id": 2736,
       "disease_key": "other",
       "disease": "Прочее",
       "disease_group": "Multi-species",
@@ -55078,7 +55057,7 @@
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2738,
+      "id": 2737,
       "disease_key": "leukosis",
       "disease": "Лейкоз КРС",
       "disease_group": "Ruminant",
@@ -55098,7 +55077,7 @@
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2739,
+      "id": 2738,
       "disease_key": "brucellosis",
       "disease": "Бруцеллёз",
       "disease_group": "Ruminant",
@@ -55118,7 +55097,7 @@
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2740,
+      "id": 2739,
       "disease_key": "leukosis",
       "disease": "Лейкоз КРС",
       "disease_group": "Ruminant",
@@ -55138,7 +55117,7 @@
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2741,
+      "id": 2740,
       "disease_key": "leukosis",
       "disease": "Лейкоз КРС",
       "disease_group": "Ruminant",
@@ -55158,7 +55137,7 @@
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2742,
+      "id": 2741,
       "disease_key": "trichinellosis",
       "disease": "Трихинеллёз",
       "disease_group": "Wildlife",
@@ -55178,7 +55157,7 @@
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2743,
+      "id": 2742,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -55198,7 +55177,7 @@
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2744,
+      "id": 2743,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -55218,7 +55197,7 @@
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2745,
+      "id": 2744,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -55238,7 +55217,7 @@
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2746,
+      "id": 2745,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -55258,7 +55237,7 @@
       "geocode_source": "nominatim"
     },
     {
-      "id": 2747,
+      "id": 2746,
       "disease_key": "leukosis",
       "disease": "Лейкоз КРС",
       "disease_group": "Ruminant",
@@ -55278,7 +55257,7 @@
       "geocode_source": "nominatim"
     },
     {
-      "id": 2748,
+      "id": 2747,
       "disease_key": "lepto",
       "disease": "Лептоспироз",
       "disease_group": "Multi-species",
@@ -55298,7 +55277,7 @@
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2749,
+      "id": 2748,
       "disease_key": "trichinellosis",
       "disease": "Трихинеллёз",
       "disease_group": "Wildlife",
@@ -55318,7 +55297,7 @@
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2750,
+      "id": 2749,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -55338,7 +55317,7 @@
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2751,
+      "id": 2750,
       "disease_key": "brucellosis",
       "disease": "Бруцеллёз",
       "disease_group": "Ruminant",
@@ -55358,7 +55337,7 @@
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2752,
+      "id": 2751,
       "disease_key": "leukosis",
       "disease": "Лейкоз КРС",
       "disease_group": "Ruminant",
@@ -55378,7 +55357,7 @@
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2753,
+      "id": 2752,
       "disease_key": "trichinellosis",
       "disease": "Трихинеллёз",
       "disease_group": "Wildlife",
@@ -55398,7 +55377,7 @@
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2754,
+      "id": 2753,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -55418,7 +55397,7 @@
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2755,
+      "id": 2754,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -55438,7 +55417,7 @@
       "geocode_source": "nominatim"
     },
     {
-      "id": 2756,
+      "id": 2755,
       "disease_key": "brucellosis",
       "disease": "Бруцеллёз",
       "disease_group": "Ruminant",
@@ -55458,7 +55437,7 @@
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2757,
+      "id": 2756,
       "disease_key": "leukosis",
       "disease": "Лейкоз КРС",
       "disease_group": "Ruminant",
@@ -55478,7 +55457,7 @@
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2758,
+      "id": 2757,
       "disease_key": "leukosis",
       "disease": "Лейкоз КРС",
       "disease_group": "Ruminant",
@@ -55498,7 +55477,7 @@
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2759,
+      "id": 2758,
       "disease_key": "leukosis",
       "disease": "Лейкоз КРС",
       "disease_group": "Ruminant",
@@ -55518,7 +55497,7 @@
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2760,
+      "id": 2759,
       "disease_key": "fmd",
       "disease": "Ящур",
       "disease_group": "Ruminant",
@@ -55538,7 +55517,7 @@
       "geocode_source": "nominatim"
     },
     {
-      "id": 2761,
+      "id": 2760,
       "disease_key": "leukosis",
       "disease": "Лейкоз КРС",
       "disease_group": "Ruminant",
@@ -55558,7 +55537,7 @@
       "geocode_source": "nominatim"
     },
     {
-      "id": 2762,
+      "id": 2761,
       "disease_key": "lepto",
       "disease": "Лептоспироз",
       "disease_group": "Multi-species",
@@ -55578,7 +55557,7 @@
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2763,
+      "id": 2762,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -55598,7 +55577,7 @@
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2764,
+      "id": 2763,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -55618,7 +55597,7 @@
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2765,
+      "id": 2764,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -55638,7 +55617,7 @@
       "geocode_source": "nominatim"
     },
     {
-      "id": 2766,
+      "id": 2765,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -55658,7 +55637,7 @@
       "geocode_source": "nominatim"
     },
     {
-      "id": 2767,
+      "id": 2766,
       "disease_key": "brucellosis",
       "disease": "Бруцеллёз",
       "disease_group": "Ruminant",
@@ -55678,7 +55657,7 @@
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2768,
+      "id": 2767,
       "disease_key": "trichinellosis",
       "disease": "Трихинеллёз",
       "disease_group": "Wildlife",
@@ -55698,7 +55677,7 @@
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2769,
+      "id": 2768,
       "disease_key": "leukosis",
       "disease": "Лейкоз КРС",
       "disease_group": "Ruminant",
@@ -55718,7 +55697,7 @@
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2770,
+      "id": 2769,
       "disease_key": "trichinellosis",
       "disease": "Трихинеллёз",
       "disease_group": "Wildlife",
@@ -55738,7 +55717,7 @@
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2771,
+      "id": 2770,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -55753,12 +55732,12 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/10/21.10.2026г.pdf",
       "notes": "Бешенство животных — Владимирская область (Судогодский м.о.)",
       "federal_district": "ЦФО",
-      "lat": 55.954672783800234,
-      "lon": 40.44245949454674,
+      "lat": 55.895445242235525,
+      "lon": 40.165054260052635,
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2772,
+      "id": 2771,
       "disease_key": "trichinellosis",
       "disease": "Трихинеллёз",
       "disease_group": "Wildlife",
@@ -55773,12 +55752,12 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/10/21.10.2026г.pdf",
       "notes": "Трихинеллёз — Забайкальский край",
       "federal_district": "ДФО",
-      "lat": 52.242787933836766,
-      "lon": 113.39402969866181,
+      "lat": 51.82557278380023,
+      "lon": 113.54625949454673,
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2773,
+      "id": 2772,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -55793,12 +55772,12 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/10/21.10.2026г.pdf",
       "notes": "Бешенство — Астраханская область",
       "federal_district": "ЮФО",
-      "lat": 46.608118621472364,
-      "lon": 48.071853671106254,
+      "lat": 46.59198793383677,
+      "lon": 47.92482969866181,
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2774,
+      "id": 2773,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -55818,7 +55797,7 @@
       "geocode_source": "nominatim"
     },
     {
-      "id": 2775,
+      "id": 2774,
       "disease_key": "leukosis",
       "disease": "Лейкоз КРС",
       "disease_group": "Ruminant",
@@ -55833,12 +55812,12 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/10/21.10.2026г.pdf",
       "notes": "Лейкоз КРС — Самарская область | Лейкоз КРС — Самарская область",
       "federal_district": "ПФО",
-      "lat": 53.29288517736377,
-      "lon": 50.27775366096295,
+      "lat": 53.249472284679776,
+      "lon": 50.18580122963987,
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2776,
+      "id": 2775,
       "disease_key": "leukosis",
       "disease": "Лейкоз КРС",
       "disease_group": "Ruminant",
@@ -55858,7 +55837,7 @@
       "geocode_source": "nominatim"
     },
     {
-      "id": 2777,
+      "id": 2776,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -55873,12 +55852,12 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/10/21.10.2026г.pdf",
       "notes": "Бешенство животных — Белгородская область (Новооскольский м.о.)",
       "federal_district": "ЦФО",
-      "lat": 50.65622144298132,
-      "lon": 36.84394454443371,
+      "lat": 50.51361185817214,
+      "lon": 36.70279725052968,
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2778,
+      "id": 2777,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -55893,12 +55872,12 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/10/21.10.2026г.pdf",
       "notes": "Бешенство животных — Самарская область",
       "federal_district": "ПФО",
-      "lat": 53.47678357352666,
-      "lon": 50.46102415902232,
+      "lat": 53.25532144298132,
+      "lon": 50.45564454443372,
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2779,
+      "id": 2778,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -55918,7 +55897,7 @@
       "geocode_source": "nominatim"
     },
     {
-      "id": 2780,
+      "id": 2779,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -55938,7 +55917,7 @@
       "geocode_source": "nominatim"
     },
     {
-      "id": 2781,
+      "id": 2780,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -55958,7 +55937,7 @@
       "geocode_source": "nominatim"
     },
     {
-      "id": 2782,
+      "id": 2781,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -55973,12 +55952,12 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/10/21.10.2026г.pdf",
       "notes": "Бешенство животных — Тюменская область (Аромашевский м.о.)",
       "federal_district": "УрФО",
-      "lat": 57.10325558547884,
-      "lon": 65.54068248523633,
+      "lat": 57.06650551265421,
+      "lon": 65.37593259988806,
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2783,
+      "id": 2782,
       "disease_key": "brucellosis",
       "disease": "Бруцеллёз",
       "disease_group": "Ruminant",
@@ -55993,12 +55972,12 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/10/21.10.2026г.pdf",
       "notes": "Бруцеллёз — Астраханская область",
       "federal_district": "ЮФО",
-      "lat": 46.42375530469475,
-      "lon": 48.06048801097137,
+      "lat": 46.25245558547884,
+      "lon": 48.071482485236324,
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2784,
+      "id": 2783,
       "disease_key": "brucellosis",
       "disease": "Бруцеллёз",
       "disease_group": "Ruminant",
@@ -56018,7 +55997,7 @@
       "geocode_source": "nominatim"
     },
     {
-      "id": 2785,
+      "id": 2784,
       "disease_key": "lepto",
       "disease": "Лептоспироз",
       "disease_group": "Multi-species",
@@ -56038,7 +56017,7 @@
       "geocode_source": "nominatim"
     },
     {
-      "id": 2786,
+      "id": 2785,
       "disease_key": "brucellosis",
       "disease": "Бруцеллёз",
       "disease_group": "Ruminant",
@@ -56053,12 +56032,12 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/10/16.10-22.10.2026.pdf",
       "notes": "Бруцеллёз — Краснодарский край",
       "federal_district": "ЮФО",
-      "lat": 45.23082712344301,
-      "lon": 38.93891584452257,
+      "lat": 44.924311840660074,
+      "lon": 39.0525489943981,
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2787,
+      "id": 2786,
       "disease_key": "brucellosis",
       "disease": "Бруцеллёз",
       "disease_group": "Ruminant",
@@ -56073,12 +56052,12 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/10/16.10-22.10.2026.pdf",
       "notes": "Бруцеллёз — Волгоградская область",
       "federal_district": "ЮФО",
-      "lat": 48.820823003517624,
-      "lon": 44.73679684493067,
+      "lat": 48.91522712344301,
+      "lon": 44.47891584452257,
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2788,
+      "id": 2787,
       "disease_key": "trichinellosis",
       "disease": "Трихинеллёз",
       "disease_group": "Wildlife",
@@ -56093,12 +56072,12 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/10/16.10-22.10.2026.pdf",
       "notes": "Трихинеллёз — Кировская область",
       "federal_district": "ПФО",
-      "lat": 58.524039175669536,
-      "lon": 49.99785815628526,
+      "lat": 58.71292300351762,
+      "lon": 49.919896844930676,
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2789,
+      "id": 2788,
       "disease_key": "trichinellosis",
       "disease": "Трихинеллёз",
       "disease_group": "Wildlife",
@@ -56115,7 +56094,7 @@
       "federal_district": "ЦФО"
     },
     {
-      "id": 2790,
+      "id": 2789,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -56135,7 +56114,7 @@
       "geocode_source": "nominatim"
     },
     {
-      "id": 2791,
+      "id": 2790,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -56150,12 +56129,12 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/10/23.10.2026г.pdf",
       "notes": "Бешенство животных — Красноярский край (Сосновоборский м.о.) | Бешенство — Красноярский край",
       "federal_district": "СФО",
-      "lat": 56.124762253180315,
-      "lon": 93.15695400971643,
+      "lat": 55.74488964594046,
+      "lon": 93.07219508298036,
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2792,
+      "id": 2791,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -56175,7 +56154,7 @@
       "geocode_source": "nominatim"
     },
     {
-      "id": 2793,
+      "id": 2792,
       "disease_key": "brucellosis",
       "disease": "Бруцеллёз",
       "disease_group": "Ruminant",
@@ -56195,7 +56174,7 @@
       "geocode_source": "nominatim"
     },
     {
-      "id": 2794,
+      "id": 2793,
       "disease_key": "eia",
       "disease": "Инфекционная анемия лошадей",
       "disease_group": "Equine/Wildlife",
@@ -56215,7 +56194,7 @@
       "geocode_source": "nominatim"
     },
     {
-      "id": 2795,
+      "id": 2794,
       "disease_key": "leukosis",
       "disease": "Лейкоз КРС",
       "disease_group": "Ruminant",
@@ -56230,12 +56209,12 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/10/23.10.2026г.pdf",
       "notes": "Лейкоз КРС — Амурская область",
       "federal_district": "ДФО",
-      "lat": 50.398511713963366,
-      "lon": 128.12249155310784,
+      "lat": 50.02359104564431,
+      "lon": 127.77709799636654,
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2796,
+      "id": 2795,
       "disease_key": "leukosis",
       "disease": "Лейкоз КРС",
       "disease_group": "Ruminant",
@@ -56250,12 +56229,12 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/10/23.10.2026г.pdf",
       "notes": "Лейкоз КРС — Волгоградская область",
       "federal_district": "ЮФО",
-      "lat": 48.55412715090597,
-      "lon": 44.55577011320321,
+      "lat": 48.80641171396337,
+      "lon": 44.63939155310782,
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2797,
+      "id": 2796,
       "disease_key": "trichinellosis",
       "disease": "Трихинеллёз",
       "disease_group": "Wildlife",
@@ -56270,12 +56249,12 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/10/23.10.2026г.pdf",
       "notes": "Трихинеллёз — Забайкальский край",
       "federal_district": "ДФО",
-      "lat": 52.06713293706543,
-      "lon": 113.63827102428533,
+      "lat": 51.84622715090597,
+      "lon": 113.5388701132032,
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2798,
+      "id": 2797,
       "disease_key": "trichinellosis",
       "disease": "Трихинеллёз",
       "disease_group": "Wildlife",
@@ -56290,12 +56269,12 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/10/23.10.2026г.pdf",
       "notes": "Трихинеллёз — Нижегородская область",
       "federal_district": "ПФО",
-      "lat": 56.4280393685962,
-      "lon": 43.81968740615261,
+      "lat": 56.36713293706543,
+      "lon": 44.13827102428533,
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2799,
+      "id": 2798,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -56310,12 +56289,12 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/10/26.10.2026г.pdf",
       "notes": "Бешенство животных — Самарская область | Бешенство животных — Самарская область",
       "federal_district": "ПФО",
-      "lat": 53.37417046141285,
-      "lon": 50.0161398749955,
+      "lat": 53.32803936859621,
+      "lon": 50.01968740615261,
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2800,
+      "id": 2799,
       "disease_key": "leukosis",
       "disease": "Лейкоз КРС",
       "disease_group": "Ruminant",
@@ -56335,7 +56314,7 @@
       "geocode_source": "nominatim"
     },
     {
-      "id": 2801,
+      "id": 2800,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -56350,12 +56329,12 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/10/26.10.2026г.pdf",
       "notes": "Бешенство животных — Тамбовская область (Никифоровский м.о.) | Бешенство животных — Тамбовская область (Уваровский м.о.) | Бешенство животных — Тамбовская область (Жердевский м.о.) | Бешенство животных — Тамбовская область",
       "federal_district": "ЦФО",
-      "lat": 52.70146543275115,
-      "lon": 41.36766803268504,
+      "lat": 52.83929134872835,
+      "lon": 41.63116192207929,
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2802,
+      "id": 2801,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -56370,12 +56349,12 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/10/26.10.2026г.pdf",
       "notes": "Бешенство — Пермский край | Бешенство животных — Пермский край (Пермский м.о.)",
       "federal_district": "ПФО",
-      "lat": 57.893495896294475,
-      "lon": 56.076609961209606,
+      "lat": 57.980265432751146,
+      "lon": 55.91536803268504,
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2803,
+      "id": 2802,
       "disease_key": "lepto",
       "disease": "Лептоспироз",
       "disease_group": "Multi-species",
@@ -56395,7 +56374,7 @@
       "geocode_source": "nominatim"
     },
     {
-      "id": 2804,
+      "id": 2803,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -56410,12 +56389,12 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/10/26.10.2026г.pdf",
       "notes": "Бешенство животных — Кемеровская область (Беловский городской округ)",
       "federal_district": "СФО",
-      "lat": 54.57786685135525,
-      "lon": 85.70802326421867,
+      "lat": 54.84004987314301,
+      "lon": 85.74659997044482,
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2805,
+      "id": 2804,
       "disease_key": "brucellosis",
       "disease": "Бруцеллёз",
       "disease_group": "Ruminant",
@@ -56430,12 +56409,12 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/10/26.10.2026г.pdf",
       "notes": "Бруцеллёз — Оренбургская область",
       "federal_district": "ПФО",
-      "lat": 51.582876286059985,
-      "lon": 55.28845139049857,
+      "lat": 51.67786685135525,
+      "lon": 54.808023264218676,
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2806,
+      "id": 2805,
       "disease_key": "leukosis",
       "disease": "Лейкоз КРС",
       "disease_group": "Ruminant",
@@ -56450,12 +56429,12 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/10/26.10.2026г.pdf",
       "notes": "Лейкоз КРС — Омская область",
       "federal_district": "СФО",
-      "lat": 55.06180906886624,
-      "lon": 73.02627014078098,
+      "lat": 54.78287628605999,
+      "lon": 73.48845139049857,
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2807,
+      "id": 2806,
       "disease_key": "lepto",
       "disease": "Лептоспироз",
       "disease_group": "Multi-species",
@@ -56475,7 +56454,7 @@
       "geocode_source": "nominatim"
     },
     {
-      "id": 2808,
+      "id": 2807,
       "disease_key": "leukosis",
       "disease": "Лейкоз КРС",
       "disease_group": "Ruminant",
@@ -56490,12 +56469,12 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/10/26.10.2026г.pdf",
       "notes": "Лейкоз КРС — Приморский край",
       "federal_district": "ДФО",
-      "lat": 43.792899234601414,
-      "lon": 131.7500755539316,
+      "lat": 44.03192360712106,
+      "lon": 132.119522267619,
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2809,
+      "id": 2808,
       "disease_key": "leukosis",
       "disease": "Лейкоз КРС",
       "disease_group": "Ruminant",
@@ -56510,12 +56489,12 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/10/28.10.2026г.pdf",
       "notes": "Лейкоз КРС — Ростовская область | Лейкоз КРС — Ростовская область",
       "federal_district": "ЮФО",
-      "lat": 47.42261727929804,
-      "lon": 39.80046183913041,
+      "lat": 47.02419923460141,
+      "lon": 39.45157555393161,
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2810,
+      "id": 2809,
       "disease_key": "leukosis",
       "disease": "Лейкоз КРС",
       "disease_group": "Ruminant",
@@ -56530,12 +56509,12 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/10/28.10.2026г.pdf",
       "notes": "Лейкоз КРС — Самарская область | Лейкоз КРС — Самарская область | Лейкоз КРС — Самарская область | Лейкоз КРС — Самарская область | Лейкоз КРС — Самарская область",
       "federal_district": "ПФО",
-      "lat": 53.13002367536342,
-      "lon": 50.42943250691118,
+      "lat": 53.39131727929804,
+      "lon": 50.29896183913041,
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2811,
+      "id": 2810,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -56550,12 +56529,12 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/10/28.10.2026г.pdf",
       "notes": "Бешенство животных — Белгородская область | Бешенство животных — Белгородская область (Шебекинский м.о.)",
       "federal_district": "ЦФО",
-      "lat": 50.31170373841679,
-      "lon": 36.421931449293574,
+      "lat": 50.53092367536342,
+      "lon": 36.81773250691118,
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2812,
+      "id": 2811,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -56570,12 +56549,12 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/10/28.10.2026г.pdf",
       "notes": "Бешенство животных — Нижегородская область (Лысковский м.о.) | Бешенство животных — Нижегородская область (Богородский м.о.) | Бешенство животных — Нижегородская область (Богородский м.о.)",
       "federal_district": "ПФО",
-      "lat": 56.38608121625694,
-      "lon": 44.12257397967361,
+      "lat": 56.01080373841678,
+      "lon": 43.83363144929358,
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2813,
+      "id": 2812,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -56595,7 +56574,7 @@
       "geocode_source": "nominatim"
     },
     {
-      "id": 2814,
+      "id": 2813,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -56610,12 +56589,12 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/10/28.10.2026г.pdf",
       "notes": "Бешенство животных — Рязанская область",
       "federal_district": "ЦФО",
-      "lat": 54.65636331762666,
-      "lon": 39.781444396263566,
+      "lat": 54.66689697558118,
+      "lon": 39.80175498915998,
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2815,
+      "id": 2814,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -56632,7 +56611,7 @@
       "federal_district": "ЦФО"
     },
     {
-      "id": 2816,
+      "id": 2815,
       "disease_key": "leukosis",
       "disease": "Лейкоз КРС",
       "disease_group": "Ruminant",
@@ -56652,7 +56631,7 @@
       "geocode_source": "nominatim"
     },
     {
-      "id": 2817,
+      "id": 2816,
       "disease_key": "lepto",
       "disease": "Лептоспироз",
       "disease_group": "Multi-species",
@@ -56672,7 +56651,7 @@
       "geocode_source": "nominatim"
     },
     {
-      "id": 2818,
+      "id": 2817,
       "disease_key": "trichinellosis",
       "disease": "Трихинеллёз",
       "disease_group": "Wildlife",
@@ -56687,12 +56666,12 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/10/28.10.2026г.pdf",
       "notes": "трихинеллёз — Тюменская область | Трихинеллёз — Тюменская область",
       "federal_district": "УрФО",
-      "lat": 56.94339055039141,
-      "lon": 65.27180464723787,
+      "lat": 57.38739097497172,
+      "lon": 65.42268442580611,
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2819,
+      "id": 2818,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -56707,12 +56686,12 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/10/28.10.2026г.pdf",
       "notes": "Бешенство — Владимирская область",
       "federal_district": "ЦФО",
-      "lat": 55.97622706474977,
-      "lon": 40.284800092130986,
+      "lat": 55.87249055039141,
+      "lon": 40.16800464723788,
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2820,
+      "id": 2819,
       "disease_key": "fmd",
       "disease": "Ящур",
       "disease_group": "Ruminant",
@@ -56727,12 +56706,12 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/10/28.10.2026г.pdf",
       "notes": "ЯЩУР — Москва",
       "federal_district": "ЦФО",
-      "lat": 55.81450287643414,
-      "lon": 37.569321605609765,
+      "lat": 55.60292706474977,
+      "lon": 37.505900092130986,
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2821,
+      "id": 2820,
       "disease_key": "brucellosis",
       "disease": "Бруцеллёз",
       "disease_group": "Ruminant",
@@ -56747,12 +56726,12 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/10/23.10-29.10.2026.pdf",
       "notes": "Бруцеллёз — Брянская область",
       "federal_district": "ЦФО",
-      "lat": 53.50891458862956,
-      "lon": 34.149459056477454,
+      "lat": 53.30140287643414,
+      "lon": 34.32372160560976,
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2822,
+      "id": 2821,
       "disease_key": "eia",
       "disease": "Инфекционная анемия лошадей",
       "disease_group": "Equine/Wildlife",
@@ -56767,12 +56746,12 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/10/23.10-29.10.2026.pdf",
       "notes": "Инфекционная анемия лошадей — Тюменская область",
       "federal_district": "УрФО",
-      "lat": 57.13586396491353,
-      "lon": 65.50590271739541,
+      "lat": 57.46621458862956,
+      "lon": 65.27775905647745,
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2823,
+      "id": 2822,
       "disease_key": "eia",
       "disease": "Инфекционная анемия лошадей",
       "disease_group": "Equine/Wildlife",
@@ -56787,12 +56766,12 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/10/23.10-29.10.2026.pdf",
       "notes": "Инфекционная анемия лошадей — Алтайский край",
       "federal_district": "СФО",
-      "lat": 52.86919435503591,
-      "lon": 83.74986880547473,
+      "lat": 52.93586396491353,
+      "lon": 84.00590271739541,
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2824,
+      "id": 2823,
       "disease_key": "leukosis",
       "disease": "Лейкоз КРС",
       "disease_group": "Ruminant",
@@ -56807,12 +56786,12 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/10/23.10-29.10.2026.pdf",
       "notes": "Лейкоз КРС — Амурская область",
       "federal_district": "ДФО",
-      "lat": 50.11680223131257,
-      "lon": 128.06450877839208,
+      "lat": 50.169194355035906,
+      "lon": 127.74986880547473,
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2825,
+      "id": 2824,
       "disease_key": "lepto",
       "disease": "Лептоспироз",
       "disease_group": "Multi-species",
@@ -56827,12 +56806,12 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/10/23.10-29.10.2026.pdf",
       "notes": "Лептоспироз КРС — Московская область",
       "federal_district": "ЦФО",
-      "lat": 55.3098790845761,
-      "lon": 37.42452808885363,
+      "lat": 55.31680223131257,
+      "lon": 37.564508778392074,
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2826,
+      "id": 2825,
       "disease_key": "trichinellosis",
       "disease": "Трихинеллёз",
       "disease_group": "Wildlife",
@@ -56847,12 +56826,12 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/10/23.10-29.10.2026.pdf",
       "notes": "Трихинеллёз — Забайкальский край",
       "federal_district": "ДФО",
-      "lat": 51.812004630493206,
-      "lon": 113.492101955838,
+      "lat": 51.8098790845761,
+      "lon": 113.42452808885362,
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2827,
+      "id": 2826,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -56872,7 +56851,7 @@
       "geocode_source": "nominatim"
     },
     {
-      "id": 2828,
+      "id": 2827,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -56892,7 +56871,7 @@
       "geocode_source": "nominatim"
     },
     {
-      "id": 2829,
+      "id": 2828,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -56912,7 +56891,7 @@
       "geocode_source": "nominatim"
     },
     {
-      "id": 2830,
+      "id": 2829,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -56927,12 +56906,12 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/10/30.10.2026г.pdf",
       "notes": "Бешенство животных — Челябинская область (Нязепетровский м.о.)",
       "federal_district": "УрФО",
-      "lat": 55.08323305732187,
-      "lon": 61.624457082570835,
+      "lat": 54.85318933008515,
+      "lon": 61.11136689276594,
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2831,
+      "id": 2830,
       "disease_key": "brucellosis",
       "disease": "Бруцеллёз",
       "disease_group": "Ruminant",
@@ -56947,12 +56926,12 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/10/30.10.2026г.pdf",
       "notes": "Бруцеллёз — Забайкальский край",
       "federal_district": "ДФО",
-      "lat": 51.99928784235222,
-      "lon": 113.58053548867389,
+      "lat": 52.08323305732187,
+      "lon": 113.72445708257084,
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2832,
+      "id": 2831,
       "disease_key": "brucellosis",
       "disease": "Бруцеллёз",
       "disease_group": "Ruminant",
@@ -56967,12 +56946,12 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/10/30.10.2026г.pdf",
       "notes": "бруцеллёз — Владимирская область",
       "federal_district": "ЦФО",
-      "lat": 56.32506351775094,
-      "lon": 40.12783212390834,
+      "lat": 56.12838784235222,
+      "lon": 40.47673548867388,
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2833,
+      "id": 2832,
       "disease_key": "brucellosis",
       "disease": "Бруцеллёз",
       "disease_group": "Ruminant",
@@ -56987,12 +56966,12 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/10/30.10.2026г.pdf",
       "notes": "бруцеллёз — Ставропольский край",
       "federal_district": "СКФО",
-      "lat": 45.156256491958835,
-      "lon": 41.75549030855542,
+      "lat": 45.19596351775094,
+      "lon": 41.73163212390834,
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2834,
+      "id": 2833,
       "disease_key": "leukosis",
       "disease": "Лейкоз КРС",
       "disease_group": "Ruminant",
@@ -57012,7 +56991,7 @@
       "geocode_source": "nominatim"
     },
     {
-      "id": 2835,
+      "id": 2834,
       "disease_key": "leukosis",
       "disease": "Лейкоз КРС",
       "disease_group": "Ruminant",
@@ -57027,12 +57006,12 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/10/30.10.2026г.pdf",
       "notes": "Лейкоз КРС — Тюменская область | Лейкоз КРС — Тюменская область",
       "federal_district": "УрФО",
-      "lat": 57.02600453020451,
-      "lon": 65.20846854941696,
+      "lat": 57.186033031201895,
+      "lon": 65.66212697249937,
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2836,
+      "id": 2835,
       "disease_key": "lepto",
       "disease": "Лептоспироз",
       "disease_group": "Multi-species",
@@ -57052,7 +57031,7 @@
       "geocode_source": "nominatim"
     },
     {
-      "id": 2837,
+      "id": 2836,
       "disease_key": "trichinellosis",
       "disease": "Трихинеллёз",
       "disease_group": "Wildlife",
@@ -57067,12 +57046,12 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/10/30.10.2026г.pdf",
       "notes": "Трихинеллёз — Тюменская область",
       "federal_district": "УрФО",
-      "lat": 57.081144550965845,
-      "lon": 65.75320304945889,
+      "lat": 57.25479511865809,
+      "lon": 65.77075619644833,
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2838,
+      "id": 2837,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -57087,12 +57066,12 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/11/02.11.2026г.pdf",
       "notes": "Бешенство — Нижегородская область | Бешенство животных — Нижегородская область",
       "federal_district": "ПФО",
-      "lat": 56.4236641382312,
-      "lon": 44.0904909329681,
+      "lat": 56.18114455096584,
+      "lon": 44.2532030494589,
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2839,
+      "id": 2838,
       "disease_key": "brucellosis",
       "disease": "Бруцеллёз",
       "disease_group": "Ruminant",
@@ -57107,12 +57086,12 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/11/02.11.2026г.pdf",
       "notes": "бруцеллёз — Оренбургская область | Бруцеллёз — Оренбургская область",
       "federal_district": "ПФО",
-      "lat": 51.75244128895199,
-      "lon": 55.29483015668664,
+      "lat": 51.9236641382312,
+      "lon": 55.1904909329681,
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2840,
+      "id": 2839,
       "disease_key": "lepto",
       "disease": "Лептоспироз",
       "disease_group": "Multi-species",
@@ -57127,12 +57106,12 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/11/02.11.2026г.pdf",
       "notes": "Лептоспироз — Тюменская область | Лептоспироз — Тюменская область",
       "federal_district": "УрФО",
-      "lat": 57.35055351115954,
-      "lon": 65.70916912818846,
+      "lat": 57.152441288952,
+      "lon": 65.69483015668663,
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2841,
+      "id": 2840,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -57147,12 +57126,12 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/11/02.11.2026г.pdf",
       "notes": "Бешенство животных — Белгородская область (Валуйский м.о.) | Бешенство — Белгородская область | Бешенство животных — Белгородская область",
       "federal_district": "ЦФО",
-      "lat": 50.514072646048234,
-      "lon": 36.67187658557605,
+      "lat": 50.75145351115954,
+      "lon": 36.79746912818845,
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2842,
+      "id": 2841,
       "disease_key": "leukosis",
       "disease": "Лейкоз КРС",
       "disease_group": "Ruminant",
@@ -57167,12 +57146,12 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/11/02.11.2026г.pdf",
       "notes": "Лейкоз КРС — Самарская область | Лейкоз КРС — Самарская область | Лейкоз КРС — Самарская область | Лейкоз КРС — Самарская область",
       "federal_district": "ПФО",
-      "lat": 52.90087601833515,
-      "lon": 50.09013305467586,
+      "lat": 53.113172646048234,
+      "lon": 50.28357658557606,
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2843,
+      "id": 2842,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -57187,12 +57166,12 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/11/02.11.2026г.pdf",
       "notes": "Бешенство животных — Пермский край (Кунгурский м.о.) | Бешенство животных — Пермский край (Суксунский м.о.)",
       "federal_district": "ПФО",
-      "lat": 58.03943030106289,
-      "lon": 56.23047906016396,
+      "lat": 57.700876018335144,
+      "lon": 55.89013305467586,
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2844,
+      "id": 2843,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -57207,12 +57186,12 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/11/02.11.2026г.pdf",
       "notes": "Бешенство животных — Владимирская область | Бешенство животных — Владимирская область (Камешковский м.о.)",
       "federal_district": "ЦФО",
-      "lat": 56.09233460383828,
-      "lon": 40.21608777461073,
+      "lat": 56.168530301062894,
+      "lon": 40.62667906016396,
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2845,
+      "id": 2844,
       "disease_key": "brucellosis",
       "disease": "Бруцеллёз",
       "disease_group": "Ruminant",
@@ -57227,12 +57206,12 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/11/02.11.2026г.pdf",
       "notes": "Бруцеллёз — Алтайский край | Бруцеллёз — Алтайский край",
       "federal_district": "СФО",
-      "lat": 52.81277072318496,
-      "lon": 83.9063458451853,
+      "lat": 52.96323460383828,
+      "lon": 83.81988777461073,
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2846,
+      "id": 2845,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -57247,12 +57226,12 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/11/02.11.2026г.pdf",
       "notes": "Бешенство животных — Воронежская область (Нижнедевицкий м.о.)",
       "federal_district": "ЦФО",
-      "lat": 51.58516279417888,
-      "lon": 39.37975507366458,
+      "lat": 51.47357072318496,
+      "lon": 39.10664584518529,
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2847,
+      "id": 2846,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -57272,7 +57251,7 @@
       "geocode_source": "nominatim"
     },
     {
-      "id": 2848,
+      "id": 2847,
       "disease_key": "avian_salmonellosis",
       "disease": "Сальмонеллёз птицы",
       "disease_group": "Avian",
@@ -57287,12 +57266,12 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/11/02.11.2026г.pdf",
       "notes": "Сальмонеллёз — Воронежская область",
       "federal_district": "ЦФО",
-      "lat": 51.686109912748584,
-      "lon": 38.98493495342796,
+      "lat": 51.78123651685334,
+      "lon": 38.9022205087865,
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2849,
+      "id": 2848,
       "disease_key": "trichinellosis",
       "disease": "Трихинеллёз",
       "disease_group": "Wildlife",
@@ -57307,12 +57286,12 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/11/02.11.2026г.pdf",
       "notes": "Трихинеллёз — Пермский край",
       "federal_district": "ПФО",
-      "lat": 57.96664576739241,
-      "lon": 55.71665011949236,
+      "lat": 58.02530991274858,
+      "lon": 55.78463495342796,
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2850,
+      "id": 2849,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -57327,12 +57306,12 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/11/30.10-05.11.2026.pdf",
       "notes": "Бешенство животных — Владимирская область",
       "federal_district": "ЦФО",
-      "lat": 55.83882618843698,
-      "lon": 40.647271489004844,
+      "lat": 56.09574576739241,
+      "lon": 40.11285011949236,
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2851,
+      "id": 2850,
       "disease_key": "brucellosis",
       "disease": "Бруцеллёз",
       "disease_group": "Ruminant",
@@ -57347,12 +57326,12 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/11/30.10-05.11.2026.pdf",
       "notes": "Бруцеллёз — Волгоградская область",
       "federal_district": "ЮФО",
-      "lat": 48.60144093890027,
-      "lon": 44.636278340579594,
+      "lat": 48.417626188436984,
+      "lon": 44.76797148900484,
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2852,
+      "id": 2851,
       "disease_key": "leukosis",
       "disease": "Лейкоз КРС",
       "disease_group": "Ruminant",
@@ -57367,12 +57346,12 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/11/30.10-05.11.2026.pdf",
       "notes": "Лейкоз КРС — Тюменская область",
       "federal_district": "УрФО",
-      "lat": 56.93191694520165,
-      "lon": 65.67624577737436,
+      "lat": 57.09354093890027,
+      "lon": 65.61937834057959,
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2853,
+      "id": 2852,
       "disease_key": "lepto",
       "disease": "Лептоспироз",
       "disease_group": "Multi-species",
@@ -57387,12 +57366,12 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/11/30.10-05.11.2026.pdf",
       "notes": "Лептоспироз — Свердловская область",
       "federal_district": "УрФО",
-      "lat": 56.59474215820154,
-      "lon": 60.5293422374,
+      "lat": 56.531916945201644,
+      "lon": 60.77624577737436,
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2854,
+      "id": 2853,
       "disease_key": "trichinellosis",
       "disease": "Трихинеллёз",
       "disease_group": "Wildlife",
@@ -57407,12 +57386,12 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/11/30.10-05.11.2026.pdf",
       "notes": "Трихинеллёз — Тюменская область",
       "federal_district": "УрФО",
-      "lat": 56.95382242864962,
-      "lon": 65.74338262227435,
+      "lat": 56.99474215820155,
+      "lon": 65.42934223740001,
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2855,
+      "id": 2854,
       "disease_key": "brucellosis",
       "disease": "Бруцеллёз",
       "disease_group": "Ruminant",
@@ -57427,12 +57406,12 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/11/06.11.2026г.pdf",
       "notes": "Бруцеллёз — Алтайский край | Бруцеллёз — Алтайский край",
       "federal_district": "СФО",
-      "lat": 53.00624625187115,
-      "lon": 83.86918380412249,
+      "lat": 52.75382242864962,
+      "lon": 84.24338262227435,
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2856,
+      "id": 2855,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -57447,12 +57426,12 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/11/06.11.2026г.pdf",
       "notes": "Бешенство животных — Липецкая область (Хлевенский м.о.)",
       "federal_district": "ЦФО",
-      "lat": 52.67787138173263,
-      "lon": 39.75673649378642,
+      "lat": 52.61504625187115,
+      "lon": 39.43958380412248,
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2857,
+      "id": 2856,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -57472,7 +57451,7 @@
       "geocode_source": "nominatim"
     },
     {
-      "id": 2858,
+      "id": 2857,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -57487,12 +57466,12 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/11/06.11.2026г.pdf",
       "notes": "Бешенство животных — Рязанская область (Старожиловский м.о.) | Бешенство животных — Рязанская область (Ряжский м.о.)",
       "federal_district": "ЦФО",
-      "lat": 54.68357382011339,
-      "lon": 39.96680349220764,
+      "lat": 54.76240859305609,
+      "lon": 39.50623352834957,
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2859,
+      "id": 2858,
       "disease_key": "brucellosis",
       "disease": "Бруцеллёз",
       "disease_group": "Ruminant",
@@ -57507,12 +57486,12 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/11/06.11.2026г.pdf",
       "notes": "бруцеллёз — Амурская область",
       "federal_district": "ДФО",
-      "lat": 50.29083024584424,
-      "lon": 127.95310884437497,
+      "lat": 50.360673820113384,
+      "lon": 128.22420349220764,
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2860,
+      "id": 2859,
       "disease_key": "leukosis",
       "disease": "Лейкоз КРС",
       "disease_group": "Ruminant",
@@ -57527,12 +57506,12 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/11/06.11.2026г.pdf",
       "notes": "Лейкоз КРС — Алтайский край | Лейкоз КРС — Алтайский край",
       "federal_district": "СФО",
-      "lat": 53.09852668393147,
-      "lon": 83.70166617950755,
+      "lat": 52.99083024584424,
+      "lon": 83.95310884437497,
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2861,
+      "id": 2860,
       "disease_key": "trichinellosis",
       "disease": "Трихинеллёз",
       "disease_group": "Wildlife",
@@ -57547,12 +57526,12 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/11/06.11.2026г.pdf",
       "notes": "Трихинеллёз — Забайкальский край | Трихинеллёз — Забайкальский край",
       "federal_district": "ДФО",
-      "lat": 51.896777379125915,
-      "lon": 113.27938112838069,
+      "lat": 52.09852668393147,
+      "lon": 113.20166617950755,
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2862,
+      "id": 2861,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -57572,7 +57551,7 @@
       "geocode_source": "nominatim"
     },
     {
-      "id": 2863,
+      "id": 2862,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -57587,12 +57566,12 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/11/09.11.2026г.pdf",
       "notes": "Бешенство животных — Тамбовская область (Уваровский м.о.) | Бешенство животных — Тамбовская область (Рассказовский м.о.)",
       "federal_district": "ЦФО",
-      "lat": 52.96292824702728,
-      "lon": 41.17372991559683,
+      "lat": 52.821702225176324,
+      "lon": 41.401486816701315,
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2864,
+      "id": 2863,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -57607,12 +57586,12 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/11/09.11.2026г.pdf",
       "notes": "Бешенство животных — Ненецкий автономный округ",
       "federal_district": "СЗФО",
-      "lat": 67.02904692824981,
-      "lon": 55.13296239042627,
+      "lat": 67.24172824702727,
+      "lon": 54.72142991559683,
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2865,
+      "id": 2864,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -57632,7 +57611,7 @@
       "geocode_source": "nominatim"
     },
     {
-      "id": 2866,
+      "id": 2865,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -57647,12 +57626,12 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/11/09.11.2026г.pdf",
       "notes": "Бешенство животных — Астраханская область (Лиманский м.о.)",
       "federal_district": "ЮФО",
-      "lat": 46.3388885320417,
-      "lon": 47.949423719975556,
+      "lat": 46.41207877097081,
+      "lon": 48.23623910074156,
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2867,
+      "id": 2866,
       "disease_key": "brucellosis",
       "disease": "Бруцеллёз",
       "disease_group": "Ruminant",
@@ -57672,7 +57651,7 @@
       "geocode_source": "nominatim"
     },
     {
-      "id": 2868,
+      "id": 2867,
       "disease_key": "leukosis",
       "disease": "Лейкоз КРС",
       "disease_group": "Ruminant",
@@ -57687,12 +57666,12 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/11/09.11.2026г.pdf",
       "notes": "Лейкоз КРС — Иркутская область | Лейкоз КРС — Иркутская область (Тайшетский район)",
       "federal_district": "СФО",
-      "lat": 52.28651758077404,
-      "lon": 104.39921060690716,
+      "lat": 52.02377454068201,
+      "lon": 104.12058947934796,
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2869,
+      "id": 2868,
       "disease_key": "leukosis",
       "disease": "Лейкоз КРС",
       "disease_group": "Ruminant",
@@ -57707,12 +57686,12 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/11/09.11.2026г.pdf",
       "notes": "Лейкоз КРС — Калининградская область",
       "federal_district": "ЦФО",
-      "lat": 54.693889611214196,
-      "lon": 20.543168396074545,
+      "lat": 54.686517580774044,
+      "lon": 20.59921060690716,
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2870,
+      "id": 2869,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -57727,12 +57706,12 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/11/09.11.2026г.pdf",
       "notes": "Бешенство — Московская область",
       "federal_district": "ЦФО",
-      "lat": 55.45092820674683,
-      "lon": 37.593715518233445,
+      "lat": 55.49388961121419,
+      "lon": 37.54316839607455,
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2871,
+      "id": 2870,
       "disease_key": "trichinellosis",
       "disease": "Трихинеллёз",
       "disease_group": "Wildlife",
@@ -57747,12 +57726,12 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/11/09.11.2026г.pdf",
       "notes": "Трихинеллёз — Иркутская область",
       "federal_district": "СФО",
-      "lat": 52.402230691829544,
-      "lon": 104.42634381880826,
+      "lat": 52.25092820674683,
+      "lon": 104.39371551823344,
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2872,
+      "id": 2871,
       "disease_key": "other",
       "disease": "Прочее",
       "disease_group": "Multi-species",
@@ -57767,12 +57746,12 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/11/09.11.2026г.pdf",
       "notes": "иал — Владимирская область",
       "federal_district": "ЦФО",
-      "lat": 56.37480979974023,
-      "lon": 40.10024265980973,
+      "lat": 56.23133069182955,
+      "lon": 40.52254381880826,
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2873,
+      "id": 2872,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -57792,7 +57771,7 @@
       "geocode_source": "nominatim"
     },
     {
-      "id": 2874,
+      "id": 2873,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -57812,7 +57791,7 @@
       "geocode_source": "nominatim"
     },
     {
-      "id": 2875,
+      "id": 2874,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -57827,12 +57806,12 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/11/11.11.2026г.pdf",
       "notes": "Бешенство животных — Тюменская область (Ярковский м.о.) | Бешенство животных — Тюменская область (Ялуторовский м.о.)",
       "federal_district": "УрФО",
-      "lat": 57.00360782040453,
-      "lon": 65.60195379192551,
+      "lat": 57.01069249227718,
+      "lon": 65.35970193767999,
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2876,
+      "id": 2875,
       "disease_key": "leukosis",
       "disease": "Лейкоз КРС",
       "disease_group": "Ruminant",
@@ -57847,12 +57826,12 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/11/11.11.2026г.pdf",
       "notes": "Лейкоз КРС — Воронежская область | Лейкоз КРС — Воронежская область | Лейкоз КРС — Воронежская область",
       "federal_district": "ЦФО",
-      "lat": 51.685714482484904,
-      "lon": 39.318454087006636,
+      "lat": 51.46440782040453,
+      "lon": 39.302253791925516,
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2877,
+      "id": 2876,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -57867,12 +57846,12 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/11/11.11.2026г.pdf",
       "notes": "Бешенство животных — Пермский край (Пермский м.о.) | Бешенство животных — Пермский край (Пермский м.о.) | Бешенство животных — Пермский край",
       "federal_district": "ПФО",
-      "lat": 57.92852277637454,
-      "lon": 56.16216415727561,
+      "lat": 58.0249144824849,
+      "lon": 56.11815408700664,
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2878,
+      "id": 2877,
       "disease_key": "leukosis",
       "disease": "Лейкоз КРС",
       "disease_group": "Ruminant",
@@ -57887,12 +57866,12 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/11/11.11.2026г.pdf",
       "notes": "Лейкоз КРС — Самарская область | Лейкоз КРС — Самарская область | Лейкоз КРС — Самарская область | Лейкоз КРС — Самарская область",
       "federal_district": "ПФО",
-      "lat": 52.99308369892383,
-      "lon": 50.11091004258067,
+      "lat": 53.128522776374545,
+      "lon": 50.362164157275615,
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2879,
+      "id": 2878,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -57907,12 +57886,12 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/11/11.11.2026г.pdf",
       "notes": "Бешенство животных — Красноярский край | Бешенство животных — Красноярский край (Нижнеингашский м.о.) | Бешенство животных — Красноярский край",
       "federal_district": "СФО",
-      "lat": 55.71690552235404,
-      "lon": 92.64008453522423,
+      "lat": 55.79308369892383,
+      "lon": 92.81091004258067,
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2880,
+      "id": 2879,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -57927,12 +57906,12 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/11/11.11.2026г.pdf",
       "notes": "Бешенство животных — Нижегородская область (Ардатовский м.о.) | Бешенство животных — Нижегородская область | Бешенство животных — Нижегородская область",
       "federal_district": "ПФО",
-      "lat": 56.294009611493394,
-      "lon": 43.8336958027473,
+      "lat": 56.01690552235404,
+      "lon": 43.740084535224234,
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2881,
+      "id": 2880,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -57947,12 +57926,12 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/11/11.11.2026г.pdf",
       "notes": "Бешенство — Белгородская область | Бешенство животных — Белгородская область (Валуйский м.о.) | Бешенство — Белгородская область",
       "federal_district": "ЦФО",
-      "lat": 50.76992081383473,
-      "lon": 36.45762379940374,
+      "lat": 50.5949096114934,
+      "lon": 36.4219958027473,
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2882,
+      "id": 2881,
       "disease_key": "leukosis",
       "disease": "Лейкоз КРС",
       "disease_group": "Ruminant",
@@ -57967,12 +57946,12 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/11/11.11.2026г.pdf",
       "notes": "Лейкоз КРС — Ростовская область | Лейкоз КРС — Ростовская область | Лейкоз КРС — Ростовская область",
       "federal_district": "ЮФО",
-      "lat": 47.02188993606974,
-      "lon": 39.41295426806283,
+      "lat": 47.400320813834725,
+      "lon": 39.57082379940375,
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2883,
+      "id": 2882,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -57987,12 +57966,12 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/11/11.11.2026г.pdf",
       "notes": "Бешенство животных — Воронежская область",
       "federal_district": "ЦФО",
-      "lat": 51.9111171240897,
-      "lon": 39.04521649799748,
+      "lat": 51.451389936069745,
+      "lon": 38.91175426806283,
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2884,
+      "id": 2883,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -58012,7 +57991,7 @@
       "geocode_source": "nominatim"
     },
     {
-      "id": 2885,
+      "id": 2884,
       "disease_key": "brucellosis",
       "disease": "Бруцеллёз",
       "disease_group": "Ruminant",
@@ -58027,12 +58006,12 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/11/11.11.2026г.pdf",
       "notes": "Бруцеллёз МРС — Ставропольский край",
       "federal_district": "СКФО",
-      "lat": 44.7358053320559,
-      "lon": 42.2026243094447,
+      "lat": 44.782931264494735,
+      "lon": 42.21585234647572,
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2886,
+      "id": 2885,
       "disease_key": "brucellosis",
       "disease": "Бруцеллёз",
       "disease_group": "Ruminant",
@@ -58047,12 +58026,12 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/11/11.11.2026г.pdf",
       "notes": "Бруцеллёз — Пензенская область",
       "federal_district": "ПФО",
-      "lat": 53.46234500533706,
-      "lon": 43.97006445447774,
+      "lat": 52.9358053320559,
+      "lon": 44.2026243094447,
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2887,
+      "id": 2886,
       "disease_key": "lepto",
       "disease": "Лептоспироз",
       "disease_group": "Multi-species",
@@ -58067,12 +58046,12 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/11/11.11.2026г.pdf",
       "notes": "Лептоспироз — Тамбовская область",
       "federal_district": "ЦФО",
-      "lat": 52.79411497953678,
-      "lon": 41.2122058234734,
+      "lat": 52.983545005337064,
+      "lon": 41.422364454477744,
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2888,
+      "id": 2887,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -58087,12 +58066,12 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/11/06.11-12.11.2026.pdf",
       "notes": "Бешенство животных — Курская область",
       "federal_district": "ЦФО",
-      "lat": 51.61394900837598,
-      "lon": 36.24746806218031,
+      "lat": 51.810214979536774,
+      "lon": 35.952505823473395,
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2889,
+      "id": 2888,
       "disease_key": "trichinellosis",
       "disease": "Трихинеллёз",
       "disease_group": "Wildlife",
@@ -58107,12 +58086,12 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/11/06.11-12.11.2026.pdf",
       "notes": "Трихинеллёз — Забайкальский край",
       "federal_district": "ДФО",
-      "lat": 52.03494377707495,
-      "lon": 113.57344802138066,
+      "lat": 51.876649008375985,
+      "lon": 113.55486806218032,
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2890,
+      "id": 2889,
       "disease_key": "brucellosis",
       "disease": "Бруцеллёз",
       "disease_group": "Ruminant",
@@ -58127,12 +58106,12 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/11/13.11.2026г.pdf",
       "notes": "Бруцеллёз — Оренбургская область | Бруцеллёз — Оренбургская область",
       "federal_district": "ПФО",
-      "lat": 51.65789469401185,
-      "lon": 54.83168537363652,
+      "lat": 51.83494377707495,
+      "lon": 55.17344802138065,
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2891,
+      "id": 2890,
       "disease_key": "leukosis",
       "disease": "Лейкоз КРС",
       "disease_group": "Ruminant",
@@ -58147,12 +58126,12 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/11/13.11.2026г.pdf",
       "notes": "Лейкоз КРС — Воронежская область | Лейкоз КРС — Воронежская область",
       "federal_district": "ЦФО",
-      "lat": 51.910308541325186,
-      "lon": 39.123893105427065,
+      "lat": 51.518694694011856,
+      "lon": 38.931985373636515,
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2892,
+      "id": 2891,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -58167,12 +58146,12 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/11/13.11.2026г.pdf",
       "notes": "Бешенство животных — Липецкая область (Добринский м.о.)",
       "federal_district": "ЦФО",
-      "lat": 52.81343211353475,
-      "lon": 39.66767548179619,
+      "lat": 52.85830854132519,
+      "lon": 39.493993105427066,
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2893,
+      "id": 2892,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -58187,12 +58166,12 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/11/13.11.2026г.pdf",
       "notes": "Бешенство животных — Челябинская область (Карталинский м.о.)",
       "federal_district": "УрФО",
-      "lat": 55.23374191030628,
-      "lon": 61.55099550153414,
+      "lat": 55.20463211353475,
+      "lon": 61.49727548179619,
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2894,
+      "id": 2893,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -58212,7 +58191,7 @@
       "geocode_source": "nominatim"
     },
     {
-      "id": 2895,
+      "id": 2894,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -58232,7 +58211,7 @@
       "geocode_source": "nominatim"
     },
     {
-      "id": 2896,
+      "id": 2895,
       "disease_key": "brucellosis",
       "disease": "Бруцеллёз",
       "disease_group": "Ruminant",
@@ -58252,7 +58231,7 @@
       "geocode_source": "nominatim"
     },
     {
-      "id": 2897,
+      "id": 2896,
       "disease_key": "leukosis",
       "disease": "Лейкоз КРС",
       "disease_group": "Ruminant",
@@ -58267,12 +58246,12 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/11/13.11.2026г.pdf",
       "notes": "Лейкоз КРС — Калининградская область",
       "federal_district": "ЦФО",
-      "lat": 54.539256985157984,
-      "lon": 20.30166936120471,
+      "lat": 54.652415440898665,
+      "lon": 20.306695318049563,
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2898,
+      "id": 2897,
       "disease_key": "leukosis",
       "disease": "Лейкоз КРС",
       "disease_group": "Ruminant",
@@ -58287,12 +58266,12 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/11/13.11.2026г.pdf",
       "notes": "Лейкоз КРС — Калужская область",
       "federal_district": "ЦФО",
-      "lat": 54.31553749241272,
-      "lon": 36.117605180367036,
+      "lat": 54.35315698515798,
+      "lon": 36.06296936120471,
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2899,
+      "id": 2898,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -58307,12 +58286,12 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/11/16.11.2026г.pdf",
       "notes": "Бешенство животных — Тюменская область | Бешенство животных — Тюменская область (Викуловский м.о.)",
       "federal_district": "УрФО",
-      "lat": 57.21413098394758,
-      "lon": 65.36432724724206,
+      "lat": 57.001637492412726,
+      "lon": 65.35630518036703,
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2900,
+      "id": 2899,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -58327,12 +58306,12 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/11/16.11.2026г.pdf",
       "notes": "Бешенство животных — Красноярский край",
       "federal_district": "СФО",
-      "lat": 56.25747187643284,
-      "lon": 93.18585568048782,
+      "lat": 56.014130983947574,
+      "lon": 92.76432724724206,
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2901,
+      "id": 2900,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -58347,12 +58326,12 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/11/16.11.2026г.pdf",
       "notes": "Бешенство животных — Московская область",
       "federal_district": "ЦФО",
-      "lat": 55.26228578720694,
-      "lon": 37.745450168801575,
+      "lat": 55.75747187643284,
+      "lon": 37.78585568048781,
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2902,
+      "id": 2901,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -58367,12 +58346,12 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/11/16.11.2026г.pdf",
       "notes": "Бешенство животных — Владимирская область",
       "federal_district": "ЦФО",
-      "lat": 56.41419841833419,
-      "lon": 40.441994964866225,
+      "lat": 55.89138578720694,
+      "lon": 40.641650168801576,
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2903,
+      "id": 2902,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -58392,7 +58371,7 @@
       "geocode_source": "nominatim"
     },
     {
-      "id": 2904,
+      "id": 2903,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -58412,7 +58391,7 @@
       "geocode_source": "nominatim"
     },
     {
-      "id": 2905,
+      "id": 2904,
       "disease_key": "leukosis",
       "disease": "Лейкоз КРС",
       "disease_group": "Ruminant",
@@ -58427,12 +58406,12 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/11/16.11.2026г.pdf",
       "notes": "Лейкоз КРС — Брянская область (Гордеевский муниципальный округ)",
       "federal_district": "ЦФО",
-      "lat": 53.34187468707917,
-      "lon": 34.56817414462581,
+      "lat": 53.359778051244916,
+      "lon": 34.29232961889379,
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2906,
+      "id": 2905,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -58447,12 +58426,12 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/11/18.11.2026г.pdf",
       "notes": "Бешенство животных — Пермский край (Суксунский м.о.) | Бешенство животных — Пермский край",
       "federal_district": "ПФО",
-      "lat": 57.77286203929113,
-      "lon": 56.14298639708667,
+      "lat": 58.09917468707917,
+      "lon": 56.19647414462581,
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2907,
+      "id": 2906,
       "disease_key": "brucellosis",
       "disease": "Бруцеллёз",
       "disease_group": "Ruminant",
@@ -58472,7 +58451,7 @@
       "geocode_source": "nominatim"
     },
     {
-      "id": 2908,
+      "id": 2907,
       "disease_key": "leukosis",
       "disease": "Лейкоз КРС",
       "disease_group": "Ruminant",
@@ -58487,12 +58466,12 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/11/18.11.2026г.pdf",
       "notes": "Лейкоз КРС — Самарская область | Лейкоз КРС — Самарская область | Лейкоз КРС — Самарская область",
       "federal_district": "ПФО",
-      "lat": 53.323615612307265,
-      "lon": 50.416546867921895,
+      "lat": 53.22588846211725,
+      "lon": 50.048087392217745,
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2909,
+      "id": 2908,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -58512,7 +58491,7 @@
       "geocode_source": "nominatim"
     },
     {
-      "id": 2910,
+      "id": 2909,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -58532,7 +58511,7 @@
       "geocode_source": "nominatim"
     },
     {
-      "id": 2911,
+      "id": 2910,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -58547,12 +58526,12 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/11/18.11.2026г.pdf",
       "notes": "Бешенство животных — Воронежская область | Бешенство — Воронежская область | Бешенство животных — Воронежская область",
       "federal_district": "ЦФО",
-      "lat": 51.90196805853647,
-      "lon": 39.30844603237064,
+      "lat": 51.3717198374563,
+      "lon": 39.45875034572064,
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2912,
+      "id": 2911,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -58567,12 +58546,12 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/11/18.11.2026г.pdf",
       "notes": "Бешенство животных — Белгородская область (Белгородский м.о.) | Бешенство животных — Белгородская область | Бешенство — Белгородская область",
       "federal_district": "ЦФО",
-      "lat": 50.80597724782232,
-      "lon": 36.31529969337435,
+      "lat": 50.84206805853647,
+      "lon": 36.69644603237064,
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2913,
+      "id": 2912,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -58587,12 +58566,12 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/11/18.11.2026г.pdf",
       "notes": "Бешенство животных — Тамбовская область (Пичаевский м.о.) | Бешенство животных — Тамбовская область",
       "federal_district": "ЦФО",
-      "lat": 52.59065558233809,
-      "lon": 41.27246664803983,
+      "lat": 52.92627724782232,
+      "lon": 41.179299693374354,
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2914,
+      "id": 2913,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -58612,7 +58591,7 @@
       "geocode_source": "nominatim"
     },
     {
-      "id": 2915,
+      "id": 2914,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -58632,7 +58611,7 @@
       "geocode_source": "nominatim"
     },
     {
-      "id": 2916,
+      "id": 2915,
       "disease_key": "brucellosis",
       "disease": "Бруцеллёз",
       "disease_group": "Ruminant",
@@ -58647,12 +58626,12 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/11/18.11.2026г.pdf",
       "notes": "бруцеллёз — Московская область | бруцеллез — Московская область",
       "federal_district": "ЦФО",
-      "lat": 55.495231864891934,
-      "lon": 37.26144318565897,
+      "lat": 55.697729864636074,
+      "lon": 37.43874489692809,
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2917,
+      "id": 2916,
       "disease_key": "leukosis",
       "disease": "Лейкоз КРС",
       "disease_group": "Ruminant",
@@ -58672,7 +58651,7 @@
       "geocode_source": "nominatim"
     },
     {
-      "id": 2918,
+      "id": 2917,
       "disease_key": "lepto",
       "disease": "Лептоспироз",
       "disease_group": "Multi-species",
@@ -58687,12 +58666,12 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/11/18.11.2026г.pdf",
       "notes": "Лептоспироз — Свердловская область",
       "federal_district": "УрФО",
-      "lat": 57.09409775910512,
-      "lon": 60.34680210782562,
+      "lat": 56.99259287156617,
+      "lon": 60.87714079979279,
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2919,
+      "id": 2918,
       "disease_key": "lepto",
       "disease": "Лептоспироз",
       "disease_group": "Multi-species",
@@ -58707,12 +58686,12 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/11/18.11.2026г.pdf",
       "notes": "лептоспироз — Владимирская область",
       "federal_district": "ЦФО",
-      "lat": 55.895799372750446,
-      "lon": 40.359109988336286,
+      "lat": 56.42319775910512,
+      "lon": 40.143002107825616,
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2920,
+      "id": 2919,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -58727,12 +58706,12 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/11/18.11.2026г.pdf",
       "notes": "Бешенство — Амурская область",
       "federal_district": "ДФО",
-      "lat": 50.405463351823784,
-      "lon": 128.26750264622197,
+      "lat": 50.06669937275044,
+      "lon": 127.96290998833629,
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2921,
+      "id": 2920,
       "disease_key": "lepto",
       "disease": "Лептоспироз",
       "disease_group": "Multi-species",
@@ -58747,12 +58726,12 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/11/18.11.2026г.pdf",
       "notes": "Лептоспироз КРС — Московская область",
       "federal_district": "ЦФО",
-      "lat": 55.2402035839731,
-      "lon": 37.54389277351079,
+      "lat": 55.605463351823786,
+      "lon": 37.76750264622197,
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2922,
+      "id": 2921,
       "disease_key": "brucellosis",
       "disease": "Бруцеллёз",
       "disease_group": "Ruminant",
@@ -58767,12 +58746,12 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/11/13.11-19.11.2026.pdf",
       "notes": "Бруцеллёз — Алтайский край",
       "federal_district": "СФО",
-      "lat": 52.70508089739232,
-      "lon": 83.73819828970564,
+      "lat": 52.7402035839731,
+      "lon": 84.04389277351079,
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2923,
+      "id": 2922,
       "disease_key": "trichinellosis",
       "disease": "Трихинеллёз",
       "disease_group": "Wildlife",
@@ -58787,12 +58766,12 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/11/13.11-19.11.2026.pdf",
       "notes": "Трихинеллёз — Алтайский край",
       "federal_district": "СФО",
-      "lat": 53.180866247306014,
-      "lon": 84.12135796676692,
+      "lat": 52.70508089739232,
+      "lon": 83.73819828970564,
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2924,
+      "id": 2923,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -58807,12 +58786,12 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/11/20.11.2026г.pdf",
       "notes": "Бешенство животных — Белгородская область | Бешенство — Белгородская область",
       "federal_district": "ЦФО",
-      "lat": 50.54091719032449,
-      "lon": 36.82937171060134,
+      "lat": 50.78176624730602,
+      "lon": 36.70965796676692,
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2925,
+      "id": 2924,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -58827,12 +58806,12 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/11/20.11.2026г.pdf",
       "notes": "Бешенство животных — Пермский край (Кунгкурский м.о.)",
       "federal_district": "ПФО",
-      "lat": 58.0826228838787,
-      "lon": 56.23077353908593,
+      "lat": 57.94001719032449,
+      "lon": 56.24107171060135,
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2926,
+      "id": 2925,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -58847,12 +58826,12 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/11/20.11.2026г.pdf",
       "notes": "Бешенство животных — Тюменская область (Абатский м.о.)",
       "federal_district": "УрФО",
-      "lat": 57.32556987448243,
-      "lon": 65.7640706820283,
+      "lat": 57.2826228838787,
+      "lon": 65.73077353908593,
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2927,
+      "id": 2926,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -58867,12 +58846,12 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/11/20.11.2026г.pdf",
       "notes": "Бешенство животных — Самарская область",
       "federal_district": "ПФО",
-      "lat": 53.252909948090476,
-      "lon": 50.421230907183684,
+      "lat": 53.32556987448243,
+      "lon": 50.464070682028314,
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2928,
+      "id": 2927,
       "disease_key": "leukosis",
       "disease": "Лейкоз КРС",
       "disease_group": "Ruminant",
@@ -58887,12 +58866,12 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/11/20.11.2026г.pdf",
       "notes": "Лейкоз КРС — Новосибирская область",
       "federal_district": "СФО",
-      "lat": 55.25686238265399,
-      "lon": 82.94004243291744,
+      "lat": 55.05290994809047,
+      "lon": 83.12123090718369,
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2929,
+      "id": 2928,
       "disease_key": "lepto",
       "disease": "Лептоспироз",
       "disease_group": "Multi-species",
@@ -58912,7 +58891,7 @@
       "geocode_source": "nominatim"
     },
     {
-      "id": 2930,
+      "id": 2929,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -58927,12 +58906,12 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/11/23.11.2026г.pdf",
       "notes": "Бешенство животных — Тамбовская область (Мичуринский м.о.) | Бешенство животных — Тамбовская область (Инжавинский м.о.) | Бешенство животных — Тамбовская область | Бешенство животных — Тамбовская область",
       "federal_district": "ЦФО",
-      "lat": 52.89820572524164,
-      "lon": 41.661740171946086,
+      "lat": 52.58324862605244,
+      "lon": 41.660874722623525,
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2931,
+      "id": 2930,
       "disease_key": "leukosis",
       "disease": "Лейкоз КРС",
       "disease_group": "Ruminant",
@@ -58947,12 +58926,12 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/11/23.11.2026г.pdf",
       "notes": "Лейкоз КРС — Калининградская область | Лейкоз КРС — Калининградская область",
       "federal_district": "ЦФО",
-      "lat": 54.6053871893541,
-      "lon": 20.443746764105764,
+      "lat": 54.87700572524164,
+      "lon": 20.709440171946085,
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2932,
+      "id": 2931,
       "disease_key": "lepto",
       "disease": "Лептоспироз",
       "disease_group": "Multi-species",
@@ -58967,12 +58946,12 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/11/23.11.2026г.pdf",
       "notes": "Лептоспироз КРС — Свердловская область | Лептоспироз — Свердловская область",
       "federal_district": "УрФО",
-      "lat": 56.98451997794539,
-      "lon": 60.312575811095485,
+      "lat": 56.70538718935409,
+      "lon": 60.54374676410577,
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2933,
+      "id": 2932,
       "disease_key": "leukosis",
       "disease": "Лейкоз КРС",
       "disease_group": "Ruminant",
@@ -58987,12 +58966,12 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/11/23.11.2026г.pdf",
       "notes": "Лейкоз КРС — Самарская область | Лейкоз КРС — Самарская область | Лейкоз КРС — Самарская область",
       "federal_district": "ПФО",
-      "lat": 53.07472366885845,
-      "lon": 50.32297682469856,
+      "lat": 53.384519977945395,
+      "lon": 49.912575811095486,
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2934,
+      "id": 2933,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -59007,12 +58986,12 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/11/23.11.2026г.pdf",
       "notes": "Бешенство — Амурская область | Бешенство животных — Амурская область (Белогорский м.о.)",
       "federal_district": "ДФО",
-      "lat": 50.22733979981571,
-      "lon": 128.20598827839305,
+      "lat": 50.17472366885844,
+      "lon": 128.12297682469855,
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2935,
+      "id": 2934,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -59027,12 +59006,12 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/11/23.11.2026г.pdf",
       "notes": "Бешенство животных — Московская область | Бешенство животных — Московская область",
       "federal_district": "ЦФО",
-      "lat": 55.317768832117586,
-      "lon": 37.47470773011335,
+      "lat": 55.42733979981571,
+      "lon": 37.705988278393036,
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2936,
+      "id": 2935,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -59052,7 +59031,7 @@
       "geocode_source": "nominatim"
     },
     {
-      "id": 2937,
+      "id": 2936,
       "disease_key": "leukosis",
       "disease": "Лейкоз КРС",
       "disease_group": "Ruminant",
@@ -59072,7 +59051,7 @@
       "geocode_source": "nominatim"
     },
     {
-      "id": 2938,
+      "id": 2937,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -59087,12 +59066,12 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/11/23.11.2026г.pdf",
       "notes": "Бешенство животных — Красноярский край (Ирбейский район)",
       "federal_district": "СФО",
-      "lat": 55.74791570097175,
-      "lon": 92.7546975128162,
+      "lat": 56.11320958916135,
+      "lon": 92.91959987742662,
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2939,
+      "id": 2938,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -59107,12 +59086,12 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/11/23.11.2026г.pdf",
       "notes": "Бешенство животных — Липецкая область (Добринский м.о.)",
       "federal_district": "ЦФО",
-      "lat": 52.86168704298911,
-      "lon": 39.626027090429666,
+      "lat": 52.356715700971755,
+      "lon": 39.42509751281618,
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2940,
+      "id": 2939,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -59132,7 +59111,7 @@
       "geocode_source": "nominatim"
     },
     {
-      "id": 2941,
+      "id": 2940,
       "disease_key": "rabies",
       "disease": "Бешенство",
       "disease_group": "Wildlife",
@@ -59147,12 +59126,12 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/11/23.11.2026г.pdf",
       "notes": "Бешенство животных — Саратовская область",
       "federal_district": "ПФО",
-      "lat": 51.46670573465326,
-      "lon": 45.99784589842177,
+      "lat": 51.622946334125125,
+      "lon": 46.277171267738545,
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2942,
+      "id": 2941,
       "disease_key": "leukosis",
       "disease": "Лейкоз КРС",
       "disease_group": "Ruminant",
@@ -59167,12 +59146,12 @@
       "source_url": "https://fsvps.gov.ru/wp-content/uploads/2026/11/23.11.2026г.pdf",
       "notes": "Лейкоз КРС — Свердловская область",
       "federal_district": "УрФО",
-      "lat": 56.87760279953889,
-      "lon": 60.49968675765521,
+      "lat": 56.76670573465326,
+      "lon": 60.597845898421774,
       "geocode_source": "region_centroid"
     },
     {
-      "id": 2943,
+      "id": 2942,
       "disease_key": "lepto",
       "disease": "Лептоспироз",
       "disease_group": "Multi-species",
