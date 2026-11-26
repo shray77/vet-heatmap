@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-25",
+  "updated": "2026-11-26",
   "sources": [
     "yandex"
   ],
@@ -2002,7 +2002,7 @@
       "lon": 131.880796,
       "address": "Владивосток, Алеутская ул., 11",
       "city": "Владивосток",
-      "rubric": "38",
+      "rubric": "37",
       "source": "yandex",
       "org_href": "https://yandex.ru/maps/org/primagroservis/1731054280/"
     },
@@ -2334,8 +2334,8 @@
       "id": "yandex-101458563728",
       "name": "Фидимпорт",
       "type": "feed_mill",
-      "lat": null,
-      "lon": null,
+      "lat": 55.758038,
+      "lon": 37.572226,
       "address": "Москва, пер. Капранова, 3, стр. 2",
       "city": "Москва",
       "rubric": "Комбикорма и кормовые добавки",
