@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-26",
+  "updated": "2026-11-27",
   "sources": [
     "yandex"
   ],
@@ -5567,7 +5567,7 @@
       "lon": 61.474804,
       "address": "Челябинская область, Копейск, посёлок Октябрьский",
       "city": "Челябинск",
-      "rubric": "Животноводческое хозяйство",
+      "rubric": "42",
       "source": "yandex",
       "org_href": "https://yandex.ru/maps/org/ptitsefabrika_chelyabinskaya/1260720923/"
     },
