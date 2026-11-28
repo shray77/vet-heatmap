@@ -1,9 +1,9 @@
 {
-  "updated": "2026-11-27",
+  "updated": "2026-11-28",
   "sources": [
     "yandex"
   ],
-  "total": 479,
+  "total": 481,
   "enterprises": [
     {
       "id": "yandex-45878683269",
@@ -3763,7 +3763,7 @@
       "lat": 55.342273,
       "lon": 35.720133,
       "address": "Московская область, Можайский городской округ, сельское поселение Юрловское",
-      "city": "Москва",
+      "city": "Тула",
       "rubric": "Животноводческое хозяйство",
       "source": "yandex",
       "org_href": "https://yandex.ru/maps/org/svinovodcheskiy_kompleks/187535263300/"
@@ -4223,6 +4223,18 @@
       "org_href": "https://yandex.ru/maps/org/belaya_ptitsa/1794863843/"
     },
     {
+      "id": "yandex-88151242690",
+      "name": "Белгородская индейка, офис",
+      "type": "poultry_farm",
+      "lat": 50.595649,
+      "lon": 36.580332,
+      "address": "Белгород, Свято-Троицкий бул., 17, офис 402А, этаж 4",
+      "city": "Белгород",
+      "rubric": "Яйцо и мясо птицы",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/belgorodskaya_indeyka_ofis/88151242690/"
+    },
+    {
       "id": "yandex-1105566461",
       "name": "Благодатское",
       "type": "poultry_farm",
@@ -4484,6 +4496,18 @@
       "rubric": "Яйцо и мясо птицы",
       "source": "yandex",
       "org_href": "https://yandex.ru/maps/org/inkubator/1609511669/"
+    },
+    {
+      "id": "yandex-1139315024",
+      "name": "Инкубаторий Красное",
+      "type": "poultry_farm",
+      "lat": 50.567863,
+      "lon": 36.521933,
+      "address": "Белгород, Магистральная ул., 48",
+      "city": "Белгород",
+      "rubric": "Сельскохозяйственное предприятие",
+      "source": "yandex",
+      "org_href": "https://yandex.ru/maps/org/inkubatory_krasnoye/1139315024/"
     },
     {
       "id": "yandex-1089553824",
